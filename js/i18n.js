@@ -5,6 +5,23 @@
 
 const I18N_DATA = {
   en: {
+    hero_avail: "Available for New Projects • Worldwide",
+    hero_name_badge: "Hi, I'm Rakib • Video Editor & Motion Designer",
+    hero_slogan_1: "High-Impact Visuals & SaaS Videos That",
+    hero_slogan_2: "Multiply Your Conversions",
+    hero_subheadline: "I help fast-growing SaaS startups, creators, and bold brands dominate attention with scroll-stopping product videos and cinematic motion design.",
+    btn_whatsapp_txt: "Chat on WhatsApp",
+    btn_whatsapp_sub: "Direct: 01716705401",
+    btn_explore_work: "Explore Projects",
+    stat_1_lbl: "Videos Delivered",
+    stat_2_lbl: "Views Generated",
+    stat_3_lbl: "Retention Hold",
+    stat_4_lbl: "Client Rating",
+    floating_card_1_title: "Top Rated Creator",
+    floating_card_1_sub: "5.0 Client Rating",
+    floating_card_2_title: "3.8x Avg ROAS Lift",
+    floating_card_2_sub: "High-Retention Hooks",
+
     nav_work: "Work",
     nav_case_studies: "Case Studies",
     nav_reviews: "Reviews",
@@ -87,6 +104,23 @@ const I18N_DATA = {
     footer_to: "To Personal Branding"
   },
   bn: {
+    hero_avail: "নতুন প্রজেক্টের জন্য উন্মুক্ত • বিশ্বব্যাপী",
+    hero_name_badge: "হ্যালো, আমি রাকিব • ভিডিও এডিটর ও মোশন ডিজাইনার",
+    hero_slogan_1: "উচ্চমানের ভিজ্যুয়াল ও SaaS ভিডিও যা",
+    hero_slogan_2: "আপনার কনভার্শন বহুগুণ বৃদ্ধি করে",
+    hero_subheadline: "আমি গতিশীল SaaS স্টার্টআপ, ক্রিয়েটর ও ব্র্যান্ডের জন্য তৈরি করি এমন প্রোডাক্ট ভিডিও ও মোশন ডিজাইন, যা সাধারণ দর্শককে দীর্ঘক্ষণ ধরে রাখে ও সরাসরি ক্রেতায় রূপান্তর করে।",
+    btn_whatsapp_txt: "হোয়াটসঅ্যাপে চ্যাট করুন",
+    btn_whatsapp_sub: "নম্বর: 01716705401",
+    btn_explore_work: "প্রজেক্টসমূহ দেখুন",
+    stat_1_lbl: "সফল প্রজেক্ট",
+    stat_2_lbl: "ভিউ অর্জিত",
+    stat_3_lbl: "অডিয়েন্স রিটেনশন",
+    stat_4_lbl: "ক্লায়েন্ট রেটিং",
+    floating_card_1_title: "টপ রেটেড ক্রিয়েটর",
+    floating_card_1_sub: "৫.০ ক্লায়েন্ট রেটিং",
+    floating_card_2_title: "৩.৮ গুণ আরওএএস লিফট",
+    floating_card_2_sub: "হাই-রিটেনশন হুকস",
+
     nav_work: "কাজসমূহ",
     nav_case_studies: "কেস স্টাডি",
     nav_reviews: "রিভিউ",
