@@ -1,6 +1,6 @@
 /**
- * Bilingual Engine (English & Bangla)
- * Instant client-side switching with localStorage persistence
+ * Interactive Bilingual Engine (English & Bangla)
+ * With Fully Draggable Floating Button & Global Instant Toggle
  */
 
 const I18N_DATA = {
@@ -186,7 +186,7 @@ function applyLanguage(lang) {
     }
   });
 
-  // Update switcher UI buttons
+  // Update all switcher buttons
   document.querySelectorAll('.lang-opt').forEach(opt => {
     if (opt.getAttribute('data-lang') === lang) {
       opt.classList.add('active');
@@ -194,6 +194,12 @@ function applyLanguage(lang) {
       opt.classList.remove('active');
     }
   });
+
+  // Update floating label
+  const floatingLabel = document.querySelector('#floating-current-lang');
+  if (floatingLabel) {
+    floatingLabel.textContent = lang === 'en' ? 'English' : 'বাংলা';
+  }
 }
 
 function toggleLanguage() {
@@ -201,15 +207,156 @@ function toggleLanguage() {
   applyLanguage(next);
 }
 
-// Initialize on DOM load
-document.addEventListener('DOMContentLoaded', () => {
-  applyLanguage(currentLang);
+// Global Click Delegation (Guaranteeing 100% reliable trigger)
+document.addEventListener('click', function (e) {
+  const btn = e.target.closest('.lang-switcher-btn, .lang-toggle-trigger');
+  if (btn) {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleLanguage();
+  }
+}, true);
 
-  // Attach click listener to all switcher buttons
-  document.querySelectorAll('.lang-switcher-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      toggleLanguage();
-    });
+// Initialize Draggable Floating Widget
+function initDraggableWidget() {
+  const widget = document.getElementById('draggable-lang-widget');
+  if (!widget) return;
+
+  let isDragging = false;
+  let startX, startY;
+  let initialLeft, initialTop;
+  let hasMoved = false;
+
+  // Mouse drag events
+  widget.addEventListener('mousedown', function (e) {
+    // Only drag with left click
+    if (e.button !== 0) return;
+
+    isDragging = true;
+    hasMoved = false;
+    startX = e.clientX;
+    startY = e.clientY;
+
+    const rect = widget.getBoundingClientRect();
+    initialLeft = rect.left;
+    initialTop = rect.top;
+
+    widget.style.transition = 'none';
+    widget.style.bottom = 'auto';
+    widget.style.right = 'auto';
+    widget.style.left = initialLeft + 'px';
+    widget.style.top = initialTop + 'px';
+
+    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseup', onMouseUp);
   });
-});
+
+  function onMouseMove(e) {
+    if (!isDragging) return;
+
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+
+    if (Math.abs(dx) > 4 || Math.abs(dy) > 4) {
+      hasMoved = true;
+      widget.classList.add('is-dragging');
+    }
+
+    let newLeft = initialLeft + dx;
+    let newTop = initialTop + dy;
+
+    // Viewport bounds clamp
+    const maxLeft = window.innerWidth - widget.offsetWidth - 10;
+    const maxTop = window.innerHeight - widget.offsetHeight - 10;
+
+    newLeft = Math.max(10, Math.min(newLeft, maxLeft));
+    newTop = Math.max(10, Math.min(newTop, maxTop));
+
+    widget.style.left = newLeft + 'px';
+    widget.style.top = newTop + 'px';
+  }
+
+  function onMouseUp(e) {
+    if (!isDragging) return;
+    isDragging = false;
+    widget.classList.remove('is-dragging');
+    widget.style.transition = 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
+
+    document.removeEventListener('mousemove', onMouseMove);
+    document.removeEventListener('mouseup', onMouseUp);
+
+    // If it was just a click without dragging, toggle language
+    if (!hasMoved) {
+      toggleLanguage();
+    }
+  }
+
+  // Touch drag events (for Mobile / Tablets)
+  widget.addEventListener('touchstart', function (e) {
+    if (e.touches.length !== 1) return;
+    const touch = e.touches[0];
+
+    isDragging = true;
+    hasMoved = false;
+    startX = touch.clientX;
+    startY = touch.clientY;
+
+    const rect = widget.getBoundingClientRect();
+    initialLeft = rect.left;
+    initialTop = rect.top;
+
+    widget.style.transition = 'none';
+    widget.style.bottom = 'auto';
+    widget.style.right = 'auto';
+    widget.style.left = initialLeft + 'px';
+    widget.style.top = initialTop + 'px';
+  }, { passive: true });
+
+  widget.addEventListener('touchmove', function (e) {
+    if (!isDragging || e.touches.length !== 1) return;
+    const touch = e.touches[0];
+
+    const dx = touch.clientX - startX;
+    const dy = touch.clientY - startY;
+
+    if (Math.abs(dx) > 4 || Math.abs(dy) > 4) {
+      hasMoved = true;
+      widget.classList.add('is-dragging');
+    }
+
+    let newLeft = initialLeft + dx;
+    let newTop = initialTop + dy;
+
+    const maxLeft = window.innerWidth - widget.offsetWidth - 10;
+    const maxTop = window.innerHeight - widget.offsetHeight - 10;
+
+    newLeft = Math.max(10, Math.min(newLeft, maxLeft));
+    newTop = Math.max(10, Math.min(newTop, maxTop));
+
+    widget.style.left = newLeft + 'px';
+    widget.style.top = newTop + 'px';
+  }, { passive: true });
+
+  widget.addEventListener('touchend', function () {
+    if (!isDragging) return;
+    isDragging = false;
+    widget.classList.remove('is-dragging');
+    widget.style.transition = 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
+
+    if (!hasMoved) {
+      toggleLanguage();
+    }
+  });
+}
+
+// Immediate run
+function init() {
+  applyLanguage(currentLang);
+  initDraggableWidget();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}

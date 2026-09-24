@@ -183,6 +183,81 @@
 }
 </style>
 
+
+<style>
+/* Ultra-Premium Draggable Floating Language Switcher */
+.draggable-lang-container {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 2147483647 !important;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(15, 23, 42, 0.94);
+  border: 1.5px solid rgba(99, 102, 241, 0.6);
+  border-radius: 9999px;
+  padding: 8px 16px 8px 12px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.75), 0 0 25px rgba(99, 102, 241, 0.45);
+  backdrop-filter: blur(20px);
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, left, top;
+}
+.draggable-lang-container:hover {
+  border-color: #818cf8;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.8), 0 0 30px rgba(99, 102, 241, 0.6);
+}
+.draggable-lang-container.is-dragging {
+  cursor: grabbing !important;
+  opacity: 0.92;
+  transform: scale(1.06) !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9), 0 0 40px rgba(99, 102, 241, 0.8) !important;
+  border-color: #a855f7 !important;
+}
+.drag-grip {
+  color: #818cf8;
+  font-size: 18px;
+  line-height: 1;
+  cursor: grab;
+  padding-right: 6px;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+}
+.lang-toggle-trigger {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.lang-switch-capsule {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 3px 5px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.lang-opt {
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #94a3b8;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.lang-opt.active {
+  background: #6366f1;
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.9);
+}
+</style>
+
 </head><body class="home2"><div data-w-id="a42682e8-c744-27ea-b60f-b2cb53ee771f" class="page-wrapper-02"><section class="header-section"><div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-2 w-nav"><div class="navbar-container w-container"><div class="na-outer-border"><div class="nav-inner-wrap"><div class="nav-inner"><a href="https://mzmedia.digital/" class="brand-logo-link w-nav-brand"><img loading="eager" src="https://cdn.prod.website-files.com/6796419e2d5f03877896246e/6a15e2db5c45889170784c0b_MZ%20Logo%20%5BVectorized%5D.svg" alt="Brand Logo"/></a><div class="menu-button-wrapper"><nav role="navigation" class="nav-menu-2 w-nav-menu"><a href="#Work" class="nav-link-2 w-nav-link" data-i18n="nav_work">Work</a><a href="/case-studies" target="_blank" class="nav-link-2 w-nav-link" data-i18n="nav_case_studies">Case Studies</a><a href="#Review" class="nav-link-2 w-nav-link" data-i18n="nav_reviews">Reviews</a><a href="#Pricing" class="nav-link-2 w-inline-block"><div data-i18n="nav_pricing">Pricing</div><div class="pricing-logo"></div></a><a href="/blog" target="_blank" class="nav-link-2 w-nav-link" data-i18n="nav_blog">Blog</a><a href="/careers" class="nav-link-2" data-i18n="nav_careers">Careers</a><a href="/personal-brand" class="nav-link-2 w-nav-link" data-i18n="nav_personal_brand">Personal Branding</a><div class="nav-button-wrap mobile-only"><a href="#" data-wf--button-home2--variant="nav-button" class="button-03 w-inline-block"><div class="button-text-wrapper w-variant-64a732d0-0f90-6c1d-602c-7753ea223767"><div class="button-text-wrap w-variant-64a732d0-0f90-6c1d-602c-7753ea223767"><div class="paragraph-02-m w-variant-64a732d0-0f90-6c1d-602c-7753ea223767" data-i18n="btn_talk">Let's Talk!</div></div></div><div class="button-arrow-wrapper w-variant-64a732d0-0f90-6c1d-602c-7753ea223767"><div class="button-icon-wrap"><div class="button-icon w-embed"><svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M13.4349 13.435L14.142 12.7279L15.5562 14.1421L16.9704 12.7279L18.3846 14.1421L9.89934 22.6274L11.3136 24.0416L19.7988 15.5564L21.2131 16.9706L19.7988 18.3848L21.2131 19.799L20.5059 20.5061L21.9202 21.9203L24.0415 19.799L22.6273 18.3848L24.0415 16.9706L22.6273 15.5564L24.0415 14.1421L23.3344 13.435L24.0415 12.7279L23.3344 12.0208L24.0415 11.3137L22.6273 9.8995L21.9202 10.6066L21.2131 9.8995L20.5059 10.6066L19.7988 9.8995L18.3846 11.3137L16.9704 9.8995L15.5562 11.3137L14.142 9.8995L12.0207 12.0208L13.4349 13.435Z" fill="white"/>
 </svg></div><div class="button-icon w-embed"><svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1349,7 +1424,7 @@ document.addEventListener("DOMContentLoaded", function () {
 })();
 </script>
 
-<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a79ef8ba8b7a425b3443ef2"></script>
+
 
 <script>
 (function () {
@@ -1773,4 +1848,19 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 </script>
+
+<!-- Fully Draggable & Fixed Floating Language Switcher -->
+<div id="draggable-lang-widget" class="draggable-lang-container" title="Drag to move anywhere • Click to switch language (English / বাংলা)">
+  <div class="drag-grip" title="Drag to move">⠿</div>
+  <div class="lang-toggle-trigger">
+    <span style="font-size: 16px;">🌐</span>
+    <span id="floating-current-lang" style="font-size: 13px; font-weight: 700; color: #ffffff;">English</span>
+    <div class="lang-switch-capsule">
+      <span class="lang-opt active" data-lang="en">EN</span>
+      <span class="lang-opt" data-lang="bn">বাংলা</span>
+    </div>
+  </div>
+</div>
+<script src="js/i18n.js"></script>
+
 </body></html>
