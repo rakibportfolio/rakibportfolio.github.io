@@ -1,0 +1,13 @@
+{
+  "name": "mzmedia-clone",
+  "version": "1.0.0",
+  "description": "Full clone of mzmedia.digital with all buttons, animations, motions, and styling",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["mzmedia", "portfolio", "clone", "webflow", "animation"],
+  "author": "",
+  "license": "ISC"
+}
