@@ -432,8 +432,8 @@
 
 .ref-hero-grid {
   display: grid;
-  grid-template-columns: 1.12fr 0.98fr;
-  gap: 36px;
+  grid-template-columns: 1.25fr 0.85fr;
+  gap: 28px;
   align-items: center;
   position: relative;
   z-index: 2;
@@ -477,25 +477,30 @@
 
 /* Headline */
 .ref-hero-title {
-  font-size: clamp(38px, 4.4vw, 62px);
+  font-size: clamp(30px, 3.8vw, 50px);
   font-weight: 900;
-  line-height: 1.08;
+  line-height: 1.1;
   color: #ffffff;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   font-family: 'Syne', 'Inter', sans-serif;
 }
 
 .ref-title-line {
   display: block;
+  white-space: nowrap;
+}
+
+@media (max-width: 1200px) {
+  .ref-title-line { white-space: normal; }
 }
 
 .ref-neon-gradient {
   background: linear-gradient(90deg, #a855f7 0%, #ec4899 45%, #38bdf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 35px rgba(168, 85, 247, 0.45));
+  filter: drop-shadow(0 0 30px rgba(168, 85, 247, 0.5));
 }
 
 /* Description Slogan */
@@ -1032,9 +1037,8 @@
 
       <!-- Main Headline -->
       <h1 class="ref-hero-title">
-        <span class="ref-title-line" data-i18n="ref_hero_title_1">I TURN RAW FOOTAGE</span>
+        <span class="ref-title-line">I TURN RAW FOOTAGE INTO</span>
         <span class="ref-title-line">
-          <span data-i18n="ref_hero_title_into">INTO</span>
           <span class="ref-neon-gradient" data-i18n="ref_hero_title_2">VISUAL STORIES.</span>
         </span>
       </h1>
