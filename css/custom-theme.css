@@ -751,3 +751,252 @@ a.proof-card:hover {
   0%, 100% { box-shadow: 0 0 6px #B60F24, 0 0 12px rgba(182,15,36,0.4); opacity: 1; }
   50%       { box-shadow: 0 0 14px #FF9561, 0 0 28px rgba(255,149,97,0.6); opacity: 0.75; }
 }
+
+
+/* ═══════════════════════════════════════════════════════
+   MOBILE RESPONSIVE — Full Website Fix
+   Breakpoints: 991px (tablet), 767px (mobile), 479px (small)
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Tablet (≤ 991px) ───────────────────────────────── */
+@media screen and (max-width: 991px) {
+
+  /* Navbar: full-width on tablet, show hamburger */
+  .header-section {
+    padding: 10px 0 0 0 !important;
+  }
+  .navbar-container.w-container,
+  .navbar-container {
+    padding: 0 12px !important;
+    justify-content: space-between !important;
+  }
+  .na-outer-border {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 6px 12px 6px 14px !important;
+    border-radius: 10px !important;
+    justify-content: space-between !important;
+  }
+  .nav-inner {
+    width: 100% !important;
+    justify-content: space-between !important;
+  }
+
+  /* Hero: reduce padding for tablet */
+  .hero-section {
+    padding-top: 90px !important;
+  }
+
+  /* Language switcher: move to bottom-left on tablet */
+  .draggable-lang-container {
+    bottom: 20px !important;
+    right: 16px !important;
+  }
+}
+
+/* ── Mobile (≤ 767px) ───────────────────────────────── */
+@media screen and (max-width: 767px) {
+
+  /* ── Navbar ── */
+  .header-section {
+    padding: 8px 0 0 0 !important;
+  }
+  .navbar-container.w-container,
+  .navbar-container {
+    padding: 0 10px !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+  }
+  .na-outer-border {
+    width: 100% !important;
+    max-width: calc(100vw - 20px) !important;
+    padding: 5px 10px 5px 12px !important;
+    border-radius: 10px !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+  }
+  .nav-inner {
+    width: 100% !important;
+    justify-content: space-between !important;
+    gap: 0 !important;
+  }
+  /* Hide desktop nav links on mobile — show hamburger */
+  .nav-menu-2 {
+    display: none !important;
+  }
+  .nav-menu-2.w--open {
+    display: flex !important;
+    flex-direction: column !important;
+    position: fixed !important;
+    top: 60px !important;
+    left: 10px !important;
+    right: 10px !important;
+    background: rgba(18, 9, 3, 0.97) !important;
+    border: 1px solid rgba(182, 15, 36, 0.5) !important;
+    border-radius: 10px !important;
+    padding: 12px 8px !important;
+    z-index: 99998 !important;
+    backdrop-filter: blur(20px) !important;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.9) !important;
+    gap: 4px !important;
+    align-items: stretch !important;
+  }
+  .nav-link-2 {
+    font-size: 16px !important;
+    padding: 10px 16px !important;
+    border-radius: 8px !important;
+    width: 100% !important;
+    text-align: left !important;
+  }
+  /* Hamburger button visible */
+  .menu-button-2 {
+    display: flex !important;
+    pointer-events: auto !important;
+    color: #FF9561 !important;
+  }
+  /* CTA button in nav */
+  .nav-button-wrap.desktop-only {
+    display: none !important;
+  }
+
+  /* ── Hero Section ── */
+  .hero-section {
+    padding-top: 78px !important;
+    min-height: auto !important;
+  }
+  .hero-title h1 .hero-line-1 {
+    font-size: clamp(28px, 8vw, 44px) !important;
+    line-height: 1.1 !important;
+  }
+  .hero-title h1 .hero-line-2 {
+    font-size: clamp(38px, 11vw, 60px) !important;
+    line-height: 1.0 !important;
+  }
+  .hero-title h1 {
+    gap: 0 !important;
+  }
+
+  /* ── Trusted Boxes ── */
+  .trusted_wrap {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+  .trusted_box {
+    padding: 6px 10px !important;
+  }
+
+  /* ── Hero Video Card ── */
+  .holder.hero {
+    border-radius: 14px !important;
+  }
+
+  /* ── Section Padding ── */
+  .section-padding,
+  .section,
+  [class*="section"] {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* ── Client Logo strips ── */
+  .client-highlight-logo {
+    height: 22px !important;
+  }
+
+  /* ── Engine / Proof Cards ── */
+  .engine-card,
+  .proof-card {
+    padding: 20px 16px !important;
+  }
+
+  /* ── Heading sizes ── */
+  .heading-02 {
+    font-size: clamp(28px, 8vw, 48px) !important;
+  }
+  h2, .heading-02 {
+    font-size: clamp(26px, 7.5vw, 44px) !important;
+  }
+
+  /* ── Language Switcher: bottom-right corner ── */
+  .draggable-lang-container {
+    bottom: 16px !important;
+    right: 12px !important;
+    border-radius: 12px !important;
+  }
+  .lang-toggle-trigger {
+    padding: 8px 12px 8px 10px !important;
+    gap: 6px !important;
+  }
+  .lang-current-label {
+    font-size: 12px !important;
+  }
+  .lang-opt {
+    padding: 3px 8px !important;
+    font-size: 11px !important;
+  }
+  .lang-opt[data-lang="bn"] {
+    font-size: 12px !important;
+  }
+  .drag-grip {
+    width: 26px !important;
+    min-height: 40px !important;
+  }
+}
+
+/* ── Small Mobile (≤ 479px) ─────────────────────────── */
+@media screen and (max-width: 479px) {
+
+  .header-section {
+    padding: 6px 0 0 0 !important;
+  }
+  .na-outer-border {
+    padding: 4px 8px 4px 10px !important;
+    max-width: calc(100vw - 14px) !important;
+  }
+
+  .hero-section {
+    padding-top: 70px !important;
+  }
+  .hero-title h1 .hero-line-1 {
+    font-size: clamp(24px, 9vw, 38px) !important;
+  }
+  .hero-title h1 .hero-line-2 {
+    font-size: clamp(32px, 12vw, 52px) !important;
+  }
+
+  /* Hide language switcher label text on tiny screens */
+  .lang-current-label {
+    display: none !important;
+  }
+  .lang-globe-icon {
+    width: 14px !important;
+    height: 14px !important;
+  }
+  .draggable-lang-container {
+    bottom: 12px !important;
+    right: 10px !important;
+  }
+
+  /* Full width containers */
+  .w-container,
+  .container-02 {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+    max-width: 100vw !important;
+  }
+
+  .heading-02, h2 {
+    font-size: clamp(24px, 9vw, 38px) !important;
+  }
+
+  /* Proof / testimonial cards stack */
+  .proof-card {
+    padding: 16px 14px !important;
+  }
+
+  /* Button full width on tiny screen */
+  .button-03 {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
