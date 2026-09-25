@@ -20,7 +20,7 @@ const I18N_DATA = {
     hero_yc: "YC Companies",
     hero_creator: "Creator of",
     hero_videos: "Videos",
-    hero_title: "Product videos that just work",
+    hero_title: '<span class="hero-line-1">Frames That</span> <span class="hero-line-2">Tell Stories.</span>',
     hero_cta: "Get your Product Video",
     hero_get_yours: "Get Yours Next",
     reviews_badge: "50+ founder reviews",
@@ -102,7 +102,7 @@ const I18N_DATA = {
     hero_yc: "YC স্টার্টআপের সাথে",
     hero_creator: "নির্মাতা",
     hero_videos: "ভিডিও",
-    hero_title: "প্রোডাক্ট ভিডিও যা কাঙ্ক্ষিত ফলাফল নিশ্চিত করে",
+    hero_title: '<span class="hero-line-1">ফ্রেমে ধরা</span> <span class="hero-line-2">গল্পগুলো।</span>',
     hero_cta: "আপনার প্রোডাক্ট ভিডিও তৈরি করুন",
     hero_get_yours: "পরেরটি আপনার হোক",
     reviews_badge: "৫০+ ক্লায়েন্ট রিভিউ",
@@ -182,7 +182,7 @@ function applyLanguage(lang) {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (dict[key]) {
-      el.textContent = dict[key];
+      el.innerHTML = dict[key];
     }
   });
 
