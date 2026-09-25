@@ -181,15 +181,33 @@ h1, h2, h3, h4, h5,
 .brand-logo-link {
   display: flex !important;
   align-items: center !important;
-  padding-right: 14px !important;
-  border-right: 1px solid rgba(112, 45, 9, 0.45) !important;
 }
 
-.nav-menu-2 {
-  display: flex !important;
-  align-items: center !important;
-  gap: 2px !important;
-  background: transparent !important;
+@media screen and (min-width: 992px) {
+  .brand-logo-link {
+    padding-right: 14px !important;
+    border-right: 1px solid rgba(112, 45, 9, 0.45) !important;
+  }
+  .nav-menu-2 {
+    display: flex !important;
+    align-items: center !important;
+    gap: 2px !important;
+    background: transparent !important;
+  }
+  .menu-button-2 {
+    display: none !important;
+  }
+  .nav-button-wrap.desktop-only {
+    display: flex !important;
+    margin-left: 8px !important;
+  }
+  .nav-button-wrap.desktop-only .button-03 {
+    border-radius: 8px !important; /* Subtle rounded rectangle matching navbar */
+    padding: 8px 18px !important;
+  }
+  .nav-button-wrap.mobile-only {
+    display: none !important;
+  }
 }
 
 .nav-link-2 {
@@ -209,14 +227,6 @@ h1, h2, h3, h4, h5,
   background: rgba(182, 15, 36, 0.25) !important;
   box-shadow: 0 0 10px rgba(182, 15, 36, 0.3) !important;
   text-shadow: 0 0 8px rgba(255, 149, 97, 0.5) !important;
-}
-
-.nav-button-wrap.desktop-only {
-  margin-left: 8px !important;
-}
-.nav-button-wrap.desktop-only .button-03 {
-  border-radius: 8px !important; /* Subtle rounded rectangle matching navbar */
-  padding: 8px 18px !important;
 }
 
 /* ─── Primary Buttons ────────────────────────────────── */
@@ -754,101 +764,298 @@ a.proof-card:hover {
 
 
 /* ═══════════════════════════════════════════════════════
-   MOBILE RESPONSIVE — Minimal Overrides Only
-   Original layout handled by mzmedia.css
-   We only fix: fixed navbar + hero padding + slogan size + lang switcher
+   MOBILE & TABLET RESPONSIVE (≤ 991px)
+   Matches original MZ Media mobile layout with custom dark/crimson theme
    ═══════════════════════════════════════════════════════ */
 
-/* ── Tablet (≤ 991px) ───────────────────────────────── */
 @media screen and (max-width: 991px) {
-
-  /* Navbar stays fixed & full-width, stretch to fill */
-  .header-section {
-    padding: 10px 0 0 0 !important;
+  /* Prevent horizontal scroll */
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
   }
+
+  /* Fixed floating navbar container */
+  .header-section {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 9999 !important;
+    pointer-events: none !important;
+    padding: 10px 14px 0 14px !important;
+    box-sizing: border-box !important;
+    background: transparent !important;
+  }
+
   .navbar-container.w-container,
   .navbar-container {
-    padding: 0 12px !important;
+    width: 100% !important;
     max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
   }
+
+  /* The floating capsule header */
   .na-outer-border {
     width: 100% !important;
     max-width: 100% !important;
-    padding: 6px 12px 6px 14px !important;
+    pointer-events: auto !important;
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
     justify-content: space-between !important;
+    padding: 8px 14px !important;
     box-sizing: border-box !important;
+    border-radius: 12px !important;
+    background: rgba(22, 11, 4, 0.92) !important;
+    border: 1px solid rgba(182, 15, 36, 0.45) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.75), 0 0 20px rgba(182, 15, 36, 0.2) !important;
+    backdrop-filter: blur(24px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
   }
+
+  .nav-inner-wrap {
+    width: 100% !important;
+    margin: 0 !important;
+    background: transparent !important;
+  }
+
   .nav-inner {
     width: 100% !important;
-    justify-content: space-between !important;
-  }
-
-  /* Hero: space below fixed navbar */
-  .hero-section {
-    padding-top: 90px !important;
-  }
-
-  /* Mobile nav menu: apply our dark theme colors (original mzmedia handles layout) */
-  .nav-menu-2 {
-    background: rgba(14, 7, 2, 0.97) !important;
-    border: 1px solid rgba(182, 15, 36, 0.4) !important;
-    border-radius: 10px !important;
-    backdrop-filter: blur(20px) !important;
-    box-shadow: 0 16px 40px rgba(0,0,0,0.85) !important;
-  }
-  .nav-button-wrap.mobile-only {
     display: flex !important;
-    padding-top: 8px !important;
-    border-top: 1px solid rgba(112, 45, 9, 0.3) !important;
-    margin-top: 4px !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 0 !important;
+    padding: 0 !important;
   }
 
-  /* Badge/timeline hide on tablet already done above */
+  .brand-logo-link {
+    display: flex !important;
+    align-items: center !important;
+    border-right: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .brand-logo-link img {
+    height: 28px !important;
+    width: auto !important;
+    max-width: 110px !important;
+    display: block !important;
+  }
+
+  /* Hide desktop CTA button in navbar on mobile */
+  .nav-button-wrap.desktop-only {
+    display: none !important;
+  }
+
+  /* Hamburger Menu Button */
+  .menu-button-wrapper {
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .menu-button-2 {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 40px !important;
+    height: 40px !important;
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border-radius: 8px !important;
+    border: none !important;
+    transition: background 0.2s ease !important;
+  }
+
+  .menu-button-2:hover,
+  .menu-button-2:active,
+  .menu-button-2.w--open,
+  .menu-button-2.is-open {
+    background: rgba(182, 15, 36, 0.25) !important;
+  }
+
+  .hamburger {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 24px !important;
+    height: 20px !important;
+    gap: 5px !important;
+    cursor: pointer !important;
+  }
+
+  .hamburger-line-top,
+  .hamburger-line-middle,
+  .hamburger-line-bottom {
+    width: 22px !important;
+    height: 2px !important;
+    background-color: #ffffff !important;
+    border-radius: 2px !important;
+    transition: all 0.25s ease-in-out !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+
+  /* Hamburger transform when menu is OPEN */
+  .menu-button-2.w--open .hamburger-line-top,
+  .menu-button-2.is-open .hamburger-line-top {
+    transform: translateY(7px) rotate(45deg) !important;
+  }
+  .menu-button-2.w--open .hamburger-line-middle,
+  .menu-button-2.is-open .hamburger-line-middle {
+    opacity: 0 !important;
+    transform: scaleX(0) !important;
+  }
+  .menu-button-2.w--open .hamburger-line-bottom,
+  .menu-button-2.is-open .hamburger-line-bottom {
+    transform: translateY(-7px) rotate(-45deg) !important;
+  }
+
+  /* Mobile Dropdown Nav Menu: Hidden by default, Opens downwards */
+  .nav-menu-2 {
+    display: none !important;
+  }
+
+  .nav-menu-2.w--open,
+  .nav-menu-2.is-open,
+  [data-nav-menu-open].nav-menu-2 {
+    display: flex !important;
+    flex-direction: column !important;
+    position: absolute !important;
+    top: calc(100% + 8px) !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    background: rgba(16, 8, 3, 0.98) !important;
+    border: 1px solid rgba(182, 15, 36, 0.48) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.95), 0 0 28px rgba(182, 15, 36, 0.3) !important;
+    backdrop-filter: blur(28px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(28px) saturate(180%) !important;
+    padding: 16px 14px !important;
+    gap: 4px !important;
+    z-index: 10000 !important;
+    pointer-events: auto !important;
+    animation: navMenuSlideDown 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+  }
+
+  /* Nav Links in Mobile Dropdown */
+  .nav-menu-2 .nav-link-2 {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 12px 16px !important;
+    font-size: 15px !important;
+    font-family: 'Coolvetica', sans-serif !important;
+    color: rgba(255, 230, 215, 0.9) !important;
+    border-radius: 8px !important;
+    background: transparent !important;
+    text-decoration: none !important;
+    border: 1px solid transparent !important;
+    transition: all 0.2s ease !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .nav-menu-2 .nav-link-2:hover,
+  .nav-menu-2 .nav-link-2:active,
+  .nav-menu-2 .nav-link-2.w--current {
+    background: rgba(182, 15, 36, 0.22) !important;
+    border-color: rgba(182, 15, 36, 0.4) !important;
+    color: #ffffff !important;
+  }
+
+  /* Mobile CTA inside menu */
+  .nav-menu-2 .nav-button-wrap.mobile-only {
+    display: flex !important;
+    margin-top: 10px !important;
+    padding-top: 12px !important;
+    border-top: 1px solid rgba(182, 15, 36, 0.28) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .nav-menu-2 .nav-button-wrap.mobile-only .button-03 {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 12px 20px !important;
+    box-sizing: border-box !important;
+    border-radius: 8px !important;
+  }
+
+  /* Hero Section spacing below fixed navbar */
+  .hero-section {
+    padding-top: 86px !important;
+  }
+
+  /* Unique 3-pillar engine cards */
+  .unique-engine-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+}
+
+@keyframes navMenuSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ── Mobile (≤ 767px) ───────────────────────────────── */
 @media screen and (max-width: 767px) {
-
-  /* Fixed navbar full-width */
   .header-section {
-    padding: 8px 0 0 0 !important;
-  }
-  .navbar-container.w-container,
-  .navbar-container {
-    padding: 0 10px !important;
-    max-width: 100vw !important;
-    box-sizing: border-box !important;
-  }
-  .na-outer-border {
-    width: 100% !important;
-    max-width: calc(100vw - 20px) !important;
-    padding: 5px 10px 5px 12px !important;
-    justify-content: space-between !important;
-    box-sizing: border-box !important;
-  }
-  .nav-inner {
-    width: 100% !important;
-    justify-content: space-between !important;
-    gap: 0 !important;
+    padding: 8px 10px 0 10px !important;
   }
 
-  /* Hero padding below fixed nav */
+  .na-outer-border {
+    padding: 6px 12px !important;
+    border-radius: 10px !important;
+  }
+
+  .brand-logo-link img {
+    height: 25px !important;
+    max-width: 95px !important;
+  }
+
+  .menu-button-2 {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
   .hero-section {
     padding-top: 76px !important;
     min-height: auto !important;
   }
 
-  /* Hero slogan font size scale */
+  /* Hero slogan scaling */
   .hero-title h1 .hero-line-1 {
-    font-size: clamp(28px, 8vw, 42px) !important;
+    font-size: clamp(28px, 8vw, 40px) !important;
     line-height: 1.1 !important;
   }
   .hero-title h1 .hero-line-2 {
-    font-size: clamp(36px, 11vw, 56px) !important;
+    font-size: clamp(36px, 11vw, 54px) !important;
     line-height: 1.0 !important;
   }
 
-  /* Language switcher compact */
+  /* Floating language switcher compact */
   .draggable-lang-container {
     bottom: 16px !important;
     right: 12px !important;
@@ -871,33 +1078,43 @@ a.proof-card:hover {
     width: 26px !important;
     min-height: 40px !important;
   }
+
+  /* Hide floating badges on mobile */
+  .hero-edit-decorations .edit-floating-badge {
+    display: none !important;
+  }
+  .hero-ambient-timeline {
+    display: none !important;
+  }
 }
 
 /* ── Small Mobile (≤ 479px) ─────────────────────────── */
 @media screen and (max-width: 479px) {
-
   .header-section {
-    padding: 6px 0 0 0 !important;
-  }
-  .na-outer-border {
-    max-width: calc(100vw - 14px) !important;
-    padding: 4px 8px 4px 10px !important;
+    padding: 6px 8px 0 8px !important;
   }
 
-  /* Hero padding */
+  .na-outer-border {
+    padding: 5px 10px !important;
+    border-radius: 9px !important;
+  }
+
+  .brand-logo-link img {
+    height: 23px !important;
+    max-width: 85px !important;
+  }
+
   .hero-section {
     padding-top: 68px !important;
   }
 
-  /* Hero slogan tiny screen */
   .hero-title h1 .hero-line-1 {
-    font-size: clamp(22px, 9vw, 34px) !important;
+    font-size: clamp(24px, 8.5vw, 32px) !important;
   }
   .hero-title h1 .hero-line-2 {
-    font-size: clamp(30px, 12vw, 48px) !important;
+    font-size: clamp(32px, 11.5vw, 44px) !important;
   }
 
-  /* Language switcher: hide label text, keep pill */
   .lang-current-label {
     display: none !important;
   }
