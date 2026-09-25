@@ -93,17 +93,26 @@ h1, h2, h3, h4, h5,
   letter-spacing: -0.2px !important;
 }
 
-/* ─── NAVBAR: Floating Capsule / Pill (NO Full-Width Dark Background) ─── */
+/* ─── NAVBAR: Compact Floating Container (NO Full-Width Dark Background Bar) ─── */
 .header-section {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 999 !important;
   background: transparent !important;
   background-color: transparent !important;
-  position: relative;
-  z-index: 999;
-  padding-top: 18px !important;
-  padding-bottom: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  padding: 18px 0 0 0 !important;
+  pointer-events: none !important;
 }
 
-.navbar-2.w-nav {
+.navbar-2.w-nav,
+.navbar-2 {
   background: transparent !important;
   background-color: transparent !important;
   border: none !important;
@@ -111,6 +120,7 @@ h1, h2, h3, h4, h5,
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
   padding: 0 !important;
+  width: 100% !important;
 }
 
 .navbar-container.w-container,
@@ -124,28 +134,29 @@ h1, h2, h3, h4, h5,
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  max-width: 1200px !important;
+  max-width: 100% !important;
   padding: 0 16px !important;
 }
 
-/* The actual floating menu pill */
+/* The actual floating menu: subtle rounded rectangle (NOT full round / NOT 999px) */
 .na-outer-border {
+  pointer-events: auto !important;
   display: inline-flex !important;
   align-items: center !important;
   width: auto !important;
-  max-width: 100% !important;
+  max-width: 1100px !important;
   background: rgba(22, 11, 4, 0.82) !important;
-  border: 1px solid rgba(182, 15, 36, 0.4) !important;
-  border-radius: 999px !important;
+  border: 1px solid rgba(182, 15, 36, 0.45) !important;
+  border-radius: 10px !important; /* Not full round, subtle modern rounded corners */
   backdrop-filter: blur(28px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(28px) saturate(180%) !important;
-  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.65), 0 0 24px rgba(182, 15, 36, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
-  padding: 6px 10px 6px 20px !important;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.65), 0 0 24px rgba(182, 15, 36, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+  padding: 7px 14px 7px 18px !important;
   margin: 0 auto !important;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: all 0.25s ease !important;
 }
 .na-outer-border:hover {
-  border-color: rgba(182, 15, 36, 0.7) !important;
+  border-color: rgba(182, 15, 36, 0.75) !important;
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.75), 0 0 32px rgba(182, 15, 36, 0.3) !important;
 }
 
@@ -185,23 +196,27 @@ h1, h2, h3, h4, h5,
   font-family: 'Coolvetica', sans-serif !important;
   font-size: 15px !important;
   font-weight: 400 !important;
-  letter-spacing: 0.6px !important;
+  letter-spacing: 0.5px !important;
   color: rgba(255, 222, 201, 0.82) !important;
-  padding: 8px 13px !important;
-  border-radius: 999px !important;
-  transition: all 0.22s ease !important;
+  padding: 6px 12px !important;
+  border-radius: 6px !important; /* Not full round */
+  transition: all 0.2s ease !important;
   text-decoration: none !important;
 }
 .nav-link-2:hover,
 .nav-link-2.w--current {
   color: #FFFFFF !important;
-  background: rgba(182, 15, 36, 0.22) !important;
-  box-shadow: 0 0 12px rgba(182, 15, 36, 0.35) !important;
+  background: rgba(182, 15, 36, 0.25) !important;
+  box-shadow: 0 0 10px rgba(182, 15, 36, 0.3) !important;
   text-shadow: 0 0 8px rgba(255, 149, 97, 0.5) !important;
 }
 
 .nav-button-wrap.desktop-only {
   margin-left: 8px !important;
+}
+.nav-button-wrap.desktop-only .button-03 {
+  border-radius: 8px !important; /* Subtle rounded rectangle matching navbar */
+  padding: 8px 18px !important;
 }
 
 /* ─── Primary Buttons ────────────────────────────────── */
@@ -209,7 +224,7 @@ h1, h2, h3, h4, h5,
 a.button-03 {
   background: linear-gradient(135deg, #B60F24 0%, #702D09 100%) !important;
   border: 1px solid rgba(255, 149, 97, 0.35) !important;
-  border-radius: 999px !important;
+  border-radius: 8px !important; /* Subtle modern rounded corners */
   box-shadow: 0 4px 24px rgba(182, 15, 36, 0.42), 0 0 12px rgba(112, 45, 9, 0.25) !important;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
   font-family: 'Coolvetica', sans-serif !important;
@@ -231,8 +246,8 @@ a.button-03:hover {
 .hero-section {
   position: relative !important;
   overflow: hidden !important;
-  background: radial-gradient(ellipse at 50% 12%, rgba(182, 15, 36, 0.22) 0%, rgba(112, 45, 9, 0.12) 38%, #0C0602 78%) !important;
-  padding-top: 40px !important;
+  background: radial-gradient(ellipse at 50% 0%, rgba(182, 15, 36, 0.28) 0%, rgba(112, 45, 9, 0.14) 42%, #0C0602 82%) !important;
+  padding-top: 105px !important; /* Seamless space below the absolute floating navbar */
 }
 
 .hero-background-block img.hero-bg-left,
