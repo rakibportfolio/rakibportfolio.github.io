@@ -198,7 +198,13 @@ function applyLanguage(lang) {
   // Update floating label
   const floatingLabel = document.querySelector('#floating-current-lang');
   if (floatingLabel) {
-    floatingLabel.textContent = lang === 'en' ? 'English' : 'বাংলা';
+    if (lang === 'en') {
+      floatingLabel.textContent = 'English';
+      floatingLabel.style.fontFamily = "'Coolvetica', sans-serif";
+    } else {
+      floatingLabel.textContent = '\u09AC\u09BE\u0982\u09B2\u09BE';
+      floatingLabel.style.fontFamily = "'Hind Siliguri', sans-serif";
+    }
   }
 }
 

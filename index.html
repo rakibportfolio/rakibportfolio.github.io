@@ -185,7 +185,9 @@
 
 
 <style>
-/* Ultra-Premium Draggable Floating Language Switcher */
+/*    Premium Draggable Language Switcher    */
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap');
+
 .draggable-lang-container {
   position: fixed;
   bottom: 28px;
@@ -193,68 +195,119 @@
   z-index: 2147483647 !important;
   display: flex;
   align-items: center;
-  gap: 10px;
-  background: rgba(36, 23, 5, 0.94);
-  border: 1.5px solid rgba(182, 15, 36, 0.6);
-  border-radius: 9999px;
-  padding: 8px 16px 8px 12px;
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.75), 0 0 25px rgba(182, 15, 36, 0.45);
-  backdrop-filter: blur(20px);
+  gap: 0;
+  background: rgba(18, 9, 3, 0.92);
+  border: 1.5px solid rgba(182, 15, 36, 0.55);
+  border-radius: 14px;
+  padding: 0;
+  box-shadow: 0 16px 44px rgba(0,0,0,0.8), 0 0 28px rgba(182,15,36,0.4), inset 0 1px 0 rgba(255,255,255,0.08);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
   cursor: grab;
   user-select: none;
   touch-action: none;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, left, top;
+  overflow: hidden;
 }
 .draggable-lang-container:hover {
-  border-color: #FF9561;
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.8), 0 0 30px rgba(182, 15, 36, 0.6);
+  border-color: rgba(255,149,97,0.7);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.85), 0 0 36px rgba(182,15,36,0.55);
 }
 .draggable-lang-container.is-dragging {
   cursor: grabbing !important;
-  opacity: 0.92;
-  transform: scale(1.06) !important;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9), 0 0 40px rgba(182, 15, 36, 0.8) !important;
-  border-color: #FF7A45 !important;
+  opacity: 0.9;
+  transform: scale(1.05) !important;
+  box-shadow: 0 28px 64px rgba(0,0,0,0.95), 0 0 44px rgba(182,15,36,0.75) !important;
 }
+
+/* Left drag grip strip */
 .drag-grip {
-  color: #FF9561;
-  font-size: 18px;
-  line-height: 1;
-  cursor: grab;
-  padding-right: 6px;
-  border-right: 1px solid rgba(255, 255, 255, 0.15);
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 100%;
+  min-height: 44px;
+  color: rgba(182,15,36,0.8);
+  background: rgba(182,15,36,0.08);
+  border-right: 1px solid rgba(182,15,36,0.25);
+  cursor: grab;
+  flex-shrink: 0;
+  transition: background 0.2s;
 }
+.drag-grip:hover { background: rgba(182,15,36,0.18); }
+.drag-grip svg { pointer-events: none; }
+
+/* Right clickable section */
 .lang-toggle-trigger {
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 8px;
+  padding: 9px 14px 9px 12px;
+  flex: 1;
 }
+.lang-toggle-trigger:hover .lang-current-label {
+  color: #FFDEC9;
+}
+
+.lang-globe-icon {
+  color: #FF9561;
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
+.lang-current-label {
+  font-family: 'Coolvetica', 'Hind Siliguri', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #FFD6B8;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+/* EN / Bangla pill capsule */
 .lang-switch-capsule {
   display: flex;
   align-items: center;
-  gap: 3px;
+  gap: 2px;
   background: rgba(112, 45, 9, 0.2);
-  padding: 3px 5px;
-  border-radius: 999px;
-  border: 1px solid rgba(112, 45, 9, 0.4);
+  padding: 3px 4px;
+  border-radius: 8px;
+  border: 1px solid rgba(112, 45, 9, 0.38);
+  margin-left: 2px;
 }
 .lang-opt {
-  padding: 3px 9px;
-  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 10px;
+  border-radius: 6px;
   font-size: 12px;
   font-weight: 700;
-  color: #c4a89c;
+  letter-spacing: 0.6px;
+  color: rgba(200, 160, 140, 0.85);
   transition: all 0.2s ease;
   cursor: pointer;
+  line-height: 1.4;
+  font-family: 'Coolvetica', sans-serif;
+}
+.lang-opt[data-lang="bn"] {
+  font-family: 'Hind Siliguri', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0;
+  font-size: 13px;
 }
 .lang-opt.active {
-  background: #B60F24;
+  background: linear-gradient(135deg, #B60F24 0%, #8A200E 100%);
   color: #ffffff;
-  box-shadow: 0 0 12px rgba(182, 15, 36, 0.9);
+  box-shadow: 0 0 14px rgba(182,15,36,0.85), 0 2px 6px rgba(0,0,0,0.4);
+}
+.lang-opt:not(.active):hover {
+  background: rgba(182,15,36,0.2);
+  color: #FFDEC9;
 }
 </style>
 
@@ -1924,16 +1977,20 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
-<!-- Fully Draggable & Fixed Floating Language Switcher -->
-<div id="draggable-lang-widget" class="draggable-lang-container" title="Drag to move anywhere â€¢ Click to switch language (English / à¦¬à¦¾à¦‚à¦²à¦¾)">
-  <div class="drag-grip" title="Drag to move">â ¿</div>
+<!-- Language Switcher Widget -->
+<div id="draggable-lang-widget" class="draggable-lang-container" title="Click to switch language">
+  <div class="drag-grip" aria-hidden="true">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/><circle cx="19" cy="5" r="1.5"/><circle cx="19" cy="12" r="1.5"/><circle cx="19" cy="19" r="1.5"/><circle cx="5" cy="5" r="1.5"/><circle cx="5" cy="12" r="1.5"/><circle cx="5" cy="19" r="1.5"/></svg>
+  </div>
   <div class="lang-toggle-trigger">
-    <span style="font-size: 16px;">ðŸŒ</span>
-    <span id="floating-current-lang" style="font-size: 13px; font-weight: 700; color: #ffffff;">English</span>
+    <svg class="lang-globe-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+    <span id="floating-current-lang" class="lang-current-label">English</span>
     <div class="lang-switch-capsule">
       <span class="lang-opt active" data-lang="en">EN</span>
-      <span class="lang-opt" data-lang="bn">à¦¬à¦¾à¦‚à¦²à¦¾</span>
+      <span class="lang-opt" data-lang="bn" style="font-family: 'Hind Siliguri', sans-serif;">&#2476;&#2494;&#2434;&#2482;&#2494;</span>
     </div>
+  </div>
+</div>
   </div>
 </div>
 <script src="js/i18n.js"></script>
