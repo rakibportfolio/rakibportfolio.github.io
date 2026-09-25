@@ -432,8 +432,8 @@
 
 .ref-hero-grid {
   display: grid;
-  grid-template-columns: 1.25fr 0.85fr;
-  gap: 28px;
+  grid-template-columns: 55% 45%;
+  gap: 20px;
   align-items: center;
   position: relative;
   z-index: 2;
@@ -477,30 +477,26 @@
 
 /* Headline */
 .ref-hero-title {
-  font-size: clamp(30px, 3.8vw, 50px);
+  font-size: clamp(28px, 3.2vw, 44px);
   font-weight: 900;
-  line-height: 1.1;
+  line-height: 1.12;
   color: #ffffff;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.015em;
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   font-family: 'Syne', 'Inter', sans-serif;
+  word-break: normal;
 }
 
 .ref-title-line {
   display: block;
-  white-space: nowrap;
-}
-
-@media (max-width: 1200px) {
-  .ref-title-line { white-space: normal; }
 }
 
 .ref-neon-gradient {
   background: linear-gradient(90deg, #a855f7 0%, #ec4899 45%, #38bdf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 30px rgba(168, 85, 247, 0.5));
+  filter: drop-shadow(0 0 25px rgba(168, 85, 247, 0.55));
 }
 
 /* Description Slogan */
@@ -619,10 +615,11 @@
 .ref-hero-right {
   position: relative;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
-  min-height: 540px;
+  min-height: 500px;
   width: 100%;
+  overflow: visible;
 }
 
 /* Glowing Neon Purple Rim Arc */
@@ -674,22 +671,24 @@
 .ref-portrait-img {
   position: relative;
   z-index: 2;
-  width: 100%;
-  max-width: 480px;
-  height: auto;
+  width: auto;
+  max-width: 95%;
+  height: 480px;
   display: block;
   object-fit: contain;
-  filter: drop-shadow(0 25px 40px rgba(0, 0, 0, 0.8));
+  object-position: top center;
+  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 40px rgba(124, 58, 237, 0.35));
   pointer-events: none;
+  margin: 0 auto;
 }
 
 /* Floating Before / After Comparison Card */
 .ref-ba-card {
   position: absolute;
-  left: -20px;
-  bottom: 80px;
+  left: 0px;
+  bottom: 60px;
   z-index: 5;
-  width: 250px;
+  width: 220px;
   background: #0c0e18;
   border: 1.5px solid rgba(255, 255, 255, 0.14);
   border-radius: 14px;
@@ -931,6 +930,16 @@
 }
 
 /* Responsive Media Queries */
+@media (max-width: 1100px) {
+  .ref-hero-grid {
+    grid-template-columns: 52% 48%;
+    gap: 16px;
+  }
+  .ref-portrait-img {
+    height: 420px;
+  }
+}
+
 @media (max-width: 991px) {
   .ref-hero-grid {
     grid-template-columns: 1fr;
@@ -956,6 +965,7 @@
   .ref-ba-card {
     left: 10px;
     bottom: 50px;
+    width: 190px;
   }
   .ref-role-pill {
     right: 15px;
@@ -965,6 +975,14 @@
   }
   .ref-nav-links {
     display: none;
+  }
+  .ref-portrait-img {
+    height: 380px;
+  }
+  .ref-timeline-card {
+    left: 2%;
+    right: 2%;
+    bottom: 5px;
   }
 }
 </style>
