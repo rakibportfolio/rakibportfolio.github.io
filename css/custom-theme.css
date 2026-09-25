@@ -1,0 +1,285 @@
+/* ========================================================
+   CUSTOM THEME: WARM TERRACOTTA / ESPRESSO PALETTE
+   Palette from user:
+   - #660F24  Fiery Crimson (glow / top accent)
+   - #702D09  Warm Terracotta (mid / secondary)
+   - #241705  Rich Dark Espresso (card / deep bg)
+   ======================================================== */
+
+/* ─── CSS Variable Overrides ─────────────────────────── */
+:root {
+  --primary-black:            #0C0602;
+  --secondary-black:          #170D05;
+  --primary-blue:             #702D09;
+  --all-border:               rgba(102, 15, 36, 0.22);
+  --secondary--card-bg-color: rgba(36, 23, 5, 0.5);
+  --navy-s-border:            rgba(112, 45, 9, 0.45);
+  --grey-heading-color:       rgba(255, 200, 168, 0.55);
+  --gray-text:                #b89a8a;
+  --paragraph-text-color:     rgba(240, 210, 190, 0.72);
+  --title-gradient-grey:      #c8a090;
+
+  /* Theme tokens */
+  --t-rust:     #B60F24;
+  --t-terra:    #702D09;
+  --t-espresso: #241705;
+  --t-dark:     #0C0602;
+  --t-glow:     rgba(182, 15, 36, 0.4);
+  --t-border:   rgba(112, 45, 9, 0.38);
+  --t-gold:     #FF9561;
+  --t-cream:    #FFDEC9;
+}
+
+/* ─── Selection ──────────────────────────────────────── */
+::selection {
+  background: #B60F24 !important;
+  color: #fff !important;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────── */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #0C0602; }
+::-webkit-scrollbar-thumb { background: #702D09; border-radius: 5px; border: 2px solid #0C0602; }
+::-webkit-scrollbar-thumb:hover { background: #B60F24; }
+
+/* ─── Base ───────────────────────────────────────────── */
+body, html {
+  background-color: #0C0602 !important;
+}
+.page-wrapper-02 {
+  background: #0C0602;
+}
+
+/* ─── Navbar ─────────────────────────────────────────── */
+.navbar-2.w-nav,
+.navbar-container {
+  background: rgba(12, 6, 2, 0.82) !important;
+  border-bottom: 1px solid rgba(112, 45, 9, 0.35) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.na-outer-border {
+  border-color: rgba(112, 45, 9, 0.35) !important;
+}
+
+/* ─── Primary Button ─────────────────────────────────── */
+.button-03,
+a.button-03 {
+  background: linear-gradient(135deg, #B60F24 0%, #702D09 100%) !important;
+  border: 1px solid rgba(255, 149, 97, 0.25) !important;
+  box-shadow: 0 4px 24px rgba(182, 15, 36, 0.38), 0 0 10px rgba(112, 45, 9, 0.2) !important;
+  transition: all 0.3s ease !important;
+}
+.button-03:hover,
+a.button-03:hover {
+  background: linear-gradient(135deg, #D41A32 0%, #8A380C 100%) !important;
+  box-shadow: 0 8px 32px rgba(182, 15, 36, 0.58), 0 0 18px rgba(255, 149, 97, 0.35) !important;
+  transform: translateY(-2px);
+}
+
+/* ─── Hero Section ───────────────────────────────────── */
+.hero-section {
+  background: radial-gradient(ellipse at 50% 10%, rgba(182, 15, 36, 0.18) 0%, rgba(112, 45, 9, 0.1) 35%, #0C0602 75%) !important;
+}
+.hero-background-block img.hero-bg-left,
+.hero-background-block img.hero-bg-right {
+  filter: sepia(1) saturate(3) hue-rotate(325deg) brightness(0.55) opacity(0.45) !important;
+}
+.hero-title h1,
+.hero-title .heading-01 {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFDEC9 45%, #D49070 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Trusted / Client Pill Boxes ────────────────────── */
+.trusted_box,
+.client-highlight,
+.client-proff {
+  background: rgba(36, 23, 5, 0.58) !important;
+  border: 1px solid rgba(112, 45, 9, 0.38) !important;
+  backdrop-filter: blur(10px);
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+.trusted_box:hover,
+.client-highlight:hover {
+  border-color: #B60F24 !important;
+  background: rgba(52, 28, 8, 0.72) !important;
+}
+.small-caption.is-highlight {
+  color: #FF9561 !important;
+}
+
+/* ─── Hero Video Card ────────────────────────────────── */
+.video-info-tag {
+  background: rgba(36, 23, 5, 0.9) !important;
+  border: 1px solid rgba(182, 15, 36, 0.45) !important;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.5), 0 0 12px rgba(182, 15, 36, 0.25) !important;
+}
+.video-info-tag .text {
+  color: #FF9561 !important;
+}
+.video-play {
+  background: linear-gradient(135deg, #B60F24 0%, #702D09 100%) !important;
+  box-shadow: 0 0 22px rgba(182, 15, 36, 0.6), inset 0 0 8px rgba(255,255,255,0.15) !important;
+  border: 1px solid rgba(255, 149, 97, 0.35) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+.holder.hero:hover .video-play,
+.marquee-item:hover .video-play {
+  transform: scale(1.1);
+  box-shadow: 0 0 36px rgba(182, 15, 36, 0.95), 0 0 14px #FF9561 !important;
+}
+.holder {
+  background: #170D05;
+}
+
+/* ─── Gradient / Glow Divider ────────────────────────── */
+.gradient-divider {
+  filter: sepia(1) saturate(5) hue-rotate(325deg) brightness(1.05) !important;
+}
+
+/* ─── Proof / Testimonial Cards ──────────────────────── */
+.proof-card,
+.proof-card.v2,
+a.proof-card {
+  background: linear-gradient(180deg, rgba(36,23,5,0.75) 0%, rgba(18,11,4,0.9) 100%) !important;
+  border: 1px solid rgba(112, 45, 9, 0.38) !important;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.6) !important;
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease !important;
+}
+.proof-card:hover,
+.proof-card.v2:hover,
+a.proof-card:hover {
+  border-color: rgba(182, 15, 36, 0.55) !important;
+  box-shadow: 0 18px 42px rgba(0,0,0,0.7), 0 0 18px rgba(112, 45, 9, 0.28) !important;
+  transform: translateY(-3px);
+}
+
+/* ─── Step / Process Section (3-Pillar Engine) ───────── */
+.step-section {
+  background: radial-gradient(circle at 50% 20%, rgba(112, 45, 9, 0.12) 0%, rgba(12, 6, 2, 0.98) 65%) !important;
+}
+.engine-card {
+  background: linear-gradient(180deg, rgba(36,23,5,0.82) 0%, rgba(20,12,4,0.9) 100%) !important;
+  border: 1px solid rgba(112, 45, 9, 0.35) !important;
+  box-shadow: 0 20px 40px -15px rgba(0,0,0,0.6) !important;
+  backdrop-filter: blur(18px);
+}
+.engine-card:hover {
+  border-color: rgba(182, 15, 36, 0.5) !important;
+  box-shadow: 0 24px 50px -12px rgba(182, 15, 36, 0.25) !important;
+  transform: translateY(-4px);
+}
+
+/* ─── Showcase / Service Cards ───────────────────────── */
+.marquee-item.video {
+  border: 1px solid rgba(112, 45, 9, 0.32) !important;
+  background: rgba(28, 17, 5, 0.45) !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.marquee-item.video:hover {
+  border-color: #B60F24 !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 18px rgba(182, 15, 36, 0.25) !important;
+}
+
+/* ─── Tabs ───────────────────────────────────────────── */
+.tabs-menu-2 .w-tab-link {
+  background: rgba(36, 23, 5, 0.48) !important;
+  border: 1px solid rgba(112, 45, 9, 0.3) !important;
+  color: #c4a89c !important;
+  transition: all 0.25s ease !important;
+}
+.tabs-menu-2 .w-tab-link:hover {
+  border-color: rgba(182, 15, 36, 0.45) !important;
+  color: #FFDEC9 !important;
+}
+.tabs-menu-2 .w-tab-link.w--current {
+  background: linear-gradient(135deg, rgba(182, 15, 36, 0.3) 0%, rgba(112, 45, 9, 0.38) 100%) !important;
+  border: 1px solid #B60F24 !important;
+  color: #FFC0A0 !important;
+  box-shadow: 0 0 18px rgba(182, 15, 36, 0.3) !important;
+}
+
+/* ─── FAQ Accordion ──────────────────────────────────── */
+.accordion {
+  background: rgba(36, 23, 5, 0.58) !important;
+  border: 1px solid rgba(112, 45, 9, 0.32) !important;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  transition: all 0.3s ease !important;
+}
+.accordion:hover,
+.accordion.w--open {
+  border-color: rgba(182, 15, 36, 0.5) !important;
+  background: rgba(48, 28, 8, 0.72) !important;
+}
+
+/* ─── Contact / Booking Form Block ──────────────────── */
+#callbook > div {
+  background: linear-gradient(135deg, #241705 0%, #702D09 60%, #B60F24 100%) !important;
+  box-shadow: 0 0 0 1px rgba(182, 15, 36, 0.3), 0 0 40px rgba(182, 15, 36, 0.22), 0 0 80px rgba(112, 45, 9, 0.18) !important;
+}
+
+/* ─── Brand Logo Overlays ────────────────────────────── */
+.brands-overlay {
+  background-image: linear-gradient(90deg, #0C0602 0%, rgba(12,6,2,0) 15%, rgba(12,6,2,0) 85%, #0C0602 100%) !important;
+}
+.brands-overlay.big {
+  background-image: linear-gradient(90deg, #0C0602 0%, rgba(12,6,2,0) 25%, rgba(12,6,2,0) 75%, #0C0602 100%) !important;
+}
+
+/* ─── Video Popup Modal ──────────────────────────────── */
+.video-popup {
+  background: rgba(12, 6, 2, 0.92) !important;
+  backdrop-filter: blur(20px);
+}
+.video-popup-content {
+  border: 1px solid rgba(112, 45, 9, 0.6) !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.9), 0 0 30px rgba(182, 15, 36, 0.3) !important;
+}
+.modal-close {
+  background: rgba(112, 45, 9, 0.35) !important;
+  border: 1px solid rgba(182, 15, 36, 0.4) !important;
+  color: #FFDEC9 !important;
+}
+.modal-close:hover {
+  background: #B60F24 !important;
+}
+
+/* ─── Section Headers ────────────────────────────────── */
+.heading-02 {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFD6C2 40%, #D4907A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Star Ratings ───────────────────────────────────── */
+.rating-icon {
+  filter: sepia(1) saturate(3) hue-rotate(320deg) brightness(1.1) !important;
+}
+
+/* ─── Footer ─────────────────────────────────────────── */
+.footer-section, footer, .footer-wrap {
+  background: #090402 !important;
+  border-top: 1px solid rgba(112, 45, 9, 0.32) !important;
+}
+
+/* ─── Pricing Section Badge ──────────────────────────── */
+.pricing-logo {
+  background: #B60F24 !important;
+}
+
+/* ─── Proof Slider ───────────────────────────────────── */
+.proof-slider.old {
+  background: transparent !important;
+}
+
+/* ─── Animations glow pulse ─────────────────────────── */
+@keyframes pulseDot {
+  0%, 100% { box-shadow: 0 0 6px #B60F24, 0 0 12px rgba(182,15,36,0.4); opacity: 1; }
+  50%       { box-shadow: 0 0 14px #FF9561, 0 0 28px rgba(255,149,97,0.6); opacity: 0.75; }
+}
