@@ -7,7 +7,7 @@ const I18N_DATA = {
   en: {
     ref_hero_tag: "VIDEO EDITOR • CREATIVE STORYTELLER",
     ref_hero_title_1: "I TURN RAW FOOTAGE",
-    ref_hero_title_into: "INTO",
+    ref_hero_title_into: "INTO ",
     ref_hero_title_2: "VISUAL STORIES.",
     ref_hero_desc: "Professional video editing, cinematic effects & before/after transformations that make content stand out.",
     ref_btn_whatsapp: "WHATSAPP: 01716705401",

@@ -432,8 +432,8 @@
 
 .ref-hero-grid {
   display: grid;
-  grid-template-columns: 55% 45%;
-  gap: 20px;
+  grid-template-columns: 53% 47%;
+  gap: 24px;
   align-items: center;
   position: relative;
   z-index: 2;
@@ -477,9 +477,9 @@
 
 /* Headline */
 .ref-hero-title {
-  font-size: clamp(28px, 3.2vw, 44px);
+  font-size: clamp(26px, 3.1vw, 42px);
   font-weight: 900;
-  line-height: 1.12;
+  line-height: 1.15;
   color: #ffffff;
   letter-spacing: -0.015em;
   text-transform: uppercase;
@@ -490,6 +490,13 @@
 
 .ref-title-line {
   display: block;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .ref-title-line {
+    white-space: normal;
+  }
 }
 
 .ref-neon-gradient {
@@ -615,7 +622,7 @@
 .ref-hero-right {
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   min-height: 500px;
   width: 100%;
@@ -627,11 +634,11 @@
   position: absolute;
   right: 15px;
   top: 15px;
-  width: 450px;
-  height: 450px;
+  width: 440px;
+  height: 440px;
   border-radius: 50%;
-  border: 2.5px solid rgba(168, 85, 247, 0.55);
-  box-shadow: 0 0 50px rgba(168, 85, 247, 0.45), inset 0 0 30px rgba(168, 85, 247, 0.2);
+  border: 2px solid rgba(168, 85, 247, 0.45);
+  box-shadow: 0 0 50px rgba(168, 85, 247, 0.35), inset 0 0 30px rgba(168, 85, 247, 0.15);
   pointer-events: none;
   z-index: 1;
 }
@@ -639,15 +646,15 @@
 /* Floating "● VIDEO EDITOR" Top-Right Badge */
 .ref-role-pill {
   position: absolute;
-  top: 25px;
-  right: 25px;
-  z-index: 6;
+  top: 15px;
+  right: 15px;
+  z-index: 4;
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 7px 18px;
   border-radius: 9999px;
-  background: rgba(13, 16, 29, 0.88);
+  background: rgba(13, 16, 29, 0.92);
   border: 1px solid rgba(168, 85, 247, 0.45);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 18px rgba(168, 85, 247, 0.35);
   backdrop-filter: blur(14px);
@@ -671,13 +678,14 @@
 .ref-portrait-img {
   position: relative;
   z-index: 2;
-  width: auto;
-  max-width: 95%;
-  height: 480px;
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+  max-height: 490px;
   display: block;
   object-fit: contain;
-  object-position: top center;
-  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 40px rgba(124, 58, 237, 0.35));
+  object-position: bottom center;
+  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 35px rgba(124, 58, 237, 0.3));
   pointer-events: none;
   margin: 0 auto;
 }
@@ -685,10 +693,10 @@
 /* Floating Before / After Comparison Card */
 .ref-ba-card {
   position: absolute;
-  left: 0px;
-  bottom: 60px;
-  z-index: 5;
-  width: 220px;
+  left: -20px;
+  bottom: 75px;
+  z-index: 4;
+  width: 205px;
   background: #0c0e18;
   border: 1.5px solid rgba(255, 255, 255, 0.14);
   border-radius: 14px;
@@ -706,7 +714,7 @@
 .ref-ba-screen {
   position: relative;
   width: 100%;
-  height: 135px;
+  height: 120px;
   overflow: hidden;
   background: #000;
 }
@@ -820,15 +828,15 @@
 /* Floating Video Editor Timeline Bar */
 .ref-timeline-card {
   position: absolute;
-  bottom: 10px;
-  left: 3%;
-  right: 3%;
+  bottom: 5px;
+  left: 5%;
+  right: 5%;
   z-index: 5;
-  height: 64px;
-  background: rgba(10, 13, 24, 0.9);
+  height: 56px;
+  background: rgba(10, 13, 24, 0.92);
   border: 1.5px solid rgba(168, 85, 247, 0.35);
   border-radius: 14px;
-  padding: 8px 12px;
+  padding: 6px 12px;
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.85), 0 0 25px rgba(168, 85, 247, 0.25);
   backdrop-filter: blur(16px);
   display: flex;
@@ -934,17 +942,47 @@
   .ref-hero-grid {
     grid-template-columns: 52% 48%;
     gap: 16px;
+    padding: 0 16px;
   }
   .ref-portrait-img {
-    height: 420px;
+    max-height: 430px;
+  }
+  .ref-ba-card {
+    width: 185px;
+    left: -10px;
+    bottom: 60px;
   }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 860px) {
+  .ref-hero-grid {
+    grid-template-columns: 50% 50%;
+    gap: 14px;
+    padding: 0 14px;
+  }
+  .ref-portrait-img {
+    max-height: 380px;
+  }
+  .ref-ba-card {
+    width: 160px;
+    left: -5px;
+    bottom: 50px;
+  }
+  .ref-timeline-card {
+    left: 2%;
+    right: 2%;
+    height: 48px;
+  }
+  .ref-nav-links {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
   .ref-hero-grid {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 40px;
+    gap: 32px;
   }
   .ref-hero-left {
     align-items: center;
@@ -962,13 +1000,17 @@
   .ref-tech-tools {
     justify-content: center;
   }
+  .ref-hero-right {
+    min-height: 420px;
+  }
   .ref-ba-card {
     left: 10px;
     bottom: 50px;
-    width: 190px;
+    width: 175px;
   }
   .ref-role-pill {
     right: 15px;
+    top: 10px;
   }
   .ref-vert-rail {
     display: none;
@@ -977,12 +1019,13 @@
     display: none;
   }
   .ref-portrait-img {
-    height: 380px;
+    max-height: 380px;
   }
   .ref-timeline-card {
-    left: 2%;
-    right: 2%;
-    bottom: 5px;
+    left: 4%;
+    right: 4%;
+    bottom: 0px;
+    height: 48px;
   }
 }
 </style>
@@ -1055,9 +1098,9 @@
 
       <!-- Main Headline -->
       <h1 class="ref-hero-title">
-        <span class="ref-title-line">I TURN RAW FOOTAGE INTO</span>
+        <span class="ref-title-line" data-i18n="ref_hero_title_1">I TURN RAW FOOTAGE</span>
         <span class="ref-title-line">
-          <span class="ref-neon-gradient" data-i18n="ref_hero_title_2">VISUAL STORIES.</span>
+          <span data-i18n="ref_hero_title_into">INTO </span><span class="ref-neon-gradient" data-i18n="ref_hero_title_2">VISUAL STORIES.</span>
         </span>
       </h1>
 
