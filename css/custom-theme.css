@@ -748,6 +748,24 @@ a.button-03:hover {
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 45px rgba(182, 15, 36, 1), 0 0 20px #FF9561 !important;
 }
 
+/* When video is actively playing inside hero card */
+.holder.hero.is-video-playing .video-play-button {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+.holder.hero.is-video-playing:hover .video-play-button {
+  opacity: 0.85 !important;
+  pointer-events: auto !important;
+}
+.holder.hero.is-video-playing {
+  border-color: rgba(255, 149, 97, 0.85) !important;
+  box-shadow: 
+    0 32px 80px -10px rgba(0, 0, 0, 0.95),
+    0 0 55px rgba(182, 15, 36, 0.6),
+    0 0 25px rgba(255, 149, 97, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
 /* Floating "Get Yours Next" Tag popped in 3D */
 .hero-book-a-call.hero-3d-floating-tag {
   transform: translateZ(42px);
