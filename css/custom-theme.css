@@ -1430,3 +1430,11 @@ a.proof-card:hover {
 .holder.hero.is-video-playing {
   box-shadow: 0 0 35px rgba(255, 30, 0, 0.45), 0 20px 45px rgba(0, 0, 0, 0.8) !important;
 }
+
+.holder.hero.hero-3d-card,
+#heroTrailerVideo {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}

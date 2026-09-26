@@ -43,26 +43,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.innerWidth <= 991);
 
-  // ─── 60/120 FPS Continuous Physics Engine (Spring Lerp) ───
+  // ─── 60/120 FPS Idle-Aware Performance Physics Engine ───
   function update3DFrame() {
-    curRotX += (targetRotX - curRotX) * 0.088;
-    curRotY += (targetRotY - curRotY) * 0.088;
-    curScale += (targetScale - curScale) * 0.088;
+    const diffX = Math.abs(targetRotX - curRotX);
+    const diffY = Math.abs(targetRotY - curRotY);
+    const diffS = Math.abs(targetScale - curScale);
 
-    const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+    if (diffX > 0.02 || diffY > 0.02 || diffS > 0.002 || isInteracting || isTouchActive || isScrolling) {
+      curRotX += (targetRotX - curRotX) * 0.12;
+      curRotY += (targetRotY - curRotY) * 0.12;
+      curScale += (targetScale - curScale) * 0.12;
 
-    if (isInteracting || isTouchActive || isScrolling || scrollY > 6) {
-      const finalRotX = curRotX;
-      const finalRotY = curRotY;
-      const finalTransY = scrollYOffset;
-      wrapper.style.transform = `perspective(1200px) rotateX(${finalRotX.toFixed(2)}deg) rotateY(${finalRotY.toFixed(2)}deg) translateY(${finalTransY.toFixed(1)}px) scale3d(${curScale.toFixed(3)}, ${curScale.toFixed(3)}, ${curScale.toFixed(3)})`;
-    } else if (!wrapper.classList.contains('is-ambient')) {
-      if (Math.abs(curRotX) < 0.05 && Math.abs(curRotY) < 0.05 && Math.abs(curScale - 1) < 0.005) {
-        wrapper.style.transform = '';
-        wrapper.classList.add('is-ambient');
-      } else {
-        wrapper.style.transform = `perspective(1200px) rotateX(${curRotX.toFixed(2)}deg) rotateY(${curRotY.toFixed(2)}deg) scale3d(${curScale.toFixed(3)}, ${curScale.toFixed(3)}, ${curScale.toFixed(3)})`;
-      }
+      wrapper.style.transform = `perspective(1200px) rotateX(${curRotX.toFixed(2)}deg) rotateY(${curRotY.toFixed(2)}deg) scale3d(${curScale.toFixed(3)}, ${curScale.toFixed(3)}, ${curScale.toFixed(3)})`;
+    } else if (!isInteracting && !isTouchActive && !isScrolling && !wrapper.classList.contains('is-ambient')) {
+      wrapper.style.transform = '';
+      wrapper.classList.add('is-ambient');
     }
 
     requestAnimationFrame(update3DFrame);
