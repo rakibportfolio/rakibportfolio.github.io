@@ -258,11 +258,16 @@ a.button-03:hover {
   overflow: hidden !important;
   background: radial-gradient(ellipse at 50% 0%, rgba(182, 15, 36, 0.28) 0%, rgba(112, 45, 9, 0.14) 42%, #0C0602 82%) !important;
   padding-top: 105px !important; /* Seamless space below the absolute floating navbar */
+  perspective: 1400px !important;
+  perspective-origin: 50% 35% !important;
+  transform-style: preserve-3d !important;
 }
 
 .hero-background-block img.hero-bg-left,
 .hero-background-block img.hero-bg-right {
   filter: sepia(1) saturate(3) hue-rotate(325deg) brightness(0.55) opacity(0.42) !important;
+  transition: transform 0.25s ease-out;
+  will-change: transform;
 }
 
 .hero-title h1,
@@ -276,7 +281,16 @@ a.button-03:hover {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
-  text-shadow: 0 0 40px rgba(182, 15, 36, 0.25) !important;
+  text-shadow: 0 4px 18px rgba(0,0,0,0.8), 0 0 35px rgba(182, 15, 36, 0.35) !important;
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease-out;
+}
+
+.hero-title h1 .hero-line-1,
+.hero-title h1 .hero-line-2 {
+  display: inline-block;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 /* ─── Hero Video-Editing Background Elements (Pr, Ae, Timeline) ─── */
@@ -474,7 +488,7 @@ a.button-03:hover {
   }
 }
 @media screen and (max-width: 767px) {
-  .edit-floating-badge {
+  .hero-edit-decorations .edit-floating-badge:not(.mobile-only-badge) {
     display: none !important;
   }
   .hero-ambient-timeline {
@@ -568,46 +582,247 @@ a.button-03:hover {
   filter: drop-shadow(0 0 22px rgba(182, 15, 36, 0.45)) !important;
 }
 
-/* ─── Hero Video Card & Click-to-Play ───────────────── */
+/* ─── 3D Hero Scene, Card Tilt Physics & Floating Elements ───── */
+.hero-3d-scene {
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+  transform-style: preserve-3d;
+  position: relative;
+  width: 100%;
+}
+
+.hero-3d-card-wrapper {
+  position: relative;
+  width: 100%;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.12s cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+
+/* Ambient 3D floating animation when not hovered / touched */
+.hero-3d-card-wrapper.is-ambient {
+  animation: hero3DAmbientFloat 9s ease-in-out infinite;
+}
+
+@keyframes hero3DAmbientFloat {
+  0% {
+    transform: perspective(1200px) rotateX(0deg) rotateY(0deg) translateY(0px);
+  }
+  25% {
+    transform: perspective(1200px) rotateX(3.5deg) rotateY(-4deg) translateY(-8px);
+  }
+  50% {
+    transform: perspective(1200px) rotateX(-2deg) rotateY(3deg) translateY(-3px);
+  }
+  75% {
+    transform: perspective(1200px) rotateX(2.5deg) rotateY(3.8deg) translateY(-9px);
+  }
+  100% {
+    transform: perspective(1200px) rotateX(0deg) rotateY(0deg) translateY(0px);
+  }
+}
+
 .holder.hero {
   cursor: pointer;
   position: relative;
-  border-radius: 20px;
+  border-radius: 22px;
   overflow: hidden;
-  border: 1px solid rgba(112, 45, 9, 0.4);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.7), 0 0 28px rgba(182, 15, 36, 0.18);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1.5px solid rgba(182, 15, 36, 0.45);
+  box-shadow: 
+    0 24px 60px -10px rgba(0, 0, 0, 0.85),
+    0 0 35px rgba(182, 15, 36, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  transform-style: preserve-3d;
+  will-change: transform, box-shadow, border-color;
+  touch-action: pan-y; /* Crucial for buttery mobile scrolling without gesture blocking */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background: #170D05;
 }
-.holder.hero:hover {
-  border-color: rgba(182, 15, 36, 0.75);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(182, 15, 36, 0.35);
+
+.holder.hero:hover,
+.holder.hero.is-touch-active {
+  border-color: rgba(255, 149, 97, 0.75);
+  box-shadow: 
+    0 32px 80px -12px rgba(0, 0, 0, 0.95),
+    0 0 50px rgba(182, 15, 36, 0.5),
+    0 0 24px rgba(255, 149, 97, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* 3D Dynamic Sheen / Glare */
+.hero-card-glare {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  background: radial-gradient(circle 380px at 50% 50%, rgba(255, 255, 255, 0.35) 0%, rgba(255, 149, 97, 0.15) 35%, transparent 70%);
+  mix-blend-mode: overlay;
+  transition: opacity 0.35s ease;
+  transform: translateZ(16px);
+}
+
+.holder.hero:hover .hero-card-glare,
+.holder.hero.is-touch-active .hero-card-glare {
+  opacity: 1;
+}
+
+/* 3D Border Beam Light Sweep */
+.hero-3d-border-beam {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(from 0deg at 50% 50%, transparent 0deg, #B60F24 50deg, #FF9561 100deg, transparent 160deg);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 6;
+  opacity: 0.75;
+  animation: borderBeamSpin 6s linear infinite;
+}
+
+@keyframes borderBeamSpin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 3D Live Master Pill on Hero Card */
+.hero-3d-status-pill {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 7;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  background: rgba(15, 8, 3, 0.88);
+  border: 1px solid rgba(255, 149, 97, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transform: translateZ(36px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6), 0 0 12px rgba(182, 15, 36, 0.2);
+  pointer-events: none;
+  user-select: none;
+}
+.hero-3d-status-pill .pulse-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+  animation: pulseDotLive 1.8s infinite;
+}
+@keyframes pulseDotLive {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(1.3); opacity: 0.65; }
+}
+.hero-3d-status-pill span:last-child {
+  font-family: monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: #FFE0D0;
+  letter-spacing: 0.8px;
+}
+
+/* Play Button popped into physical 3D space */
+.video-play-button {
+  transform: translateZ(52px);
+  transform-style: preserve-3d;
+  transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.2, 0.8, 0.4, 1) !important;
+  pointer-events: none; /* Allows click to trigger video toggle */
+}
+.video-play {
+  background: linear-gradient(135deg, #B60F24 0%, #702D09 100%) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7), 0 0 28px rgba(182, 15, 36, 0.8), inset 0 0 10px rgba(255,255,255,0.25) !important;
+  border: 1.5px solid rgba(255, 149, 97, 0.5) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+.holder.hero:hover .video-play,
+.hero-3d-card-wrapper:hover .video-play {
+  transform: scale(1.15) translateZ(10px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 45px rgba(182, 15, 36, 1), 0 0 20px #FF9561 !important;
+}
+
+/* Floating "Get Yours Next" Tag popped in 3D */
+.hero-book-a-call.hero-3d-floating-tag {
+  transform: translateZ(42px);
+  transform-style: preserve-3d;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.4, 1);
+  display: inline-block;
+}
+.hero-3d-card-wrapper:hover .hero-book-a-call.hero-3d-floating-tag {
+  transform: translateZ(48px) translateY(-3px);
 }
 
 .video-info-tag {
   background: rgba(36, 23, 5, 0.92) !important;
   border: 1px solid rgba(182, 15, 36, 0.5) !important;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.5), 0 0 12px rgba(182, 15, 36, 0.25) !important;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6), 0 0 14px rgba(182, 15, 36, 0.3) !important;
 }
 .video-info-tag .text {
   color: #FF9561 !important;
   font-family: 'Coolvetica', sans-serif !important;
 }
 
-.video-play-button {
-  transition: opacity 0.3s ease, transform 0.3s ease !important;
-  pointer-events: none; /* Allows click to trigger video toggle */
+/* Mobile-only Micro 3D Badges */
+.mobile-only-badge {
+  display: none !important;
 }
-.video-play {
-  background: linear-gradient(135deg, #B60F24 0%, #702D09 100%) !important;
-  box-shadow: 0 0 24px rgba(182, 15, 36, 0.7), inset 0 0 8px rgba(255,255,255,0.2) !important;
-  border: 1px solid rgba(255, 149, 97, 0.4) !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+@media screen and (max-width: 767px) {
+  .mobile-only-badge {
+    display: inline-flex !important;
+    position: absolute;
+    z-index: 10;
+    padding: 6px 12px !important;
+    gap: 7px !important;
+    border-radius: 9999px !important;
+    background: rgba(22, 11, 4, 0.9) !important;
+    border: 1px solid rgba(182, 15, 36, 0.6) !important;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.7), 0 0 16px rgba(182, 15, 36, 0.3) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+    pointer-events: none;
+    transform-style: preserve-3d;
+    transform: translateZ(32px);
+  }
+  .badge-mobile-chip-pr {
+    top: -12px;
+    right: 12px;
+    animation: floatChipPr 6s ease-in-out infinite;
+  }
+  .badge-mobile-chip-ae {
+    bottom: 24px;
+    left: -6px;
+    animation: floatChipAe 6.5s ease-in-out infinite 0.5s;
+  }
+  .edit-icon-box.mini {
+    width: 20px;
+    height: 20px;
+    font-size: 11px;
+    border-radius: 5px;
+  }
+  .mobile-chip-label {
+    font-family: 'Coolvetica', sans-serif;
+    font-size: 11.5px;
+    font-weight: 500;
+    color: #FFE5D4;
+    letter-spacing: 0.5px;
+  }
+  @keyframes floatChipPr {
+    0%, 100% { transform: translateZ(32px) translateY(0px); }
+    50%      { transform: translateZ(32px) translateY(-5px); }
+  }
+  @keyframes floatChipAe {
+    0%, 100% { transform: translateZ(32px) translateY(0px); }
+    50%      { transform: translateZ(32px) translateY(5px); }
+  }
 }
-.holder.hero:hover .video-play,
-.marquee-item:hover .video-play {
-  transform: scale(1.12);
-  box-shadow: 0 0 38px rgba(182, 15, 36, 0.95), 0 0 16px #FF9561 !important;
-}
+
 .holder {
   background: #170D05;
 }
@@ -1092,6 +1307,16 @@ a.proof-card:hover {
   .hero-ambient-timeline {
     display: none !important;
   }
+
+  /* Mobile 3D Hero Card adjustments */
+  .hero-3d-card-wrapper {
+    margin: 14px auto 0 auto !important;
+    max-width: 100% !important;
+  }
+  .holder.hero {
+    height: 270px !important;
+    border-radius: 18px !important;
+  }
 }
 
 /* ── Small Mobile (≤ 479px) ─────────────────────────── */
@@ -1119,6 +1344,19 @@ a.proof-card:hover {
   }
   .hero-title h1 .hero-line-2 {
     font-size: clamp(32px, 11.5vw, 44px) !important;
+  }
+
+  .holder.hero {
+    height: 220px !important;
+    border-radius: 16px !important;
+  }
+  .hero-3d-status-pill {
+    top: 10px !important;
+    left: 10px !important;
+    padding: 4px 9px !important;
+  }
+  .hero-3d-status-pill span:last-child {
+    font-size: 9.5px !important;
   }
 
   .lang-current-label {
