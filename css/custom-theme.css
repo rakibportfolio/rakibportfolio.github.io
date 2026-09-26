@@ -1318,22 +1318,34 @@ a.proof-card:hover {
     min-height: 40px !important;
   }
 
-  /* Hide floating badges on mobile */
-  .hero-edit-decorations .edit-floating-badge {
-    display: none !important;
-  }
-  .hero-ambient-timeline {
+  /* Clean cinematic mobile view: hide all cluttering badges, pills, and tags */
+  .mobile-only-badge,
+  .edit-floating-badge,
+  .hero-edit-decorations .edit-floating-badge,
+  .hero-ambient-timeline,
+  .hero-3d-status-pill,
+  .hero-3d-floating-tag,
+  .hero-book-a-call.hero-3d-floating-tag {
     display: none !important;
   }
 
-  /* Mobile 3D Hero Card adjustments */
+  /* Mobile 3D Hero Card: clean 16:9 cinematic frame with bold perspective */
+  .hero-3d-scene {
+    perspective: 700px !important;
+    perspective-origin: center center !important;
+  }
   .hero-3d-card-wrapper {
-    margin: 14px auto 0 auto !important;
-    max-width: 100% !important;
+    margin: 12px auto 0 auto !important;
+    width: 100% !important;
+    max-width: 520px !important;
+    transform-style: preserve-3d !important;
   }
   .holder.hero {
-    height: 270px !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important;
     border-radius: 18px !important;
+    overflow: hidden !important;
   }
 }
 
@@ -1365,16 +1377,10 @@ a.proof-card:hover {
   }
 
   .holder.hero {
-    height: 220px !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important;
     border-radius: 16px !important;
-  }
-  .hero-3d-status-pill {
-    top: 10px !important;
-    left: 10px !important;
-    padding: 4px 9px !important;
-  }
-  .hero-3d-status-pill span:last-child {
-    font-size: 9.5px !important;
   }
 
   .lang-current-label {

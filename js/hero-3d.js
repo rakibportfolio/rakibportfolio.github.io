@@ -1,11 +1,10 @@
 /**
- * Hero 3D Interactive Engine
- * - Desktop Mouse Tilt Physics (dynamic glare, multi-depth badges, 3D title)
- * - Mobile Scroll 3D Dynamic Tilt (mimics desktop hover during scrolling on mobile)
- * - Mobile Touch Drag Physics with spring inertia return
- * - Mobile Ambient 3D floating state (seamless idle figure-8 loop)
- * - Device Gyroscope tilt support (when permitted)
- * - Pure Inline Video Playback (no modal popup, direct click-to-play with sound)
+ * Hero 3D Interactive Engine (v1.4)
+ * - Desktop Mouse Tilt Physics (dynamic glare, multi-depth badges, 3D perspective)
+ * - Mobile Scroll 3D Dynamic Tilt (punchy perspective, velocity response, sustained depth)
+ * - Mobile Touch Drag 3D Physics (1:1 finger tracking tilt & interactive glare)
+ * - Gyroscope device tilt support (for mobile orientation)
+ * - Pure Inline Video Playback (zero lag, no popup modal, toggle in-place with audio)
  */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -15,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const glare = document.getElementById('heroCardGlare');
   const heroVideo = document.getElementById('heroTrailerVideo');
   const heroPlayBtn = document.getElementById('heroPlayButton');
-  const badges = document.querySelectorAll('.hero-edit-decorations .edit-floating-badge, .mobile-only-badge');
   const heroTitle = document.querySelector('.hero-title h1');
   const bgLeft = document.querySelector('.hero-bg-left');
   const bgRight = document.querySelector('.hero-bg-right');
@@ -29,7 +27,8 @@ document.addEventListener('DOMContentLoaded', function () {
   let curRotY = 0;
   let targetScale = 1;
   let curScale = 1;
-  let scrollYOffset = 0;
+  let targetGlareOpacity = 0;
+  let curGlareOpacity = 0;
 
   let isInteracting = false;
   let isTouchActive = false;
@@ -42,22 +41,32 @@ document.addEventListener('DOMContentLoaded', function () {
   let touchStartY = 0;
 
   const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.innerWidth <= 991);
+  const perspectiveVal = isTouchDevice ? 650 : 1100;
 
-  // ─── 60/120 FPS Idle-Aware Performance Physics Engine ───
+  // ─── 60/120 FPS High-Performance Smooth Physics Loop ───
   function update3DFrame() {
     const diffX = Math.abs(targetRotX - curRotX);
     const diffY = Math.abs(targetRotY - curRotY);
     const diffS = Math.abs(targetScale - curScale);
+    const diffG = Math.abs(targetGlareOpacity - curGlareOpacity);
 
-    if (diffX > 0.02 || diffY > 0.02 || diffS > 0.002 || isInteracting || isTouchActive || isScrolling) {
+    // Only update style when actively in motion or interacting
+    if (diffX > 0.02 || diffY > 0.02 || diffS > 0.002 || diffG > 0.01 || isInteracting || isTouchActive || isScrolling) {
       curRotX += (targetRotX - curRotX) * 0.12;
       curRotY += (targetRotY - curRotY) * 0.12;
       curScale += (targetScale - curScale) * 0.12;
+      curGlareOpacity += (targetGlareOpacity - curGlareOpacity) * 0.12;
 
-      wrapper.style.transform = `perspective(1200px) rotateX(${curRotX.toFixed(2)}deg) rotateY(${curRotY.toFixed(2)}deg) scale3d(${curScale.toFixed(3)}, ${curScale.toFixed(3)}, ${curScale.toFixed(3)})`;
-    } else if (!isInteracting && !isTouchActive && !isScrolling && !wrapper.classList.contains('is-ambient')) {
-      wrapper.style.transform = '';
-      wrapper.classList.add('is-ambient');
+      wrapper.style.transform = `perspective(${perspectiveVal}px) rotateX(${curRotX.toFixed(2)}deg) rotateY(${curRotY.toFixed(2)}deg) scale3d(${curScale.toFixed(3)}, ${curScale.toFixed(3)}, ${curScale.toFixed(3)})`;
+      if (glare) {
+        glare.style.opacity = curGlareOpacity.toFixed(2);
+      }
+    } else if (!isInteracting && !isTouchActive && !isScrolling && (window.pageYOffset || document.documentElement.scrollTop) < 20) {
+      // Return to ambient loop only when sitting at the absolute top of the page
+      if (!wrapper.classList.contains('is-ambient')) {
+        wrapper.style.transform = '';
+        wrapper.classList.add('is-ambient');
+      }
     }
 
     requestAnimationFrame(update3DFrame);
@@ -74,32 +83,25 @@ document.addEventListener('DOMContentLoaded', function () {
     const distX = (e.clientX - centerX) / (rect.width / 2);
     const distY = (e.clientY - centerY) / (rect.height / 2);
 
-    const normX = Math.max(-1.4, Math.min(1.4, distX));
-    const normY = Math.max(-1.4, Math.min(1.4, distY));
+    const normX = Math.max(-1.3, Math.min(1.3, distX));
+    const normY = Math.max(-1.3, Math.min(1.3, distY));
 
     isInteracting = true;
     wrapper.classList.remove('is-ambient');
 
-    targetRotY = normX * 13;
-    targetRotX = -normY * 11;
-    targetScale = 1.028;
+    targetRotY = normX * 14;
+    targetRotX = -normY * 12;
+    targetScale = 1.03;
+    targetGlareOpacity = 0.85;
 
     if (glare) {
       const glareX = ((normX + 1) / 2) * 100;
       const glareY = ((normY + 1) / 2) * 100;
-      glare.style.background = `radial-gradient(circle 380px at ${glareX.toFixed(1)}% ${glareY.toFixed(1)}%, rgba(255, 255, 255, 0.38) 0%, rgba(255, 149, 97, 0.18) 35%, transparent 70%)`;
-      glare.style.opacity = '1';
+      glare.style.background = `radial-gradient(circle 380px at ${glareX.toFixed(1)}% ${glareY.toFixed(1)}%, rgba(255, 255, 255, 0.42) 0%, rgba(255, 149, 97, 0.2) 35%, transparent 70%)`;
     }
 
-    badges.forEach(b => {
-      const depth = parseFloat(b.getAttribute('data-depth')) || 0.03;
-      const bx = normX * depth * 85;
-      const by = normY * depth * 85;
-      b.style.transform = `translate3d(${bx.toFixed(1)}px, ${by.toFixed(1)}px, 0)`;
-    });
-
     if (heroTitle) {
-      heroTitle.style.transform = `perspective(800px) rotateY(${(normX * 2.5).toFixed(1)}deg) rotateX(${(-normY * 1.8).toFixed(1)}deg)`;
+      heroTitle.style.transform = `perspective(800px) rotateY(${(normX * 2.8).toFixed(1)}deg) rotateX(${(-normY * 2.0).toFixed(1)}deg)`;
     }
   }
 
@@ -109,14 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
     targetRotX = 0;
     targetRotY = 0;
     targetScale = 1;
-
-    if (glare) {
-      glare.style.opacity = '0';
-    }
-
-    badges.forEach(b => {
-      b.style.transform = '';
-    });
+    targetGlareOpacity = 0;
 
     if (heroTitle) {
       heroTitle.style.transform = '';
@@ -130,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (heroSec) heroSec.addEventListener('mouseleave', onMouseLeave);
   }
 
-  // ─── Mobile Scroll 3D Dynamic Tilt (Mimics Desktop Hover on Mobile Scroll) ───
+  // ─── Mobile Scroll 3D Dynamic Tilt (Punchy & Sustained like PC Hover) ───
   function onScroll3D() {
     const scrollY = window.pageYOffset || document.documentElement.scrollTop;
     const scrollDelta = scrollY - lastScrollY;
@@ -139,77 +134,60 @@ document.addEventListener('DOMContentLoaded', function () {
     const heroRect = card.getBoundingClientRect();
     const vh = window.innerHeight || 800;
 
-    // Is the hero card anywhere in view?
+    // Is the hero card in viewport?
     if (heroRect.top < vh && heroRect.bottom > 0) {
       isScrolling = true;
       wrapper.classList.remove('is-ambient');
 
-      // Normalized position of card center relative to viewport center: -1.0 to +1.0
+      // Normalized position of card center relative to viewport center: -1.0 (top) to +1.0 (bottom)
       const cardCenterY = heroRect.top + heroRect.height / 2;
-      const normY = Math.max(-1.2, Math.min(1.2, (cardCenterY - vh / 2) / (vh / 2)));
+      const normY = Math.max(-1.0, Math.min(1.0, (cardCenterY - vh / 2) / (vh / 2)));
 
-      // Parallax vertical offset
-      scrollYOffset = scrollY * 0.12;
-
-      // On Mobile / Touch Devices: Dynamic 3D tilt during scroll
       if (isTouchDevice || window.innerWidth <= 991) {
-        // As you scroll down (normY becomes negative): tilts forward; scrolling up: tilts backward
-        // Add scroll velocity impulse for physical momentum
-        const tiltX = -normY * 12 + Math.max(-8, Math.min(8, scrollDelta * 0.22));
-        const tiltY = Math.sin(normY * Math.PI) * 7;
+        // Mobile 3D Scroll Tilt:
+        // As you scroll down (card travels up, normY becomes negative), card tilts backwards/up
+        // Scroll velocity impulse gives realistic physical weight
+        const impulse = Math.max(-9, Math.min(9, scrollDelta * 0.28));
+        const tiltX = -normY * 16 + impulse;
+        const tiltY = Math.sin(normY * Math.PI) * 9.5;
 
-        targetRotX = Math.max(-16, Math.min(16, tiltX));
-        targetRotY = Math.max(-12, Math.min(12, tiltY));
-        targetScale = 1.02;
+        targetRotX = Math.max(-19, Math.min(19, tiltX));
+        targetRotY = Math.max(-14, Math.min(14, tiltY));
+        targetScale = 1.025;
 
-        // Dynamic Glare Sheen sweep across card during scroll
+        // Dynamic Glare Sheen sweep across card during mobile scroll
         if (glare) {
           const glareProgressY = Math.max(10, Math.min(90, ((normY + 1) / 2) * 100));
-          const glareProgressX = Math.max(15, Math.min(85, 50 + Math.sin(normY * 3.5) * 35));
-          glare.style.background = `radial-gradient(circle 300px at ${glareProgressX.toFixed(1)}% ${glareProgressY.toFixed(1)}%, rgba(255, 255, 255, 0.42) 0%, rgba(255, 149, 97, 0.22) 38%, transparent 72%)`;
-          glare.style.opacity = '0.9';
+          const glareProgressX = Math.max(15, Math.min(85, 50 + Math.sin(normY * 3.2) * 35));
+          glare.style.background = `radial-gradient(circle 320px at ${glareProgressX.toFixed(1)}% ${glareProgressY.toFixed(1)}%, rgba(255, 255, 255, 0.48) 0%, rgba(255, 149, 97, 0.25) 38%, transparent 72%)`;
+          targetGlareOpacity = Math.max(0.3, Math.min(0.95, Math.abs(normY) * 0.9 + 0.2));
         }
 
-        // Parallax badges on mobile scroll
-        badges.forEach(b => {
-          const depth = parseFloat(b.getAttribute('data-depth')) || 0.03;
-          const by = -normY * depth * 75;
-          const bx = Math.sin(normY * 2) * depth * 50;
-          b.style.transform = `translate3d(${bx.toFixed(1)}px, ${by.toFixed(1)}px, 0)`;
-        });
-
-        // 3D Title depth on mobile scroll
-        if (heroTitle) {
-          heroTitle.style.transform = `perspective(800px) rotateX(${(-normY * 3).toFixed(1)}deg) rotateY(${(tiltY * 0.25).toFixed(1)}deg)`;
-        }
+        // When scrolling settles on mobile, sustain the natural perspective of its position
+        clearTimeout(scrollSettleTimer);
+        scrollSettleTimer = setTimeout(() => {
+          isScrolling = false;
+          // Sustain the realistic perspective for where the card currently rests on the screen!
+          targetRotX = Math.max(-15, Math.min(15, -normY * 13));
+          targetRotY = Math.sin(normY * Math.PI) * 7.5;
+          targetScale = 1.0;
+          targetGlareOpacity = Math.max(0, Math.min(0.6, Math.abs(normY) * 0.6));
+        }, 160);
       } else {
-        // On desktop, subtle scroll pitch into distance
+        // Desktop subtle scroll pitch
         curRotX += (Math.min(9, scrollY * 0.016) - curRotX) * 0.1;
       }
 
       // Background visual layers parallax
       if (bgLeft) bgLeft.style.transform = `translate3d(0, ${(scrollY * 0.16).toFixed(1)}px, 0)`;
       if (bgRight) bgRight.style.transform = `translate3d(0, ${(scrollY * -0.12).toFixed(1)}px, 0)`;
-
-      // Debounced settle back to ambient float when scrolling stops
-      clearTimeout(scrollSettleTimer);
-      scrollSettleTimer = setTimeout(() => {
-        isScrolling = false;
-        if (!isInteracting && !isTouchActive) {
-          targetRotX = 0;
-          targetRotY = 0;
-          targetScale = 1;
-          if (glare) glare.style.opacity = '0';
-          wrapper.classList.add('is-ambient');
-        }
-      }, 220);
     } else {
-      scrollYOffset = 0;
+      isScrolling = false;
     }
   }
   window.addEventListener('scroll', onScroll3D, { passive: true });
 
-  // ─── Mobile Touch Drag Physics (1:1 responsive touch tilt) ───
+  // ─── Mobile Touch Drag Physics (1:1 responsive touch tilt on card) ───
   function onTouchStart(e) {
     if (e.touches.length !== 1) return;
     isTouchActive = true;
@@ -221,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     touchStartX = e.touches[0].clientX;
     touchStartY = e.touches[0].clientY;
-    targetScale = 1.03;
+    targetScale = 1.035;
   }
 
   function onTouchMove(e) {
@@ -232,15 +210,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const diffX = curX - touchStartX;
     const diffY = curY - touchStartY;
 
-    targetRotY = Math.max(-15, Math.min(15, diffX * 0.14));
-    targetRotX = Math.max(-14, Math.min(14, -diffY * 0.12));
+    targetRotY = Math.max(-18, Math.min(18, diffX * 0.18));
+    targetRotX = Math.max(-16, Math.min(16, -diffY * 0.15));
 
     if (glare) {
       const rect = card.getBoundingClientRect();
       const touchRelX = Math.max(0, Math.min(100, ((curX - rect.left) / rect.width) * 100));
       const touchRelY = Math.max(0, Math.min(100, ((curY - rect.top) / rect.height) * 100));
-      glare.style.background = `radial-gradient(circle 260px at ${touchRelX.toFixed(1)}% ${touchRelY.toFixed(1)}%, rgba(255, 255, 255, 0.45) 0%, rgba(255, 149, 97, 0.25) 40%, transparent 75%)`;
-      glare.style.opacity = '1';
+      glare.style.background = `radial-gradient(circle 280px at ${touchRelX.toFixed(1)}% ${touchRelY.toFixed(1)}%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 149, 97, 0.28) 40%, transparent 75%)`;
+      targetGlareOpacity = 0.9;
     }
   }
 
@@ -248,20 +226,18 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!isTouchActive) return;
     isTouchActive = false;
     card.classList.remove('is-touch-active');
-    targetRotX = 0;
-    targetRotY = 0;
     targetScale = 1;
-
-    if (glare) {
-      glare.style.opacity = '0';
-    }
+    targetGlareOpacity = 0;
 
     touchResumeTimer = setTimeout(() => {
       isInteracting = false;
-      if (!isScrolling) {
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollY < 20 && !isScrolling) {
+        targetRotX = 0;
+        targetRotY = 0;
         wrapper.classList.add('is-ambient');
       }
-    }, 1400);
+    }, 1000);
   }
 
   card.addEventListener('touchstart', onTouchStart, { passive: true });
