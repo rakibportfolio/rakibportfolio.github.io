@@ -314,5 +314,12 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       card.classList.remove('is-video-playing');
     });
+
+    // Ensure video paints first frame natively when poster is removed
+    heroVideo.addEventListener('loadeddata', () => {
+      if (heroVideo.currentTime === 0) {
+        try { heroVideo.currentTime = 0.01; } catch (e) {}
+      }
+    });
   }
 });
