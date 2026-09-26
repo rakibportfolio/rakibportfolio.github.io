@@ -287,41 +287,60 @@ document.addEventListener('DOMContentLoaded', function () {
         const playPromise = heroVideo.play();
         if (playPromise !== undefined) {
           playPromise.then(() => {
-            if (heroPlayBtn) heroPlayBtn.style.opacity = '0';
+            if (heroPlayBtn) {
+              heroPlayBtn.style.opacity = '0';
+              heroPlayBtn.style.pointerEvents = 'none';
+            }
             card.classList.add('is-video-playing');
           }).catch(() => {
-            // If browser autoplay policy requires mute on initial click, fall back
+            // Fallback for browsers requiring initial muted playback
             heroVideo.muted = true;
             heroVideo.play().then(() => {
-              if (heroPlayBtn) heroPlayBtn.style.opacity = '0';
+              if (heroPlayBtn) {
+                heroPlayBtn.style.opacity = '0';
+                heroPlayBtn.style.pointerEvents = 'none';
+              }
               card.classList.add('is-video-playing');
             }).catch(() => {});
           });
         }
       } else {
         heroVideo.pause();
-        if (heroPlayBtn) heroPlayBtn.style.opacity = '1';
+        if (heroPlayBtn) {
+          heroPlayBtn.style.opacity = '1';
+          heroPlayBtn.style.pointerEvents = 'auto';
+        }
         card.classList.remove('is-video-playing');
       }
     }
 
     card.addEventListener('click', toggleInlineVideo);
+    heroVideo.addEventListener('click', toggleInlineVideo);
     if (heroPlayBtn) {
       heroPlayBtn.addEventListener('click', toggleInlineVideo);
     }
 
     heroVideo.addEventListener('play', () => {
-      if (heroPlayBtn) heroPlayBtn.style.opacity = '0';
+      if (heroPlayBtn) {
+        heroPlayBtn.style.opacity = '0';
+        heroPlayBtn.style.pointerEvents = 'none';
+      }
       card.classList.add('is-video-playing');
     });
 
     heroVideo.addEventListener('pause', () => {
-      if (heroPlayBtn) heroPlayBtn.style.opacity = '1';
+      if (heroPlayBtn) {
+        heroPlayBtn.style.opacity = '1';
+        heroPlayBtn.style.pointerEvents = 'auto';
+      }
       card.classList.remove('is-video-playing');
     });
 
     heroVideo.addEventListener('ended', () => {
-      if (heroPlayBtn) heroPlayBtn.style.opacity = '1';
+      if (heroPlayBtn) {
+        heroPlayBtn.style.opacity = '1';
+        heroPlayBtn.style.pointerEvents = 'auto';
+      }
       card.classList.remove('is-video-playing');
     });
   }
