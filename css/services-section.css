@@ -58,9 +58,9 @@
 }
 
 .services-brand-logo {
-  height: 58px;
+  height: 68px;
   width: auto;
-  max-width: 290px;
+  max-width: 330px;
   object-fit: contain;
   filter: drop-shadow(0 0 14px rgba(182, 15, 36, 0.65)) drop-shadow(0 0 28px rgba(102, 15, 36, 0.35));
   animation: logoPulseGlow 3.5s ease-in-out infinite;
@@ -892,7 +892,7 @@
     margin-bottom: 26px !important;
   }
   .services-brand-logo {
-    height: 48px !important;
+    height: 52px !important; max-width: 250px !important;
   }
   .services-badge {
     padding: 5px 14px !important;

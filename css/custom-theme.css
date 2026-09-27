@@ -181,6 +181,24 @@ h1, h2, h3, h4, h5,
 .brand-logo-link {
   display: flex !important;
   align-items: center !important;
+  text-decoration: none !important;
+}
+
+.brand-logo-link img,
+.nav-brand-logo-img {
+  height: 52px !important;
+  width: auto !important;
+  max-width: 250px !important;
+  object-fit: contain !important;
+  display: block !important;
+  filter: drop-shadow(0 0 10px rgba(182, 15, 36, 0.8)) drop-shadow(0 0 22px rgba(102, 15, 36, 0.45)) !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease !important;
+}
+
+.brand-logo-link:hover img,
+.brand-logo-link:hover .nav-brand-logo-img {
+  transform: scale(1.05) !important;
+  filter: drop-shadow(0 0 16px rgba(255, 51, 68, 0.95)) drop-shadow(0 0 32px rgba(182, 15, 36, 0.6)) !important;
 }
 
 @media screen and (min-width: 992px) {
@@ -1078,11 +1096,13 @@ a.proof-card:hover {
     margin: 0 !important;
   }
 
-  .brand-logo-link img {
-    height: 28px !important;
+  .brand-logo-link img,
+  .nav-brand-logo-img {
+    height: 42px !important;
     width: auto !important;
-    max-width: 110px !important;
+    max-width: 200px !important;
     display: block !important;
+    filter: drop-shadow(0 0 8px rgba(182, 15, 36, 0.8)) drop-shadow(0 0 16px rgba(102, 15, 36, 0.4)) !important;
   }
 
   /* Hide desktop CTA button in navbar on mobile */
@@ -1269,9 +1289,11 @@ a.proof-card:hover {
     border-radius: 10px !important;
   }
 
-  .brand-logo-link img {
-    height: 25px !important;
-    max-width: 95px !important;
+  .brand-logo-link img,
+  .nav-brand-logo-img {
+    height: 38px !important;
+    max-width: 180px !important;
+    filter: drop-shadow(0 0 8px rgba(182, 15, 36, 0.8)) !important;
   }
 
   .menu-button-2 {
@@ -1360,9 +1382,11 @@ a.proof-card:hover {
     border-radius: 9px !important;
   }
 
-  .brand-logo-link img {
-    height: 23px !important;
-    max-width: 85px !important;
+  .brand-logo-link img,
+  .nav-brand-logo-img {
+    height: 35px !important;
+    max-width: 170px !important;
+    filter: drop-shadow(0 0 7px rgba(182, 15, 36, 0.8)) !important;
   }
 
   .hero-section {
