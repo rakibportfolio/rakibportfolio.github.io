@@ -347,11 +347,12 @@
   position: relative;
   border-radius: 18px;
   overflow: hidden;
-  background: #120a02;
-  border: 1px solid rgba(112, 45, 9, 0.48);
+  background: #1a0c03;
+  border: 1px solid rgba(102, 15, 36, 0.65);
   box-shadow:
-    0 24px 60px rgba(0, 0, 0, 0.85),
-    0 0 35px rgba(102, 15, 36, 0.18);
+    0 24px 60px rgba(0, 0, 0, 0.9),
+    0 0 40px rgba(102, 15, 36, 0.35),
+    0 0 0 1px rgba(112, 45, 9, 0.3) inset;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 .svc-card:hover .saas-frame {
@@ -366,8 +367,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 11px 18px;
-  background: rgba(36, 23, 5, 0.95);
-  border-bottom: 1px solid rgba(112, 45, 9, 0.32);
+  background: linear-gradient(90deg, rgba(36, 23, 5, 0.98) 0%, rgba(50, 18, 8, 0.96) 100%);
+  border-bottom: 1px solid rgba(102, 15, 36, 0.5);
 }
 
 .saas-dots {
@@ -402,7 +403,7 @@
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 10;
-  background: #000000;
+  background: #1a0c03;
   overflow: hidden;
 }
 
@@ -413,16 +414,33 @@
   display: block;
 }
 
+/* Brand color overlay on top of video */
+.saas-video-box::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(102, 15, 36, 0.28) 0%,
+    rgba(112, 45, 9, 0.15) 40%,
+    rgba(36, 23, 5, 0.35) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: multiply;
+}
+
 .saas-metric-badge {
   position: absolute;
   top: 13px;
   right: 13px;
   padding: 6px 14px;
   border-radius: 9999px;
-  background: rgba(24, 15, 3, 0.88);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 120, 70, 0.45);
+  background: rgba(36, 23, 5, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(102, 15, 36, 0.65);
+  box-shadow: 0 0 18px rgba(102, 15, 36, 0.4);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
   font-family: 'Syne', sans-serif;
   font-size: 11px;
@@ -437,8 +455,8 @@
 /* Scrub Bar */
 .saas-scrub-bar {
   padding: 11px 18px;
-  background: rgba(24, 15, 3, 0.96);
-  border-top: 1px solid rgba(112, 45, 9, 0.3);
+  background: rgba(26, 12, 3, 0.98);
+  border-top: 1px solid rgba(102, 15, 36, 0.45);
 }
 .saas-scrub-line {
   position: relative;
