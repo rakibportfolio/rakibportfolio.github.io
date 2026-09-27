@@ -5081,10 +5081,10 @@ figcaption {
   color: #fff;
   justify-content: flex-start;
   align-items: center;
-  width: 100%;
-  max-width: 78px;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  width: auto;
+  max-width: none;
+  padding-top: 6px;
+  padding-bottom: 6px;
   padding-left: 0;
   display: flex;
 }
