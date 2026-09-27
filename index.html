@@ -1,6 +1,6 @@
 <!DOCTYPE html><!-- Last Published: Thu Sep 03 2026 12:33:02 GMT+0000 (Coordinated Universal Time) --><html data-wf-domain="mzmedia.digital" data-wf-page="69af0c7180b6e9f033168992" data-wf-site="6796419e2d5f03877896246e" lang="en"><head><meta charset="utf-8"/><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/><meta http-equiv="Pragma" content="no-cache"/><meta http-equiv="Expires" content="0"/><link href="https://cdn.prod.website-files.com" rel="preconnect" crossorigin="anonymous"/><title>SaaS Videos That Convert | MZ Media</title><meta content="MZ Media makes SaaS product videos that convert. Trusted by ClickUp and 50+ companies from YC startups to enterprises. Delivered in under two weeks." name="description"/><meta content="SaaS Videos That Convert | MZ Media" property="og:title"/><meta content="MZ Media makes SaaS product videos that convert. Trusted by ClickUp and 50+ companies from YC startups to enterprises. Delivered in under two weeks." property="og:description"/><meta content="https://cdn.prod.website-files.com/6796419e2d5f03877896246e/6a1197e95738e8a9c5965388_OG.png" property="og:image"/><meta content="SaaS Videos That Convert | MZ Media" name="twitter:title"/><meta content="MZ Media makes SaaS product videos that convert. Trusted by ClickUp and 50+ companies from YC startups to enterprises. Delivered in under two weeks." name="twitter:description"/><meta property="og:type" content="website"/><meta content="summary_large_image" name="twitter:card"/><meta content="width=device-width, initial-scale=1" name="viewport"/><link href="css/mzmedia.css" rel="stylesheet" type="text/css" /><link href="css/custom-theme.css?v=2.7" rel="stylesheet" type="text/css" />
 <link href="css/rotating-tagline.css?v=1.0" rel="stylesheet" type="text/css" />
-<link href="css/services-section.css?v=5.0" rel="stylesheet" type="text/css" /><link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="css/services-section.css?v=6.0" rel="stylesheet" type="text/css" /><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -427,13 +427,32 @@
 
 <!-- STAGE INLINE CRITICAL STYLES (Cache-Proof) -->
 <style id="saas-stage-inline-css">
+
 /* ================================================================
-   NATIVE 3D SAAS ANIMATED STAGE (BRAND COLOR PALETTE HARMONIZED)
+   ULTRA-PREMIUM 3D SAAS ANIMATION STAGE (BRAND COLORS HARMONIZED)
    Top Accent / Glow: #660F24 (Fiery Crimson)
    Mid / Secondary:   #702D09 (Warm Terracotta)
    Deep / Card BG:    #241705 (Rich Espresso)
    ================================================================ */
 
+#services-section .saas-stage-container * {
+  box-sizing: border-box;
+}
+
+#services-section .saas-stage-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  min-height: 420px;
+  background: #090402;
+  overflow: hidden;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  user-select: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* Crisp SVG handling */
 #services-section .saas-stage-container svg {
   max-width: none !important;
   max-height: none !important;
@@ -442,149 +461,144 @@
   display: block;
 }
 
-.saas-stage-container {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 10.5;
-  min-height: 380px;
-  background: #0d0603;
-  overflow: hidden;
-  perspective: 1200px;
-  transform-style: preserve-3d;
-  user-select: none;
-}
-
-/* Dot Grid Background Texture */
+/* Subtle Matrix Dot Grid */
 .stage-ambient-dotgrid {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1.2px, transparent 1.2px);
-  background-size: 16px 16px;
-  opacity: 0.65;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px);
+  background-size: 18px 18px;
+  opacity: 0.55;
   pointer-events: none;
   z-index: 1;
 }
 
-/* Center Radiant Spotlight & Upward Glow */
+/* Luminous Volumetric Stage Glow (matches reference image central aura) */
 .stage-central-spotlight {
   position: absolute;
   left: 50%;
-  top: 55%;
+  top: 52%;
   transform: translate(-50%, -50%);
-  width: 320px;
-  height: 240px;
+  width: 380px;
+  height: 280px;
   background: radial-gradient(
     ellipse at center,
-    rgba(255, 140, 110, 0.42) 0%,
-    rgba(102, 15, 36, 0.65) 30%,
-    rgba(112, 45, 9, 0.35) 60%,
-    transparent 78%
+    rgba(255, 150, 110, 0.55) 0%,
+    rgba(102, 15, 36, 0.75) 30%,
+    rgba(112, 45, 9, 0.45) 55%,
+    rgba(36, 23, 5, 0.2) 75%,
+    transparent 100%
   );
-  filter: blur(42px);
+  filter: blur(48px);
   pointer-events: none;
   z-index: 2;
-  animation: spotlightBreath 5s infinite ease-in-out alternate;
+  animation: stageSpotlightBreath 5s infinite ease-in-out alternate;
 }
 
 .stage-light-beam {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 48%;
   transform: translate(-50%, -50%);
-  width: 130px;
-  height: 130px;
-  background: radial-gradient(circle, #ffffff 0%, rgba(255, 200, 180, 0.6) 40%, transparent 75%);
-  opacity: 0.38;
-  filter: blur(32px);
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, #ffffff 0%, rgba(255, 190, 160, 0.7) 40%, transparent 80%);
+  opacity: 0.42;
+  filter: blur(34px);
   border-radius: 50%;
   pointer-events: none;
   z-index: 2;
-  animation: beamPulse 4s infinite ease-in-out alternate;
+  animation: stageBeamPulse 4s infinite ease-in-out alternate;
 }
 
-@keyframes spotlightBreath {
-  0% { transform: translate(-50%, -50%) scale(0.92); opacity: 0.8; }
+@keyframes stageSpotlightBreath {
+  0% { transform: translate(-50%, -50%) scale(0.92); opacity: 0.82; }
   100% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
 }
 
-@keyframes beamPulse {
-  0% { opacity: 0.25; transform: translate(-50%, -50%) scale(0.85); }
-  100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1.2); }
+@keyframes stageBeamPulse {
+  0% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.85); }
+  100% { opacity: 0.55; transform: translate(-50%, -50%) scale(1.2); }
 }
 
 /* Retention Badge (Top Right) */
 .stage-retention-pill {
   position: absolute;
-  top: 13px;
-  right: 14px;
+  top: 14px;
+  right: 16px;
   z-index: 20;
   display: flex;
   align-items: center;
   gap: 7px;
   padding: 6px 14px;
   border-radius: 9999px;
-  background: #1f0b06;
-  border: 1.5px solid #ff4433;
-  box-shadow: 0 0 20px rgba(255, 68, 51, 0.45), 0 4px 14px rgba(0, 0, 0, 0.7);
+  background: rgba(36, 23, 5, 0.95);
+  border: 1px solid rgba(255, 85, 51, 0.65);
+  box-shadow: 0 0 20px rgba(102, 15, 36, 0.5), 0 4px 12px rgba(0, 0, 0, 0.7);
   color: #ffffff;
-  font-family: 'Syne', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif !important;
   font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  animation: badgeLevitate 3.5s ease-in-out infinite alternate;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  animation: stageBadgeFloat 3.8s ease-in-out infinite alternate;
 }
-
 .pill-spark {
-  color: #ffaa44;
-  font-size: 13px;
-  filter: drop-shadow(0 0 6px #ff7700);
+  color: #ff7733;
+  font-size: 12px;
+}
+.pill-text strong {
+  font-weight: 700;
+  color: #ffffff;
 }
 
-@keyframes badgeLevitate {
+@keyframes stageBadgeFloat {
   0% { transform: translateY(0); }
-  100% { transform: translateY(-3px); }
+  100% { transform: translateY(-4px); }
 }
 
-/* Common Stage Card Style */
+/* Common Stage Card Style - Sleek Modern Dark Glass */
 .stage-card {
   position: absolute;
-  background: rgba(22, 13, 8, 0.92);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 140, 100, 0.22);
-  border-radius: 12px;
+  background: rgba(28, 17, 10, 0.93);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 130, 90, 0.22);
+  border-radius: 14px;
   box-shadow:
-    0 18px 40px rgba(0, 0, 0, 0.75),
+    0 20px 45px rgba(0, 0, 0, 0.8),
+    0 0 24px rgba(102, 15, 36, 0.25),
     0 0 0 1px rgba(255, 255, 255, 0.05) inset;
-  padding: 10px 12px;
+  padding: 12px 14px;
   color: #ffffff;
   z-index: 5;
-  transform-origin: center center;
   transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease;
 }
 
 .stage-card:hover {
-  transform: translateY(-5px) scale(1.04) !important;
+  transform: translateY(-4px) scale(1.03) !important;
   border-color: rgba(255, 120, 80, 0.6) !important;
   box-shadow:
-    0 22px 50px rgba(0, 0, 0, 0.9),
-    0 0 28px rgba(102, 15, 36, 0.6) !important;
+    0 24px 55px rgba(0, 0, 0, 0.9),
+    0 0 32px rgba(102, 15, 36, 0.6) !important;
   z-index: 15 !important;
 }
 
+/* Modern Clean Sans-Serif Header (No stretched quirky font!) */
 .stage-card-title {
-  font-family: 'Syne', sans-serif;
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 1.1px;
-  color: rgba(255, 220, 205, 0.9);
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  color: rgba(255, 225, 215, 0.85);
   text-transform: uppercase;
-  margin-bottom: 8px;
+  margin-bottom: 9px;
+  white-space: nowrap;
 }
 
-/* Card 1: COLOR PALETTE (Top Center) */
+/* ─────────────────────────────────────────────────────────────
+   CARD 1: COLOR PALETTE (Top Center)
+   ───────────────────────────────────────────────────────────── */
 .card-palette {
-  top: 8%;
+  top: 7%;
   left: 31%;
   width: 38%;
   animation: floatPalette 6.5s ease-in-out infinite alternate;
@@ -592,26 +606,28 @@
 
 @keyframes floatPalette {
   0% { transform: translateY(0px) rotate(-1deg); }
-  100% { transform: translateY(-8px) rotate(1deg); }
+  100% { transform: translateY(-7px) rotate(1deg); }
 }
 
 .palette-swatch-row {
   display: flex;
-  gap: 4px;
-  margin-bottom: 7px;
+  gap: 5px;
+  margin-bottom: 9px;
 }
 
 .swatch-block {
   flex: 1;
-  height: 38px;
-  border-radius: 4px;
+  height: 44px;
+  border-radius: 5px;
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 3px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 4px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
   transition: transform 0.2s ease;
-  cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 
 .swatch-block:hover {
@@ -619,19 +635,18 @@
 }
 
 .sw-code {
-  font-family: monospace;
-  font-size: 7px;
-  font-weight: 700;
-  letter-spacing: -0.2px;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
+  font-family: 'SF Mono', Monaco, Consolas, monospace !important;
+  font-size: 7.5px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  white-space: nowrap;
 }
 
 .sw-white { background: #ffffff; color: #111111; }
-.sw-crimson { background: #660F24; color: #ffb8c5; border: 1px solid rgba(255, 100, 130, 0.35); }
-.sw-terracotta { background: #702D09; color: #ffd6b8; border: 1px solid rgba(255, 150, 90, 0.35); }
-.sw-espresso { background: #241705; color: #f5cfb0; border: 1px solid rgba(150, 100, 50, 0.35); }
-.sw-coral { background: #ff5533; color: #ffffff; }
+.sw-crimson { background: #660F24; color: #ffffff; border: 1px solid rgba(255, 100, 130, 0.4); }
+.sw-terracotta { background: #702D09; color: #ffffff; border: 1px solid rgba(255, 150, 90, 0.4); }
+.sw-espresso { background: #241705; color: #f5cfb0; border: 1px solid rgba(150, 100, 50, 0.45); }
+.sw-coral { background: #FF5533; color: #ffffff; }
 
 .palette-slider-track {
   width: 100%;
@@ -643,9 +658,9 @@
 }
 
 .palette-slider-thumb {
-  width: 55%;
+  width: 50%;
   height: 100%;
-  background: linear-gradient(90deg, #660F24, #702D09, #ff5533);
+  background: linear-gradient(90deg, #660F24, #702D09, #FF5533);
   border-radius: 999px;
   animation: sliderSweep 4s ease-in-out infinite alternate;
 }
@@ -655,24 +670,27 @@
   100% { width: 65%; margin-left: 30%; }
 }
 
-/* Card 2: MOTION STYLE (Top Left) */
+/* ─────────────────────────────────────────────────────────────
+   CARD 2: MOTION STYLE (Top Left)
+   ───────────────────────────────────────────────────────────── */
 .card-motion {
-  top: 20%;
+  top: 18%;
   left: 4%;
-  width: 33%;
+  width: 32%;
   animation: floatMotion 5.8s ease-in-out infinite alternate;
 }
 
 @keyframes floatMotion {
-  0% { transform: translateY(0px) rotate(1.5deg); }
+  0% { transform: translateY(0px) rotate(1.2deg); }
   100% { transform: translateY(-7px) rotate(-1deg); }
 }
 
 .motion-wave-wrap {
   width: 100%;
   height: 28px;
-  margin-bottom: 7px;
-  overflow: hidden;
+  margin-bottom: 9px;
+  display: flex;
+  align-items: center;
 }
 
 .stage-wave-svg {
@@ -680,56 +698,39 @@
   height: 100%;
 }
 
-.wave-stroke {
-  fill: none;
-  stroke-linecap: round;
-}
-
 .wave-lead {
-  stroke: #ff735c;
+  stroke: #FF5533;
   stroke-width: 2.2;
-  stroke-dasharray: 8 3;
-  animation: waveDash 3s linear infinite;
+  filter: drop-shadow(0 0 5px rgba(255, 85, 51, 0.7));
 }
 
 .wave-trail {
   stroke: rgba(255, 140, 100, 0.45);
   stroke-width: 1.8;
-  stroke-dasharray: 6 4;
-  animation: waveDashRev 4s linear infinite;
-}
-
-@keyframes waveDash {
-  0% { stroke-dashoffset: 0; }
-  100% { stroke-dashoffset: -32; }
-}
-
-@keyframes waveDashRev {
-  0% { stroke-dashoffset: 0; }
-  100% { stroke-dashoffset: 32; }
 }
 
 .motion-btn-row {
   display: flex;
-  gap: 6px;
-  margin-bottom: 6px;
+  gap: 7px;
+  margin-bottom: 7px;
 }
 
 .motion-fps-pill {
-  font-size: 8px;
-  font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 4px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif !important;
+  font-size: 9.5px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .motion-fps-pill.fps-active {
-  background: rgba(102, 15, 36, 0.55);
-  border-color: #ff5533;
+  background: linear-gradient(135deg, rgba(102, 15, 36, 0.75), rgba(112, 45, 9, 0.65));
+  border-color: #FF5533;
   color: #ffffff;
-  box-shadow: 0 0 10px rgba(255, 85, 51, 0.4);
+  box-shadow: 0 0 12px rgba(255, 85, 51, 0.45);
 }
 
 .motion-sub-slots {
@@ -739,150 +740,159 @@
 
 .motion-slot-bar {
   flex: 1;
-  height: 10px;
-  border-radius: 3px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  height: 9px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.07);
 }
 
-/* Card 3: TONE & VOICE (Top Right) */
+/* ─────────────────────────────────────────────────────────────
+   CARD 3: TONE & VOICE (Top Right)
+   ───────────────────────────────────────────────────────────── */
 .card-tone {
   top: 13%;
   right: 4%;
-  width: 36%;
+  width: 37%;
   animation: floatTone 6.2s ease-in-out infinite alternate;
 }
 
 @keyframes floatTone {
-  0% { transform: translateY(0px) rotate(-1.5deg); }
-  100% { transform: translateY(-9px) rotate(1deg); }
+  0% { transform: translateY(0px) rotate(-1.2deg); }
+  100% { transform: translateY(-8px) rotate(1deg); }
 }
 
 .tone-tag-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 5px;
-  margin-bottom: 7px;
+  gap: 6px;
+  margin-bottom: 8px;
 }
 
 .tone-tag {
-  font-size: 7.5px;
-  font-weight: 700;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif !important;
+  font-size: 9px;
+  font-weight: 600;
   text-align: center;
-  padding: 4px 5px;
+  padding: 5px 6px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  color: rgba(255, 215, 195, 0.75);
+  color: rgba(255, 220, 205, 0.85);
+  letter-spacing: 0.3px;
   white-space: nowrap;
 }
 
 .tone-tag.tone-active {
-  background: linear-gradient(135deg, rgba(102, 15, 36, 0.75), rgba(112, 45, 9, 0.65));
-  border-color: rgba(255, 120, 80, 0.75);
+  background: linear-gradient(135deg, rgba(102, 15, 36, 0.85), rgba(112, 45, 9, 0.7));
+  border-color: rgba(255, 120, 80, 0.8);
   color: #ffffff;
-  box-shadow: 0 0 12px rgba(102, 15, 36, 0.5);
+  box-shadow: 0 0 14px rgba(102, 15, 36, 0.55);
 }
 
 .tone-sub-slots {
   display: flex;
-  gap: 4px;
+  gap: 5px;
 }
 
 .tone-slot-pill {
   flex: 1;
-  height: 9px;
+  height: 8px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.07);
 }
 
-/* Card 4: SCENE DIRECTION (Bottom Left) */
+/* ─────────────────────────────────────────────────────────────
+   CARD 4: SCENE DIRECTION (Bottom Left)
+   ───────────────────────────────────────────────────────────── */
 .card-scene {
-  bottom: 7%;
-  left: 10%;
+  bottom: 8%;
+  left: 9%;
   width: 35%;
   animation: floatScene 5.2s ease-in-out infinite alternate;
 }
 
 @keyframes floatScene {
   0% { transform: translateY(0px) rotate(-1deg); }
-  100% { transform: translateY(-7px) rotate(1.2deg); }
+  100% { transform: translateY(-7px) rotate(1deg); }
 }
 
 .scene-eq-container {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  gap: 5px;
-  height: 48px;
+  gap: 6px;
+  height: 52px;
   padding: 4px 6px;
-  background: rgba(0, 0, 0, 0.35);
-  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 7px;
 }
 
 .eq-column {
   flex: 1;
   background: rgba(255, 255, 255, 0.12);
   border-radius: 999px;
-  height: 40%;
-  transition: height 0.2s ease;
-  animation: eqPulse 2s ease-in-out infinite alternate;
+  min-height: 12px;
+  transition: height 0.25s ease;
+  animation: eqPulse 2.2s ease-in-out infinite alternate;
 }
 
-.eq-1 { animation-delay: 0.1s; animation-duration: 1.8s; }
-.eq-2 { animation-delay: 0.4s; animation-duration: 2.2s; }
-.eq-3 { animation-delay: 0.2s; animation-duration: 1.6s; }
+.eq-1 { height: 28%; animation-delay: 0.1s; animation-duration: 1.8s; }
+.eq-2 { height: 48%; animation-delay: 0.35s; animation-duration: 2.2s; }
+.eq-3 { height: 36%; animation-delay: 0.2s; animation-duration: 1.6s; }
 .eq-4.eq-highlight {
-  background: linear-gradient(180deg, #ff5533 0%, #660F24 100%);
-  box-shadow: 0 0 14px #660F24, 0 0 6px #ff5533;
-  animation: eqPulseHighlight 1.5s ease-in-out infinite alternate;
+  height: 82%;
+  background: linear-gradient(180deg, #FF5533 0%, #660F24 100%);
+  box-shadow: 0 0 16px rgba(255, 85, 51, 0.8), 0 0 8px #660F24;
+  animation: eqPulseHighlight 1.6s ease-in-out infinite alternate;
 }
-.eq-5 { animation-delay: 0.5s; animation-duration: 2.4s; }
-.eq-6 { animation-delay: 0.3s; animation-duration: 1.9s; }
+.eq-5 { height: 50%; animation-delay: 0.45s; animation-duration: 2.3s; }
+.eq-6 { height: 32%; animation-delay: 0.25s; animation-duration: 1.9s; }
 
 @keyframes eqPulse {
   0% { height: 25%; }
   50% { height: 75%; }
-  100% { height: 45%; }
+  100% { height: 42%; }
 }
 
 @keyframes eqPulseHighlight {
-  0% { height: 55%; }
+  0% { height: 60%; }
   50% { height: 95%; }
-  100% { height: 70%; }
+  100% { height: 75%; }
 }
 
-/* Card 5: VISUAL REFERENCE (Bottom Right) */
+/* ─────────────────────────────────────────────────────────────
+   CARD 5: VISUAL REFERENCE (Bottom Right)
+   ───────────────────────────────────────────────────────────── */
 .card-visual {
-  bottom: 7%;
-  right: 10%;
-  width: 36%;
+  bottom: 8%;
+  right: 9%;
+  width: 38%;
   animation: floatVisual 6.4s ease-in-out infinite alternate;
 }
 
 @keyframes floatVisual {
   0% { transform: translateY(0px) rotate(1deg); }
-  100% { transform: translateY(-8px) rotate(-1.5deg); }
+  100% { transform: translateY(-7px) rotate(-1deg); }
 }
 
 .visual-canvas-mock {
   position: relative;
   height: 52px;
   border: 1px dashed rgba(255, 140, 100, 0.4);
-  border-radius: 4px;
-  background: rgba(0, 0, 0, 0.35);
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 8px;
+  padding: 0 10px;
 }
 
 .v-anchor {
   position: absolute;
   width: 5px;
   height: 5px;
-  background: #ff735c;
+  background: #FF5533;
   border: 1px solid #1a0c03;
   border-radius: 1px;
 }
@@ -899,45 +909,45 @@
 .visual-shapes-group {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
 }
 
 .v-shape-rect {
-  width: 14px;
-  height: 14px;
+  width: 15px;
+  height: 15px;
   background: #702D09;
-  border: 1px solid rgba(255, 160, 100, 0.4);
-  border-radius: 2px;
+  border: 1px solid rgba(255, 160, 100, 0.45);
+  border-radius: 3px;
 }
 
 .v-shape-circle {
-  width: 16px;
-  height: 16px;
+  width: 17px;
+  height: 17px;
   background: #660F24;
-  border: 1px solid rgba(255, 100, 130, 0.5);
+  border: 1px solid rgba(255, 100, 130, 0.55);
   border-radius: 50%;
-  box-shadow: 0 0 8px rgba(102, 15, 36, 0.6);
+  box-shadow: 0 0 10px rgba(102, 15, 36, 0.7);
 }
 
 .v-shape-poly {
   width: 0;
   height: 0;
-  border-left: 7px solid transparent;
-  border-right: 7px solid transparent;
-  border-bottom: 14px solid #ff5533;
-  filter: drop-shadow(0 0 5px rgba(255, 85, 51, 0.5));
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 16px solid #FF5533;
+  filter: drop-shadow(0 0 6px rgba(255, 85, 51, 0.6));
 }
 
 .visual-guide-bars {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  width: 28px;
+  width: 32px;
 }
 
 .visual-guide-bars span {
   height: 3px;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.14);
   border-radius: 2px;
 }
 
@@ -945,28 +955,27 @@
 .visual-guide-bars span:nth-child(2) { width: 70%; }
 .visual-guide-bars span:nth-child(3) { width: 45%; }
 
-/* Mobile scaling for SaaS stage */
+/* Mobile scaling */
 @media (max-width: 640px) {
-  .saas-stage-container {
+  #services-section .saas-stage-container {
     min-height: 330px;
   }
   .stage-card {
-    padding: 7px 8px;
-    border-radius: 9px;
+    padding: 8px 10px;
+    border-radius: 10px;
   }
   .stage-card-title {
-    font-size: 8px;
-    letter-spacing: 0.8px;
-    margin-bottom: 5px;
+    font-size: 8.5px;
+    margin-bottom: 6px;
   }
   .swatch-block {
-    height: 30px;
+    height: 32px;
   }
   .sw-code {
-    font-size: 6px;
+    font-size: 6.5px;
   }
   .scene-eq-container {
-    height: 36px;
+    height: 38px;
   }
   .visual-canvas-mock {
     height: 42px;
@@ -1046,7 +1055,7 @@
               <span class="saas-badge-pill">PREVIEW</span>
             </div>
             <div class="saas-video-box saas-stage-container" id="saasMotionStage">
-              <!-- Atmospheric Lighting & Beam -->
+              <!-- Atmospheric Lighting & Volumetric Glow -->
               <div class="stage-ambient-dotgrid"></div>
               <div class="stage-central-spotlight"></div>
               <div class="stage-light-beam"></div>
@@ -1061,20 +1070,20 @@
               <div class="stage-card card-palette">
                 <div class="stage-card-title">COLOR PALETTE</div>
                 <div class="palette-swatch-row">
-                  <div class="swatch-block sw-white" title="#ffffff">
-                    <span class="sw-code">#ffffff</span>
+                  <div class="swatch-block sw-white" title="#FFFFFF">
+                    <span class="sw-code">#fff</span>
                   </div>
-                  <div class="swatch-block sw-crimson" title="#660f24">
-                    <span class="sw-code">#660f24</span>
+                  <div class="swatch-block sw-crimson" title="#660F24">
+                    <span class="sw-code">#660F</span>
                   </div>
-                  <div class="swatch-block sw-terracotta" title="#702d09">
-                    <span class="sw-code">#702d09</span>
+                  <div class="swatch-block sw-terracotta" title="#702D09">
+                    <span class="sw-code">#702D</span>
                   </div>
                   <div class="swatch-block sw-espresso" title="#241705">
-                    <span class="sw-code">#241705</span>
+                    <span class="sw-code">#2417</span>
                   </div>
-                  <div class="swatch-block sw-coral" title="#ff5533">
-                    <span class="sw-code">#ff5533</span>
+                  <div class="swatch-block sw-coral" title="#FF5533">
+                    <span class="sw-code">#FF55</span>
                   </div>
                 </div>
                 <div class="palette-slider-track">
@@ -1086,9 +1095,9 @@
               <div class="stage-card card-motion">
                 <div class="stage-card-title">MOTION STYLE</div>
                 <div class="motion-wave-wrap">
-                  <svg class="stage-wave-svg" viewBox="0 0 160 32" preserveAspectRatio="none">
-                    <path class="wave-stroke wave-lead" d="M0,16 Q40,0 80,16 T160,16" />
-                    <path class="wave-stroke wave-trail" d="M0,22 Q40,6 80,22 T160,22" />
+                  <svg class="stage-wave-svg" viewBox="0 0 160 30" fill="none">
+                    <path class="wave-lead" d="M2,15 C40,0 80,30 120,15 C140,7 150,11 158,15" stroke-linecap="round"/>
+                    <path class="wave-trail" d="M2,22 C40,8 80,36 120,22 C140,15 150,18 158,22" stroke-linecap="round"/>
                   </svg>
                 </div>
                 <div class="motion-btn-row">
@@ -1103,7 +1112,7 @@
 
               <!-- Card 3: TONE & VOICE (Top Right) -->
               <div class="stage-card card-tone">
-                <div class="stage-card-title">TONE & VOICE</div>
+                <div class="stage-card-title">TONE &amp; VOICE</div>
                 <div class="tone-tag-grid">
                   <span class="tone-tag">BOLD</span>
                   <span class="tone-tag tone-active">CINEMATIC</span>
