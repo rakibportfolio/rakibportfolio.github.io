@@ -1,6 +1,6 @@
 <!DOCTYPE html><!-- Last Published: Thu Sep 03 2026 12:33:02 GMT+0000 (Coordinated Universal Time) --><html data-wf-domain="mzmedia.digital" data-wf-page="69af0c7180b6e9f033168992" data-wf-site="6796419e2d5f03877896246e" lang="en"><head><meta charset="utf-8"/><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/><meta http-equiv="Pragma" content="no-cache"/><meta http-equiv="Expires" content="0"/><link href="https://cdn.prod.website-files.com" rel="preconnect" crossorigin="anonymous"/><title>SaaS Videos That Convert | MZ Media</title><meta content="MZ Media makes SaaS product videos that convert. Trusted by ClickUp and 50+ companies from YC startups to enterprises. Delivered in under two weeks." name="description"/><meta content="SaaS Videos That Convert | MZ Media" property="og:title"/><meta content="MZ Media makes SaaS product videos that convert. Trusted by ClickUp and 50+ companies from YC startups to enterprises. Delivered in under two weeks." property="og:description"/><meta content="https://cdn.prod.website-files.com/6796419e2d5f03877896246e/6a1197e95738e8a9c5965388_OG.png" property="og:image"/><meta content="SaaS Videos That Convert | MZ Media" name="twitter:title"/><meta content="MZ Media makes SaaS product videos that convert. Trusted by ClickUp and 50+ companies from YC startups to enterprises. Delivered in under two weeks." name="twitter:description"/><meta property="og:type" content="website"/><meta content="summary_large_image" name="twitter:card"/><meta content="width=device-width, initial-scale=1" name="viewport"/><link href="css/mzmedia.css" rel="stylesheet" type="text/css" /><link href="css/custom-theme.css?v=2.7" rel="stylesheet" type="text/css" />
 <link href="css/rotating-tagline.css?v=1.0" rel="stylesheet" type="text/css" />
-<link href="css/services-section.css?v=12.0" rel="stylesheet" type="text/css" /><link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="css/services-section.css?v=15.0" rel="stylesheet" type="text/css" /><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -427,6 +427,381 @@
 
 <!-- STAGE INLINE CRITICAL STYLES (Cache-Proof) -->
 <style id="saas-stage-inline-css">
+/* ================================================================
+   SERVICES SECTION - COMPACT 2x2 CLEAN GRID WITH INTER FONT
+   Brand Palette: #660F24 (Fiery Crimson), #702D09 (Warm Terracotta), #241705 (Rich Espresso)
+   ================================================================ */
+
+#services-section {
+  position: relative;
+  padding: 80px 24px 100px;
+  background: #000000;
+  overflow: hidden;
+  z-index: 10;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+#services-section * {
+  box-sizing: border-box;
+}
+
+/* Bulletproof: force all SVGs to stay tiny */
+#services-section svg {
+  max-width: 20px !important;
+  max-height: 20px !important;
+  display: inline-block;
+}
+
+/* Ambient Background Glow */
+#services-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 450px;
+  background: radial-gradient(ellipse at center, rgba(102, 15, 36, 0.3) 0%, rgba(112, 45, 9, 0.16) 45%, transparent 72%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.services-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.services-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.services-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  border-radius: 9999px;
+  background: rgba(102, 15, 36, 0.22);
+  border: 1px solid rgba(102, 15, 36, 0.55);
+  box-shadow: 0 0 16px rgba(102, 15, 36, 0.25) inset;
+  margin-bottom: 16px;
+}
+
+.services-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ff3344;
+  box-shadow: 0 0 10px #ff3344;
+}
+
+.services-badge-text {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #ffc9b5;
+  text-transform: uppercase;
+}
+
+.services-title {
+  font-family: 'Inter', sans-serif !important;
+  font-size: clamp(28px, 3.8vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+  line-height: 1.2;
+}
+
+.services-subtitle {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 15px;
+  color: rgba(255, 220, 205, 0.7);
+  max-width: 580px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   COMPACT 2x2 GRID (SEE 2 CARDS TOGETHER)
+   ───────────────────────────────────────────────────────────── */
+.services-compact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 26px;
+}
+
+.svc-compact-card {
+  position: relative;
+  border-radius: 20px;
+  padding: 28px 24px;
+  background: linear-gradient(145deg, rgba(36, 23, 5, 0.94) 0%, rgba(20, 12, 3, 0.92) 100%);
+  border: 1px solid rgba(112, 45, 9, 0.45);
+  box-shadow:
+    0 0 0 1px rgba(102, 15, 36, 0.18) inset,
+    0 20px 45px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(102, 15, 36, 0.1);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.svc-compact-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(102, 15, 36, 0.7);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.88),
+    0 0 45px rgba(102, 15, 36, 0.35);
+}
+
+.svc-card-tag {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  font-family: 'Inter', monospace !important;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: #ff7755;
+  text-transform: uppercase;
+  background: rgba(102, 15, 36, 0.28);
+  border: 1px solid rgba(102, 15, 36, 0.55);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  margin-bottom: 12px;
+}
+
+.svc-compact-heading {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.28;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+}
+
+.svc-compact-desc {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: rgba(245, 215, 195, 0.75);
+  margin: 0 0 16px 0;
+}
+
+/* SaaS Window Frame */
+.saas-frame {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #1a0c03;
+  border: 1px solid rgba(102, 15, 36, 0.65);
+  margin-bottom: 16px;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.85);
+}
+
+.saas-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  background: linear-gradient(90deg, rgba(36, 23, 5, 0.98) 0%, rgba(50, 18, 8, 0.96) 100%);
+  border-bottom: 1px solid rgba(102, 15, 36, 0.45);
+}
+
+.saas-dots {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.saas-dot {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50%;
+  display: inline-block;
+}
+.saas-dot-r { background: #ff5f56; }
+.saas-dot-y { background: #ffbd2e; }
+.saas-dot-g { background: #27c93f; }
+
+.saas-title {
+  font-family: 'Inter', monospace !important;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: rgba(255, 215, 195, 0.8);
+}
+
+.saas-badge-pill {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: rgba(39, 201, 63, 0.15);
+  border: 1px solid rgba(39, 201, 63, 0.35);
+  color: #27c93f;
+}
+
+.saas-video-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #140803;
+  overflow: hidden;
+}
+.saas-video-box video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.saas-metric-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  background: rgba(36, 23, 5, 0.92);
+  border: 1px solid rgba(102, 15, 36, 0.65);
+  font-size: 10px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.saas-scrub-bar {
+  padding: 4px 12px 6px;
+  background: rgba(20, 10, 3, 0.95);
+  border-top: 1px solid rgba(102, 15, 36, 0.35);
+}
+.saas-scrub-line {
+  position: relative;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+.saas-scrub-fill {
+  position: absolute;
+  height: 100%;
+  width: 65%;
+  background: linear-gradient(90deg, #660F24 0%, #702D09 50%, #ff5533 100%);
+}
+
+/* Tag Pills */
+.svc-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.svc-tag-pill {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 10.5px;
+  font-weight: 500;
+  color: rgba(255, 215, 195, 0.8);
+  background: rgba(112, 45, 9, 0.2);
+  border: 1px solid rgba(112, 45, 9, 0.4);
+  padding: 4px 10px;
+  border-radius: 9999px;
+}
+
+/* CTA Button */
+.svc-card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 18px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #660F24 0%, #702D09 100%);
+  border: 1px solid rgba(255, 130, 80, 0.4);
+  color: #ffffff;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  width: fit-content;
+  margin-top: auto;
+  transition: all 0.25s ease;
+}
+.svc-card-btn:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 160, 110, 0.7);
+  box-shadow: 0 0 20px rgba(102, 15, 36, 0.6);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   RESPONSIVE DESIGN (SEE 2 CARDS TOGETHER ON MOBILE & DESKTOP)
+   ───────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .services-compact-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .svc-compact-card {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+  .svc-compact-heading {
+    font-size: 17px;
+  }
+  .svc-compact-desc {
+    font-size: 12.5px;
+  }
+}
+
+@media (max-width: 680px) {
+  #services-section {
+    padding: 50px 12px 65px;
+  }
+  .services-header {
+    margin-bottom: 28px;
+  }
+  .services-title {
+    font-size: 24px;
+  }
+  .services-subtitle {
+    font-size: 13px;
+  }
+  .services-compact-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .svc-compact-card {
+    padding: 16px 14px;
+    border-radius: 14px;
+  }
+  .svc-compact-heading {
+    font-size: 16.5px;
+    margin-bottom: 6px;
+  }
+  .svc-compact-desc {
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+  .saas-frame {
+    margin-bottom: 12px;
+  }
+  .svc-tag-list {
+    margin-bottom: 14px;
+    gap: 5px;
+  }
+  .svc-tag-pill {
+    font-size: 9.5px;
+    padding: 3px 8px;
+  }
+  .svc-card-btn {
+    font-size: 11px;
+    padding: 7px 14px;
+  }
+}
 
 /* ================================================================
    SLEEK MINIMAL VIDEO EDITING STUDIO (COMPACT & CLEAN)
@@ -741,7 +1116,6 @@
     100% { left: calc(100% - 10px); }
   }
 }
-
 </style>
 
 <!-- ===============================================================
@@ -762,327 +1136,210 @@
     </div>
 
     <div class="services-grid-wrap">
+    <div class="services-compact-grid">
 
-      <!-- CARD 1: VIDEO EDITING (FLAGSHIP) -->
-      <div class="svc-card svc-flagship-card">
-        <div class="svc-flagship-grid">
-          
-          <div>
-            <div class="svc-card-tag">01 / FLAGSHIP SPECIALIZATION</div>
-            <h3 class="svc-heading">Video Editing & Motion Graphics</h3>
-            <p class="svc-desc">
-              We turn complex SaaS products and brands into high-retention video stories. Hook-first narrative, 3D product renders, dynamic pacing, and psychological sound design engineered to convert viewers into paying customers.
-            </p>
+      <!-- CARD 1: VIDEO EDITING -->
+      <div class="svc-compact-card">
+        <div class="svc-card-tag">01 / VIDEO</div>
+        <h3 class="svc-compact-heading">Video Editing &amp; Motion Graphics</h3>
+        <p class="svc-compact-desc">
+          Hook-first narrative, 3D renders, and cinematic audio calibrated to convert viewers into buyers.
+        </p>
 
-            <div class="svc-process-box">
-              <div class="svc-process-title">HOW IT WORKS • 3-STEP PIPELINE</div>
-              <div class="svc-process-steps">
-                <div class="svc-step-item">
-                  <span class="svc-step-num">1</span>
-                  <span><strong>Script & Storyboard:</strong> Hook architecture that stops the scroll within 3 seconds.</span>
-                </div>
-                <div class="svc-step-item">
-                  <span class="svc-step-num">2</span>
-                  <span><strong>3D Motion & SFX Edit:</strong> Custom UI animations, 3D motion graphics, and cinematic sound design.</span>
-                </div>
-                <div class="svc-step-item">
-                  <span class="svc-step-num">3</span>
-                  <span><strong>Conversion 4K Master:</strong> Formatted for Landing Pages, YouTube, and Paid Ad funnels.</span>
-                </div>
-              </div>
+        <div class="saas-frame">
+          <div class="saas-header">
+            <div class="saas-dots">
+              <span class="saas-dot saas-dot-r"></span>
+              <span class="saas-dot saas-dot-y"></span>
+              <span class="saas-dot saas-dot-g"></span>
             </div>
-
-            <div class="svc-tag-list">
-              <span class="svc-tag-pill">SaaS Product Videos</span>
-              <span class="svc-tag-pill">After Effects & Blender 3D</span>
-              <span class="svc-tag-pill">High-Retention Hooks</span>
-              <span class="svc-tag-pill">Viral Social Ads</span>
-            </div>
-
-            <a href="#callbook" class="svc-cta-link">
-              <span>Book Video Production ➔</span>
-            </a>
+            <span class="saas-title">mz-video-studio.app</span>
+            <span class="saas-badge-pill">4K MASTER</span>
           </div>
-
-          <div class="saas-frame">
-            <div class="saas-header">
-              <div class="saas-dots">
-                <span class="saas-dot saas-dot-r"></span>
-                <span class="saas-dot saas-dot-y"></span>
-                <span class="saas-dot saas-dot-g"></span>
+          <div class="saas-video-box saas-clean-studio" id="saasVideoSuite">
+            <div class="studio-monitor">
+              <div class="screen-glow"></div>
+              <div class="screen-top-bar">
+                <span class="screen-badge">4K 60FPS</span>
+                <span class="screen-retention">⚡ 84% Retention</span>
               </div>
-              <span class="saas-title">mz-video-studio.app • 4K Master</span>
-              <span class="saas-badge-pill">PREVIEW</span>
-            </div>
-            <div class="saas-video-box saas-clean-studio" id="saasVideoSuite">
-              <!-- Compact Cinematic Preview Monitor -->
-              <div class="studio-monitor">
-                <!-- Warm Central Bloom -->
-                <div class="screen-glow"></div>
-                
-                <!-- Top Status Bar -->
-                <div class="screen-top-bar">
-                  <span class="screen-badge">4K 60FPS</span>
-                  <span class="screen-retention">⚡ 84% Retention</span>
+              <div class="screen-center-play">
+                <div class="play-orb" title="Play Preview">
+                  <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                 </div>
-
-                <!-- Center Minimal Play Orb -->
-                <div class="screen-center-play">
-                  <div class="play-orb" title="Play Preview">
-                    <svg viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z"/>
-                    </svg>
-                  </div>
-                  <div class="play-label">SaaS Product Film • 4K Master</div>
-                </div>
-
-                <!-- Bottom Timecode & Spec -->
-                <div class="screen-bottom-bar">
-                  <span class="screen-tc">00:14:02 / 00:30:00</span>
-                  <span>16:9 • ProRes 4444</span>
-                </div>
+                <div class="play-label">SaaS Product Film • 4K Master</div>
               </div>
-
-              <!-- Compact Multi-Track Timeline -->
-              <div class="studio-timeline">
-                <!-- Animated Playhead Needle -->
-                <div class="timeline-playhead"></div>
-
-                <!-- Track V2: 3D Motion & VFX -->
-                <div class="timeline-track track-vfx">
-                  <span class="trk-label">V2</span>
-                  <div class="trk-clips">
-                    <div class="clip clip-crimson" style="left: 6%; width: 38%;">
-                      <span>3D Motion Graphics</span>
-                      <span class="kf kf-1"></span><span class="kf kf-2"></span>
-                    </div>
-                    <div class="clip clip-crimson" style="left: 48%; width: 44%;">
-                      <span>VFX Render &amp; Glow</span>
-                      <span class="kf kf-1"></span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Track V1: Main Video Cuts -->
-                <div class="timeline-track track-video">
-                  <span class="trk-label">V1</span>
-                  <div class="trk-clips">
-                    <div class="clip clip-espresso" style="left: 0%; width: 40%;">
-                      <span>Hook Intro</span>
-                    </div>
-                    <div class="clip clip-espresso" style="left: 42%; width: 38%;">
-                      <span>Feature Demo</span>
-                    </div>
-                    <div class="clip clip-espresso" style="left: 82%; width: 18%;">
-                      <span>CTA Outro</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Track A1: Audio Waveforms -->
-                <div class="timeline-track track-audio">
-                  <span class="trk-label">A1</span>
-                  <div class="trk-clips">
-                    <div class="clip clip-audio" style="left: 0%; width: 100%;">
-                      <div class="sound-wave-bars">
-                        <span></span><span></span><span></span><span></span><span></span>
-                        <span></span><span></span><span></span><span></span><span></span>
-                        <span></span><span></span><span></span><span></span><span></span>
-                        <span></span><span></span><span></span><span></span><span></span>
-                        <span></span><span></span><span></span><span></span><span></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
+              <div class="screen-bottom-bar">
+                <span class="screen-tc">00:14:02 / 00:30:00</span>
+                <span>ProRes 4444</span>
               </div>
             </div>
-            <div class="saas-scrub-bar">
-              <div class="saas-scrub-line">
-                <div class="saas-scrub-fill"></div>
+            <div class="studio-timeline">
+              <div class="timeline-playhead"></div>
+              <div class="timeline-track track-vfx">
+                <span class="trk-label">V2</span>
+                <div class="trk-clips">
+                  <div class="clip clip-crimson" style="left: 6%; width: 40%;"><span>3D Motion</span><span class="kf kf-1"></span></div>
+                  <div class="clip clip-crimson" style="left: 50%; width: 44%;"><span>VFX Render</span></div>
+                </div>
+              </div>
+              <div class="timeline-track track-video">
+                <span class="trk-label">V1</span>
+                <div class="trk-clips">
+                  <div class="clip clip-espresso" style="left: 0%; width: 45%;"><span>Hook Intro</span></div>
+                  <div class="clip clip-espresso" style="left: 48%; width: 50%;"><span>Feature Demo</span></div>
+                </div>
+              </div>
+              <div class="timeline-track track-audio">
+                <span class="trk-label">A1</span>
+                <div class="trk-clips">
+                  <div class="clip clip-audio" style="left: 0%; width: 100%;">
+                    <div class="sound-wave-bars">
+                      <span></span><span></span><span></span><span></span><span></span>
+                      <span></span><span></span><span></span><span></span><span></span>
+                      <span></span><span></span><span></span><span></span><span></span>
+                      <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-
+          <div class="saas-scrub-bar">
+            <div class="saas-scrub-line"><div class="saas-scrub-fill"></div></div>
+          </div>
         </div>
+
+        <div class="svc-tag-list">
+          <span class="svc-tag-pill">SaaS Product Videos</span>
+          <span class="svc-tag-pill">3D Motion</span>
+          <span class="svc-tag-pill">Viral Ads</span>
+        </div>
+
+        <a href="#callbook" class="svc-card-btn">Book Video Production ➔</a>
       </div>
 
-      <!-- SECONDARY 3 CARDS -->
-      <div class="svc-sub-grid">
+      <!-- CARD 2: WEBSITE DESIGN & DEV -->
+      <div class="svc-compact-card">
+        <div class="svc-card-tag">02 / WEB</div>
+        <h3 class="svc-compact-heading">Website Design &amp; Development</h3>
+        <p class="svc-compact-desc">
+          Ultra-fast, responsive 3D web experiences that build high market authority and convert casual traffic.
+        </p>
 
-        <!-- CARD 2: WEBSITE DESIGN -->
-        <div class="svc-card svc-sub-card">
-          <div class="svc-card-tag">02 / WEB</div>
-          <h3 class="svc-sub-heading">Website Design & Development</h3>
-          <p class="svc-desc">
-            Ultra-fast, responsive, 3D interactive web experiences that build high-status market authority and convert casual traffic into buyers.
-          </p>
-
-          <div class="saas-frame">
-            <div class="saas-header">
-              <div class="saas-dots">
-                <span class="saas-dot saas-dot-r"></span>
-                <span class="saas-dot saas-dot-y"></span>
-                <span class="saas-dot saas-dot-g"></span>
-              </div>
-              <span class="saas-title">yourbrand.com</span>
-              <span class="saas-badge-pill" style="color:#64b5f6; border-color:rgba(100,181,246,0.3); background:rgba(100,181,246,0.1);">3D WEB</span>
+        <div class="saas-frame">
+          <div class="saas-header">
+            <div class="saas-dots">
+              <span class="saas-dot saas-dot-r"></span>
+              <span class="saas-dot saas-dot-y"></span>
+              <span class="saas-dot saas-dot-g"></span>
             </div>
-            <div class="saas-video-box">
-              <video autoplay loop muted playsinline preload="metadata">
-                <source src="assets/videos/69f336d2c04e1d0e6125bff1_Clarity__600_600___1__mp4.mp4" type="video/mp4">
-              </video>
-              <div class="saas-metric-badge">
-                <span>🟢 100/100 Lighthouse</span>
-              </div>
+            <span class="saas-title">yourbrand.com</span>
+            <span class="saas-badge-pill" style="color:#64b5f6; border-color:rgba(100,181,246,0.3); background:rgba(100,181,246,0.1);">3D WEB</span>
+          </div>
+          <div class="saas-video-box">
+            <video autoplay loop muted playsinline preload="metadata">
+              <source src="assets/videos/69f336d2c04e1d0e6125bff1_Clarity__600_600___1__mp4.mp4" type="video/mp4">
+            </video>
+            <div class="saas-metric-badge">
+              <span>🟢 100/100 Lighthouse</span>
             </div>
           </div>
-
-          <div class="svc-process-box">
-            <div class="svc-process-title">HOW IT WORKS</div>
-            <div class="svc-process-steps">
-              <div class="svc-step-item">
-                <span class="svc-step-num">1</span>
-                <span><strong>UX Architecture:</strong> Conversion wireframes.</span>
-              </div>
-              <div class="svc-step-item">
-                <span class="svc-step-num">2</span>
-                <span><strong>3D & WebGL Build:</strong> Fluid responsive design.</span>
-              </div>
-              <div class="svc-step-item">
-                <span class="svc-step-num">3</span>
-                <span><strong>Fast Deploy:</strong> Sub-second global CDN.</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="svc-tag-list">
-            <span class="svc-tag-pill">Webflow / Code</span>
-            <span class="svc-tag-pill">3D Interactive</span>
-            <span class="svc-tag-pill">Ultra Fast</span>
-          </div>
-
-          <div class="svc-sub-footer">
-            <a href="#callbook" class="svc-sub-btn">Start Web Project ➔</a>
+          <div class="saas-scrub-bar">
+            <div class="saas-scrub-line"><div class="saas-scrub-fill"></div></div>
           </div>
         </div>
 
-        <!-- CARD 3: DIGITAL MARKETING -->
-        <div class="svc-card svc-sub-card">
-          <div class="svc-card-tag">03 / GROWTH</div>
-          <h3 class="svc-sub-heading">Digital Marketing & Growth</h3>
-          <p class="svc-desc">
-            Stop wasting ad spend. We build targeted multi-channel ad campaigns and conversion funnels that multiply pipeline revenue predictably.
-          </p>
-
-          <div class="saas-frame">
-            <div class="saas-header">
-              <div class="saas-dots">
-                <span class="saas-dot saas-dot-r"></span>
-                <span class="saas-dot saas-dot-y"></span>
-                <span class="saas-dot saas-dot-g"></span>
-              </div>
-              <span class="saas-title">growth-engine.io</span>
-              <span class="saas-badge-pill" style="color:#ffb74d; border-color:rgba(255,183,77,0.3); background:rgba(255,183,77,0.1);">5.4X ROAS</span>
-            </div>
-            <div class="saas-video-box">
-              <video autoplay loop muted playsinline preload="metadata">
-                <source src="assets/videos/69f337d6376bc515eac4642f_Rocket_600_600___1__mp4.mp4" type="video/mp4">
-              </video>
-              <div class="saas-metric-badge">
-                <span>📈 +430% Conversion</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="svc-process-box">
-            <div class="svc-process-title">HOW IT WORKS</div>
-            <div class="svc-process-steps">
-              <div class="svc-step-item">
-                <span class="svc-step-num">1</span>
-                <span><strong>Offer Research:</strong> Pinpointing high-intent buyers.</span>
-              </div>
-              <div class="svc-step-item">
-                <span class="svc-step-num">2</span>
-                <span><strong>Ad Creatives:</strong> Launching tested video ads.</span>
-              </div>
-              <div class="svc-step-item">
-                <span class="svc-step-num">3</span>
-                <span><strong>ROAS Scaling:</strong> Algorithmic budget optimization.</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="svc-tag-list">
-            <span class="svc-tag-pill">Meta & Google Ads</span>
-            <span class="svc-tag-pill">Full-Funnel CRO</span>
-            <span class="svc-tag-pill">Lead Nurturing</span>
-          </div>
-
-          <div class="svc-sub-footer">
-            <a href="#callbook" class="svc-sub-btn">Scale Campaigns ➔</a>
-          </div>
+        <div class="svc-tag-list">
+          <span class="svc-tag-pill">3D Interactive</span>
+          <span class="svc-tag-pill">Webflow / Code</span>
+          <span class="svc-tag-pill">Ultra Fast</span>
         </div>
 
-        <!-- CARD 4: BUSINESS AUTOMATION -->
-        <div class="svc-card svc-sub-card">
-          <div class="svc-card-tag">04 / AUTOMATION</div>
-          <h3 class="svc-sub-heading">Business Automation Solutions</h3>
-          <p class="svc-desc">
-            Eliminate repetitive human friction. We build autonomous AI agents, n8n webhook workflows, and CRM synchronizations that run 24/7.
-          </p>
-
-          <div class="saas-frame">
-            <div class="saas-header">
-              <div class="saas-dots">
-                <span class="saas-dot saas-dot-r"></span>
-                <span class="saas-dot saas-dot-y"></span>
-                <span class="saas-dot saas-dot-g"></span>
-              </div>
-              <span class="saas-title">n8n-canvas.ai</span>
-              <span class="saas-badge-pill" style="color:#ff5533; border-color:rgba(255,85,51,0.3); background:rgba(255,85,51,0.1);">24/7 ACTIVE</span>
-            </div>
-            <div class="saas-video-box">
-              <video autoplay loop muted playsinline preload="metadata">
-                <source src="assets/videos/69f3368700d11e3cc6b5ea51_Conversion__600_600__mp4.mp4" type="video/mp4">
-              </video>
-              <div class="saas-metric-badge">
-                <span>⚡ 120ms Execution</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="svc-process-box">
-            <div class="svc-process-title">HOW IT WORKS</div>
-            <div class="svc-process-steps">
-              <div class="svc-step-item">
-                <span class="svc-step-num">1</span>
-                <span><strong>Audit:</strong> Mapping manual lead handling.</span>
-              </div>
-              <div class="svc-step-item">
-                <span class="svc-step-num">2</span>
-                <span><strong>n8n & AI Build:</strong> Connecting webhooks & LLMs.</span>
-              </div>
-              <div class="svc-step-item">
-                <span class="svc-step-num">3</span>
-                <span><strong>Autonomous Ops:</strong> Auto-qualifying & booking.</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="svc-tag-list">
-            <span class="svc-tag-pill">n8n Workflows</span>
-            <span class="svc-tag-pill">AI Agents & LLMs</span>
-            <span class="svc-tag-pill">Auto Social Inbox</span>
-          </div>
-
-          <div class="svc-sub-footer">
-            <a href="#callbook" class="svc-sub-btn">Automate Operations ➔</a>
-          </div>
-        </div>
-
+        <a href="#callbook" class="svc-card-btn">Start Web Project ➔</a>
       </div>
 
+      <!-- CARD 3: DIGITAL MARKETING -->
+      <div class="svc-compact-card">
+        <div class="svc-card-tag">03 / GROWTH</div>
+        <h3 class="svc-compact-heading">Digital Marketing &amp; Growth</h3>
+        <p class="svc-compact-desc">
+          Targeted paid advertising and conversion funnels engineered to multiply customer acquisition.
+        </p>
+
+        <div class="saas-frame">
+          <div class="saas-header">
+            <div class="saas-dots">
+              <span class="saas-dot saas-dot-r"></span>
+              <span class="saas-dot saas-dot-y"></span>
+              <span class="saas-dot saas-dot-g"></span>
+            </div>
+            <span class="saas-title">growth-engine.io</span>
+            <span class="saas-badge-pill" style="color:#ffb74d; border-color:rgba(255,183,77,0.3); background:rgba(255,183,77,0.1);">5.4X ROAS</span>
+          </div>
+          <div class="saas-video-box">
+            <video autoplay loop muted playsinline preload="metadata">
+              <source src="assets/videos/69f337d6376bc515eac4642f_Rocket_600_600___1__mp4.mp4" type="video/mp4">
+            </video>
+            <div class="saas-metric-badge">
+              <span>📈 +430% Conversion</span>
+            </div>
+          </div>
+          <div class="saas-scrub-bar">
+            <div class="saas-scrub-line"><div class="saas-scrub-fill"></div></div>
+          </div>
+        </div>
+
+        <div class="svc-tag-list">
+          <span class="svc-tag-pill">Meta &amp; Google Ads</span>
+          <span class="svc-tag-pill">Full-Funnel CRO</span>
+          <span class="svc-tag-pill">Lead Growth</span>
+        </div>
+
+        <a href="#callbook" class="svc-card-btn">Scale Campaigns ➔</a>
+      </div>
+
+      <!-- CARD 4: BUSINESS AUTOMATION -->
+      <div class="svc-compact-card">
+        <div class="svc-card-tag">04 / AUTOMATION</div>
+        <h3 class="svc-compact-heading">Business Automation Solutions</h3>
+        <p class="svc-compact-desc">
+          Autonomous AI agents, n8n webhook pipelines, and CRM systems that eliminate manual workload.
+        </p>
+
+        <div class="saas-frame">
+          <div class="saas-header">
+            <div class="saas-dots">
+              <span class="saas-dot saas-dot-r"></span>
+              <span class="saas-dot saas-dot-y"></span>
+              <span class="saas-dot saas-dot-g"></span>
+            </div>
+            <span class="saas-title">n8n-canvas.ai</span>
+            <span class="saas-badge-pill" style="color:#ff5533; border-color:rgba(255,85,51,0.3); background:rgba(255,85,51,0.1);">24/7 ACTIVE</span>
+          </div>
+          <div class="saas-video-box">
+            <video autoplay loop muted playsinline preload="metadata">
+              <source src="assets/videos/69f3368700d11e3cc6b5ea51_Conversion__600_600__mp4.mp4" type="video/mp4">
+            </video>
+            <div class="saas-metric-badge">
+              <span>⚡ 120ms Execution</span>
+            </div>
+          </div>
+          <div class="saas-scrub-bar">
+            <div class="saas-scrub-line"><div class="saas-scrub-fill"></div></div>
+          </div>
+        </div>
+
+        <div class="svc-tag-list">
+          <span class="svc-tag-pill">n8n Workflows</span>
+          <span class="svc-tag-pill">AI Agents</span>
+          <span class="svc-tag-pill">Auto CRM</span>
+        </div>
+
+        <a href="#callbook" class="svc-card-btn">Automate Operations ➔</a>
+      </div>
+
+    </div>
     </div>
   </div>
 </section>
