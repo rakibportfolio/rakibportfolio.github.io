@@ -51,6 +51,27 @@
   margin-bottom: 48px;
 }
 
+/* Logo Lockup above the badge */
+.services-logo-lockup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.services-brand-logo {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 14px rgba(102, 15, 36, 0.65)) drop-shadow(0 0 28px rgba(102, 15, 36, 0.3));
+  animation: logoPulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes logoPulseGlow {
+  0%, 100% { filter: drop-shadow(0 0 10px rgba(102,15,36,0.5)) drop-shadow(0 0 22px rgba(102,15,36,0.25)); }
+  50%       { filter: drop-shadow(0 0 20px rgba(182,15,36,0.85)) drop-shadow(0 0 40px rgba(102,15,36,0.5)); }
+}
+
 .services-badge {
   display: inline-flex;
   align-items: center;
