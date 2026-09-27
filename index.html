@@ -495,13 +495,116 @@
               <span class="saas-title">mz-video-studio.app • 4K Master</span>
               <span class="saas-badge-pill">PREVIEW</span>
             </div>
-            <div class="saas-video-box">
-              <video autoplay loop muted playsinline preload="metadata">
-                <source src="assets/videos/69f3372ca69d7bd596c9c250_Storyboarding_600_600__mp4.mp4" type="video/mp4">
-              </video>
-              <div class="saas-metric-badge">
-                <span>⚡ 84% Retention at 30s</span>
+            <div class="saas-video-box saas-stage-container" id="saasMotionStage">
+              <!-- Atmospheric Lighting & Beam -->
+              <div class="stage-ambient-dotgrid"></div>
+              <div class="stage-central-spotlight"></div>
+              <div class="stage-light-beam"></div>
+
+              <!-- Retention Badge (Top Right) -->
+              <div class="stage-retention-pill">
+                <span class="pill-spark">⚡</span>
+                <span class="pill-text"><strong>84% Retention</strong> at 30s</span>
               </div>
+
+              <!-- Card 1: COLOR PALETTE (Top Center) -->
+              <div class="stage-card card-palette">
+                <div class="stage-card-title">COLOR PALETTE</div>
+                <div class="palette-swatch-row">
+                  <div class="swatch-block sw-white" title="#ffffff">
+                    <span class="sw-code">#ffffff</span>
+                  </div>
+                  <div class="swatch-block sw-crimson" title="#660f24">
+                    <span class="sw-code">#660f24</span>
+                  </div>
+                  <div class="swatch-block sw-terracotta" title="#702d09">
+                    <span class="sw-code">#702d09</span>
+                  </div>
+                  <div class="swatch-block sw-espresso" title="#241705">
+                    <span class="sw-code">#241705</span>
+                  </div>
+                  <div class="swatch-block sw-coral" title="#ff5533">
+                    <span class="sw-code">#ff5533</span>
+                  </div>
+                </div>
+                <div class="palette-slider-track">
+                  <div class="palette-slider-thumb"></div>
+                </div>
+              </div>
+
+              <!-- Card 2: MOTION STYLE (Top Left) -->
+              <div class="stage-card card-motion">
+                <div class="stage-card-title">MOTION STYLE</div>
+                <div class="motion-wave-wrap">
+                  <svg class="stage-wave-svg" viewBox="0 0 160 32" preserveAspectRatio="none">
+                    <path class="wave-stroke wave-lead" d="M0,16 Q40,0 80,16 T160,16" />
+                    <path class="wave-stroke wave-trail" d="M0,22 Q40,6 80,22 T160,22" />
+                  </svg>
+                </div>
+                <div class="motion-btn-row">
+                  <span class="motion-fps-pill">24 FPS</span>
+                  <span class="motion-fps-pill fps-active">60 FPS</span>
+                </div>
+                <div class="motion-sub-slots">
+                  <span class="motion-slot-bar"></span>
+                  <span class="motion-slot-bar"></span>
+                </div>
+              </div>
+
+              <!-- Card 3: TONE & VOICE (Top Right) -->
+              <div class="stage-card card-tone">
+                <div class="stage-card-title">TONE & VOICE</div>
+                <div class="tone-tag-grid">
+                  <span class="tone-tag">BOLD</span>
+                  <span class="tone-tag tone-active">CINEMATIC</span>
+                  <span class="tone-tag">DIRECT</span>
+                  <span class="tone-tag">ASPIRATIONAL</span>
+                </div>
+                <div class="tone-sub-slots">
+                  <span class="tone-slot-pill"></span>
+                  <span class="tone-slot-pill"></span>
+                  <span class="tone-slot-pill"></span>
+                </div>
+              </div>
+
+              <!-- Card 4: SCENE DIRECTION (Bottom Left) -->
+              <div class="stage-card card-scene">
+                <div class="stage-card-title">SCENE DIRECTION</div>
+                <div class="scene-eq-container">
+                  <span class="eq-column eq-1"></span>
+                  <span class="eq-column eq-2"></span>
+                  <span class="eq-column eq-3"></span>
+                  <span class="eq-column eq-4 eq-highlight"></span>
+                  <span class="eq-column eq-5"></span>
+                  <span class="eq-column eq-6"></span>
+                </div>
+              </div>
+
+              <!-- Card 5: VISUAL REFERENCE (Bottom Right) -->
+              <div class="stage-card card-visual">
+                <div class="stage-card-title">VISUAL REFERENCE</div>
+                <div class="visual-canvas-mock">
+                  <div class="v-anchor v-tl"></div>
+                  <div class="v-anchor v-tr"></div>
+                  <div class="v-anchor v-bl"></div>
+                  <div class="v-anchor v-br"></div>
+                  <div class="v-anchor v-tc"></div>
+                  <div class="v-anchor v-bc"></div>
+                  <div class="v-anchor v-ml"></div>
+                  <div class="v-anchor v-mr"></div>
+                  <div class="visual-shapes-group">
+                    <span class="v-shape-rect"></span>
+                    <span class="v-shape-circle"></span>
+                    <span class="v-shape-poly"></span>
+                  </div>
+                  <div class="visual-guide-bars">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+
             </div>
             <div class="saas-scrub-bar">
               <div class="saas-scrub-line">
