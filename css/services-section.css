@@ -1055,46 +1055,315 @@
 }
 
 /* ─────────────────────────────────────────────────────────────
-   RESPONSIVE DESIGN (2x2 ON DESKTOP, 1 COL ON MOBILE)
+   RESPONSIVE DESIGN - 2x2 ON DESKTOP AND 2 CARDS TOGETHER ON MOBILE!
    ───────────────────────────────────────────────────────────── */
 @media (max-width: 960px) {
   .services-compact-grid {
-    gap: 18px;
-  }
-  .svc-compact-card {
-    padding: 22px 18px;
-    border-radius: 18px;
-  }
-  .svc-compact-heading { font-size: 19px; }
-  .svc-compact-desc { font-size: 13px; }
-  .svc-visual-box { height: 210px; }
-}
-
-@media (max-width: 720px) {
-  #services-section {
-    padding: 50px 14px 70px;
-  }
-  .services-header {
-    margin-bottom: 28px;
-  }
-  .services-title {
-    font-size: 26px;
-  }
-  .services-subtitle {
-    font-size: 13.5px;
-  }
-  .services-compact-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr) !important;
     gap: 16px;
   }
   .svc-compact-card {
     padding: 20px 16px;
-    border-radius: 16px;
+    border-radius: 18px;
   }
-  .svc-compact-heading { font-size: 18px; margin-bottom: 6px; }
-  .svc-compact-desc { font-size: 12.5px; margin-bottom: 14px; }
-  .svc-visual-box { height: 200px; margin-bottom: 16px; }
-  .svc-features-list { margin-bottom: 16px; gap: 5px; }
-  .svc-feature-item { font-size: 11.5px; }
+  .svc-compact-heading { font-size: 18px; }
+  .svc-compact-desc { font-size: 12.5px; }
+  .svc-visual-box { height: 185px; }
   .svc-card-btn { font-size: 12px; padding: 9px 18px; }
+}
+
+/* Mobile: Exactly 2 cards side-by-side like PC */
+@media (max-width: 768px) {
+  #services-section {
+    padding: 45px 10px 65px !important;
+  }
+  .services-container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  .services-header {
+    margin-bottom: 24px !important;
+  }
+  .services-brand-logo {
+    height: 46px !important;
+  }
+  .services-badge {
+    padding: 5px 14px !important;
+    margin-bottom: 12px !important;
+  }
+  .services-badge-text {
+    font-size: 9.5px !important;
+    letter-spacing: 1px !important;
+  }
+  .services-title {
+    font-size: 22px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 8px !important;
+  }
+  .services-subtitle {
+    font-size: 12px !important;
+    line-height: 1.45 !important;
+    padding: 0 10px !important;
+  }
+
+  /* 2 CARDS TOGETHER ON MOBILE */
+  .services-compact-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  .svc-compact-card {
+    padding: 13px 10px !important;
+    border-radius: 14px !important;
+  }
+
+  .svc-card-tag {
+    font-size: 8px !important;
+    padding: 2px 7px !important;
+    letter-spacing: 0.8px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .svc-compact-heading {
+    font-size: 13.5px !important;
+    line-height: 1.25 !important;
+    margin-bottom: 4px !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  .svc-compact-desc {
+    font-size: 10.5px !important;
+    line-height: 1.35 !important;
+    margin-bottom: 8px !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+
+  /* Visual box inside compact mobile card */
+  .svc-visual-box {
+    height: 135px !important;
+    border-radius: 10px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .svc-float-badge {
+    font-size: 7px !important;
+    padding: 2px 5px !important;
+  }
+  .svc-float-badge.f-tl { top: 6px !important; left: 6px !important; }
+  .svc-float-badge.f-br { bottom: 6px !important; right: 6px !important; }
+
+  /* Card 1 NLE adjustments */
+  .svc-nle-window {
+    inset: 5px !important;
+    border-radius: 8px !important;
+    transform: none !important;
+  }
+  .svc-nle-bar {
+    height: 18px !important;
+    padding: 0 6px !important;
+  }
+  .svc-mac-dots span {
+    width: 4px !important;
+    height: 4px !important;
+  }
+  .svc-nle-title {
+    font-size: 7px !important;
+  }
+  .svc-rec-badge {
+    font-size: 6.5px !important;
+  }
+  .svc-nle-body {
+    min-height: 55px !important;
+  }
+  .svc-cinematic-bars {
+    height: 6px !important;
+  }
+  .svc-preview-hud {
+    font-size: 6px !important;
+    gap: 4px !important;
+    top: 7px !important;
+    left: 4px !important;
+  }
+  .svc-preview-tc {
+    font-size: 7px !important;
+    bottom: 7px !important;
+    right: 4px !important;
+  }
+  .svc-cw-inner {
+    width: 17px !important;
+    height: 17px !important;
+  }
+  .svc-cw span {
+    font-size: 6px !important;
+  }
+  .svc-nle-timeline {
+    height: 38px !important;
+    padding: 2px 4px !important;
+  }
+  .svc-nle-track {
+    height: 8px !important;
+  }
+  .svc-seg {
+    height: 6px !important;
+  }
+
+  /* Card 2 Browser adjustments */
+  .svc-3d-browser-wrap {
+    inset: 5px !important;
+  }
+  .svc-3d-browser {
+    transform: none !important;
+    border-radius: 8px !important;
+    width: 98% !important;
+    height: 96% !important;
+  }
+  .svc-browser-shadow {
+    display: none !important;
+  }
+  .svc-3d-bar {
+    height: 18px !important;
+    padding: 0 6px !important;
+  }
+  .svc-3d-url {
+    font-size: 7px !important;
+    padding: 1px 7px !important;
+  }
+  .svc-live-dot {
+    font-size: 6.5px !important;
+  }
+  .svc-3d-body {
+    padding: 5px !important;
+    gap: 4px !important;
+  }
+  .svc-wb3-hero {
+    padding: 4px 6px !important;
+    border-radius: 5px !important;
+  }
+  .svc-wb3-line {
+    height: 4px !important;
+  }
+  .svc-wb3-hero-btn {
+    width: 26px !important;
+    height: 11px !important;
+    border-radius: 3px !important;
+  }
+  .svc-wb3-card {
+    padding: 3px !important;
+    gap: 2px !important;
+    border-radius: 4px !important;
+  }
+  .svc-wb3-icon {
+    width: 9px !important;
+    height: 9px !important;
+  }
+  .svc-wb3-cline {
+    height: 2px !important;
+  }
+  .svc-cursor-3d {
+    width: 8px !important;
+    height: 8px !important;
+  }
+
+  /* Card 3 Chart adjustments */
+  .svc-holo-dash {
+    inset: 5px !important;
+  }
+  .svc-metric-row {
+    gap: 4px !important;
+  }
+  .svc-metric-card {
+    padding: 2px 3px !important;
+    border-radius: 6px !important;
+  }
+  .svc-m-val {
+    font-size: 10.5px !important;
+  }
+  .svc-m-label {
+    font-size: 6px !important;
+  }
+  .svc-3d-chart {
+    height: 65px !important;
+  }
+  #services-section .svc-chart-svg {
+    height: 48px !important;
+  }
+
+  /* Card 4 Neural adjustments */
+  .svc-nn-node {
+    padding: 2px 5px !important;
+    border-radius: 5px !important;
+    gap: 3px !important;
+  }
+  .svc-nn-ico {
+    font-size: 8px !important;
+  }
+  .svc-nn-lbl {
+    font-size: 6.5px !important;
+  }
+  .svc-auto-status {
+    font-size: 6.5px !important;
+    padding: 2px 5px !important;
+    bottom: 5px !important;
+    left: 5px !important;
+    right: 5px !important;
+  }
+  .svc-pulse-dot {
+    width: 4px !important;
+    height: 4px !important;
+  }
+
+  /* Feature list & button */
+  .svc-features-list {
+    gap: 3px !important;
+    margin-bottom: 10px !important;
+  }
+  .svc-feature-item {
+    font-size: 9.5px !important;
+    gap: 3px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .svc-card-btn {
+    font-size: 10px !important;
+    padding: 7px 8px !important;
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    border-radius: 99px !important;
+    letter-spacing: 0 !important;
+  }
+}
+
+/* Extra small mobile (< 380px) */
+@media (max-width: 400px) {
+  #services-section {
+    padding: 35px 6px 50px !important;
+  }
+  .services-compact-grid {
+    gap: 7px !important;
+  }
+  .svc-compact-card {
+    padding: 10px 7px !important;
+  }
+  .svc-compact-heading {
+    font-size: 12px !important;
+  }
+  .svc-compact-desc {
+    font-size: 9.5px !important;
+  }
+  .svc-visual-box {
+    height: 120px !important;
+  }
+  .svc-feature-item {
+    font-size: 8.5px !important;
+  }
+  .svc-card-btn {
+    font-size: 9px !important;
+    padding: 5px 6px !important;
+  }
 }
