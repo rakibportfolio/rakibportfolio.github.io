@@ -1,10 +1,13 @@
 /* ================================================================
-   SERVICES SECTION - ULTRA-PREMIUM 3D SAAS EXPLAINER CARDS
+   SERVICES SECTION - BRAND PALETTE HARMONIZED
+   Top Accent / Glow: #660F24 (Fiery Crimson)
+   Mid / Secondary:   #702D09 (Warm Terracotta)
+   Deep / Card BG:    #241705 (Rich Espresso)
    ================================================================ */
 
 #services-section {
   position: relative;
-  padding: 100px 24px 120px;
+  padding: 110px 24px 130px;
   background: #000000;
   overflow: hidden;
   z-index: 10;
@@ -25,17 +28,41 @@
   display: inline-block;
 }
 
-/* Background Ambient Glow */
+/* Background Ambient Glow with #660F24 & #702D09 */
 #services-section::before {
   content: '';
   position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 900px;
-  height: 450px;
-  background: radial-gradient(ellipse at center, rgba(182, 15, 36, 0.18) 0%, rgba(112, 45, 9, 0.08) 50%, transparent 70%);
-  filter: blur(80px);
+  width: 950px;
+  height: 500px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(102, 15, 36, 0.32) 0%,
+    rgba(112, 45, 9, 0.18) 45%,
+    transparent 72%
+  );
+  filter: blur(85px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#services-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 350px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(112, 45, 9, 0.12) 0%,
+    rgba(36, 23, 5, 0.05) 50%,
+    transparent 70%
+  );
+  filter: blur(75px);
   pointer-events: none;
   z-index: 0;
 }
@@ -50,189 +77,209 @@
 /* ── Section Header ────────────────────────────────────────────── */
 .services-header {
   text-align: center;
-  margin-bottom: 64px;
+  margin-bottom: 68px;
 }
 
 .services-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 7px 18px;
+  padding: 8px 20px;
   border-radius: 9999px;
-  background: rgba(182, 15, 36, 0.12);
-  border: 1px solid rgba(182, 15, 36, 0.35);
-  margin-bottom: 20px;
+  background: rgba(102, 15, 36, 0.22);
+  border: 1px solid rgba(102, 15, 36, 0.55);
+  box-shadow: 0 0 20px rgba(102, 15, 36, 0.25) inset;
+  margin-bottom: 22px;
 }
 
 .services-badge-dot {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: #ff4433;
-  box-shadow: 0 0 10px #ff4433;
+  background: #ff3344;
+  box-shadow: 0 0 12px #ff3344, 0 0 24px #660F24;
   animation: svcPulse 2s infinite ease-in-out;
 }
 @keyframes svcPulse {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.8); }
+  50% { opacity: 0.45; transform: scale(0.85); }
 }
 
 .services-badge-text {
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 2px;
-  color: rgba(255, 200, 180, 0.9);
+  letter-spacing: 2.2px;
+  color: #ffc9b5;
   text-transform: uppercase;
   font-family: 'Syne', 'Inter', sans-serif;
 }
 
 .services-title {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(32px, 4.5vw, 54px);
+  font-size: clamp(34px, 4.6vw, 56px);
   font-weight: 800;
-  line-height: 1.15;
+  line-height: 1.14;
   letter-spacing: -0.025em;
-  background: linear-gradient(160deg, #ffffff 0%, rgba(255, 210, 185, 0.9) 50%, rgba(182, 15, 36, 0.75) 100%);
+  background: linear-gradient(
+    160deg,
+    #ffffff 0%,
+    #fce1d2 45%,
+    #ff6b55 75%,
+    #660F24 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin: 0 0 16px 0;
+  margin: 0 0 18px 0;
 }
 
 .services-subtitle {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
-  color: rgba(240, 215, 200, 0.6);
-  max-width: 620px;
+  color: rgba(245, 215, 195, 0.68);
+  max-width: 640px;
   margin: 0 auto;
-  line-height: 1.65;
+  line-height: 1.68;
 }
 
 /* ── Bento Grid ────────────────────────────────────────────────── */
 .services-grid-wrap {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 32px;
 }
 
-/* Card base */
+/* ── Card Base with #241705 Deep Espresso Background ──────────── */
 .svc-card {
   position: relative;
-  border-radius: 24px;
+  border-radius: 26px;
   overflow: hidden;
+  /* Brand color #241705 deep rich espresso */
   background: linear-gradient(
     145deg,
-    rgba(30, 15, 7, 0.85) 0%,
-    rgba(14, 7, 3, 0.8) 100%
+    rgba(36, 23, 5, 0.95) 0%,
+    rgba(24, 15, 3, 0.92) 100%
   );
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(182, 15, 36, 0.28);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  /* Brand color #702D09 warm terracotta & #660F24 border */
+  border: 1px solid rgba(112, 45, 9, 0.45);
   box-shadow:
-    0 20px 50px rgba(0, 0, 0, 0.7),
-    0 0 30px rgba(182, 15, 36, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    0 0 0 1px rgba(102, 15, 36, 0.2) inset,
+    0 24px 60px rgba(0, 0, 0, 0.8),
+    0 0 40px rgba(102, 15, 36, 0.12);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
 .svc-card:hover {
-  border-color: rgba(182, 15, 36, 0.55);
+  border-color: rgba(102, 15, 36, 0.7);
   box-shadow:
-    0 24px 60px rgba(0, 0, 0, 0.85),
-    0 0 50px rgba(182, 15, 36, 0.3);
+    0 0 0 1px rgba(255, 120, 70, 0.18) inset,
+    0 28px 75px rgba(0, 0, 0, 0.88),
+    0 0 60px rgba(102, 15, 36, 0.4),
+    0 0 100px rgba(112, 45, 9, 0.2);
   transform: translateY(-4px);
 }
 
 /* ── Flagship Card (Video Editing) ─────────────────────────────── */
 .svc-flagship-card {
-  padding: 48px 46px;
+  padding: 52px 48px;
+  background: linear-gradient(
+    145deg,
+    rgba(40, 24, 6, 0.96) 0%,
+    rgba(26, 16, 4, 0.94) 100%
+  );
+  border: 1px solid rgba(112, 45, 9, 0.55);
 }
 
 .svc-flagship-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 44px;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 48px;
   align-items: center;
 }
 
 .svc-card-tag {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
   font-family: 'Syne', monospace;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 1.8px;
-  color: #ff5533;
+  color: #ff6a4a;
   text-transform: uppercase;
-  background: rgba(182, 15, 36, 0.2);
-  border: 1px solid rgba(182, 15, 36, 0.4);
-  padding: 4px 12px;
+  background: rgba(102, 15, 36, 0.28);
+  border: 1px solid rgba(102, 15, 36, 0.55);
+  box-shadow: 0 0 14px rgba(102, 15, 36, 0.2) inset;
+  padding: 5px 14px;
   border-radius: 9999px;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .svc-heading {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(26px, 2.8vw, 38px);
+  font-size: clamp(28px, 3vw, 40px);
   font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
   color: #ffffff;
-  margin: 0 0 14px 0;
+  margin: 0 0 16px 0;
 }
 
 .svc-desc {
   font-family: 'Inter', sans-serif;
   font-size: 15px;
-  line-height: 1.65;
-  color: rgba(240, 215, 200, 0.65);
-  margin: 0 0 24px 0;
+  line-height: 1.68;
+  color: rgba(245, 220, 200, 0.7);
+  margin: 0 0 26px 0;
 }
 
-/* How It Works box */
+/* How It Works box - Rich Espresso with Terracotta border */
 .svc-process-box {
-  background: rgba(182, 15, 36, 0.08);
-  border: 1px solid rgba(182, 15, 36, 0.22);
-  border-radius: 16px;
-  padding: 18px 20px;
-  margin-bottom: 24px;
+  background: rgba(24, 15, 3, 0.7);
+  border: 1px solid rgba(112, 45, 9, 0.38);
+  border-radius: 18px;
+  padding: 20px 22px;
+  margin-bottom: 26px;
 }
 
 .svc-process-title {
   font-family: 'Syne', sans-serif;
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 1.5px;
-  color: rgba(255, 190, 160, 0.9);
+  letter-spacing: 1.6px;
+  color: #ffaa88;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
 }
 
 .svc-process-steps {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .svc-step-item {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  font-size: 13px;
+  gap: 12px;
+  font-size: 13.5px;
   line-height: 1.5;
-  color: rgba(245, 225, 215, 0.85);
+  color: rgba(250, 230, 215, 0.9);
 }
 
 .svc-step-num {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
-  background: rgba(182, 15, 36, 0.4);
-  border: 1px solid rgba(255, 120, 70, 0.4);
+  background: rgba(102, 15, 36, 0.5);
+  border: 1px solid rgba(255, 120, 70, 0.45);
+  box-shadow: 0 0 10px rgba(102, 15, 36, 0.5);
   color: #ffffff;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -241,90 +288,113 @@
   margin-top: 1px;
 }
 
-/* Tags */
+/* Tags - warm terracotta styling */
 .svc-tag-list {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 26px;
+  margin-bottom: 28px;
 }
 
 .svc-tag-pill {
   font-family: 'Inter', sans-serif;
   font-size: 11px;
   font-weight: 600;
-  color: rgba(255, 200, 175, 0.75);
-  background: rgba(182, 15, 36, 0.12);
-  border: 1px solid rgba(182, 15, 36, 0.22);
-  padding: 4px 11px;
+  color: rgba(255, 210, 185, 0.85);
+  background: rgba(112, 45, 9, 0.22);
+  border: 1px solid rgba(112, 45, 9, 0.42);
+  padding: 5px 13px;
   border-radius: 9999px;
+  transition: all 0.3s ease;
+}
+.svc-card:hover .svc-tag-pill {
+  border-color: rgba(102, 15, 36, 0.55);
+  background: rgba(102, 15, 36, 0.25);
+  color: #fff;
 }
 
-/* Button */
+/* CTA Button - #660F24 to #702D09 gradient */
 .svc-cta-link {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
+  gap: 9px;
+  padding: 13px 28px;
   border-radius: 9999px;
-  background: linear-gradient(135deg, #B60F24 0%, #702D09 100%);
-  border: 1px solid rgba(255, 140, 90, 0.35);
-  box-shadow: 0 4px 16px rgba(182, 15, 36, 0.4);
+  background: linear-gradient(135deg, #660F24 0%, #702D09 100%);
+  border: 1px solid rgba(255, 140, 90, 0.4);
+  box-shadow:
+    0 0 24px rgba(102, 15, 36, 0.5),
+    0 4px 16px rgba(0, 0, 0, 0.6);
   color: #ffffff;
   font-family: 'Syne', sans-serif;
   font-size: 13px;
   font-weight: 700;
+  letter-spacing: 0.5px;
   text-decoration: none;
   width: fit-content;
-  transition: all 0.3s ease;
+  transition: all 0.35s ease;
 }
 .svc-cta-link:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(182, 15, 36, 0.65);
+  box-shadow:
+    0 0 36px rgba(102, 15, 36, 0.8),
+    0 8px 26px rgba(0, 0, 0, 0.7);
+  border-color: rgba(255, 160, 110, 0.65);
 }
 
 /* ── SaaS Window Frame ─────────────────────────────────────────── */
 .saas-frame {
   position: relative;
-  border-radius: 16px;
+  border-radius: 18px;
   overflow: hidden;
-  background: #080402;
-  border: 1px solid rgba(182, 15, 36, 0.35);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75);
+  background: #120a02;
+  border: 1px solid rgba(112, 45, 9, 0.48);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.85),
+    0 0 35px rgba(102, 15, 36, 0.18);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.svc-card:hover .saas-frame {
+  box-shadow:
+    0 28px 75px rgba(0, 0, 0, 0.92),
+    0 0 50px rgba(102, 15, 36, 0.35);
+  border-color: rgba(102, 15, 36, 0.65);
 }
 
 .saas-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 16px;
-  background: rgba(26, 12, 5, 0.95);
-  border-bottom: 1px solid rgba(182, 15, 36, 0.2);
+  padding: 11px 18px;
+  background: rgba(36, 23, 5, 0.95);
+  border-bottom: 1px solid rgba(112, 45, 9, 0.32);
 }
 
 .saas-dots {
   display: flex;
-  gap: 6px;
+  gap: 7px;
   align-items: center;
 }
-.saas-dot-r { background: #ff5f56; }
-.saas-dot-y { background: #ffbd2e; }
-.saas-dot-g { background: #27c93f; }
+.saas-dot-r { background: #ff5f56; box-shadow: 0 0 6px rgba(255, 95, 86, 0.6); }
+.saas-dot-y { background: #ffbd2e; box-shadow: 0 0 6px rgba(255, 189, 46, 0.6); }
+.saas-dot-g { background: #27c93f; box-shadow: 0 0 6px rgba(39, 201, 63, 0.6); }
 
 .saas-title {
   font-family: 'Inter', monospace;
   font-size: 11px;
   font-weight: 600;
-  color: rgba(255, 205, 180, 0.75);
+  letter-spacing: 0.5px;
+  color: rgba(255, 215, 195, 0.8);
 }
 
 .saas-badge-pill {
   font-size: 10px;
   font-weight: 700;
-  padding: 2px 7px;
-  border-radius: 4px;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: 5px;
   background: rgba(39, 201, 63, 0.15);
-  border: 1px solid rgba(39, 201, 63, 0.35);
+  border: 1px solid rgba(39, 201, 63, 0.38);
   color: #27c93f;
 }
 
@@ -332,7 +402,7 @@
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 10;
-  background: #000;
+  background: #000000;
   overflow: hidden;
 }
 
@@ -345,28 +415,30 @@
 
 .saas-metric-badge {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  padding: 5px 12px;
+  top: 13px;
+  right: 13px;
+  padding: 6px 14px;
   border-radius: 9999px;
-  background: rgba(10, 5, 2, 0.85);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 120, 70, 0.4);
+  background: rgba(24, 15, 3, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 120, 70, 0.45);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
   font-family: 'Syne', sans-serif;
   font-size: 11px;
   font-weight: 700;
   color: #ffffff;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
   z-index: 2;
 }
 
-/* Scrub bar */
+/* Scrub Bar */
 .saas-scrub-bar {
-  padding: 10px 16px;
-  background: rgba(16, 7, 3, 0.95);
-  border-top: 1px solid rgba(182, 15, 36, 0.2);
+  padding: 11px 18px;
+  background: rgba(24, 15, 3, 0.96);
+  border-top: 1px solid rgba(112, 45, 9, 0.3);
 }
 .saas-scrub-line {
   position: relative;
@@ -381,7 +453,7 @@
   top: 0; left: 0;
   height: 100%;
   width: 72%;
-  background: linear-gradient(90deg, #B60F24 0%, #ff5533 100%);
+  background: linear-gradient(90deg, #660F24 0%, #702D09 50%, #ff5533 100%);
   animation: scrubAnim 5s infinite linear;
 }
 @keyframes scrubAnim {
@@ -394,62 +466,62 @@
 .svc-sub-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 28px;
 }
 
 .svc-sub-card {
-  padding: 32px 28px;
+  padding: 36px 30px;
   display: flex;
   flex-direction: column;
 }
 
 .svc-sub-heading {
   font-family: 'Syne', sans-serif;
-  font-size: clamp(20px, 1.8vw, 24px);
+  font-size: clamp(21px, 1.9vw, 25px);
   font-weight: 800;
   line-height: 1.25;
   color: #ffffff;
-  margin: 0 0 12px 0;
+  margin: 0 0 13px 0;
 }
 
 .svc-sub-card .svc-desc {
   font-size: 14px;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 .svc-sub-card .saas-frame {
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 .svc-sub-card .saas-video-box {
   aspect-ratio: 16 / 11;
 }
 
 .svc-sub-card .svc-process-box {
-  padding: 14px 16px;
-  margin-bottom: 20px;
+  padding: 16px 18px;
+  margin-bottom: 22px;
 }
 .svc-sub-card .svc-step-item {
-  font-size: 12px;
+  font-size: 12.5px;
 }
 
 .svc-sub-card .svc-tag-list {
-  margin-bottom: 22px;
+  margin-bottom: 24px;
 }
 
 .svc-sub-footer {
   margin-top: auto;
-  padding-top: 16px;
-  border-top: 1px solid rgba(182, 15, 36, 0.16);
+  padding-top: 18px;
+  border-top: 1px solid rgba(112, 45, 9, 0.28);
 }
 
 .svc-sub-btn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
   font-family: 'Syne', sans-serif;
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 700;
-  color: rgba(255, 180, 140, 0.9);
+  color: #f7b494;
   text-decoration: none;
   transition: all 0.3s ease;
 }
@@ -468,16 +540,19 @@
     grid-template-columns: 1fr;
     gap: 28px;
   }
+  .svc-flagship-card {
+    padding: 38px 28px;
+  }
 }
 
 @media (max-width: 767px) {
   #services-section {
-    padding: 70px 16px 80px;
+    padding: 70px 16px 85px;
   }
   .svc-flagship-card {
-    padding: 28px 18px;
+    padding: 26px 18px;
   }
   .svc-sub-card {
-    padding: 26px 18px;
+    padding: 24px 18px;
   }
 }
