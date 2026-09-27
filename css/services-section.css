@@ -1,7 +1,6 @@
 
 /* ================================================================
-   SERVICES SECTION - 4 INTERACTIVE SAAS EXPLAINER STUDIOS
-   100% Vector, Zero Videos, Fast 60FPS Animations
+   SERVICES SECTION - 2x2 COMPACT GRID WITH RICH 3D SAAS EXPLAINERS
    Brand Colors: #660F24 (Fiery Crimson), #702D09 (Warm Terracotta), #241705 (Rich Espresso)
    ================================================================ */
 
@@ -18,23 +17,22 @@
   box-sizing: border-box;
 }
 
-/* Bulletproof safety: Force all inline SVGs inside services to stay small */
 #services-section svg {
   max-width: 20px !important;
   max-height: 20px !important;
   display: inline-block;
 }
 
-/* Ambient Background Glow */
+/* Background Ambient Glow with Brand Colors */
 #services-section::before {
   content: '';
   position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 900px;
-  height: 450px;
-  background: radial-gradient(ellipse at center, rgba(102, 15, 36, 0.32) 0%, rgba(112, 45, 9, 0.18) 45%, transparent 72%);
+  width: 920px;
+  height: 460px;
+  background: radial-gradient(ellipse at center, rgba(102, 15, 36, 0.35) 0%, rgba(112, 45, 9, 0.18) 45%, transparent 72%);
   filter: blur(80px);
   pointer-events: none;
   z-index: 0;
@@ -47,7 +45,7 @@
   margin: 0 auto;
 }
 
-/* Header */
+/* Section Header */
 .services-header {
   text-align: center;
   margin-bottom: 48px;
@@ -95,14 +93,14 @@
 .services-subtitle {
   font-family: 'Inter', sans-serif !important;
   font-size: 15px;
-  color: rgba(255, 220, 205, 0.7);
+  color: rgba(255, 220, 205, 0.75);
   max-width: 580px;
   margin: 0 auto;
   line-height: 1.6;
 }
 
 /* ─────────────────────────────────────────────────────────────
-   COMPACT 2x2 GRID (SEE 2 CARDS TOGETHER ON DESKTOP & MOBILE)
+   COMPACT 2x2 GRID (SEE 2 CARDS TOGETHER)
    ───────────────────────────────────────────────────────────── */
 .services-compact-grid {
   display: grid;
@@ -113,13 +111,13 @@
 .svc-compact-card {
   position: relative;
   border-radius: 20px;
-  padding: 26px 22px;
-  background: linear-gradient(145deg, rgba(36, 23, 5, 0.94) 0%, rgba(20, 12, 3, 0.92) 100%);
+  padding: 26px 24px;
+  background: linear-gradient(145deg, rgba(36, 23, 5, 0.96) 0%, rgba(20, 12, 3, 0.94) 100%);
   border: 1px solid rgba(112, 45, 9, 0.45);
   box-shadow:
-    0 0 0 1px rgba(102, 15, 36, 0.18) inset,
-    0 20px 45px rgba(0, 0, 0, 0.8),
-    0 0 30px rgba(102, 15, 36, 0.1);
+    0 0 0 1px rgba(102, 15, 36, 0.2) inset,
+    0 22px 50px rgba(0, 0, 0, 0.85),
+    0 0 32px rgba(102, 15, 36, 0.15);
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
@@ -127,10 +125,10 @@
 
 .svc-compact-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(102, 15, 36, 0.7);
+  border-color: rgba(102, 15, 36, 0.75);
   box-shadow:
-    0 24px 60px rgba(0, 0, 0, 0.88),
-    0 0 45px rgba(102, 15, 36, 0.35);
+    0 26px 65px rgba(0, 0, 0, 0.9),
+    0 0 45px rgba(102, 15, 36, 0.4);
 }
 
 .svc-card-tag {
@@ -143,8 +141,8 @@
   letter-spacing: 1.2px;
   color: #ff7755;
   text-transform: uppercase;
-  background: rgba(102, 15, 36, 0.28);
-  border: 1px solid rgba(102, 15, 36, 0.55);
+  background: rgba(102, 15, 36, 0.3);
+  border: 1px solid rgba(102, 15, 36, 0.6);
   padding: 4px 10px;
   border-radius: 9999px;
   margin-bottom: 10px;
@@ -152,9 +150,9 @@
 
 .svc-compact-heading {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-  font-size: 20px;
+  font-size: 21px;
   font-weight: 700;
-  line-height: 1.28;
+  line-height: 1.25;
   letter-spacing: -0.015em;
   color: #ffffff;
   margin: 0 0 8px 0;
@@ -164,11 +162,11 @@
   font-family: 'Inter', sans-serif !important;
   font-size: 13.5px;
   line-height: 1.55;
-  color: rgba(245, 215, 195, 0.75);
+  color: rgba(245, 215, 195, 0.8);
   margin: 0 0 16px 0;
 }
 
-/* SaaS Frame Container */
+/* SaaS Window Frame */
 .saas-frame {
   position: relative;
   border-radius: 14px;
@@ -176,14 +174,14 @@
   background: #1a0c03;
   border: 1px solid rgba(102, 15, 36, 0.65);
   margin-bottom: 16px;
-  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.85);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9);
 }
 
 .saas-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 14px;
+  padding: 9px 14px;
   background: linear-gradient(90deg, rgba(36, 23, 5, 0.98) 0%, rgba(50, 18, 8, 0.96) 100%);
   border-bottom: 1px solid rgba(102, 15, 36, 0.45);
 }
@@ -208,7 +206,7 @@
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.3px;
-  color: rgba(255, 215, 195, 0.8);
+  color: rgba(255, 215, 195, 0.85);
 }
 
 .saas-badge-pill {
@@ -219,6 +217,52 @@
   background: rgba(39, 201, 63, 0.15);
   border: 1px solid rgba(39, 201, 63, 0.35);
   color: #27c93f;
+}
+
+.saas-video-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10.5;
+  background: #140803;
+  overflow: hidden;
+}
+
+.saas-video-box video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: contrast(1.08) saturate(1.15);
+}
+
+/* Brand Color Grading Overlay on top of videos */
+.saas-brand-tint {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    145deg,
+    rgba(102, 15, 36, 0.28) 0%,
+    rgba(112, 45, 9, 0.15) 45%,
+    rgba(36, 23, 5, 0.3) 100%
+  );
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.saas-metric-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  background: rgba(36, 23, 5, 0.92);
+  border: 1px solid rgba(255, 85, 51, 0.65);
+  box-shadow: 0 0 16px rgba(102, 15, 36, 0.5);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #ffffff;
+  z-index: 3;
 }
 
 .saas-scrub-bar {
@@ -236,27 +280,25 @@
 .saas-scrub-fill {
   position: absolute;
   height: 100%;
-  width: 65%;
   background: linear-gradient(90deg, #660F24 0%, #702D09 50%, #ff5533 100%);
 }
 
-/* Tag Pills */
-.svc-tag-list {
+/* Clean Feature Items List */
+.svc-features-list {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 6px;
   margin-bottom: 18px;
 }
 
-.svc-tag-pill {
+.svc-feature-item {
   font-family: 'Inter', sans-serif !important;
-  font-size: 10.5px;
+  font-size: 12px;
   font-weight: 500;
-  color: rgba(255, 215, 195, 0.8);
-  background: rgba(112, 45, 9, 0.2);
-  border: 1px solid rgba(112, 45, 9, 0.4);
-  padding: 4px 10px;
-  border-radius: 9999px;
+  color: rgba(255, 220, 205, 0.85);
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 /* CTA Button */
@@ -264,13 +306,13 @@
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  padding: 9px 18px;
+  padding: 10px 20px;
   border-radius: 9999px;
   background: linear-gradient(135deg, #660F24 0%, #702D09 100%);
   border: 1px solid rgba(255, 130, 80, 0.4);
   color: #ffffff;
   font-family: 'Inter', sans-serif !important;
-  font-size: 12px;
+  font-size: 12.5px;
   font-weight: 600;
   text-decoration: none;
   width: fit-content;
@@ -280,558 +322,11 @@
 .svc-card-btn:hover {
   transform: translateY(-2px);
   border-color: rgba(255, 160, 110, 0.7);
-  box-shadow: 0 0 20px rgba(102, 15, 36, 0.6);
+  box-shadow: 0 0 24px rgba(102, 15, 36, 0.65);
 }
 
 /* ─────────────────────────────────────────────────────────────
-   STUDIO 1: VIDEO EDITING (COMPACT NLE TIMELINE)
-   ───────────────────────────────────────────────────────────── */
-.saas-clean-studio {
-  position: relative;
-  width: 100%;
-  background: #0a0402;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.studio-monitor {
-  position: relative;
-  background: radial-gradient(ellipse at 50% 60%, #1c0c05 0%, #0c0502 100%);
-  padding: 12px 14px;
-  min-height: 165px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(102, 15, 36, 0.4);
-  overflow: hidden;
-}
-
-.screen-glow {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 200px;
-  height: 120px;
-  background: radial-gradient(ellipse, rgba(102, 15, 36, 0.7) 0%, rgba(112, 45, 9, 0.35) 45%, transparent 75%);
-  filter: blur(26px);
-  pointer-events: none;
-}
-
-.screen-top-bar {
-  position: relative;
-  z-index: 3;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.screen-badge {
-  font-size: 8.5px;
-  font-weight: 600;
-  color: #ffb5a0;
-  background: rgba(102, 15, 36, 0.45);
-  border: 1px solid rgba(255, 100, 70, 0.35);
-  padding: 2px 7px;
-  border-radius: 4px;
-}
-
-.screen-retention {
-  font-size: 9.5px;
-  font-weight: 600;
-  color: #ffffff;
-  background: rgba(36, 23, 5, 0.9);
-  border: 1px solid rgba(255, 85, 51, 0.6);
-  box-shadow: 0 0 10px rgba(102, 15, 36, 0.5);
-  padding: 2px 8px;
-  border-radius: 999px;
-}
-
-.screen-center-play {
-  position: relative;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  margin: 8px 0;
-}
-
-.play-orb {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, rgba(102, 15, 36, 0.9) 0%, rgba(112, 45, 9, 0.8) 100%);
-  border: 1px solid rgba(255, 140, 100, 0.5);
-  box-shadow: 0 0 16px rgba(102, 15, 36, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-}
-.play-orb svg { margin-left: 2px; fill: #ffffff; width: 14px; height: 14px; }
-
-.play-label {
-  font-size: 10.5px;
-  font-weight: 500;
-  color: rgba(255, 235, 225, 0.85);
-}
-
-.screen-bottom-bar {
-  position: relative;
-  z-index: 3;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 9px;
-  color: rgba(255, 255, 255, 0.55);
-}
-.screen-tc {
-  font-family: monospace;
-  color: rgba(255, 255, 255, 0.85);
-  background: rgba(0, 0, 0, 0.4);
-  padding: 2px 5px;
-  border-radius: 3px;
-}
-
-.studio-timeline {
-  position: relative;
-  background: #0d0502;
-  padding: 6px 10px 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  overflow: hidden;
-}
-
-.timeline-playhead {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 45px;
-  width: 1.5px;
-  background: #ff3344;
-  box-shadow: 0 0 8px #ff3344;
-  z-index: 10;
-  animation: playheadSweep 6s linear infinite;
-}
-@keyframes playheadSweep {
-  0% { left: 45px; }
-  100% { left: calc(100% - 10px); }
-}
-
-.timeline-track {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  height: 20px;
-}
-.trk-label {
-  width: 24px;
-  font-size: 8px;
-  font-weight: 700;
-  color: #ff9977;
-  background: rgba(102, 15, 36, 0.35);
-  padding: 1px 3px;
-  border-radius: 3px;
-  text-align: center;
-  flex-shrink: 0;
-}
-.trk-clips {
-  position: relative;
-  flex: 1;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 3px;
-  overflow: hidden;
-}
-.clip {
-  position: absolute;
-  top: 1px;
-  bottom: 1px;
-  border-radius: 3px;
-  display: flex;
-  align-items: center;
-  padding: 0 6px;
-  font-size: 7.5px;
-  font-weight: 500;
-  color: #ffffff;
-  white-space: nowrap;
-}
-.clip-crimson { background: #660F24; border: 1px solid rgba(255, 100, 130, 0.45); }
-.clip-espresso { background: #241705; border: 1px solid rgba(255, 140, 90, 0.35); color: #f5d0be; }
-.clip-audio { background: #140803; border: 1px solid rgba(255, 85, 51, 0.3); }
-
-.kf {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: #ffd699;
-  transform: rotate(45deg);
-  right: 15%;
-}
-
-.sound-wave-bars {
-  display: flex;
-  align-items: center;
-  gap: 2.5px;
-  height: 12px;
-  width: 100%;
-}
-.sound-wave-bars span {
-  flex: 1;
-  background: #ff5533;
-  border-radius: 1px;
-  height: 40%;
-  animation: audioWaveSmooth 1.2s ease-in-out infinite alternate;
-}
-.sound-wave-bars span:nth-child(2n) { animation-delay: 0.15s; height: 75%; background: #ff8866; }
-.sound-wave-bars span:nth-child(3n) { animation-delay: 0.3s; height: 95%; background: #ff3344; }
-
-@keyframes audioWaveSmooth {
-  0% { transform: scaleY(0.4); }
-  100% { transform: scaleY(1.15); }
-}
-
-/* ─────────────────────────────────────────────────────────────
-   STUDIO 2: 3D WEB DESIGN (RESPONSIVE LIVE CANVAS)
-   ───────────────────────────────────────────────────────────── */
-.saas-web-canvas {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  min-height: 220px;
-  background: radial-gradient(circle at 50% 50%, #1a0c05 0%, #080301 100%);
-  overflow: hidden;
-  padding: 12px 14px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.web-device-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 3;
-}
-.web-url-pill {
-  font-size: 8.5px;
-  font-family: monospace;
-  color: rgba(255, 255, 255, 0.7);
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 2px 7px;
-  border-radius: 999px;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-.web-score-badge {
-  font-size: 9px;
-  font-weight: 700;
-  color: #27c93f;
-  background: rgba(39, 201, 63, 0.12);
-  border: 1px solid rgba(39, 201, 63, 0.35);
-  padding: 2px 7px;
-  border-radius: 999px;
-}
-
-/* 3D Wireframe Cube / Isometric Centerpiece */
-.web-centerpiece {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 10px 0;
-  z-index: 3;
-}
-.web-3d-wireframe {
-  width: 80px;
-  height: 80px;
-  position: relative;
-  animation: rotate3DCube 8s linear infinite;
-  transform-style: preserve-3d;
-}
-@keyframes rotate3DCube {
-  0% { transform: rotateX(20deg) rotateY(0deg); }
-  100% { transform: rotateX(20deg) rotateY(360deg); }
-}
-
-.web-cube-face {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  border: 1.5px solid rgba(255, 85, 51, 0.7);
-  background: rgba(102, 15, 36, 0.2);
-  border-radius: 6px;
-  box-shadow: 0 0 14px rgba(255, 85, 51, 0.3) inset;
-}
-.face-1 { transform: rotateY(0deg) translateZ(30px); }
-.face-2 { transform: rotateY(90deg) translateZ(30px); border-color: rgba(255, 140, 90, 0.6); }
-.face-3 { transform: rotateY(180deg) translateZ(30px); }
-.face-4 { transform: rotateY(-90deg) translateZ(30px); }
-
-/* Floating Web Floating Pills */
-.web-floating-tag {
-  position: absolute;
-  font-size: 8px;
-  font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 999px;
-  background: rgba(36, 23, 5, 0.9);
-  border: 1px solid rgba(255, 120, 80, 0.5);
-  color: #ffffff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-}
-.tag-webgl { top: 38%; left: 8%; animation: webFloatA 4s ease-in-out infinite alternate; }
-.tag-speed { top: 46%; right: 8%; animation: webFloatB 4.5s ease-in-out infinite alternate; }
-
-@keyframes webFloatA { 0% { transform: translateY(0); } 100% { transform: translateY(-4px); } }
-@keyframes webFloatB { 0% { transform: translateY(0); } 100% { transform: translateY(4px); } }
-
-.web-bottom-spec {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 8.5px;
-  color: rgba(255, 255, 255, 0.6);
-  z-index: 3;
-}
-.device-toggles {
-  display: flex;
-  gap: 4px;
-}
-.dev-pill {
-  padding: 2px 6px;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.06);
-}
-.dev-pill.active {
-  background: rgba(102, 15, 36, 0.6);
-  color: #ffaa88;
-  border: 1px solid rgba(255, 85, 51, 0.4);
-}
-
-/* ─────────────────────────────────────────────────────────────
-   STUDIO 3: GROWTH & PERFORMANCE ADS (REAL-TIME CHART)
-   ───────────────────────────────────────────────────────────── */
-.saas-growth-canvas {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  min-height: 220px;
-  background: radial-gradient(circle at 50% 60%, #1b0c05 0%, #070301 100%);
-  overflow: hidden;
-  padding: 12px 14px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.growth-top-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 3;
-}
-.growth-roas-pill {
-  font-size: 9.5px;
-  font-weight: 700;
-  color: #ffffff;
-  background: linear-gradient(135deg, #660F24 0%, #702D09 100%);
-  border: 1px solid rgba(255, 120, 80, 0.5);
-  box-shadow: 0 0 10px rgba(102, 15, 36, 0.5);
-  padding: 2px 8px;
-  border-radius: 999px;
-}
-
-/* Growth Live Chart */
-.growth-chart-wrap {
-  position: relative;
-  height: 95px;
-  margin: 6px 0;
-  z-index: 3;
-}
-.growth-chart-wrap svg {
-  width: 100% !important;
-  max-width: none !important;
-  height: 100% !important;
-  max-height: none !important;
-}
-
-.chart-line {
-  stroke: #ff5533;
-  stroke-width: 2.5;
-  fill: none;
-  stroke-linecap: round;
-  filter: drop-shadow(0 0 8px rgba(255, 85, 51, 0.7));
-}
-.chart-fill {
-  fill: url(#growthGrad);
-  opacity: 0.35;
-}
-.chart-target-dot {
-  fill: #ffffff;
-  stroke: #ff3344;
-  stroke-width: 2.5;
-  animation: pulseDot 2s infinite;
-}
-@keyframes pulseDot {
-  0%, 100% { r: 4; }
-  50% { r: 6; }
-}
-
-.growth-metric-badge {
-  position: absolute;
-  top: 4px;
-  left: 10px;
-  font-size: 11px;
-  font-weight: 800;
-  color: #27c93f;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 2px 7px;
-  border-radius: 4px;
-  border: 1px solid rgba(39, 201, 63, 0.3);
-}
-
-.growth-channels-row {
-  display: flex;
-  gap: 5px;
-  z-index: 3;
-}
-.channel-chip {
-  flex: 1;
-  background: rgba(36, 23, 5, 0.85);
-  border: 1px solid rgba(112, 45, 9, 0.4);
-  border-radius: 5px;
-  padding: 4px 6px;
-  font-size: 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-}
-.chip-name { color: rgba(255, 255, 255, 0.6); font-weight: 500; }
-.chip-val { color: #ffffff; font-weight: 700; }
-
-/* ─────────────────────────────────────────────────────────────
-   STUDIO 4: BUSINESS AUTOMATION (N8N VISUAL NODE PIPELINE)
-   ───────────────────────────────────────────────────────────── */
-.saas-auto-canvas {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  min-height: 220px;
-  background: radial-gradient(circle at 50% 50%, #1a0b04 0%, #060201 100%);
-  overflow: hidden;
-  padding: 12px 14px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.auto-top-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 3;
-}
-.auto-status-pill {
-  font-size: 8.5px;
-  font-weight: 700;
-  color: #27c93f;
-  background: rgba(39, 201, 63, 0.12);
-  border: 1px solid rgba(39, 201, 63, 0.35);
-  padding: 2px 7px;
-  border-radius: 999px;
-}
-
-/* 3 Connected Visual Workflow Nodes */
-.auto-nodes-flow {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 10px 0;
-  z-index: 3;
-}
-
-.auto-flow-line {
-  position: absolute;
-  top: 50%;
-  left: 15%;
-  right: 15%;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.12);
-  transform: translateY(-50%);
-  z-index: 1;
-}
-.auto-flow-pulse {
-  position: absolute;
-  top: 50%;
-  left: 15%;
-  width: 25px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #ff5533, transparent);
-  box-shadow: 0 0 8px #ff5533;
-  transform: translateY(-50%);
-  z-index: 2;
-  animation: nodePulseTravel 3s linear infinite;
-}
-@keyframes nodePulseTravel {
-  0% { left: 15%; opacity: 0; }
-  20% { opacity: 1; }
-  80% { opacity: 1; }
-  100% { left: 75%; opacity: 0; }
-}
-
-.wf-node {
-  position: relative;
-  z-index: 3;
-  background: rgba(36, 23, 5, 0.95);
-  border: 1px solid rgba(112, 45, 9, 0.5);
-  border-radius: 8px;
-  padding: 6px 8px;
-  width: 30%;
-  text-align: center;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.6);
-  transition: transform 0.25s ease;
-}
-.wf-node:hover {
-  transform: translateY(-2px);
-  border-color: #ff5533;
-}
-.node-active {
-  border-color: rgba(255, 85, 51, 0.7);
-  box-shadow: 0 0 14px rgba(102, 15, 36, 0.5);
-}
-
-.node-icon { font-size: 13px; margin-bottom: 2px; }
-.node-title {
-  font-size: 8px;
-  font-weight: 700;
-  color: #ffffff;
-  white-space: nowrap;
-}
-.node-sub {
-  font-size: 6.5px;
-  color: rgba(255, 215, 195, 0.7);
-  white-space: nowrap;
-}
-
-.auto-bottom-stats {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 8.5px;
-  color: rgba(255, 255, 255, 0.6);
-  z-index: 3;
-}
-
-/* ─────────────────────────────────────────────────────────────
-   RESPONSIVE DESIGN (SEE 2 CARDS TOGETHER ON MOBILE & DESKTOP)
+   RESPONSIVE DESIGN (SEE 2 CARDS TOGETHER ON DESKTOP & MOBILE)
    ───────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .services-compact-grid {
@@ -839,11 +334,12 @@
     gap: 16px;
   }
   .svc-compact-card {
-    padding: 18px 14px;
+    padding: 18px 16px;
     border-radius: 16px;
   }
   .svc-compact-heading { font-size: 17px; }
   .svc-compact-desc { font-size: 12.5px; }
+  .svc-feature-item { font-size: 11px; }
 }
 
 @media (max-width: 680px) {
@@ -870,7 +366,7 @@
   .svc-compact-heading { font-size: 16.5px; margin-bottom: 6px; }
   .svc-compact-desc { font-size: 12px; margin-bottom: 12px; }
   .saas-frame { margin-bottom: 12px; }
-  .svc-tag-list { margin-bottom: 14px; gap: 5px; }
-  .svc-tag-pill { font-size: 9.5px; padding: 3px 8px; }
-  .svc-card-btn { font-size: 11px; padding: 7px 14px; }
+  .svc-features-list { margin-bottom: 14px; gap: 4px; }
+  .svc-feature-item { font-size: 11px; }
+  .svc-card-btn { font-size: 11.5px; padding: 8px 16px; }
 }
