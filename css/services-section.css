@@ -60,16 +60,23 @@
 }
 
 .services-brand-logo {
-  height: 52px;
+  height: 48px;
   width: auto;
   object-fit: contain;
-  filter: drop-shadow(0 0 14px rgba(102, 15, 36, 0.65)) drop-shadow(0 0 28px rgba(102, 15, 36, 0.3));
+  border-radius: 10px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(182, 15, 36, 0.5);
+  box-shadow:
+    0 0 18px rgba(182, 15, 36, 0.45),
+    0 0 40px rgba(102, 15, 36, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
   animation: logoPulseGlow 3s ease-in-out infinite;
 }
 
 @keyframes logoPulseGlow {
-  0%, 100% { filter: drop-shadow(0 0 10px rgba(102,15,36,0.5)) drop-shadow(0 0 22px rgba(102,15,36,0.25)); }
-  50%       { filter: drop-shadow(0 0 20px rgba(182,15,36,0.85)) drop-shadow(0 0 40px rgba(102,15,36,0.5)); }
+  0%, 100% { box-shadow: 0 0 12px rgba(182,15,36,0.35), 0 0 28px rgba(102,15,36,0.15); }
+  50%       { box-shadow: 0 0 24px rgba(182,15,36,0.7),  0 0 52px rgba(102,15,36,0.38); }
 }
 
 .services-badge {
