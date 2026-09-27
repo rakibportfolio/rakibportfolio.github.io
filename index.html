@@ -1,6 +1,6 @@
 <!DOCTYPE html><!-- Last Published: Thu Sep 03 2026 12:33:02 GMT+0000 (Coordinated Universal Time) --><html data-wf-domain="mzmedia.digital" data-wf-page="69af0c7180b6e9f033168992" data-wf-site="6796419e2d5f03877896246e" lang="en"><head><meta charset="utf-8"/><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/><meta http-equiv="Pragma" content="no-cache"/><meta http-equiv="Expires" content="0"/><link href="https://cdn.prod.website-files.com" rel="preconnect" crossorigin="anonymous"/><title>SaaS Videos That Convert | MZ Media</title><meta content="MZ Media makes SaaS product videos that convert. Trusted by ClickUp and 50+ companies from YC startups to enterprises. Delivered in under two weeks." name="description"/><meta content="SaaS Videos That Convert | MZ Media" property="og:title"/><meta content="MZ Media makes SaaS product videos that convert. Trusted by ClickUp and 50+ companies from YC startups to enterprises. Delivered in under two weeks." property="og:description"/><meta content="https://cdn.prod.website-files.com/6796419e2d5f03877896246e/6a1197e95738e8a9c5965388_OG.png" property="og:image"/><meta content="SaaS Videos That Convert | MZ Media" name="twitter:title"/><meta content="MZ Media makes SaaS product videos that convert. Trusted by ClickUp and 50+ companies from YC startups to enterprises. Delivered in under two weeks." name="twitter:description"/><meta property="og:type" content="website"/><meta content="summary_large_image" name="twitter:card"/><meta content="width=device-width, initial-scale=1" name="viewport"/><link href="css/mzmedia.css" rel="stylesheet" type="text/css" /><link href="css/custom-theme.css?v=2.7" rel="stylesheet" type="text/css" />
 <link href="css/rotating-tagline.css?v=1.0" rel="stylesheet" type="text/css" />
-<link href="css/services-section.css?v=27.0" rel="stylesheet" type="text/css" /><link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="css/services-section.css?v=28.0" rel="stylesheet" type="text/css" /><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -427,15 +427,19 @@
 
 <!-- STAGE INLINE CRITICAL STYLES (Cache-Proof) -->
 <style id="saas-stage-inline-css">
-
 /* ================================================================
-   SERVICES SECTION - 2x2 COMPACT GRID WITH RICH 3D SAAS EXPLAINERS
-   Brand Colors: #660F24 (Fiery Crimson), #702D09 (Warm Terracotta), #241705 (Rich Espresso)
+   SERVICES SECTION - 2x2 COMPACT GRID WITH ULTRA-PREMIUM 3D VISUALS
+   Brand Colors:
+     - #660F24 (Fiery Crimson)
+     - #B60F24 (Bright Crimson Accent)
+     - #702D09 (Warm Terracotta)
+     - #241705 (Rich Obsidian Espresso)
+     - #0A0403 (Deep Abyss Black)
    ================================================================ */
 
 #services-section {
   position: relative;
-  padding: 80px 24px 100px;
+  padding: 85px 24px 110px;
   background: #000000;
   overflow: hidden;
   z-index: 10;
@@ -446,23 +450,34 @@
   box-sizing: border-box;
 }
 
-#services-section svg {
-  max-width: 20px !important;
-  max-height: 20px !important;
-  display: inline-block;
+/* Fix any global svg overrides for visual box svgs */
+#services-section .svc-chart-svg {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  width: 100% !important;
+  height: 65px !important;
+  display: block !important;
+}
+
+#services-section .svc-neural-svg {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
 }
 
 /* Background Ambient Glow with Brand Colors */
 #services-section::before {
   content: '';
   position: absolute;
-  top: 0;
+  top: -50px;
   left: 50%;
   transform: translateX(-50%);
-  width: 920px;
-  height: 460px;
-  background: radial-gradient(ellipse at center, rgba(102, 15, 36, 0.35) 0%, rgba(112, 45, 9, 0.18) 45%, transparent 72%);
-  filter: blur(80px);
+  width: 1000px;
+  height: 520px;
+  background: radial-gradient(ellipse at center, rgba(182, 15, 36, 0.28) 0%, rgba(102, 15, 36, 0.22) 35%, rgba(112, 45, 9, 0.12) 60%, transparent 75%);
+  filter: blur(90px);
   pointer-events: none;
   z-index: 0;
 }
@@ -477,19 +492,46 @@
 /* Section Header */
 .services-header {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 50px;
+}
+
+/* Logo Lockup above the badge */
+.services-logo-lockup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.services-brand-logo {
+  height: 58px;
+  width: auto;
+  max-width: 290px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 14px rgba(182, 15, 36, 0.65)) drop-shadow(0 0 28px rgba(102, 15, 36, 0.35));
+  animation: logoPulseGlow 3.5s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.services-brand-logo:hover {
+  transform: scale(1.04);
+}
+
+@keyframes logoPulseGlow {
+  0%, 100% { filter: drop-shadow(0 0 10px rgba(182,15,36,0.5)) drop-shadow(0 0 20px rgba(102,15,36,0.25)); }
+  50%       { filter: drop-shadow(0 0 22px rgba(182,15,36,0.9)) drop-shadow(0 0 42px rgba(102,15,36,0.55)); }
 }
 
 .services-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 18px;
+  padding: 7px 20px;
   border-radius: 9999px;
   background: rgba(102, 15, 36, 0.22);
-  border: 1px solid rgba(102, 15, 36, 0.55);
-  box-shadow: 0 0 16px rgba(102, 15, 36, 0.25) inset;
-  margin-bottom: 16px;
+  border: 1px solid rgba(182, 15, 36, 0.45);
+  box-shadow: 0 0 20px rgba(102, 15, 36, 0.3) inset;
+  margin-bottom: 18px;
 }
 
 .services-badge-dot {
@@ -498,6 +540,12 @@
   border-radius: 50%;
   background: #ff3344;
   box-shadow: 0 0 10px #ff3344;
+  animation: badgeDotPulse 1.8s infinite;
+}
+
+@keyframes badgeDotPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
 }
 
 .services-badge-text {
@@ -515,51 +563,78 @@
   font-weight: 800;
   letter-spacing: -0.025em;
   color: #ffffff;
-  margin: 0 0 12px 0;
+  margin: 0 0 14px 0;
   line-height: 1.2;
 }
 
 .services-subtitle {
   font-family: 'Inter', sans-serif !important;
   font-size: 15px;
-  color: rgba(255, 220, 205, 0.75);
-  max-width: 580px;
+  color: rgba(255, 220, 205, 0.78);
+  max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
 }
 
 /* ─────────────────────────────────────────────────────────────
-   COMPACT 2x2 GRID (SEE 2 CARDS TOGETHER)
+   COMPACT 2x2 GRID (3D PERSPECTIVE CONTAINER)
    ───────────────────────────────────────────────────────────── */
+.services-grid-wrap {
+  perspective: 1200px;
+}
+
 .services-compact-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 26px;
+  gap: 28px;
 }
 
+/* ─────────────────────────────────────────────────────────────
+   3D COMPACT CARD BASE
+   ───────────────────────────────────────────────────────────── */
 .svc-compact-card {
   position: relative;
-  border-radius: 20px;
-  padding: 26px 24px;
-  background: linear-gradient(145deg, rgba(36, 23, 5, 0.96) 0%, rgba(20, 12, 3, 0.94) 100%);
-  border: 1px solid rgba(112, 45, 9, 0.45);
+  border-radius: 22px;
+  padding: 28px 24px;
+  background: linear-gradient(155deg, rgba(30, 16, 6, 0.96) 0%, rgba(16, 9, 3, 0.98) 100%);
+  border: 1px solid rgba(112, 45, 9, 0.5);
   box-shadow:
-    0 0 0 1px rgba(102, 15, 36, 0.2) inset,
-    0 22px 50px rgba(0, 0, 0, 0.85),
-    0 0 32px rgba(102, 15, 36, 0.15);
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 0 24px rgba(102, 15, 36, 0.18),
+    0 24px 60px rgba(0, 0, 0, 0.85);
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+  overflow: hidden;
 }
 
 .svc-compact-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(102, 15, 36, 0.75);
+  transform: translateY(-8px) scale(1.01);
+  border-color: rgba(182, 15, 36, 0.8);
   box-shadow:
-    0 26px 65px rgba(0, 0, 0, 0.9),
-    0 0 45px rgba(102, 15, 36, 0.4);
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 0 35px rgba(182, 15, 36, 0.3),
+    0 32px 80px rgba(0, 0, 0, 0.92),
+    0 0 45px rgba(182, 15, 36, 0.35);
 }
 
+/* Dynamic Ambient Card Glow */
+.svc-card-glow {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(circle at 50% 0%, rgba(182, 15, 36, 0.4) 0%, transparent 60%);
+  opacity: 0.6;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.svc-compact-card:hover .svc-card-glow {
+  opacity: 1;
+}
+
+/* Card Header Elements */
 .svc-card-tag {
   display: inline-flex;
   align-items: center;
@@ -567,237 +642,890 @@
   font-family: 'Inter', monospace !important;
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 1.2px;
-  color: #ff7755;
+  letter-spacing: 1.3px;
+  color: #ff8566;
   text-transform: uppercase;
-  background: rgba(102, 15, 36, 0.3);
-  border: 1px solid rgba(102, 15, 36, 0.6);
-  padding: 4px 10px;
+  background: rgba(102, 15, 36, 0.35);
+  border: 1px solid rgba(182, 15, 36, 0.6);
+  padding: 4px 12px;
   border-radius: 9999px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 2;
 }
 
 .svc-compact-heading {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-  font-size: 21px;
-  font-weight: 700;
+  font-size: 22px;
+  font-weight: 800;
   line-height: 1.25;
   letter-spacing: -0.015em;
   color: #ffffff;
   margin: 0 0 8px 0;
+  position: relative;
+  z-index: 2;
 }
 
 .svc-compact-desc {
   font-family: 'Inter', sans-serif !important;
   font-size: 13.5px;
   line-height: 1.55;
-  color: rgba(245, 215, 195, 0.8);
-  margin: 0 0 16px 0;
-}
-
-/* SaaS Window Frame */
-.saas-frame {
+  color: rgba(245, 215, 195, 0.82);
+  margin: 0 0 18px 0;
   position: relative;
-  border-radius: 14px;
-  overflow: hidden;
-  background: #1a0c03;
-  border: 1px solid rgba(102, 15, 36, 0.65);
-  margin-bottom: 16px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9);
+  z-index: 2;
 }
 
-.saas-header {
+/* ─────────────────────────────────────────────────────────────
+   3D VISUAL BOX BASE
+   ───────────────────────────────────────────────────────────── */
+.svc-visual-box {
+  position: relative;
+  width: 100%;
+  height: 225px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  border: 1px solid rgba(112, 45, 9, 0.55);
+  background: #090302;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.9), 0 12px 30px rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  perspective: 900px;
+}
+
+/* Background 3D Grid */
+.svc-vb-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(182, 15, 36, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(182, 15, 36, 0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.8;
+  mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+}
+
+.svc-vb-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(102, 15, 36, 0.35) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Floating Badges */
+.svc-float-badge {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(14, 7, 3, 0.88);
+  border: 1px solid rgba(182, 15, 36, 0.6);
+  font-family: 'Inter', monospace !important;
+  font-size: 9px;
+  font-weight: 700;
+  color: #ffc9b5;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+.svc-float-badge.f-tl { top: 10px; left: 10px; }
+.svc-float-badge.f-br { bottom: 10px; right: 10px; }
+
+.svc-badge-green {
+  border-color: rgba(34, 197, 94, 0.55) !important;
+  color: #86efac !important;
+}
+
+/* =============================================================
+   CARD 1: 3D NLE PREMIERE SUITE
+   ============================================================= */
+.svc-nle-window {
+  position: absolute;
+  inset: 12px;
+  border-radius: 12px;
+  background: #120805;
+  border: 1px solid rgba(182, 15, 36, 0.4);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.85);
+  transform: perspective(700px) rotateX(2deg);
+  transition: transform 0.4s ease;
+}
+
+.svc-compact-card:hover .svc-nle-window {
+  transform: perspective(700px) rotateX(0deg) scale(1.02);
+}
+
+.svc-nle-bar {
+  height: 26px;
+  background: linear-gradient(90deg, #241705 0%, #301014 100%);
+  border-bottom: 1px solid rgba(182, 15, 36, 0.35);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 9px 14px;
-  background: linear-gradient(90deg, rgba(36, 23, 5, 0.98) 0%, rgba(50, 18, 8, 0.96) 100%);
-  border-bottom: 1px solid rgba(102, 15, 36, 0.45);
+  padding: 0 10px;
+  flex-shrink: 0;
 }
 
-.saas-dots {
+.svc-mac-dots {
   display: flex;
   gap: 5px;
-  align-items: center;
 }
-.saas-dot {
-  width: 8px !important;
-  height: 8px !important;
+.svc-mac-dots span {
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   display: inline-block;
 }
-.saas-dot-r { background: #ff5f56; }
-.saas-dot-y { background: #ffbd2e; }
-.saas-dot-g { background: #27c93f; }
+.md-r { background: #ff5f56; }
+.md-y { background: #ffbd2e; }
+.md-g { background: #27c93f; }
 
-.saas-title {
+.svc-nle-title {
   font-family: 'Inter', monospace !important;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  color: rgba(255, 215, 195, 0.85);
-}
-
-.saas-badge-pill {
   font-size: 9px;
-  font-weight: 700;
-  padding: 2px 7px;
-  border-radius: 4px;
-  background: rgba(39, 201, 63, 0.15);
-  border: 1px solid rgba(39, 201, 63, 0.35);
-  color: #27c93f;
-}
-
-.saas-video-box {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 10.5;
-  background: #140803;
+  font-weight: 600;
+  color: rgba(255, 215, 195, 0.85);
+  white-space: nowrap;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.saas-video-box video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: contrast(1.08) saturate(1.15);
+.svc-rec-badge {
+  font-size: 8px;
+  font-weight: 800;
+  color: #ff3344;
+  letter-spacing: 1px;
+  animation: recBlink 1.2s infinite;
 }
 
-/* Brand Color Grading Overlay on top of videos */
-.saas-brand-tint {
+@keyframes recBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.svc-nle-body {
+  display: flex;
+  flex: 1;
+  min-height: 95px;
+  background: #080302;
+  border-bottom: 1px solid rgba(112, 45, 9, 0.4);
+}
+
+.svc-preview-screen {
+  flex: 1.6;
+  position: relative;
+  background: #000000;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid rgba(102, 15, 36, 0.35);
+}
+
+.svc-preview-inner {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    145deg,
-    rgba(102, 15, 36, 0.28) 0%,
-    rgba(112, 45, 9, 0.15) 45%,
-    rgba(36, 23, 5, 0.3) 100%
-  );
-  mix-blend-mode: multiply;
-  pointer-events: none;
-  z-index: 1;
+  background: linear-gradient(135deg, #1c080e 0%, #3d1406 50%, #150917 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.saas-metric-badge {
+.svc-cinematic-bars {
+  height: 12px;
+  background: #000000;
+  width: 100%;
+  z-index: 2;
+}
+
+.svc-grade-layer {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 5px 12px;
-  border-radius: 9999px;
-  background: rgba(36, 23, 5, 0.92);
-  border: 1px solid rgba(255, 85, 51, 0.65);
-  box-shadow: 0 0 16px rgba(102, 15, 36, 0.5);
-  font-size: 10.5px;
-  font-weight: 700;
-  color: #ffffff;
+  inset: 12px 0;
+  background: radial-gradient(circle at 60% 40%, rgba(255, 100, 50, 0.25) 0%, rgba(182, 15, 36, 0.3) 50%, transparent 80%);
+  animation: gradePulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes gradePulse {
+  0% { filter: hue-rotate(0deg) brightness(0.9); }
+  100% { filter: hue-rotate(15deg) brightness(1.15); }
+}
+
+.svc-preview-hud {
+  position: absolute;
+  top: 14px;
+  left: 8px;
+  display: flex;
+  gap: 8px;
+  font-family: monospace;
+  font-size: 8px;
+  color: rgba(255, 255, 255, 0.7);
   z-index: 3;
 }
 
-.saas-scrub-bar {
-  padding: 4px 12px 6px;
-  background: rgba(20, 10, 3, 0.95);
-  border-top: 1px solid rgba(102, 15, 36, 0.35);
-}
-.saas-scrub-line {
-  position: relative;
-  height: 3px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.1);
-  overflow: hidden;
-}
-.saas-scrub-fill {
+.svc-preview-tc {
   position: absolute;
-  height: 100%;
-  background: linear-gradient(90deg, #660F24 0%, #702D09 50%, #ff5533 100%);
+  bottom: 14px;
+  right: 8px;
+  font-family: monospace;
+  font-size: 9px;
+  font-weight: 700;
+  color: #ff8566;
+  z-index: 3;
+  text-shadow: 0 0 6px rgba(0,0,0,0.8);
 }
 
-/* Clean Feature Items List */
+/* Color Wheels Panel */
+.svc-color-panel {
+  flex: 1;
+  background: #110704;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 4px;
+}
+
+.svc-cw {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.svc-cw-inner {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba(182, 15, 36, 0.6);
+  background: conic-gradient(from 0deg, #ff3344, #ff8533, #ffcc33, #33cc66, #3399ff, #9933ff, #ff3344);
+  position: relative;
+  box-shadow: 0 0 8px rgba(0,0,0,0.8);
+}
+
+.svc-cw-inner::after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #ffffff;
+  top: 40%;
+  left: 55%;
+  box-shadow: 0 0 4px #ffffff;
+}
+
+.svc-cw span {
+  font-size: 7.5px;
+  font-family: monospace;
+  color: rgba(255, 200, 180, 0.8);
+}
+
+/* NLE Timeline */
+.svc-nle-timeline {
+  height: 60px;
+  background: #0e0503;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 3px 6px;
+}
+
+.svc-nle-ruler {
+  height: 4px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0 4px;
+}
+.svc-nle-ruler span {
+  width: 1px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.svc-nle-track {
+  height: 12px;
+  border-radius: 3px;
+  background: rgba(30, 12, 6, 0.7);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 0 2px;
+  position: relative;
+}
+
+.svc-seg {
+  height: 10px;
+  border-radius: 2px;
+}
+.s1 { width: 35%; background: linear-gradient(90deg, #660F24, #94132c); }
+.s2 { width: 25%; background: linear-gradient(90deg, #702D09, #9e3f0c); }
+.s3 { width: 30%; background: linear-gradient(90deg, #B60F24, #d91b34); }
+.s4 { width: 45%; background: linear-gradient(90deg, #8a172e, #660F24); }
+.s5 { width: 40%; background: linear-gradient(90deg, #592005, #702D09); }
+
+.svc-waveform-mini {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  width: 100%;
+  height: 100%;
+}
+.svc-waveform-mini i {
+  flex: 1;
+  background: #22c55e;
+  border-radius: 1px;
+  height: 40%;
+  animation: waveDance 1.5s ease-in-out infinite alternate;
+}
+.svc-waveform-mini i:nth-child(2n) { animation-delay: 0.2s; height: 75%; }
+.svc-waveform-mini i:nth-child(3n) { animation-delay: 0.4s; height: 90%; }
+.svc-waveform-mini i:nth-child(4n) { animation-delay: 0.1s; height: 50%; }
+
+@keyframes waveDance {
+  0% { transform: scaleY(0.4); }
+  100% { transform: scaleY(1); }
+}
+
+.svc-nle-playhead {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #ff3344;
+  box-shadow: 0 0 8px #ff3344;
+  animation: playheadSweep 4.5s linear infinite;
+  z-index: 5;
+}
+
+@keyframes playheadSweep {
+  0% { left: 4%; }
+  100% { left: 96%; }
+}
+
+/* =============================================================
+   CARD 2: 3D ISOMETRIC BROWSER
+   ============================================================= */
+.svc-3d-browser-wrap {
+  position: absolute;
+  inset: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 900px;
+}
+
+.svc-browser-shadow {
+  position: absolute;
+  width: 90%;
+  height: 85%;
+  background: rgba(0, 0, 0, 0.95);
+  filter: blur(14px);
+  transform: rotateX(12deg) rotateY(-8deg) translateZ(-20px) translateY(12px);
+  border-radius: 14px;
+}
+
+.svc-3d-browser {
+  position: relative;
+  width: 94%;
+  height: 92%;
+  border-radius: 12px;
+  background: #140804;
+  border: 1px solid rgba(182, 15, 36, 0.55);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.85);
+  transform: rotateX(10deg) rotateY(-6deg) rotateZ(0.5deg);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.svc-compact-card:hover .svc-3d-browser {
+  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1.02);
+}
+
+.svc-3d-bar {
+  height: 26px;
+  background: linear-gradient(90deg, #241705 0%, #3b140a 100%);
+  border-bottom: 1px solid rgba(182, 15, 36, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.svc-3d-url {
+  font-family: 'Inter', monospace !important;
+  font-size: 9px;
+  color: rgba(255, 220, 200, 0.85);
+  background: rgba(0,0,0,0.4);
+  padding: 2px 14px;
+  border-radius: 99px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.svc-live-dot {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 8px;
+  font-weight: 700;
+  color: #4ade80;
+}
+.svc-live-dot span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 6px #4ade80;
+}
+
+.svc-3d-body {
+  position: relative;
+  flex: 1;
+  padding: 10px;
+  background: #0c0402;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.svc-wb3-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(36, 23, 5, 0.55);
+  border: 1px solid rgba(112, 45, 9, 0.4);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.svc-wb3-hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 60%;
+}
+.svc-wb3-line {
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.2);
+}
+.svc-wb3-line.l1 { width: 85%; background: linear-gradient(90deg, #ff8566, #ff4d6d); }
+.svc-wb3-line.l2 { width: 55%; }
+
+.svc-wb3-hero-btn {
+  width: 44px;
+  height: 18px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #660F24, #B60F24);
+  box-shadow: 0 0 10px rgba(182, 15, 36, 0.5);
+  animation: btnGlow 2s infinite alternate;
+}
+
+@keyframes btnGlow {
+  0% { transform: scale(1); filter: brightness(1); }
+  100% { transform: scale(1.05); filter: brightness(1.25); }
+}
+
+.svc-wb3-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  flex: 1;
+}
+
+.svc-wb3-card {
+  background: rgba(25, 12, 5, 0.7);
+  border: 1px solid rgba(102, 15, 36, 0.35);
+  border-radius: 6px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.svc-wb3-icon {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #702D09, #B60F24);
+}
+.svc-wb3-cline {
+  height: 4px;
+  width: 70%;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+}
+
+.svc-cursor-3d {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-left: 2px solid #ffffff;
+  border-top: 2px solid #ffffff;
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.9));
+  animation: cursor3dMove 4s ease-in-out infinite;
+  z-index: 10;
+}
+
+@keyframes cursor3dMove {
+  0%   { top: 70%; left: 20%; transform: rotate(-25deg); }
+  35%  { top: 22%; left: 75%; transform: rotate(-25deg) scale(0.9); }
+  45%  { top: 22%; left: 75%; transform: rotate(-25deg) scale(1.15); }
+  55%  { top: 22%; left: 75%; transform: rotate(-25deg) scale(0.95); }
+  75%  { top: 58%; left: 45%; transform: rotate(-25deg); }
+  100% { top: 70%; left: 20%; transform: rotate(-25deg); }
+}
+
+/* =============================================================
+   CARD 3: 3D HOLOGRAPHIC FINANCIAL CHART
+   ============================================================= */
+.svc-holo-dash {
+  position: absolute;
+  inset: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.svc-metric-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  z-index: 2;
+}
+
+.svc-metric-card {
+  background: rgba(24, 12, 5, 0.85);
+  border: 1px solid rgba(112, 45, 9, 0.5);
+  border-radius: 10px;
+  padding: 6px 8px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.svc-metric-card.svc-m-hot {
+  border-color: rgba(182, 15, 36, 0.85);
+  background: linear-gradient(135deg, rgba(45, 14, 8, 0.95) 0%, rgba(102, 15, 36, 0.45) 100%);
+  box-shadow: 0 0 16px rgba(182, 15, 36, 0.4);
+}
+
+.svc-m-val {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 15px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.svc-metric-card.svc-m-hot .svc-m-val {
+  color: #ff5566;
+  text-shadow: 0 0 10px rgba(255, 85, 102, 0.6);
+}
+
+.svc-m-label {
+  font-family: monospace;
+  font-size: 8px;
+  font-weight: 700;
+  color: rgba(255, 205, 185, 0.7);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.svc-3d-chart {
+  position: relative;
+  height: 105px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  perspective: 700px;
+}
+
+.svc-3d-bars {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 8px;
+  transform: rotateX(14deg);
+  z-index: 1;
+}
+
+.svc-3db {
+  width: 10%;
+  height: var(--h, 50%);
+  border-radius: 4px 4px 0 0;
+  background: linear-gradient(180deg, #B60F24 0%, #660F24 60%, #241705 100%);
+  box-shadow: 0 0 12px rgba(182, 15, 36, 0.35);
+  animation: barRise 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--d, 0s);
+  position: relative;
+}
+
+.svc-3db::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  border-radius: 4px 4px 0 0;
+  background: #ff7788;
+  box-shadow: 0 0 8px #ff7788;
+}
+
+.svc-3db.svc-3db-peak {
+  background: linear-gradient(180deg, #ff3344 0%, #B60F24 60%, #4a0a14 100%);
+  box-shadow: 0 0 20px rgba(255, 51, 68, 0.6);
+}
+
+@keyframes barRise {
+  0% { height: 0%; opacity: 0; }
+  100% { height: var(--h, 50%); opacity: 1; }
+}
+
+.svc-chart-svg {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.svc-chart-polyline {
+  fill: none;
+  stroke: #ff4d6d;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 6px #ff4d6d);
+}
+
+.svc-chart-polyline-fill {
+  fill: url(#mktGrad);
+  opacity: 0.25;
+}
+
+.svc-chart-floor {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(182, 15, 36, 0.8), transparent);
+  box-shadow: 0 0 10px rgba(182, 15, 36, 0.7);
+}
+
+/* =============================================================
+   CARD 4: 3D NEURAL WORKFLOW GRAPH
+   ============================================================= */
+.svc-neural {
+  position: absolute;
+  inset: 0;
+}
+
+.svc-neural-svg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.svc-nl {
+  stroke: rgba(182, 15, 36, 0.4);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 3;
+}
+
+.svc-pulse {
+  filter: drop-shadow(0 0 6px #ff3344);
+}
+
+.svc-nn-node {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 9px;
+  border-radius: 8px;
+  background: rgba(22, 11, 4, 0.92);
+  border: 1px solid rgba(112, 45, 9, 0.6);
+  z-index: 3;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.7);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.svc-nn-node:hover {
+  transform: scale(1.08);
+  border-color: #B60F24;
+}
+
+.svc-nn-ico {
+  font-size: 11px;
+  line-height: 1;
+}
+
+.svc-nn-lbl {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 8.5px;
+  font-weight: 700;
+  color: #ffded4;
+}
+
+.svc-nn-core {
+  background: linear-gradient(135deg, rgba(40, 12, 6, 0.95), rgba(102, 15, 36, 0.6));
+  border: 1px solid rgba(182, 15, 36, 0.85);
+  box-shadow: 0 0 20px rgba(182, 15, 36, 0.4);
+}
+
+.svc-nn-ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 51, 68, 0.5);
+  animation: ringPulse 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes ringPulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  100% { transform: scale(1.15); opacity: 0; }
+}
+
+.svc-auto-status {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 9.5px;
+  font-weight: 600;
+  color: rgba(255, 215, 195, 0.85);
+  background: rgba(14, 7, 3, 0.85);
+  border: 1px solid rgba(182, 15, 36, 0.4);
+  padding: 4px 10px;
+  border-radius: 99px;
+  z-index: 4;
+}
+
+.svc-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+  animation: dotBlink 1.4s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes dotBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   FEATURE LIST & CTA BUTTON
+   ───────────────────────────────────────────────────────────── */
 .svc-features-list {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  margin-bottom: 18px;
+  gap: 7px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
 }
 
 .svc-feature-item {
   font-family: 'Inter', sans-serif !important;
-  font-size: 12px;
+  font-size: 12.5px;
   font-weight: 500;
-  color: rgba(255, 220, 205, 0.85);
+  color: rgba(255, 225, 210, 0.88);
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
-/* CTA Button */
 .svc-card-btn {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  padding: 10px 20px;
+  gap: 8px;
+  padding: 11px 22px;
   border-radius: 9999px;
-  background: linear-gradient(135deg, #660F24 0%, #702D09 100%);
+  background: linear-gradient(135deg, #660F24 0%, #B60F24 50%, #702D09 100%);
   border: 1px solid rgba(255, 130, 80, 0.4);
   color: #ffffff;
   font-family: 'Inter', sans-serif !important;
-  font-size: 12.5px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 700;
   text-decoration: none;
   width: fit-content;
   margin-top: auto;
-  transition: all 0.25s ease;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 6px 20px rgba(102, 15, 36, 0.4);
 }
+
 .svc-card-btn:hover {
-  transform: translateY(-2px);
-  border-color: rgba(255, 160, 110, 0.7);
-  box-shadow: 0 0 24px rgba(102, 15, 36, 0.65);
+  transform: translateY(-2px) scale(1.03);
+  border-color: rgba(255, 170, 120, 0.85);
+  box-shadow: 0 10px 30px rgba(182, 15, 36, 0.7);
+  color: #ffffff;
 }
 
 /* ─────────────────────────────────────────────────────────────
-   RESPONSIVE DESIGN (SEE 2 CARDS TOGETHER ON DESKTOP & MOBILE)
+   RESPONSIVE DESIGN (2x2 ON DESKTOP, 1 COL ON MOBILE)
    ───────────────────────────────────────────────────────────── */
-@media (max-width: 900px) {
+@media (max-width: 960px) {
   .services-compact-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 18px;
   }
   .svc-compact-card {
-    padding: 18px 16px;
-    border-radius: 16px;
+    padding: 22px 18px;
+    border-radius: 18px;
   }
-  .svc-compact-heading { font-size: 17px; }
-  .svc-compact-desc { font-size: 12.5px; }
-  .svc-feature-item { font-size: 11px; }
+  .svc-compact-heading { font-size: 19px; }
+  .svc-compact-desc { font-size: 13px; }
+  .svc-visual-box { height: 210px; }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 720px) {
   #services-section {
-    padding: 45px 12px 60px;
+    padding: 50px 14px 70px;
   }
   .services-header {
-    margin-bottom: 24px;
+    margin-bottom: 28px;
   }
   .services-title {
-    font-size: 23px;
+    font-size: 26px;
   }
   .services-subtitle {
-    font-size: 13px;
+    font-size: 13.5px;
   }
   .services-compact-grid {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 16px;
   }
   .svc-compact-card {
-    padding: 16px 14px;
-    border-radius: 14px;
+    padding: 20px 16px;
+    border-radius: 16px;
   }
-  .svc-compact-heading { font-size: 16.5px; margin-bottom: 6px; }
-  .svc-compact-desc { font-size: 12px; margin-bottom: 12px; }
-  .saas-frame { margin-bottom: 12px; }
-  .svc-features-list { margin-bottom: 14px; gap: 4px; }
-  .svc-feature-item { font-size: 11px; }
-  .svc-card-btn { font-size: 11.5px; padding: 8px 16px; }
+  .svc-compact-heading { font-size: 18px; margin-bottom: 6px; }
+  .svc-compact-desc { font-size: 12.5px; margin-bottom: 14px; }
+  .svc-visual-box { height: 200px; margin-bottom: 16px; }
+  .svc-features-list { margin-bottom: 16px; gap: 5px; }
+  .svc-feature-item { font-size: 11.5px; }
+  .svc-card-btn { font-size: 12px; padding: 9px 18px; }
 }
 
 </style>
@@ -826,43 +1554,67 @@
       <div class="services-compact-grid">
 
         <!-- CARD 1: VIDEO EDITING -->
-        <div class="svc-compact-card">
+        <div class="svc-compact-card svc-card-video">
+          <div class="svc-card-glow"></div>
           <div class="svc-card-tag">01 / VIDEO</div>
           <h3 class="svc-compact-heading">Video Editing & Motion</h3>
           <p class="svc-compact-desc">
             Scroll-stopping edits with cinematic color grading, dynamic transitions, and hook-first storytelling that keeps viewers watching.
           </p>
 
-          <!-- CSS ANIMATED VISUAL: NLE Timeline -->
-          <div class="svc-visual-box">
-            <div class="svc-visual-bg"></div>
+          <!-- 3D NLE STUDIO VISUAL -->
+          <div class="svc-visual-box svc-vid-box">
+            <div class="svc-vb-grid"></div>
+            <div class="svc-vb-glow"></div>
 
-            <!-- Timeline tracks -->
-            <div class="svc-timeline">
-              <div class="svc-tl-label">▶ TIMELINE</div>
-              <div class="svc-tl-track">
-                <div class="svc-tl-block b1"></div>
-                <div class="svc-tl-block b2"></div>
-                <div class="svc-tl-block b3"></div>
+            <!-- 3D NLE Window -->
+            <div class="svc-nle-window">
+              <!-- Top bar -->
+              <div class="svc-nle-bar">
+                <div class="svc-mac-dots"><span class="md-r"></span><span class="md-y"></span><span class="md-g"></span></div>
+                <span class="svc-nle-title">Premiere Pro — 4K Master.prproj</span>
+                <span class="svc-rec-badge">● REC</span>
               </div>
-              <div class="svc-tl-track">
-                <div class="svc-tl-block b4" style="background:rgba(182,15,36,0.5);"></div>
-                <div class="svc-tl-block b5" style="background:rgba(112,45,9,0.6);"></div>
-              </div>
-              <div class="svc-tl-track svc-audio-track">
-                <div class="svc-audio-wave">
-                  <span></span><span></span><span></span><span></span><span></span>
-                  <span></span><span></span><span></span><span></span><span></span>
-                  <span></span><span></span>
+              <!-- Preview + panels -->
+              <div class="svc-nle-body">
+                <!-- Preview screen -->
+                <div class="svc-preview-screen">
+                  <div class="svc-preview-inner">
+                    <div class="svc-cinematic-bars top"></div>
+                    <div class="svc-grade-layer"></div>
+                    <div class="svc-preview-hud">
+                      <span>f/2.8</span><span>1/500s</span><span>ISO 800</span>
+                    </div>
+                    <div class="svc-cinematic-bars bot"></div>
+                  </div>
+                  <div class="svc-preview-tc">00:02:45:12</div>
+                </div>
+                <!-- Side panel: color wheels -->
+                <div class="svc-color-panel">
+                  <div class="svc-cw svc-cw-lift"><div class="svc-cw-inner"></div><span>Lift</span></div>
+                  <div class="svc-cw svc-cw-gamma"><div class="svc-cw-inner"></div><span>Gamma</span></div>
+                  <div class="svc-cw svc-cw-gain"><div class="svc-cw-inner"></div><span>Gain</span></div>
                 </div>
               </div>
-              <!-- Playhead -->
-              <div class="svc-playhead"></div>
+              <!-- Timeline -->
+              <div class="svc-nle-timeline">
+                <div class="svc-nle-ruler"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                <div class="svc-nle-track svc-tr-v2">
+                  <div class="svc-seg s1"></div><div class="svc-seg s2"></div><div class="svc-seg s3"></div>
+                </div>
+                <div class="svc-nle-track svc-tr-v1">
+                  <div class="svc-seg s4"></div><div class="svc-seg s5"></div>
+                </div>
+                <div class="svc-nle-track svc-tr-a1">
+                  <div class="svc-waveform-mini"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                </div>
+                <div class="svc-nle-playhead"></div>
+              </div>
             </div>
 
-            <!-- Status pills -->
-            <div class="svc-stat-pill" style="top:10px;right:10px;">🔴 REC 4K</div>
-            <div class="svc-stat-pill svc-green-pill" style="bottom:10px;left:10px;">✔ Color Graded</div>
+            <!-- Floating badges -->
+            <div class="svc-float-badge f-tl">✦ 4K HDR</div>
+            <div class="svc-float-badge f-br svc-badge-green">84% Retention</div>
           </div>
 
           <div class="svc-features-list">
@@ -874,40 +1626,53 @@
         </div>
 
         <!-- CARD 2: WEBSITE DESIGN -->
-        <div class="svc-compact-card">
+        <div class="svc-compact-card svc-card-web">
+          <div class="svc-card-glow" style="background:radial-gradient(circle at 70% 30%, rgba(112,45,9,0.6), transparent 65%);"></div>
           <div class="svc-card-tag">02 / WEB</div>
           <h3 class="svc-compact-heading">Website Design & Dev</h3>
           <p class="svc-compact-desc">
-            Fast, responsive, premium websites that position you as the go-to authority in your niche and convert visitors into clients.
+            Fast, responsive, premium websites that position you as the authority in your niche and convert visitors into high-paying clients.
           </p>
 
-          <!-- CSS ANIMATED VISUAL: Browser wireframe -->
-          <div class="svc-visual-box">
-            <div class="svc-visual-bg"></div>
-            <div class="svc-browser">
-              <div class="svc-browser-bar">
-                <span class="svc-br-dot" style="background:#ff5f56;"></span>
-                <span class="svc-br-dot" style="background:#ffbd2e;"></span>
-                <span class="svc-br-dot" style="background:#27c93f;"></span>
-                <div class="svc-url-bar">yourname.com</div>
-                <div class="svc-stat-pill svc-green-pill" style="position:static;font-size:8px;padding:2px 6px;">LIVE</div>
-              </div>
-              <div class="svc-browser-body">
-                <div class="svc-wb-hero"></div>
-                <div class="svc-wb-row">
-                  <div class="svc-wb-block"></div>
-                  <div class="svc-wb-block" style="flex:1.5;"></div>
+          <!-- 3D BROWSER VISUAL -->
+          <div class="svc-visual-box svc-web-box">
+            <div class="svc-vb-grid"></div>
+            <div class="svc-vb-glow" style="background:radial-gradient(ellipse at 60% 40%, rgba(112,45,9,0.5), transparent 70%);"></div>
+
+            <!-- 3D Browser stack -->
+            <div class="svc-3d-browser-wrap">
+              <!-- Shadow/back layer -->
+              <div class="svc-browser-shadow"></div>
+              <!-- Main browser -->
+              <div class="svc-3d-browser">
+                <div class="svc-3d-bar">
+                  <div class="svc-mac-dots"><span class="md-r"></span><span class="md-y"></span><span class="md-g"></span></div>
+                  <div class="svc-3d-url">yourname.com</div>
+                  <div class="svc-live-dot"><span></span>LIVE</div>
                 </div>
-                <div class="svc-wb-row">
-                  <div class="svc-wb-card"></div>
-                  <div class="svc-wb-card"></div>
-                  <div class="svc-wb-card"></div>
+                <div class="svc-3d-body">
+                  <!-- Animated hero section -->
+                  <div class="svc-wb3-hero">
+                    <div class="svc-wb3-hero-text">
+                      <div class="svc-wb3-line l1"></div>
+                      <div class="svc-wb3-line l2"></div>
+                    </div>
+                    <div class="svc-wb3-hero-btn"></div>
+                  </div>
+                  <!-- Feature cards row -->
+                  <div class="svc-wb3-cards">
+                    <div class="svc-wb3-card c1"><div class="svc-wb3-icon"></div><div class="svc-wb3-cline"></div></div>
+                    <div class="svc-wb3-card c2"><div class="svc-wb3-icon"></div><div class="svc-wb3-cline"></div></div>
+                    <div class="svc-wb3-card c3"><div class="svc-wb3-icon"></div><div class="svc-wb3-cline"></div></div>
+                  </div>
+                  <!-- Cursor -->
+                  <div class="svc-cursor-3d"></div>
                 </div>
-                <!-- Cursor -->
-                <div class="svc-cursor"></div>
               </div>
             </div>
-            <div class="svc-stat-pill" style="bottom:10px;right:10px;">⚡ 100/100 Speed</div>
+
+            <div class="svc-float-badge f-tl">⚡ 100/100</div>
+            <div class="svc-float-badge f-br svc-badge-green">● Live Now</div>
           </div>
 
           <div class="svc-features-list">
@@ -919,31 +1684,58 @@
         </div>
 
         <!-- CARD 3: DIGITAL MARKETING -->
-        <div class="svc-compact-card">
+        <div class="svc-compact-card svc-card-mkt">
+          <div class="svc-card-glow" style="background:radial-gradient(circle at 30% 60%, rgba(182,15,36,0.5), transparent 65%);"></div>
           <div class="svc-card-tag">03 / MARKETING</div>
           <h3 class="svc-compact-heading">Digital Marketing & Ads</h3>
           <p class="svc-compact-desc">
-            Data-driven Meta & Google ad campaigns engineered to bring real buyers to your brand and multiply your revenue.
+            Data-driven Meta & Google ad campaigns engineered to bring real buyers to your brand and multiply your revenue fast.
           </p>
 
-          <!-- CSS ANIMATED VISUAL: ROAS chart -->
-          <div class="svc-visual-box">
-            <div class="svc-visual-bg"></div>
-            <div class="svc-chart">
-              <div class="svc-chart-label">REVENUE GROWTH</div>
-              <div class="svc-chart-bars">
-                <div class="svc-bar" style="--h:35%;animation-delay:0s;"></div>
-                <div class="svc-bar" style="--h:52%;animation-delay:0.1s;"></div>
-                <div class="svc-bar" style="--h:48%;animation-delay:0.2s;"></div>
-                <div class="svc-bar" style="--h:71%;animation-delay:0.3s;"></div>
-                <div class="svc-bar" style="--h:65%;animation-delay:0.4s;"></div>
-                <div class="svc-bar" style="--h:88%;animation-delay:0.5s;"></div>
-                <div class="svc-bar svc-bar-peak" style="--h:100%;animation-delay:0.6s;"></div>
+          <!-- 3D HOLOGRAPHIC CHART VISUAL -->
+          <div class="svc-visual-box svc-mkt-box">
+            <div class="svc-vb-grid"></div>
+            <div class="svc-vb-glow"></div>
+
+            <!-- Holographic dashboard -->
+            <div class="svc-holo-dash">
+              <!-- Top metrics row -->
+              <div class="svc-metric-row">
+                <div class="svc-metric-card">
+                  <div class="svc-m-val">5.4×</div>
+                  <div class="svc-m-label">ROAS</div>
+                </div>
+                <div class="svc-metric-card svc-m-hot">
+                  <div class="svc-m-val">+430%</div>
+                  <div class="svc-m-label">Revenue</div>
+                </div>
+                <div class="svc-metric-card">
+                  <div class="svc-m-val">−58%</div>
+                  <div class="svc-m-label">CAC</div>
+                </div>
               </div>
-              <div class="svc-chart-line"></div>
+              <!-- 3D Bar chart -->
+              <div class="svc-3d-chart">
+                <div class="svc-3d-bars">
+                  <div class="svc-3db" style="--h:38%;--d:0s;"></div>
+                  <div class="svc-3db" style="--h:55%;--d:.08s;"></div>
+                  <div class="svc-3db" style="--h:47%;--d:.16s;"></div>
+                  <div class="svc-3db" style="--h:70%;--d:.24s;"></div>
+                  <div class="svc-3db" style="--h:63%;--d:.32s;"></div>
+                  <div class="svc-3db" style="--h:85%;--d:.40s;"></div>
+                  <div class="svc-3db svc-3db-peak" style="--h:100%;--d:.48s;"></div>
+                </div>
+                <!-- Line overlay -->
+                <svg class="svc-chart-svg" viewBox="0 0 140 60" preserveAspectRatio="none">
+                  <polyline class="svc-chart-polyline" points="10,53 30,42 50,46 70,30 90,35 110,16 130,4"/>
+                  <polyline class="svc-chart-polyline-fill" points="10,53 30,42 50,46 70,30 90,35 110,16 130,4 130,60 10,60"/>
+                </svg>
+                <div class="svc-chart-floor"></div>
+              </div>
             </div>
-            <div class="svc-stat-pill svc-green-pill" style="top:10px;right:10px;">📈 +430% ROAS</div>
-            <div class="svc-stat-pill" style="bottom:10px;left:10px;">Meta • Google • TikTok</div>
+
+            <div class="svc-float-badge f-tl svc-badge-green">📈 Active Campaigns</div>
+            <div class="svc-float-badge f-br">Meta • Google • TikTok</div>
           </div>
 
           <div class="svc-features-list">
@@ -955,40 +1747,91 @@
         </div>
 
         <!-- CARD 4: AUTOMATION -->
-        <div class="svc-compact-card">
+        <div class="svc-compact-card svc-card-auto">
+          <div class="svc-card-glow" style="background:radial-gradient(circle at 60% 60%, rgba(102,15,36,0.55), transparent 65%);"></div>
           <div class="svc-card-tag">04 / AUTOMATION</div>
           <h3 class="svc-compact-heading">Business Automation</h3>
           <p class="svc-compact-desc">
             AI-powered workflows, CRM pipelines, and smart systems that run your business 24/7 so you can focus on growth.
           </p>
 
-          <!-- CSS ANIMATED VISUAL: Workflow nodes -->
-          <div class="svc-visual-box">
-            <div class="svc-visual-bg"></div>
-            <div class="svc-workflow">
-              <!-- Row 1 -->
-              <div class="svc-wf-row">
-                <div class="svc-node svc-node-trigger">
-                  <span class="svc-node-icon">⚡</span>
-                  <span class="svc-node-label">Trigger</span>
-                </div>
-                <div class="svc-wf-arrow">→</div>
-                <div class="svc-node svc-node-ai">
-                  <span class="svc-node-icon">🤖</span>
-                  <span class="svc-node-label">AI Agent</span>
-                </div>
-                <div class="svc-wf-arrow">→</div>
-                <div class="svc-node svc-node-crm">
-                  <span class="svc-node-icon">✉</span>
-                  <span class="svc-node-label">CRM</span>
-                </div>
+          <!-- 3D NEURAL WORKFLOW VISUAL -->
+          <div class="svc-visual-box svc-auto-box">
+            <div class="svc-vb-grid"></div>
+            <div class="svc-vb-glow" style="background:radial-gradient(ellipse at 50% 50%, rgba(102,15,36,0.5), transparent 65%);"></div>
+
+            <!-- Neural network flow -->
+            <div class="svc-neural">
+              <!-- SVG connection lines -->
+              <svg class="svc-neural-svg" viewBox="0 0 260 130" fill="none">
+                <!-- Lines from trigger to AI -->
+                <line class="svc-nl" x1="60" y1="40" x2="130" y2="40"/>
+                <line class="svc-nl" x1="60" y1="40" x2="130" y2="80"/>
+                <!-- Lines from AI to outputs -->
+                <line class="svc-nl" x1="130" y1="40" x2="200" y2="25"/>
+                <line class="svc-nl" x1="130" y1="40" x2="200" y2="65"/>
+                <line class="svc-nl" x1="130" y1="80" x2="200" y2="65"/>
+                <line class="svc-nl" x1="130" y1="80" x2="200" y2="105"/>
+                <!-- Animated pulses -->
+                <circle class="svc-pulse" r="4" fill="#B60F24">
+                  <animateMotion dur="2s" repeatCount="indefinite" path="M60,40 L130,40"/>
+                </circle>
+                <circle class="svc-pulse" r="4" fill="#660F24">
+                  <animateMotion dur="2.4s" repeatCount="indefinite" begin="0.6s" path="M60,40 L130,80"/>
+                </circle>
+                <circle class="svc-pulse" r="3" fill="#ff3344">
+                  <animateMotion dur="1.8s" repeatCount="indefinite" begin="1s" path="M130,40 L200,25"/>
+                </circle>
+                <circle class="svc-pulse" r="3" fill="#B60F24">
+                  <animateMotion dur="2s" repeatCount="indefinite" begin="0.4s" path="M130,40 L200,65"/>
+                </circle>
+                <circle class="svc-pulse" r="3" fill="#660F24">
+                  <animateMotion dur="2.2s" repeatCount="indefinite" begin="0.9s" path="M130,80 L200,105"/>
+                </circle>
+              </svg>
+
+              <!-- Nodes -->
+              <div class="svc-nn-node svc-nn-input" style="top:28px;left:28px;">
+                <div class="svc-nn-ico">⚡</div>
+                <div class="svc-nn-lbl">Trigger</div>
               </div>
-              <div class="svc-wf-status">
+              <div class="svc-nn-node svc-nn-input" style="top:68px;left:28px;">
+                <div class="svc-nn-ico">📥</div>
+                <div class="svc-nn-lbl">Lead In</div>
+              </div>
+
+              <div class="svc-nn-node svc-nn-core" style="top:28px;left:50%;transform:translateX(-50%);">
+                <div class="svc-nn-ico">🤖</div>
+                <div class="svc-nn-lbl">AI Core</div>
+                <div class="svc-nn-ring"></div>
+              </div>
+              <div class="svc-nn-node svc-nn-core" style="top:68px;left:50%;transform:translateX(-50%);">
+                <div class="svc-nn-ico">🧠</div>
+                <div class="svc-nn-lbl">LLM</div>
+                <div class="svc-nn-ring"></div>
+              </div>
+
+              <div class="svc-nn-node svc-nn-out" style="top:12px;right:28px;">
+                <div class="svc-nn-ico">✉</div>
+                <div class="svc-nn-lbl">Email</div>
+              </div>
+              <div class="svc-nn-node svc-nn-out" style="top:52px;right:28px;">
+                <div class="svc-nn-ico">📊</div>
+                <div class="svc-nn-lbl">CRM</div>
+              </div>
+              <div class="svc-nn-node svc-nn-out" style="top:92px;right:28px;">
+                <div class="svc-nn-ico">📱</div>
+                <div class="svc-nn-lbl">SMS</div>
+              </div>
+
+              <!-- Status bar -->
+              <div class="svc-auto-status">
                 <span class="svc-pulse-dot"></span>
-                Auto-processed 1,240 leads this month
+                1,240 leads auto-qualified this month
               </div>
             </div>
-            <div class="svc-stat-pill svc-green-pill" style="top:10px;right:10px;">24/7 RUNNING</div>
+
+            <div class="svc-float-badge f-tl svc-badge-green">24/7 RUNNING</div>
           </div>
 
           <div class="svc-features-list">
@@ -1000,181 +1843,6 @@
         </div>
 
       </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-    <div class="services-grid-wrap">
-            <div class="services-compact-grid">
-
-      <!-- CARD 1: VIDEO EDITING & MOTION GRAPHICS -->
-      <div class="svc-compact-card">
-        <div class="svc-card-tag">01 / VIDEO</div>
-        <h3 class="svc-compact-heading">Video Editing &amp; Motion Graphics</h3>
-        <p class="svc-compact-desc">
-          Hook-first cinematic SaaS product videos and 3D motion graphics engineered to stop the scroll and convert viewers into paying customers.
-        </p>
-
-        <div class="saas-frame">
-          <div class="saas-header">
-            <div class="saas-dots">
-              <span class="saas-dot saas-dot-r"></span>
-              <span class="saas-dot saas-dot-y"></span>
-              <span class="saas-dot saas-dot-g"></span>
-            </div>
-            <span class="saas-title">mz-video-studio.app • 4K Master</span>
-            <span class="saas-badge-pill">4K MOTION</span>
-          </div>
-          <div class="saas-video-box">
-            <video autoplay loop muted playsinline preload="metadata">
-              <source src="assets/videos/69f3372ca69d7bd596c9c250_Storyboarding_600_600__mp4.mp4" type="video/mp4">
-            </video>
-            <div class="saas-brand-tint"></div>
-            <div class="saas-metric-badge">
-              <span>⚡ 84% Retention at 30s</span>
-            </div>
-          </div>
-          <div class="saas-scrub-bar">
-            <div class="saas-scrub-line"><div class="saas-scrub-fill" style="width: 72%;"></div></div>
-          </div>
-        </div>
-
-        <div class="svc-features-list">
-          <span class="svc-feature-item">✦ Hook Architecture</span>
-          <span class="svc-feature-item">✦ 3D Motion Graphics</span>
-          <span class="svc-feature-item">✦ 4K Conversion Master</span>
-        </div>
-
-        <a href="#callbook" class="svc-card-btn">Book Video Production ➔</a>
-      </div>
-
-      <!-- CARD 2: WEBSITE DESIGN & DEVELOPMENT -->
-      <div class="svc-compact-card">
-        <div class="svc-card-tag">02 / WEB</div>
-        <h3 class="svc-compact-heading">Website Design &amp; Development</h3>
-        <p class="svc-compact-desc">
-          Ultra-fast, responsive 3D interactive web experiences that build high-status market authority and convert casual traffic into buyers.
-        </p>
-
-        <div class="saas-frame">
-          <div class="saas-header">
-            <div class="saas-dots">
-              <span class="saas-dot saas-dot-r"></span>
-              <span class="saas-dot saas-dot-y"></span>
-              <span class="saas-dot saas-dot-g"></span>
-            </div>
-            <span class="saas-title">yourbrand.io • 3D WebGL</span>
-            <span class="saas-badge-pill" style="color:#64b5f6; border-color:rgba(100,181,246,0.3); background:rgba(100,181,246,0.1);">3D WEB</span>
-          </div>
-          <div class="saas-video-box">
-            <video autoplay loop muted playsinline preload="metadata">
-              <source src="assets/videos/69f336d2c04e1d0e6125bff1_Clarity__600_600___1__mp4.mp4" type="video/mp4">
-            </video>
-            <div class="saas-brand-tint"></div>
-            <div class="saas-metric-badge">
-              <span>🟢 100/100 Lighthouse</span>
-            </div>
-          </div>
-          <div class="saas-scrub-bar">
-            <div class="saas-scrub-line"><div class="saas-scrub-fill" style="width: 85%;"></div></div>
-          </div>
-        </div>
-
-        <div class="svc-features-list">
-          <span class="svc-feature-item">✦ Conversion Wireframes</span>
-          <span class="svc-feature-item">✦ 3D Interactive WebGL</span>
-          <span class="svc-feature-item">✦ Sub-Second Global Speed</span>
-        </div>
-
-        <a href="#callbook" class="svc-card-btn">Start Web Project ➔</a>
-      </div>
-
-      <!-- CARD 3: DIGITAL MARKETING & GROWTH -->
-      <div class="svc-compact-card">
-        <div class="svc-card-tag">03 / GROWTH</div>
-        <h3 class="svc-compact-heading">Digital Marketing &amp; Growth</h3>
-        <p class="svc-compact-desc">
-          Targeted multi-channel ad campaigns and performance conversion funnels engineered to scale ROAS and multiply pipeline revenue.
-        </p>
-
-        <div class="saas-frame">
-          <div class="saas-header">
-            <div class="saas-dots">
-              <span class="saas-dot saas-dot-r"></span>
-              <span class="saas-dot saas-dot-y"></span>
-              <span class="saas-dot saas-dot-g"></span>
-            </div>
-            <span class="saas-title">growth-engine.io • Performance</span>
-            <span class="saas-badge-pill" style="color:#ffb74d; border-color:rgba(255,183,77,0.3); background:rgba(255,183,77,0.1);">ACTIVE ADS</span>
-          </div>
-          <div class="saas-video-box">
-            <video autoplay loop muted playsinline preload="metadata">
-              <source src="assets/videos/69f337d6376bc515eac4642f_Rocket_600_600___1__mp4.mp4" type="video/mp4">
-            </video>
-            <div class="saas-brand-tint"></div>
-            <div class="saas-metric-badge">
-              <span>📈 5.4X ROAS Scale</span>
-            </div>
-          </div>
-          <div class="saas-scrub-bar">
-            <div class="saas-scrub-line"><div class="saas-scrub-fill" style="width: 78%;"></div></div>
-          </div>
-        </div>
-
-        <div class="svc-features-list">
-          <span class="svc-feature-item">✦ Meta &amp; Google Ads</span>
-          <span class="svc-feature-item">✦ High-Converting Funnels</span>
-          <span class="svc-feature-item">✦ Automated ROAS Scaling</span>
-        </div>
-
-        <a href="#callbook" class="svc-card-btn">Scale Campaigns ➔</a>
-      </div>
-
-      <!-- CARD 4: BUSINESS AUTOMATION SOLUTIONS -->
-      <div class="svc-compact-card">
-        <div class="svc-card-tag">04 / AUTOMATION</div>
-        <h3 class="svc-compact-heading">Business Automation Solutions</h3>
-        <p class="svc-compact-desc">
-          Autonomous AI agents, n8n webhook pipelines, and CRM systems that eliminate manual workload and handle operations 24/7.
-        </p>
-
-        <div class="saas-frame">
-          <div class="saas-header">
-            <div class="saas-dots">
-              <span class="saas-dot saas-dot-r"></span>
-              <span class="saas-dot saas-dot-y"></span>
-              <span class="saas-dot saas-dot-g"></span>
-            </div>
-            <span class="saas-title">n8n-pipeline.ai • Autonomous</span>
-            <span class="saas-badge-pill" style="color:#ff5533; border-color:rgba(255,85,51,0.3); background:rgba(255,85,51,0.1);">24/7 ACTIVE</span>
-          </div>
-          <div class="saas-video-box">
-            <video autoplay loop muted playsinline preload="metadata">
-              <source src="assets/videos/69f3368700d11e3cc6b5ea51_Conversion__600_600__mp4.mp4" type="video/mp4">
-            </video>
-            <div class="saas-brand-tint"></div>
-            <div class="saas-metric-badge">
-              <span>⚡ 120ms Execution</span>
-            </div>
-          </div>
-          <div class="saas-scrub-bar">
-            <div class="saas-scrub-line"><div class="saas-scrub-fill" style="width: 92%;"></div></div>
-          </div>
-        </div>
-
-        <div class="svc-features-list">
-          <span class="svc-feature-item">✦ Autonomous AI Agents</span>
-          <span class="svc-feature-item">✦ n8n Webhook Pipelines</span>
-          <span class="svc-feature-item">✦ 24/7 CRM Synchronization</span>
-        </div>
-
-        <a href="#callbook" class="svc-card-btn">Automate Operations ➔</a>
-      </div>
-
-    </div>
     </div>
   </div>
 </section>
