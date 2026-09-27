@@ -1,6 +1,6 @@
 <!DOCTYPE html><!-- Last Published: Thu Sep 03 2026 12:33:02 GMT+0000 (Coordinated Universal Time) --><html data-wf-domain="mzmedia.digital" data-wf-page="69af0c7180b6e9f033168992" data-wf-site="6796419e2d5f03877896246e" lang="en"><head><meta charset="utf-8"/><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/><meta http-equiv="Pragma" content="no-cache"/><meta http-equiv="Expires" content="0"/><link href="https://cdn.prod.website-files.com" rel="preconnect" crossorigin="anonymous"/><title>SaaS Videos That Convert | MZ Media</title><meta content="MZ Media makes SaaS product videos that convert. Trusted by ClickUp and 50+ companies from YC startups to enterprises. Delivered in under two weeks." name="description"/><meta content="SaaS Videos That Convert | MZ Media" property="og:title"/><meta content="MZ Media makes SaaS product videos that convert. Trusted by ClickUp and 50+ companies from YC startups to enterprises. Delivered in under two weeks." property="og:description"/><meta content="https://cdn.prod.website-files.com/6796419e2d5f03877896246e/6a1197e95738e8a9c5965388_OG.png" property="og:image"/><meta content="SaaS Videos That Convert | MZ Media" name="twitter:title"/><meta content="MZ Media makes SaaS product videos that convert. Trusted by ClickUp and 50+ companies from YC startups to enterprises. Delivered in under two weeks." name="twitter:description"/><meta property="og:type" content="website"/><meta content="summary_large_image" name="twitter:card"/><meta content="width=device-width, initial-scale=1" name="viewport"/><link href="css/mzmedia.css" rel="stylesheet" type="text/css" /><link href="css/custom-theme.css?v=2.7" rel="stylesheet" type="text/css" />
 <link href="css/rotating-tagline.css?v=1.0" rel="stylesheet" type="text/css" />
-<link href="css/services-section.css?v=10.0" rel="stylesheet" type="text/css" /><link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="css/services-section.css?v=12.0" rel="stylesheet" type="text/css" /><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -429,499 +429,315 @@
 <style id="saas-stage-inline-css">
 
 /* ================================================================
-   AUTHENTIC PRO VIDEO EDITING & MOTION SUITE
-   Matches real Premiere / After Effects / DaVinci Resolve Workflow
-   Brand Palette: #660F24 (Fiery Crimson), #702D09 (Warm Terracotta), #241705 (Rich Espresso)
+   SLEEK MINIMAL VIDEO EDITING STUDIO (COMPACT & CLEAN)
+   Brand Colors: #660F24 (Fiery Crimson), #702D09 (Warm Terracotta), #241705 (Rich Espresso)
    ================================================================ */
 
-#services-section .saas-nle-suite * {
+#services-section .saas-clean-studio * {
   box-sizing: border-box;
 }
 
-#services-section .saas-nle-suite {
+#services-section .saas-clean-studio {
   position: relative;
   width: 100%;
-  background: #090402;
+  background: #0a0402;
+  border-radius: 0 0 16px 16px;
   overflow: hidden;
   user-select: none;
-  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-weight: 400;
   display: flex;
   flex-direction: column;
 }
 
+/* Force icons inside studio to stay contained */
+#services-section .saas-clean-studio svg {
+  max-width: 16px !important;
+  max-height: 16px !important;
+  display: inline-block;
+}
+
 /* ─────────────────────────────────────────────────────────────
-   TOP SECTION: 4K MONITOR + INSPECTOR
+   1. TOP SCREEN: COMPACT CINEMATIC MONITOR (~185px)
    ───────────────────────────────────────────────────────────── */
-.nle-monitor-area {
-  display: grid;
-  grid-template-columns: 1fr 190px;
-  background: #110703;
-  border-bottom: 1px solid rgba(102, 15, 36, 0.45);
-  min-height: 215px;
-}
-
-/* 4K Video Viewport Screen */
-.nle-viewport {
+.studio-monitor {
   position: relative;
-  background: radial-gradient(circle at 50% 50%, #1e0e07 0%, #0d0502 100%);
-  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 60%, #1c0c05 0%, #0c0502 100%);
+  padding: 14px 16px;
+  min-height: 185px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  border-right: 1px solid rgba(102, 15, 36, 0.35);
-  padding: 16px;
+  flex-direction: column;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(102, 15, 36, 0.4);
+  overflow: hidden;
 }
 
-/* Safe Margin Guides Overlay */
-.nle-safe-grid {
-  position: absolute;
-  inset: 12px;
-  border: 1px dashed rgba(255, 255, 255, 0.08);
-  pointer-events: none;
-}
-.nle-safe-grid::after {
-  content: '';
+/* Soft Warm Center Bloom */
+.screen-glow {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 14px;
-  height: 14px;
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
-  border-left: 1px solid rgba(255, 255, 255, 0.18);
+  width: 220px;
+  height: 130px;
+  background: radial-gradient(ellipse, rgba(102, 15, 36, 0.7) 0%, rgba(112, 45, 9, 0.35) 45%, transparent 75%);
+  filter: blur(28px);
   pointer-events: none;
 }
 
-/* Top Viewport Badges */
-.nle-view-badge {
+/* Subtle Safe Zone Framing */
+.studio-monitor::before {
+  content: '';
   position: absolute;
-  top: 10px;
-  left: 12px;
-  font-family: 'SF Mono', Monaco, monospace;
-  font-size: 8.5px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  color: #ff9d85;
-  background: rgba(102, 15, 36, 0.4);
-  padding: 3px 8px;
-  border-radius: 4px;
-  border: 1px solid rgba(255, 85, 51, 0.3);
+  inset: 10px 14px;
+  border: 1px dashed rgba(255, 255, 255, 0.07);
+  pointer-events: none;
 }
 
-.nle-view-timecode {
-  position: absolute;
-  bottom: 10px;
-  left: 12px;
-  font-family: 'SF Mono', Monaco, Consolas, monospace;
-  font-size: 11px;
-  font-weight: 700;
-  color: #ffffff;
-  letter-spacing: 1px;
-  background: rgba(0, 0, 0, 0.65);
-  padding: 3px 8px;
-  border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Viewport Live Content Simulation */
-.nle-screen-content {
+/* Top Screen Status Bar */
+.screen-top-bar {
   position: relative;
-  width: 100%;
-  height: 100%;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.screen-badge {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  color: #ffb5a0;
+  background: rgba(102, 15, 36, 0.45);
+  border: 1px solid rgba(255, 100, 70, 0.35);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.screen-retention {
+  font-size: 10px;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(36, 23, 5, 0.9);
+  border: 1px solid rgba(255, 85, 51, 0.6);
+  box-shadow: 0 0 12px rgba(102, 15, 36, 0.5);
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+
+/* Center Play Orb & Label */
+.screen-center-play {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.play-orb {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(102, 15, 36, 0.9) 0%, rgba(112, 45, 9, 0.8) 100%);
+  border: 1px solid rgba(255, 140, 100, 0.5);
+  box-shadow: 0 0 20px rgba(102, 15, 36, 0.6), 0 4px 12px rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 3;
-}
-
-.nle-screen-glow {
-  position: absolute;
-  width: 200px;
-  height: 140px;
-  background: radial-gradient(ellipse at center, rgba(102, 15, 36, 0.8) 0%, rgba(255, 85, 51, 0.35) 45%, transparent 75%);
-  filter: blur(25px);
-  pointer-events: none;
-  animation: nleGlowPulse 4s infinite ease-in-out alternate;
-}
-@keyframes nleGlowPulse {
-  0% { transform: scale(0.9); opacity: 0.7; }
-  100% { transform: scale(1.15); opacity: 1; }
-}
-
-.nle-track-box {
-  position: relative;
-  padding: 14px 22px;
-  border: 1px solid rgba(255, 85, 51, 0.45);
-  background: rgba(36, 23, 5, 0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 8px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(102, 15, 36, 0.5);
-  animation: nleFloatSubject 5s ease-in-out infinite alternate;
-}
-@keyframes nleFloatSubject {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-4px); }
-}
-
-/* Corner Tracking Dots */
-.trk-dot {
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  background: #ff5533;
-}
-.trk-dot.tl { top: -2px; left: -2px; }
-.trk-dot.tr { top: -2px; right: -2px; }
-.trk-dot.bl { bottom: -2px; left: -2px; }
-.trk-dot.br { bottom: -2px; right: -2px; }
-
-.nle-kinetic-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 8.5px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  color: #ffaa55;
-  background: rgba(112, 45, 9, 0.4);
-  padding: 2px 7px;
-  border-radius: 999px;
-  margin-bottom: 5px;
-}
-
-.nle-kinetic-text {
-  font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 800;
   color: #ffffff;
-  letter-spacing: 0.5px;
-  margin-bottom: 4px;
-  text-shadow: 0 0 14px rgba(255, 85, 51, 0.6);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+.play-orb:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 28px rgba(255, 85, 51, 0.8);
+}
+.play-orb svg {
+  margin-left: 2px;
+  fill: #ffffff;
 }
 
-.nle-kinetic-sub {
-  font-size: 9px;
-  font-weight: 600;
-  color: rgba(255, 210, 195, 0.8);
-  letter-spacing: 0.8px;
-}
-
-.nle-metric-pill {
-  position: absolute;
-  top: 10px;
-  right: 12px;
-  font-size: 10px;
-  font-weight: 700;
-  color: #ffffff;
-  background: #241705;
-  border: 1px solid rgba(255, 85, 51, 0.65);
-  box-shadow: 0 0 14px rgba(102, 15, 36, 0.5);
-  padding: 4px 10px;
-  border-radius: 999px;
-}
-
-/* Inspector Controls (Right Column) */
-.nle-inspector {
-  padding: 12px 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  background: #140804;
-}
-
-.nle-insp-title {
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 1.1px;
-  color: #ff9d85;
-  text-transform: uppercase;
-  padding-bottom: 5px;
-  border-bottom: 1px solid rgba(102, 15, 36, 0.4);
-}
-
-.nle-insp-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 10px;
-}
-
-.insp-label {
-  color: rgba(255, 255, 255, 0.65);
+.play-label {
+  font-size: 11px;
   font-weight: 500;
-}
-
-.insp-val {
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 9.5px;
-  background: rgba(255, 255, 255, 0.06);
-  padding: 2px 6px;
-  border-radius: 4px;
-}
-.insp-val.val-crimson {
-  background: rgba(102, 15, 36, 0.6);
-  color: #ffb5c2;
-  border: 1px solid rgba(255, 85, 51, 0.4);
-}
-.insp-val.val-coral {
-  background: rgba(112, 45, 9, 0.5);
-  color: #ffd2b8;
-  border: 1px solid rgba(255, 120, 80, 0.35);
-}
-
-.nle-speed-curve {
-  margin-top: auto;
-  padding: 6px 8px;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-}
-.curve-title {
-  font-size: 8px;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.6);
-  letter-spacing: 0.5px;
-  margin-bottom: 3px;
-}
-.nle-speed-curve svg {
-  width: 100%;
-  height: 22px;
-}
-
-/* ─────────────────────────────────────────────────────────────
-   BOTTOM SECTION: MULTI-TRACK VIDEO TIMELINE
-   ───────────────────────────────────────────────────────────── */
-.nle-timeline-area {
-  position: relative;
-  background: #0d0502;
-  padding: 6px 10px 14px;
-  overflow: hidden;
-}
-
-/* Time Ruler */
-.nle-timeline-ruler {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 45px 5px 65px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  margin-bottom: 6px;
-}
-
-.ruler-mark {
-  font-family: 'SF Mono', Monaco, monospace;
-  font-size: 8px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.45);
-  letter-spacing: 0.5px;
-}
-
-/* Animated Playhead Needle */
-.nle-playhead {
-  position: absolute;
-  top: 4px;
-  bottom: 0;
-  left: 65px;
-  width: 2px;
-  z-index: 10;
-  pointer-events: none;
-  animation: nlePlayheadSweep 7s linear infinite;
-}
-
-@keyframes nlePlayheadSweep {
-  0% { left: 65px; }
-  100% { left: calc(100% - 15px); }
-}
-
-.playhead-cap {
-  position: absolute;
-  top: -1px;
-  left: -4px;
-  width: 10px;
-  height: 8px;
-  background: #ff3344;
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
-  box-shadow: 0 0 6px #ff3344;
-}
-
-.playhead-line {
-  position: absolute;
-  top: 7px;
-  bottom: 0;
-  left: 0;
-  width: 1.5px;
-  background: #ff3344;
-  box-shadow: 0 0 8px #ff3344;
-}
-
-/* Track Rows */
-.nle-tracks-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.nle-track-row {
-  display: flex;
-  align-items: center;
-  height: 25px;
-  gap: 6px;
-}
-
-.track-header {
-  width: 58px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding-left: 4px;
-}
-
-.track-id {
-  font-size: 8.5px;
-  font-weight: 800;
-  color: #ffaa88;
-  background: rgba(102, 15, 36, 0.45);
-  padding: 1px 4px;
-  border-radius: 3px;
-}
-
-.track-name {
-  font-size: 8px;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 235, 225, 0.85);
   letter-spacing: 0.3px;
 }
 
-.track-lane {
+/* Bottom Screen Bar */
+.screen-bottom-bar {
   position: relative;
-  flex: 1;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.025);
-  border-radius: 4px;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 9.5px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.screen-tc {
+  font-family: 'SF Mono', Monaco, Consolas, monospace;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(0, 0, 0, 0.4);
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   2. BOTTOM TIMELINE: COMPACT MULTI-TRACK (~95px)
+   ───────────────────────────────────────────────────────────── */
+.studio-timeline {
+  position: relative;
+  background: #0d0502;
+  padding: 8px 12px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   overflow: hidden;
 }
 
-/* Clip Blocks */
-.clip-block {
+/* Animated Playhead Needle */
+.timeline-playhead {
   position: absolute;
-  top: 1px;
-  bottom: 1px;
-  border-radius: 4px;
+  top: 0;
+  bottom: 0;
+  left: 45px;
+  width: 1.5px;
+  background: #ff3344;
+  box-shadow: 0 0 8px #ff3344;
+  z-index: 10;
+  pointer-events: none;
+  animation: playheadSweep 6s linear infinite;
+}
+.timeline-playhead::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -3.5px;
+  width: 8px;
+  height: 6px;
+  background: #ff3344;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+@keyframes playheadSweep {
+  0% { left: 45px; }
+  100% { left: calc(100% - 10px); }
+}
+
+/* Track Rows */
+.timeline-track {
   display: flex;
   align-items: center;
-  padding: 0 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  transition: transform 0.2s ease;
-}
-.clip-block:hover {
-  filter: brightness(1.15);
+  gap: 8px;
+  height: 22px;
 }
 
-.clip-title {
+.trk-label {
+  width: 26px;
   font-size: 8px;
   font-weight: 700;
-  color: #ffffff;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  letter-spacing: 0.2px;
-}
-
-/* Track V3: 3D VFX (Fiery Crimson Theme) */
-.clip-vfx {
-  background: linear-gradient(90deg, #660F24 0%, #851833 100%);
-  border: 1px solid rgba(255, 100, 130, 0.5);
-}
-
-/* Keyframe Diamonds */
-.keyframe {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  background: #ffd580;
-  transform: rotate(45deg);
-  box-shadow: 0 0 5px #ffd580;
-}
-.kf-1 { left: 18%; }
-.kf-2 { right: 18%; }
-
-/* Track V2: Text & Hooks (Warm Terracotta Theme) */
-.clip-text {
-  background: linear-gradient(90deg, #702D09 0%, #8f3d12 100%);
-  border: 1px solid rgba(255, 150, 100, 0.5);
-}
-
-/* Track V1: Main 4K Footage (Rich Espresso Theme) */
-.clip-main {
-  background: linear-gradient(90deg, #241705 0%, #3d250d 100%);
-  border: 1px solid rgba(180, 120, 60, 0.4);
-}
-
-/* Track A1: Audio Waveform Track */
-.clip-audio {
-  background: linear-gradient(90deg, #180d04 0%, #281608 100%);
-  border: 1px solid rgba(255, 85, 51, 0.4);
-  display: flex;
-  align-items: center;
-  padding: 0 10px;
-  gap: 10px;
-}
-
-.audio-waves {
-  display: flex;
-  align-items: center;
-  gap: 3px;
-  height: 16px;
+  color: #ff9977;
+  background: rgba(102, 15, 36, 0.35);
+  padding: 2px 4px;
+  border-radius: 3px;
+  text-align: center;
   flex-shrink: 0;
 }
 
-.w-bar {
-  width: 2.5px;
+.trk-clips {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Clips */
+.clip {
+  position: absolute;
+  top: 1px;
+  bottom: 1px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  padding: 0 7px;
+  font-size: 8px;
+  font-weight: 500;
+  color: #ffffff;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Track V2: 3D Motion (Crimson Theme) */
+.clip-crimson {
+  background: linear-gradient(90deg, #660F24 0%, #851833 100%);
+  border: 1px solid rgba(255, 100, 130, 0.45);
+}
+
+.kf {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: #ffd699;
+  transform: rotate(45deg);
+  box-shadow: 0 0 4px #ffd699;
+}
+.kf-1 { right: 25%; }
+.kf-2 { right: 10%; }
+
+/* Track V1: Main Video (Espresso / Terracotta Theme) */
+.clip-espresso {
+  background: linear-gradient(90deg, #241705 0%, #42200a 100%);
+  border: 1px solid rgba(255, 140, 90, 0.35);
+  color: rgba(255, 235, 225, 0.9);
+}
+
+/* Track A1: Audio Waveforms */
+.clip-audio {
+  background: #140803;
+  border: 1px solid rgba(255, 85, 51, 0.3);
+  padding: 0 8px;
+}
+
+.sound-wave-bars {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 14px;
+  width: 100%;
+}
+.sound-wave-bars span {
+  flex: 1;
   background: #ff5533;
   border-radius: 2px;
-  animation: audioWaveBounce 1.4s ease-in-out infinite alternate;
+  height: 40%;
+  animation: audioWaveSmooth 1.2s ease-in-out infinite alternate;
 }
-.w-bar:nth-child(even) { animation-delay: 0.2s; background: #ffaa88; }
-.w-bar:nth-child(3n) { animation-delay: 0.4s; background: #ff3344; }
+.sound-wave-bars span:nth-child(2n) { animation-delay: 0.15s; height: 75%; background: #ff8866; }
+.sound-wave-bars span:nth-child(3n) { animation-delay: 0.3s; height: 95%; background: #ff3344; }
+.sound-wave-bars span:nth-child(4n) { animation-delay: 0.45s; height: 50%; }
 
-@keyframes audioWaveBounce {
+@keyframes audioWaveSmooth {
   0% { transform: scaleY(0.4); }
-  100% { transform: scaleY(1.1); }
+  100% { transform: scaleY(1.15); }
 }
 
-.audio-tag {
-  font-size: 7.5px;
-  font-weight: 700;
-  color: #ff9977;
-  letter-spacing: 0.4px;
-}
-
-/* Mobile Responsiveness */
 @media (max-width: 640px) {
-  .nle-monitor-area {
-    grid-template-columns: 1fr;
+  .studio-monitor {
+    min-height: 160px;
+    padding: 10px 12px;
   }
-  .nle-inspector {
-    display: none;
+  .timeline-playhead {
+    left: 36px;
   }
-  .nle-timeline-ruler {
-    padding: 0 10px 4px 50px;
-  }
-  .track-header {
-    width: 45px;
-  }
-  .track-name {
-    display: none;
-  }
-  .nle-playhead {
-    left: 48px;
-  }
-  @keyframes nlePlayheadSweep {
-    0% { left: 48px; }
+  @keyframes playheadSweep {
+    0% { left: 36px; }
     100% { left: calc(100% - 10px); }
   }
 }
@@ -998,178 +814,88 @@
               <span class="saas-title">mz-video-studio.app • 4K Master</span>
               <span class="saas-badge-pill">PREVIEW</span>
             </div>
-            <div class="saas-video-box saas-nle-suite" id="saasVideoSuite">
-              <!-- Top Monitor & Viewport -->
-              <div class="nle-monitor-area">
-                <div class="nle-viewport">
-                  <!-- Safe Margins & Camera Crosshair -->
-                  <div class="nle-safe-grid"></div>
-                  <div class="nle-view-badge">4K 60FPS • PRORES</div>
-                  <div class="nle-view-timecode">00:03:14:12</div>
-                  
-                  <!-- Video Viewport Subject / Kinetic Motion Preview -->
-                  <div class="nle-screen-content">
-                    <div class="nle-screen-glow"></div>
-                    <div class="nle-track-box">
-                      <span class="trk-dot tl"></span><span class="trk-dot tr"></span>
-                      <span class="trk-dot bl"></span><span class="trk-dot br"></span>
-                      <div class="nle-kinetic-badge">
-                        <span>⚡</span>
-                        <span>HOOK ARCHITECTURE</span>
-                      </div>
-                      <div class="nle-kinetic-text">HIGH-RETENTION MOTION</div>
-                      <div class="nle-kinetic-sub">ENGINEERED TO CONVERT AT 30s</div>
-                    </div>
-                  </div>
-                  
-                  <div class="nle-metric-pill">
-                    <span>⚡ 84% Retention at 30s</span>
-                  </div>
-                </div>
+            <div class="saas-video-box saas-clean-studio" id="saasVideoSuite">
+              <!-- Compact Cinematic Preview Monitor -->
+              <div class="studio-monitor">
+                <!-- Warm Central Bloom -->
+                <div class="screen-glow"></div>
                 
-                <!-- FX & Speed Ramp Inspector Panel -->
-                <div class="nle-inspector">
-                  <div class="nle-insp-title">FX &amp; MOTION GRAPHICS</div>
-                  
-                  <div class="nle-insp-row">
-                    <span class="insp-label">Hook Pacing</span>
-                    <span class="insp-val val-crimson">1.6x Ramp</span>
-                  </div>
-                  
-                  <div class="nle-insp-row">
-                    <span class="insp-label">3D Render</span>
-                    <span class="insp-val">4K Cycles</span>
-                  </div>
-                  
-                  <div class="nle-insp-row">
-                    <span class="insp-label">Sound FX</span>
-                    <span class="insp-val val-coral">8D Spatial</span>
-                  </div>
-                  
-                  <div class="nle-speed-curve">
-                    <div class="curve-title">SPEED RAMP VELOCITY</div>
-                    <svg viewBox="0 0 100 24" fill="none">
-                      <path d="M2,20 C30,20 40,4 60,4 C80,4 85,16 98,16" stroke="#ff5533" stroke-width="2" stroke-linecap="round"/>
-                      <circle cx="60" cy="4" r="3" fill="#ff5533"/>
+                <!-- Top Status Bar -->
+                <div class="screen-top-bar">
+                  <span class="screen-badge">4K 60FPS</span>
+                  <span class="screen-retention">⚡ 84% Retention</span>
+                </div>
+
+                <!-- Center Minimal Play Orb -->
+                <div class="screen-center-play">
+                  <div class="play-orb" title="Play Preview">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
                     </svg>
                   </div>
+                  <div class="play-label">SaaS Product Film • 4K Master</div>
+                </div>
+
+                <!-- Bottom Timecode & Spec -->
+                <div class="screen-bottom-bar">
+                  <span class="screen-tc">00:14:02 / 00:30:00</span>
+                  <span>16:9 • ProRes 4444</span>
                 </div>
               </div>
 
-              <!-- Bottom: Multi-Track Video Timeline -->
-              <div class="nle-timeline-area">
-                <!-- Time Ruler -->
-                <div class="nle-timeline-ruler">
-                  <span class="ruler-mark">00:00</span>
-                  <span class="ruler-mark">00:05</span>
-                  <span class="ruler-mark">00:10</span>
-                  <span class="ruler-mark">00:15</span>
-                  <span class="ruler-mark">00:20</span>
-                  <span class="ruler-mark">00:25</span>
-                  <span class="ruler-mark">00:30</span>
+              <!-- Compact Multi-Track Timeline -->
+              <div class="studio-timeline">
+                <!-- Animated Playhead Needle -->
+                <div class="timeline-playhead"></div>
+
+                <!-- Track V2: 3D Motion & VFX -->
+                <div class="timeline-track track-vfx">
+                  <span class="trk-label">V2</span>
+                  <div class="trk-clips">
+                    <div class="clip clip-crimson" style="left: 6%; width: 38%;">
+                      <span>3D Motion Graphics</span>
+                      <span class="kf kf-1"></span><span class="kf kf-2"></span>
+                    </div>
+                    <div class="clip clip-crimson" style="left: 48%; width: 44%;">
+                      <span>VFX Render &amp; Glow</span>
+                      <span class="kf kf-1"></span>
+                    </div>
+                  </div>
                 </div>
 
-                <!-- Animated Playhead Line -->
-                <div class="nle-playhead">
-                  <div class="playhead-cap"></div>
-                  <div class="playhead-line"></div>
+                <!-- Track V1: Main Video Cuts -->
+                <div class="timeline-track track-video">
+                  <span class="trk-label">V1</span>
+                  <div class="trk-clips">
+                    <div class="clip clip-espresso" style="left: 0%; width: 40%;">
+                      <span>Hook Intro</span>
+                    </div>
+                    <div class="clip clip-espresso" style="left: 42%; width: 38%;">
+                      <span>Feature Demo</span>
+                    </div>
+                    <div class="clip clip-espresso" style="left: 82%; width: 18%;">
+                      <span>CTA Outro</span>
+                    </div>
+                  </div>
                 </div>
 
-                <!-- Timeline Tracks -->
-                <div class="nle-tracks-wrap">
-                  
-                  <!-- Track V3: 3D Motion Graphics & VFX -->
-                  <div class="nle-track-row track-v3">
-                    <div class="track-header">
-                      <span class="track-id">V3</span>
-                      <span class="track-name">3D VFX</span>
-                    </div>
-                    <div class="track-lane">
-                      <div class="clip-block clip-vfx clip-1" style="left: 4%; width: 34%;">
-                        <span class="clip-title">◆ 3D Product Mockup</span>
-                        <span class="keyframe kf-1"></span>
-                        <span class="keyframe kf-2"></span>
-                      </div>
-                      <div class="clip-block clip-vfx clip-2" style="left: 42%; width: 54%;">
-                        <span class="clip-title">◆ Particle Simulation &amp; Glow</span>
-                        <span class="keyframe kf-1"></span>
-                        <span class="keyframe kf-2"></span>
+                <!-- Track A1: Audio Waveforms -->
+                <div class="timeline-track track-audio">
+                  <span class="trk-label">A1</span>
+                  <div class="trk-clips">
+                    <div class="clip clip-audio" style="left: 0%; width: 100%;">
+                      <div class="sound-wave-bars">
+                        <span></span><span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span><span></span>
+                        <span></span><span></span><span></span><span></span><span></span>
                       </div>
                     </div>
                   </div>
-
-                  <!-- Track V2: Kinetic Typography & Hooks -->
-                  <div class="nle-track-row track-v2">
-                    <div class="track-header">
-                      <span class="track-id">V2</span>
-                      <span class="track-name">TEXT</span>
-                    </div>
-                    <div class="track-lane">
-                      <div class="clip-block clip-text clip-1" style="left: 2%; width: 26%;">
-                        <span class="clip-title">⚡ Scroll-Stop Hook</span>
-                      </div>
-                      <div class="clip-block clip-text clip-2" style="left: 30%; width: 36%;">
-                        <span class="clip-title">Dynamic Subtitles</span>
-                      </div>
-                      <div class="clip-block clip-text clip-3" style="left: 68%; width: 30%;">
-                        <span class="clip-title">CTA Outro Pop</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Track V1: Main 4K A-Roll Footage -->
-                  <div class="nle-track-row track-v1">
-                    <div class="track-header">
-                      <span class="track-id">V1</span>
-                      <span class="track-name">A-ROLL</span>
-                    </div>
-                    <div class="track-lane">
-                      <div class="clip-block clip-main clip-1" style="left: 0%; width: 40%;">
-                        <span class="clip-title">Scene 01 • The Problem</span>
-                      </div>
-                      <div class="clip-block clip-main clip-2" style="left: 41%; width: 35%;">
-                        <span class="clip-title">Scene 02 • SaaS Solution</span>
-                      </div>
-                      <div class="clip-block clip-main clip-3" style="left: 77%; width: 23%;">
-                        <span class="clip-title">Scene 03 • Proof</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Track A1: Cinematic Sound FX & Audio Waveform -->
-                  <div class="nle-track-row track-a1">
-                    <div class="track-header">
-                      <span class="track-id">A1</span>
-                      <span class="track-name">AUDIO</span>
-                    </div>
-                    <div class="track-lane">
-                      <div class="clip-block clip-audio" style="left: 0%; width: 100%;">
-                        <div class="audio-waves">
-                          <span class="w-bar" style="height: 40%;"></span>
-                          <span class="w-bar" style="height: 75%;"></span>
-                          <span class="w-bar" style="height: 100%;"></span>
-                          <span class="w-bar" style="height: 55%;"></span>
-                          <span class="w-bar" style="height: 85%;"></span>
-                          <span class="w-bar" style="height: 35%;"></span>
-                          <span class="w-bar" style="height: 90%;"></span>
-                          <span class="w-bar" style="height: 60%;"></span>
-                          <span class="w-bar" style="height: 45%;"></span>
-                          <span class="w-bar" style="height: 95%;"></span>
-                          <span class="w-bar" style="height: 70%;"></span>
-                          <span class="w-bar" style="height: 30%;"></span>
-                          <span class="w-bar" style="height: 80%;"></span>
-                          <span class="w-bar" style="height: 50%;"></span>
-                          <span class="w-bar" style="height: 88%;"></span>
-                          <span class="w-bar" style="height: 42%;"></span>
-                        </div>
-                        <span class="audio-tag">Cinematic Sub-Bass + Whoosh SFX</span>
-                      </div>
-                    </div>
-                  </div>
-
                 </div>
+
               </div>
-
             </div>
             <div class="saas-scrub-bar">
               <div class="saas-scrub-line">
