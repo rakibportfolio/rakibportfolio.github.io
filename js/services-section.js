@@ -89,7 +89,7 @@
     });
 
     // Hover detection for clickable items
-    const hoverSelector = 'a, button, input, textarea, select, [role="button"], .svc-card, .rtl-pill, .button, .button-03, .nav-link, .video-player-trigger';
+    const hoverSelector = 'a, button, input, textarea, select, [role="button"], .svc-card, .svc-bento-card, .rtl-pill, .button, .button-03, .nav-link, .video-player-trigger';
     
     document.addEventListener('mouseover', function (e) {
       const target = e.target.closest(hoverSelector);
@@ -128,7 +128,7 @@
      2. 3D CARD PERSPECTIVE TILT & SPOTLIGHT EFFECT
      ───────────────────────────────────────────────────────────── */
   function init3DCards() {
-    const cards = document.querySelectorAll('.svc-card');
+    const cards = document.querySelectorAll('.svc-card, .svc-bento-card');
     if (!cards.length) return;
 
     const isTouch = window.matchMedia('(hover: none)').matches;

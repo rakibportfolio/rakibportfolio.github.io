@@ -1,9 +1,9 @@
 /* ================================================================
-   CUSTOM CURSOR FOLLOWER — Always-on glowing orb
-   + SERVICES SECTION — Ultra Premium 3D Cards
+   CUSTOM CURSOR FOLLOWER + SAAS 3D SERVICES SECTION
+   With Explainer Videos, Live App Windows & Interactive Pipelines
    ================================================================ */
 
-/* ── Custom Cursor ─────────────────────────────────────────────── */
+/* ── Custom Glowing Cursor Follower ─────────────────────────────── */
 *, *::before, *::after {
   cursor: none !important;
 }
@@ -41,8 +41,8 @@ input, textarea, select {
   position: fixed;
   top: 0;
   left: 0;
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   border: 1px solid rgba(182, 15, 36, 0.55);
   pointer-events: none;
@@ -57,60 +57,62 @@ input, textarea, select {
   mix-blend-mode: screen;
 }
 
-/* Cursor states */
+/* Cursor hover states */
 body.cursor-hover #cursorOrb {
   width: 10px;
   height: 10px;
-  background: radial-gradient(circle, #fff 0%, rgba(255, 149, 97, 0.9) 60%, transparent 100%);
+  background: radial-gradient(circle, #fff 0%, rgba(255, 149, 97, 0.95) 50%, transparent 100%);
   box-shadow:
-    0 0 10px 4px rgba(255, 149, 97, 0.9),
-    0 0 30px 10px rgba(182, 15, 36, 0.6),
-    0 0 70px 20px rgba(182, 15, 36, 0.25);
+    0 0 12px 4px rgba(255, 149, 97, 0.95),
+    0 0 35px 12px rgba(182, 15, 36, 0.65),
+    0 0 80px 24px rgba(182, 15, 36, 0.3);
 }
 body.cursor-hover #cursorTrail {
-  width: 60px;
-  height: 60px;
-  border-color: rgba(255, 149, 97, 0.7);
+  width: 64px;
+  height: 64px;
+  border-color: rgba(255, 149, 97, 0.8);
+  background: rgba(182, 15, 36, 0.04);
 }
 
 body.cursor-click #cursorOrb {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   box-shadow:
-    0 0 20px 8px rgba(255, 80, 30, 1),
-    0 0 50px 18px rgba(182, 15, 36, 0.7);
+    0 0 25px 10px rgba(255, 80, 30, 1),
+    0 0 60px 20px rgba(182, 15, 36, 0.85);
 }
 
-/* ── Services Section ──────────────────────────────────────────── */
+/* ── Services Section Container ────────────────────────────────── */
 #services-section {
   position: relative;
-  padding: 120px 24px 130px;
+  padding: 130px 24px 140px;
   overflow: hidden;
-  z-index: 1;
+  z-index: 10;
+  background: #000000;
 }
 
-/* Big ambient glow behind section */
+/* Ambient glow & grid mesh */
 #services-section::before {
   content: '';
   position: absolute;
-  top: 0; left: 50%;
+  top: -100px;
+  left: 50%;
   transform: translateX(-50%);
-  width: 900px;
-  height: 500px;
-  background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(182,15,36,0.14) 0%, transparent 70%);
+  width: 1100px;
+  height: 600px;
+  background: radial-gradient(ellipse 65% 70% at 50% 20%, rgba(182, 15, 36, 0.16) 0%, rgba(112, 45, 9, 0.08) 50%, transparent 75%);
+  filter: blur(80px);
   pointer-events: none;
-  filter: blur(60px);
   z-index: 0;
 }
 
-/* Grid noise texture overlay */
 #services-section::after {
   content: '';
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(circle at 1px 1px, rgba(182,15,36,0.04) 1px, transparent 0);
-  background-size: 28px 28px;
+    radial-gradient(circle at 1px 1px, rgba(182, 15, 36, 0.05) 1px, transparent 0);
+  background-size: 32px 32px;
   pointer-events: none;
   z-index: 0;
 }
@@ -118,54 +120,57 @@ body.cursor-click #cursorOrb {
 .services-container {
   position: relative;
   z-index: 2;
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
 }
 
-/* ── Section Header ──────────────────────────────────────────── */
+/* ── Section Header ────────────────────────────────────────────── */
 .services-header {
   text-align: center;
-  margin-bottom: 72px;
+  margin-bottom: 75px;
 }
 
 .services-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 7px 18px;
+  gap: 9px;
+  padding: 8px 20px;
   border-radius: 9999px;
-  background: rgba(182, 15, 36, 0.1);
-  border: 1px solid rgba(182, 15, 36, 0.3);
+  background: rgba(182, 15, 36, 0.12);
+  border: 1px solid rgba(182, 15, 36, 0.35);
+  box-shadow: 0 0 20px rgba(182, 15, 36, 0.15) inset;
   margin-bottom: 24px;
 }
+
 .services-badge-dot {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: #B60F24;
-  box-shadow: 0 0 10px #B60F24;
-  animation: svcPulse 2s infinite;
+  background: #ff4433;
+  box-shadow: 0 0 12px #ff4433;
+  animation: svcPulse 2s infinite ease-in-out;
 }
 @keyframes svcPulse {
-  0%, 100% { opacity: 1; box-shadow: 0 0 10px #B60F24; }
-  50% { opacity: 0.5; box-shadow: 0 0 20px #B60F24; }
+  0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 10px #ff4433; }
+  50% { opacity: 0.5; transform: scale(0.85); box-shadow: 0 0 20px #ff4433; }
 }
+
 .services-badge-text {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 2.5px;
-  color: rgba(255, 192, 160, 0.85);
+  color: rgba(255, 200, 175, 0.9);
   text-transform: uppercase;
-  font-family: 'Coolvetica', 'Inter', sans-serif;
+  font-family: 'Syne', 'Inter', sans-serif;
 }
 
 .services-title {
-  font-family: 'Coolvetica', 'Inter', sans-serif;
-  font-size: clamp(36px, 5vw, 60px);
-  font-weight: 700;
-  line-height: 1.1;
+  font-family: 'Syne', 'Coolvetica', sans-serif;
+  font-size: clamp(34px, 4.8vw, 58px);
+  font-weight: 800;
+  line-height: 1.12;
   letter-spacing: -0.03em;
-  background: linear-gradient(160deg, #ffffff 0%, rgba(255, 200, 168, 0.85) 50%, rgba(182, 15, 36, 0.7) 100%);
+  background: linear-gradient(160deg, #ffffff 0%, rgba(255, 210, 185, 0.9) 45%, rgba(182, 15, 36, 0.75) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -173,82 +178,79 @@ body.cursor-click #cursorOrb {
 }
 
 .services-subtitle {
-  font-size: 17px;
-  color: rgba(240, 210, 190, 0.55);
-  max-width: 560px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: rgba(240, 215, 200, 0.62);
+  max-width: 640px;
   margin: 0 auto;
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
-/* ── Cards Grid ─────────────────────────────────────────────── */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+/* ── Bento Grid Layout ─────────────────────────────────────────── */
+.services-bento-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 
-/* ── Individual Service Card ─────────────────────────────────── */
-.svc-card {
+/* ── Generic Bento Card ────────────────────────────────────────── */
+.svc-bento-card {
   position: relative;
-  border-radius: 24px;
+  border-radius: 28px;
   overflow: hidden;
-  cursor: none;
-
-  /* Glass */
   background: linear-gradient(
     145deg,
-    rgba(36, 23, 5, 0.82) 0%,
-    rgba(18, 10, 3, 0.7) 100%
+    rgba(32, 16, 8, 0.88) 0%,
+    rgba(14, 7, 2, 0.82) 100%
   );
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(182, 15, 36, 0.22);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(182, 15, 36, 0.28);
   box-shadow:
-    0 0 0 1px rgba(255, 100, 60, 0.05) inset,
-    0 8px 40px rgba(0, 0, 0, 0.6),
-    0 0 30px rgba(182, 15, 36, 0.1);
+    0 0 0 1px rgba(255, 120, 70, 0.06) inset,
+    0 24px 60px rgba(0, 0, 0, 0.7),
+    0 0 40px rgba(182, 15, 36, 0.08);
 
-  padding: 44px 40px 40px;
   transform-style: preserve-3d;
   transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px);
   transition:
-    transform 0.08s linear,
-    box-shadow 0.35s ease,
-    border-color 0.35s ease;
+    transform 0.1s linear,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
   will-change: transform;
 }
 
-/* Spotlight effect — follows cursor within card */
+/* Mouse spotlight inside card */
 .svc-card-spotlight {
   position: absolute;
   inset: 0;
   border-radius: inherit;
   background: radial-gradient(
-    circle 220px at var(--mx, 50%) var(--my, 50%),
-    rgba(255, 149, 97, 0.10) 0%,
-    rgba(182, 15, 36, 0.05) 40%,
+    circle 280px at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 149, 97, 0.12) 0%,
+    rgba(182, 15, 36, 0.06) 40%,
     transparent 70%
   );
   pointer-events: none;
-  z-index: 0;
-  transition: opacity 0.3s ease;
+  z-index: 1;
   opacity: 0;
+  transition: opacity 0.35s ease;
 }
-.svc-card:hover .svc-card-spotlight {
+.svc-bento-card:hover .svc-card-spotlight {
   opacity: 1;
 }
 
-/* Animated border beam on card */
+/* Glowing border beam */
 .svc-card-beam {
   position: absolute;
   inset: -1px;
-  border-radius: 25px;
+  border-radius: 29px;
   background: conic-gradient(
     from var(--svc-beam, 0deg),
     transparent 0%,
-    rgba(182, 15, 36, 0.65) 10%,
-    rgba(255, 149, 97, 0.45) 20%,
-    transparent 30%
+    rgba(182, 15, 36, 0.8) 10%,
+    rgba(255, 149, 97, 0.6) 20%,
+    transparent 32%
   );
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
@@ -257,10 +259,10 @@ body.cursor-click #cursorOrb {
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
-  z-index: 1;
-  animation: svcBeamSpin 3.5s linear infinite paused;
+  z-index: 2;
+  animation: svcBeamSpin 4s linear infinite paused;
 }
-.svc-card:hover .svc-card-beam {
+.svc-bento-card:hover .svc-card-beam {
   opacity: 1;
   animation-play-state: running;
 }
@@ -273,253 +275,556 @@ body.cursor-click #cursorOrb {
   to { --svc-beam: 360deg; }
 }
 
-/* Card hover state */
-.svc-card:hover {
-  border-color: rgba(182, 15, 36, 0.5);
+.svc-bento-card:hover {
+  border-color: rgba(182, 15, 36, 0.55);
   box-shadow:
-    0 0 0 1px rgba(255, 120, 80, 0.12) inset,
-    0 24px 60px rgba(0, 0, 0, 0.7),
-    0 0 60px rgba(182, 15, 36, 0.3),
-    0 0 140px rgba(182, 15, 36, 0.1);
+    0 0 0 1px rgba(255, 120, 70, 0.16) inset,
+    0 30px 80px rgba(0, 0, 0, 0.8),
+    0 0 70px rgba(182, 15, 36, 0.35),
+    0 0 120px rgba(182, 15, 36, 0.12);
 }
 
-/* ── Card Icon ───────────────────────────────────────────────── */
-.svc-card-icon-wrap {
+/* ================================================================
+   CARD 1: FLAGSHIP VIDEO EDITING & MOTION (FULL-WIDTH 2-COLUMN)
+   ================================================================ */
+.svc-card-flagship {
+  padding: 56px 52px;
+}
+
+.svc-flagship-inner {
   position: relative;
-  z-index: 2;
-  width: 64px;
-  height: 64px;
-  border-radius: 18px;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+/* Content side */
+.svc-info-side {
+  display: flex;
+  flex-direction: column;
+}
+
+.svc-meta-row {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 28px;
-  transform: translateZ(20px);
-  transition: transform 0.35s ease;
-
-  background: linear-gradient(
-    135deg,
-    rgba(182, 15, 36, 0.28) 0%,
-    rgba(112, 45, 9, 0.22) 100%
-  );
-  border: 1px solid rgba(182, 15, 36, 0.35);
-  box-shadow:
-    0 0 24px rgba(182, 15, 36, 0.25),
-    0 6px 16px rgba(0, 0, 0, 0.45);
-}
-.svc-card:hover .svc-card-icon-wrap {
-  transform: translateZ(30px) scale(1.06);
-  box-shadow:
-    0 0 40px rgba(182, 15, 36, 0.55),
-    0 8px 20px rgba(0, 0, 0, 0.5);
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
-.svc-icon {
-  width: 30px;
-  height: 30px;
-  color: rgba(255, 149, 97, 1);
-  filter: drop-shadow(0 0 10px rgba(182, 15, 36, 0.9));
-  transition: filter 0.3s ease;
-}
-.svc-card:hover .svc-icon {
-  filter: drop-shadow(0 0 18px rgba(255, 100, 60, 1));
-}
-
-/* ── Card Number ─────────────────────────────────────────────── */
-.svc-card-number {
-  position: absolute;
-  top: 36px;
-  right: 36px;
-  font-family: 'Coolvetica', monospace;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: rgba(182, 15, 36, 0.4);
-  z-index: 2;
-  transform: translateZ(10px);
-}
-
-/* ── Card Content ────────────────────────────────────────────── */
-.svc-card-content {
-  position: relative;
-  z-index: 2;
-  transform: translateZ(10px);
-}
-
-.svc-card-label {
+.svc-category-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Syne', monospace;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 2px;
-  color: rgba(182, 15, 36, 0.75);
+  color: #ff6a4a;
   text-transform: uppercase;
-  font-family: 'Coolvetica', sans-serif;
-  margin-bottom: 10px;
-  display: block;
+  background: rgba(182, 15, 36, 0.2);
+  border: 1px solid rgba(182, 15, 36, 0.4);
+  padding: 5px 14px;
+  border-radius: 9999px;
+}
+.svc-category-badge svg {
+  width: 14px;
+  height: 14px;
 }
 
-.svc-card-title {
-  font-family: 'Coolvetica', 'Inter', sans-serif;
-  font-size: clamp(22px, 2.2vw, 30px);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  color: #ffffff;
-  margin: 0 0 14px 0;
-  transition: color 0.3s ease;
+.svc-number-tag {
+  font-family: 'Syne', monospace;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: rgba(182, 15, 36, 0.6);
 }
-.svc-card:hover .svc-card-title {
-  background: linear-gradient(120deg, #fff 0%, rgba(255, 200, 168, 0.9) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+
+.svc-flagship-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(28px, 3.2vw, 42px);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin: 0 0 16px 0;
 }
 
 .svc-card-desc {
+  font-family: 'Inter', sans-serif;
   font-size: 15px;
-  line-height: 1.65;
-  color: rgba(240, 210, 190, 0.5);
+  line-height: 1.68;
+  color: rgba(240, 215, 200, 0.62);
   margin: 0 0 28px 0;
-  transition: color 0.3s ease;
-}
-.svc-card:hover .svc-card-desc {
-  color: rgba(240, 210, 190, 0.7);
 }
 
-/* ── Card Tags ───────────────────────────────────────────────── */
-.svc-card-tags {
+/* ── "HOW IT WORKS" Step-by-Step Flow ──────────────────────────── */
+.svc-how-it-works {
+  background: rgba(182, 15, 36, 0.08);
+  border: 1px solid rgba(182, 15, 36, 0.2);
+  border-radius: 18px;
+  padding: 20px 22px;
+  margin-bottom: 28px;
+}
+
+.svc-hiw-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  font-family: 'Syne', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: rgba(255, 190, 160, 0.85);
+  text-transform: uppercase;
+}
+.svc-hiw-header svg {
+  width: 14px;
+  height: 14px;
+  color: #ff5533;
+}
+
+.svc-hiw-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.svc-hiw-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.svc-step-index {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(182, 15, 36, 0.35);
+  border: 1px solid rgba(255, 120, 70, 0.4);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.svc-step-text {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: rgba(245, 225, 215, 0.85);
+}
+.svc-step-text strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Tech tag pills */
+.svc-tools-row {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin-bottom: 30px;
 }
-.svc-tag {
+
+.svc-tool-pill {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 195, 170, 0.75);
+  background: rgba(182, 15, 36, 0.12);
+  border: 1px solid rgba(182, 15, 36, 0.22);
+  padding: 5px 12px;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+}
+.svc-bento-card:hover .svc-tool-pill {
+  border-color: rgba(182, 15, 36, 0.4);
+  color: rgba(255, 215, 190, 0.95);
+  background: rgba(182, 15, 36, 0.2);
+}
+
+/* CTA button inside card */
+.svc-card-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 26px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #B60F24 0%, #702D09 100%);
+  border: 1px solid rgba(255, 140, 90, 0.35);
+  box-shadow:
+    0 0 20px rgba(182, 15, 36, 0.4),
+    0 4px 14px rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  width: fit-content;
+  transition: all 0.35s ease;
+}
+.svc-card-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 32px rgba(182, 15, 36, 0.7),
+    0 8px 24px rgba(0, 0, 0, 0.6);
+  border-color: rgba(255, 160, 110, 0.6);
+}
+.svc-card-cta-btn svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+.svc-card-cta-btn:hover svg {
+  transform: translateX(3px);
+}
+
+/* ================================================================
+   SAAS APPLICATION MOCKUP WINDOW (MAC FRAME + VIDEO)
+   ================================================================ */
+.saas-window {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #080402;
+  border: 1px solid rgba(182, 15, 36, 0.35);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.8),
+    0 0 40px rgba(182, 15, 36, 0.15);
+  transform: translateZ(24px);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.svc-bento-card:hover .saas-window {
+  transform: translateZ(36px) scale(1.015);
+  box-shadow:
+    0 32px 80px rgba(0, 0, 0, 0.9),
+    0 0 60px rgba(182, 15, 36, 0.3);
+}
+
+/* Mac Titlebar */
+.saas-window-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: rgba(26, 12, 5, 0.9);
+  border-bottom: 1px solid rgba(182, 15, 36, 0.22);
+}
+
+.saas-window-dots {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.saas-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.saas-dot-red { background: #ff5f56; box-shadow: 0 0 6px rgba(255, 95, 86, 0.6); }
+.saas-dot-yellow { background: #ffbd2e; box-shadow: 0 0 6px rgba(255, 189, 46, 0.6); }
+.saas-dot-green { background: #27c93f; box-shadow: 0 0 6px rgba(39, 201, 63, 0.6); }
+
+.saas-window-title {
+  font-family: 'Syne', monospace;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.5px;
-  color: rgba(255, 192, 160, 0.7);
-  padding: 5px 12px;
-  border-radius: 9999px;
-  background: rgba(182, 15, 36, 0.1);
-  border: 1px solid rgba(182, 15, 36, 0.2);
-  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-}
-.svc-card:hover .svc-tag {
-  background: rgba(182, 15, 36, 0.18);
-  border-color: rgba(182, 15, 36, 0.4);
-  color: rgba(255, 200, 168, 0.95);
-}
-
-/* ── Card CTA arrow ──────────────────────────────────────────── */
-.svc-card-arrow {
-  position: absolute;
-  bottom: 36px;
-  right: 36px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  color: rgba(255, 200, 175, 0.7);
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: rgba(182, 15, 36, 0.15);
-  border: 1px solid rgba(182, 15, 36, 0.25);
-  z-index: 2;
-  transform: translateZ(15px) translate(4px, 4px);
-  opacity: 0;
-  transition:
-    opacity 0.3s ease,
-    transform 0.3s ease,
-    background 0.3s ease;
+  gap: 6px;
 }
-.svc-card:hover .svc-card-arrow {
-  opacity: 1;
-  transform: translateZ(15px) translate(0, 0);
-  background: rgba(182, 15, 36, 0.3);
-}
-.svc-card-arrow svg {
-  width: 16px;
-  height: 16px;
-  color: rgba(255, 149, 97, 0.9);
+.saas-window-title svg {
+  width: 12px;
+  height: 12px;
+  color: #ff5533;
 }
 
-/* ── Main service highlight (first card) ─────────────────────── */
-.svc-card.svc-card-main {
-  grid-column: 1 / -1;
-  padding: 52px 52px 52px;
-  background: linear-gradient(
-    145deg,
-    rgba(50, 18, 8, 0.85) 0%,
-    rgba(25, 10, 3, 0.75) 100%
-  );
-  border-color: rgba(182, 15, 36, 0.32);
+.saas-window-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #27c93f;
+  background: rgba(39, 201, 63, 0.12);
+  border: 1px solid rgba(39, 201, 63, 0.3);
+  padding: 3px 8px;
+  border-radius: 6px;
+  text-transform: uppercase;
 }
-.svc-card.svc-card-main .svc-card-title {
-  font-size: clamp(28px, 3.5vw, 42px);
-}
-.svc-card.svc-card-main .svc-card-content {
-  max-width: 65%;
-}
-.svc-card.svc-card-main .svc-card-icon-wrap {
-  width: 76px;
-  height: 76px;
-  border-radius: 22px;
-}
-.svc-card.svc-card-main .svc-icon {
-  width: 36px;
-  height: 36px;
-}
-/* Main card background video/pattern */
-.svc-card-main-visual {
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 38%;
-  background: linear-gradient(
-    135deg,
-    rgba(182, 15, 36, 0.08) 0%,
-    rgba(112, 45, 9, 0.05) 100%
-  );
-  border-left: 1px solid rgba(182, 15, 36, 0.12);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+/* Video Stage */
+.saas-video-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #000000;
   overflow: hidden;
 }
-.svc-main-pattern {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(182,15,36,0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(182,15,36,0.07) 1px, transparent 1px);
-  background-size: 32px 32px;
-}
-.svc-main-glyph {
-  position: relative;
-  z-index: 1;
-  font-size: 120px;
-  opacity: 0.06;
-  color: #ff6040;
-  font-family: 'Coolvetica', sans-serif;
-  font-weight: 800;
-  letter-spacing: -8px;
-  pointer-events: none;
-  user-select: none;
-  filter: blur(1px);
+
+.saas-video-stage video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-/* ── MOBILE responsive ────────────────────────────────────────── */
-@media (max-width: 900px) {
-  .services-grid {
+/* Floating Metric Badges on video */
+.saas-floating-metric {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: rgba(14, 7, 3, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 120, 70, 0.4);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.6);
+  font-family: 'Syne', sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #ffffff;
+  z-index: 5;
+  pointer-events: none;
+}
+.saas-metric-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ff4433;
+  box-shadow: 0 0 8px #ff4433;
+  animation: svcPulse 1.8s infinite;
+}
+
+/* Secondary bottom badge */
+.saas-floating-pill-left {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 8px;
+  background: rgba(14, 7, 3, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(182, 15, 36, 0.4);
+  font-family: 'Inter', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 210, 185, 0.9);
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Video Studio Timeline Drawer (Bottom of flagship window) */
+.saas-timeline-bar {
+  padding: 14px 18px;
+  background: rgba(18, 8, 3, 0.95);
+  border-top: 1px solid rgba(182, 15, 36, 0.22);
+}
+
+.saas-timeline-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 10.5px;
+  font-family: 'Inter', monospace;
+  color: rgba(255, 190, 160, 0.65);
+}
+
+.saas-scrub-track {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.saas-scrub-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 68%;
+  background: linear-gradient(90deg, #B60F24 0%, #ff5533 100%);
+  border-radius: 9999px;
+  animation: scrubLoop 6s infinite linear;
+}
+@keyframes scrubLoop {
+  0% { width: 10%; }
+  50% { width: 75%; }
+  100% { width: 100%; }
+}
+
+.saas-track-layers {
+  display: flex;
+  gap: 8px;
+}
+.saas-layer-chip {
+  font-size: 9.5px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(182, 15, 36, 0.18);
+  border: 1px solid rgba(182, 15, 36, 0.3);
+  color: rgba(255, 205, 180, 0.85);
+  font-family: monospace;
+}
+
+/* ================================================================
+   SECONDARY CARDS: 3-COLUMN / 2-COLUMN RESPONSIVE GRID
+   ================================================================ */
+.services-sub-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.svc-sub-card {
+  padding: 36px 32px 36px;
+  display: flex;
+  flex-direction: column;
+}
+
+.svc-sub-card .svc-meta-row {
+  margin-bottom: 16px;
+}
+
+.svc-sub-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(21px, 1.9vw, 26px);
+  font-weight: 800;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0 0 14px 0;
+}
+
+.svc-sub-card .svc-card-desc {
+  font-size: 14px;
+  line-height: 1.62;
+  margin-bottom: 22px;
+  flex-grow: 1;
+}
+
+.svc-sub-card .saas-window {
+  margin-bottom: 24px;
+}
+.svc-sub-card .saas-video-stage {
+  aspect-ratio: 16 / 11;
+}
+
+.svc-sub-card .svc-how-it-works {
+  padding: 16px 18px;
+  margin-bottom: 22px;
+}
+.svc-sub-card .svc-step-text {
+  font-size: 12.5px;
+}
+
+.svc-sub-card .svc-tools-row {
+  margin-bottom: 24px;
+}
+
+/* Bottom action row */
+.svc-sub-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+  border-top: 1px solid rgba(182, 15, 36, 0.16);
+}
+
+.svc-sub-learn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Syne', sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: rgba(255, 180, 140, 0.9);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.svc-sub-learn svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.3s ease;
+}
+.svc-sub-card:hover .svc-sub-learn {
+  color: #ff5533;
+}
+.svc-sub-card:hover .svc-sub-learn svg {
+  transform: translateX(4px);
+}
+
+/* ── Node Automation Flow Simulation (Card 4) ──────────────────── */
+.saas-node-flow {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  background: rgba(14, 7, 3, 0.88);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(182, 15, 36, 0.35);
+  border-radius: 12px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  z-index: 5;
+}
+.saas-flow-node {
+  font-family: 'Inter', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255, 215, 190, 0.9);
+  background: rgba(182, 15, 36, 0.25);
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 120, 70, 0.3);
+}
+.saas-flow-arrow {
+  color: #ff5533;
+  font-size: 10px;
+  animation: nodePulse 1.5s infinite;
+}
+@keyframes nodePulse {
+  0%, 100% { opacity: 0.4; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+/* ================================================================
+   RESPONSIVE DESIGN (TABLETS & PHONES)
+   ================================================================ */
+@media (max-width: 1100px) {
+  .services-sub-grid {
     grid-template-columns: 1fr;
+    gap: 32px;
   }
-  .svc-card.svc-card-main {
-    grid-column: 1;
-    padding: 36px 28px;
+  .svc-flagship-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
-  .svc-card.svc-card-main .svc-card-content {
-    max-width: 100%;
-  }
-  .svc-card-main-visual {
-    display: none;
+  .svc-card-flagship {
+    padding: 44px 36px;
   }
 }
 
@@ -527,15 +832,30 @@ body.cursor-click #cursorOrb {
   #services-section {
     padding: 80px 16px 90px;
   }
-  .svc-card {
-    padding: 32px 24px 36px;
-    border-radius: 18px;
+  .svc-card-flagship {
+    padding: 32px 20px;
   }
-  .svc-card-arrow {
-    opacity: 1;
-    transform: translateZ(0) translate(0,0);
+  .svc-sub-card {
+    padding: 28px 20px;
   }
-  /* restore default cursor on mobile */
+  .saas-window {
+    border-radius: 14px;
+  }
+  .saas-window-bar {
+    padding: 10px 14px;
+  }
+  .saas-floating-metric {
+    font-size: 10px;
+    padding: 4px 10px;
+  }
+  .svc-how-it-works {
+    padding: 14px 16px;
+  }
+  .svc-step-text {
+    font-size: 12px;
+  }
+
+  /* Restore normal cursor on mobile */
   *, *::before, *::after {
     cursor: auto !important;
   }
