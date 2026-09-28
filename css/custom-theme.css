@@ -254,27 +254,72 @@ h1, h2, h3, h4, h5,
   text-shadow: 0 0 8px rgba(232, 121, 249, 0.5) !important;
 }
 
-/* ─── Primary Buttons ────────────────────────────────── */
+/* ─── Primary Buttons (Navbar & Global) ──────────────── */
 .button-03,
 a.button-03 {
-  background: linear-gradient(135deg, #B800F5 0%, #580B82 100%) !important;
-  border: 1px solid rgba(232, 121, 249, 0.35) !important;
-  border-radius: 8px !important; /* Subtle modern rounded corners */
-  box-shadow: 0 4px 24px rgba(184, 0, 245, 0.42), 0 0 12px rgba(88, 11, 130, 0.25) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  background: linear-gradient(135deg, #B800F5 0%, #7000A8 100%) !important;
+  border: 1px solid rgba(232, 121, 249, 0.45) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 20px rgba(184, 0, 245, 0.45), 0 0 10px rgba(184, 0, 245, 0.25) !important;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  font-family: 'Coolvetica', sans-serif !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 10px 20px !important;
+  cursor: pointer !important;
 }
+
 .button-03:hover,
 a.button-03:hover {
-  background: linear-gradient(135deg, #D700FE 0%, #7B13B5 100%) !important;
-  border-color: rgba(216, 180, 254, 0.6) !important;
-  box-shadow: 0 8px 32px rgba(184, 0, 245, 0.65), 0 0 20px rgba(232, 121, 249, 0.4) !important;
-  transform: translateY(-2px);
+  background: linear-gradient(135deg, #D700FE 0%, #8A00C2 100%) !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  box-shadow: 0 8px 30px rgba(184, 0, 245, 0.7), 0 0 18px rgba(232, 121, 249, 0.5) !important;
+  transform: translateY(-2px) !important;
 }
-.button-text-wrap .paragraph-02-m {
-  font-family: 'Coolvetica', sans-serif !important;
+
+.button-03 .button-text-wrapper,
+.button-03 .button-text-wrap,
+a.button-03 .button-text-wrapper,
+a.button-03 .button-text-wrap {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+}
+
+.button-03 .paragraph-02-m,
+a.button-03 .paragraph-02-m {
+  font-family: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
   letter-spacing: 0.8px !important;
-  font-size: 15px !important;
+  line-height: 1 !important;
+  color: #FFFFFF !important;
+  white-space: nowrap !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-transform: uppercase !important;
+}
+
+.nav-button-wrap.desktop-only .button-03 {
+  padding: 9px 18px !important;
+}
+
+.button-03 .button-arrow-wrapper,
+a.button-03 .button-arrow-wrapper {
+  display: none !important;
 }
 
 /* ─── Hero Section ───────────────────────────────────── */
