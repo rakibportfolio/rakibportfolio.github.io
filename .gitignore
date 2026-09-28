@@ -8,4 +8,6 @@ theme_backup_crimson/
 framework_original.html
 *.png
 !images/**/*.png
+!assets/*.png
+!assets/**/*.png
 !**/favicon*.png
