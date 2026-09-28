@@ -145,15 +145,18 @@ body.z-cursor-down #zenticCursorBadge {
   opacity: 0 !important;
 }
 
-/* Mobile & Touch Devices: Disable custom cursor cleanly */
+/* Mobile & Touch Devices: Custom Cursor Follower is hidden, Touch Ripple & Spark Burst is ENABLED */
 @media (max-width: 991px), (hover: none), (pointer: coarse) {
-  #zenticCursorRoot,
   #zenticCursorDot,
   #zenticCursorBadge,
-  #zenticCursorGlow,
-  #zenticParticleCanvas {
+  #zenticCursorGlow {
     display: none !important;
     visibility: hidden !important;
+  }
+  #zenticCursorRoot,
+  #zenticParticleCanvas {
+    display: block !important;
+    visibility: visible !important;
   }
   body, a, button, input, select, textarea, [role="button"], .sv3-tab {
     cursor: auto !important;
