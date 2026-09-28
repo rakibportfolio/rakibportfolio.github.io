@@ -200,18 +200,17 @@
         // 2. Trigger 360-Degree Neon Spark Burst
         spawnBurst(tx, ty, 20);
 
-        // 3. Tactile Micro-Haptic Vibration
-        if (navigator.vibrate) {
-          try {
-            const target = document.elementFromPoint(tx, ty);
-            const isClickable = target && target.closest('a, button, input, textarea, select, [role="button"], .sv3-tab, .hub-logo-pill, .na-outer-border, .svc-card, .footer-link');
-            if (isClickable) {
-              navigator.vibrate(12); // Crisp feedback for action elements
-            } else {
-              navigator.vibrate(6);  // Ultra-light ambient tap
-            }
-          } catch (_) {}
-        }
+      }
+    }, { passive: true });
+
+    // ─── Tactile Micro-Haptic Vibration (Interactive Elements Only - Zero Scroll Vibration) ───
+    document.addEventListener('click', (e) => {
+      if (!navigator.vibrate) return;
+      const target = e.target.closest('a, button, input, textarea, select, [role="button"], .sv3-tab, .hub-logo-pill, .na-outer-border, .svc-card, .footer-link');
+      if (target) {
+        try {
+          navigator.vibrate(12); // Crisp haptic feedback only on intentional click/tap
+        } catch (_) {}
       }
     }, { passive: true });
 
