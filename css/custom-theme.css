@@ -144,14 +144,14 @@ h1, h2, h3, h4, h5,
   display: inline-flex !important;
   align-items: center !important;
   width: auto !important;
-  max-width: 1100px !important;
-  background: rgba(18, 5, 28, 0.82) !important;
+  max-width: 1260px !important;
+  background: rgba(18, 5, 28, 0.88) !important;
   border: 1px solid rgba(184, 0, 245, 0.45) !important;
-  border-radius: 10px !important; /* Not full round, subtle modern rounded corners */
+  border-radius: 12px !important; /* Not full round, subtle modern rounded corners */
   backdrop-filter: blur(28px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(28px) saturate(180%) !important;
   box-shadow: 0 10px 32px rgba(0, 0, 0, 0.65), 0 0 24px rgba(184, 0, 245, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
-  padding: 7px 14px 7px 18px !important;
+  padding: 6px 12px 6px 16px !important;
   margin: 0 auto !important;
   transition: all 0.25s ease !important;
 }
@@ -161,7 +161,7 @@ h1, h2, h3, h4, h5,
 }
 
 .nav-inner-wrap {
-  width: auto !important;
+  width: 100% !important;
   background: transparent !important;
   margin: 0 !important;
 }
@@ -170,7 +170,7 @@ h1, h2, h3, h4, h5,
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
-  gap: 20px !important;
+  gap: 12px !important;
   background: transparent !important;
   border: none !important;
   backdrop-filter: none !important;
@@ -187,14 +187,14 @@ h1, h2, h3, h4, h5,
   flex-shrink: 0 !important;
   background: transparent !important;
   border-radius: 8px !important;
-  padding: 2px 6px !important;
+  padding: 2px 4px !important;
 }
 
 .brand-logo-link img,
 .nav-brand-logo-img {
-  height: 40px !important;
+  height: 38px !important;
   width: auto !important;
-  max-width: 220px !important;
+  max-width: 200px !important;
   object-fit: contain !important;
   display: block !important;
   mix-blend-mode: normal !important;
@@ -209,14 +209,14 @@ h1, h2, h3, h4, h5,
 
 @media screen and (min-width: 992px) {
   .brand-logo-link {
-    padding-right: 18px !important;
-    margin-right: 6px !important;
+    padding-right: 14px !important;
+    margin-right: 4px !important;
     border-right: 1px solid rgba(184, 0, 245, 0.45) !important;
   }
   .nav-menu-2 {
     display: flex !important;
     align-items: center !important;
-    gap: 2px !important;
+    gap: 1px !important;
     background: transparent !important;
   }
   .menu-button-2 {
@@ -224,27 +224,63 @@ h1, h2, h3, h4, h5,
   }
   .nav-button-wrap.desktop-only {
     display: flex !important;
-    margin-left: 8px !important;
+    flex-shrink: 0 !important;
+    margin-left: 6px !important;
   }
   .nav-button-wrap.desktop-only .button-03 {
-    border-radius: 8px !important; /* Subtle rounded rectangle matching navbar */
-    padding: 8px 18px !important;
+    border-radius: 8px !important;
+    padding: 8px 16px !important;
+    flex-shrink: 0 !important;
+  }
+  .nav-button-wrap.desktop-only .button-03 .paragraph-02-m {
+    font-size: 12.5px !important;
   }
   .nav-button-wrap.mobile-only {
     display: none !important;
   }
 }
 
+/* Laptop Compact Screen (992px to 1200px) */
+@media screen and (min-width: 992px) and (max-width: 1220px) {
+  .na-outer-border {
+    padding: 5px 10px 5px 12px !important;
+  }
+  .brand-logo-link img,
+  .nav-brand-logo-img {
+    height: 32px !important;
+    max-width: 165px !important;
+  }
+  .brand-logo-link {
+    padding-right: 10px !important;
+    margin-right: 2px !important;
+  }
+  .nav-link-2 {
+    font-size: 12.5px !important;
+    padding: 5px 6px !important;
+    letter-spacing: 0.2px !important;
+  }
+  .nav-inner {
+    gap: 6px !important;
+  }
+  .nav-button-wrap.desktop-only .button-03 {
+    padding: 6px 12px !important;
+  }
+  .nav-button-wrap.desktop-only .button-03 .paragraph-02-m {
+    font-size: 11.5px !important;
+  }
+}
+
 .nav-link-2 {
-  font-family: 'Coolvetica', sans-serif !important;
-  font-size: 15px !important;
-  font-weight: 400 !important;
-  letter-spacing: 0.5px !important;
-  color: rgba(245, 230, 255, 0.82) !important;
-  padding: 6px 12px !important;
-  border-radius: 6px !important; /* Not full round */
+  font-family: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.3px !important;
+  color: rgba(245, 230, 255, 0.85) !important;
+  padding: 6px 9px !important;
+  border-radius: 6px !important;
   transition: all 0.2s ease !important;
   text-decoration: none !important;
+  white-space: nowrap !important;
 }
 .nav-link-2:hover,
 .nav-link-2.w--current {
