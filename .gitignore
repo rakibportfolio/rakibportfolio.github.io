@@ -3,3 +3,9 @@ node_modules/
 Thumbs.db
 trailer for edit.mp4
 Website Main Video.mp4
+*.py
+theme_backup_crimson/
+framework_original.html
+*.png
+!images/**/*.png
+!**/favicon*.png
