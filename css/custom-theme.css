@@ -185,23 +185,26 @@ h1, h2, h3, h4, h5,
   width: auto !important;
   max-width: none !important;
   flex-shrink: 0 !important;
+  background: rgba(255,255,255,0.92) !important;
+  border-radius: 8px !important;
+  padding: 4px 10px !important;
 }
 
 .brand-logo-link img,
 .nav-brand-logo-img {
-  height: 52px !important;
+  height: 34px !important;
   width: auto !important;
-  max-width: 250px !important;
+  max-width: 190px !important;
   object-fit: contain !important;
   display: block !important;
-  filter: drop-shadow(0 0 10px rgba(182, 15, 36, 0.8)) drop-shadow(0 0 22px rgba(102, 15, 36, 0.45)) !important;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease !important;
+  mix-blend-mode: normal !important;
+  filter: none !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .brand-logo-link:hover img,
 .brand-logo-link:hover .nav-brand-logo-img {
   transform: scale(1.05) !important;
-  filter: drop-shadow(0 0 16px rgba(255, 51, 68, 0.95)) drop-shadow(0 0 32px rgba(182, 15, 36, 0.6)) !important;
 }
 
 @media screen and (min-width: 992px) {
