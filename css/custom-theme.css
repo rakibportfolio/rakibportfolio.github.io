@@ -192,9 +192,9 @@ h1, h2, h3, h4, h5,
 
 .brand-logo-link img,
 .nav-brand-logo-img {
-  height: 34px !important;
+  height: 40px !important;
   width: auto !important;
-  max-width: 190px !important;
+  max-width: 220px !important;
   object-fit: contain !important;
   display: block !important;
   mix-blend-mode: normal !important;
@@ -1105,11 +1105,11 @@ a.proof-card:hover {
 
   .brand-logo-link img,
   .nav-brand-logo-img {
-    height: 42px !important;
+    height: 36px !important;
     width: auto !important;
-    max-width: 200px !important;
+    max-width: 190px !important;
     display: block !important;
-    filter: drop-shadow(0 0 8px rgba(184, 0, 245, 0.8)) drop-shadow(0 0 16px rgba(112, 0, 168, 0.4)) !important;
+    filter: none !important;
   }
 
   /* Hide desktop CTA button in navbar on mobile */
@@ -1298,9 +1298,9 @@ a.proof-card:hover {
 
   .brand-logo-link img,
   .nav-brand-logo-img {
-    height: 38px !important;
-    max-width: 180px !important;
-    filter: drop-shadow(0 0 8px rgba(184, 0, 245, 0.8)) !important;
+    height: 33px !important;
+    max-width: 175px !important;
+    filter: none !important;
   }
 
   .menu-button-2 {
@@ -1391,9 +1391,9 @@ a.proof-card:hover {
 
   .brand-logo-link img,
   .nav-brand-logo-img {
-    height: 35px !important;
-    max-width: 170px !important;
-    filter: drop-shadow(0 0 7px rgba(184, 0, 245, 0.8)) !important;
+    height: 28px !important;
+    max-width: 150px !important;
+    filter: none !important;
   }
 
   .hero-section {
