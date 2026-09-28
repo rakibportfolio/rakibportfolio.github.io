@@ -1,7 +1,9 @@
 /**
- * Zentic 3D Glossy Badge Engine (v2.0)
+ * Zentic 3D Glossy Badge & Sensory Physics Engine (v3.0)
  * - Desktop: 60/120 FPS Lerp Follower Physics, Dynamic Velocity Tilt, Aerodynamic Stretch, Click Shockwaves & Spark Trails
  * - Mobile / Touch: Native Zero-Lag Touch Tap Shockwave, 360° Neon Spark Burst & Micro-Haptic Feedback
+ * - Gyroscope / Device Motion: 3D Parallax Tilt & Specular Glare Reflection on Glass Cards
+ * - Neon Scroll Progress Laser Bar: High-precision Turnway Violet Glow Track at Top of Screen
  * - Universal Non-Intrusive & Passive Event Listeners (Zero Scroll Latency)
  */
 
@@ -22,7 +24,37 @@
     // Detect if client has touch capability
     const hasTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
 
-    // ─── 1. Build DOM Structure ───
+    // ─── 1. Build Neon Scroll Progress Laser Bar ───
+    let laserBar = document.getElementById('zenticScrollLaser');
+    let laserTrack = document.getElementById('zenticLaserTrack');
+    if (!laserBar) {
+      laserBar = document.createElement('div');
+      laserBar.id = 'zenticScrollLaser';
+
+      laserTrack = document.createElement('div');
+      laserTrack.id = 'zenticLaserTrack';
+
+      const laserHead = document.createElement('div');
+      laserHead.id = 'zenticLaserHead';
+
+      laserTrack.appendChild(laserHead);
+      laserBar.appendChild(laserTrack);
+      document.body.appendChild(laserBar);
+    }
+
+    function updateLaserProgress() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? Math.min(100, Math.max(0, (scrollTop / docHeight) * 100)) : 0;
+      if (laserTrack) {
+        laserTrack.style.width = pct.toFixed(2) + '%';
+      }
+    }
+    updateLaserProgress();
+    window.addEventListener('scroll', updateLaserProgress, { passive: true });
+    window.addEventListener('resize', updateLaserProgress, { passive: true });
+
+    // ─── 2. Build Cursor & Canvas DOM Structure ───
     const root = document.createElement('div');
     root.id = 'zenticCursorRoot';
 
@@ -52,7 +84,7 @@
     root.appendChild(dot);
     document.body.appendChild(root);
 
-    // ─── 2. HiDPI Canvas Setup ───
+    // ─── 3. HiDPI Canvas Setup ───
     const ctx = canvas.getContext('2d');
     let dpr = window.devicePixelRatio || 1;
     let width = window.innerWidth;
@@ -71,7 +103,7 @@
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas, { passive: true });
 
-    // ─── 3. Physics & State Variables ───
+    // ─── 4. Physics & State Variables ───
     let mouseX = -200, mouseY = -200;
     let badgeX = -200, badgeY = -200;
     let glowX = -200, glowY = -200;
@@ -91,6 +123,11 @@
     let scrollVelY = 0;
     let scrollTilt = 0;
 
+    // Gyroscope / Device Motion state
+    let targetGyroX = 0, targetGyroY = 0;
+    let currentGyroX = 0, currentGyroY = 0;
+    let hasGyroActivity = false;
+
     // Particle pool
     const particles = [];
     const PARTICLE_COLORS = [
@@ -102,7 +139,7 @@
       'rgba(215, 0, 254, 0.9)'
     ];
 
-    // ─── 4. Particle & Shockwave Spawners ───
+    // ─── 5. Particle & Shockwave Spawners ───
     function spawnTrailParticle(x, y, speed) {
       if (particles.length > 120) return; // Keep memory bounded
       const spread = (Math.random() - 0.5) * 14;
@@ -146,8 +183,7 @@
       }, 550);
     }
 
-    // ─── 5. Mobile & Touch Interactions (Touch Tap Shockwave & Spark Burst) ───
-    let lastTouchTime = 0;
+    // ─── 6. Mobile & Touch Interactions (Touch Tap Shockwave & Spark Burst) ───
     let lastTouchMove = 0;
 
     window.addEventListener('touchstart', (e) => {
@@ -164,7 +200,7 @@
         // 2. Trigger 360-Degree Neon Spark Burst
         spawnBurst(tx, ty, 20);
 
-        // 3. Tactile Micro-Haptic Vibration (if supported by OS/browser)
+        // 3. Tactile Micro-Haptic Vibration
         if (navigator.vibrate) {
           try {
             const target = document.elementFromPoint(tx, ty);
@@ -179,7 +215,7 @@
       }
     }, { passive: true });
 
-    // Subtle spark trail on touch drag (throttled to 40ms to ensure 100% fluid 60/120fps scrolling)
+    // Subtle spark trail on touch drag
     window.addEventListener('touchmove', (e) => {
       const now = performance.now();
       if (now - lastTouchMove < 40) return;
@@ -190,7 +226,38 @@
       spawnTrailParticle(touch.clientX, touch.clientY, 8);
     }, { passive: true });
 
-    // ─── 6. Desktop Mouse Events & Follower Physics ───
+    // ─── 7. Gyroscope / Device Motion Orientation (Mobile) ───
+    function handleOrientation(e) {
+      if (e.gamma === null || e.beta === null) return;
+      hasGyroActivity = true;
+
+      // Gamma: phone left/right tilt (-45deg to +45deg)
+      const gamma = Math.max(-45, Math.min(45, e.gamma));
+      // Beta: phone front/back tilt (natural resting angle in hand is ~45deg)
+      const beta = Math.max(10, Math.min(80, e.beta)) - 45;
+
+      targetGyroX = gamma / 45; // -1 to +1
+      targetGyroY = beta / 35;  // -1 to +1
+    }
+
+    // iOS 13+ permission support & standard Android/Web support
+    if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+      const grantGyro = () => {
+        DeviceOrientationEvent.requestPermission()
+          .then((res) => {
+            if (res === 'granted') {
+              window.addEventListener('deviceorientation', handleOrientation, { passive: true });
+            }
+          })
+          .catch(() => {});
+        window.removeEventListener('touchstart', grantGyro);
+      };
+      window.addEventListener('touchstart', grantGyro, { once: true, passive: true });
+    } else if ('ondeviceorientation' in window || window.DeviceOrientationEvent) {
+      window.addEventListener('deviceorientation', handleOrientation, { passive: true });
+    }
+
+    // ─── 8. Desktop Mouse Events & Follower Physics ───
     window.addEventListener('mousemove', (e) => {
       if (window.innerWidth <= 991) return; // Desktop viewports only for cursor badge
 
@@ -280,8 +347,24 @@
       }
     });
 
-    // ─── 7. Main 60/120 FPS Animation Loop ───
+    // ─── 9. Main 60/120 FPS Animation Loop ───
     function renderLoop() {
+      // Gyroscope lerp & CSS variable updates (Mobile)
+      if (hasGyroActivity || window.innerWidth <= 991) {
+        currentGyroX += (targetGyroX - currentGyroX) * 0.12;
+        currentGyroY += (targetGyroY - currentGyroY) * 0.12;
+
+        const glareX = ((currentGyroX + 1) / 2) * 100;
+        const glareY = ((currentGyroY + 1) / 2) * 100;
+        const glareAngle = Math.round(Math.atan2(currentGyroY, currentGyroX) * (180 / Math.PI) + 90);
+
+        document.documentElement.style.setProperty('--gyro-x', currentGyroX.toFixed(3));
+        document.documentElement.style.setProperty('--gyro-y', currentGyroY.toFixed(3));
+        document.documentElement.style.setProperty('--glare-x', `${glareX.toFixed(1)}%`);
+        document.documentElement.style.setProperty('--glare-y', `${glareY.toFixed(1)}%`);
+        document.documentElement.style.setProperty('--glare-angle', `${glareAngle}deg`);
+      }
+
       // Desktop badge follower physics
       if (window.innerWidth > 991 && isInsideWindow && mouseX > -100) {
         badgeX += (mouseX - badgeX) * 0.16;
