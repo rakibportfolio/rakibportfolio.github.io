@@ -75,10 +75,8 @@
   position: relative;
   width: 520px;
   height: 520px;
-  left: 50%;
-  transform: translateX(-50%);
+  margin: 0 auto;
   transform-origin: center center;
-  margin: 0;
   z-index: 2;
 }
 
@@ -284,11 +282,12 @@
 
 @media screen and (max-width: 580px) {
   .tools-orbit-section {
-    padding: 55px 12px 65px;
+    padding: 55px 0 65px;
     overflow: hidden;
   }
   .tools-header {
-    margin-bottom: 18px;
+    margin-bottom: 16px;
+    padding: 0 12px;
   }
   .tools-eyebrow {
     font-size: 11px;
@@ -296,24 +295,26 @@
     margin-bottom: 12px;
   }
   .tools-title {
-    font-size: clamp(24px, 7vw, 34px) !important;
+    font-size: clamp(22px, 6.5vw, 32px) !important;
     margin-bottom: 8px !important;
   }
   .tools-subtitle {
-    font-size: 13.5px;
-    max-width: 320px;
+    font-size: 13px;
+    max-width: 300px;
     line-height: 1.5;
   }
 
-  /* Seamless scalable radial hub centered perfectly on mobile */
+  /* Seamless scalable radial hub — calc centers the 520px box precisely */
   .hub-wrapper {
     display: block !important;
     width: 520px !important;
     height: 520px !important;
-    left: 50% !important;
+    margin-left: calc(50% - 260px) !important;
+    margin-right: 0 !important;
+    margin-top: -60px !important;
+    margin-bottom: -55px !important;
     transform-origin: center center !important;
-    transform: translateX(-50%) scale(0.66) !important;
-    margin: -70px 0 -60px 0 !important;
+    transform: scale(0.66) !important;
   }
 
   .hub-stats {
@@ -321,7 +322,8 @@
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 8px !important;
     max-width: 340px;
-    margin: 15px auto 0 auto !important;
+    margin: 12px auto 0 auto !important;
+    padding: 0 12px;
   }
   .hub-stat-pill {
     padding: 10px 12px !important;
@@ -338,12 +340,14 @@
 
 @media screen and (max-width: 420px) {
   .hub-wrapper {
-    transform: translateX(-50%) scale(0.58) !important;
-    margin: -90px 0 -80px 0 !important;
+    transform: scale(0.57) !important;
+    margin-left: calc(50% - 260px) !important;
+    margin-top: -88px !important;
+    margin-bottom: -82px !important;
   }
   .hub-stats {
-    max-width: 320px;
-    gap: 8px !important;
+    max-width: 300px;
+    gap: 7px !important;
   }
   .hub-stat-pill {
     padding: 8px 10px !important;
@@ -353,13 +357,18 @@
   }
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 360px) {
   .hub-wrapper {
-    transform: translateX(-50%) scale(0.50) !important;
-    margin: -110px 0 -100px 0 !important;
+    transform: scale(0.50) !important;
+    margin-left: calc(50% - 260px) !important;
+    margin-top: -110px !important;
+    margin-bottom: -105px !important;
   }
   .hub-stats {
-    max-width: 280px;
+    max-width: 270px;
     gap: 6px !important;
+  }
+  .hub-stat-val {
+    font-size: 16px !important;
   }
 }
