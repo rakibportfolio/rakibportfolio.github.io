@@ -1847,16 +1847,16 @@
 </style>
 
 <!-- ===============================================================
-     SERVICES SECTION - 5 GLOSSY SHOWCASE CARDS (NEW)
+     SERVICES SECTION - 5 GLOSSY SHOWCASE CARDS (ANIMATED v3)
      =============================================================== -->
 <style>
 /* ================================================================
-   GLOSSY SERVICES SECTION STYLES
+   GLOSSY SERVICES SECTION STYLES (RICH MICRO-ANIMATIONS)
    ================================================================ */
 .glossy-services-section {
   position: relative;
   background: #06010B;
-  padding: 110px 24px 120px;
+  padding: 110px 24px 125px;
   overflow: hidden;
 }
 
@@ -1865,12 +1865,18 @@
   top: 15%;
   left: 50%;
   transform: translateX(-50%);
-  width: 960px;
-  height: 540px;
-  background: radial-gradient(ellipse 65% 50% at 50% 30%, rgba(184, 0, 245, 0.22) 0%, rgba(88, 11, 130, 0.08) 50%, transparent 75%);
+  width: 980px;
+  height: 560px;
+  background: radial-gradient(ellipse 65% 50% at 50% 30%, rgba(184, 0, 245, 0.24) 0%, rgba(88, 11, 130, 0.08) 50%, transparent 75%);
   filter: blur(50px);
   pointer-events: none;
   z-index: 0;
+  animation: ambientBreathe 6s ease-in-out infinite alternate;
+}
+
+@keyframes ambientBreathe {
+  0% { opacity: 0.7; transform: translateX(-50%) scale(0.96); }
+  100% { opacity: 1; transform: translateX(-50%) scale(1.05); }
 }
 
 .g-svc-container {
@@ -1954,15 +1960,15 @@
   margin: 0 auto;
 }
 
-/* Card Outer (Glossy Glassmorphism) */
+/* Card Outer (Glossy Glassmorphism with Animated Shimmer) */
 .g-svc-card {
   flex: 0 1 calc(33.333% - 18px);
   min-width: 300px;
   max-width: 380px;
   position: relative;
-  background: linear-gradient(180deg, rgba(24, 8, 38, 0.75) 0%, rgba(13, 3, 22, 0.9) 100%);
+  background: linear-gradient(180deg, rgba(24, 8, 38, 0.78) 0%, rgba(13, 3, 22, 0.92) 100%);
   border: 1px solid rgba(184, 0, 245, 0.3);
-  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 22px;
   padding: 12px 12px 24px;
   backdrop-filter: blur(20px);
@@ -1970,26 +1976,59 @@
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(184, 0, 245, 0.08);
   display: flex;
   flex-direction: column;
-  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.4s ease, box-shadow 0.4s ease;
   overflow: hidden;
 }
 
+/* Subtle Glass Surface Glow */
 .g-svc-card::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 60%;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, transparent 100%);
+  height: 55%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, transparent 100%);
   pointer-events: none;
   border-radius: 22px 22px 0 0;
 }
 
+/* Traveling Diagonal Glass Light Sweep */
+.g-svc-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 220%;
+  height: 220%;
+  background: linear-gradient(
+    60deg,
+    transparent 38%,
+    rgba(255, 255, 255, 0.06) 46%,
+    rgba(232, 121, 249, 0.18) 50%,
+    rgba(255, 255, 255, 0.06) 54%,
+    transparent 62%
+  );
+  transform: rotate(25deg) translateY(-100%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
 .g-svc-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(184, 0, 245, 0.75);
-  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.7), 0 0 45px rgba(184, 0, 245, 0.28);
+  transform: translateY(-9px);
+  border-color: rgba(184, 0, 245, 0.85);
+  box-shadow: 0 26px 54px rgba(0, 0, 0, 0.72), 0 0 48px rgba(184, 0, 245, 0.32);
+}
+
+.g-svc-card:hover::after {
+  opacity: 1;
+  animation: gSvcShimmer 1.8s ease-in-out infinite;
+}
+
+@keyframes gSvcShimmer {
+  0% { transform: rotate(25deg) translateY(-85%); }
+  100% { transform: rotate(25deg) translateY(85%); }
 }
 
 /* Mockup Window (Top Half) */
@@ -1999,8 +2038,8 @@
   border-radius: 16px 16px 10px 10px;
   overflow: hidden;
   background: radial-gradient(circle at 50% 20%, #1f0b38 0%, #0d0218 100%);
-  border: 1px solid rgba(184, 0, 245, 0.22);
-  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(184, 0, 245, 0.25);
+  box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.65);
 }
 
 .g-svc-svg {
@@ -2031,13 +2070,13 @@
   justify-content: center;
   margin-bottom: 16px;
   box-shadow: 0 0 16px rgba(184, 0, 245, 0.15);
-  transition: transform 0.3s ease, background 0.3s ease;
+  transition: transform 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
 }
 
 .g-svc-card:hover .g-svc-icon-badge {
-  transform: scale(1.08);
-  background: rgba(184, 0, 245, 0.22);
-  box-shadow: 0 0 22px rgba(184, 0, 245, 0.35);
+  transform: scale(1.1) rotate(-3deg);
+  background: rgba(184, 0, 245, 0.25);
+  box-shadow: 0 0 24px rgba(184, 0, 245, 0.45);
 }
 
 .g-svc-name {
@@ -2056,6 +2095,201 @@
   color: rgba(225, 200, 250, 0.65);
   margin: 0;
   flex-grow: 1;
+}
+
+/* ================================================================
+   MICRO-ANIMATION KEYFRAMES & UTILITIES
+   ================================================================ */
+
+/* ── Card 1: Video Editing Animations ── */
+.g-anim-playhead {
+  animation: playheadSweep 4.5s ease-in-out infinite alternate;
+}
+@keyframes playheadSweep {
+  0% { transform: translateX(0); }
+  35% { transform: translateX(45px); }
+  65% { transform: translateX(25px); }
+  100% { transform: translateX(85px); }
+}
+
+.g-anim-retention {
+  animation: retentionGlow 2.8s ease-in-out infinite;
+}
+@keyframes retentionGlow {
+  0%, 100% { filter: drop-shadow(0 0 2px rgba(184, 0, 245, 0.5)); opacity: 0.9; }
+  50% { filter: drop-shadow(0 0 9px rgba(232, 121, 249, 0.95)); opacity: 1; }
+}
+
+.g-anim-audiowave {
+  animation: audioWaveBounce 1.8s ease-in-out infinite alternate;
+  transform-origin: 130px 152px;
+}
+@keyframes audioWaveBounce {
+  0% { transform: scaleY(0.85); stroke: #E879F9; }
+  50% { transform: scaleY(1.22); stroke: #ffffff; }
+  100% { transform: scaleY(0.92); stroke: #ff6ef7; }
+}
+
+.g-anim-slider-thumb {
+  animation: sliderGlider 3.5s ease-in-out infinite alternate;
+}
+@keyframes sliderGlider {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-12px); }
+  100% { transform: translateX(6px); }
+}
+
+.g-anim-vid-cursor {
+  animation: vidTrimDrag 4s ease-in-out infinite alternate;
+}
+@keyframes vidTrimDrag {
+  0% { transform: translate(162px, 126px); }
+  50% { transform: translate(172px, 126px); }
+  100% { transform: translate(156px, 126px); }
+}
+
+.g-anim-play-pulse {
+  animation: playIconPulse 2.4s ease-in-out infinite;
+}
+@keyframes playIconPulse {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.12); opacity: 1; filter: drop-shadow(0 0 10px #E879F9); }
+}
+
+/* ── Card 2: Graphics Design Animations ── */
+.g-anim-bezier-handle {
+  animation: handleWiggle 4s ease-in-out infinite alternate;
+  transform-origin: 155px 85px;
+}
+@keyframes handleWiggle {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(-12deg); }
+  100% { transform: rotate(10deg); }
+}
+
+.g-anim-pen-cursor {
+  animation: penDrawFloat 4s ease-in-out infinite alternate;
+}
+@keyframes penDrawFloat {
+  0% { transform: translate(154px, 84px) rotate(0deg); }
+  50% { transform: translate(160px, 78px) rotate(-10deg); }
+  100% { transform: translate(149px, 88px) rotate(8deg); }
+}
+
+.g-anim-swatch-active {
+  animation: swatchGlow 2.2s ease-in-out infinite;
+}
+@keyframes swatchGlow {
+  0%, 100% { r: 6; filter: drop-shadow(0 0 3px #ff6ef7); }
+  50% { r: 7.5; filter: drop-shadow(0 0 12px #ff6ef7); }
+}
+
+.g-anim-vector-glow {
+  animation: vectorPathPulse 3s ease-in-out infinite alternate;
+}
+@keyframes vectorPathPulse {
+  0% { stroke: #E879F9; filter: drop-shadow(0 0 2px rgba(184, 0, 245, 0.4)); }
+  100% { stroke: #ffffff; filter: drop-shadow(0 0 10px rgba(232, 121, 249, 0.95)); }
+}
+
+/* ── Card 3: Web Design Animations ── */
+.g-anim-frame-box {
+  animation: framePulseGlow 3.6s ease-in-out infinite;
+}
+@keyframes framePulseGlow {
+  0%, 100% { filter: drop-shadow(0 0 3px rgba(184, 0, 245, 0.4)); }
+  50% { filter: drop-shadow(0 0 15px rgba(232, 121, 249, 0.85)); }
+}
+
+.g-anim-resize-frame {
+  animation: frameResizeStretch 3.6s ease-in-out infinite alternate;
+  transform-origin: 24px 75px;
+}
+@keyframes frameResizeStretch {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08, 1.12); }
+  100% { transform: scale(0.96, 0.95); }
+}
+
+.g-anim-frame-cursor {
+  animation: frameCornerDrag 3.6s ease-in-out infinite alternate;
+}
+@keyframes frameCornerDrag {
+  0% { transform: translate(130px, 127px); }
+  50% { transform: translate(140px, 136px); }
+  100% { transform: translate(124px, 122px); }
+}
+
+/* ── Card 4: Digital Marketing Animations ── */
+.g-anim-live-dot {
+  animation: liveRadarDot 1.8s ease-in-out infinite;
+}
+@keyframes liveRadarDot {
+  0%, 100% { r: 3; opacity: 1; filter: drop-shadow(0 0 2px #22c55e); }
+  50% { r: 4.8; opacity: 0.65; filter: drop-shadow(0 0 8px #22c55e); }
+}
+
+.g-anim-chart-line {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 0;
+  animation: chartLineFlow 4s ease-in-out infinite alternate;
+}
+@keyframes chartLineFlow {
+  0% { stroke-dashoffset: 0; filter: drop-shadow(0 0 3px rgba(184, 0, 245, 0.6)); }
+  50% { stroke-dashoffset: 45; filter: drop-shadow(0 0 10px rgba(232, 121, 249, 0.95)); }
+  100% { stroke-dashoffset: -25; filter: drop-shadow(0 0 6px rgba(184, 0, 245, 0.8)); }
+}
+
+.g-anim-roas-pill {
+  animation: roasBobbing 2.6s ease-in-out infinite alternate;
+}
+@keyframes roasBobbing {
+  0% { transform: translateY(0); filter: drop-shadow(0 0 4px rgba(184, 0, 245, 0.5)); }
+  100% { transform: translateY(-5px); filter: drop-shadow(0 0 14px rgba(232, 121, 249, 0.95)); }
+}
+
+.g-anim-ad-click {
+  animation: adBtnPress 2.8s ease-in-out infinite;
+}
+@keyframes adBtnPress {
+  0%, 75%, 100% { transform: translate(236px, 142px) scale(1); }
+  85% { transform: translate(236px, 142px) scale(0.85); }
+}
+
+/* ── Card 5: AI Automation Animations ── */
+.g-anim-dash-march {
+  stroke-dasharray: 3 2;
+  animation: dashBorderMarch 2.2s linear infinite;
+}
+@keyframes dashBorderMarch {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 20; }
+}
+
+.g-anim-hand-click {
+  animation: handTapAction 2.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+}
+@keyframes handTapAction {
+  0%, 65%, 100% { transform: translate(126px, 76px) scale(1); }
+  75% { transform: translate(126px, 79px) scale(0.86); }
+  85% { transform: translate(126px, 76px) scale(1.05); }
+}
+
+.g-anim-click-ripple {
+  animation: nodeClickRipple 2.5s ease-out infinite;
+}
+@keyframes nodeClickRipple {
+  0%, 70% { r: 0; opacity: 0; }
+  76% { r: 6; opacity: 0.9; }
+  100% { r: 36; opacity: 0; }
+}
+
+.g-anim-ai-node {
+  animation: aiNodeEnergy 3.2s ease-in-out infinite;
+}
+@keyframes aiNodeEnergy {
+  0%, 100% { filter: drop-shadow(0 0 3px rgba(184, 0, 245, 0.4)); }
+  50% { filter: drop-shadow(0 0 16px rgba(232, 121, 249, 0.9)); }
 }
 
 /* Responsive Breakpoints */
@@ -2139,20 +2373,23 @@
 
             <!-- Video Player Preview (Left) -->
             <rect x="18" y="28" width="156" height="80" rx="6" fill="url(#vidMonitor)" stroke="rgba(184, 0, 245, 0.35)" stroke-width="1"/>
-            <!-- Video preview scene with play icon -->
+            <!-- Video preview scene with pulsing play icon -->
             <ellipse cx="96" cy="68" rx="48" ry="24" fill="rgba(184, 0, 245, 0.22)" filter="url(#svgGlow1)"/>
-            <polygon points="92,60 104,68 92,76" fill="#ffffff" filter="url(#svgGlow1)"/>
-            <!-- Retention Tag -->
-            <rect x="24" y="34" width="46" height="12" rx="3" fill="rgba(184, 0, 245, 0.5)"/>
-            <text x="47" y="42.5" font-family="'Inter', sans-serif" font-size="6" fill="#fff" text-anchor="middle" font-weight="700">85% RETENTION</text>
+            <polygon class="g-anim-play-pulse" points="92,60 104,68 92,76" fill="#ffffff" filter="url(#svgGlow1)" style="transform-origin: 98px 68px;"/>
+            
+            <!-- Animated Retention Tag -->
+            <g class="g-anim-retention">
+              <rect x="24" y="34" width="46" height="12" rx="3" fill="rgba(184, 0, 245, 0.6)"/>
+              <text x="47" y="42.5" font-family="'Inter', sans-serif" font-size="6" fill="#fff" text-anchor="middle" font-weight="700">85% RETENTION</text>
+            </g>
 
             <!-- Mini Inspector Panel (Right) -->
             <rect x="182" y="28" width="80" height="80" rx="6" fill="rgba(24, 7, 38, 0.6)" stroke="rgba(184, 0, 245, 0.25)" stroke-width="1"/>
             <rect x="190" y="36" width="46" height="5" rx="2.5" fill="rgba(225, 200, 250, 0.4)"/>
-            <!-- Sliders -->
+            <!-- Sliders with animated thumb -->
             <rect x="190" y="48" width="64" height="3" rx="1.5" fill="rgba(184, 0, 245, 0.3)"/>
             <rect x="190" y="48" width="44" height="3" rx="1.5" fill="#B800F5"/>
-            <circle cx="234" cy="49.5" r="3.5" fill="#fff" stroke="#B800F5" stroke-width="1"/>
+            <circle class="g-anim-slider-thumb" cx="234" cy="49.5" r="3.5" fill="#fff" stroke="#B800F5" stroke-width="1"/>
 
             <rect x="190" y="62" width="64" height="3" rx="1.5" fill="rgba(184, 0, 245, 0.3)"/>
             <rect x="190" y="62" width="52" height="3" rx="1.5" fill="#E879F9"/>
@@ -2171,7 +2408,7 @@
             <rect x="22" y="121" width="50" height="18" rx="3" fill="rgba(184, 0, 245, 0.25)"/>
             <text x="47" y="132.5" font-family="'Inter', sans-serif" font-size="7" fill="#E879F9" text-anchor="middle" font-weight="600">V1 &bull; 4K Cut</text>
 
-            <!-- Active Clip (Frame Style with Handles) -->
+            <!-- Active Clip -->
             <rect x="76" y="121" width="94" height="18" rx="3" fill="url(#vidGrad)" stroke="#E879F9" stroke-width="1.5"/>
             <text x="123" y="132.5" font-family="'Inter', sans-serif" font-size="7" fill="#ffffff" text-anchor="middle" font-weight="700">Clip 01 [Cinematic]</text>
             <!-- Handles -->
@@ -2181,16 +2418,18 @@
             <rect x="174" y="121" width="84" height="18" rx="3" fill="rgba(184, 0, 245, 0.2)"/>
             <text x="216" y="132.5" font-family="'Inter', sans-serif" font-size="7" fill="rgba(225, 200, 250, 0.5)" text-anchor="middle">VFX Motion</text>
 
-            <!-- Track 2: Audio Wave -->
+            <!-- Track 2: Animated Audio Wave -->
             <rect x="22" y="143" width="236" height="18" rx="3" fill="rgba(88, 11, 130, 0.2)"/>
-            <path d="M 28,152 Q 38,145 48,152 T 68,152 T 88,147 T 108,154 T 128,146 T 148,155 T 168,148 T 188,154 T 208,149 T 228,153 T 248,152" fill="none" stroke="#E879F9" stroke-width="1.5" opacity="0.8"/>
+            <path class="g-anim-audiowave" d="M 28,152 Q 38,145 48,152 T 68,152 T 88,147 T 108,154 T 128,146 T 148,155 T 168,148 T 188,154 T 208,149 T 228,153 T 248,152" fill="none" stroke="#E879F9" stroke-width="1.6"/>
 
-            <!-- Playhead Red Needle -->
-            <line x1="126" y1="112" x2="126" y2="167" stroke="#ff3b5c" stroke-width="1.5"/>
-            <polygon points="122,112 130,112 126,118" fill="#ff3b5c"/>
+            <!-- Playhead Red Needle (Animated Sweep) -->
+            <g class="g-anim-playhead">
+              <line x1="95" y1="112" x2="95" y2="167" stroke="#ff3b5c" stroke-width="1.8" filter="url(#svgGlow1)"/>
+              <polygon points="91,112 99,112 95,118" fill="#ff3b5c"/>
+            </g>
 
-            <!-- Designer Cursor -->
-            <g transform="translate(162, 126)">
+            <!-- Trimming Cursor (Animated) -->
+            <g class="g-anim-vid-cursor">
               <polygon points="0,0 0,14 4,11 7,17 9,16 6,10 11,10" fill="#000000" stroke="#ffffff" stroke-width="1.2"/>
             </g>
           </svg>
@@ -2215,10 +2454,6 @@
         <div class="g-svc-mockup">
           <svg class="g-svc-svg" viewBox="0 0 280 185" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <linearGradient id="gfxGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#ff6ef7"/>
-                <stop offset="100%" stop-color="#B800F5"/>
-              </linearGradient>
               <linearGradient id="gfxShape" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stop-color="rgba(184, 0, 245, 0.45)"/>
                 <stop offset="100%" stop-color="rgba(88, 11, 130, 0.15)"/>
@@ -2246,32 +2481,33 @@
             <!-- Abstract Vector Shape in background -->
             <path d="M 50,110 C 70,40 130,45 155,85 C 180,125 230,115 250,65 L 250,140 C 210,155 120,160 50,140 Z" fill="url(#gfxShape)"/>
 
-            <!-- Vector Bezier Curve Line with Handles -->
-            <path d="M 45,115 C 70,35 130,40 155,85 C 180,130 225,120 245,65" fill="none" stroke="#E879F9" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Glowing Vector Bezier Curve Line -->
+            <path class="g-anim-vector-glow" d="M 45,115 C 70,35 130,40 155,85 C 180,130 225,120 245,65" fill="none" stroke="#E879F9" stroke-width="2.5" stroke-linecap="round"/>
 
-            <!-- Anchor Points & Tangent Handles -->
             <!-- Anchor 1 -->
             <rect x="42" y="112" width="6" height="6" fill="#ffffff" stroke="#B800F5" stroke-width="1.5"/>
-            <!-- Anchor 2 (Active with tangent handles) -->
-            <line x1="130" y1="65" x2="180" y2="105" stroke="rgba(255, 255, 255, 0.6)" stroke-width="1.2" stroke-dasharray="2 2"/>
-            <circle cx="130" cy="65" r="3.5" fill="#E879F9" stroke="#ffffff" stroke-width="1"/>
-            <circle cx="180" cy="105" r="3.5" fill="#E879F9" stroke="#ffffff" stroke-width="1"/>
-            <rect x="152" y="82" width="6" height="6" fill="#ffffff" stroke="#B800F5" stroke-width="1.5"/>
             <!-- Anchor 3 -->
             <rect x="242" y="62" width="6" height="6" fill="#ffffff" stroke="#B800F5" stroke-width="1.5"/>
 
-            <!-- Pen Tool Cursor -->
-            <g transform="translate(154, 84)">
-              <!-- Pen Tool Icon -->
-              <path d="M 0,0 L 4,-8 L 10,-2 L 2,4 Z" fill="#ffffff" stroke="#000000" stroke-width="0.8"/>
-              <path d="M 0,0 L -1,1 L 1,1 Z" fill="#000000"/>
-              <circle cx="4" cy="-3" r="1" fill="#B800F5"/>
+            <!-- Tangent Handles & Center Anchor (Animated Rotation) -->
+            <g class="g-anim-bezier-handle">
+              <line x1="130" y1="65" x2="180" y2="105" stroke="rgba(255, 255, 255, 0.65)" stroke-width="1.2" stroke-dasharray="2 2"/>
+              <circle cx="130" cy="65" r="3.5" fill="#E879F9" stroke="#ffffff" stroke-width="1"/>
+              <circle cx="180" cy="105" r="3.5" fill="#E879F9" stroke="#ffffff" stroke-width="1"/>
+              <rect x="152" y="82" width="6" height="6" fill="#ffffff" stroke="#B800F5" stroke-width="1.5"/>
             </g>
 
-            <!-- Floating Color Palette (Bottom Right) -->
+            <!-- Pen Tool Cursor (Animated Drawing Motion) -->
+            <g class="g-anim-pen-cursor">
+              <path d="M 0,0 L 4,-8 L 10,-2 L 2,4 Z" fill="#ffffff" stroke="#000000" stroke-width="0.8"/>
+              <path d="M 0,0 L -1,1 L 1,1 Z" fill="#000000"/>
+              <circle cx="4" cy="-3" r="1.2" fill="#B800F5"/>
+            </g>
+
+            <!-- Floating Color Palette with Pulsing Swatch -->
             <rect x="160" y="128" width="102" height="36" rx="8" fill="rgba(20, 6, 32, 0.85)" stroke="rgba(184, 0, 245, 0.4)" stroke-width="1"/>
             <circle cx="174" cy="146" r="6" fill="#B800F5"/>
-            <circle cx="191" cy="146" r="6" fill="#ff6ef7"/>
+            <circle class="g-anim-swatch-active" cx="191" cy="146" r="6" fill="#ff6ef7"/>
             <circle cx="208" cy="146" r="6" fill="#7a0cad"/>
             <circle cx="225" cy="146" r="6" fill="#00d4ff"/>
             <circle cx="242" cy="146" r="6" fill="#ffffff" stroke="#B800F5" stroke-width="1"/>
@@ -2301,14 +2537,14 @@
         </div>
       </div>
 
-      <!-- CARD 3: WEB DESIGN (Exact match to Card 1 in reference image) -->
+      <!-- CARD 3: WEB DESIGN (Exact match to Card 1 in reference image + Interactive Resize Animation) -->
       <div class="g-svc-card">
         <div class="g-svc-mockup">
           <svg class="g-svc-svg" viewBox="0 0 280 185" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="frameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#B800F5" stop-opacity="0.85"/>
-                <stop offset="100%" stop-color="#580B82" stop-opacity="0.85"/>
+                <stop offset="0%" stop-color="#B800F5" stop-opacity="0.88"/>
+                <stop offset="100%" stop-color="#580B82" stop-opacity="0.88"/>
               </linearGradient>
             </defs>
 
@@ -2332,21 +2568,21 @@
             <rect x="188" y="46" width="28" height="24" rx="3" fill="none" stroke="rgba(232, 121, 249, 0.5)" stroke-width="1.5"/>
             <polygon points="192,64 200,54 206,60 210,56 214,64" fill="rgba(232, 121, 249, 0.6)"/>
 
-            <!-- Selected Frame (Frame 99999) - Exact Reference Match -->
-            <g>
+            <!-- Selected Frame (Frame 99999) - Resizing Animation -->
+            <g class="g-anim-frame-box">
               <text x="24" y="70" font-family="'Inter', sans-serif" font-size="8.5" fill="#E879F9" font-weight="600">Frame 99999</text>
-              <rect x="24" y="75" width="108" height="54" rx="5" fill="url(#frameGrad)" stroke="#E879F9" stroke-width="1.5"/>
+              <rect class="g-anim-resize-frame" x="24" y="75" width="108" height="54" rx="5" fill="url(#frameGrad)" stroke="#E879F9" stroke-width="1.5"/>
               
               <!-- 4 White Resize Handles -->
               <rect x="21" y="72" width="5" height="5" fill="#ffffff" stroke="#B800F5" stroke-width="0.8"/>
               <rect x="129" y="72" width="5" height="5" fill="#ffffff" stroke="#B800F5" stroke-width="0.8"/>
               <rect x="21" y="126" width="5" height="5" fill="#ffffff" stroke="#B800F5" stroke-width="0.8"/>
               <rect x="129" y="126" width="5" height="5" fill="#ffffff" stroke="#B800F5" stroke-width="0.8"/>
-              
-              <!-- Mouse cursor dragging bottom-right corner -->
-              <g transform="translate(130, 127)">
-                <polygon points="0,0 0,16 4,12 8,19 11,18 7,11 13,11" fill="#000000" stroke="#ffffff" stroke-width="1.2"/>
-              </g>
+            </g>
+
+            <!-- Mouse cursor dragging bottom-right corner (Animated Movement) -->
+            <g class="g-anim-frame-cursor">
+              <polygon points="0,0 0,16 4,12 8,19 11,18 7,11 13,11" fill="#000000" stroke="#ffffff" stroke-width="1.2"/>
             </g>
 
             <!-- Card block on right side -->
@@ -2373,13 +2609,13 @@
         </div>
       </div>
 
-      <!-- CARD 4: DIGITAL MARKETING -->
+      <!-- CARD 4: DIGITAL MARKETING (Live Streaming Analytics & Click Animation) -->
       <div class="g-svc-card">
         <div class="g-svc-mockup">
           <svg class="g-svc-svg" viewBox="0 0 280 185" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="chartGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#ff6ef7" stop-opacity="0.5"/>
+                <stop offset="0%" stop-color="#ff6ef7" stop-opacity="0.55"/>
                 <stop offset="60%" stop-color="#B800F5" stop-opacity="0.2"/>
                 <stop offset="100%" stop-color="#08010E" stop-opacity="0"/>
               </linearGradient>
@@ -2388,10 +2624,10 @@
             <!-- Outer Canvas Window -->
             <rect x="8" y="8" width="264" height="169" rx="10" fill="#0d0419" stroke="rgba(184, 0, 245, 0.35)" stroke-width="1"/>
             
-            <!-- Window header dots -->
+            <!-- Window header dots with live radar beacon -->
             <circle cx="22" cy="18" r="3" fill="#ff5f56"/>
             <circle cx="31" cy="18" r="3" fill="#ffbd2e"/>
-            <circle cx="40" cy="18" r="3" fill="#27c93f"/>
+            <circle class="g-anim-live-dot" cx="40" cy="18" r="3" fill="#22c55e"/>
             <rect x="92" y="14" width="96" height="9" rx="4" fill="rgba(184, 0, 245, 0.25)"/>
             <text x="140" y="21" font-family="'Inter', sans-serif" font-size="6.5" fill="#E879F9" text-anchor="middle" font-weight="600">Meta &bull; Google Ads &bull; Live</text>
 
@@ -2405,12 +2641,14 @@
 
             <!-- Area Chart Gradient Fill -->
             <path d="M 28,106 Q 65,98 95,102 T 150,70 T 205,48 T 252,36 L 252,112 L 28,112 Z" fill="url(#chartGrad)"/>
-            <!-- Surging Line -->
-            <path d="M 28,106 Q 65,98 95,102 T 150,70 T 205,48 T 252,36" fill="none" stroke="#E879F9" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Surging Animated Line -->
+            <path class="g-anim-chart-line" d="M 28,106 Q 65,98 95,102 T 150,70 T 205,48 T 252,36" fill="none" stroke="#E879F9" stroke-width="2.5" stroke-linecap="round"/>
 
-            <!-- Callout Pill at Peak -->
-            <rect x="184" y="32" width="62" height="15" rx="4" fill="#B800F5"/>
-            <text x="215" y="42.5" font-family="'Inter', sans-serif" font-size="6.5" fill="#ffffff" text-anchor="middle" font-weight="700">4.8x ROAS &bull; +340%</text>
+            <!-- Floating Callout Pill at Peak (Bobbing Animation) -->
+            <g class="g-anim-roas-pill">
+              <rect x="184" y="32" width="62" height="15" rx="4" fill="#B800F5"/>
+              <text x="215" y="42.5" font-family="'Inter', sans-serif" font-size="6.5" fill="#ffffff" text-anchor="middle" font-weight="700">4.8x ROAS &bull; +340%</text>
+            </g>
 
             <!-- Bottom KPI Metrics (3 columns) -->
             <rect x="18" y="126" width="76" height="42" rx="6" fill="rgba(24, 7, 38, 0.7)" stroke="rgba(184, 0, 245, 0.25)" stroke-width="1"/>
@@ -2426,8 +2664,8 @@
             <text x="224" y="144" font-family="'Inter', sans-serif" font-size="6.5" fill="#ffffff" text-anchor="middle" font-weight="700">SCALE</text>
             <text x="224" y="156" font-family="'Inter', sans-serif" font-size="6" fill="#E879F9" text-anchor="middle">Campaign &rarr;</text>
 
-            <!-- Mouse Pointer Cursor -->
-            <g transform="translate(236, 142)">
+            <!-- Mouse Pointer Cursor (Click Animation) -->
+            <g class="g-anim-ad-click">
               <polygon points="0,0 0,14 4,11 7,17 9,16 6,10 11,10" fill="#000000" stroke="#ffffff" stroke-width="1.2"/>
             </g>
           </svg>
@@ -2448,7 +2686,7 @@
         </div>
       </div>
 
-      <!-- CARD 5: AI AUTOMATION (Exact match to Card 3 in reference image) -->
+      <!-- CARD 5: AI AUTOMATION (Marching Dash, Tapping Hand & Energy Ripple) -->
       <div class="g-svc-card">
         <div class="g-svc-mockup">
           <svg class="g-svc-svg" viewBox="0 0 280 185" xmlns="http://www.w3.org/2000/svg">
@@ -2476,8 +2714,8 @@
             <rect x="42" y="36" width="16" height="16" rx="3" fill="rgba(184, 0, 245, 0.25)"/>
 
             <rect x="20" y="58" width="16" height="16" rx="3" fill="rgba(184, 0, 245, 0.25)"/>
-            <!-- Active Selected Block with Dashed Border -->
-            <rect x="42" y="58" width="16" height="16" rx="3" fill="rgba(184, 0, 245, 0.35)" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="2.5 1.5"/>
+            <!-- Active Selected Block with Animated Marching Dashed Border -->
+            <rect class="g-anim-dash-march" x="42" y="58" width="16" height="16" rx="3" fill="rgba(184, 0, 245, 0.4)" stroke="#ffffff" stroke-width="1.4"/>
 
             <rect x="20" y="80" width="16" height="16" rx="3" fill="rgba(184, 0, 245, 0.25)"/>
             <rect x="42" y="80" width="16" height="16" rx="3" fill="rgba(184, 0, 245, 0.25)"/>
@@ -2489,7 +2727,7 @@
             <line x1="68" y1="12" x2="68" y2="173" stroke="rgba(184, 0, 245, 0.25)" stroke-width="1"/>
 
             <!-- Main Canvas Area -->
-            <!-- Breadcrumb Label: "Your Workflow" -->
+            <!-- Breadcrumb Label: "AI Workflow" -->
             <rect x="80" y="30" width="64" height="9" rx="3" fill="rgba(184, 0, 245, 0.4)"/>
             <rect x="83" y="32.5" width="4" height="4" rx="1" fill="#E879F9"/>
             <text x="94" y="37" font-family="'Inter', sans-serif" font-size="6" fill="#ffffff" font-weight="600">AI Automation</text>
@@ -2497,17 +2735,19 @@
             <!-- Main Canvas Frame Container -->
             <rect x="80" y="42" width="180" height="122" rx="6" fill="none" stroke="rgba(184, 0, 245, 0.35)" stroke-width="1.2"/>
 
-            <!-- Inside Canvas: "AI Action Node" element (Exact Reference Match) -->
-            <g>
+            <!-- Inside Canvas: "AI Action Node" element (Pulsing Energy) -->
+            <g class="g-anim-ai-node">
               <rect x="88" y="50" width="50" height="42" rx="6" fill="url(#wfGrad)" stroke="#E879F9" stroke-width="1.5"/>
               <rect x="107" y="58" width="12" height="10" rx="2" fill="none" stroke="#ffffff" stroke-width="1.2"/>
               <text x="113" y="82" font-family="'Inter', sans-serif" font-size="7.5" fill="#ffffff" font-weight="600" text-anchor="middle">AI Agent</text>
+            </g>
 
-              <!-- Hand Pointer Cursor clicking on Node -->
-              <g transform="translate(126, 76)">
-                <!-- SVG Hand Cursor -->
-                <path d="M 6,0 C 7.5,0 8.5,1 8.5,2.5 L 8.5,9.5 C 9.2,8.8 10.2,8.5 11,8.5 C 12.5,8.5 13.5,9.5 13.5,11 C 14.2,10.5 15,10.5 15.5,10.5 C 17,10.5 18,11.5 18,13 L 18,18 C 18,23 14,26 9.5,26 C 5,26 2.5,22 2.5,18 L 2.5,14 L 1,12.5 C 0,11.5 0,10 1,9 C 2,8 3.5,8 4.5,9 L 6,10.5 L 6,2.5 C 6,1 7,0 6,0 Z" fill="#000000" stroke="#ffffff" stroke-width="1.2"/>
-              </g>
+            <!-- Energy Click Ripple Wave -->
+            <circle class="g-anim-click-ripple" cx="132" cy="74" r="0" fill="none" stroke="#E879F9" stroke-width="1.8" opacity="0"/>
+
+            <!-- Hand Pointer Cursor clicking on Node (Tapping Animation) -->
+            <g class="g-anim-hand-click">
+              <path d="M 6,0 C 7.5,0 8.5,1 8.5,2.5 L 8.5,9.5 C 9.2,8.8 10.2,8.5 11,8.5 C 12.5,8.5 13.5,9.5 13.5,11 C 14.2,10.5 15,10.5 15.5,10.5 C 17,10.5 18,11.5 18,13 L 18,18 C 18,23 14,26 9.5,26 C 5,26 2.5,22 2.5,18 L 2.5,14 L 1,12.5 C 0,11.5 0,10 1,9 C 2,8 3.5,8 4.5,9 L 6,10.5 L 6,2.5 C 6,1 7,0 6,0 Z" fill="#000000" stroke="#ffffff" stroke-width="1.2"/>
             </g>
           </svg>
         </div>
