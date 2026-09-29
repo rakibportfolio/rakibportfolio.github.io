@@ -234,10 +234,13 @@
     }
 
     function setCapsuleWidth(wordEl) {
+      if (window.innerWidth <= 768) {
+        capsule.style.width = window.innerWidth <= 520 ? '118px' : '132px';
+        return;
+      }
       var w = measureTextWidth(wordEl);
-      var isMobile = window.innerWidth <= 600;
-      var buffer = isMobile ? 26 : 34;
-      var minWidth = isMobile ? 135 : 165;
+      var buffer = 34;
+      var minWidth = 165;
       capsule.style.width = Math.max(minWidth, Math.round(w + buffer)) + 'px';
     }
 

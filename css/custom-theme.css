@@ -376,6 +376,19 @@ a.button-03 .button-arrow-wrapper {
   will-change: transform;
 }
 
+@media (max-width: 991px) {
+  .hero-background-block img.hero-bg-left,
+  .hero-background-block img.hero-bg-right {
+    filter: none !important;
+    transition: none !important;
+    will-change: auto !important;
+    opacity: 0.28 !important;
+    transform: none !important;
+    -webkit-backface-visibility: hidden !important;
+    backface-visibility: hidden !important;
+  }
+}
+
 .hero-title h1,
 .hero-title .heading-01 {
   font-family: 'Coolvetica', sans-serif !important;
