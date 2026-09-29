@@ -1847,432 +1847,592 @@
 </style>
 
 <!-- ===============================================================
-     SERVICES SECTION - 4 CORE CAPABILITIES (EXPLAINER CARDS)
+     SERVICES SECTION - GLOSSY SHOWCASE CARDS (NEW v2)
      =============================================================== -->
-<section id="services-section">
-  <div class="sv3-wrap">
+<style>
+/* ================================================================
+   GLOSSY SERVICES SECTION STYLES
+   ================================================================ */
+.glossy-services-section {
+  position: relative;
+  background: #06010B;
+  padding: 110px 24px 120px;
+  overflow: hidden;
+}
 
+.g-svc-ambient {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 960px;
+  height: 540px;
+  background: radial-gradient(ellipse 65% 50% at 50% 30%, rgba(184, 0, 245, 0.22) 0%, rgba(88, 11, 130, 0.08) 50%, transparent 75%);
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.g-svc-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* Header */
+.g-svc-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 60px;
+}
+
+.g-svc-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  border-radius: 999px;
+  background: rgba(184, 0, 245, 0.12);
+  border: 1px solid rgba(184, 0, 245, 0.35);
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 12px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #E879F9;
+  font-weight: 600;
+}
+
+.g-svc-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #E879F9;
+  box-shadow: 0 0 8px #B800F5;
+  animation: gSvcPulse 2s ease-in-out infinite;
+}
+
+@keyframes gSvcPulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+.g-svc-title {
+  font-family: 'Poppins', 'Syne', sans-serif !important;
+  font-size: clamp(38px, 5.5vw, 64px);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.12;
+  margin: 0 0 16px;
+  letter-spacing: -0.5px;
+}
+
+.g-svc-gradient-text {
+  background: linear-gradient(135deg, #B800F5 0%, #ff6ef7 50%, #B800F5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.g-svc-subtitle {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(225, 200, 250, 0.65);
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* 4-Card Responsive Grid */
+.g-svc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+/* Card Outer (Glossy Glassmorphism) */
+.g-svc-card {
+  position: relative;
+  background: linear-gradient(180deg, rgba(24, 8, 38, 0.72) 0%, rgba(13, 3, 22, 0.88) 100%);
+  border: 1px solid rgba(184, 0, 245, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 22px;
+  padding: 12px 12px 24px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(184, 0, 245, 0.08);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+  overflow: hidden;
+}
+
+.g-svc-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, transparent 100%);
+  pointer-events: none;
+  border-radius: 22px 22px 0 0;
+}
+
+.g-svc-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(184, 0, 245, 0.75);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.7), 0 0 45px rgba(184, 0, 245, 0.28);
+}
+
+/* Mockup Window (Top Half) */
+.g-svc-mockup {
+  position: relative;
+  width: 100%;
+  border-radius: 16px 16px 10px 10px;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 20%, #1f0b38 0%, #0d0218 100%);
+  border: 1px solid rgba(184, 0, 245, 0.22);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.g-svc-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: translateZ(0);
+}
+
+/* Card Body (Bottom Half) */
+.g-svc-body {
+  padding: 22px 14px 4px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  text-align: left;
+}
+
+/* Icon Badge */
+.g-svc-icon-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(184, 0, 245, 0.12);
+  border: 1px solid rgba(184, 0, 245, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  box-shadow: 0 0 16px rgba(184, 0, 245, 0.15);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.g-svc-card:hover .g-svc-icon-badge {
+  transform: scale(1.08);
+  background: rgba(184, 0, 245, 0.22);
+  box-shadow: 0 0 22px rgba(184, 0, 245, 0.35);
+}
+
+.g-svc-name {
+  font-family: 'Poppins', 'Syne', sans-serif !important;
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 8px;
+  letter-spacing: -0.2px;
+}
+
+.g-svc-desc {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: rgba(225, 200, 250, 0.65);
+  margin: 0;
+  flex-grow: 1;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1100px) {
+  .g-svc-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 740px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 680px) {
+  .glossy-services-section {
+    padding: 80px 16px 90px;
+  }
+  .g-svc-header {
+    margin-bottom: 40px;
+  }
+  .g-svc-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+  .g-svc-body {
+    padding: 18px 12px 4px;
+  }
+}
+</style>
+
+<section id="services-section" class="glossy-services-section">
+  <!-- Ambient background glow -->
+  <div class="g-svc-ambient" aria-hidden="true"></div>
+
+  <div class="g-svc-container">
     <!-- Header -->
-    <div class="sv3-header">
-      <div class="sv3-eyebrow"><span class="sv3-eyebrow-dot"></span>FULL-SERVICE CREATIVE STUDIO</div>
-      <h2 class="sv3-h2">
-        <span class="sv3-h2-line1">Everything Your Brand Needs</span>
-        <span class="sv3-h2-line2"><em class="sv3-3d-title">To Dominate</em></span>
+    <div class="g-svc-header">
+      <div class="g-svc-eyebrow">
+        <span class="g-svc-dot"></span>CORE CAPABILITIES
+      </div>
+      <h2 class="g-svc-title">
+        Everything Your Brand Needs <br>
+        <span class="g-svc-gradient-text">To Dominate.</span>
       </h2>
-      <p class="sv3-sub">From viral video edits to high-converting websites, paid ad campaigns, and smart automation.</p>
+      <p class="g-svc-subtitle">
+        High-converting Video Editing, Web Design, Paid Ads &amp; Smart Automation engineered for growth.
+      </p>
     </div>
 
-    <!-- TAB NAV -->
-    <nav class="sv3-nav" aria-label="Services">
-      <div class="sv3-nav-inner" role="tablist">
-        <div class="sv3-nav-pill" id="sv3Pill"></div>
-        <button class="sv3-tab active" data-tab="0" role="tab" aria-selected="true">
-          <span class="sv3-tab-icon">&#127916;</span>
-          <span class="sv3-tab-label">Video Editing</span>
-        </button>
-        <button class="sv3-tab" data-tab="1" role="tab" aria-selected="false">
-          <span class="sv3-tab-icon">&#127760;</span>
-          <span class="sv3-tab-label">Web Design</span>
-        </button>
-        <button class="sv3-tab" data-tab="2" role="tab" aria-selected="false">
-          <span class="sv3-tab-icon">&#128200;</span>
-          <span class="sv3-tab-label">Paid Ads</span>
-        </button>
-        <button class="sv3-tab" data-tab="3" role="tab" aria-selected="false">
-          <span class="sv3-tab-icon">&#129302;</span>
-          <span class="sv3-tab-label">Automation</span>
-        </button>
-      </div>
-    </nav>
+    <!-- 4 Glossy Cards Grid -->
+    <div class="g-svc-grid">
 
-    <!-- PANELS -->
-    <div class="sv3-panels">
+      <!-- CARD 1: VIDEO EDITING -->
+      <div class="g-svc-card">
+        <!-- Top Mockup Visual -->
+        <div class="g-svc-mockup">
+          <svg class="g-svc-svg" viewBox="0 0 280 185" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="vidGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#B800F5"/>
+                <stop offset="100%" stop-color="#4a0468"/>
+              </linearGradient>
+              <linearGradient id="vidMonitor" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#1e0a36"/>
+                <stop offset="100%" stop-color="#0c0217"/>
+              </linearGradient>
+              <filter id="svgGlow1" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3" result="blur"/>
+                <feMerge>
+                  <feMergeNode in="blur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
 
-      <!-- PANEL 0: VIDEO EDITING -->
-      <div class="sv3-panel active" id="sv3Panel0">
-        <div class="sv3-card">
-          <div class="sv3-info">
-            <div class="sv3-num" data-num="01">VIDEO EDITING</div>
-            <h3 class="sv3-title">Video Editing &amp; <br>Motion Graphics</h3>
-            <p class="sv3-pitch">Cinematic cuts engineered for 80%+ viewer retention on YouTube, Reels &amp; Shorts.</p>
-            <ul class="sv3-feats">
-              <li><span class="sv3-feat-dot"></span>4K Cinematic Color Grading</li>
-              <li><span class="sv3-feat-dot"></span>Motion VFX &amp; Animated Titles</li>
-              <li><span class="sv3-feat-dot"></span>Hook-First Story Structure</li>
-              <li><span class="sv3-feat-dot"></span>Audio Mixing &amp; Sound Design</li>
-            </ul>
-            <div class="sv3-chips">
-              <span class="sv3-chip">Reels / Shorts</span>
-              <span class="sv3-chip">YouTube 4K</span>
-              <span class="sv3-chip">Color Grading</span>
-              <span class="sv3-chip">Motion VFX</span>
-            </div>
-            <a href="#callbook" class="sv3-cta"><span>Get Your Video Edited</span><span class="sv3-cta-arr">&#8594;</span></a>
+            <!-- Outer Canvas Window -->
+            <rect x="8" y="8" width="264" height="169" rx="10" fill="#0d0419" stroke="rgba(184, 0, 245, 0.3)" stroke-width="1"/>
+            
+            <!-- Window header dots -->
+            <circle cx="22" cy="18" r="3" fill="#ff5f56"/>
+            <circle cx="31" cy="18" r="3" fill="#ffbd2e"/>
+            <circle cx="40" cy="18" r="3" fill="#27c93f"/>
+            <rect x="96" y="14" width="88" height="9" rx="4" fill="rgba(184, 0, 245, 0.25)"/>
+            <text x="140" y="21" font-family="'Inter', sans-serif" font-size="6.5" fill="#E879F9" text-anchor="middle" font-weight="600">00:14:28 &bull; 4K 60FPS</text>
+
+            <!-- Video Player Preview (Left) -->
+            <rect x="18" y="28" width="156" height="80" rx="6" fill="url(#vidMonitor)" stroke="rgba(184, 0, 245, 0.35)" stroke-width="1"/>
+            <!-- Video preview scene with play icon -->
+            <ellipse cx="96" cy="68" rx="48" ry="24" fill="rgba(184, 0, 245, 0.22)" filter="url(#svgGlow1)"/>
+            <polygon points="92,60 104,68 92,76" fill="#ffffff" filter="url(#svgGlow1)"/>
+            <!-- Retention Tag -->
+            <rect x="24" y="34" width="46" height="12" rx="3" fill="rgba(184, 0, 245, 0.5)"/>
+            <text x="47" y="42.5" font-family="'Inter', sans-serif" font-size="6" fill="#fff" text-anchor="middle" font-weight="700">85% RETENTION</text>
+
+            <!-- Mini Inspector Panel (Right) -->
+            <rect x="182" y="28" width="80" height="80" rx="6" fill="rgba(24, 7, 38, 0.6)" stroke="rgba(184, 0, 245, 0.25)" stroke-width="1"/>
+            <rect x="190" y="36" width="46" height="5" rx="2.5" fill="rgba(225, 200, 250, 0.4)"/>
+            <!-- Sliders -->
+            <rect x="190" y="48" width="64" height="3" rx="1.5" fill="rgba(184, 0, 245, 0.3)"/>
+            <rect x="190" y="48" width="44" height="3" rx="1.5" fill="#B800F5"/>
+            <circle cx="234" cy="49.5" r="3.5" fill="#fff" stroke="#B800F5" stroke-width="1"/>
+
+            <rect x="190" y="62" width="64" height="3" rx="1.5" fill="rgba(184, 0, 245, 0.3)"/>
+            <rect x="190" y="62" width="52" height="3" rx="1.5" fill="#E879F9"/>
+            <circle cx="242" cy="63.5" r="3.5" fill="#fff" stroke="#B800F5" stroke-width="1"/>
+
+            <rect x="190" y="76" width="64" height="3" rx="1.5" fill="rgba(184, 0, 245, 0.3)"/>
+            <rect x="190" y="76" width="36" height="3" rx="1.5" fill="#B800F5"/>
+            <circle cx="226" cy="77.5" r="3.5" fill="#fff" stroke="#B800F5" stroke-width="1"/>
+
+            <rect x="190" y="89" width="36" height="11" rx="3" fill="#B800F5"/>
+            <text x="208" y="97" font-family="'Inter', sans-serif" font-size="6" fill="#fff" text-anchor="middle" font-weight="700">RENDER</text>
+
+            <!-- Timeline (Bottom) -->
+            <rect x="18" y="115" width="244" height="52" rx="6" fill="rgba(16, 5, 28, 0.85)" stroke="rgba(184, 0, 245, 0.3)" stroke-width="1"/>
+            <!-- Track 1 Header -->
+            <rect x="22" y="121" width="50" height="18" rx="3" fill="rgba(184, 0, 245, 0.25)"/>
+            <text x="47" y="132.5" font-family="'Inter', sans-serif" font-size="7" fill="#E879F9" text-anchor="middle" font-weight="600">V1 &bull; 4K Cut</text>
+
+            <!-- Active Clip (Frame Style with Handles) -->
+            <rect x="76" y="121" width="94" height="18" rx="3" fill="url(#vidGrad)" stroke="#E879F9" stroke-width="1.5"/>
+            <text x="123" y="132.5" font-family="'Inter', sans-serif" font-size="7" fill="#ffffff" text-anchor="middle" font-weight="700">Clip 01 [Cinematic]</text>
+            <!-- Handles -->
+            <rect x="74" y="119" width="4" height="22" rx="1" fill="#ffffff"/>
+            <rect x="168" y="119" width="4" height="22" rx="1" fill="#ffffff"/>
+
+            <rect x="174" y="121" width="84" height="18" rx="3" fill="rgba(184, 0, 245, 0.2)"/>
+            <text x="216" y="132.5" font-family="'Inter', sans-serif" font-size="7" fill="rgba(225, 200, 250, 0.5)" text-anchor="middle">VFX Motion</text>
+
+            <!-- Track 2: Audio Wave -->
+            <rect x="22" y="143" width="236" height="18" rx="3" fill="rgba(88, 11, 130, 0.2)"/>
+            <path d="M 28,152 Q 38,145 48,152 T 68,152 T 88,147 T 108,154 T 128,146 T 148,155 T 168,148 T 188,154 T 208,149 T 228,153 T 248,152" fill="none" stroke="#E879F9" stroke-width="1.5" opacity="0.8"/>
+
+            <!-- Playhead Red Needle -->
+            <line x1="126" y1="112" x2="126" y2="167" stroke="#ff3b5c" stroke-width="1.5"/>
+            <polygon points="122,112 130,112 126,118" fill="#ff3b5c"/>
+
+            <!-- Designer Cursor -->
+            <g transform="translate(162, 126)">
+              <polygon points="0,0 0,14 4,11 7,17 9,16 6,10 11,10" fill="#000000" stroke="#ffffff" stroke-width="1.2"/>
+            </g>
+          </svg>
+        </div>
+
+        <!-- Card Body -->
+        <div class="g-svc-body">
+          <div class="g-svc-icon-badge">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E879F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="23 7 16 12 23 17 23 7"></polygon>
+              <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+            </svg>
           </div>
-          <!-- Video Visual: Floating Cards Cluster -->
-          <div class="sv3-visual sv3-visual-video">
-            <div class="sv3-orb"></div>
-            <div class="sv3-cluster">
-              <!-- Card 1: MOTION STYLE -->
-              <div class="sv3-fc sv3-fc1">
-                <div class="sv3-fc-head"><span class="sv3-fc-icon">&#127916;</span><span class="sv3-fc-lbl">MOTION STYLE</span></div>
-                <div class="sv3-fps-wrap">
-                  <div class="sv3-fps-col sv3-fps-dim">
-                    <div class="sv3-fps-bars"><div class="sv3-fpb" style="height:35%"></div><div class="sv3-fpb" style="height:60%"></div><div class="sv3-fpb" style="height:45%"></div></div>
-                    <span>24 FPS</span>
-                  </div>
-                  <div class="sv3-fps-sep"></div>
-                  <div class="sv3-fps-col sv3-fps-lit">
-                    <div class="sv3-fps-bars"><div class="sv3-fpb sv3-fpb-live" style="height:50%"></div><div class="sv3-fpb sv3-fpb-live" style="height:90%"></div><div class="sv3-fpb sv3-fpb-live" style="height:65%"></div><div class="sv3-fpb sv3-fpb-live" style="height:100%"></div><div class="sv3-fpb sv3-fpb-live" style="height:75%"></div></div>
-                    <span>60 FPS</span>
-                  </div>
-                </div>
-                <div class="sv3-fc-glow"></div>
-              </div>
-              <!-- Card 2: COLOR PALETTE -->
-              <div class="sv3-fc sv3-fc2">
-                <div class="sv3-fc-head"><span class="sv3-fc-icon">&#127912;</span><span class="sv3-fc-lbl">COLOR PALETTE</span></div>
-                <div class="sv3-swatches">
-                  <div class="sv3-sw" style="background:#B800F5"></div>
-                  <div class="sv3-sw" style="background:#580B82"></div>
-                  <div class="sv3-sw sv3-sw-sel" style="background:#E879F9"></div>
-                  <div class="sv3-sw" style="background:#150522"></div>
-                  <div class="sv3-sw" style="background:#D700FE"></div>
-                </div>
-                <div class="sv3-grade"><div class="sv3-grade-anim"></div></div>
-                <div class="sv3-fc-glow sv3-fc-glow-o"></div>
-              </div>
-              <!-- Card 3: TONE & VOICE -->
-              <div class="sv3-fc sv3-fc3">
-                <div class="sv3-fc-head"><span class="sv3-fc-icon">&#9997;&#65039;</span><span class="sv3-fc-lbl">TONE &amp; VOICE</span></div>
-                <div class="sv3-tags">
-                  <span class="sv3-ttag sv3-ttag-on">BOLD</span>
-                  <span class="sv3-ttag">CINEMATIC</span>
-                  <span class="sv3-ttag">DIRECT</span>
-                  <span class="sv3-ttag sv3-ttag-on">VIRAL</span>
-                </div>
-                <div class="sv3-fc-glow"></div>
-              </div>
-              <!-- Card 4: SCENE DIRECTION -->
-              <div class="sv3-fc sv3-fc4">
-                <div class="sv3-fc-head"><span class="sv3-fc-icon">&#127909;</span><span class="sv3-fc-lbl">SCENE DIRECTION</span></div>
-                <div class="sv3-eq">
-                  <div class="sv3-eq-b" style="--h:30%"></div>
-                  <div class="sv3-eq-b sv3-eq-on" style="--h:80%"></div>
-                  <div class="sv3-eq-b" style="--h:50%"></div>
-                  <div class="sv3-eq-b sv3-eq-on" style="--h:100%"></div>
-                  <div class="sv3-eq-b" style="--h:60%"></div>
-                  <div class="sv3-eq-b sv3-eq-on" style="--h:85%"></div>
-                </div>
-                <div class="sv3-fc-glow"></div>
-              </div>
-              <!-- Card 5: HOOK TIMING -->
-              <div class="sv3-fc sv3-fc5">
-                <div class="sv3-fc-head"><span class="sv3-fc-icon">&#9889;</span><span class="sv3-fc-lbl">HOOK TIMING</span></div>
-                <div class="sv3-dial">
-                  <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="36" cy="36" r="28" fill="none" stroke="rgba(88, 11, 130, 0.3)" stroke-width="5"/>
-                    <circle cx="36" cy="36" r="28" fill="none" stroke="url(#hG)" stroke-width="5" stroke-linecap="round" transform="rotate(-90 36 36)" class="sv3-arc"/>
-                    <defs><linearGradient id="hG" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#B800F5"/><stop offset="100%" stop-color="#E879F9"/></linearGradient></defs>
-                  </svg>
-                  <div class="sv3-dial-txt"><span class="sv3-dial-v">3s</span><span class="sv3-dial-s">HOOK</span></div>
-                </div>
-                <div class="sv3-fc-glow sv3-fc-glow-o"></div>
-              </div>
-              <!-- Badge -->
-              <div class="sv3-cluster-badge"><div class="sv3-cb-dot"></div>&#9889; 84% Viewer Retention</div>
-            </div>
-          </div>
+          <h3 class="g-svc-name">Video Editing</h3>
+          <p class="g-svc-desc">
+            Cinematic cuts, hook-first pacing, and dynamic motion graphics engineered for maximum viewer retention.
+          </p>
         </div>
       </div>
 
-      <!-- PANEL 1: WEB DESIGN -->
-      <div class="sv3-panel" id="sv3Panel1">
-        <div class="sv3-card">
-          <div class="sv3-info">
-            <div class="sv3-num" data-num="02">WEB DEVELOPMENT</div>
-            <h3 class="sv3-title">Website Design &amp; <br>Development</h3>
-            <p class="sv3-pitch">Fast, bespoke websites that turn cold traffic into paying clients. Built for speed &amp; conversion.</p>
-            <ul class="sv3-feats">
-              <li><span class="sv3-feat-dot"></span>Custom UI/UX Design</li>
-              <li><span class="sv3-feat-dot"></span>Mobile-First Build</li>
-              <li><span class="sv3-feat-dot"></span>Sub-0.4s Load Speed (100/100)</li>
-              <li><span class="sv3-feat-dot"></span>Lead Capture &amp; CRO Systems</li>
-            </ul>
-            <div class="sv3-chips">
-              <span class="sv3-chip">Custom UI/UX</span><span class="sv3-chip">Mobile First</span><span class="sv3-chip">0.4s Load</span><span class="sv3-chip">Lead Capture</span>
-            </div>
-            <a href="#callbook" class="sv3-cta"><span>Build My Website</span><span class="sv3-cta-arr">&#8594;</span></a>
+      <!-- CARD 2: WEB DESIGN (Exact match to Card 1 in reference image) -->
+      <div class="g-svc-card">
+        <div class="g-svc-mockup">
+          <svg class="g-svc-svg" viewBox="0 0 280 185" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="frameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#B800F5" stop-opacity="0.85"/>
+                <stop offset="100%" stop-color="#580B82" stop-opacity="0.85"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Window frame -->
+            <rect x="12" y="10" width="256" height="165" rx="12" fill="#0e041a" stroke="rgba(184, 0, 245, 0.45)" stroke-width="1.5"/>
+
+            <!-- Header browser elements -->
+            <rect x="22" y="18" width="30" height="7" rx="3.5" fill="rgba(184, 0, 245, 0.5)"/>
+            <rect x="60" y="20" width="18" height="3" rx="1.5" fill="rgba(225, 200, 250, 0.3)"/>
+            <rect x="84" y="20" width="18" height="3" rx="1.5" fill="rgba(225, 200, 250, 0.3)"/>
+            <rect x="108" y="20" width="18" height="3" rx="1.5" fill="rgba(225, 200, 250, 0.3)"/>
+            <rect x="236" y="18" width="20" height="7" rx="3.5" fill="rgba(184, 0, 245, 0.4)"/>
+
+            <!-- Wireframe left text bars -->
+            <rect x="24" y="38" width="90" height="5" rx="2.5" fill="rgba(225, 200, 250, 0.4)"/>
+            <rect x="24" y="47" width="65" height="4" rx="2" fill="rgba(225, 200, 250, 0.25)"/>
+
+            <!-- Image placeholder box (Right top) -->
+            <rect x="148" y="32" width="108" height="58" rx="8" fill="rgba(184, 0, 245, 0.18)" stroke="rgba(184, 0, 245, 0.4)" stroke-width="1"/>
+            <!-- Mountain placeholder icon -->
+            <rect x="188" y="46" width="28" height="24" rx="3" fill="none" stroke="rgba(232, 121, 249, 0.5)" stroke-width="1.5"/>
+            <polygon points="192,64 200,54 206,60 210,56 214,64" fill="rgba(232, 121, 249, 0.6)"/>
+
+            <!-- Selected Frame (Frame 99999) - Exact Reference Match -->
+            <g>
+              <text x="24" y="70" font-family="'Inter', sans-serif" font-size="8.5" fill="#E879F9" font-weight="600">Frame 99999</text>
+              <rect x="24" y="75" width="108" height="54" rx="5" fill="url(#frameGrad)" stroke="#E879F9" stroke-width="1.5"/>
+              
+              <!-- 4 White Resize Handles -->
+              <rect x="21" y="72" width="5" height="5" fill="#ffffff" stroke="#B800F5" stroke-width="0.8"/>
+              <rect x="129" y="72" width="5" height="5" fill="#ffffff" stroke="#B800F5" stroke-width="0.8"/>
+              <rect x="21" y="126" width="5" height="5" fill="#ffffff" stroke="#B800F5" stroke-width="0.8"/>
+              <rect x="129" y="126" width="5" height="5" fill="#ffffff" stroke="#B800F5" stroke-width="0.8"/>
+              
+              <!-- Mouse cursor dragging bottom-right corner -->
+              <g transform="translate(130, 127)">
+                <polygon points="0,0 0,16 4,12 8,19 11,18 7,11 13,11" fill="#000000" stroke="#ffffff" stroke-width="1.2"/>
+              </g>
+            </g>
+
+            <!-- Card block on right side -->
+            <rect x="142" y="98" width="114" height="48" rx="7" fill="rgba(184, 0, 245, 0.14)" stroke="rgba(184, 0, 245, 0.35)" stroke-width="1"/>
+            <circle cx="156" cy="112" r="5" fill="rgba(232, 121, 249, 0.4)"/>
+            <rect x="168" y="110" width="70" height="4" rx="2" fill="rgba(225, 200, 250, 0.3)"/>
+            <rect x="148" y="124" width="34" height="4" rx="2" fill="rgba(225, 200, 250, 0.25)"/>
+            <rect x="148" y="132" width="46" height="3" rx="1.5" fill="rgba(225, 200, 250, 0.2)"/>
+          </svg>
+        </div>
+
+        <div class="g-svc-body">
+          <div class="g-svc-icon-badge">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E879F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
           </div>
-          <div class="sv3-visual">
-            <div class="sv3-scene">
-              <div class="sv3-web-showcase">
-                <!-- Desktop Device Screen -->
-                <div class="sv3-dev-desktop">
-                  <div class="sv3-dev-d-bar">
-                    <div class="sv3-dev-dots"><span></span><span></span><span></span></div>
-                    <div class="sv3-dev-url-pill"></div>
-                    <div class="sv3-dev-tag">DESKTOP</div>
-                  </div>
-                  <div class="sv3-dev-d-body">
-                    <!-- Mini Website UI -->
-                    <div class="sv3-d-nav">
-                      <div class="sv3-d-logo"></div>
-                      <div class="sv3-d-links"><span></span><span></span><span></span></div>
-                      <div class="sv3-d-btn"></div>
-                    </div>
-                    <div class="sv3-d-hero">
-                      <div class="sv3-d-line-lg"></div>
-                      <div class="sv3-d-line-sm"></div>
-                      <div class="sv3-d-cta-pill"></div>
-                    </div>
-                    <!-- Mini Live Upward Chart inside website -->
-                    <div class="sv3-d-chart-card">
-                      <div class="sv3-d-chart-head">
-                        <span class="sv3-d-dot"></span>
-                        <div class="sv3-d-line-xs"></div>
-                      </div>
-                      <svg class="sv3-d-sparkline" viewBox="0 0 120 32" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                          <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stop-color="#E879F9" stop-opacity="0.4"/>
-                            <stop offset="100%" stop-color="#B800F5" stop-opacity="0"/>
-                          </linearGradient>
-                        </defs>
-                        <path d="M0,28 Q20,24 35,18 T70,14 T100,6 T120,2 L120,32 L0,32 Z" fill="url(#chartGrad)"/>
-                        <path d="M0,28 Q20,24 35,18 T70,14 T100,6 T120,2" fill="none" stroke="#E879F9" stroke-width="2" stroke-linecap="round"/>
-                        <circle cx="120" cy="2" r="3" fill="#28CA41" class="sv3-d-pulse-dot"/>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Overlapping Mobile Phone Mockup -->
-                <div class="sv3-dev-mobile">
-                  <div class="sv3-m-speaker"></div>
-                  <div class="sv3-m-body">
-                    <div class="sv3-m-bar">
-                      <div class="sv3-m-logo"></div>
-                      <div class="sv3-m-menu"><span></span><span></span></div>
-                    </div>
-                    <div class="sv3-m-hero-card">
-                      <div class="sv3-m-img-block"></div>
-                      <div class="sv3-m-line"></div>
-                      <div class="sv3-m-line sv3-m-line-half"></div>
-                      <div class="sv3-m-btn"></div>
-                    </div>
-                    <div class="sv3-m-badge">&#9889; 60 FPS</div>
-                  </div>
-                  <div class="sv3-m-home-bar"></div>
-                </div>
-
-                <!-- Floating Speedometer Dial -->
-                <div class="sv3-dev-dial">
-                  <svg viewBox="0 0 68 68" class="sv3-dial-svg">
-                    <circle cx="34" cy="34" r="26" fill="none" stroke="rgba(88, 11, 130, 0.3)" stroke-width="5"/>
-                    <circle cx="34" cy="34" r="26" fill="none" stroke="url(#speedGrad)" stroke-width="5" stroke-linecap="round" stroke-dasharray="163" stroke-dashoffset="20" transform="rotate(-90 34 34)" class="sv3-dial-arc"/>
-                    <defs>
-                      <linearGradient id="speedGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stop-color="#E879F9"/>
-                        <stop offset="100%" stop-color="#28CA41"/>
-                      </linearGradient>
-                    </defs>
-                  </svg>
-                  <div class="sv3-dial-center">
-                    <span class="sv3-dial-num">100</span>
-                    <span class="sv3-dial-lbl">SPEED</span>
-                  </div>
-                </div>
-
-                <!-- Floating Bottom Conversion Pill -->
-                <div class="sv3-dev-pill">
-                  <span class="sv3-dev-pill-dot"></span>
-                  <span class="sv3-dev-pill-txt">&#9889; 0.38s Load &middot; 3.2&#215; Conversion Lift</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <h3 class="g-svc-name">Web Design</h3>
+          <p class="g-svc-desc">
+            Modern, user-focused websites and high-converting landing pages that are visually striking and easy to navigate.
+          </p>
         </div>
       </div>
 
-      <!-- PANEL 2: PAID ADS -->
-      <div class="sv3-panel" id="sv3Panel2">
-        <div class="sv3-card">
-          <div class="sv3-info">
-            <div class="sv3-num" data-num="03">PAID ADVERTISING</div>
-            <h3 class="sv3-title">Digital Marketing &amp; <br>Paid Ads</h3>
-            <p class="sv3-pitch">Data-backed Meta &amp; Google campaigns that multiply monthly revenue with verified 5.4&#215; ROAS.</p>
-            <ul class="sv3-feats">
-              <li><span class="sv3-feat-dot"></span>Meta &amp; Google Ad Campaigns</li>
-              <li><span class="sv3-feat-dot"></span>Precision Audience Targeting</li>
-              <li><span class="sv3-feat-dot"></span>Creative A/B Testing</li>
-              <li><span class="sv3-feat-dot"></span>Real-Time Analytics Dashboard</li>
-            </ul>
-            <div class="sv3-chips">
-              <span class="sv3-chip">Meta Ads</span><span class="sv3-chip">Google Ads</span><span class="sv3-chip">5.4&#215; ROAS</span><span class="sv3-chip">Retargeting</span>
-            </div>
-            <a href="#callbook" class="sv3-cta"><span>Launch My Campaigns</span><span class="sv3-cta-arr">&#8594;</span></a>
+      <!-- CARD 3: UI / UX APP DESIGN (Exact match to Card 2 in reference image) -->
+      <div class="g-svc-card">
+        <div class="g-svc-mockup">
+          <svg class="g-svc-svg" viewBox="0 0 280 185" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="phoneGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#B800F5" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#580B82" stop-opacity="0.8"/>
+              </linearGradient>
+              <linearGradient id="phoneGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ff6ef7" stop-opacity="0.75"/>
+                <stop offset="100%" stop-color="#7a0cad" stop-opacity="0.75"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Phone 1 (Left) -->
+            <rect x="24" y="12" width="102" height="162" rx="14" fill="#0d0319" stroke="rgba(184, 0, 245, 0.45)" stroke-width="1.5"/>
+            <!-- Notch -->
+            <rect x="55" y="18" width="40" height="4" rx="2" fill="rgba(184, 0, 245, 0.6)"/>
+            <!-- Hero banner card -->
+            <rect x="32" y="28" width="86" height="46" rx="7" fill="url(#phoneGrad1)" stroke="#E879F9" stroke-width="1"/>
+            <!-- Two sub cards below -->
+            <rect x="32" y="82" width="40" height="34" rx="5" fill="rgba(184, 0, 245, 0.22)" stroke="rgba(184, 0, 245, 0.35)" stroke-width="1"/>
+            <rect x="78" y="82" width="40" height="34" rx="5" fill="rgba(184, 0, 245, 0.22)" stroke="rgba(184, 0, 245, 0.35)" stroke-width="1"/>
+            <rect x="32" y="124" width="86" height="36" rx="5" fill="rgba(184, 0, 245, 0.15)"/>
+
+            <!-- Phone 2 (Right) -->
+            <rect x="154" y="12" width="102" height="162" rx="14" fill="#0d0319" stroke="rgba(184, 0, 245, 0.45)" stroke-width="1.5"/>
+            <!-- Notch -->
+            <rect x="185" y="18" width="40" height="4" rx="2" fill="rgba(184, 0, 245, 0.6)"/>
+            <!-- Hero banner card -->
+            <rect x="162" y="28" width="86" height="38" rx="7" fill="url(#phoneGrad2)" stroke="#E879F9" stroke-width="1"/>
+            <!-- Text feed wireframes -->
+            <rect x="162" y="74" width="86" height="4" rx="2" fill="rgba(225, 200, 250, 0.4)"/>
+            <rect x="162" y="83" width="70" height="3.5" rx="1.75" fill="rgba(225, 200, 250, 0.25)"/>
+            <rect x="162" y="91" width="86" height="3.5" rx="1.75" fill="rgba(225, 200, 250, 0.25)"/>
+            <rect x="162" y="99" width="76" height="3.5" rx="1.75" fill="rgba(225, 200, 250, 0.25)"/>
+            <rect x="162" y="107" width="56" height="3.5" rx="1.75" fill="rgba(225, 200, 250, 0.2)"/>
+            <!-- Action buttons -->
+            <rect x="162" y="118" width="86" height="18" rx="5" fill="rgba(184, 0, 245, 0.35)" stroke="rgba(184, 0, 245, 0.5)" stroke-width="1"/>
+            <rect x="162" y="142" width="86" height="18" rx="5" fill="rgba(184, 0, 245, 0.2)"/>
+
+            <!-- Curved User Flow Connector Line (Exact Reference Match) -->
+            <path d="M 118,52 C 146,52 134,80 162,46" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
+            <!-- Start Node -->
+            <circle cx="118" cy="52" r="4.5" fill="#ffffff" stroke="#B800F5" stroke-width="2"/>
+            <!-- End Node -->
+            <circle cx="162" cy="46" r="4.5" fill="#ffffff" stroke="#B800F5" stroke-width="2"/>
+
+            <!-- Mouse Cursor pointing at End Node -->
+            <g transform="translate(164, 46)">
+              <polygon points="0,0 0,16 4,12 8,19 11,18 7,11 13,11" fill="#000000" stroke="#ffffff" stroke-width="1.2"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="g-svc-body">
+          <div class="g-svc-icon-badge">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E879F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+              <line x1="12" y1="18" x2="12.01" y2="18"></line>
+            </svg>
           </div>
-          <div class="sv3-visual">
-            <div class="sv3-scene">
-              <div class="sv3-ads-dash">
-                <div class="sv3-dash-top">
-                  <div class="sv3-metric sv3-metric-roas"><span class="sv3-metric-lbl">ROAS</span><span class="sv3-metric-val">5.4&#215;</span><span class="sv3-metric-trend">&#8593; +2.1&#215; vs last month</span></div>
-                  <div class="sv3-metric sv3-metric-rev"><span class="sv3-metric-lbl">REVENUE</span><span class="sv3-metric-val">$54k</span><span class="sv3-metric-trend">&#8593; +$22k this week</span></div>
-                  <div class="sv3-metric sv3-metric-ctr"><span class="sv3-metric-lbl">CTR</span><span class="sv3-metric-val">8.3%</span><span class="sv3-metric-trend">&#8593; +1.4% vs avg</span></div>
-                  <div class="sv3-metric sv3-metric-rch"><span class="sv3-metric-lbl">REACH</span><span class="sv3-metric-val">280k</span><span class="sv3-metric-trend">&#8593; +45k new</span></div>
-                </div>
-                <div class="sv3-bar-chart">
-                  <div class="sv3-chart-head"><span class="sv3-chart-title">Ad Spend vs Revenue</span><span class="sv3-chart-period">LAST 30 DAYS</span></div>
-                  <div class="sv3-bars">
-                    <div class="sv3-bar-col"><div class="sv3-bar-fill spend" style="height:30%"></div><span class="sv3-bar-lbl">Wk1</span></div>
-                    <div class="sv3-bar-col"><div class="sv3-bar-fill revenue" style="height:55%"></div><span class="sv3-bar-lbl">Rev</span></div>
-                    <div class="sv3-bar-col"><div class="sv3-bar-fill spend" style="height:35%"></div><span class="sv3-bar-lbl">Wk2</span></div>
-                    <div class="sv3-bar-col"><div class="sv3-bar-fill revenue" style="height:72%"></div><span class="sv3-bar-lbl">Rev</span></div>
-                    <div class="sv3-bar-col"><div class="sv3-bar-fill spend" style="height:28%"></div><span class="sv3-bar-lbl">Wk3</span></div>
-                    <div class="sv3-bar-col"><div class="sv3-bar-fill revenue" style="height:90%"></div><span class="sv3-bar-lbl">Rev</span></div>
-                    <div class="sv3-bar-col"><div class="sv3-bar-fill spend" style="height:32%"></div><span class="sv3-bar-lbl">Wk4</span></div>
-                    <div class="sv3-bar-col"><div class="sv3-bar-fill revenue" style="height:100%"></div><span class="sv3-bar-lbl">Rev</span></div>
-                  </div>
-                </div>
-                <div class="sv3-float-badge">&#128200; 5.4&#215; Verified ROAS &middot; Meta &amp; Google</div>
-              </div>
-            </div>
-          </div>
+          <h3 class="g-svc-name">UI / UX App Design</h3>
+          <p class="g-svc-desc">
+            Mobile app interfaces, intuitive user flows, and high-converting paid ad creatives that deliver a strong UX.
+          </p>
         </div>
       </div>
 
-      <!-- PANEL 3: AI AUTOMATION -->
-      <div class="sv3-panel" id="sv3Panel3">
-        <div class="sv3-card">
-          <div class="sv3-info">
-            <div class="sv3-num" data-num="04">AI AUTOMATION</div>
-            <h3 class="sv3-title">Smart Automation &amp; <br>AI Systems</h3>
-            <p class="sv3-pitch">n8n &amp; AI workflows that automate lead nurturing and operations — saving 20+ hrs/week.</p>
-            <ul class="sv3-feats">
-              <li><span class="sv3-feat-dot"></span>n8n Workflow Automation Builds</li>
-              <li><span class="sv3-feat-dot"></span>AI-Powered Lead Nurturing</li>
-              <li><span class="sv3-feat-dot"></span>CRM &amp; Tool Integration</li>
-              <li><span class="sv3-feat-dot"></span>Auto-Reporting Dashboards</li>
-            </ul>
-            <div class="sv3-chips">
-              <span class="sv3-chip">n8n Flows</span><span class="sv3-chip">AI Agents</span><span class="sv3-chip">CRM Sync</span><span class="sv3-chip">20+ hrs Saved</span>
-            </div>
-            <a href="#callbook" class="sv3-cta"><span>Automate My Business</span><span class="sv3-cta-arr">&#8594;</span></a>
+      <!-- CARD 4: NO-CODE & AUTOMATION (Exact match to Card 3 in reference image) -->
+      <div class="g-svc-card">
+        <div class="g-svc-mockup">
+          <svg class="g-svc-svg" viewBox="0 0 280 185" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="wfGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#B800F5" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#580B82" stop-opacity="0.8"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Outer Canvas Window -->
+            <rect x="12" y="10" width="256" height="165" rx="12" fill="#0e041a" stroke="rgba(184, 0, 245, 0.45)" stroke-width="1.5"/>
+
+            <!-- Webflow "W" icon logo at top left -->
+            <g transform="translate(20, 18)">
+              <path d="M 0,2 Q 3,11 6,2 Q 9,11 12,2" fill="none" stroke="#E879F9" stroke-width="2" stroke-linecap="round"/>
+            </g>
+            <!-- Top toolbar lines -->
+            <rect x="42" y="21" width="18" height="3" rx="1.5" fill="rgba(225, 200, 250, 0.4)"/>
+            <rect x="76" y="21" width="18" height="3" rx="1.5" fill="rgba(225, 200, 250, 0.4)"/>
+            <rect x="110" y="21" width="18" height="3" rx="1.5" fill="rgba(225, 200, 250, 0.4)"/>
+
+            <!-- Left Panel: 6 Layout Blocks (2x3) -->
+            <rect x="20" y="36" width="16" height="16" rx="3" fill="rgba(184, 0, 245, 0.25)"/>
+            <rect x="42" y="36" width="16" height="16" rx="3" fill="rgba(184, 0, 245, 0.25)"/>
+
+            <rect x="20" y="58" width="16" height="16" rx="3" fill="rgba(184, 0, 245, 0.25)"/>
+            <!-- Active Selected Block with Dashed Border -->
+            <rect x="42" y="58" width="16" height="16" rx="3" fill="rgba(184, 0, 245, 0.35)" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="2.5 1.5"/>
+
+            <rect x="20" y="80" width="16" height="16" rx="3" fill="rgba(184, 0, 245, 0.25)"/>
+            <rect x="42" y="80" width="16" height="16" rx="3" fill="rgba(184, 0, 245, 0.25)"/>
+
+            <rect x="20" y="102" width="16" height="16" rx="3" fill="rgba(184, 0, 245, 0.25)"/>
+            <rect x="42" y="102" width="16" height="16" rx="3" fill="rgba(184, 0, 245, 0.25)"/>
+
+            <!-- Vertical Separator Line -->
+            <line x1="68" y1="12" x2="68" y2="173" stroke="rgba(184, 0, 245, 0.25)" stroke-width="1"/>
+
+            <!-- Main Canvas Area -->
+            <!-- Breadcrumb Label: "Your Website" -->
+            <rect x="80" y="30" width="58" height="9" rx="3" fill="rgba(184, 0, 245, 0.4)"/>
+            <rect x="83" y="32.5" width="4" height="4" rx="1" fill="#E879F9"/>
+            <text x="91" y="37" font-family="'Inter', sans-serif" font-size="6" fill="#ffffff" font-weight="600">Your Website</text>
+
+            <!-- Main Canvas Frame Container -->
+            <rect x="80" y="42" width="180" height="122" rx="6" fill="none" stroke="rgba(184, 0, 245, 0.35)" stroke-width="1.2"/>
+
+            <!-- Inside Canvas: "Div Block" element (Exact Reference Match) -->
+            <g>
+              <rect x="88" y="50" width="46" height="42" rx="6" fill="url(#wfGrad)" stroke="#E879F9" stroke-width="1.5"/>
+              <rect x="105" y="58" width="12" height="10" rx="2" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+              <text x="111" y="82" font-family="'Inter', sans-serif" font-size="7.5" fill="#ffffff" font-weight="600" text-anchor="middle">Div Block</text>
+
+              <!-- Hand Pointer Cursor clicking on Div Block -->
+              <g transform="translate(124, 76)">
+                <!-- SVG Hand Cursor -->
+                <path d="M 6,0 C 7.5,0 8.5,1 8.5,2.5 L 8.5,9.5 C 9.2,8.8 10.2,8.5 11,8.5 C 12.5,8.5 13.5,9.5 13.5,11 C 14.2,10.5 15,10.5 15.5,10.5 C 17,10.5 18,11.5 18,13 L 18,18 C 18,23 14,26 9.5,26 C 5,26 2.5,22 2.5,18 L 2.5,14 L 1,12.5 C 0,11.5 0,10 1,9 C 2,8 3.5,8 4.5,9 L 6,10.5 L 6,2.5 C 6,1 7,0 6,0 Z" fill="#000000" stroke="#ffffff" stroke-width="1.2"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+
+        <div class="g-svc-body">
+          <div class="g-svc-icon-badge">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E879F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
           </div>
-          <div class="sv3-visual">
-            <div class="sv3-scene">
-              <div class="sv3-flow-wrap">
-                <div class="sv3-flow-title-row"><span class="sv3-flow-status"></span><span class="sv3-flow-badge">&#9679; LIVE WORKFLOW RUNNING</span></div>
-                <div class="sv3-flow-diagram">
-                  <div class="sv3-fnode-row">
-                    <div class="sv3-fnode fn-webhook"><div class="sv3-fnode-box">&#9889;</div><span class="sv3-fnode-lbl">Trigger</span></div>
-                    <div class="sv3-fline-h"><div class="sv3-fdot"></div></div>
-                    <div class="sv3-fnode fn-ai"><div class="sv3-fnode-box">&#129302;</div><span class="sv3-fnode-lbl">AI Agent</span></div>
-                    <div class="sv3-fline-h"><div class="sv3-fdot"></div></div>
-                    <div class="sv3-fnode fn-filter"><div class="sv3-fnode-box">&#128269;</div><span class="sv3-fnode-lbl">Filter</span></div>
-                    <div class="sv3-fline-h"><div class="sv3-fdot"></div></div>
-                    <div class="sv3-fnode fn-send"><div class="sv3-fnode-box">&#128228;</div><span class="sv3-fnode-lbl">Send</span></div>
-                  </div>
-                  <div class="sv3-fline-v" style="align-self:flex-end;"><div class="sv3-fdot"></div></div>
-                  <div class="sv3-output-row">
-                    <div class="sv3-output-chip">&#128140; EMAIL SENT</div>
-                    <div class="sv3-output-chip">&#128202; CRM UPDATED</div>
-                    <div class="sv3-output-chip">&#128172; SLACK NOTIF</div>
-                  </div>
-                </div>
-                <div class="sv3-saving-badge">&#128176; Automating 20+ hrs of work/week</div>
-                <div class="sv3-float-badge">&#129302; Runs 24/7 Automatically</div>
-              </div>
-            </div>
-          </div>
+          <h3 class="g-svc-name">No-Code &amp; AI</h3>
+          <p class="g-svc-desc">
+            Fast, scalable websites in Webflow and smart automated AI workflows that eliminate repetitive tasks.
+          </p>
         </div>
       </div>
 
-    </div><!-- /sv3-panels -->
-  </div><!-- /sv3-wrap -->
-
-  <!-- ─── Tab Switching JavaScript ─── -->
-  <script>
-  (function(){
-    var tabs   = document.querySelectorAll('#services-section .sv3-tab');
-    var panels = document.querySelectorAll('#services-section .sv3-panel');
-    var pill   = document.getElementById('sv3Pill');
-
-    function movePill(tab) {
-      if (!tab || !pill) return;
-      var r  = tab.getBoundingClientRect();
-      var pr = tab.parentElement.getBoundingClientRect();
-      pill.style.left  = (r.left - pr.left) + 'px';
-      pill.style.width = r.width + 'px';
-    }
-
-    function activate(idx) {
-      if (idx < 0 || idx >= tabs.length) return;
-      tabs.forEach(function(t, i) {
-        var on = (i === idx);
-        t.classList.toggle('active', on);
-        t.setAttribute('aria-selected', on ? 'true' : 'false');
-      });
-      panels.forEach(function(p, i) {
-        p.classList.toggle('active', i === idx);
-      });
-      movePill(tabs[idx]);
-    }
-
-    window.activateServiceTab = activate;
-
-    tabs.forEach(function(tab) {
-      tab.addEventListener('click', function(e) {
-        e.preventDefault();
-        activate(parseInt(this.getAttribute('data-tab')));
-      });
-    });
-
-    function checkHash() {
-      var h = (window.location.hash || '').toLowerCase();
-      if (!h) return;
-      if (h.indexOf('video') !== -1) activate(0);
-      else if (h.indexOf('web') !== -1) activate(1);
-      else if (h.indexOf('ad') !== -1 || h.indexOf('marketing') !== -1) activate(2);
-      else if (h.indexOf('auto') !== -1 || h.indexOf('ai') !== -1 || h.indexOf('n8n') !== -1) activate(3);
-    }
-
-    window.addEventListener('hashchange', checkHash);
-
-    document.addEventListener('click', function(e) {
-      var link = e.target.closest('a[href*="service"], [data-service-tab]');
-      if (!link) return;
-      var tabAttr = link.getAttribute('data-service-tab');
-      if (tabAttr !== null) {
-        activate(parseInt(tabAttr));
-        var sec = document.getElementById('services-section');
-        if (sec) sec.scrollIntoView({ behavior: 'smooth' });
-        return;
-      }
-      var href = (link.getAttribute('href') || '').toLowerCase();
-      if (href.indexOf('video') !== -1) activate(0);
-      else if (href.indexOf('web') !== -1) activate(1);
-      else if (href.indexOf('ad') !== -1 || href.indexOf('marketing') !== -1) activate(2);
-      else if (href.indexOf('auto') !== -1 || href.indexOf('ai') !== -1) activate(3);
-    });
-
-    function refreshPill() {
-      var active = document.querySelector('#services-section .sv3-tab.active') || tabs[0];
-      if (active) movePill(active);
-    }
-
-    requestAnimationFrame(refreshPill);
-    setTimeout(refreshPill, 100);
-    setTimeout(refreshPill, 400);
-    window.addEventListener('load', refreshPill);
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(refreshPill);
-    }
-    window.addEventListener('resize', refreshPill);
-    checkHash();
-  })();
-  </script>
+    </div>
+  </div>
 </section>
 
 <!-- ====== OUR APPROACH SECTION — Services Orbit ====== -->
