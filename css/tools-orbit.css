@@ -75,7 +75,10 @@
   position: relative;
   width: 520px;
   height: 520px;
-  margin: 0 auto;
+  left: 50%;
+  transform: translateX(-50%);
+  transform-origin: center center;
+  margin: 0;
   z-index: 2;
 }
 
@@ -302,54 +305,61 @@
     line-height: 1.5;
   }
 
-  /* Seamless scalable radial hub on mobile */
+  /* Seamless scalable radial hub centered perfectly on mobile */
   .hub-wrapper {
     display: block !important;
     width: 520px !important;
     height: 520px !important;
+    left: 50% !important;
     transform-origin: center center !important;
-    transform: scale(0.68) !important;
-    margin: -60px auto -55px auto !important;
+    transform: translateX(-50%) scale(0.66) !important;
+    margin: -70px 0 -60px 0 !important;
   }
 
   .hub-stats {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
     gap: 8px !important;
-    margin-top: 10px !important;
+    max-width: 340px;
+    margin: 15px auto 0 auto !important;
   }
   .hub-stat-pill {
-    padding: 10px 14px !important;
+    padding: 10px 12px !important;
     border-radius: 10px !important;
+    text-align: center;
   }
   .hub-stat-val {
     font-size: 20px !important;
   }
   .hub-stat-label {
-    font-size: 10px !important;
+    font-size: 9.5px !important;
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 420px) {
   .hub-wrapper {
-    transform: scale(0.58) !important;
-    margin: -85px auto -80px auto !important;
+    transform: translateX(-50%) scale(0.58) !important;
+    margin: -90px 0 -80px 0 !important;
   }
   .hub-stats {
-    gap: 6px !important;
-    max-width: 330px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 320px;
+    gap: 8px !important;
   }
   .hub-stat-pill {
-    padding: 8px 12px !important;
+    padding: 8px 10px !important;
   }
   .hub-stat-val {
     font-size: 18px !important;
   }
 }
 
-@media screen and (max-width: 340px) {
+@media screen and (max-width: 350px) {
   .hub-wrapper {
-    transform: scale(0.52) !important;
-    margin: -105px auto -95px auto !important;
+    transform: translateX(-50%) scale(0.50) !important;
+    margin: -110px 0 -100px 0 !important;
+  }
+  .hub-stats {
+    max-width: 280px;
+    gap: 6px !important;
   }
 }
