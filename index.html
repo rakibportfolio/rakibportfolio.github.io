@@ -110,10 +110,10 @@
   }
   h1.hero-headline-clean {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-    font-size: clamp(1.65rem, 2.75vw, 2.35rem) !important;
-    font-weight: 600 !important;
-    line-height: 1.28 !important;
-    letter-spacing: -0.022em !important;
+    font-size: clamp(2.1rem, 3.8vw, 3.2rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.18 !important;
+    letter-spacing: -0.03em !important;
     text-align: center !important;
     margin: 0 auto !important;
     padding: 0 !important;
@@ -243,66 +243,139 @@
     width: 100% !important;
   }
 
-  /* Primary Button: Glowing Brand Purple */
+  /* ═══ 3D PRIMARY BUTTON ═══ */
   .hero-btn-teal {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 8px !important;
-    background: linear-gradient(135deg, #B800F5 0%, #7000A8 100%) !important;
+    gap: 9px !important;
+    position: relative !important;
+    background: linear-gradient(160deg, #D400FF 0%, #9B00D8 45%, #6200A0 100%) !important;
     color: #FFFFFF !important;
     -webkit-text-fill-color: #FFFFFF !important;
     font-family: 'Inter', -apple-system, sans-serif !important;
-    font-weight: 600 !important;
-    font-size: 0.94rem !important;
-    padding: 12px 26px !important;
-    border-radius: 12px !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    letter-spacing: 0.01em !important;
+    padding: 14px 30px !important;
+    border-radius: 14px !important;
     text-decoration: none !important;
-    border: 1px solid rgba(232, 121, 249, 0.45) !important;
-    box-shadow: 0 8px 28px rgba(184, 0, 245, 0.45), 0 0 16px rgba(232, 121, 249, 0.25) !important;
-    transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.24s ease, background 0.24s ease !important;
+    border: none !important;
+    outline: none !important;
     cursor: pointer !important;
+    /* 3D depth shadow stack */
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.28) inset,
+      0 -4px 0 rgba(0,0,0,0.35) inset,
+      0 6px 0 #4A007A,
+      0 8px 12px rgba(0,0,0,0.55),
+      0 0 30px rgba(184, 0, 245, 0.55),
+      0 0 60px rgba(184, 0, 245, 0.25) !important;
+    transform: translateY(0) !important;
+    transition:
+      transform 0.14s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.14s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    overflow: hidden !important;
+  }
+  /* Top shine highlight */
+  .hero-btn-teal::before {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    border-radius: inherit !important;
+    background: linear-gradient(180deg, rgba(255,255,255,0.22) 0%, transparent 55%) !important;
+    pointer-events: none !important;
   }
   .hero-btn-teal svg {
     color: #FFFFFF !important;
     stroke: #FFFFFF !important;
+    position: relative !important;
+    z-index: 1 !important;
   }
   .hero-btn-teal:hover {
-    transform: translateY(-2px) scale(1.02) !important;
-    background: linear-gradient(135deg, #D700FE 0%, #8A00C2 100%) !important;
-    border-color: rgba(255, 255, 255, 0.6) !important;
-    box-shadow: 0 10px 36px rgba(184, 0, 245, 0.7), 0 0 22px rgba(232, 121, 249, 0.5) !important;
+    transform: translateY(-3px) !important;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.28) inset,
+      0 -4px 0 rgba(0,0,0,0.35) inset,
+      0 9px 0 #4A007A,
+      0 12px 20px rgba(0,0,0,0.6),
+      0 0 45px rgba(184, 0, 245, 0.75),
+      0 0 90px rgba(184, 0, 245, 0.35) !important;
+  }
+  .hero-btn-teal:active {
+    transform: translateY(4px) !important;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.28) inset,
+      0 -4px 0 rgba(0,0,0,0.35) inset,
+      0 2px 0 #4A007A,
+      0 3px 8px rgba(0,0,0,0.5),
+      0 0 20px rgba(184, 0, 245, 0.5) !important;
   }
 
-  /* Secondary Button: Frosted Glass */
+  /* ═══ 3D GLASS SECONDARY BUTTON ═══ */
   .hero-btn-glass {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 8px !important;
-    background: rgba(21, 5, 34, 0.55) !important;
+    gap: 9px !important;
+    position: relative !important;
+    background: rgba(30, 6, 50, 0.75) !important;
     color: #F3E8FF !important;
     -webkit-text-fill-color: #F3E8FF !important;
     font-family: 'Inter', -apple-system, sans-serif !important;
-    font-weight: 500 !important;
-    font-size: 0.94rem !important;
-    padding: 11px 24px !important;
-    border-radius: 12px !important;
-    border: 1px solid rgba(184, 0, 245, 0.32) !important;
-    backdrop-filter: blur(16px) !important;
-    -webkit-backdrop-filter: blur(16px) !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    letter-spacing: 0.01em !important;
+    padding: 14px 28px !important;
+    border-radius: 14px !important;
+    border: 1.5px solid rgba(184, 0, 245, 0.5) !important;
     text-decoration: none !important;
-    transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), background 0.24s ease, border-color 0.24s ease !important;
     cursor: pointer !important;
+    /* 3D depth shadow stack */
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.12) inset,
+      0 -3px 0 rgba(0,0,0,0.3) inset,
+      0 5px 0 rgba(88, 11, 130, 0.8),
+      0 8px 14px rgba(0,0,0,0.5),
+      0 0 22px rgba(184, 0, 245, 0.2) !important;
+    transform: translateY(0) !important;
+    transition:
+      transform 0.14s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.14s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.2s ease !important;
+    overflow: hidden !important;
+  }
+  /* Top shine highlight */
+  .hero-btn-glass::before {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    border-radius: inherit !important;
+    background: linear-gradient(180deg, rgba(255,255,255,0.10) 0%, transparent 55%) !important;
+    pointer-events: none !important;
   }
   .hero-btn-glass svg {
     color: #E879F9 !important;
+    position: relative !important;
+    z-index: 1 !important;
   }
   .hero-btn-glass:hover {
-    transform: translateY(-2px) !important;
-    background: rgba(88, 11, 130, 0.35) !important;
-    border-color: rgba(232, 121, 249, 0.6) !important;
-    box-shadow: 0 6px 20px rgba(184, 0, 245, 0.35) !important;
+    transform: translateY(-3px) !important;
+    border-color: rgba(232, 121, 249, 0.85) !important;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.16) inset,
+      0 -3px 0 rgba(0,0,0,0.3) inset,
+      0 8px 0 rgba(88, 11, 130, 0.8),
+      0 12px 18px rgba(0,0,0,0.55),
+      0 0 35px rgba(184, 0, 245, 0.4) !important;
+  }
+  .hero-btn-glass:active {
+    transform: translateY(4px) !important;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.12) inset,
+      0 -3px 0 rgba(0,0,0,0.3) inset,
+      0 2px 0 rgba(88, 11, 130, 0.8),
+      0 3px 8px rgba(0,0,0,0.45) !important;
   }
 
   /* Responsive tuning: Strictly 2 lines, hide subheadline on mobile, fix background flicker & jumps */
@@ -322,9 +395,10 @@
       margin-top: 4px !important;
     }
     h1.hero-headline-clean {
-      font-size: clamp(1.08rem, 3.8vw, 1.4rem) !important;
-      line-height: 1.3 !important;
-      letter-spacing: -0.015em !important;
+      font-size: clamp(1.55rem, 5.5vw, 2rem) !important;
+      line-height: 1.22 !important;
+      letter-spacing: -0.025em !important;
+      font-weight: 700 !important;
     }
     /* Subheadline hidden completely on mobile */
     p.hero-subheadline-clean {
@@ -377,8 +451,9 @@
 
   @media (max-width: 520px) {
     h1.hero-headline-clean {
-      font-size: clamp(0.92rem, 3.5vw, 1.15rem) !important;
-      line-height: 1.28 !important;
+      font-size: clamp(1.35rem, 5vw, 1.65rem) !important;
+      line-height: 1.22 !important;
+      font-weight: 700 !important;
     }
     .hero-headline-line1 {
       white-space: nowrap !important;
@@ -398,7 +473,7 @@
       height: 1.32em !important;
     }
     .hero-rot-word {
-      font-size: 0.78em !important;
+      font-size: 0.80em !important;
     }
     p.hero-subheadline-clean {
       display: none !important;
@@ -407,12 +482,12 @@
       flex-direction: row !important;
       gap: 10px !important;
       width: 100% !important;
-      max-width: 320px !important;
+      max-width: 340px !important;
     }
     .hero-btn-teal, .hero-btn-glass {
       flex: 1 !important;
-      padding: 10px 14px !important;
-      font-size: 0.86rem !important;
+      padding: 12px 14px !important;
+      font-size: 0.9rem !important;
       justify-content: center !important;
     }
   }
