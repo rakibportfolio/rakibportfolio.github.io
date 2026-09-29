@@ -177,10 +177,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Desktop subtle scroll pitch
         curRotX += (Math.min(9, scrollY * 0.016) - curRotX) * 0.1;
       }
-
-      // Background visual layers parallax
-      if (bgLeft) bgLeft.style.transform = `translate3d(0, ${(scrollY * 0.16).toFixed(1)}px, 0)`;
-      if (bgRight) bgRight.style.transform = `translate3d(0, ${(scrollY * -0.12).toFixed(1)}px, 0)`;
     } else {
       isScrolling = false;
     }

@@ -348,8 +348,8 @@
 
     // ─── 9. Main 60/120 FPS Animation Loop ───
     function renderLoop() {
-      // Gyroscope lerp & CSS variable updates (Mobile)
-      if (hasGyroActivity || window.innerWidth <= 991) {
+      // Gyroscope lerp & CSS variable updates (Mobile - only on active gyro tilt motion)
+      if (hasGyroActivity && (Math.abs(targetGyroX - currentGyroX) > 0.008 || Math.abs(targetGyroY - currentGyroY) > 0.008)) {
         currentGyroX += (targetGyroX - currentGyroX) * 0.12;
         currentGyroY += (targetGyroY - currentGyroY) * 0.12;
 

@@ -1569,3 +1569,56 @@ a.proof-card:hover {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
+
+.client-proff {
+  display: none !important;
+}
+
+/* ─── ANTI-FLICKER: Force stable GPU composite layer for header ─── */
+.header-section {
+  transform: translateZ(0) !important;
+  -webkit-transform: translateZ(0) !important;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+  will-change: transform !important;
+}
+
+.na-outer-border {
+  transform: translateZ(0) !important;
+  -webkit-transform: translateZ(0) !important;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+  will-change: transform !important;
+}
+
+/* ─── MOBILE: Replace backdrop-filter with solid bg to kill flicker ─── */
+@media (max-width: 991px) {
+  .header-section {
+    padding: 10px 0 0 0 !important;
+  }
+
+  .na-outer-border {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(12, 3, 20, 0.96) !important;
+    border-color: rgba(184, 0, 245, 0.35) !important;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.75), 0 0 16px rgba(184, 0, 245, 0.15) !important;
+  }
+
+  /* Completely kill all background animations on mobile to stop flicker */
+  .bg-vortex-ring,
+  .bg-light-pillar,
+  .bg-vortex-floor,
+  .bg-corner-tl,
+  .bg-corner-tr,
+  .bg-particles::before {
+    animation: none !important;
+    will-change: auto !important;
+  }
+}
+
+/* ─── Remove background vortex circle ring ─── */
+.bg-vortex-wrap,
+.bg-vortex-ring {
+  display: none !important;
+}

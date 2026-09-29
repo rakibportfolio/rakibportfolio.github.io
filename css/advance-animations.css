@@ -121,15 +121,20 @@
 
 /* Applying load animations to page elements */
 .header-section {
-  animation: argusNavGlide 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both !important;
+  opacity: 1 !important;
+  transform: translateZ(0) !important;
+  -webkit-transform: translateZ(0) !important;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
 }
 
+
 .hero-spotlight-wrap .hero-light-beam {
-  animation: argusBeamFlare 1.25s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both !important;
+  opacity: 0.9 !important;
 }
 
 .hero-spotlight-wrap .hero-stars-bg {
-  animation: argusStarsFade 1.4s ease 0.15s both !important;
+  opacity: 0.65 !important;
 }
 
 .hero-spotlight-wrap .hero-rating-badge {
