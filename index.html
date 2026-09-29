@@ -2220,42 +2220,59 @@
   100% { transform: translate(124px, 122px); }
 }
 
-/* ── Card 4: Digital Marketing Animations ── */
-.g-anim-live-dot {
-  animation: liveRadarDot 1.8s ease-in-out infinite;
+/* ── Card 4: Omni-Ad Funnel & Revenue Scaling Animations ── */
+.g-anim-traffic-beam {
+  stroke-dasharray: 4 3;
+  animation: trafficBeamFlow 1.4s linear infinite;
 }
-@keyframes liveRadarDot {
-  0%, 100% { r: 3; opacity: 1; filter: drop-shadow(0 0 2px #22c55e); }
-  50% { r: 4.8; opacity: 0.65; filter: drop-shadow(0 0 8px #22c55e); }
-}
-
-.g-anim-chart-line {
-  stroke-dasharray: 400;
-  stroke-dashoffset: 0;
-  animation: chartLineFlow 4s ease-in-out infinite alternate;
-}
-@keyframes chartLineFlow {
-  0% { stroke-dashoffset: 0; filter: drop-shadow(0 0 3px rgba(184, 0, 245, 0.6)); }
-  50% { stroke-dashoffset: 45; filter: drop-shadow(0 0 10px rgba(232, 121, 249, 0.95)); }
-  100% { stroke-dashoffset: -25; filter: drop-shadow(0 0 6px rgba(184, 0, 245, 0.8)); }
+@keyframes trafficBeamFlow {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -20; }
 }
 
-.g-anim-roas-pill {
-  animation: roasBobbing 2.6s ease-in-out infinite alternate;
+.g-anim-funnel-core {
+  animation: funnelCorePulse 2.8s ease-in-out infinite;
+  transform-origin: 77px 114px;
 }
-@keyframes roasBobbing {
-  0% { transform: translateY(0); filter: drop-shadow(0 0 4px rgba(184, 0, 245, 0.5)); }
-  100% { transform: translateY(-5px); filter: drop-shadow(0 0 14px rgba(232, 121, 249, 0.95)); }
-}
-
-.g-anim-ad-click {
-  animation: adBtnPress 2.8s ease-in-out infinite;
-}
-@keyframes adBtnPress {
-  0%, 75%, 100% { transform: translate(236px, 142px) scale(1); }
-  85% { transform: translate(236px, 142px) scale(0.85); }
+@keyframes funnelCorePulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 4px #B800F5); }
+  50% { transform: scale(1.03); filter: drop-shadow(0 0 16px #ff6ef7); }
 }
 
+.g-anim-sale-pop1 {
+  animation: salePopAnim 3.8s ease-in-out infinite;
+}
+@keyframes salePopAnim {
+  0%, 100% { transform: translateY(0); opacity: 0.9; }
+  50% { transform: translateY(-3px); opacity: 1; filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.7)); }
+}
+
+.g-anim-sale-pop2 {
+  animation: salePopAnim 3.8s ease-in-out infinite 1.2s;
+}
+
+.g-anim-roas-meter {
+  animation: roasMeterPulse 2.6s ease-in-out infinite alternate;
+  transform-origin: 143px 150px;
+}
+@keyframes roasMeterPulse {
+  0% { transform: scale(1); filter: drop-shadow(0 0 4px #B800F5); }
+  100% { transform: scale(1.06); filter: drop-shadow(0 0 16px #E879F9); }
+}
+
+.g-anim-source-meta {
+  animation: sourcePillHover 3s ease-in-out infinite alternate;
+}
+.g-anim-source-google {
+  animation: sourcePillHover 3s ease-in-out infinite alternate 0.6s;
+}
+.g-anim-source-tiktok {
+  animation: sourcePillHover 3s ease-in-out infinite alternate 1.2s;
+}
+@keyframes sourcePillHover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-2px); }
+}
 
 /* ── Card 5: Omnichannel AI Auto-Responder Animations ── */
 .g-anim-msg-in1 {
@@ -2635,79 +2652,155 @@
         </div>
       </div>
 
-      <!-- CARD 4: DIGITAL MARKETING (Live Streaming Analytics & Click Animation) -->
+      <!-- CARD 4: DIGITAL MARKETING (Omni-Ad Funnel & Live Revenue Scaling Engine) -->
       <div class="g-svc-card">
         <div class="g-svc-mockup">
           <svg class="g-svc-svg" viewBox="0 0 280 185" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <linearGradient id="chartGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#ff6ef7" stop-opacity="0.55"/>
-                <stop offset="60%" stop-color="#B800F5" stop-opacity="0.2"/>
-                <stop offset="100%" stop-color="#08010E" stop-opacity="0"/>
+              <linearGradient id="funnelCoreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ff6ef7"/>
+                <stop offset="50%" stop-color="#B800F5"/>
+                <stop offset="100%" stop-color="#580B82"/>
               </linearGradient>
+              <linearGradient id="metaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0084FF"/>
+                <stop offset="100%" stop-color="#00C6FF"/>
+              </linearGradient>
+              <linearGradient id="tiktokGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#25F4EE"/>
+                <stop offset="100%" stop-color="#FE2C55"/>
+              </linearGradient>
+              <filter id="mktGlow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="3.5" result="blur"/>
+                <feMerge>
+                  <feMergeNode in="blur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
             </defs>
 
             <!-- Outer Canvas Window -->
-            <rect x="8" y="8" width="264" height="169" rx="10" fill="#0d0419" stroke="rgba(184, 0, 245, 0.35)" stroke-width="1"/>
+            <rect x="8" y="8" width="264" height="169" rx="10" fill="#080212" stroke="rgba(184, 0, 245, 0.35)" stroke-width="1"/>
             
             <!-- Window header dots with live radar beacon -->
-            <circle cx="22" cy="18" r="3" fill="#ff5f56"/>
-            <circle cx="31" cy="18" r="3" fill="#ffbd2e"/>
-            <circle class="g-anim-live-dot" cx="40" cy="18" r="3" fill="#22c55e"/>
-            <rect x="92" y="14" width="96" height="9" rx="4" fill="rgba(184, 0, 245, 0.25)"/>
-            <text x="140" y="21" font-family="'Inter', sans-serif" font-size="6.5" fill="#E879F9" text-anchor="middle" font-weight="600">Meta &bull; Google Ads &bull; Live</text>
-
-            <!-- Ad Analytics Chart Window -->
-            <rect x="18" y="28" width="244" height="92" rx="7" fill="rgba(18, 5, 28, 0.8)" stroke="rgba(184, 0, 245, 0.3)" stroke-width="1"/>
+            <circle cx="20" cy="18" r="3" fill="#ff5f56"/>
+            <circle cx="28" cy="18" r="3" fill="#ffbd2e"/>
+            <circle class="g-anim-live-dot" cx="36" cy="18" r="3" fill="#22c55e"/>
             
-            <!-- Grid Lines -->
-            <line x1="28" y1="46" x2="252" y2="46" stroke="rgba(184, 0, 245, 0.12)" stroke-width="1"/>
-            <line x1="28" y1="70" x2="252" y2="70" stroke="rgba(184, 0, 245, 0.12)" stroke-width="1"/>
-            <line x1="28" y1="94" x2="252" y2="94" stroke="rgba(184, 0, 245, 0.12)" stroke-width="1"/>
+            <!-- Header Pill -->
+            <rect x="74" y="14" width="132" height="9" rx="4" fill="rgba(184, 0, 245, 0.25)"/>
+            <circle class="g-anim-live-dot" cx="82" cy="18.5" r="2.2" fill="#22c55e"/>
+            <text x="144" y="21" font-family="'Inter', sans-serif" font-size="6.2" fill="#E879F9" text-anchor="middle" font-weight="600">Omni-Ad Funnel &bull; Meta &bull; Google &bull; TikTok</text>
 
-            <!-- Area Chart Gradient Fill -->
-            <path d="M 28,106 Q 65,98 95,102 T 150,70 T 205,48 T 252,36 L 252,112 L 28,112 Z" fill="url(#chartGrad)"/>
-            <!-- Surging Animated Line -->
-            <path class="g-anim-chart-line" d="M 28,106 Q 65,98 95,102 T 150,70 T 205,48 T 252,36" fill="none" stroke="#E879F9" stroke-width="2.5" stroke-linecap="round"/>
-
-            <!-- Floating Callout Pill at Peak (Bobbing Animation) -->
-            <g class="g-anim-roas-pill">
-              <rect x="184" y="32" width="62" height="15" rx="4" fill="#B800F5"/>
-              <text x="215" y="42.5" font-family="'Inter', sans-serif" font-size="6.5" fill="#ffffff" text-anchor="middle" font-weight="700">4.8x ROAS &bull; +340%</text>
+            <!-- ================= TOP: 3 AD TRAFFIC SOURCES ================= -->
+            
+            <!-- Meta Ads Pill -->
+            <g class="g-anim-source-meta">
+              <rect x="14" y="27" width="78" height="20" rx="5" fill="rgba(16, 6, 26, 0.9)" stroke="rgba(0, 132, 255, 0.45)" stroke-width="1"/>
+              <circle cx="24" cy="37" r="5" fill="url(#metaGrad)"/>
+              <text x="24" y="39" font-family="'Inter', sans-serif" font-size="5.5" fill="#fff" font-weight="800" text-anchor="middle">M</text>
+              <text x="33" y="39" font-family="'Inter', sans-serif" font-size="5.5" fill="#00C6FF" font-weight="700">Meta Ads</text>
+              <text x="73" y="39" font-family="'Inter', sans-serif" font-size="5" fill="#22c55e">5.8%</text>
             </g>
 
-            <!-- Bottom KPI Metrics (3 columns) -->
-            <rect x="18" y="126" width="76" height="42" rx="6" fill="rgba(24, 7, 38, 0.7)" stroke="rgba(184, 0, 245, 0.25)" stroke-width="1"/>
-            <text x="26" y="140" font-family="'Inter', sans-serif" font-size="6" fill="rgba(225, 200, 250, 0.5)">CTR RATE</text>
-            <text x="26" y="156" font-family="'Poppins', sans-serif" font-size="12" fill="#22c55e" font-weight="700">5.4%</text>
-
-            <rect x="102" y="126" width="76" height="42" rx="6" fill="rgba(24, 7, 38, 0.7)" stroke="rgba(184, 0, 245, 0.25)" stroke-width="1"/>
-            <text x="110" y="140" font-family="'Inter', sans-serif" font-size="6" fill="rgba(225, 200, 250, 0.5)">CONVERSIONS</text>
-            <text x="110" y="156" font-family="'Poppins', sans-serif" font-size="12" fill="#E879F9" font-weight="700">3,420</text>
-
-            <!-- Action Button -->
-            <rect x="186" y="126" width="76" height="42" rx="6" fill="rgba(184, 0, 245, 0.3)" stroke="#E879F9" stroke-width="1.2"/>
-            <text x="224" y="144" font-family="'Inter', sans-serif" font-size="6.5" fill="#ffffff" text-anchor="middle" font-weight="700">SCALE</text>
-            <text x="224" y="156" font-family="'Inter', sans-serif" font-size="6" fill="#E879F9" text-anchor="middle">Campaign &rarr;</text>
-
-            <!-- Mouse Pointer Cursor (Click Animation) -->
-            <g class="g-anim-ad-click">
-              <polygon points="0,0 0,14 4,11 7,17 9,16 6,10 11,10" fill="#000000" stroke="#ffffff" stroke-width="1.2"/>
+            <!-- Google Ads Pill -->
+            <g class="g-anim-source-google">
+              <rect x="101" y="27" width="78" height="20" rx="5" fill="rgba(16, 6, 26, 0.9)" stroke="rgba(234, 67, 53, 0.45)" stroke-width="1"/>
+              <circle cx="111" cy="37" r="5" fill="#EA4335"/>
+              <text x="111" y="39.2" font-family="'Inter', sans-serif" font-size="5.5" fill="#fff" font-weight="800" text-anchor="middle">G</text>
+              <text x="120" y="39" font-family="'Inter', sans-serif" font-size="5.5" fill="#ffffff" font-weight="700">Google</text>
+              <text x="160" y="39" font-family="'Inter', sans-serif" font-size="5" fill="#ffeb3b">7.4x</text>
             </g>
+
+            <!-- TikTok Ads Pill -->
+            <g class="g-anim-source-tiktok">
+              <rect x="188" y="27" width="78" height="20" rx="5" fill="rgba(16, 6, 26, 0.9)" stroke="rgba(37, 244, 238, 0.45)" stroke-width="1"/>
+              <circle cx="198" cy="37" r="5" fill="url(#tiktokGrad)"/>
+              <text x="198" y="39.5" font-family="'Inter', sans-serif" font-size="5.5" fill="#fff" font-weight="800" text-anchor="middle">&musical_note;</text>
+              <text x="207" y="39" font-family="'Inter', sans-serif" font-size="5.5" fill="#25F4EE" font-weight="700">TikTok</text>
+              <text x="247" y="39" font-family="'Inter', sans-serif" font-size="5" fill="#E879F9">Viral</text>
+            </g>
+
+            <!-- Traffic Laser Beams (Streaming down from sources into funnel) -->
+            <path class="g-anim-traffic-beam" d="M 53,47 L 77,55" stroke="#00C6FF" stroke-width="1.2" stroke-dasharray="3 2"/>
+            <path class="g-anim-traffic-beam" d="M 140,47 L 77,55" stroke="#ffeb3b" stroke-width="1.2" stroke-dasharray="3 2"/>
+            <path class="g-anim-traffic-beam" d="M 227,47 L 77,55" stroke="#25F4EE" stroke-width="1.2" stroke-dasharray="3 2"/>
+
+            <!-- ================= CENTER-LEFT: CONVERSION FUNNEL ================= -->
+            
+            <!-- Funnel Tier 1: Impressions (Top Wide) -->
+            <rect x="14" y="55" width="126" height="21" rx="4" fill="rgba(184, 0, 245, 0.18)" stroke="rgba(184, 0, 245, 0.45)" stroke-width="1"/>
+            <circle class="g-anim-live-dot" cx="24" cy="65.5" r="2.2" fill="#E879F9"/>
+            <text x="31" y="68.5" font-family="'Inter', sans-serif" font-size="5.8" fill="rgba(225, 200, 250, 0.7)">1. Traffic:</text>
+            <text x="64" y="68.5" font-family="'Inter', sans-serif" font-size="6.2" fill="#ffffff" font-weight="700">148K Impressions</text>
+            <text x="122" y="68.5" font-family="'Inter', sans-serif" font-size="5.2" fill="#00C6FF">&darr;</text>
+
+            <!-- Funnel Tier 2: Qualified Leads (Mid) -->
+            <rect x="22" y="79" width="110" height="21" rx="4" fill="rgba(184, 0, 245, 0.3)" stroke="rgba(232, 121, 249, 0.6)" stroke-width="1"/>
+            <circle class="g-anim-live-dot" cx="32" cy="89.5" r="2.2" fill="#ff6ef7"/>
+            <text x="39" y="92.5" font-family="'Inter', sans-serif" font-size="5.8" fill="rgba(225, 200, 250, 0.7)">2. VSL Leads:</text>
+            <text x="80" y="92.5" font-family="'Inter', sans-serif" font-size="6.2" fill="#ffffff" font-weight="700">16.4K (11%)</text>
+            <text x="114" y="92.5" font-family="'Inter', sans-serif" font-size="5.2" fill="#ffeb3b">&darr;</text>
+
+            <!-- Funnel Tier 3: Customers & Purchases (Bottom Core) -->
+            <g class="g-anim-funnel-core">
+              <rect x="30" y="103" width="94" height="22" rx="4" fill="url(#funnelCoreGrad)" stroke="#ffffff" stroke-width="1.2" filter="url(#mktGlow)"/>
+              <text x="37" y="116.5" font-family="'Inter', sans-serif" font-size="6.2" fill="#ffffff" font-weight="800">3. Orders: 2,480 Buyers</text>
+              <text x="113" y="116.5" font-family="'Inter', sans-serif" font-size="6" fill="#22c55e" font-weight="800">&check;</text>
+            </g>
+
+            <!-- ================= CENTER-RIGHT: LIVE CONVERSION POPUPS ================= -->
+            
+            <!-- Live Sale Popup 1 (Meta Purchase) -->
+            <g class="g-anim-sale-pop1">
+              <rect x="146" y="55" width="120" height="31" rx="6" fill="rgba(16, 6, 26, 0.92)" stroke="rgba(34, 197, 94, 0.6)" stroke-width="1.2"/>
+              <circle cx="158" cy="70" r="6" fill="#22c55e"/>
+              <text x="158" y="72.5" font-family="'Inter', sans-serif" font-size="6.5" fill="#fff" text-anchor="middle">&dollar;</text>
+              <text x="168" y="66" font-family="'Inter', sans-serif" font-size="5.8" fill="#22c55e" font-weight="700">Meta: +$450.00 Sale</text>
+              <text x="168" y="77" font-family="'Inter', sans-serif" font-size="5.2" fill="rgba(225, 200, 250, 0.7)">ROAS: 7.8x &bull; Just now</text>
+            </g>
+
+            <!-- Live Sale Popup 2 (Google High-Ticket Client) -->
+            <g class="g-anim-sale-pop2">
+              <rect x="146" y="91" width="120" height="31" rx="6" fill="rgba(16, 6, 26, 0.92)" stroke="rgba(184, 0, 245, 0.65)" stroke-width="1.2"/>
+              <circle cx="158" cy="106" r="6" fill="#B800F5"/>
+              <text x="158" y="108.5" font-family="'Inter', sans-serif" font-size="6.5" fill="#fff" text-anchor="middle">&starf;</text>
+              <text x="168" y="102" font-family="'Inter', sans-serif" font-size="5.8" fill="#E879F9" font-weight="700">Google: Inbound $2,800</text>
+              <text x="168" y="113" font-family="'Inter', sans-serif" font-size="5.2" fill="rgba(225, 200, 250, 0.7)">Pixel Retargeted &bull; 1m ago</text>
+            </g>
+
+            <!-- ================= BOTTOM: LIVE REVENUE STATS BAR ================= -->
+            
+            <rect x="14" y="129" width="252" height="42" rx="7" fill="rgba(20, 6, 32, 0.9)" stroke="rgba(184, 0, 245, 0.4)" stroke-width="1.2"/>
+            
+            <!-- Left: Total Revenue -->
+            <text x="24" y="142" font-family="'Inter', sans-serif" font-size="5.5" fill="rgba(225, 200, 250, 0.55)">TOTAL REVENUE</text>
+            <text x="24" y="159" font-family="'Poppins', sans-serif" font-size="12" fill="#22c55e" font-weight="700">$84,650</text>
+
+            <!-- Center: Pulsing 6.8x ROAS Badge -->
+            <g class="g-anim-roas-meter">
+              <rect x="108" y="134" width="70" height="32" rx="6" fill="#B800F5" filter="url(#mktGlow)"/>
+              <text x="143" y="148" font-family="'Poppins', sans-serif" font-size="9.5" fill="#ffffff" font-weight="800" text-anchor="middle">6.8x ROAS</text>
+              <text x="143" y="160" font-family="'Inter', sans-serif" font-size="5.5" fill="#ffeb3b" font-weight="700" text-anchor="middle">+480% SCALED</text>
+            </g>
+
+            <!-- Right: Profit Margin / ROI -->
+            <text x="194" y="142" font-family="'Inter', sans-serif" font-size="5.5" fill="rgba(225, 200, 250, 0.55)">PROFIT ROI</text>
+            <text x="194" y="159" font-family="'Poppins', sans-serif" font-size="12" fill="#E879F9" font-weight="700">+78.4%</text>
+
           </svg>
         </div>
 
         <div class="g-svc-body">
           <div class="g-svc-icon-badge">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E879F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="18" y1="20" x2="18" y2="10"></line>
-              <line x1="12" y1="20" x2="12" y2="4"></line>
-              <line x1="6" y1="20" x2="6" y2="14"></line>
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+              <polyline points="17 6 23 6 23 12"></polyline>
             </svg>
           </div>
           <h3 class="g-svc-name">Digital Marketing</h3>
           <p class="g-svc-desc">
-            Data-driven Meta &amp; Google ad campaigns, high-ROI funnels, and creative strategies that scale your revenue profitably.
+            Multi-platform Meta, Google &amp; TikTok ad funnels with retargeting pixels and scalable 5x+ ROAS strategies that turn traffic into profit.
           </p>
         </div>
       </div>
