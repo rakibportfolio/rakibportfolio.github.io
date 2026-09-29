@@ -269,30 +269,87 @@
   color: rgba(243, 232, 255, 0.5);
 }
 
-/* ── Responsive ──────────────────────────────── */
-@media screen and (max-width: 580px) {
-  .hub-wrapper {
-    width: 340px;
-    height: 340px;
+/* ── Responsive Mobile Optimization ──────────── */
+@media screen and (max-width: 768px) {
+  .tools-orbit-section {
+    padding: 70px 16px 85px;
   }
-  .hub-logo-box { width: 70px; height: 70px; border-radius: 18px; }
-  .hub-logo-box img { width: 60px; }
-  .hub-glow-ring-2 { width: 110px; height: 110px; }
-  .hub-glow-ring-3 { width: 145px; height: 145px; }
-  .hub-stats { gap: 10px; }
-  .hub-stat-pill { padding: 10px 16px; }
-  .hub-stat-val { font-size: 20px; }
+  .tools-header {
+    margin-bottom: 32px;
+  }
 }
 
-@media screen and (max-width: 420px) {
-  /* Fallback: hide radial layout, show simple grid */
-  .hub-wrapper { display: none; }
-  .hub-fallback-grid {
-    display: grid !important;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+@media screen and (max-width: 580px) {
+  .tools-orbit-section {
+    padding: 55px 12px 65px;
+    overflow: hidden;
+  }
+  .tools-header {
+    margin-bottom: 18px;
+  }
+  .tools-eyebrow {
+    font-size: 11px;
+    padding: 4px 14px;
+    margin-bottom: 12px;
+  }
+  .tools-title {
+    font-size: clamp(24px, 7vw, 34px) !important;
+    margin-bottom: 8px !important;
+  }
+  .tools-subtitle {
+    font-size: 13.5px;
     max-width: 320px;
-    margin: 0 auto 40px;
+    line-height: 1.5;
+  }
+
+  /* Seamless scalable radial hub on mobile */
+  .hub-wrapper {
+    display: block !important;
+    width: 520px !important;
+    height: 520px !important;
+    transform-origin: center center !important;
+    transform: scale(0.68) !important;
+    margin: -60px auto -55px auto !important;
+  }
+
+  .hub-stats {
+    gap: 8px !important;
+    margin-top: 10px !important;
+  }
+  .hub-stat-pill {
+    padding: 10px 14px !important;
+    border-radius: 10px !important;
+  }
+  .hub-stat-val {
+    font-size: 20px !important;
+  }
+  .hub-stat-label {
+    font-size: 10px !important;
   }
 }
-.hub-fallback-grid { display: none; }
+
+@media screen and (max-width: 400px) {
+  .hub-wrapper {
+    transform: scale(0.58) !important;
+    margin: -85px auto -80px auto !important;
+  }
+  .hub-stats {
+    gap: 6px !important;
+    max-width: 330px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hub-stat-pill {
+    padding: 8px 12px !important;
+  }
+  .hub-stat-val {
+    font-size: 18px !important;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .hub-wrapper {
+    transform: scale(0.52) !important;
+    margin: -105px auto -95px auto !important;
+  }
+}
