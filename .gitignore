@@ -12,3 +12,4 @@ framework_original.html
 !assets/*.png
 !assets/**/*.png
 !**/favicon*.png
+dev-server.js

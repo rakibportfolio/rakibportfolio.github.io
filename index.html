@@ -110,10 +110,10 @@
   }
   h1.hero-headline-clean {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-    font-size: clamp(2.1rem, 3.8vw, 3.2rem) !important;
-    font-weight: 700 !important;
-    line-height: 1.18 !important;
-    letter-spacing: -0.03em !important;
+    font-size: clamp(2.8rem, 5.2vw, 4.6rem) !important;
+    font-weight: 800 !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.035em !important;
     text-align: center !important;
     margin: 0 auto !important;
     padding: 0 !important;
@@ -130,86 +130,43 @@
   }
   .hero-headline-line1 {
     display: block !important;
-    color: #FFFFFF !important;
-    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.7) !important;
+    background: linear-gradient(180deg, #FFFFFF 25%, #F5D0FE 70%, #E879F9 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    filter: 
+      drop-shadow(0 1px 0 rgba(255, 255, 255, 0.7))
+      drop-shadow(0 2px 0 rgba(184, 0, 245, 0.75))
+      drop-shadow(0 4px 1px rgba(112, 0, 168, 0.85))
+      drop-shadow(0 8px 18px rgba(0, 0, 0, 0.85))
+      drop-shadow(0 0 28px rgba(184, 0, 245, 0.4)) !important;
     white-space: nowrap !important;
+    text-align: center !important;
   }
   .hero-headline-line2 {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    flex-wrap: nowrap !important;
-    gap: 10px !important;
-    color: #F3E8FF !important;
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6) !important;
-    margin-top: 6px !important;
+    margin-top: 8px !important;
     white-space: nowrap !important;
   }
-  .hero-headline-line2 .brand-text {
-    color: #FFFFFF !important;
-    font-weight: 700 !important;
-    text-shadow: 0 0 28px rgba(184, 0, 245, 0.65), 0 0 10px rgba(232, 121, 249, 0.4) !important;
-  }
-
-  /* Inline Changing Word Capsule (Ultra-Modern, Perfectly Scaled) */
-  .hero-word-capsule {
-    position: relative !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    vertical-align: middle !important;
-    height: 1.35em !important;
-    min-width: 165px !important;
-    padding: 0 18px !important;
-    border-radius: 999px !important;
-    background: rgba(184, 0, 245, 0.12) !important;
-    border: 1.5px solid rgba(184, 0, 245, 0.55) !important;
-    box-shadow:
-      0 0 26px rgba(184, 0, 245, 0.35),
-      inset 0 0 12px rgba(184, 0, 245, 0.18) !important;
-    backdrop-filter: blur(12px) !important;
-    -webkit-backdrop-filter: blur(12px) !important;
-    overflow: hidden !important;
-    transition: width 0.42s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  }
-
-  .hero-rot-word {
-    position: absolute !important;
-    left: 0 !important;
-    top: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    white-space: nowrap !important;
-    font-family: inherit !important;
-    font-weight: 700 !important;
-    font-size: 0.88em !important;
-    letter-spacing: -0.01em !important;
-    color: #E879F9 !important;
-    background: linear-gradient(135deg, #FFFFFF 10%, #F5D0FE 40%, #E879F9 75%, #B800F5 100%) !important;
+  .hero-3d-gradient-text {
+    display: inline-block !important;
+    background: linear-gradient(135deg, #FFFFFF 0%, #FDF4FF 12%, #F5D0FE 26%, #E879F9 46%, #D700FE 68%, #B800F5 86%, #7000A8 100%) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     background-clip: text !important;
-    filter: drop-shadow(0 0 12px rgba(184, 0, 245, 0.6)) !important;
-    opacity: 0 !important;
-    transform: translateY(115%) !important;
-    transition:
-      transform 0.48s cubic-bezier(0.16, 1, 0.3, 1),
-      opacity 0.38s ease !important;
-    pointer-events: none !important;
-  }
-
-  .hero-rot-word.is-active {
-    opacity: 1 !important;
-    transform: translateY(0%) !important;
-    pointer-events: auto !important;
-  }
-
-  .hero-rot-word.is-exiting {
-    opacity: 0 !important;
-    transform: translateY(-115%) !important;
+    filter: 
+      drop-shadow(0 1px 0 rgba(255, 255, 255, 0.65))
+      drop-shadow(0 2px 0 rgba(215, 0, 254, 0.9))
+      drop-shadow(0 4px 0 rgba(184, 0, 245, 0.95))
+      drop-shadow(0 6px 1px rgba(112, 0, 168, 0.95))
+      drop-shadow(0 8px 2px rgba(21, 5, 34, 0.9))
+      drop-shadow(0 14px 24px rgba(0, 0, 0, 0.85))
+      drop-shadow(0 0 45px rgba(184, 0, 245, 0.75)) !important;
+    letter-spacing: -0.035em !important;
+    white-space: nowrap !important;
+    text-align: center !important;
   }
 
   /* Subheadline Description */
@@ -378,43 +335,34 @@
       0 3px 8px rgba(0,0,0,0.45) !important;
   }
 
-  /* Responsive tuning: Strictly 2 lines, hide subheadline on mobile, fix background flicker & jumps */
+  /* Responsive tuning: 3D Headline, clean spacing, and mobile optimization */
   @media (max-width: 768px) {
+    h1.hero-headline-clean {
+      font-size: clamp(2.1rem, 6.4vw, 2.9rem) !important;
+      line-height: 1.14 !important;
+      letter-spacing: -0.03em !important;
+      font-weight: 800 !important;
+    }
     .hero-headline-line1 {
       white-space: nowrap !important;
-      display: block !important;
-      color: #FFFFFF !important;
+      text-align: center !important;
     }
     .hero-headline-line2 {
-      display: inline-flex !important;
-      flex-wrap: nowrap !important;
+      margin-top: 6px !important;
       white-space: nowrap !important;
-      align-items: center !important;
-      justify-content: center !important;
-      gap: 6px !important;
-      margin-top: 4px !important;
     }
-    h1.hero-headline-clean {
-      font-size: clamp(1.55rem, 5.5vw, 2rem) !important;
-      line-height: 1.22 !important;
-      letter-spacing: -0.025em !important;
-      font-weight: 700 !important;
+    .hero-3d-gradient-text {
+      filter: 
+        drop-shadow(0 1px 0 rgba(255, 255, 255, 0.6))
+        drop-shadow(0 2px 0 rgba(215, 0, 254, 0.85))
+        drop-shadow(0 3px 0 rgba(184, 0, 245, 0.9))
+        drop-shadow(0 5px 1px rgba(112, 0, 168, 0.9))
+        drop-shadow(0 8px 16px rgba(0, 0, 0, 0.85))
+        drop-shadow(0 0 30px rgba(184, 0, 245, 0.6)) !important;
     }
-    /* Subheadline hidden completely on mobile */
+    /* Subheadline hidden on mobile for clean above-the-fold punch */
     p.hero-subheadline-clean {
       display: none !important;
-    }
-    .hero-word-capsule {
-      min-width: 132px !important;
-      width: 132px !important;
-      height: 1.35em !important;
-      padding: 0 10px !important;
-      flex-shrink: 0 !important;
-      box-sizing: border-box !important;
-      overflow: hidden !important;
-    }
-    .hero-rot-word {
-      font-size: 0.82em !important;
     }
     /* Eliminate mobile background flicker & jump */
     .hero-background-block {
@@ -451,29 +399,24 @@
 
   @media (max-width: 520px) {
     h1.hero-headline-clean {
-      font-size: clamp(1.35rem, 5vw, 1.65rem) !important;
-      line-height: 1.22 !important;
-      font-weight: 700 !important;
+      font-size: clamp(1.8rem, 6.2vw, 2.3rem) !important;
+      line-height: 1.15 !important;
+      font-weight: 800 !important;
     }
     .hero-headline-line1 {
       white-space: nowrap !important;
       padding: 0 !important;
     }
     .hero-headline-line2 {
-      display: inline-flex !important;
-      flex-wrap: nowrap !important;
-      white-space: nowrap !important;
-      gap: 5px !important;
-      margin-top: 3px !important;
+      margin-top: 4px !important;
     }
-    .hero-word-capsule {
-      min-width: 118px !important;
-      width: 118px !important;
-      padding: 0 8px !important;
-      height: 1.32em !important;
-    }
-    .hero-rot-word {
-      font-size: 0.80em !important;
+    .hero-3d-gradient-text {
+      filter: 
+        drop-shadow(0 1px 0 rgba(255, 255, 255, 0.55))
+        drop-shadow(0 2px 0 rgba(184, 0, 245, 0.85))
+        drop-shadow(0 3px 1px rgba(112, 0, 168, 0.9))
+        drop-shadow(0 6px 12px rgba(0, 0, 0, 0.85))
+        drop-shadow(0 0 24px rgba(184, 0, 245, 0.55)) !important;
     }
     p.hero-subheadline-clean {
       display: none !important;
@@ -894,19 +837,12 @@
     <span class="rating-text">4.9/5</span>
   </div>
 
-  <!-- Headline: Driven By Innovation at Zentic Media in [Changing Words] -->
+  <!-- Headline: Turn Attention Into Revenue. -->
   <div class="hero-title">
     <h1 class="hero-headline-clean">
-      <span class="hero-headline-line1">Driven By Innovation at</span>
+      <span class="hero-headline-line1">Turn Attention</span>
       <span class="hero-headline-line2">
-        <span class="brand-text">Zentic Media</span> in
-        <span class="hero-word-capsule" id="heroWordCapsule">
-          <span class="hero-rot-word is-active" data-index="0">Video Editing</span>
-          <span class="hero-rot-word" data-index="1">AI Automations</span>
-          <span class="hero-rot-word" data-index="2">Web Design</span>
-          <span class="hero-rot-word" data-index="3">Growth Marketing</span>
-          <span class="hero-rot-word" data-index="4">Visual Graphics</span>
-        </span>
+        <span class="hero-3d-gradient-text">Into Revenue.</span>
       </span>
     </h1>
   </div>
