@@ -1,0 +1,422 @@
+/* ============================================================
+   ADVANCED 3D TILT & NEON LASER BORDER SWEEP ANIMATIONS
+   Apple / Linear / Reflect / Awwwards 2026 Tier
+   Colors: #B800F5 (Neon Magenta) | #E879F9 (Laser Lilac) | #580B82
+   Physics: cubic-bezier(0.16, 1, 0.3, 1) — Precision Spring
+   ============================================================ */
+
+/* ─── Argus-Style Cinematic Page Load Choreography ────────────────────── */
+@keyframes argusBeamFlare {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.68) translateY(35px);
+    filter: blur(55px);
+  }
+  60% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1) translateY(0);
+    filter: blur(40px);
+  }
+}
+
+@keyframes argusStarsFade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.65;
+  }
+}
+
+@keyframes argusNavGlide {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -28px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes argusBadgeDrop {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -18px, 0) scale(0.92);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+@keyframes argusHeadline3DRise {
+  0% {
+    opacity: 0;
+    transform: perspective(1000px) translate3d(0, 36px, -40px) scale3d(0.94, 0.94, 1);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1000px) translate3d(0, 0, 0) scale3d(1, 1, 1);
+    filter: blur(0px);
+  }
+}
+
+@keyframes argusSubheadlineRise {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    filter: blur(0px);
+  }
+}
+
+@keyframes argusButtonPop {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 26px, 0) scale3d(0.92, 0.92, 1);
+  }
+  65% {
+    transform: translate3d(0, -2px, 0) scale3d(1.02, 1.02, 1);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+}
+
+@keyframes argusBrandsIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes argusCard3DIn {
+  0% {
+    opacity: 0;
+    transform: perspective(1200px) rotateX(12deg) translate3d(0, 60px, -60px) scale3d(0.94, 0.94, 1);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1200px) rotateX(0deg) translate3d(0, 0, 0) scale3d(1, 1, 1);
+    filter: blur(0px);
+  }
+}
+
+/* Applying load animations to page elements */
+.header-section {
+  animation: argusNavGlide 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both !important;
+}
+
+.hero-spotlight-wrap .hero-light-beam {
+  animation: argusBeamFlare 1.25s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both !important;
+}
+
+.hero-spotlight-wrap .hero-stars-bg {
+  animation: argusStarsFade 1.4s ease 0.15s both !important;
+}
+
+.hero-spotlight-wrap .hero-rating-badge {
+  animation: argusBadgeDrop 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.22s both !important;
+}
+
+.hero-spotlight-wrap .hero-title {
+  animation: argusHeadline3DRise 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both !important;
+}
+
+.hero-spotlight-wrap .hero-subheadline-clean {
+  animation: argusSubheadlineRise 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.58s both !important;
+}
+
+.hero-spotlight-wrap .hero-buttons-group {
+  animation: argusButtonPop 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.75s both !important;
+}
+
+.hero-brands-block {
+  display: none !important;
+}
+
+.hero-3d-scene {
+  animation: argusCard3DIn 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.95s both !important;
+}
+
+/* ─── 3D Perspective Card Tilt Base ───────────────────────── */
+.reveal-3d-card {
+  position: relative !important;
+  opacity: 0;
+  transform: perspective(1200px) rotateX(18deg) rotateY(-4deg) translate3d(0, 52px, -60px) scale3d(0.93, 0.93, 1);
+  filter: blur(6px);
+  will-change: transform, opacity, filter;
+  transition:
+    opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+  overflow: hidden;
+}
+
+/* Alternate angle for alternating children for organic domino feeling */
+.reveal-3d-card:nth-child(even) {
+  transform: perspective(1200px) rotateX(18deg) rotateY(4deg) translate3d(0, 52px, -60px) scale3d(0.93, 0.93, 1);
+}
+
+/* ─── Triggered / In-View 3D State ────────────────────────── */
+.reveal-3d-card.is-revealed {
+  opacity: 1 !important;
+  transform: perspective(1200px) rotateX(0deg) rotateY(0deg) translate3d(0, 0, 0) scale3d(1, 1, 1) !important;
+  filter: blur(0px) !important;
+}
+
+/* ─── Neon Laser Border Beam Sweep (Conic Gradient Perimeter) */
+.card-laser-beam {
+  position: absolute;
+  inset: -1.5px;
+  border-radius: inherit;
+  padding: 2px;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    transparent 0deg,
+    transparent 260deg,
+    rgba(184, 0, 245, 0.6) 300deg,
+    #B800F5 330deg,
+    #E879F9 352deg,
+    #FFFFFF 360deg
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 8;
+  opacity: 0;
+  transform: rotate(0deg);
+}
+
+/* When card is revealed, the laser beam sweeps 360° around the perimeter */
+.reveal-3d-card.is-revealed .card-laser-beam {
+  animation: laserBeamSweep 2.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Hover loop: Continuous neon orbit */
+.reveal-3d-card.is-revealed:hover .card-laser-beam {
+  opacity: 0.9 !important;
+  animation: laserBeamLoop 3.5s linear infinite !important;
+  box-shadow: 0 0 25px rgba(232, 121, 249, 0.5);
+}
+
+@keyframes laserBeamSweep {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  15% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.25;
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes laserBeamLoop {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ─── Glass Sheen Diagonal Sweep (Specular Highlight) ────── */
+.card-sheen-ray {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(232, 121, 249, 0.18) 46%,
+    rgba(255, 255, 255, 0.45) 50%,
+    rgba(184, 0, 245, 0.22) 54%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 7;
+  opacity: 0;
+  transform: translateX(-130%);
+}
+
+.reveal-3d-card.is-revealed .card-sheen-ray {
+  animation: glassSheenGlide 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.18s forwards;
+}
+
+@keyframes glassSheenGlide {
+  0% {
+    opacity: 0;
+    transform: translateX(-130%);
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(130%);
+  }
+}
+
+/* ─── Section Heading 3D Emergence & Laser Flare ─────────── */
+.reveal-heading {
+  position: relative;
+  opacity: 0;
+  transform: perspective(800px) rotateX(26deg) translate3d(0, 36px, 0);
+  filter: blur(6px);
+  transition:
+    opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-heading.is-revealed {
+  opacity: 1 !important;
+  transform: perspective(800px) rotateX(0deg) translate3d(0, 0, 0) !important;
+  filter: blur(0px) !important;
+}
+
+/* Laser underline streak on heading reveal */
+.heading-laser-line {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 2px;
+  width: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(184, 0, 245, 0.8) 25%,
+    #E879F9 50%,
+    rgba(184, 0, 245, 0.8) 75%,
+    transparent 100%
+  );
+  box-shadow: 0 0 16px rgba(232, 121, 249, 0.9), 0 0 32px rgba(184, 0, 245, 0.6);
+  pointer-events: none;
+  opacity: 0;
+}
+
+.reveal-heading.is-revealed .heading-laser-line {
+  animation: headingLaserFlare 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
+}
+
+@keyframes headingLaserFlare {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  35% {
+    width: 55%;
+    opacity: 1;
+  }
+  100% {
+    width: 90%;
+    opacity: 0;
+  }
+}
+
+/* ─── Stagger Cascade Delays ──────────────────────────────── */
+.stagger-3d > .reveal-3d-card:nth-child(1) { transition-delay: 0.05s; }
+.stagger-3d > .reveal-3d-card:nth-child(2) { transition-delay: 0.16s; }
+.stagger-3d > .reveal-3d-card:nth-child(3) { transition-delay: 0.27s; }
+.stagger-3d > .reveal-3d-card:nth-child(4) { transition-delay: 0.38s; }
+.stagger-3d > .reveal-3d-card:nth-child(5) { transition-delay: 0.49s; }
+.stagger-3d > .reveal-3d-card:nth-child(6) { transition-delay: 0.60s; }
+.stagger-3d > .reveal-3d-card:nth-child(7) { transition-delay: 0.71s; }
+.stagger-3d > .reveal-3d-card:nth-child(8) { transition-delay: 0.82s; }
+
+/* ─── Interactive Mouse Tilt Physics (Once revealed) ──────── */
+.reveal-3d-card.is-revealed.is-tilt-active {
+  transition: transform 0.12s cubic-bezier(0.2, 0.8, 0.3, 1), box-shadow 0.25s ease !important;
+}
+
+.reveal-3d-card.is-revealed:hover {
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.6),
+    0 0 35px rgba(184, 0, 245, 0.28),
+    0 0 70px rgba(112, 0, 168, 0.18) !important;
+  border-color: rgba(232, 121, 249, 0.5) !important;
+}
+
+/* ─── Hero Custom Scale CTA Button Styling ────────── */
+.hero-scale-cta {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #B800F5 0%, #7000A8 100%) !important;
+  box-shadow: 0 0 25px rgba(184, 0, 245, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+  border: 1px solid rgba(232, 121, 249, 0.45) !important;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease !important;
+}
+
+.hero-scale-cta:hover {
+  transform: translate3d(0, -3px, 0) scale3d(1.03, 1.03, 1) !important;
+  box-shadow: 0 0 45px rgba(184, 0, 245, 0.8), 0 12px 28px rgba(0, 0, 0, 0.55) !important;
+}
+
+/* ─── Reduced Motion Support ──────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  body.home2 .header-section,
+  body.home2 .hero-left-block .trusted_wrap,
+  body.home2 .hero-title-block,
+  body.home2 .hero-button-block,
+  body.home2 .hero-brands-block,
+  body.home2 .hero-3d-scene,
+  body.home2 .hero-edit-decorations .edit-floating-badge,
+  body.home2 .hero-ambient-timeline,
+  .reveal-3d-card,
+  .reveal-heading {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  /* For reduced motion: hide inactive words, show active statically */
+  .hero-dynamic-word {
+    animation: none !important;
+    transition: none !important;
+    opacity: 0 !important;
+    transform: translate(-50%, -50%) !important;
+    filter: none !important;
+  }
+  .hero-dynamic-word.is-active {
+    opacity: 1 !important;
+  }
+  .card-laser-beam,
+  .card-sheen-ray,
+  .heading-laser-line,
+  .hero-word-pill::before {
+    display: none !important;
+  }
+}
+
+
