@@ -16,7 +16,21 @@
 
   /* ======= HERO HEADLINE MASTER OVERRIDE v13 - VARIATION 2 ULTRA-MODERN ======= */
 
-  /* Dark cosmic container wrap */
+  .trusted_wrap,
+  .client-highlight-block {
+    display: none !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    visibility: hidden !important;
+  }
+
+  .hero-section {
+    padding-top: 50px !important;
+    padding-bottom: 20px !important;
+  }
+
+  /* Dark cosmic container wrap - compact spacing */
   .hero-spotlight-wrap {
     position: relative !important;
     isolation: isolate !important;
@@ -25,10 +39,10 @@
     align-items: center !important;
     justify-content: center !important;
     text-align: center !important;
-    padding: 30px 16px 40px !important;
-    margin: 0 auto 16px !important;
+    padding: 6px 14px 14px !important;
+    margin: 0 auto 8px !important;
     width: 100% !important;
-    max-width: 980px !important;
+    max-width: 1040px !important;
     overflow: visible !important;
   }
 
@@ -73,11 +87,11 @@
     z-index: 0 !important;
   }
 
-  /* Main Headline: Clean Coolvetica Regular */
+  /* Main Headline: Clean Coolvetica Regular - MUCH BIGGER */
   .hero-title {
     position: relative !important;
     z-index: 1 !important;
-    margin: 0 0 16px 0 !important;
+    margin: 0 0 10px 0 !important;
     width: 100% !important;
   }
   @font-face {
@@ -90,9 +104,9 @@
 
   h1.hero-headline-clean {
     font-family: 'Coolvetica', 'Inter', -apple-system, sans-serif !important;
-    font-size: clamp(3.2rem, 6.2vw, 5.0rem) !important;
+    font-size: clamp(3.8rem, 7.5vw, 5.8rem) !important;
     font-weight: 400 !important;
-    line-height: 1.12 !important;
+    line-height: 1.08 !important;
     letter-spacing: 0.02em !important;
     text-align: center !important;
     margin: 0 auto !important;
@@ -121,7 +135,7 @@
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    margin-top: 6px !important;
+    margin-top: 4px !important;
     white-space: nowrap !important;
   }
   .hero-3d-gradient-text {
@@ -130,7 +144,7 @@
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     background-clip: text !important;
-    filter: drop-shadow(0 2px 12px rgba(184, 0, 245, 0.4)) !important;
+    filter: drop-shadow(0 2px 12px rgba(184, 0, 245, 0.45)) !important;
     letter-spacing: 0.02em !important;
     white-space: nowrap !important;
     text-align: center !important;
@@ -142,15 +156,15 @@
     z-index: 1 !important;
     display: block !important;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-    font-size: clamp(0.96rem, 1.25vw, 1.12rem) !important;
-    line-height: 1.6 !important;
+    font-size: clamp(0.95rem, 1.25vw, 1.1rem) !important;
+    line-height: 1.55 !important;
     color: rgba(225, 205, 250, 0.85) !important;
     -webkit-text-fill-color: rgba(225, 205, 250, 0.85) !important;
-    max-width: 660px !important;
-    margin: 0 auto 28px !important;
+    max-width: 640px !important;
+    margin: 0 auto 20px !important;
     text-align: center !important;
     font-weight: 400 !important;
-    letter-spacing: 0.15px !important;
+    letter-spacing: 0.12px !important;
     background: none !important;
     -webkit-background-clip: unset !important;
     background-clip: unset !important;
@@ -268,18 +282,26 @@
 
   /* Responsive tuning: Clean Headline & 1-Line Buttons */
   @media (max-width: 768px) {
+    .hero-section {
+      padding-top: 42px !important;
+      padding-bottom: 16px !important;
+    }
+    .hero-spotlight-wrap {
+      padding: 4px 8px 8px !important;
+      margin: 0 auto 4px !important;
+    }
     h1.hero-headline-clean {
-      font-size: clamp(2.5rem, 7.5vw, 3.5rem) !important;
-      line-height: 1.14 !important;
+      font-size: clamp(3.0rem, 8.8vw, 4.2rem) !important;
+      line-height: 1.08 !important;
       font-weight: 400 !important;
-      margin-bottom: 12px !important;
+      margin-bottom: 8px !important;
     }
     .hero-headline-line1 {
       white-space: nowrap !important;
       text-align: center !important;
     }
     .hero-headline-line2 {
-      margin-top: 5px !important;
+      margin-top: 3px !important;
       white-space: nowrap !important;
     }
     .hero-3d-gradient-text {
@@ -289,9 +311,9 @@
     p.hero-subheadline-clean {
       display: block !important;
       font-size: clamp(0.92rem, 3.8vw, 1.02rem) !important;
-      line-height: 1.55 !important;
-      max-width: 92% !important;
-      margin: 0 auto 22px !important;
+      line-height: 1.5 !important;
+      max-width: 90% !important;
+      margin: 0 auto 16px !important;
       color: rgba(225, 205, 250, 0.85) !important;
       -webkit-text-fill-color: rgba(225, 205, 250, 0.85) !important;
     }
@@ -304,6 +326,9 @@
       padding: 11px 18px !important;
       font-size: 0.92rem !important;
       white-space: nowrap !important;
+    }
+    .hero-3d-card-wrapper {
+      margin: 4px auto 0 auto !important;
     }
     /* Eliminate mobile background flicker & jump */
     .hero-background-block {
@@ -339,18 +364,26 @@
   }
 
   @media (max-width: 520px) {
+    .hero-section {
+      padding-top: 36px !important;
+      padding-bottom: 12px !important;
+    }
+    .hero-spotlight-wrap {
+      padding: 2px 6px 6px !important;
+      margin: 0 auto 2px !important;
+    }
     h1.hero-headline-clean {
-      font-size: clamp(2.15rem, 8.2vw, 2.85rem) !important;
-      line-height: 1.15 !important;
+      font-size: clamp(2.55rem, 10vw, 3.4rem) !important;
+      line-height: 1.08 !important;
       font-weight: 400 !important;
-      margin-bottom: 10px !important;
+      margin-bottom: 6px !important;
     }
     .hero-headline-line1 {
       white-space: nowrap !important;
       padding: 0 !important;
     }
     .hero-headline-line2 {
-      margin-top: 4px !important;
+      margin-top: 2px !important;
       white-space: nowrap !important;
     }
     .hero-3d-gradient-text {
@@ -359,10 +392,10 @@
     /* Subheadline visible on mobile */
     p.hero-subheadline-clean {
       display: block !important;
-      font-size: clamp(0.85rem, 3.5vw, 0.95rem) !important;
-      line-height: 1.5 !important;
+      font-size: clamp(0.85rem, 3.7vw, 0.95rem) !important;
+      line-height: 1.45 !important;
       max-width: 95% !important;
-      margin: 0 auto 18px !important;
+      margin: 0 auto 14px !important;
       color: rgba(225, 205, 250, 0.82) !important;
       -webkit-text-fill-color: rgba(225, 205, 250, 0.82) !important;
     }
@@ -383,6 +416,9 @@
     }
     .hero-btn-teal span, .hero-btn-glass span {
       white-space: nowrap !important;
+    }
+    .hero-3d-card-wrapper {
+      margin: 2px auto 0 auto !important;
     }
   }
 
@@ -763,19 +799,7 @@
       <span class="timeline-track-info">TC: 00:01:24:18 | RENDER READY</span>
     </div>
   </div>
-  <div class="w-layout-blockcontainer container-02 w-container"><div class="hero-content-block"><div data-w-id="a42682e8-c744-27ea-b60f-b2cb53ee7742" style="opacity:0;-webkit-transform:translate3d(0, 25px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 25px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 25px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 25px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="hero-left-block"><div class="trusted_wrap"><a href="#Case-Study" class="trusted_box _01 w-inline-block"><p class="small-caption is-highlight" data-i18n="hero_trusted">Trusted by</p><div class="client-highlight-logo-wrap _02"><img loading="eager" src="https://cdn.prod.website-files.com/6796419e2d5f03877896246e/6a106d58ef22af0603d9f3b8_TRUSTED%2003.svg" alt="Phonely logo" class="client-highlight-logo first"/><img loading="eager" src="https://cdn.prod.website-files.com/6796419e2d5f03877896246e/6a106e1e7a2167068dd40a73_TRUSTED%2004.svg" alt="" class="client-highlight-logo"/><img loading="eager" src="https://cdn.prod.website-files.com/6796419e2d5f03877896246e/6a106e49fb7226af4a1886f2_TRUSTED%2001.svg" alt="" class="client-highlight-logo"/><img loading="eager" src="https://cdn.prod.website-files.com/6796419e2d5f03877896246e/6a106d589464e6f4190e7412_TRUSTED%2005.svg" alt="Lumana Logo" class="client-highlight-logo"/><img loading="eager" src="https://cdn.prod.website-files.com/6796419e2d5f03877896246e/6a106d58d795c96d9d22a0e2_TRUSTED%2002.svg" alt="Atria Logo" class="client-highlight-logo"/></div><div class="w-embed"><svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M4.93945 3.65878L1.86295 0.183729L0.000107872 1.90774e-05L3.04842 3.65879L0.000107288 7.31757L1.86295 7.11855L4.93945 3.65878Z" fill="#A1A1A2"/>
-</svg></div></a><a href="#" class="trusted_box _02 w-inline-block"><p class="small-caption" data-i18n="hero_served">Served 50+</p><img loading="eager" src="https://cdn.prod.website-files.com/6796419e2d5f03877896246e/6a106a75012f11dc8aa6d9ab_Y_Combinator_logo.svg%201.svg" alt="" class="client-highlight-logo yc"/><p class="small-caption" data-i18n="hero_yc">YC Companies</p><div class="w-embed"><svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M4.93945 3.65878L1.86295 0.183729L0.000107872 1.90774e-05L3.04842 3.65879L0.000107288 7.31757L1.86295 7.11855L4.93945 3.65878Z" fill="#A1A1A2"/>
-</svg></div></a><a href="#Case-Study" class="trusted_box _03 w-inline-block"><p class="small-caption is-highlight" data-i18n="hero_creator">Creator of</p><div class="client-highlight-logo-wrap _02"><img loading="eager" src="https://cdn.prod.website-files.com/6796419e2d5f03877896246e/69b44344fc3d7cfa95bfc086_Logo.webp" alt="ClickUp Logo" class="client-highlight-logo first"/><img loading="eager" src="https://cdn.prod.website-files.com/6796419e2d5f03877896246e/6a1070531560ab207093956a_CREATOR%2002.svg" alt="GovGuard Logo" class="client-highlight-logo"/><img loading="eager" src="https://cdn.prod.website-files.com/6796419e2d5f03877896246e/69b3014d2f190df05d77e19e_Property%201%3DLogo08.svg" alt="iClosed Logo" class="client-highlight-logo"/><img loading="eager" src="https://cdn.prod.website-files.com/6796419e2d5f03877896246e/6a10705475714d680e1334d1_CREATOR%2001.svg" alt="" class="client-highlight-logo"/></div><p class="small-caption is-highlight" data-i18n="hero_videos">Videos</p><div class="w-embed"><svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M4.93945 3.65878L1.86295 0.183729L0.000107872 1.90774e-05L3.04842 3.65879L0.000107288 7.31757L1.86295 7.11855L4.93945 3.65878Z" fill="#A1A1A2"/>
-</svg></div></a></div><div class="client-highlight-block is-hero hide"><a data-w-id="259b6351-892b-ed9d-b9e2-1e316bbaab1e" href="#Case-Study" class="client-highlight _01 hero w-inline-block"><p class="small-caption is-highlight" data-i18n="hero_trusted">Trusted by</p><div class="client-highlight-logo-wrap _02"><img loading="eager" src="https://cdn.prod.website-files.com/6796419e2d5f03877896246e/6a106d58ef22af0603d9f3b8_TRUSTED%2003.svg" alt="" class="client-highlight-logo first"/><img loading="eager" src="https://cdn.prod.website-files.com/6796419e2d5f03877896246e/6a106e1e7a2167068dd40a73_TRUSTED%2004.svg" alt="" class="client-highlight-logo"/><img loading="eager" src="https://cdn.prod.website-files.com/6796419e2d5f03877896246e/6a106e49fb7226af4a1886f2_TRUSTED%2001.svg" alt="" class="client-highlight-logo"/><img loading="eager" src="https://cdn.prod.website-files.com/6796419e2d5f03877896246e/6a106d589464e6f4190e7412_TRUSTED%2005.svg" alt="" class="client-highlight-logo"/><img loading="eager" src="https://cdn.prod.website-files.com/6796419e2d5f03877896246e/6a106d58d795c96d9d22a0e2_TRUSTED%2002.svg" alt="" class="client-highlight-logo"/></div><div class="w-embed"><svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M4.93945 3.65878L1.86295 0.183729L0.000107872 1.90774e-05L3.04842 3.65879L0.000107288 7.31757L1.86295 7.11855L4.93945 3.65878Z" fill="#A1A1A2"/>
-</svg></div></a><a data-w-id="affcd8ec-f68a-bc48-7529-5e23755f81c1" href="#" class="client-highlight _02 hero w-inline-block"><p class="small-caption" data-i18n="hero_served">Served 50+</p><img loading="eager" src="https://cdn.prod.website-files.com/6796419e2d5f03877896246e/6a106a75012f11dc8aa6d9ab_Y_Combinator_logo.svg%201.svg" alt="" class="client-highlight-logo yc"/><p class="small-caption" data-i18n="hero_yc">YC Companies</p><div class="w-embed"><svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M4.93945 3.65878L1.86295 0.183729L0.000107872 1.90774e-05L3.04842 3.65879L0.000107288 7.31757L1.86295 7.11855L4.93945 3.65878Z" fill="#A1A1A2"/>
-</svg></div></a><a data-w-id="affcd8ec-f68a-bc48-7529-5e23755f81bb" href="#Case-Study" class="client-highlight _03 hero w-inline-block"><p class="small-caption is-highlight" data-i18n="hero_creator">Creator of</p><div class="client-highlight-logo-wrap _02"><img loading="eager" src="https://cdn.prod.website-files.com/6796419e2d5f03877896246e/69b44344fc3d7cfa95bfc086_Logo.webp" alt="" class="client-highlight-logo first"/><img loading="eager" src="https://cdn.prod.website-files.com/6796419e2d5f03877896246e/6a1070531560ab207093956a_CREATOR%2002.svg" alt="" class="client-highlight-logo"/><img loading="eager" src="https://cdn.prod.website-files.com/6796419e2d5f03877896246e/69b3014d2f190df05d77e19e_Property%201%3DLogo08.svg" alt="" class="client-highlight-logo"/><img loading="eager" src="https://cdn.prod.website-files.com/6796419e2d5f03877896246e/6a10705475714d680e1334d1_CREATOR%2001.svg" alt="" class="client-highlight-logo"/></div><p class="small-caption is-highlight" data-i18n="hero_videos">Videos</p><div class="w-embed"><svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M4.93945 3.65878L1.86295 0.183729L0.000107872 1.90774e-05L3.04842 3.65879L0.000107288 7.31757L1.86295 7.11855L4.93945 3.65878Z" fill="#A1A1A2"/>
-</svg></div></a></div><div class="hero-title-block hero-spotlight-wrap">
+  <div class="w-layout-blockcontainer container-02 w-container"><div class="hero-content-block"><div data-w-id="a42682e8-c744-27ea-b60f-b2cb53ee7742" style="opacity:0;-webkit-transform:translate3d(0, 25px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 25px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 25px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 25px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="hero-left-block"><div class="hero-title-block hero-spotlight-wrap">
   <!-- Starfield + Upward Teal Light Beam from reference image -->
   <div class="hero-stars-bg" aria-hidden="true"></div>
   <div class="hero-light-beam" aria-hidden="true"></div>
