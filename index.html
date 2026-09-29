@@ -2256,40 +2256,66 @@
   85% { transform: translate(236px, 142px) scale(0.85); }
 }
 
-/* ── Card 5: AI Automation Animations ── */
-.g-anim-dash-march {
-  stroke-dasharray: 3 2;
-  animation: dashBorderMarch 2.2s linear infinite;
+
+/* ── Card 5: Omnichannel AI Auto-Responder Animations ── */
+.g-anim-msg-in1 {
+  animation: msgInFade 3.6s ease-in-out infinite;
 }
-@keyframes dashBorderMarch {
+.g-anim-msg-in2 {
+  animation: msgInFade 3.6s ease-in-out infinite 0.8s;
+}
+.g-anim-msg-in3 {
+  animation: msgInFade 3.6s ease-in-out infinite 1.6s;
+}
+@keyframes msgInFade {
+  0%, 100% { opacity: 0.85; transform: translateX(0); }
+  50% { opacity: 1; transform: translateX(3px); filter: drop-shadow(0 0 6px rgba(184, 0, 245, 0.4)); }
+}
+
+.g-anim-reply-out1 {
+  animation: replyOutGlow 3.6s ease-in-out infinite;
+}
+.g-anim-reply-out2 {
+  animation: replyOutGlow 3.6s ease-in-out infinite 0.8s;
+}
+.g-anim-reply-out3 {
+  animation: replyOutGlow 3.6s ease-in-out infinite 1.6s;
+}
+@keyframes replyOutGlow {
+  0%, 100% { opacity: 0.9; transform: translateX(0); }
+  50% { opacity: 1; transform: translateX(3px); filter: drop-shadow(0 0 10px rgba(232, 121, 249, 0.7)); }
+}
+
+.g-anim-stream-line {
+  stroke-dasharray: 4 3;
+  animation: streamLaser 1.5s linear infinite;
+}
+@keyframes streamLaser {
   0% { stroke-dashoffset: 0; }
-  100% { stroke-dashoffset: 20; }
+  100% { stroke-dashoffset: -20; }
 }
 
-.g-anim-hand-click {
-  animation: handTapAction 2.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+.g-anim-ai-pulse {
+  animation: coreBrainPulse 2.4s ease-in-out infinite;
+  transform-origin: 138px 86px;
 }
-@keyframes handTapAction {
-  0%, 65%, 100% { transform: translate(126px, 76px) scale(1); }
-  75% { transform: translate(126px, 79px) scale(0.86); }
-  85% { transform: translate(126px, 76px) scale(1.05); }
-}
-
-.g-anim-click-ripple {
-  animation: nodeClickRipple 2.5s ease-out infinite;
-}
-@keyframes nodeClickRipple {
-  0%, 70% { r: 0; opacity: 0; }
-  76% { r: 6; opacity: 0.9; }
-  100% { r: 36; opacity: 0; }
+@keyframes coreBrainPulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 6px #B800F5); }
+  50% { transform: scale(1.1); filter: drop-shadow(0 0 18px #ff6ef7); }
 }
 
-.g-anim-ai-node {
-  animation: aiNodeEnergy 3.2s ease-in-out infinite;
+.g-anim-core-wave1 {
+  animation: coreWavePulse 2.4s ease-out infinite;
+  transform-origin: 138px 86px;
 }
-@keyframes aiNodeEnergy {
-  0%, 100% { filter: drop-shadow(0 0 3px rgba(184, 0, 245, 0.4)); }
-  50% { filter: drop-shadow(0 0 16px rgba(232, 121, 249, 0.9)); }
+@keyframes coreWavePulse {
+  0% { r: 14; opacity: 0.8; }
+  100% { r: 26; opacity: 0; }
+}
+
+.g-anim-core-wave2 {
+  animation: coreWavePulse 2.4s ease-out infinite 0.6s;
+  transform-origin: 138px 86px;
 }
 
 /* Responsive Breakpoints */
@@ -2686,82 +2712,157 @@
         </div>
       </div>
 
-      <!-- CARD 5: AI AUTOMATION (Marching Dash, Tapping Hand & Energy Ripple) -->
+      <!-- CARD 5: AI AUTOMATION (Omnichannel WhatsApp, Messenger & Instagram Auto-Responder) -->
       <div class="g-svc-card">
         <div class="g-svc-mockup">
           <svg class="g-svc-svg" viewBox="0 0 280 185" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <linearGradient id="wfGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#B800F5" stop-opacity="0.9"/>
-                <stop offset="100%" stop-color="#580B82" stop-opacity="0.8"/>
+              <linearGradient id="igGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#f09433"/>
+                <stop offset="25%" stop-color="#e6683c"/>
+                <stop offset="50%" stop-color="#dc2743"/>
+                <stop offset="75%" stop-color="#cc2366"/>
+                <stop offset="100%" stop-color="#bc1888"/>
               </linearGradient>
+              <linearGradient id="aiCoreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ff6ef7"/>
+                <stop offset="50%" stop-color="#B800F5"/>
+                <stop offset="100%" stop-color="#580B82"/>
+              </linearGradient>
+              <filter id="coreGlow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="4" result="blur"/>
+                <feMerge>
+                  <feMergeNode in="blur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
             </defs>
 
             <!-- Outer Canvas Window -->
-            <rect x="12" y="10" width="256" height="165" rx="12" fill="#0e041a" stroke="rgba(184, 0, 245, 0.45)" stroke-width="1.5"/>
+            <rect x="8" y="8" width="264" height="169" rx="10" fill="#0b0216" stroke="rgba(184, 0, 245, 0.35)" stroke-width="1"/>
+            
+            <!-- Window header dots with live radar beacon -->
+            <circle cx="20" cy="18" r="3" fill="#ff5f56"/>
+            <circle cx="28" cy="18" r="3" fill="#ffbd2e"/>
+            <circle class="g-anim-live-dot" cx="36" cy="18" r="3" fill="#22c55e"/>
+            
+            <!-- Header Pill -->
+            <rect x="74" y="14" width="132" height="9" rx="4" fill="rgba(184, 0, 245, 0.25)"/>
+            <circle class="g-anim-live-dot" cx="82" cy="18.5" r="2.2" fill="#22c55e"/>
+            <text x="144" y="21" font-family="'Inter', sans-serif" font-size="6.2" fill="#E879F9" text-anchor="middle" font-weight="600">Omnichannel AI Responder &bull; 24/7 Live</text>
 
-            <!-- Webflow "W" icon logo at top left -->
-            <g transform="translate(20, 18)">
-              <path d="M 0,2 Q 3,11 6,2 Q 9,11 12,2" fill="none" stroke="#E879F9" stroke-width="2" stroke-linecap="round"/>
-            </g>
-            <!-- Top toolbar lines -->
-            <rect x="42" y="21" width="18" height="3" rx="1.5" fill="rgba(225, 200, 250, 0.4)"/>
-            <rect x="76" y="21" width="18" height="3" rx="1.5" fill="rgba(225, 200, 250, 0.4)"/>
-            <rect x="110" y="21" width="18" height="3" rx="1.5" fill="rgba(225, 200, 250, 0.4)"/>
-
-            <!-- Left Panel: 6 Layout Blocks (2x3) -->
-            <rect x="20" y="36" width="16" height="16" rx="3" fill="rgba(184, 0, 245, 0.25)"/>
-            <rect x="42" y="36" width="16" height="16" rx="3" fill="rgba(184, 0, 245, 0.25)"/>
-
-            <rect x="20" y="58" width="16" height="16" rx="3" fill="rgba(184, 0, 245, 0.25)"/>
-            <!-- Active Selected Block with Animated Marching Dashed Border -->
-            <rect class="g-anim-dash-march" x="42" y="58" width="16" height="16" rx="3" fill="rgba(184, 0, 245, 0.4)" stroke="#ffffff" stroke-width="1.4"/>
-
-            <rect x="20" y="80" width="16" height="16" rx="3" fill="rgba(184, 0, 245, 0.25)"/>
-            <rect x="42" y="80" width="16" height="16" rx="3" fill="rgba(184, 0, 245, 0.25)"/>
-
-            <rect x="20" y="102" width="16" height="16" rx="3" fill="rgba(184, 0, 245, 0.25)"/>
-            <rect x="42" y="102" width="16" height="16" rx="3" fill="rgba(184, 0, 245, 0.25)"/>
-
-            <!-- Vertical Separator Line -->
-            <line x1="68" y1="12" x2="68" y2="173" stroke="rgba(184, 0, 245, 0.25)" stroke-width="1"/>
-
-            <!-- Main Canvas Area -->
-            <!-- Breadcrumb Label: "AI Workflow" -->
-            <rect x="80" y="30" width="64" height="9" rx="3" fill="rgba(184, 0, 245, 0.4)"/>
-            <rect x="83" y="32.5" width="4" height="4" rx="1" fill="#E879F9"/>
-            <text x="94" y="37" font-family="'Inter', sans-serif" font-size="6" fill="#ffffff" font-weight="600">AI Automation</text>
-
-            <!-- Main Canvas Frame Container -->
-            <rect x="80" y="42" width="180" height="122" rx="6" fill="none" stroke="rgba(184, 0, 245, 0.35)" stroke-width="1.2"/>
-
-            <!-- Inside Canvas: "AI Action Node" element (Pulsing Energy) -->
-            <g class="g-anim-ai-node">
-              <rect x="88" y="50" width="50" height="42" rx="6" fill="url(#wfGrad)" stroke="#E879F9" stroke-width="1.5"/>
-              <rect x="107" y="58" width="12" height="10" rx="2" fill="none" stroke="#ffffff" stroke-width="1.2"/>
-              <text x="113" y="82" font-family="'Inter', sans-serif" font-size="7.5" fill="#ffffff" font-weight="600" text-anchor="middle">AI Agent</text>
+            <!-- ================= LEFT: INCOMING MESSAGES ================= -->
+            
+            <!-- WhatsApp Message Bubble (Incoming) -->
+            <g class="g-anim-msg-in1">
+              <rect x="14" y="30" width="108" height="34" rx="7" fill="rgba(16, 6, 26, 0.9)" stroke="rgba(37, 211, 102, 0.45)" stroke-width="1"/>
+              <!-- WhatsApp Icon Badge -->
+              <circle cx="26" cy="42" r="7" fill="#25D366"/>
+              <!-- Phone / Bubble SVG path -->
+              <path d="M 23,39 C 23,38 29,38 29,42 C 29,45 25,45 25,46" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round"/>
+              <text x="37" y="39" font-family="'Inter', sans-serif" font-size="5.8" fill="#25D366" font-weight="700">WhatsApp &bull; Lead</text>
+              <text x="37" y="48" font-family="'Inter', sans-serif" font-size="6.2" fill="#ffffff">"Need video editing rates"</text>
+              <text x="37" y="58" font-family="'Inter', sans-serif" font-size="5" fill="rgba(225, 200, 250, 0.5)">Just now</text>
             </g>
 
-            <!-- Energy Click Ripple Wave -->
-            <circle class="g-anim-click-ripple" cx="132" cy="74" r="0" fill="none" stroke="#E879F9" stroke-width="1.8" opacity="0"/>
-
-            <!-- Hand Pointer Cursor clicking on Node (Tapping Animation) -->
-            <g class="g-anim-hand-click">
-              <path d="M 6,0 C 7.5,0 8.5,1 8.5,2.5 L 8.5,9.5 C 9.2,8.8 10.2,8.5 11,8.5 C 12.5,8.5 13.5,9.5 13.5,11 C 14.2,10.5 15,10.5 15.5,10.5 C 17,10.5 18,11.5 18,13 L 18,18 C 18,23 14,26 9.5,26 C 5,26 2.5,22 2.5,18 L 2.5,14 L 1,12.5 C 0,11.5 0,10 1,9 C 2,8 3.5,8 4.5,9 L 6,10.5 L 6,2.5 C 6,1 7,0 6,0 Z" fill="#000000" stroke="#ffffff" stroke-width="1.2"/>
+            <!-- Instagram DM Bubble (Incoming) -->
+            <g class="g-anim-msg-in2">
+              <rect x="14" y="69" width="108" height="34" rx="7" fill="rgba(16, 6, 26, 0.9)" stroke="rgba(225, 48, 108, 0.45)" stroke-width="1"/>
+              <!-- Instagram Icon Badge -->
+              <circle cx="26" cy="81" r="7" fill="url(#igGrad)"/>
+              <rect x="22" y="77" width="8" height="8" rx="2" fill="none" stroke="#ffffff" stroke-width="1"/>
+              <circle cx="26" cy="81" r="1.8" fill="none" stroke="#ffffff" stroke-width="0.8"/>
+              <text x="37" y="78" font-family="'Inter', sans-serif" font-size="5.8" fill="#ff758c" font-weight="700">Instagram &bull; DM</text>
+              <text x="37" y="87" font-family="'Inter', sans-serif" font-size="6.2" fill="#ffffff">"Price for Webflow site?"</text>
+              <text x="37" y="97" font-family="'Inter', sans-serif" font-size="5" fill="rgba(225, 200, 250, 0.5)">1m ago</text>
             </g>
+
+            <!-- Messenger Bubble (Incoming) -->
+            <g class="g-anim-msg-in3">
+              <rect x="14" y="108" width="108" height="34" rx="7" fill="rgba(16, 6, 26, 0.9)" stroke="rgba(0, 132, 255, 0.45)" stroke-width="1"/>
+              <!-- Messenger Icon Badge -->
+              <circle cx="26" cy="120" r="7" fill="#0084FF"/>
+              <path d="M 25,117 L 24,121 L 27,121 L 26,124" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round"/>
+              <text x="37" y="117" font-family="'Inter', sans-serif" font-size="5.8" fill="#00c6ff" font-weight="700">Messenger &bull; Client</text>
+              <text x="37" y="126" font-family="'Inter', sans-serif" font-size="6.2" fill="#ffffff">"Can we book a call?"</text>
+              <text x="37" y="136" font-family="'Inter', sans-serif" font-size="5" fill="rgba(225, 200, 250, 0.5)">2m ago</text>
+            </g>
+
+            <!-- ================= CENTER: AI CORE ROUTER ================= -->
+            
+            <!-- Connector Stream Lines (Incoming -> AI Core) -->
+            <path class="g-anim-stream-line" d="M 122,47 L 138,86" stroke="#25D366" stroke-width="1.2" stroke-dasharray="3 3"/>
+            <path class="g-anim-stream-line" d="M 122,86 L 138,86" stroke="#ff758c" stroke-width="1.2" stroke-dasharray="3 3"/>
+            <path class="g-anim-stream-line" d="M 122,125 L 138,86" stroke="#00c6ff" stroke-width="1.2" stroke-dasharray="3 3"/>
+
+            <!-- Connector Stream Lines (AI Core -> Outgoing Replies) -->
+            <path class="g-anim-stream-line" d="M 138,86 L 154,47" stroke="#E879F9" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <path class="g-anim-stream-line" d="M 138,86 L 154,86" stroke="#E879F9" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <path class="g-anim-stream-line" d="M 138,86 L 154,125" stroke="#E879F9" stroke-width="1.5" stroke-dasharray="3 3"/>
+
+            <!-- Central Radiating AI Shockwave Rings -->
+            <circle class="g-anim-core-wave1" cx="138" cy="86" r="16" fill="none" stroke="#E879F9" stroke-width="1.2" opacity="0.6"/>
+            <circle class="g-anim-core-wave2" cx="138" cy="86" r="22" fill="none" stroke="#B800F5" stroke-width="0.8" opacity="0.3"/>
+
+            <!-- Central AI Core Badge -->
+            <circle class="g-anim-ai-pulse" cx="138" cy="86" r="14" fill="url(#aiCoreGrad)" filter="url(#coreGlow)"/>
+            <!-- Bot / AI Icon -->
+            <rect x="132" y="80" width="12" height="10" rx="3" fill="#ffffff"/>
+            <circle cx="135" cy="84" r="1" fill="#B800F5"/>
+            <circle cx="141" cy="84" r="1" fill="#B800F5"/>
+            <line x1="138" y1="77" x2="138" y2="80" stroke="#ffffff" stroke-width="1"/>
+            <circle cx="138" cy="76" r="1" fill="#ffffff"/>
+            <text x="138" y="96" font-family="'Inter', sans-serif" font-size="4.8" fill="#ffffff" font-weight="700" text-anchor="middle">AI BOT</text>
+
+            <!-- ================= RIGHT: INSTANT AI REPLIES ================= -->
+
+            <!-- WhatsApp AI Reply -->
+            <g class="g-anim-reply-out1">
+              <rect x="154" y="30" width="112" height="34" rx="7" fill="rgba(184, 0, 245, 0.22)" stroke="#E879F9" stroke-width="1.2"/>
+              <text x="162" y="39" font-family="'Inter', sans-serif" font-size="5.8" fill="#E879F9" font-weight="700">&bull; AI Reply &bull; 0.2s</text>
+              <text x="162" y="48" font-family="'Inter', sans-serif" font-size="6" fill="#ffffff">"Sent 4K portfolio &amp; rates 🚀"</text>
+              <!-- WhatsApp green checkmarks -->
+              <text x="250" y="58" font-family="'Inter', sans-serif" font-size="7" fill="#25D366" font-weight="700">&check;&check;</text>
+            </g>
+
+            <!-- Instagram AI Reply -->
+            <g class="g-anim-reply-out2">
+              <rect x="154" y="69" width="112" height="34" rx="7" fill="rgba(184, 0, 245, 0.22)" stroke="#E879F9" stroke-width="1.2"/>
+              <text x="162" y="78" font-family="'Inter', sans-serif" font-size="5.8" fill="#E879F9" font-weight="700">&bull; AI Reply &bull; 0.1s</text>
+              <text x="162" y="87" font-family="'Inter', sans-serif" font-size="6" fill="#ffffff">"Here's Webflow pricing ✨"</text>
+              <text x="250" y="97" font-family="'Inter', sans-serif" font-size="7" fill="#25D366" font-weight="700">&check;&check;</text>
+            </g>
+
+            <!-- Messenger AI Reply -->
+            <g class="g-anim-reply-out3">
+              <rect x="154" y="108" width="112" height="34" rx="7" fill="rgba(184, 0, 245, 0.22)" stroke="#E879F9" stroke-width="1.2"/>
+              <text x="162" y="117" font-family="'Inter', sans-serif" font-size="5.8" fill="#E879F9" font-weight="700">&bull; AI Reply &bull; 0.3s</text>
+              <text x="162" y="126" font-family="'Inter', sans-serif" font-size="6" fill="#ffffff">"Call booked for tomorrow 📅"</text>
+              <text x="250" y="136" font-family="'Inter', sans-serif" font-size="7" fill="#25D366" font-weight="700">&check;&check;</text>
+            </g>
+
+            <!-- ================= BOTTOM STATS BAR ================= -->
+            <rect x="14" y="148" width="252" height="20" rx="5" fill="rgba(24, 7, 38, 0.8)" stroke="rgba(184, 0, 245, 0.3)" stroke-width="1"/>
+            
+            <circle class="g-anim-live-dot" cx="24" cy="158" r="2.5" fill="#22c55e"/>
+            <text x="32" y="161.5" font-family="'Inter', sans-serif" font-size="6" fill="#ffffff" font-weight="700">100% Automated</text>
+
+            <text x="140" y="161.5" font-family="'Inter', sans-serif" font-size="5.8" fill="rgba(225, 200, 250, 0.7)" text-anchor="middle">WhatsApp &bull; Messenger &bull; Instagram</text>
+
+            <rect x="206" y="152" width="56" height="12" rx="3" fill="rgba(184, 0, 245, 0.35)"/>
+            <text x="234" y="160.5" font-family="'Inter', sans-serif" font-size="5.8" fill="#E879F9" text-anchor="middle" font-weight="700">Reply: &lt; 0.3s</text>
           </svg>
         </div>
 
         <div class="g-svc-body">
           <div class="g-svc-icon-badge">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E879F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="16 18 22 12 16 6"></polyline>
-              <polyline points="8 6 2 12 8 18"></polyline>
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
             </svg>
           </div>
           <h3 class="g-svc-name">AI Automation</h3>
           <p class="g-svc-desc">
-            Smart no-code workflows, custom AI chatbots, and automated pipelines that save 20+ hours weekly and eliminate repetitive work.
+            24/7 Omnichannel AI auto-responders that instantly answer leads on WhatsApp, Messenger &amp; Instagram, qualifying buyers and booking calls on autopilot.
           </p>
         </div>
       </div>
