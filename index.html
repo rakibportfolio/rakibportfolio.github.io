@@ -3031,58 +3031,61 @@
   line-height: 1.6;
 }
 
-/* ── Filter Tabs ── */
+/* ── Filter Tabs (Landscape Side-by-Side & Compact) ── */
 .pf-tabs {
-  display: flex;
+  display: inline-flex;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 48px;
-  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0 auto 40px;
+  flex-wrap: nowrap;
+  max-width: 100%;
 }
 
 .pf-tab-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 24px;
+  gap: 6px;
+  padding: 8px 16px;
   border-radius: 999px;
   border: 1px solid rgba(184,0,245,.28);
   background: rgba(10,3,16,.7);
-  color: rgba(225,200,250,.5);
+  color: rgba(225,200,250,.65);
   font-family: 'Poppins', sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   cursor: pointer;
   transition: all .28s ease;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  white-space: nowrap;
 }
 
 .pf-tab-btn:hover {
   border-color: rgba(184,0,245,.55);
-  color: rgba(225,200,250,.85);
-  background: rgba(184,0,245,.1);
+  color: rgba(225,200,250,.95);
+  background: rgba(184,0,245,.12);
 }
 
 .pf-tab-btn.pf-active {
   background: linear-gradient(135deg,#B800F5,#7c00cc);
   border-color: transparent;
   color: #fff;
-  box-shadow: 0 4px 20px rgba(184,0,245,.45);
+  box-shadow: 0 4px 16px rgba(184,0,245,.45);
 }
 
 .pf-tab-count {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 20px; height: 20px;
+  width: 18px; height: 18px;
   border-radius: 50%;
   background: rgba(255,255,255,.18);
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
 }
 
-.pf-tab-btn.pf-active .pf-tab-count { background: rgba(255,255,255,.25); }
+.pf-tab-btn.pf-active .pf-tab-count { background: rgba(255,255,255,.28); }
 
 /* ── Panels ── */
 .pf-panel { display: none; }
@@ -3205,6 +3208,20 @@
   #portfolio-section { padding: 80px 16px 90px; }
   .pf-grid, .pf-grid-2col { grid-template-columns: 1fr; }
   .pf-title { font-size: clamp(28px,8vw,42px); }
+  .pf-tabs {
+    gap: 6px;
+    margin-bottom: 28px;
+  }
+  .pf-tab-btn {
+    padding: 6px 12px;
+    font-size: 11px;
+    gap: 5px;
+  }
+  .pf-tab-count {
+    width: 16px;
+    height: 16px;
+    font-size: 9px;
+  }
 }
 </style>
 
