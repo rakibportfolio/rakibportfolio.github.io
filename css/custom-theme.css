@@ -363,7 +363,10 @@ a.button-03 .button-arrow-wrapper {
   position: relative !important;
   overflow: hidden !important;
   background: radial-gradient(ellipse at 50% 0%, rgba(184, 0, 245, 0.28) 0%, rgba(88, 11, 130, 0.14) 42%, #08010E 82%) !important;
-  padding-top: 105px !important; /* Seamless space below the absolute floating navbar */
+  padding-top: 105px !important;
+  padding-bottom: 0 !important;
+  border-bottom: none !important;
+  margin-bottom: 0 !important;
   perspective: 1400px !important;
   perspective-origin: 50% 35% !important;
   transform-style: preserve-3d !important;
@@ -1359,6 +1362,8 @@ a.proof-card:hover {
   /* Hero Section spacing below fixed navbar */
   .hero-section {
     padding-top: 86px !important;
+    padding-bottom: 0 !important;
+    border-bottom: none !important;
   }
 
   /* Unique 3-pillar engine cards */
@@ -1404,6 +1409,8 @@ a.proof-card:hover {
 
   .hero-section {
     padding-top: 76px !important;
+    padding-bottom: 0 !important;
+    border-bottom: none !important;
     min-height: auto !important;
   }
 
@@ -1492,6 +1499,8 @@ a.proof-card:hover {
 
   .hero-section {
     padding-top: 68px !important;
+    padding-bottom: 0 !important;
+    border-bottom: none !important;
   }
 
   .hero-title h1 .hero-line-1 {
