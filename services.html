@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Our Services | Zentic Media</title>
+<meta name="description" content="Explore all Zentic Media services: High-converting Video Editing, Graphics Design, Web Design, Digital Marketing and AI Automation."/>
+<link rel="icon" type="image/x-icon" href="favicon.ico?v=5.0"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="css/mzmedia.css?v=2.0" rel="stylesheet" type="text/css"/>
+<link href="css/custom-theme.css?v=12.0" rel="stylesheet" type="text/css"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --purple: #7c3aed; --purple-light: #a78bfa; --purple-dark: #6d28d9; }
+body { background: #09090b; color: #fff; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+/* NAV */
+.sp-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 999; display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; background: rgba(9,9,11,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.06); }
+.sp-nav-logo { height: 32px; width: auto; object-fit: contain; }
+.sp-nav-links { display: flex; gap: 32px; align-items: center; }
+.sp-nav-links a { font-size: 14px; color: rgba(255,255,255,0.60); text-decoration: none; transition: color 0.2s; }
+.sp-nav-links a:hover,.sp-nav-links a.active { color: #fff; }
+.sp-nav-cta { background: linear-gradient(135deg,#7c3aed,#6d28d9); color: #fff !important; padding: 10px 22px; border-radius: 50px; font-weight: 600; box-shadow: 0 0 20px rgba(124,58,237,0.3); transition: all 0.3s !important; }
+.sp-nav-cta:hover { box-shadow: 0 0 35px rgba(124,58,237,0.6); transform: translateY(-1px); }
+
+/* HERO */
+.sp-hero { padding: 160px 48px 80px; text-align: center; position: relative; overflow: hidden; }
+.sp-hero::before { content: ''; position: absolute; top: -100px; left: 50%; transform: translateX(-50%); width: 800px; height: 500px; background: radial-gradient(ellipse,rgba(124,58,237,0.20) 0%,transparent 70%); pointer-events: none; }
+.sp-hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(124,58,237,0.12); border: 1px solid rgba(124,58,237,0.30); border-radius: 50px; padding: 6px 18px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #a78bfa; margin-bottom: 28px; }
+.sp-eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: #7c3aed; animation: sp-pulse 2s ease-in-out infinite; }
+@keyframes sp-pulse { 0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(0.7);} }
+.sp-hero h1 { font-size: clamp(40px,7vw,78px); font-weight: 700; line-height: 1.05; letter-spacing: -1px; color: #fff; margin-bottom: 24px; }
+.sp-hero h1 span { background: linear-gradient(135deg,#a78bfa,#7c3aed,#c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.sp-hero-desc { font-size: 17px; color: rgba(255,255,255,0.50); max-width: 560px; margin: 0 auto 44px; line-height: 1.7; }
+.sp-hero-btn { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg,#7c3aed,#6d28d9); color: #fff; font-size: 15px; font-weight: 600; padding: 15px 36px; border-radius: 50px; text-decoration: none; box-shadow: 0 0 40px rgba(124,58,237,0.4); transition: all 0.3s; }
+.sp-hero-btn:hover { transform: translateY(-2px); box-shadow: 0 0 60px rgba(124,58,237,0.6); }
+
+/* STATS */
+.sp-stats { display: flex; justify-content: center; margin: 0 48px 80px; border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; background: rgba(255,255,255,0.02); overflow: hidden; }
+.sp-stat { flex: 1; text-align: center; padding: 32px 20px; border-right: 1px solid rgba(255,255,255,0.07); }
+.sp-stat:last-child { border-right: none; }
+.sp-stat-num { font-size: 36px; font-weight: 700; color: #a78bfa; display: block; line-height: 1; margin-bottom: 6px; }
+.sp-stat-label { font-size: 12px; color: rgba(255,255,255,0.40); }
+
+/* SERVICES GRID */
+.sp-wrap { max-width: 1200px; margin: 0 auto; padding: 0 40px 100px; }
+.sp-section-label { text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.28); margin-bottom: 48px; }
+.sp-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+
+/* CARD */
+.sp-card { position: relative; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 24px; padding: 40px 36px; transition: all 0.4s cubic-bezier(0.23,1,0.32,1); overflow: hidden; }
+.sp-card:hover { border-color: var(--c, rgba(124,58,237,0.40)); transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,0.35); }
+.sp-card.span2 { grid-column: span 2; }
+.sp-card.span3 { grid-column: span 3; }
+.sp-card-icon { width: 54px; height: 54px; border-radius: 15px; display: flex; align-items: center; justify-content: center; margin-bottom: 22px; background: var(--ic, rgba(124,58,237,0.14)); border: 1px solid var(--ib, rgba(124,58,237,0.28)); }
+.sp-card-icon svg { width: 24px; height: 24px; }
+.sp-card-num { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--nc, #a78bfa); margin-bottom: 12px; display: block; }
+.sp-card h3 { font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 12px; line-height: 1.2; letter-spacing: -0.3px; }
+.sp-card p { font-size: 14px; line-height: 1.75; color: rgba(255,255,255,0.48); margin-bottom: 22px; }
+.sp-feats { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.sp-feats li { font-size: 13px; color: rgba(255,255,255,0.55); display: flex; align-items: center; gap: 10px; }
+.sp-feats li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--nc, #a78bfa); flex-shrink: 0; }
+.sp-card-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--nc, #a78bfa); text-decoration: none; margin-top: 26px; transition: gap 0.2s; }
+.sp-card-link:hover { gap: 11px; }
+
+/* Color themes */
+.purple { --c: rgba(124,58,237,0.40); --ic: rgba(124,58,237,0.14); --ib: rgba(124,58,237,0.28); --nc: #a78bfa; }
+.blue   { --c: rgba(59,130,246,0.40);  --ic: rgba(59,130,246,0.12);  --ib: rgba(59,130,246,0.25);  --nc: #93c5fd; }
+.pink   { --c: rgba(236,72,153,0.40);  --ic: rgba(236,72,153,0.12);  --ib: rgba(236,72,153,0.28);  --nc: #f9a8d4; }
+.green  { --c: rgba(34,197,94,0.40);   --ic: rgba(34,197,94,0.12);   --ib: rgba(34,197,94,0.28);   --nc: #86efac; }
+.orange { --c: rgba(249,115,22,0.40);  --ic: rgba(249,115,22,0.12);  --ib: rgba(249,115,22,0.28);  --nc: #fdba74; }
+
+/* CTA */
+.sp-cta { max-width: 1200px; margin: 0 auto 100px; padding: 0 40px; }
+.sp-cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: 52px 60px; background: linear-gradient(135deg,rgba(124,58,237,0.18),rgba(109,40,217,0.10)); border: 1px solid rgba(124,58,237,0.28); border-radius: 28px; flex-wrap: wrap; }
+.sp-cta h2 { font-size: clamp(26px,3.5vw,42px); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 8px; }
+.sp-cta p { font-size: 15px; color: rgba(255,255,255,0.50); }
+.sp-cta-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.sp-cta-btn { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg,#7c3aed,#6d28d9); color: #fff; font-size: 15px; font-weight: 600; padding: 15px 32px; border-radius: 50px; text-decoration: none; white-space: nowrap; box-shadow: 0 0 30px rgba(124,58,237,0.4); transition: all 0.3s; }
+.sp-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 0 50px rgba(124,58,237,0.6); }
+.sp-back { font-size: 14px; color: rgba(255,255,255,0.45); text-decoration: none; white-space: nowrap; transition: color 0.2s; }
+.sp-back:hover { color: #fff; }
+
+/* FOOTER */
+.sp-foot { border-top: 1px solid rgba(255,255,255,0.07); padding: 24px 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.sp-foot p { font-size: 13px; color: rgba(255,255,255,0.28); }
+.sp-foot a { color: rgba(255,255,255,0.40); text-decoration: none; transition: color 0.2s; }
+.sp-foot a:hover { color: #a78bfa; }
+
+/* Responsive */
+@media (max-width:900px) {
+  .sp-nav { padding: 16px 24px; }
+  .sp-nav-links { display: none; }
+  .sp-hero { padding: 130px 24px 60px; }
+  .sp-stats { margin: 0 24px 60px; flex-wrap: wrap; }
+  .sp-stat { min-width: 50%; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .sp-wrap { padding: 0 20px 80px; }
+  .sp-grid { grid-template-columns: 1fr; }
+  .sp-card.span2,.sp-card.span3 { grid-column: span 1; }
+  .sp-cta { padding: 0 20px; }
+  .sp-cta-inner { padding: 36px 28px; flex-direction: column; text-align: center; }
+  .sp-cta-actions { justify-content: center; }
+  .sp-foot { padding: 20px; flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="sp-nav">
+  <a href="index.html"><img src="assets/zentic_logo.png" alt="Zentic Media" class="sp-nav-logo"/></a>
+  <div class="sp-nav-links">
+    <a href="index.html">Home</a>
+    <a href="services.html" class="active">Services</a>
+    <a href="index.html#work">Work</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="mailto:technicalrakib999@gmail.com" class="sp-nav-cta">Get Started</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="sp-hero">
+  <div class="sp-hero-eyebrow">
+    <span class="sp-eyebrow-dot"></span>What We Offer
+  </div>
+  <h1>Everything Your Brand Needs<br/><span>To Dominate.</span></h1>
+  <p class="sp-hero-desc">High-converting video editing, stunning design, powerful websites &amp; AI automation — all under one roof, built to grow your business.</p>
+  <a href="mailto:technicalrakib999@gmail.com" class="sp-hero-btn">
+    Start a Project
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</div>
+
+<!-- STATS -->
+<div class="sp-stats">
+  <div class="sp-stat"><span class="sp-stat-num">5+</span><span class="sp-stat-label">Core Services</span></div>
+  <div class="sp-stat"><span class="sp-stat-num">24–48h</span><span class="sp-stat-label">Fast Delivery</span></div>
+  <div class="sp-stat"><span class="sp-stat-num">100%</span><span class="sp-stat-label">Satisfaction Guarantee</span></div>
+  <div class="sp-stat"><span class="sp-stat-num">&#8734;</span><span class="sp-stat-label">Revisions Until Happy</span></div>
+</div>
+
+<!-- SERVICES BENTO GRID -->
+<div class="sp-wrap">
+  <p class="sp-section-label">&#x2014; Core Capabilities &#x2014;</p>
+  <div class="sp-grid">
+
+    <!-- VIDEO EDITING — span 2 -->
+    <div class="sp-card purple span2">
+      <div class="sp-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="5" width="15" height="11" rx="2.5" stroke="#a78bfa" stroke-width="1.6"/>
+          <path d="M16 9.5l6-3.5v10l-6-3.5V9.5z" fill="#a78bfa" opacity="0.6"/>
+        </svg>
+      </div>
+      <span class="sp-card-num">01 &mdash; Video Editing</span>
+      <h3>Cinema-Grade Video Editing</h3>
+      <p>From raw footage to scroll-stopping content. We cut, color, animate and deliver videos that hold attention and drive action. Short-form, long-form, ads, and brand films.</p>
+      <ul class="sp-feats">
+        <li>Short-form reels &amp; TikTok / YouTube Shorts</li>
+        <li>Long-form YouTube &amp; brand documentaries</li>
+        <li>Motion graphics &amp; kinetic typography</li>
+        <li>Color grading &amp; professional sound design</li>
+        <li>85%+ retention engineering on every cut</li>
+      </ul>
+      <a href="mailto:technicalrakib999@gmail.com" class="sp-card-link">Get a Quote &#x2192;</a>
+    </div>
+
+    <!-- GRAPHICS DESIGN -->
+    <div class="sp-card pink">
+      <div class="sp-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="9" stroke="#f9a8d4" stroke-width="1.6"/>
+          <circle cx="12" cy="12" r="4" fill="#ec4899" opacity="0.45"/>
+          <path d="M12 3v3M12 18v3M3 12h3M18 12h3" stroke="#f9a8d4" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span class="sp-card-num">02 &mdash; Graphics</span>
+      <h3>Bold Graphics Design</h3>
+      <p>Thumbnails, social posts, banners and brand kits that stop the scroll instantly.</p>
+      <ul class="sp-feats">
+        <li>YouTube thumbnails</li>
+        <li>Social media graphics</li>
+        <li>Brand identity kits</li>
+        <li>Ad creatives &amp; banners</li>
+      </ul>
+      <a href="mailto:technicalrakib999@gmail.com" class="sp-card-link">Get a Quote &#x2192;</a>
+    </div>
+
+    <!-- WEB DESIGN -->
+    <div class="sp-card blue">
+      <div class="sp-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="4" width="20" height="14" rx="2.5" stroke="#93c5fd" stroke-width="1.6"/>
+          <path d="M2 8h20" stroke="#93c5fd" stroke-width="1.4"/>
+          <circle cx="5.5" cy="6" r="0.8" fill="#93c5fd"/>
+          <circle cx="8.5" cy="6" r="0.8" fill="#93c5fd"/>
+          <rect x="6" y="11" width="12" height="1.5" rx="0.75" fill="#93c5fd" opacity="0.45"/>
+          <rect x="6" y="14" width="8" height="1.5" rx="0.75" fill="#93c5fd" opacity="0.28"/>
+        </svg>
+      </div>
+      <span class="sp-card-num">03 &mdash; Web Design</span>
+      <h3>High-Converting Websites</h3>
+      <p>Premium websites built to convert visitors into paying customers. Fast, mobile-first, and built with conversion psychology from day one.</p>
+      <ul class="sp-feats">
+        <li>Landing pages &amp; portfolios</li>
+        <li>SaaS &amp; product websites</li>
+        <li>E-commerce storefronts</li>
+        <li>SEO-optimized &amp; mobile-first</li>
+      </ul>
+      <a href="mailto:technicalrakib999@gmail.com" class="sp-card-link">Get a Quote &#x2192;</a>
+    </div>
+
+    <!-- DIGITAL MARKETING -->
+    <div class="sp-card green">
+      <div class="sp-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 17L8.5 11L12.5 15L18 8L22 12" stroke="#86efac" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="22" cy="12" r="2" fill="#22c55e"/>
+          <circle cx="3" cy="17" r="2" fill="#22c55e" opacity="0.4"/>
+        </svg>
+      </div>
+      <span class="sp-card-num">04 &mdash; Marketing</span>
+      <h3>Digital Marketing Strategy</h3>
+      <p>Ad campaigns, content strategies and funnels that generate real ROI. We build systems that scale.</p>
+      <ul class="sp-feats">
+        <li>Meta, Google &amp; TikTok ads</li>
+        <li>Content strategy &amp; calendars</li>
+        <li>Funnel design &amp; optimization</li>
+        <li>Analytics &amp; performance tracking</li>
+      </ul>
+      <a href="mailto:technicalrakib999@gmail.com" class="sp-card-link">Get a Quote &#x2192;</a>
+    </div>
+
+    <!-- AI AUTOMATION — span 2 -->
+    <div class="sp-card orange span2">
+      <div class="sp-card-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="7" y="2" width="10" height="7" rx="2" stroke="#fdba74" stroke-width="1.6"/>
+          <path d="M12 9v4" stroke="#fdba74" stroke-width="1.4" stroke-linecap="round"/>
+          <rect x="1" y="13" width="8" height="7" rx="2" stroke="#fdba74" stroke-width="1.5"/>
+          <rect x="15" y="13" width="8" height="7" rx="2" stroke="#fdba74" stroke-width="1.5"/>
+          <path d="M5 13v-1.5h14V13" stroke="#fdba74" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span class="sp-card-num">05 &mdash; AI Automation</span>
+      <h3>AI Automation &amp; Smart Systems</h3>
+      <p>AI chatbots and automation workflows that save you hours every day. Auto-reply across WhatsApp, Messenger, Instagram &amp; Telegram — 24/7, under 1 second, zero missed leads.</p>
+      <ul class="sp-feats">
+        <li>AI chatbots (WhatsApp, Instagram, Telegram, Messenger)</li>
+        <li>Lead capture &amp; CRM automation</li>
+        <li>n8n &amp; Make.com workflow builds</li>
+        <li>Email &amp; follow-up sequences</li>
+        <li>24/7 automated customer support systems</li>
+      </ul>
+      <a href="mailto:technicalrakib999@gmail.com" class="sp-card-link">Get a Quote &#x2192;</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="sp-cta">
+  <div class="sp-cta-inner">
+    <div>
+      <h2>Ready to get started?</h2>
+      <p>Tell us about your project and we will get back within 24 hours.</p>
+    </div>
+    <div class="sp-cta-actions">
+      <a href="mailto:technicalrakib999@gmail.com" class="sp-cta-btn">
+        Start a Project
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="index.html" class="sp-back">&#x2190; Back to Home</a>
+    </div>
+  </div>
+</div>
+
+<!-- MINI FOOTER -->
+<div class="sp-foot">
+  <p>&copy; 2026 <a href="index.html">Zentic Media</a>. All rights reserved.</p>
+  <p><a href="mailto:technicalrakib999@gmail.com">technicalrakib999@gmail.com</a></p>
+</div>
+
+</body>
+</html>
