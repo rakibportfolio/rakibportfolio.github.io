@@ -734,236 +734,382 @@
 </head>
 
 <style>
-/* =============================================
-   SERVICES PAGE - EXTRA STYLES
-   (on top of homepage CSS already loaded)
-   ============================================= */
-@keyframes fade-in-up  { from{opacity:0;transform:translateY(24px);}  to{opacity:1;transform:translateY(0);} }
-@keyframes grad-shift  { 0%{background-position:0% center;} 100%{background-position:200% center;} }
-@keyframes pulse-dot   { 0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(139,92,246,.6);} 50%{opacity:.7;box-shadow:0 0 0 6px rgba(139,92,246,0);} }
-@keyframes orb-drift   { 0%{transform:translate(0,0) scale(1);} 100%{transform:translate(60px,40px) scale(1.1);} }
+/*  SERVICES PAGE — DESIGN MATCHES HOMEPAGE 100%
+    Palette:  #08010E bg | #150522 card | #B800F5 accent | #580B82 mid
+    Font:     Coolvetica (headings) | Poppins (body)
+    Same borders, glows, gradients as homepage  */
 
-/* BG orbs */
+/* ── Keyframes ── */
+@keyframes svc-float   { 0%,100%{transform:translateY(0);}   50%{transform:translateY(-14px);} }
+@keyframes svc-pulse   { 0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(184,0,245,.5);} 60%{opacity:.7;box-shadow:0 0 0 10px rgba(184,0,245,0);} }
+@keyframes svc-shimmer { 0%{transform:translateX(-100%);} 100%{transform:translateX(200%);} }
+@keyframes svc-orb     { 0%{transform:translate(0,0) scale(1);} 100%{transform:translate(50px,30px) scale(1.12);} }
+@keyframes svc-grad    { 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
+@keyframes svc-fade-up { from{opacity:0;transform:translateY(28px);} to{opacity:1;transform:translateY(0);} }
+
+/* ── Ambient orbs ── */
 .svc-orb-wrap{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
-.svc-orb{position:absolute;border-radius:50%;filter:blur(100px);}
-.svc-orb-1{width:600px;height:600px;background:rgba(124,58,237,.12);top:-200px;left:-100px;animation:orb-drift 22s ease-in-out infinite alternate;}
-.svc-orb-2{width:400px;height:400px;background:rgba(236,72,153,.07);top:40%;right:-100px;animation:orb-drift 18s ease-in-out infinite alternate;animation-delay:-8s;}
-.svc-orb-3{width:500px;height:500px;background:rgba(59,130,246,.06);bottom:-100px;left:30%;animation:orb-drift 25s ease-in-out infinite alternate;animation-delay:-12s;}
+.svc-orb{position:absolute;border-radius:50%;filter:blur(90px);}
+.svc-orb-a{width:700px;height:700px;background:rgba(184,0,245,.10);top:-200px;left:-150px;animation:svc-orb 24s ease-in-out infinite alternate;}
+.svc-orb-b{width:450px;height:450px;background:rgba(88,11,130,.12);bottom:-100px;right:-100px;animation:svc-orb 18s ease-in-out infinite alternate;animation-delay:-10s;}
+.svc-orb-c{width:380px;height:380px;background:rgba(184,0,245,.06);top:45%;left:40%;animation:svc-orb 22s ease-in-out infinite alternate;animation-delay:-6s;}
 
-/* Page wrapper */
-#svc-page{
-  background:#050507;
-  min-height:100vh;
-  padding-top:90px;
-  font-family:'Syne','Inter',sans-serif;
+/* ── Page base ── */
+#svc-pg {
+  background: #08010E;
+  min-height: 100vh;
+  padding-top: 90px;
+  position: relative;
+  z-index: 1;
 }
 
 /* ── HERO ── */
-.svc-hero{
-  position:relative;z-index:1;
-  text-align:center;
-  padding:80px 48px 72px;
-  display:flex;flex-direction:column;align-items:center;
+.svc-hero {
+  position: relative; z-index: 2;
+  text-align: center;
+  padding: 70px 48px 80px;
+  overflow: hidden;
 }
-.svc-eyebrow{
-  display:inline-flex;align-items:center;gap:10px;
-  padding:6px 18px 6px 8px;
-  background:rgba(124,58,237,.10);
-  border:1px solid rgba(124,58,237,.28);
-  border-radius:50px;
-  font-size:11px;font-weight:700;
-  letter-spacing:.12em;text-transform:uppercase;
-  color:#a78bfa;
-  margin-bottom:32px;
-  animation:fade-in-up .6s ease both;
+.svc-hero::before {
+  content:'';position:absolute;top:-120px;left:50%;transform:translateX(-50%);
+  width:900px;height:600px;
+  background:radial-gradient(ellipse at 50% 30%, rgba(184,0,245,.22) 0%, rgba(88,11,130,.08) 45%, transparent 70%);
+  filter:blur(70px);pointer-events:none;
 }
-.svc-eyebrow-icon{width:22px;height:22px;border-radius:50%;background:rgba(124,58,237,.25);display:flex;align-items:center;justify-content:center;}
-.svc-eyebrow-dot{width:7px;height:7px;border-radius:50%;background:#8b5cf6;animation:pulse-dot 2s ease-in-out infinite;}
-.svc-hero h1{
-  font-family:'Syne',sans-serif;
-  font-size:clamp(42px,6.5vw,86px);font-weight:800;
-  line-height:1.03;letter-spacing:-2.5px;color:#fff;
-  max-width:900px;margin-bottom:24px;
-  animation:fade-in-up .7s .1s ease both;
-}
-.svc-hero h1 .svc-grad{
-  background:linear-gradient(135deg,#c084fc 0%,#a78bfa 35%,#818cf8 65%,#60a5fa 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  background-size:200% auto;animation:grad-shift 4s linear infinite;
-}
-.svc-hero-desc{
-  font-family:'Inter',sans-serif;
-  font-size:17px;line-height:1.75;
-  color:rgba(255,255,255,.50);
-  max-width:560px;margin:0 auto 44px;
-  animation:fade-in-up .8s .2s ease both;
-}
-.svc-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap;justify-content:center;animation:fade-in-up .9s .3s ease both;}
 
-/* Buttons */
-.svc-btn-primary{
-  display:inline-flex;align-items:center;gap:10px;
-  background:linear-gradient(135deg,#7c3aed,#6d28d9);
-  color:#fff;font-family:'Inter',sans-serif;
-  font-size:15px;font-weight:700;
-  padding:15px 32px;border-radius:50px;text-decoration:none;
-  box-shadow:0 0 40px rgba(124,58,237,.40),inset 0 1px 0 rgba(255,255,255,.12);
-  transition:all .3s cubic-bezier(.23,1,.32,1);
+/* Eyebrow badge */
+.svc-badge {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 5px 18px 5px 9px;
+  background: linear-gradient(135deg, rgba(184,0,245,.18), rgba(88,11,130,.22));
+  border: 1px solid rgba(240,85,255,.35);
+  border-radius: 9999px;
+  box-shadow: 0 0 18px rgba(184,0,245,.22), inset 0 1px 0 rgba(255,255,255,.12);
+  backdrop-filter: blur(10px);
+  font-family: 'Poppins', sans-serif;
+  font-size: 9.5px; font-weight: 700;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: #F5D0FE;
+  margin-bottom: 28px;
+  animation: svc-fade-up .6s ease both;
 }
-.svc-btn-primary:hover{transform:translateY(-3px);box-shadow:0 0 70px rgba(124,58,237,.65),inset 0 1px 0 rgba(255,255,255,.12);}
-.svc-btn-primary:hover svg{transform:translateX(4px);}
-.svc-btn-primary svg{transition:transform .3s;}
-.svc-btn-ghost{
-  display:inline-flex;align-items:center;gap:8px;
-  font-family:'Inter',sans-serif;font-size:15px;font-weight:600;
-  color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s;
+.svc-badge-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #B800F5;
+  box-shadow: 0 0 8px rgba(184,0,245,.8);
+  animation: svc-pulse 2s ease-in-out infinite;
 }
-.svc-btn-ghost:hover{color:#fff;}
+
+/* Hero headline */
+.svc-h1 {
+  font-family: 'Coolvetica', sans-serif;
+  font-size: clamp(48px, 7vw, 90px);
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: -1px;
+  color: #fff;
+  margin: 0 auto 24px; max-width: 960px;
+  animation: svc-fade-up .7s .1s ease both;
+}
+.svc-h1 .svc-h1-grad {
+  background: linear-gradient(120deg, #F5D0FE 0%, #E879F9 30%, #B800F5 60%, #7000A8 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  animation: svc-grad 4s ease infinite;
+}
+
+/* Hero sub */
+.svc-sub {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px; line-height: 1.75; font-weight: 400;
+  color: rgba(225,200,250,.70);
+  max-width: 540px; margin: 0 auto 44px;
+  animation: svc-fade-up .8s .2s ease both;
+}
+
+/* Hero CTA row */
+.svc-hero-btns {
+  display: flex; gap: 16px; align-items: center;
+  justify-content: center; flex-wrap: wrap;
+  animation: svc-fade-up .9s .3s ease both;
+}
+.svc-btn-main {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: linear-gradient(135deg, #B800F5 0%, #7000A8 100%);
+  color: #fff;
+  font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 600;
+  padding: 14px 30px; border-radius: 10px; text-decoration: none;
+  border: 1px solid rgba(240,85,255,.40);
+  box-shadow: 0 0 28px rgba(184,0,245,.35), 0 4px 16px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.12);
+  transition: all .3s cubic-bezier(.23,1,.32,1);
+  position: relative; overflow: hidden;
+}
+.svc-btn-main::after {
+  content:''; position:absolute; top:0; left:-100%; width:50%; height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);
+  transition:left .5s ease;
+}
+.svc-btn-main:hover { transform:translateY(-3px); box-shadow:0 0 50px rgba(184,0,245,.55),0 8px 24px rgba(0,0,0,.5); }
+.svc-btn-main:hover::after { left:150%; }
+.svc-btn-main:hover svg { transform:translateX(4px); }
+.svc-btn-main svg { transition:transform .3s; }
+
+.svc-btn-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 500;
+  color: rgba(245,208,254,.60); text-decoration: none;
+  padding: 14px 24px; border-radius: 10px;
+  border: 1px solid rgba(184,0,245,.20);
+  transition: all .25s;
+}
+.svc-btn-ghost:hover { color:#fff; border-color:rgba(184,0,245,.50); background:rgba(184,0,245,.08); }
 
 /* ── STATS STRIP ── */
-.svc-stats{
-  position:relative;z-index:1;
-  display:grid;grid-template-columns:repeat(4,1fr);
-  margin:0 48px 80px;
-  border-radius:20px;
-  border:1px solid rgba(255,255,255,.07);
-  background:rgba(255,255,255,.025);
-  overflow:hidden;
+.svc-stats {
+  position: relative; z-index: 2;
+  display: grid; grid-template-columns: repeat(4,1fr);
+  margin: 0 48px 80px;
+  border-radius: 16px;
+  border: 1px solid rgba(184,0,245,.22);
+  background: rgba(21,5,34,.50);
+  backdrop-filter: blur(16px);
+  overflow: hidden;
 }
-.svc-stat{padding:36px 20px;text-align:center;border-right:1px solid rgba(255,255,255,.07);transition:background .3s;}
-.svc-stat:hover{background:rgba(124,58,237,.05);}
-.svc-stat:last-child{border-right:none;}
-.svc-stat-num{
-  font-family:'Syne',sans-serif;font-size:38px;font-weight:800;letter-spacing:-2px;
-  background:linear-gradient(135deg,#fff 0%,#a78bfa 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  display:block;line-height:1;margin-bottom:8px;
+.svc-stats::before {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(135deg,rgba(184,0,245,.07),transparent 60%);
+  pointer-events:none;
 }
-.svc-stat-label{font-family:'Inter',sans-serif;font-size:12px;font-weight:500;color:rgba(255,255,255,.30);letter-spacing:.04em;}
+.svc-stat {
+  padding: 34px 20px; text-align: center;
+  border-right: 1px solid rgba(184,0,245,.15);
+  position: relative; transition: background .3s;
+}
+.svc-stat:hover { background:rgba(184,0,245,.07); }
+.svc-stat:last-child { border-right: none; }
+.svc-stat-val {
+  font-family: 'Coolvetica', sans-serif;
+  font-size: 40px; font-weight: 800; letter-spacing: -.5px;
+  background: linear-gradient(135deg, #fff 0%, #E879F9 60%, #B800F5 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  display: block; line-height: 1; margin-bottom: 6px;
+}
+.svc-stat-lbl {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11.5px; font-weight: 500;
+  color: rgba(225,200,250,.45); letter-spacing: .03em;
+}
 
-/* ── SECTION ── */
-.svc-wrap{position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:0 48px 120px;}
-.svc-section-tag{display:flex;align-items:center;gap:10px;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:12px;}
-.svc-section-tag::before{content:'';display:block;width:20px;height:1px;background:rgba(255,255,255,.15);}
-.svc-section-title{font-family:'Syne',sans-serif;font-size:clamp(30px,3vw,46px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;color:#fff;margin-bottom:52px;}
+/* ── SECTION HEADER ── */
+.svc-sec-wrap { position:relative;z-index:2;max-width:1160px;margin:0 auto;padding:0 48px 120px; }
+.svc-sec-eyebrow {
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Poppins',sans-serif;
+  font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(232,121,249,.60);
+  margin-bottom:12px;
+}
+.svc-sec-eyebrow::before{content:'';display:block;width:22px;height:1px;background:rgba(184,0,245,.45);}
+.svc-sec-h2 {
+  font-family:'Coolvetica',sans-serif;
+  font-size:clamp(32px,3.5vw,52px);font-weight:800;letter-spacing:-.5px;line-height:1.05;color:#fff;
+  margin-bottom:52px;
+}
+.svc-sec-h2 span {
+  background:linear-gradient(120deg,#F5D0FE,#E879F9,#B800F5);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
 
 /* ── BENTO GRID ── */
-.svc-bento{display:grid;grid-template-columns:repeat(12,1fr);gap:20px;}
+.svc-bento { display:grid; grid-template-columns:repeat(12,1fr); gap:18px; }
+.svc-span7  { grid-column:span 7; }
+.svc-span5  { grid-column:span 5; }
+.svc-span12 { grid-column:span 12; }
 
-/* ── CARD ── */
-.svc-card{
-  position:relative;
-  background:rgba(255,255,255,.025);
-  border:1px solid rgba(255,255,255,.07);
-  border-radius:22px;padding:40px;overflow:hidden;
-  transition:border-color .4s,transform .4s cubic-bezier(.23,1,.32,1),box-shadow .4s;
+/* ── SERVICE CARD ── */
+.svc-card {
+  position: relative;
+  background: rgba(21,5,34,.60);
+  border: 1px solid rgba(184,0,245,.22);
+  border-radius: 18px;
+  padding: 38px 34px;
+  overflow: hidden;
+  transition: all .4s cubic-bezier(.23,1,.32,1);
 }
-.svc-card::before{
-  content:'';position:absolute;inset:-1px;border-radius:23px;
-  background:var(--cg,linear-gradient(135deg,rgba(124,58,237,.55),rgba(139,92,246,.20)));
-  opacity:0;transition:opacity .4s;z-index:-1;
+/* Hover glow border */
+.svc-card::before {
+  content:''; position:absolute; inset:-1px; border-radius:19px;
+  background: var(--card-glow, linear-gradient(135deg,rgba(184,0,245,.60),rgba(88,11,130,.30)));
+  opacity:0; transition:opacity .4s; z-index:-1;
 }
-.svc-card::after{
-  content:'';position:absolute;top:0;left:-100%;
-  width:60%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.03),transparent);
+/* Shimmer on hover */
+.svc-card::after {
+  content:''; position:absolute; top:0; left:-100%; width:50%; height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.04),transparent);
   transition:left .7s ease;
 }
-.svc-card:hover{transform:translateY(-8px) scale(1.01);border-color:transparent;box-shadow:var(--cs,0 30px 80px rgba(124,58,237,.18));}
-.svc-card:hover::before{opacity:1;}
-.svc-card:hover::after{left:150%;}
+.svc-card:hover { transform:translateY(-8px) scale(1.015); border-color:transparent; box-shadow:var(--card-shadow,0 24px 70px rgba(184,0,245,.20)); }
+.svc-card:hover::before { opacity:1; }
+.svc-card:hover::after  { left:150%; }
 
-/* Spans */
-.sc12{grid-column:span 12;}
-.sc7{grid-column:span 7;}
-.sc5{grid-column:span 5;}
-
-/* Color themes */
-.cc-purple{--cg:linear-gradient(135deg,rgba(124,58,237,.55),rgba(139,92,246,.20));--cs:0 30px 80px rgba(124,58,237,.20);--nc:#a78bfa;--nb:rgba(124,58,237,.15);--nbb:rgba(124,58,237,.30);--nd:#7c3aed;}
-.cc-pink  {--cg:linear-gradient(135deg,rgba(236,72,153,.55),rgba(244,114,182,.20));--cs:0 30px 80px rgba(236,72,153,.18);--nc:#f9a8d4;--nb:rgba(236,72,153,.15);--nbb:rgba(236,72,153,.30);--nd:#ec4899;}
-.cc-blue  {--cg:linear-gradient(135deg,rgba(59,130,246,.55),rgba(96,165,250,.20)); --cs:0 30px 80px rgba(59,130,246,.18); --nc:#93c5fd;--nb:rgba(59,130,246,.15); --nbb:rgba(59,130,246,.30); --nd:#3b82f6;}
-.cc-green {--cg:linear-gradient(135deg,rgba(16,185,129,.55),rgba(52,211,153,.20)); --cs:0 30px 80px rgba(16,185,129,.18); --nc:#6ee7b7;--nb:rgba(16,185,129,.15); --nbb:rgba(16,185,129,.30); --nd:#10b981;}
-.cc-orange{--cg:linear-gradient(135deg,rgba(245,158,11,.55),rgba(251,191,36,.20)); --cs:0 30px 80px rgba(245,158,11,.18); --nc:#fcd34d;--nb:rgba(245,158,11,.15); --nbb:rgba(245,158,11,.30); --nd:#f59e0b;}
-
-/* Ambient glow */
-.svc-amb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.12;pointer-events:none;top:-80px;right:-80px;background:var(--nd,#7c3aed);width:280px;height:280px;transition:opacity .4s;}
-.svc-card:hover .svc-amb{opacity:.22;}
+/* Card ambient blob */
+.svc-blob {
+  position:absolute; border-radius:50%; filter:blur(70px);
+  opacity:.14; pointer-events:none;
+  top:-60px; right:-60px;
+  background: var(--blob-c, #B800F5);
+  width:260px; height:260px;
+  transition:opacity .4s;
+}
+.svc-card:hover .svc-blob { opacity:.25; }
 
 /* Deco ring */
-.svc-deco{position:absolute;bottom:0;right:0;width:180px;height:180px;opacity:.06;pointer-events:none;}
+.svc-ring { position:absolute;bottom:-10px;right:-10px;opacity:.06;pointer-events:none; }
 
-/* Icon */
-.svc-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:var(--nb);border:1px solid var(--nbb);margin-bottom:22px;position:relative;z-index:1;transition:transform .3s;}
-.svc-card:hover .svc-icon{transform:scale(1.1) rotate(-4deg);}
+/* Card icon box */
+.svc-icon {
+  width:50px;height:50px;border-radius:13px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--icon-bg,rgba(184,0,245,.15));
+  border:1px solid var(--icon-b,rgba(184,0,245,.32));
+  margin-bottom:20px;position:relative;z-index:1;
+  box-shadow:0 0 14px var(--icon-glow,rgba(184,0,245,.20));
+  transition:transform .3s, box-shadow .3s;
+}
+.svc-card:hover .svc-icon { transform:scale(1.1) rotate(-5deg); box-shadow:0 0 24px var(--icon-glow,rgba(184,0,245,.40)); }
 
-/* Num label */
-.svc-num{font-family:'Inter',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--nc);margin-bottom:10px;position:relative;z-index:1;}
+/* Card number */
+.svc-num {
+  font-family:'Poppins',sans-serif;font-size:9.5px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--num-c,rgba(232,121,249,.65));
+  margin-bottom:10px;position:relative;z-index:1;
+}
 
 /* Card title */
-.svc-title{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;letter-spacing:-.8px;line-height:1.15;color:#fff;margin-bottom:12px;position:relative;z-index:1;}
-.sc7 .svc-title,.sc12 .svc-title{font-size:30px;}
+.svc-ctitle {
+  font-family:'Coolvetica',sans-serif;
+  font-size:26px;font-weight:800;letter-spacing:-.3px;line-height:1.12;
+  color:#fff;margin-bottom:12px;position:relative;z-index:1;
+}
+.svc-span7 .svc-ctitle, .svc-span12 .svc-ctitle { font-size:30px; }
 
-/* Card desc */
-.svc-desc{font-family:'Inter',sans-serif;font-size:14.5px;line-height:1.75;color:rgba(255,255,255,.48);margin-bottom:22px;position:relative;z-index:1;}
+/* Card description */
+.svc-cdesc {
+  font-family:'Poppins',sans-serif;font-size:13.5px;line-height:1.75;font-weight:400;
+  color:rgba(225,200,250,.60);margin-bottom:20px;position:relative;z-index:1;
+}
 
-/* Tags */
-.svc-tags{display:flex;flex-wrap:wrap;gap:8px;position:relative;z-index:1;}
-.svc-tag{display:inline-flex;align-items:center;gap:5px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:var(--nc);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:5px 12px;transition:all .2s;}
-.svc-tag:hover{background:rgba(255,255,255,.09);border-color:var(--nc);}
-.svc-tag-dot{width:5px;height:5px;border-radius:50%;background:var(--nc);opacity:.7;}
+/* Feature tags */
+.svc-chips { display:flex;flex-wrap:wrap;gap:7px;position:relative;z-index:1; }
+.svc-chip {
+  display:inline-flex;align-items:center;gap:5px;
+  font-family:'Poppins',sans-serif;font-size:11.5px;font-weight:500;
+  color:var(--num-c,rgba(245,208,254,.75));
+  background:rgba(184,0,245,.08);
+  border:1px solid rgba(184,0,245,.20);
+  border-radius:7px;padding:5px 12px;
+  transition:all .2s;
+}
+.svc-chip:hover { background:rgba(184,0,245,.16);border-color:rgba(184,0,245,.40); }
+.svc-chip-dot { width:4px;height:4px;border-radius:50%;background:var(--num-c,#E879F9);opacity:.8; }
 
-/* CTA link inside card */
-.svc-lnk{display:inline-flex;align-items:center;gap:7px;font-family:'Inter',sans-serif;font-size:13.5px;font-weight:700;color:var(--nc);text-decoration:none;margin-top:24px;position:relative;z-index:1;transition:gap .3s;letter-spacing:.01em;}
-.svc-lnk:hover{gap:12px;}
-.svc-arrow{width:22px;height:22px;border-radius:50%;background:var(--nb);border:1px solid var(--nbb);display:flex;align-items:center;justify-content:center;transition:transform .3s;}
-.svc-lnk:hover .svc-arrow{transform:rotate(-45deg);}
+/* Card link */
+.svc-clink {
+  display:inline-flex;align-items:center;gap:7px;
+  font-family:'Poppins',sans-serif;font-size:12.5px;font-weight:600;
+  color:var(--num-c,#E879F9);text-decoration:none;
+  margin-top:22px;position:relative;z-index:1;
+  transition:gap .3s;
+}
+.svc-clink:hover { gap:12px; }
+.svc-clink-arr {
+  width:22px;height:22px;border-radius:50%;
+  background:var(--icon-bg,rgba(184,0,245,.15));
+  border:1px solid var(--icon-b,rgba(184,0,245,.32));
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .3s;
+}
+.svc-clink:hover .svc-clink-arr { transform:rotate(-45deg); }
+
+/* ── COLOR THEMES PER CARD ── */
+/* Purple (default) */
+.cc-purple {
+  --card-glow:linear-gradient(135deg,rgba(184,0,245,.55),rgba(88,11,130,.28));
+  --card-shadow:0 24px 70px rgba(184,0,245,.22);
+  --blob-c:#B800F5; --num-c:#E879F9;
+  --icon-bg:rgba(184,0,245,.15);--icon-b:rgba(184,0,245,.32);--icon-glow:rgba(184,0,245,.25);
+}
+/* Blue */
+.cc-blue {
+  --card-glow:linear-gradient(135deg,rgba(59,130,246,.55),rgba(37,99,235,.28));
+  --card-shadow:0 24px 70px rgba(59,130,246,.22);
+  --blob-c:#3b82f6; --num-c:#93c5fd;
+  --icon-bg:rgba(59,130,246,.15);--icon-b:rgba(59,130,246,.32);--icon-glow:rgba(59,130,246,.25);
+}
+/* Pink */
+.cc-pink {
+  --card-glow:linear-gradient(135deg,rgba(236,72,153,.55),rgba(219,39,119,.28));
+  --card-shadow:0 24px 70px rgba(236,72,153,.22);
+  --blob-c:#ec4899; --num-c:#f9a8d4;
+  --icon-bg:rgba(236,72,153,.15);--icon-b:rgba(236,72,153,.32);--icon-glow:rgba(236,72,153,.25);
+}
+/* Cyan */
+.cc-cyan {
+  --card-glow:linear-gradient(135deg,rgba(6,182,212,.55),rgba(8,145,178,.28));
+  --card-shadow:0 24px 70px rgba(6,182,212,.22);
+  --blob-c:#06b6d4; --num-c:#67e8f9;
+  --icon-bg:rgba(6,182,212,.15);--icon-b:rgba(6,182,212,.32);--icon-glow:rgba(6,182,212,.25);
+}
+/* Amber */
+.cc-amber {
+  --card-glow:linear-gradient(135deg,rgba(245,158,11,.55),rgba(217,119,6,.28));
+  --card-shadow:0 24px 70px rgba(245,158,11,.22);
+  --blob-c:#f59e0b; --num-c:#fcd34d;
+  --icon-bg:rgba(245,158,11,.15);--icon-b:rgba(245,158,11,.32);--icon-glow:rgba(245,158,11,.25);
+}
 
 /* ── BOTTOM CTA ── */
-.svc-cta-wrap{position:relative;z-index:1;max-width:1240px;margin:0 auto 100px;padding:0 48px;}
-.svc-cta-inner{
-  position:relative;overflow:hidden;padding:68px 72px;
-  background:linear-gradient(135deg,rgba(124,58,237,.15),rgba(109,40,217,.07),rgba(0,0,0,0));
-  border:1px solid rgba(124,58,237,.24);border-radius:28px;
-  display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;
+.svc-cta-wrap { position:relative;z-index:2;max-width:1160px;margin:0 auto 100px;padding:0 48px; }
+.svc-cta-box {
+  position:relative;overflow:hidden;padding:60px 64px;
+  background:linear-gradient(135deg,rgba(184,0,245,.14),rgba(88,11,130,.10),rgba(0,0,0,0));
+  border:1px solid rgba(184,0,245,.28);border-radius:22px;
+  display:flex;align-items:center;justify-content:space-between;gap:36px;flex-wrap:wrap;
 }
-.svc-cta-inner::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:rgba(124,58,237,.12);filter:blur(100px);top:-200px;left:-100px;pointer-events:none;}
-.svc-cta-inner h2{font-family:'Syne',sans-serif;font-size:clamp(28px,3.5vw,46px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:10px;}
-.svc-cta-inner p{font-family:'Inter',sans-serif;font-size:15px;color:rgba(255,255,255,.48);line-height:1.6;}
-.svc-cta-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
-
-/* ── MINI FOOTER ── */
-.svc-foot{
-  position:relative;z-index:1;
-  border-top:1px solid rgba(255,255,255,.07);
-  padding:26px 48px;
-  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+.svc-cta-box::before {
+  content:'';position:absolute;width:500px;height:500px;border-radius:50%;
+  background:rgba(184,0,245,.12);filter:blur(90px);
+  top:-220px;left:-100px;pointer-events:none;
 }
-.svc-foot p{font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,.28);}
-.svc-foot a{color:rgba(255,255,255,.38);text-decoration:none;transition:color .2s;}
-.svc-foot a:hover{color:#a78bfa;}
+.svc-cta-box h2 {
+  font-family:'Coolvetica',sans-serif;
+  font-size:clamp(26px,3.5vw,44px);font-weight:800;letter-spacing:-.3px;line-height:1.1;margin-bottom:10px;
+}
+.svc-cta-box p { font-family:'Poppins',sans-serif;font-size:14px;color:rgba(225,200,250,.55);line-height:1.6; }
+.svc-cta-btns { display:flex;gap:14px;align-items:center;flex-wrap:wrap; }
 
-/* Scroll reveal */
-.svc-reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s cubic-bezier(.23,1,.32,1);}
-.svc-reveal.visible{opacity:1;transform:none;}
+/* ── SCROLL REVEAL ── */
+.sv-reveal { opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.23,1,.32,1); }
+.sv-reveal.visible { opacity:1;transform:none; }
 
 /* ── RESPONSIVE ── */
-@media(max-width:1024px){.sc7,.sc5,.sc12{grid-column:span 12;}}
-@media(max-width:768px){
-  .svc-hero{padding:60px 24px 60px;}
+@media(max-width:1100px) { .svc-span7,.svc-span5,.svc-span12{grid-column:span 12;} }
+@media(max-width:768px) {
+  .svc-hero{padding:50px 24px 60px;}
   .svc-stats{grid-template-columns:repeat(2,1fr);margin:0 24px 60px;}
   .svc-stat:nth-child(2){border-right:none;}
-  .svc-stat:nth-child(3){border-top:1px solid rgba(255,255,255,.07);border-right:1px solid rgba(255,255,255,.07);}
-  .svc-stat:nth-child(4){border-top:1px solid rgba(255,255,255,.07);}
-  .svc-wrap{padding:0 20px 80px;}
+  .svc-stat:nth-child(3){border-top:1px solid rgba(184,0,245,.15);border-right:1px solid rgba(184,0,245,.15);}
+  .svc-stat:nth-child(4){border-top:1px solid rgba(184,0,245,.15);}
+  .svc-sec-wrap{padding:0 20px 80px;}
   .svc-card{padding:28px 22px;}
   .svc-cta-wrap{padding:0 20px;}
-  .svc-cta-inner{padding:40px 28px;flex-direction:column;text-align:center;}
-  .svc-cta-actions{justify-content:center;}
-  .svc-foot{padding:22px 20px;flex-direction:column;text-align:center;}
+  .svc-cta-box{padding:40px 28px;flex-direction:column;text-align:center;}
+  .svc-cta-btns{justify-content:center;}
 }
 @media(max-width:480px){
-  .svc-actions{flex-direction:column;width:100%;}
-  .svc-btn-primary,.svc-btn-ghost{width:100%;justify-content:center;}
+  .svc-hero-btns{flex-direction:column;width:100%;}
+  .svc-btn-main,.svc-btn-ghost{width:100%;justify-content:center;}
 }
 </style>
 
@@ -979,26 +1125,27 @@
 <path d="M13.4349 13.435L14.142 12.7279L15.5562 14.1421L16.9704 12.7279L18.3846 14.1421L9.89934 22.6274L11.3136 24.0416L19.7988 15.5564L21.2131 16.9706L19.7988 18.3848L21.2131 19.799L20.5059 20.5061L21.9202 21.9203L24.0415 19.799L22.6273 18.3848L24.0415 16.9706L22.6273 15.5564L24.0415 14.1421L23.3344 13.435L24.0415 12.7279L23.3344 12.0208L24.0415 11.3137L22.6273 9.8995L21.9202 10.6066L21.2131 9.8995L20.5059 10.6066L19.7988 9.8995L18.3846 11.3137L16.9704 9.8995L15.5562 11.3137L14.142 9.8995L12.0207 12.0208L13.4349 13.435Z" fill="white"/>
 </svg></div></div></div></a></div></div></div></div></div></div></section>
 
-<!-- BG ORBS -->
+<!-- AMBIENT ORBS -->
 <div class="svc-orb-wrap" aria-hidden="true">
-  <div class="svc-orb svc-orb-1"></div>
-  <div class="svc-orb svc-orb-2"></div>
-  <div class="svc-orb svc-orb-3"></div>
+  <div class="svc-orb svc-orb-a"></div>
+  <div class="svc-orb svc-orb-b"></div>
+  <div class="svc-orb svc-orb-c"></div>
 </div>
 
-<!-- PAGE WRAP -->
-<div id="svc-page">
+<div id="svc-pg">
 
-<!-- HERO -->
+<!-- ══ HERO ══ -->
 <section class="svc-hero">
-  <div class="svc-eyebrow">
-    <span class="svc-eyebrow-icon"><span class="svc-eyebrow-dot"></span></span>
-    Core Capabilities
+  <div class="svc-badge">
+    <span class="svc-badge-dot"></span>
+    What We Do
   </div>
-  <h1>Everything Your Brand<br/>Needs to <span class="svc-grad">Dominate.</span></h1>
-  <p class="svc-hero-desc">Five high-converting services built for modern brands — from scroll-stopping video to AI-powered automation. All under one roof.</p>
-  <div class="svc-actions">
-    <a href="mailto:technicalrakib999@gmail.com" class="svc-btn-primary">
+  <h1 class="svc-h1">
+    All the Firepower<br/>Your Brand Needs to<br/><span class="svc-h1-grad">Dominate.</span>
+  </h1>
+  <p class="svc-sub">Five high-converting services — video, design, web, marketing &amp; AI automation — engineered to grow your brand and revenue.</p>
+  <div class="svc-hero-btns">
+    <a href="mailto:technicalrakib999@gmail.com" class="svc-btn-main">
       Start a Project
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
@@ -1006,139 +1153,187 @@
   </div>
 </section>
 
-<!-- STATS -->
-<div class="svc-stats svc-reveal">
-  <div class="svc-stat"><span class="svc-stat-num" data-count="5">0+</span><span class="svc-stat-label">Core Services</span></div>
-  <div class="svc-stat"><span class="svc-stat-num">24h</span><span class="svc-stat-label">Average Turnaround</span></div>
-  <div class="svc-stat"><span class="svc-stat-num">100%</span><span class="svc-stat-label">Satisfaction Rate</span></div>
-  <div class="svc-stat"><span class="svc-stat-num">&#8734;</span><span class="svc-stat-label">Revisions Until Happy</span></div>
+<!-- ══ STATS STRIP ══ -->
+<div class="svc-stats sv-reveal">
+  <div class="svc-stat"><span class="svc-stat-val" data-count="5">0+</span><span class="svc-stat-lbl">Core Services</span></div>
+  <div class="svc-stat"><span class="svc-stat-val">24h</span><span class="svc-stat-lbl">Average Delivery</span></div>
+  <div class="svc-stat"><span class="svc-stat-val">100%</span><span class="svc-stat-lbl">Satisfaction Rate</span></div>
+  <div class="svc-stat"><span class="svc-stat-val">&#8734;</span><span class="svc-stat-lbl">Revisions Until Perfect</span></div>
 </div>
 
-<!-- SERVICES BENTO -->
-<div class="svc-wrap">
-  <div class="svc-reveal">
-    <div class="svc-section-tag">What We Do</div>
-    <h2 class="svc-section-title">Services Designed<br/>to Convert.</h2>
+<!-- ══ SERVICES BENTO ══ -->
+<div class="svc-sec-wrap">
+  <div class="sv-reveal">
+    <div class="svc-sec-eyebrow">Services</div>
+    <h2 class="svc-sec-h2">Everything Built to <span>Convert.</span></h2>
   </div>
 
   <div class="svc-bento">
 
     <!-- 01 VIDEO EDITING -->
-    <div class="svc-card cc-purple sc7 svc-reveal">
-      <div class="svc-amb"></div>
-      <svg class="svc-deco" viewBox="0 0 180 180" fill="none"><circle cx="90" cy="90" r="88" stroke="#7c3aed" stroke-width="1" stroke-dasharray="6 4"/><circle cx="90" cy="90" r="60" stroke="#7c3aed" stroke-width="1" stroke-dasharray="4 6" opacity=".6"/></svg>
+    <div class="svc-card cc-purple svc-span7 sv-reveal">
+      <div class="svc-blob"></div>
+      <svg class="svc-ring" width="200" height="200" viewBox="0 0 200 200" fill="none">
+        <circle cx="100" cy="100" r="98" stroke="#B800F5" stroke-width="1" stroke-dasharray="7 5"/>
+        <circle cx="100" cy="100" r="65" stroke="#B800F5" stroke-width="1" stroke-dasharray="5 7" opacity=".5"/>
+      </svg>
       <div class="svc-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="1" y="5" width="15" height="11" rx="2" stroke="#a78bfa" stroke-width="1.8"/><path d="M16 9l6-3.5v9L16 11V9z" fill="#a78bfa" opacity=".7"/><rect x="4" y="11" width="8" height="1.5" rx=".75" fill="#a78bfa" opacity=".4"/><rect x="4" y="8" width="5" height="1.5" rx=".75" fill="#a78bfa" opacity=".4"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <rect x="1" y="5" width="15" height="11" rx="2" stroke="#E879F9" stroke-width="1.8"/>
+          <path d="M16 9l6-3.5v9L16 11V9z" fill="#E879F9" opacity=".7"/>
+          <rect x="4" y="11" width="8" height="1.5" rx=".75" fill="#E879F9" opacity=".4"/>
+          <rect x="4" y="8" width="5" height="1.5" rx=".75" fill="#E879F9" opacity=".4"/>
+        </svg>
       </div>
-      <div class="svc-num">01 &mdash; Video Editing</div>
-      <h3 class="svc-title">Cinema-Grade<br/>Video Production</h3>
-      <p class="svc-desc">From raw footage to scroll-stopping masterpieces. Every cut is engineered for maximum retention, emotion, and action — so your viewers stay, share, and convert.</p>
-      <div class="svc-tags">
-        <span class="svc-tag"><span class="svc-tag-dot"></span>Short-form Reels &amp; Ads</span>
-        <span class="svc-tag"><span class="svc-tag-dot"></span>Long-form YouTube</span>
-        <span class="svc-tag"><span class="svc-tag-dot"></span>Motion Graphics</span>
-        <span class="svc-tag"><span class="svc-tag-dot"></span>Color Grading</span>
-        <span class="svc-tag"><span class="svc-tag-dot"></span>85%+ Retention</span>
-        <span class="svc-tag"><span class="svc-tag-dot"></span>4K / 60FPS</span>
+      <div class="svc-num">01 — Video Editing</div>
+      <h3 class="svc-ctitle">Cinema-Grade<br/>Video Production</h3>
+      <p class="svc-cdesc">From raw footage to scroll-stopping masterpieces. Every cut engineered for maximum retention, emotion and action — so your viewers stay, share and convert.</p>
+      <div class="svc-chips">
+        <span class="svc-chip"><span class="svc-chip-dot"></span>Short-form Reels &amp; Ads</span>
+        <span class="svc-chip"><span class="svc-chip-dot"></span>Long-form YouTube</span>
+        <span class="svc-chip"><span class="svc-chip-dot"></span>Motion Graphics</span>
+        <span class="svc-chip"><span class="svc-chip-dot"></span>Color Grading</span>
+        <span class="svc-chip"><span class="svc-chip-dot"></span>85%+ Retention</span>
+        <span class="svc-chip"><span class="svc-chip-dot"></span>4K / 60FPS</span>
       </div>
-      <a href="mailto:technicalrakib999@gmail.com" class="svc-lnk">Get a Quote <span class="svc-arrow"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M5 2l3 3-3 3" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      <a href="mailto:technicalrakib999@gmail.com" class="svc-clink">
+        Get a Quote
+        <span class="svc-clink-arr"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M5 2l3 3-3 3" stroke="#E879F9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
     </div>
 
-    <!-- 02 GRAPHICS -->
-    <div class="svc-card cc-pink sc5 svc-reveal">
-      <div class="svc-amb"></div>
-      <svg class="svc-deco" viewBox="0 0 180 180" fill="none"><rect x="20" y="20" width="140" height="140" rx="20" stroke="#ec4899" stroke-width="1" stroke-dasharray="5 4"/><rect x="45" y="45" width="90" height="90" rx="12" stroke="#ec4899" stroke-width="1" stroke-dasharray="4 5" opacity=".5"/></svg>
+    <!-- 02 GRAPHICS DESIGN -->
+    <div class="svc-card cc-pink svc-span5 sv-reveal">
+      <div class="svc-blob"></div>
+      <svg class="svc-ring" width="180" height="180" viewBox="0 0 180 180" fill="none">
+        <rect x="12" y="12" width="156" height="156" rx="22" stroke="#ec4899" stroke-width="1" stroke-dasharray="6 5"/>
+      </svg>
       <div class="svc-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#f9a8d4" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="#ec4899" opacity=".5"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3" stroke="#f9a8d4" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="9" stroke="#f9a8d4" stroke-width="1.8"/>
+          <circle cx="12" cy="12" r="4" fill="#ec4899" opacity=".5"/>
+          <path d="M12 3v3M12 18v3M3 12h3M18 12h3" stroke="#f9a8d4" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
       </div>
-      <div class="svc-num">02 &mdash; Graphics Design</div>
-      <h3 class="svc-title">Bold Visual<br/>Identity</h3>
-      <p class="svc-desc">Thumbnails, brand kits and social creatives that stop the scroll and communicate your value in 0.3 seconds.</p>
-      <div class="svc-tags">
-        <span class="svc-tag"><span class="svc-tag-dot"></span>Thumbnails</span>
-        <span class="svc-tag"><span class="svc-tag-dot"></span>Brand Kits</span>
-        <span class="svc-tag"><span class="svc-tag-dot"></span>Social Creatives</span>
-        <span class="svc-tag"><span class="svc-tag-dot"></span>Ad Banners</span>
+      <div class="svc-num">02 — Graphics Design</div>
+      <h3 class="svc-ctitle">Bold Visual<br/>Identity</h3>
+      <p class="svc-cdesc">Thumbnails, brand kits and social creatives that stop the scroll and communicate your value in 0.3 seconds flat.</p>
+      <div class="svc-chips">
+        <span class="svc-chip"><span class="svc-chip-dot"></span>YouTube Thumbnails</span>
+        <span class="svc-chip"><span class="svc-chip-dot"></span>Brand Kits</span>
+        <span class="svc-chip"><span class="svc-chip-dot"></span>Social Creatives</span>
+        <span class="svc-chip"><span class="svc-chip-dot"></span>Ad Banners</span>
       </div>
-      <a href="mailto:technicalrakib999@gmail.com" class="svc-lnk">Get a Quote <span class="svc-arrow"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M5 2l3 3-3 3" stroke="#f9a8d4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      <a href="mailto:technicalrakib999@gmail.com" class="svc-clink">
+        Get a Quote
+        <span class="svc-clink-arr"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M5 2l3 3-3 3" stroke="#f9a8d4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
     </div>
 
     <!-- 03 WEB DESIGN -->
-    <div class="svc-card cc-blue sc5 svc-reveal">
-      <div class="svc-amb"></div>
+    <div class="svc-card cc-blue svc-span5 sv-reveal">
+      <div class="svc-blob"></div>
       <div class="svc-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="14" rx="3" stroke="#93c5fd" stroke-width="1.8"/><path d="M2 8h20" stroke="#93c5fd" stroke-width="1.4"/><circle cx="5.5" cy="6" r=".9" fill="#93c5fd"/><circle cx="8.5" cy="6" r=".9" fill="#93c5fd"/><rect x="6" y="11" width="12" height="1.8" rx=".9" fill="#93c5fd" opacity=".45"/><rect x="6" y="14.5" width="8" height="1.8" rx=".9" fill="#93c5fd" opacity=".28"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <rect x="2" y="4" width="20" height="14" rx="3" stroke="#93c5fd" stroke-width="1.8"/>
+          <path d="M2 8h20" stroke="#93c5fd" stroke-width="1.4"/>
+          <circle cx="5.5" cy="6" r=".9" fill="#93c5fd"/><circle cx="8.5" cy="6" r=".9" fill="#93c5fd"/>
+          <rect x="6" y="11" width="12" height="1.8" rx=".9" fill="#93c5fd" opacity=".45"/>
+          <rect x="6" y="14.5" width="8" height="1.8" rx=".9" fill="#93c5fd" opacity=".28"/>
+        </svg>
       </div>
-      <div class="svc-num">03 &mdash; Web Design</div>
-      <h3 class="svc-title">Conversion-First<br/>Websites</h3>
-      <p class="svc-desc">Premium websites with conversion psychology baked in from pixel one. Fast, beautiful and built to turn clicks into customers.</p>
-      <div class="svc-tags">
-        <span class="svc-tag"><span class="svc-tag-dot"></span>Landing Pages</span>
-        <span class="svc-tag"><span class="svc-tag-dot"></span>SaaS &amp; Portfolios</span>
-        <span class="svc-tag"><span class="svc-tag-dot"></span>Mobile-First</span>
-        <span class="svc-tag"><span class="svc-tag-dot"></span>SEO Ready</span>
+      <div class="svc-num">03 — Web Design</div>
+      <h3 class="svc-ctitle">Conversion-First<br/>Websites</h3>
+      <p class="svc-cdesc">Premium websites with conversion psychology from pixel one. Fast, beautiful and built to turn visitors into paying customers.</p>
+      <div class="svc-chips">
+        <span class="svc-chip"><span class="svc-chip-dot"></span>Landing Pages</span>
+        <span class="svc-chip"><span class="svc-chip-dot"></span>SaaS &amp; Portfolios</span>
+        <span class="svc-chip"><span class="svc-chip-dot"></span>Mobile-First</span>
+        <span class="svc-chip"><span class="svc-chip-dot"></span>SEO Ready</span>
       </div>
-      <a href="mailto:technicalrakib999@gmail.com" class="svc-lnk">Get a Quote <span class="svc-arrow"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M5 2l3 3-3 3" stroke="#93c5fd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      <a href="mailto:technicalrakib999@gmail.com" class="svc-clink">
+        Get a Quote
+        <span class="svc-clink-arr"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M5 2l3 3-3 3" stroke="#93c5fd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
     </div>
 
     <!-- 04 DIGITAL MARKETING -->
-    <div class="svc-card cc-green sc7 svc-reveal">
-      <div class="svc-amb"></div>
-      <svg class="svc-deco" viewBox="0 0 180 180" fill="none"><circle cx="90" cy="90" r="70" stroke="#10b981" stroke-width="1" stroke-dasharray="3 6"/></svg>
+    <div class="svc-card cc-cyan svc-span7 sv-reveal">
+      <div class="svc-blob"></div>
+      <svg class="svc-ring" width="180" height="180" viewBox="0 0 180 180" fill="none">
+        <circle cx="90" cy="90" r="78" stroke="#06b6d4" stroke-width="1" stroke-dasharray="4 7"/>
+      </svg>
       <div class="svc-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 17L8.5 11.5L12.5 15.5L18 8.5L22 12.5" stroke="#6ee7b7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="22" cy="12.5" r="2.2" fill="#10b981"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M3 17L8.5 11.5L12.5 15.5L18 8.5L22 12.5" stroke="#67e8f9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="22" cy="12.5" r="2.2" fill="#06b6d4"/>
+          <path d="M3 20h18" stroke="#67e8f9" stroke-width="1.2" opacity=".3" stroke-linecap="round"/>
+        </svg>
       </div>
-      <div class="svc-num">04 &mdash; Digital Marketing</div>
-      <h3 class="svc-title">Growth-Engineered<br/>Marketing Systems</h3>
-      <p class="svc-desc">We don't just run ads — we build full-funnel marketing systems that compound over time. Every touchpoint optimised for revenue.</p>
-      <div class="svc-tags">
-        <span class="svc-tag"><span class="svc-tag-dot"></span>Meta &amp; TikTok Ads</span>
-        <span class="svc-tag"><span class="svc-tag-dot"></span>Google Ads</span>
-        <span class="svc-tag"><span class="svc-tag-dot"></span>Content Strategy</span>
-        <span class="svc-tag"><span class="svc-tag-dot"></span>Funnel Optimization</span>
-        <span class="svc-tag"><span class="svc-tag-dot"></span>Analytics &amp; Reporting</span>
+      <div class="svc-num">04 — Digital Marketing</div>
+      <h3 class="svc-ctitle">Growth-Engineered<br/>Marketing Systems</h3>
+      <p class="svc-cdesc">Full-funnel campaigns that compound over time. From paid media to content strategy, every touchpoint is optimised to generate real, scalable revenue.</p>
+      <div class="svc-chips">
+        <span class="svc-chip"><span class="svc-chip-dot"></span>Meta &amp; TikTok Ads</span>
+        <span class="svc-chip"><span class="svc-chip-dot"></span>Google Ads</span>
+        <span class="svc-chip"><span class="svc-chip-dot"></span>Content Strategy</span>
+        <span class="svc-chip"><span class="svc-chip-dot"></span>Funnel Optimization</span>
+        <span class="svc-chip"><span class="svc-chip-dot"></span>Analytics</span>
       </div>
-      <a href="mailto:technicalrakib999@gmail.com" class="svc-lnk">Get a Quote <span class="svc-arrow"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M5 2l3 3-3 3" stroke="#6ee7b7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      <a href="mailto:technicalrakib999@gmail.com" class="svc-clink">
+        Get a Quote
+        <span class="svc-clink-arr"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M5 2l3 3-3 3" stroke="#67e8f9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
     </div>
 
-    <!-- 05 AI AUTOMATION -->
-    <div class="svc-card cc-orange sc12 svc-reveal">
-      <div class="svc-amb" style="width:500px;height:300px;top:-150px;right:-100px;"></div>
-      <svg class="svc-deco" style="width:220px;height:220px;" viewBox="0 0 220 220" fill="none"><circle cx="110" cy="110" r="100" stroke="#f59e0b" stroke-width="1" stroke-dasharray="8 5"/><circle cx="110" cy="110" r="65" stroke="#f59e0b" stroke-width="1" opacity=".5" stroke-dasharray="5 8"/></svg>
-      <div style="display:flex;gap:60px;flex-wrap:wrap;align-items:flex-start;position:relative;z-index:1;">
+    <!-- 05 AI AUTOMATION (full width) -->
+    <div class="svc-card cc-amber svc-span12 sv-reveal">
+      <div class="svc-blob" style="width:500px;height:300px;top:-120px;right:-80px;"></div>
+      <svg class="svc-ring" style="width:240px;height:240px;" viewBox="0 0 240 240" fill="none">
+        <circle cx="120" cy="120" r="115" stroke="#f59e0b" stroke-width="1" stroke-dasharray="9 6"/>
+        <circle cx="120" cy="120" r="75" stroke="#f59e0b" stroke-width="1" opacity=".4" stroke-dasharray="6 9"/>
+      </svg>
+      <div style="display:flex;gap:56px;flex-wrap:wrap;align-items:flex-start;position:relative;z-index:1;">
         <div style="flex:1;min-width:280px;">
           <div class="svc-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="7" y="2" width="10" height="7" rx="2" stroke="#fcd34d" stroke-width="1.8"/><path d="M12 9v3.5" stroke="#fcd34d" stroke-width="1.5" stroke-linecap="round"/><rect x="1" y="13" width="8" height="7" rx="2" stroke="#fcd34d" stroke-width="1.6"/><rect x="15" y="13" width="8" height="7" rx="2" stroke="#fcd34d" stroke-width="1.6"/><path d="M5 13v-2h14v2" stroke="#fcd34d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <rect x="7" y="2" width="10" height="7" rx="2" stroke="#fcd34d" stroke-width="1.8"/>
+              <path d="M12 9v3.5" stroke="#fcd34d" stroke-width="1.5" stroke-linecap="round"/>
+              <rect x="1" y="13" width="8" height="7" rx="2" stroke="#fcd34d" stroke-width="1.6"/>
+              <rect x="15" y="13" width="8" height="7" rx="2" stroke="#fcd34d" stroke-width="1.6"/>
+              <path d="M5 13v-2h14v2" stroke="#fcd34d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </div>
-          <div class="svc-num">05 &mdash; AI Automation</div>
-          <h3 class="svc-title">AI Systems &amp;<br/>Smart Automation</h3>
-          <p class="svc-desc">Chatbots that auto-reply across WhatsApp, Instagram, Messenger &amp; Telegram — 24/7, under 1 second, zero missed leads. We build systems that run your business while you sleep.</p>
-          <a href="mailto:technicalrakib999@gmail.com" class="svc-lnk">Get a Quote <span class="svc-arrow"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M5 2l3 3-3 3" stroke="#fcd34d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+          <div class="svc-num">05 — AI Automation</div>
+          <h3 class="svc-ctitle">AI Systems &amp;<br/>Smart Automation</h3>
+          <p class="svc-cdesc">Chatbots that auto-reply across WhatsApp, Instagram, Messenger &amp; Telegram — 24/7, under 1 second, zero missed leads. We build the systems that run your business while you sleep.</p>
+          <a href="mailto:technicalrakib999@gmail.com" class="svc-clink">
+            Get a Quote
+            <span class="svc-clink-arr"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M5 2l3 3-3 3" stroke="#fcd34d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
         </div>
-        <div style="flex:1;min-width:260px;padding-top:6px;">
-          <div class="svc-tags" style="flex-direction:column;gap:10px;">
-            <span class="svc-tag" style="width:fit-content;"><span class="svc-tag-dot"></span>AI Chatbots (WhatsApp, IG, Telegram)</span>
-            <span class="svc-tag" style="width:fit-content;"><span class="svc-tag-dot"></span>Lead Capture &amp; CRM Automation</span>
-            <span class="svc-tag" style="width:fit-content;"><span class="svc-tag-dot"></span>n8n &amp; Make.com Workflows</span>
-            <span class="svc-tag" style="width:fit-content;"><span class="svc-tag-dot"></span>Email &amp; Follow-up Sequences</span>
-            <span class="svc-tag" style="width:fit-content;"><span class="svc-tag-dot"></span>24/7 Automated Support Systems</span>
-          </div>
+        <div style="flex:1;min-width:260px;display:flex;flex-direction:column;gap:10px;padding-top:8px;">
+          <span class="svc-chip" style="width:fit-content;"><span class="svc-chip-dot"></span>AI Chatbots (WhatsApp, IG, Telegram)</span>
+          <span class="svc-chip" style="width:fit-content;"><span class="svc-chip-dot"></span>Lead Capture &amp; CRM Automation</span>
+          <span class="svc-chip" style="width:fit-content;"><span class="svc-chip-dot"></span>n8n &amp; Make.com Workflows</span>
+          <span class="svc-chip" style="width:fit-content;"><span class="svc-chip-dot"></span>Email &amp; Follow-up Sequences</span>
+          <span class="svc-chip" style="width:fit-content;"><span class="svc-chip-dot"></span>24/7 Automated Customer Support</span>
         </div>
       </div>
     </div>
 
   </div><!-- /.svc-bento -->
-</div><!-- /.svc-wrap -->
+</div><!-- /.svc-sec-wrap -->
 
-<!-- BOTTOM CTA -->
-<div class="svc-cta-wrap svc-reveal">
-  <div class="svc-cta-inner">
+<!-- ══ BOTTOM CTA ══ -->
+<div class="svc-cta-wrap sv-reveal">
+  <div class="svc-cta-box">
     <div>
-      <h2>Ready to Build<br/>Something Remarkable?</h2>
+      <h2>Ready to Build Something<br/>Remarkable?</h2>
       <p>Tell us your project — we respond within 24 hours.</p>
     </div>
-    <div class="svc-cta-actions">
-      <a href="mailto:technicalrakib999@gmail.com" class="svc-btn-primary">
+    <div class="svc-cta-btns">
+      <a href="mailto:technicalrakib999@gmail.com" class="svc-btn-main">
         Start a Project
         <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 7.5h9M8 3l4.5 4.5L8 12" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
@@ -1147,13 +1342,13 @@
   </div>
 </div>
 
-<!-- MINI FOOTER -->
-<div class="svc-foot">
-  <p>&copy; 2026 <a href="index.html">Zentic Media</a>. All rights reserved.</p>
-  <p><a href="mailto:technicalrakib999@gmail.com">technicalrakib999@gmail.com</a></p>
+<!-- ══ MINI FOOTER ══ -->
+<div style="position:relative;z-index:2;border-top:1px solid rgba(184,0,245,.18);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+  <p style="font-family:'Poppins',sans-serif;font-size:12px;color:rgba(225,200,250,.35);">&copy; 2026 <a href="index.html" style="color:rgba(225,200,250,.45);text-decoration:none;">Zentic Media</a>. All rights reserved.</p>
+  <p style="font-family:'Poppins',sans-serif;font-size:12px;"><a href="mailto:technicalrakib999@gmail.com" style="color:rgba(225,200,250,.45);text-decoration:none;transition:color .2s;">technicalrakib999@gmail.com</a></p>
 </div>
 
-</div><!-- /#svc-page -->
+</div><!-- /#svc-pg -->
 
 <script src="js/jquery.min.js" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script><script src="js/webflow.js" type="text/javascript" integrity="sha384-9KcJmVKNY2iy/ssIhwJEv2bo9y84xdva3FE551uJro2V9vlNy/P4bjYqB3P+sx8B" crossorigin="anonymous"></script><script>
 
@@ -1566,41 +1761,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <script>
 // Scroll reveal
-const svco = new IntersectionObserver(entries => {
-  entries.forEach((e,i) => {
-    if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*60); svco.unobserve(e.target); }
-  });
+const _io = new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{ if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*70); _io.unobserve(e.target); } });
 },{threshold:0.08});
-document.querySelectorAll('.svc-reveal').forEach(el => svco.observe(el));
+document.querySelectorAll('.sv-reveal').forEach(el=>_io.observe(el));
 
-// Counter animation
-document.querySelectorAll('[data-count]').forEach(el => {
-  const target = parseInt(el.dataset.count);
-  const obs = new IntersectionObserver(entries => {
+// Counter
+document.querySelectorAll('[data-count]').forEach(el=>{
+  const target=parseInt(el.dataset.count);
+  const obs=new IntersectionObserver(entries=>{
     if(entries[0].isIntersecting){
-      let start = null;
-      const step = ts => {
-        if(!start) start=ts;
-        const p = Math.min((ts-start)/1500,1);
-        el.textContent = Math.floor(p*target)+'+';
-        if(p<1) requestAnimationFrame(step);
-      };
-      requestAnimationFrame(step);
-      obs.disconnect();
+      let s=null;
+      const step=ts=>{if(!s)s=ts;const p=Math.min((ts-s)/1500,1);el.textContent=Math.floor(p*target)+'+';if(p<1)requestAnimationFrame(step);};
+      requestAnimationFrame(step);obs.disconnect();
     }
   });
   obs.observe(el);
 });
 
-// 3D Tilt on card hover
-document.querySelectorAll('.svc-card').forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const r = card.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - 0.5;
-    const y = (e.clientY - r.top) / r.height - 0.5;
-    card.style.transform = `translateY(-8px) scale(1.01) rotateX(${-y*4}deg) rotateY(${x*4}deg)`;
+// 3D card tilt
+document.querySelectorAll('.svc-card').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width-.5;
+    const y=(e.clientY-r.top)/r.height-.5;
+    card.style.transform=`translateY(-8px) scale(1.015) rotateX(${-y*4}deg) rotateY(${x*4}deg)`;
   });
-  card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+  card.addEventListener('mouseleave',()=>{card.style.transform='';});
 });
 </script>
 
