@@ -3490,392 +3490,630 @@
 </script>
 
 
-<!-- ====== OUR APPROACH SECTION — Services Orbit ====== -->
+<!-- ====== 360° GROWTH ECOSYSTEM — 5 CORE PILLARS ====== -->
 <style>
-/* ── Approach Section ─────────────────── */
-#approach-section {
+/* ── 360° Growth Ecosystem Section ─────────────────── */
+#ecosystem-section, #approach-section {
   position: relative;
-  background: #08010E;
-  padding: 125px 24px 130px;
+  background: #06010b;
+  padding: 120px 24px 130px;
   overflow: hidden;
-  text-align: center;
-  scroll-margin-top: 100px;
+  scroll-margin-top: 80px;
 }
 
-#approach-section .ap-ambient {
+/* Ambient glow accents */
+.eco-ambient-1 {
   position: absolute;
-  top: 50%;
+  top: 15%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
   width: 900px;
-  height: 520px;
-  background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(184, 0, 245, 0.22) 0%, rgba(88, 11, 130, 0.08) 45%, transparent 75%);
+  height: 480px;
+  background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(184, 0, 245, 0.18) 0%, rgba(88, 11, 130, 0.05) 50%, transparent 75%);
+  pointer-events: none;
+  z-index: 0;
+}
+.eco-ambient-2 {
+  position: absolute;
+  bottom: 5%;
+  right: -100px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(147, 51, 234, 0.12) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
 
-/* Header */
-#approach-section .ap-header {
+.eco-container {
   position: relative;
-  z-index: 3;
-  max-width: 720px;
-  margin: 0 auto 60px;
+  z-index: 2;
+  max-width: 1240px;
+  margin: 0 auto;
 }
 
-#approach-section .ap-eyebrow {
+/* ── Section Header ── */
+.eco-header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 65px;
+}
+
+.eco-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 18px;
+  padding: 7px 20px;
   border-radius: 999px;
   background: rgba(184, 0, 245, 0.12);
   border: 1px solid rgba(184, 0, 245, 0.35);
-  margin-bottom: 20px;
-  font-family: 'Coolvetica', sans-serif;
+  margin-bottom: 22px;
+  font-family: 'Syne', sans-serif;
   font-size: 13px;
-  letter-spacing: 3px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
   color: #E879F9;
+  box-shadow: 0 0 20px rgba(184, 0, 245, 0.2);
 }
 
-#approach-section .ap-h2 {
-  font-family: 'Coolvetica', sans-serif;
-  font-size: clamp(44px, 6.5vw, 84px);
-  font-weight: 400;
-  color: #ffffff;
-  line-height: 1.05;
-  margin: 0 0 16px;
+.eco-h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(34px, 4.4vw, 54px);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  margin-bottom: 18px;
 }
 
-#approach-section .ap-h2 em {
+.eco-h2 em {
   font-style: normal;
-  background: linear-gradient(135deg, #B800F5 0%, #ff6ef7 50%, #B800F5 100%);
+  background: linear-gradient(135deg, #FFFFFF 20%, #E879F9 55%, #B800F5 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
+  text-shadow: 0 0 30px rgba(184, 0, 245, 0.3);
 }
 
-#approach-section .ap-sub {
-  font-size: 16px;
-  color: rgba(225, 200, 250, 0.6);
-  max-width: 440px;
-  margin: 0 auto;
-  line-height: 1.6;
+.eco-sub {
   font-family: 'Inter', sans-serif;
+  font-size: clamp(15px, 1.25vw, 17px);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.68);
+  margin: 0 auto;
+  max-width: 660px;
 }
 
-/* Orbit Visual Container */
-#approach-section .ap-orbit-wrap {
+/* ── Bento Grid Layout ── */
+.eco-grid-top {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.eco-grid-bottom {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+/* ── Cards Styling ── */
+.eco-card {
   position: relative;
-  z-index: 2;
-  max-width: 980px;
-  margin: 0 auto;
+  background: rgba(15, 6, 26, 0.68);
+  border: 1px solid rgba(184, 0, 245, 0.22);
+  border-radius: 24px;
+  padding: 36px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: all 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.eco-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(232, 121, 249, 0.5), transparent);
+  opacity: 0;
+  transition: opacity 0.38s ease;
+}
+
+.eco-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(184, 0, 245, 0.65);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 35px rgba(184, 0, 245, 0.22);
+  background: rgba(22, 9, 38, 0.82);
+}
+
+.eco-card:hover::before {
+  opacity: 1;
+}
+
+/* Card Header & Icon */
+.eco-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.eco-icon-wrap {
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(184, 0, 245, 0.2) 0%, rgba(88, 11, 130, 0.35) 100%);
+  border: 1px solid rgba(184, 0, 245, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 380px;
+  box-shadow: 0 8px 20px rgba(184, 0, 245, 0.18);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-/* Left Column */
-#approach-section .ap-col-left {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  align-items: flex-end;
-  flex: 1;
+.eco-card:hover .eco-icon-wrap {
+  transform: scale(1.08) rotate(3deg);
+  box-shadow: 0 10px 28px rgba(184, 0, 245, 0.4);
+  border-color: rgba(232, 121, 249, 0.8);
 }
 
-/* Right Column */
-#approach-section .ap-col-right {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  align-items: flex-start;
-  flex: 1;
+.eco-icon-wrap svg {
+  width: 28px;
+  height: 28px;
 }
 
-/* Center Ring Col */
-#approach-section .ap-col-center {
-  flex-shrink: 0;
-  width: 290px;
-  height: 290px;
-  position: relative;
-  margin: 0 10px;
+.eco-badge {
+  font-family: 'Syne', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #E879F9;
+  background: rgba(184, 0, 245, 0.15);
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(184, 0, 245, 0.3);
 }
 
-/* Cards */
-#approach-section .ap-card-item {
-  position: relative;
+/* Card Content */
+.eco-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 23px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+  line-height: 1.25;
 }
 
-#approach-section .ap-card {
-  background: rgba(18, 5, 28, 0.86);
-  border: 1px solid rgba(184, 0, 245, 0.38);
-  border-radius: 14px;
-  padding: 18px 22px;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 0 26px rgba(184, 0, 245, 0.11), 0 8px 30px rgba(0, 0, 0, 0.5);
-  min-width: 175px;
-  transition: border-color .3s ease, box-shadow .3s ease, transform .3s ease;
-}
-
-#approach-section .ap-card:hover {
-  border-color: rgba(184, 0, 245, 0.85);
-  box-shadow: 0 0 38px rgba(184, 0, 245, 0.28), 0 10px 32px rgba(0, 0, 0, 0.65);
-  transform: translateY(-3px);
-}
-
-#approach-section .ap-card-title {
-  font-family: 'Coolvetica', sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  color: #ffffff;
-  margin-bottom: 5px;
-  letter-spacing: 0.5px;
-}
-
-#approach-section .ap-card-sub {
-  font-size: 13px;
-  color: rgba(225, 200, 250, 0.55);
+.eco-desc {
   font-family: 'Inter', sans-serif;
-  line-height: 1.45;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.68);
+  margin-bottom: 22px;
 }
 
-/* Connectors */
-#approach-section .ap-conn-left {
-  position: absolute;
-  right: -62px;
-  top: 50%;
-  transform: translateY(-50%);
-  overflow: visible;
-  pointer-events: none;
+/* Feature Checklist */
+.eco-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 26px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-#approach-section .ap-conn-right {
-  position: absolute;
-  left: -62px;
-  top: 50%;
-  transform: translateY(-50%);
-  overflow: visible;
-  pointer-events: none;
+.eco-checklist li {
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.82);
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-/* 3D Ring Animation */
-#approach-section .ap-ring-glow {
-  position: absolute;
-  inset: -35px;
-  background: radial-gradient(circle, rgba(184, 0, 245, 0.24) 0%, transparent 70%);
-  border-radius: 50%;
-  animation: apPulse 4s ease-in-out infinite;
+.eco-checklist li svg {
+  width: 16px;
+  height: 16px;
+  color: #E879F9;
+  flex-shrink: 0;
 }
 
-@keyframes apPulse {
-  0%, 100% { opacity: 0.6; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.08); }
+/* Tool Pill Badges */
+.eco-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Responsive for Tablets & Mobile */
+.eco-pill {
+  font-family: 'Inter', sans-serif;
+  font-size: 11.5px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.65);
+  transition: all 0.25s ease;
+}
+
+.eco-card:hover .eco-pill {
+  background: rgba(184, 0, 245, 0.12);
+  border-color: rgba(184, 0, 245, 0.28);
+  color: #FFFFFF;
+}
+
+/* ── Integration CTA Ribbon ── */
+.eco-cta-ribbon {
+  background: linear-gradient(135deg, rgba(25, 9, 44, 0.85) 0%, rgba(13, 3, 23, 0.95) 100%);
+  border: 1px solid rgba(184, 0, 245, 0.35);
+  border-radius: 20px;
+  padding: 30px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(232, 121, 249, 0.2);
+}
+
+.eco-cta-text h4 {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 6px;
+}
+
+.eco-cta-text p {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+}
+
+.eco-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 30px;
+  background: linear-gradient(135deg, #B800F5 0%, #7C3AED 100%);
+  color: #FFFFFF;
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(184, 0, 245, 0.35);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.eco-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(184, 0, 245, 0.55);
+  filter: brightness(1.1);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .eco-grid-top {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .eco-card:nth-child(3) {
+    grid-column: span 2;
+  }
+  .eco-grid-bottom {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 768px) {
-  #approach-section {
-    padding: 105px 16px 85px;
+  #ecosystem-section, #approach-section {
+    padding: 80px 18px 90px;
   }
-  #approach-section .ap-header {
-    margin-bottom: 28px;
+  .eco-grid-top {
+    grid-template-columns: 1fr;
   }
-  #approach-section .ap-h2 {
-    font-size: clamp(38px, 10vw, 56px);
+  .eco-card:nth-child(3) {
+    grid-column: span 1;
   }
-  #approach-section .ap-sub {
-    font-size: 14px;
-    padding: 0 10px;
+  .eco-card {
+    padding: 28px 22px;
   }
-  #approach-section .ap-orbit-wrap {
+  .eco-cta-ribbon {
     flex-direction: column;
-    min-height: auto;
-    gap: 22px;
+    text-align: center;
+    padding: 26px 20px;
   }
-  #approach-section .ap-col-center {
-    order: 1;
-    width: 230px;
-    height: 230px;
-    margin: 0 auto 10px auto;
-  }
-  #approach-section .ap-col-center svg {
-    width: 230px;
-    height: 230px;
-  }
-  #approach-section .ap-col-left {
-    order: 2;
-    flex-direction: row;
-    flex-wrap: wrap;
+  .eco-cta-btn {
+    width: 100%;
     justify-content: center;
-    gap: 12px;
-    width: 100%;
-    max-width: 360px;
-    margin: 0 auto;
-  }
-  #approach-section .ap-col-right {
-    order: 3;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    width: 100%;
-    max-width: 360px;
-    margin: 0 auto;
-  }
-  #approach-section .ap-card-item {
-    flex: 1 1 140px;
-    max-width: 170px;
-  }
-  #approach-section .ap-card {
-    min-width: 0;
-    width: 100%;
-    padding: 14px 12px;
-    text-align: center !important;
-    box-sizing: border-box;
-  }
-  #approach-section .ap-card-title {
-    font-size: 16px;
-  }
-  #approach-section .ap-card-sub {
-    font-size: 12px;
-  }
-  #approach-section .ap-conn-left,
-  #approach-section .ap-conn-right {
-    display: none !important;
-  }
-}
-
-@media (max-width: 380px) {
-  #approach-section .ap-col-left,
-  #approach-section .ap-col-right {
-    flex-direction: column;
-    align-items: center;
-  }
-  #approach-section .ap-card-item {
-    max-width: 260px;
-    width: 100%;
   }
 }
 </style>
 
-<section id="approach-section">
-  <!-- Ambient deep glow -->
-  <div class="ap-ambient"></div>
+<section id="ecosystem-section">
+  <!-- Anchor alias so existing internal links work -->
+  <span id="approach-section" style="display:none;"></span>
 
-  <!-- Header -->
-  <div class="ap-header">
-    <div class="ap-eyebrow">⚙ Work Process</div>
-    <h2 class="ap-h2">Our<br><em>Approach</em></h2>
-    <p class="ap-sub">We turn creative ideas into high-converting assets &mdash; on time, every time.</p>
-  </div>
+  <!-- Ambient Glows -->
+  <div class="eco-ambient-1"></div>
+  <div class="eco-ambient-2"></div>
 
-  <!-- Orbit Visual Layout -->
-  <div class="ap-orbit-wrap">
-
-    <!-- LEFT CARDS -->
-    <div class="ap-col-left">
-      <!-- Video Editing -->
-      <div class="ap-card-item">
-        <div class="ap-card" style="text-align:right;">
-          <div class="ap-card-title">Video Editing</div>
-          <div class="ap-card-sub">Cinematic cuts &amp;<br>Motion Graphics</div>
-        </div>
-        <svg class="ap-conn-left" width="64" height="4">
-          <line x1="0" y1="2" x2="60" y2="2" stroke="rgba(184,0,245,0.5)" stroke-width="1.5" stroke-dasharray="5 4"/>
-          <circle cx="60" cy="2" r="3" fill="#B800F5" opacity="0.9"/>
-        </svg>
-      </div>
-
-      <!-- Web Design -->
-      <div class="ap-card-item">
-        <div class="ap-card" style="text-align:right;">
-          <div class="ap-card-title">Web Design</div>
-          <div class="ap-card-sub">High-converting<br>landing pages</div>
-        </div>
-        <svg class="ap-conn-left" width="64" height="4">
-          <line x1="0" y1="2" x2="60" y2="2" stroke="rgba(184,0,245,0.5)" stroke-width="1.5" stroke-dasharray="5 4"/>
-          <circle cx="60" cy="2" r="3" fill="#B800F5" opacity="0.9"/>
-        </svg>
-      </div>
+  <div class="eco-container">
+    <!-- Header -->
+    <div class="eco-header">
+      <div class="eco-eyebrow">⚡ Complete Growth Ecosystem</div>
+      <h2 class="eco-h2">5 Core Pillars.<br><em>One Unified Engine.</em></h2>
+      <p class="eco-sub">
+        We don't just edit videos — we build the complete digital infrastructure your brand needs: from high-converting creative to full-stack code, paid ad scale, and 24/7 AI automation.
+      </p>
     </div>
 
-    <!-- CENTER 3D RING -->
-    <div class="ap-col-center">
-      <div class="ap-ring-glow"></div>
-      <svg width="290" height="290" viewBox="0 0 290 290" style="position:absolute;top:0;left:0;">
-        <defs>
-          <radialGradient id="apRingTop" cx="50%" cy="28%" r="60%">
-            <stop offset="0%" stop-color="#B800F5" stop-opacity="1"/>
-            <stop offset="55%" stop-color="#580B82" stop-opacity="0.75"/>
-            <stop offset="100%" stop-color="#08010E" stop-opacity="0"/>
-          </radialGradient>
-          <filter id="apGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="5" result="blur"/>
-            <feMerge>
-              <feMergeNode in="blur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-        </defs>
-
-        <!-- Outer 3D Rim -->
-        <ellipse cx="145" cy="118" rx="116" ry="35" fill="none" stroke="url(#apRingTop)" stroke-width="3.5" filter="url(#apGlow)" opacity="0.95"/>
-
-        <!-- 3D Bowl / Saucer Body -->
-        <path d="M 29,118 Q 29,225 145,225 Q 261,225 261,118" fill="none" stroke="rgba(184,0,245,0.45)" stroke-width="26" stroke-linecap="round"/>
-        <path d="M 44,118 Q 44,210 145,210 Q 246,210 246,118" fill="none" stroke="rgba(184,0,245,0.85)" stroke-width="7" stroke-linecap="round" opacity="0.75"/>
-
-        <!-- Inner Rim & Horizon -->
-        <ellipse cx="145" cy="118" rx="96" ry="27" fill="none" stroke="rgba(184,0,245,0.55)" stroke-width="2" opacity="0.6"/>
-        <path d="M 58,106 Q 145,76 232,106" fill="none" stroke="rgba(232,121,249,0.95)" stroke-width="3.5" stroke-linecap="round" filter="url(#apGlow)"/>
-
-        <!-- Bottom Ambient Glow Puddle -->
-        <ellipse cx="145" cy="220" rx="92" ry="23" fill="rgba(184,0,245,0.22)" filter="url(#apGlow)"/>
-        <ellipse cx="145" cy="118" rx="75" ry="19" fill="rgba(8,1,14,0.6)"/>
-
-        <!-- Orbiting Particle -->
-        <circle r="5" fill="#E879F9" filter="url(#apGlow)" opacity="0.95">
-          <animateMotion dur="3.5s" repeatCount="indefinite">
-            <mpath href="#apRingOrbitPath"/>
-          </animateMotion>
-        </circle>
-        <path id="apRingOrbitPath" d="M 29,118 Q 29,225 145,225 Q 261,225 261,118 Q 261,12 145,12 Q 29,12 29,118" fill="none"/>
-      </svg>
-
-      <!-- Center Brand Label -->
-      <div style="position:absolute;top:40%;left:50%;transform:translate(-50%,-50%);text-align:center;pointer-events:none;z-index:4;">
-        <div style="font-family:'Coolvetica',sans-serif;font-size:12.5px;letter-spacing:2.5px;text-transform:uppercase;color:#E879F9;text-shadow:0 0 12px rgba(184,0,245,0.8);">ZENTIC MEDIA</div>
+    <!-- TOP ROW (3 Pillars: Video, Graphics, Web) -->
+    <div class="eco-grid-top">
+      
+      <!-- PILLAR 1: Video Editing & Motion -->
+      <div class="eco-card">
+        <div>
+          <div class="eco-card-top">
+            <div class="eco-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#E879F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/>
+                <line x1="7" y1="2" x2="7" y2="22"/>
+                <line x1="17" y1="2" x2="17" y2="22"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <line x1="2" y1="7" x2="7" y2="7"/>
+                <line x1="2" y1="17" x2="7" y2="17"/>
+                <line x1="17" y1="17" x2="22" y2="17"/>
+                <line x1="17" y1="7" x2="22" y2="7"/>
+              </svg>
+            </div>
+            <span class="eco-badge">Retention First</span>
+          </div>
+          <h3 class="eco-title">Video Editing &amp; Motion</h3>
+          <p class="eco-desc">
+            Cinematic SaaS explainers, viral short-form reels, and YouTube pacing engineered for maximum viewer retention.
+          </p>
+          <ul class="eco-checklist">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              SaaS &amp; Product Demo Explainers
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              YouTube Retention &amp; Story Pacing
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Viral 9:16 Shorts, Reels &amp; TikToks
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              4K Motion Graphics &amp; Sound Design
+            </li>
+          </ul>
+        </div>
+        <div class="eco-pills">
+          <span class="eco-pill">Premiere Pro</span>
+          <span class="eco-pill">After Effects</span>
+          <span class="eco-pill">DaVinci Resolve</span>
+          <span class="eco-pill">Sound FX</span>
+        </div>
       </div>
+
+      <!-- PILLAR 2: Graphic Design & Branding -->
+      <div class="eco-card">
+        <div>
+          <div class="eco-card-top">
+            <div class="eco-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#E879F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 2a14.5 14.5 0 0 0 0 20 10 10 0 0 0 10-10"/>
+                <circle cx="12" cy="8" r="1.5" fill="#E879F9"/>
+                <circle cx="8" cy="13" r="1.5" fill="#E879F9"/>
+                <circle cx="15" cy="14" r="1.5" fill="#E879F9"/>
+              </svg>
+            </div>
+            <span class="eco-badge">Pixel Perfect</span>
+          </div>
+          <h3 class="eco-title">Graphic Design &amp; Branding</h3>
+          <p class="eco-desc">
+            Visual identities that stick. Premium brand guidelines, high-CTR ad creatives, social banners, and pitch decks.
+          </p>
+          <ul class="eco-checklist">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Full Brand Identity &amp; Logo Systems
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              High-CTR YouTube Thumbnails
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Social Media &amp; Ad Creative Bundles
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Pitch Decks &amp; Presentation Assets
+            </li>
+          </ul>
+        </div>
+        <div class="eco-pills">
+          <span class="eco-pill">Figma</span>
+          <span class="eco-pill">Photoshop</span>
+          <span class="eco-pill">Illustrator</span>
+          <span class="eco-pill">Vector Design</span>
+        </div>
+      </div>
+
+      <!-- PILLAR 3: Web Design & Development -->
+      <div class="eco-card">
+        <div>
+          <div class="eco-card-top">
+            <div class="eco-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#E879F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </div>
+            <span class="eco-badge">Sub-Second Load</span>
+          </div>
+          <h3 class="eco-title">Web Design &amp; Development</h3>
+          <p class="eco-desc">
+            Ultra-modern, lightning-fast landing pages and full-stack web applications designed to turn visitors into buyers.
+          </p>
+          <ul class="eco-checklist">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Conversion-Focused Landing Pages
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Webflow &amp; Custom Next.js Architecture
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              100% Responsive &amp; Mobile Optimized
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Technical SEO &amp; Micro-Animations
+            </li>
+          </ul>
+        </div>
+        <div class="eco-pills">
+          <span class="eco-pill">Webflow</span>
+          <span class="eco-pill">Next.js / React</span>
+          <span class="eco-pill">HTML/CSS/JS</span>
+          <span class="eco-pill">Figma-to-Code</span>
+        </div>
+      </div>
+
     </div>
 
-    <!-- RIGHT CARDS -->
-    <div class="ap-col-right">
-      <!-- Paid Ads -->
-      <div class="ap-card-item">
-        <svg class="ap-conn-right" width="64" height="4">
-          <circle cx="4" cy="2" r="3" fill="#B800F5" opacity="0.9"/>
-          <line x1="4" y1="2" x2="64" y2="2" stroke="rgba(184,0,245,0.5)" stroke-width="1.5" stroke-dasharray="5 4"/>
-        </svg>
-        <div class="ap-card" style="text-align:left;">
-          <div class="ap-card-title">Paid Ads</div>
-          <div class="ap-card-sub">Creatives that<br>scale your brand</div>
+    <!-- BOTTOM ROW (2 Featured Pillars: Digital Marketing & AI Automation) -->
+    <div class="eco-grid-bottom">
+
+      <!-- PILLAR 4: Digital Marketing & Paid Growth -->
+      <div class="eco-card">
+        <div>
+          <div class="eco-card-top">
+            <div class="eco-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#E879F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                <polyline points="17 6 23 6 23 12"/>
+              </svg>
+            </div>
+            <span class="eco-badge">High ROAS Scale</span>
+          </div>
+          <h3 class="eco-title">Digital Marketing &amp; Performance Ads</h3>
+          <p class="eco-desc">
+            Full-funnel digital marketing strategies that turn ad spend into predictable revenue. We craft data-backed campaigns across Meta, Google, and beyond.
+          </p>
+          <ul class="eco-checklist">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Meta (Facebook/Instagram) &amp; Google Ads Scaling
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              High-Converting Funnel Copy &amp; Sales Strategy
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Audience Retargeting &amp; Conversion Tracking
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Relentless Creative A/B Testing for Peak ROAS
+            </li>
+          </ul>
+        </div>
+        <div class="eco-pills">
+          <span class="eco-pill">Meta Ads</span>
+          <span class="eco-pill">Google Ads</span>
+          <span class="eco-pill">Funnel Building</span>
+          <span class="eco-pill">Analytics</span>
+          <span class="eco-pill">Targeting</span>
         </div>
       </div>
 
-      <!-- AI Automation -->
-      <div class="ap-card-item">
-        <svg class="ap-conn-right" width="64" height="4">
-          <circle cx="4" cy="2" r="3" fill="#B800F5" opacity="0.9"/>
-          <line x1="4" y1="2" x2="64" y2="2" stroke="rgba(184,0,245,0.5)" stroke-width="1.5" stroke-dasharray="5 4"/>
-        </svg>
-        <div class="ap-card" style="text-align:left;">
-          <div class="ap-card-title">AI Automation</div>
-          <div class="ap-card-sub">Smart workflows<br>&amp; AI growth</div>
+      <!-- PILLAR 5: AI Automation & Systems -->
+      <div class="eco-card">
+        <div>
+          <div class="eco-card-top">
+            <div class="eco-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#E879F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="10" rx="2"/>
+                <circle cx="12" cy="5" r="2"/>
+                <path d="M12 7v4"/>
+                <line x1="8" y1="16" x2="8" y2="16"/>
+                <line x1="16" y1="16" x2="16" y2="16"/>
+              </svg>
+            </div>
+            <span class="eco-badge">24/7 Autopilot</span>
+          </div>
+          <h3 class="eco-title">AI Automation &amp; Smart Workflows</h3>
+          <p class="eco-desc">
+            Empower your business with custom AI agents and automated backend workflows that qualify leads, handle support, and save hundreds of manual hours.
+          </p>
+          <ul class="eco-checklist">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Custom AI Chatbots for Lead Capture &amp; Support
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Automated CRM &amp; Email Lead Nurture Sequences
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Multi-App Integrations via Make.com, Zapier &amp; n8n
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              AI-Powered Content &amp; Social Repurposing Pipelines
+            </li>
+          </ul>
+        </div>
+        <div class="eco-pills">
+          <span class="eco-pill">OpenAI / Claude API</span>
+          <span class="eco-pill">Make.com</span>
+          <span class="eco-pill">n8n</span>
+          <span class="eco-pill">Zapier</span>
+          <span class="eco-pill">Python Automation</span>
         </div>
       </div>
+
+    </div>
+
+    <!-- INTEGRATION CTA RIBBON -->
+    <div class="eco-cta-ribbon">
+      <div class="eco-cta-text">
+        <h4>Need a Bespoke Combination of Services?</h4>
+        <p>Whether you need pure video editing or an end-to-end digital growth package, we tailor everything to your exact goals.</p>
+      </div>
+      <a href="#talktous" class="eco-cta-btn">
+        <span>Get in Touch</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
     </div>
 
   </div>
