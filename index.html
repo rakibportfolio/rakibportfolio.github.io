@@ -3007,20 +3007,18 @@
 
 .pf-tab-btn {
   display: inline-flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 3px;
   padding: 10px 24px;
-  border-radius: 14px;
+  border-radius: 999px;
   border: 1px solid rgba(184, 0, 245, 0.28);
   background: rgba(14, 5, 24, 0.75);
-  color: rgba(225, 200, 250, 0.7);
+  color: rgba(225, 200, 250, 0.75);
   cursor: pointer;
   transition: all 0.28s ease;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  min-width: 120px;
+  white-space: nowrap;
   text-align: center;
 }
 
@@ -3045,20 +3043,7 @@
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.3px;
-  line-height: 1.2;
-}
-
-.pf-tab-sub {
-  font-family: 'Inter', -apple-system, sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  color: rgba(232, 121, 249, 0.85);
-  letter-spacing: 0.4px;
-  line-height: 1.2;
-}
-
-.pf-tab-btn.pf-active .pf-tab-sub {
-  color: rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
 }
 
 /* ── Panels ── */
@@ -3233,29 +3218,20 @@
     flex-wrap: wrap;
   }
   .pf-tab-btn {
-    flex: 1 1 calc(33.333% - 8px);
-    min-width: 95px;
-    padding: 8px 10px;
-    border-radius: 12px;
+    padding: 8px 16px;
+    border-radius: 999px;
   }
   .pf-tab-label {
-    font-size: 12px;
-  }
-  .pf-tab-sub {
-    font-size: 10px;
+    font-size: 12.5px;
   }
 }
 
 @media (max-width: 380px) {
   .pf-tab-btn {
-    min-width: 85px;
-    padding: 7px 6px;
+    padding: 7px 12px;
   }
   .pf-tab-label {
-    font-size: 11px;
-  }
-  .pf-tab-sub {
-    font-size: 9px;
+    font-size: 11.5px;
   }
 }
 </style>
@@ -3271,15 +3247,12 @@
       <div class="pf-tabs" role="tablist">
         <button class="pf-tab-btn pf-active" data-pf-tab="saas" role="tab" aria-selected="true">
           <span class="pf-tab-label">SaaS Promo</span>
-          <span class="pf-tab-sub">6 Videos</span>
         </button>
         <button class="pf-tab-btn" data-pf-tab="talking" role="tab" aria-selected="false">
           <span class="pf-tab-label">Talking Head</span>
-          <span class="pf-tab-sub">2 Videos</span>
         </button>
         <button class="pf-tab-btn" data-pf-tab="bangla" role="tab" aria-selected="false">
           <span class="pf-tab-label">Bangla Promo</span>
-          <span class="pf-tab-sub">6 Videos</span>
         </button>
       </div>
     </div>
