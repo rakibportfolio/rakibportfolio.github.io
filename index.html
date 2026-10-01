@@ -3165,6 +3165,51 @@
   background: #000;
 }
 
+/* ── Portrait Card (Shorts / Reels 9:16) ── */
+.pf-card-portrait {
+  aspect-ratio: 9/16;
+  max-width: 260px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.pf-card-portrait iframe {
+  top: -2%;
+  left: -2%;
+  width: 104%;
+  height: 104%;
+}
+
+.pf-grid-mixed {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.pf-mixed-landscape {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 820px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.pf-mixed-portrait {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 900px) {
+  .pf-mixed-portrait { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .pf-mixed-portrait { grid-template-columns: repeat(2, 1fr); }
+  .pf-mixed-landscape { grid-template-columns: 1fr; }
+  .pf-card-portrait { max-width: 100%; }
+}
+
 /* ── Responsive ── */
 @media (max-width: 1040px) {
   .pf-grid { grid-template-columns: repeat(2,1fr); }
@@ -3291,54 +3336,64 @@
 
     <!-- Bangla Promo Panel -->
     <div class="pf-panel" data-pf-panel="bangla">
-      <div class="pf-grid">
+      <div class="pf-grid-mixed">
 
-        <div class="pf-card" data-vid="9htGN34HT3g">
-          <img class="pf-thumb" src="https://img.youtube.com/vi/9htGN34HT3g/maxresdefault.jpg" alt="Bangla Promo Video 1" loading="lazy"/>
-          <div class="pf-card-overlay"></div>
-          <div class="pf-play">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+        <!-- Landscape Videos (16:9) -->
+        <div class="pf-mixed-landscape">
+
+          <div class="pf-card" data-vid="9htGN34HT3g">
+            <img class="pf-thumb" src="https://img.youtube.com/vi/9htGN34HT3g/maxresdefault.jpg" alt="Bangla Promo Video 1" loading="lazy"/>
+            <div class="pf-card-overlay"></div>
+            <div class="pf-play">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+            </div>
           </div>
+
+          <div class="pf-card" data-vid="Gv3dhiOLS80">
+            <img class="pf-thumb" src="https://img.youtube.com/vi/Gv3dhiOLS80/maxresdefault.jpg" alt="Bangla Promo Video 3" loading="lazy"/>
+            <div class="pf-card-overlay"></div>
+            <div class="pf-play">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+
         </div>
 
-        <div class="pf-card" data-vid="SB_q0bsxiXs">
-          <img class="pf-thumb" src="https://img.youtube.com/vi/SB_q0bsxiXs/maxresdefault.jpg" alt="Bangla Promo Video 2" loading="lazy"/>
-          <div class="pf-card-overlay"></div>
-          <div class="pf-play">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-          </div>
-        </div>
+        <!-- Portrait / Shorts Videos (9:16) -->
+        <div class="pf-mixed-portrait">
 
-        <div class="pf-card" data-vid="Gv3dhiOLS80">
-          <img class="pf-thumb" src="https://img.youtube.com/vi/Gv3dhiOLS80/maxresdefault.jpg" alt="Bangla Promo Video 3" loading="lazy"/>
-          <div class="pf-card-overlay"></div>
-          <div class="pf-play">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          <div class="pf-card pf-card-portrait" data-vid="SB_q0bsxiXs">
+            <img class="pf-thumb" src="https://img.youtube.com/vi/SB_q0bsxiXs/maxresdefault.jpg" alt="Bangla Shorts 1" loading="lazy"/>
+            <div class="pf-card-overlay"></div>
+            <div class="pf-play">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+            </div>
           </div>
-        </div>
 
-        <div class="pf-card" data-vid="Zh_E8NwuK7w">
-          <img class="pf-thumb" src="https://img.youtube.com/vi/Zh_E8NwuK7w/maxresdefault.jpg" alt="Bangla Promo Video 4" loading="lazy"/>
-          <div class="pf-card-overlay"></div>
-          <div class="pf-play">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          <div class="pf-card pf-card-portrait" data-vid="Zh_E8NwuK7w">
+            <img class="pf-thumb" src="https://img.youtube.com/vi/Zh_E8NwuK7w/maxresdefault.jpg" alt="Bangla Shorts 2" loading="lazy"/>
+            <div class="pf-card-overlay"></div>
+            <div class="pf-play">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+            </div>
           </div>
-        </div>
 
-        <div class="pf-card" data-vid="U9X5O_1PfrY">
-          <img class="pf-thumb" src="https://img.youtube.com/vi/U9X5O_1PfrY/maxresdefault.jpg" alt="Bangla Promo Video 5" loading="lazy"/>
-          <div class="pf-card-overlay"></div>
-          <div class="pf-play">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          <div class="pf-card pf-card-portrait" data-vid="U9X5O_1PfrY">
+            <img class="pf-thumb" src="https://img.youtube.com/vi/U9X5O_1PfrY/maxresdefault.jpg" alt="Bangla Shorts 3" loading="lazy"/>
+            <div class="pf-card-overlay"></div>
+            <div class="pf-play">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+            </div>
           </div>
-        </div>
 
-        <div class="pf-card" data-vid="tNnOzQMEmmg">
-          <img class="pf-thumb" src="https://img.youtube.com/vi/tNnOzQMEmmg/maxresdefault.jpg" alt="Bangla Promo Video 6" loading="lazy"/>
-          <div class="pf-card-overlay"></div>
-          <div class="pf-play">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          <div class="pf-card pf-card-portrait" data-vid="tNnOzQMEmmg">
+            <img class="pf-thumb" src="https://img.youtube.com/vi/tNnOzQMEmmg/maxresdefault.jpg" alt="Bangla Shorts 4" loading="lazy"/>
+            <div class="pf-card-overlay"></div>
+            <div class="pf-play">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+            </div>
           </div>
+
         </div>
 
       </div>
