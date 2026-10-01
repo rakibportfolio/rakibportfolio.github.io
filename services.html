@@ -3,285 +3,976 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Our Services | Zentic Media</title>
-<meta name="description" content="Explore all Zentic Media services: High-converting Video Editing, Graphics Design, Web Design, Digital Marketing and AI Automation."/>
-<link rel="icon" type="image/x-icon" href="favicon.ico?v=5.0"/>
+<title>Services — Zentic Media</title>
+<meta name="description" content="Premium video editing, graphics, web design, digital marketing & AI automation services by Zentic Media."/>
+<link rel="icon" href="favicon.ico?v=5.0"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-<link href="css/mzmedia.css?v=2.0" rel="stylesheet" type="text/css"/>
-<link href="css/custom-theme.css?v=12.0" rel="stylesheet" type="text/css"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet"/>
 <style>
+/* ============================================
+   ZENTIC MEDIA — ULTRA PREMIUM SERVICES PAGE
+   ============================================ */
+
+:root {
+  --bg: #050507;
+  --bg2: #0a0a0f;
+  --surface: rgba(255,255,255,0.03);
+  --border: rgba(255,255,255,0.07);
+  --border-hover: rgba(124,58,237,0.50);
+  --purple: #7c3aed;
+  --purple-light: #a78bfa;
+  --purple-mid: #8b5cf6;
+  --purple-glow: rgba(124,58,237,0.35);
+  --pink: #ec4899;
+  --blue: #3b82f6;
+  --green: #10b981;
+  --orange: #f59e0b;
+  --text: #fff;
+  --text-dim: rgba(255,255,255,0.50);
+  --text-muted: rgba(255,255,255,0.28);
+  --radius: 20px;
+  --radius-sm: 12px;
+  --font-head: 'Syne', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root { --purple: #7c3aed; --purple-light: #a78bfa; --purple-dark: #6d28d9; }
-body { background: #09090b; color: #fff; font-family: 'Inter', sans-serif; overflow-x: hidden; }
 
-/* NAV */
-.sp-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 999; display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; background: rgba(9,9,11,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.06); }
-.sp-nav-logo { height: 32px; width: auto; object-fit: contain; }
-.sp-nav-links { display: flex; gap: 32px; align-items: center; }
-.sp-nav-links a { font-size: 14px; color: rgba(255,255,255,0.60); text-decoration: none; transition: color 0.2s; }
-.sp-nav-links a:hover,.sp-nav-links a.active { color: #fff; }
-.sp-nav-cta { background: linear-gradient(135deg,#7c3aed,#6d28d9); color: #fff !important; padding: 10px 22px; border-radius: 50px; font-weight: 600; box-shadow: 0 0 20px rgba(124,58,237,0.3); transition: all 0.3s !important; }
-.sp-nav-cta:hover { box-shadow: 0 0 35px rgba(124,58,237,0.6); transform: translateY(-1px); }
+html { scroll-behavior: smooth; }
 
-/* HERO */
-.sp-hero { padding: 160px 48px 80px; text-align: center; position: relative; overflow: hidden; }
-.sp-hero::before { content: ''; position: absolute; top: -100px; left: 50%; transform: translateX(-50%); width: 800px; height: 500px; background: radial-gradient(ellipse,rgba(124,58,237,0.20) 0%,transparent 70%); pointer-events: none; }
-.sp-hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(124,58,237,0.12); border: 1px solid rgba(124,58,237,0.30); border-radius: 50px; padding: 6px 18px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #a78bfa; margin-bottom: 28px; }
-.sp-eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: #7c3aed; animation: sp-pulse 2s ease-in-out infinite; }
-@keyframes sp-pulse { 0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(0.7);} }
-.sp-hero h1 { font-size: clamp(40px,7vw,78px); font-weight: 700; line-height: 1.05; letter-spacing: -1px; color: #fff; margin-bottom: 24px; }
-.sp-hero h1 span { background: linear-gradient(135deg,#a78bfa,#7c3aed,#c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.sp-hero-desc { font-size: 17px; color: rgba(255,255,255,0.50); max-width: 560px; margin: 0 auto 44px; line-height: 1.7; }
-.sp-hero-btn { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg,#7c3aed,#6d28d9); color: #fff; font-size: 15px; font-weight: 600; padding: 15px 36px; border-radius: 50px; text-decoration: none; box-shadow: 0 0 40px rgba(124,58,237,0.4); transition: all 0.3s; }
-.sp-hero-btn:hover { transform: translateY(-2px); box-shadow: 0 0 60px rgba(124,58,237,0.6); }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
 
-/* STATS */
-.sp-stats { display: flex; justify-content: center; margin: 0 48px 80px; border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; background: rgba(255,255,255,0.02); overflow: hidden; }
-.sp-stat { flex: 1; text-align: center; padding: 32px 20px; border-right: 1px solid rgba(255,255,255,0.07); }
-.sp-stat:last-child { border-right: none; }
-.sp-stat-num { font-size: 36px; font-weight: 700; color: #a78bfa; display: block; line-height: 1; margin-bottom: 6px; }
-.sp-stat-label { font-size: 12px; color: rgba(255,255,255,0.40); }
+/* ===== NOISE TEXTURE OVERLAY ===== */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.35;
+}
 
-/* SERVICES GRID */
-.sp-wrap { max-width: 1200px; margin: 0 auto; padding: 0 40px 100px; }
-.sp-section-label { text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.28); margin-bottom: 48px; }
-.sp-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+/* ===== ANIMATED BG ORBS ===== */
+.bg-orbs {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  animation: orb-drift 20s ease-in-out infinite alternate;
+}
+.bg-orb-1 { width: 600px; height: 600px; background: rgba(124,58,237,0.12); top: -200px; left: -100px; animation-duration: 22s; }
+.bg-orb-2 { width: 400px; height: 400px; background: rgba(236,72,153,0.07); top: 40%; right: -100px; animation-duration: 18s; animation-delay: -8s; }
+.bg-orb-3 { width: 500px; height: 500px; background: rgba(59,130,246,0.06); bottom: -100px; left: 30%; animation-duration: 25s; animation-delay: -12s; }
+@keyframes orb-drift { 0%{transform:translate(0,0) scale(1);} 100%{transform:translate(60px,40px) scale(1.1);} }
 
-/* CARD */
-.sp-card { position: relative; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 24px; padding: 40px 36px; transition: all 0.4s cubic-bezier(0.23,1,0.32,1); overflow: hidden; }
-.sp-card:hover { border-color: var(--c, rgba(124,58,237,0.40)); transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,0.35); }
-.sp-card.span2 { grid-column: span 2; }
-.sp-card.span3 { grid-column: span 3; }
-.sp-card-icon { width: 54px; height: 54px; border-radius: 15px; display: flex; align-items: center; justify-content: center; margin-bottom: 22px; background: var(--ic, rgba(124,58,237,0.14)); border: 1px solid var(--ib, rgba(124,58,237,0.28)); }
-.sp-card-icon svg { width: 24px; height: 24px; }
-.sp-card-num { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--nc, #a78bfa); margin-bottom: 12px; display: block; }
-.sp-card h3 { font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 12px; line-height: 1.2; letter-spacing: -0.3px; }
-.sp-card p { font-size: 14px; line-height: 1.75; color: rgba(255,255,255,0.48); margin-bottom: 22px; }
-.sp-feats { list-style: none; display: flex; flex-direction: column; gap: 9px; }
-.sp-feats li { font-size: 13px; color: rgba(255,255,255,0.55); display: flex; align-items: center; gap: 10px; }
-.sp-feats li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--nc, #a78bfa); flex-shrink: 0; }
-.sp-card-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--nc, #a78bfa); text-decoration: none; margin-top: 26px; transition: gap 0.2s; }
-.sp-card-link:hover { gap: 11px; }
+/* ===== NAV ===== */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  height: 68px;
+  background: rgba(5,5,7,0.80);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.nav-logo { height: 30px; width: auto; }
+.nav-links { display: flex; gap: 36px; align-items: center; }
+.nav-links a {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-dim);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: color 0.2s;
+  position: relative;
+}
+.nav-links a:hover { color: #fff; }
+.nav-links a.active { color: #fff; }
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0; right: 0;
+  height: 2px;
+  background: var(--purple-mid);
+  border-radius: 2px;
+}
+.nav-cta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  color: #fff !important;
+  font-weight: 600 !important;
+  font-size: 13.5px !important;
+  padding: 9px 20px;
+  border-radius: 50px;
+  letter-spacing: 0 !important;
+  box-shadow: 0 0 24px rgba(124,58,237,0.35), inset 0 1px 0 rgba(255,255,255,0.1);
+  transition: all 0.3s !important;
+}
+.nav-cta:hover { box-shadow: 0 0 40px rgba(124,58,237,0.60), inset 0 1px 0 rgba(255,255,255,0.1); transform: translateY(-1px); }
+.nav-cta::after { display: none !important; }
 
-/* Color themes */
-.purple { --c: rgba(124,58,237,0.40); --ic: rgba(124,58,237,0.14); --ib: rgba(124,58,237,0.28); --nc: #a78bfa; }
-.blue   { --c: rgba(59,130,246,0.40);  --ic: rgba(59,130,246,0.12);  --ib: rgba(59,130,246,0.25);  --nc: #93c5fd; }
-.pink   { --c: rgba(236,72,153,0.40);  --ic: rgba(236,72,153,0.12);  --ib: rgba(236,72,153,0.28);  --nc: #f9a8d4; }
-.green  { --c: rgba(34,197,94,0.40);   --ic: rgba(34,197,94,0.12);   --ib: rgba(34,197,94,0.28);   --nc: #86efac; }
-.orange { --c: rgba(249,115,22,0.40);  --ic: rgba(249,115,22,0.12);  --ib: rgba(249,115,22,0.28);  --nc: #fdba74; }
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  z-index: 1;
+  padding: 160px 48px 100px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-/* CTA */
-.sp-cta { max-width: 1200px; margin: 0 auto 100px; padding: 0 40px; }
-.sp-cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: 52px 60px; background: linear-gradient(135deg,rgba(124,58,237,0.18),rgba(109,40,217,0.10)); border: 1px solid rgba(124,58,237,0.28); border-radius: 28px; flex-wrap: wrap; }
-.sp-cta h2 { font-size: clamp(26px,3.5vw,42px); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 8px; }
-.sp-cta p { font-size: 15px; color: rgba(255,255,255,0.50); }
-.sp-cta-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
-.sp-cta-btn { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg,#7c3aed,#6d28d9); color: #fff; font-size: 15px; font-weight: 600; padding: 15px 32px; border-radius: 50px; text-decoration: none; white-space: nowrap; box-shadow: 0 0 30px rgba(124,58,237,0.4); transition: all 0.3s; }
-.sp-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 0 50px rgba(124,58,237,0.6); }
-.sp-back { font-size: 14px; color: rgba(255,255,255,0.45); text-decoration: none; white-space: nowrap; transition: color 0.2s; }
-.sp-back:hover { color: #fff; }
+/* Eyebrow pill */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 18px 6px 8px;
+  background: rgba(124,58,237,0.10);
+  border: 1px solid rgba(124,58,237,0.28);
+  border-radius: 50px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--purple-light);
+  margin-bottom: 32px;
+  animation: fade-in-up 0.6s ease both;
+}
+.eyebrow-icon {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: rgba(124,58,237,0.25);
+  display: flex; align-items: center; justify-content: center;
+}
+.eyebrow-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--purple-mid);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+@keyframes pulse-dot { 0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(139,92,246,0.6);} 50%{opacity:0.7;box-shadow:0 0 0 5px rgba(139,92,246,0);} }
 
-/* FOOTER */
-.sp-foot { border-top: 1px solid rgba(255,255,255,0.07); padding: 24px 48px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-.sp-foot p { font-size: 13px; color: rgba(255,255,255,0.28); }
-.sp-foot a { color: rgba(255,255,255,0.40); text-decoration: none; transition: color 0.2s; }
-.sp-foot a:hover { color: #a78bfa; }
+/* Hero headline */
+.hero h1 {
+  font-family: var(--font-head);
+  font-size: clamp(46px, 6.5vw, 88px);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -2.5px;
+  color: #fff;
+  max-width: 900px;
+  animation: fade-in-up 0.7s 0.1s ease both;
+  margin-bottom: 28px;
+}
+.hero h1 .grad {
+  background: linear-gradient(135deg, #c084fc 0%, #a78bfa 35%, #818cf8 65%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% auto;
+  animation: grad-shift 4s linear infinite;
+}
+@keyframes grad-shift { 0%{background-position:0% center;} 100%{background-position:200% center;} }
 
-/* Responsive */
-@media (max-width:900px) {
-  .sp-nav { padding: 16px 24px; }
-  .sp-nav-links { display: none; }
-  .sp-hero { padding: 130px 24px 60px; }
-  .sp-stats { margin: 0 24px 60px; flex-wrap: wrap; }
-  .sp-stat { min-width: 50%; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
-  .sp-wrap { padding: 0 20px 80px; }
-  .sp-grid { grid-template-columns: 1fr; }
-  .sp-card.span2,.sp-card.span3 { grid-column: span 1; }
-  .sp-cta { padding: 0 20px; }
-  .sp-cta-inner { padding: 36px 28px; flex-direction: column; text-align: center; }
-  .sp-cta-actions { justify-content: center; }
-  .sp-foot { padding: 20px; flex-direction: column; text-align: center; }
+.hero-desc {
+  font-size: 18px;
+  line-height: 1.75;
+  color: var(--text-dim);
+  max-width: 560px;
+  margin: 0 auto 44px;
+  animation: fade-in-up 0.8s 0.2s ease both;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: fade-in-up 0.9s 0.3s ease both;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 15px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 0 40px rgba(124,58,237,0.40), 0 1px 0 rgba(255,255,255,0.12) inset;
+  transition: all 0.3s cubic-bezier(0.23,1,0.32,1);
+  letter-spacing: -0.01em;
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 70px rgba(124,58,237,0.65), 0 1px 0 rgba(255,255,255,0.12) inset; }
+.btn-primary svg { transition: transform 0.3s; }
+.btn-primary:hover svg { transform: translateX(4px); }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: color 0.2s;
+  letter-spacing: -0.01em;
+}
+.btn-ghost:hover { color: #fff; }
+
+/* ===== STATS STRIP ===== */
+.stats-strip {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0 48px 90px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+  animation: fade-in-up 1s 0.4s ease both;
+}
+.stats-strip::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(124,58,237,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+.stat-item {
+  padding: 36px 24px;
+  text-align: center;
+  border-right: 1px solid var(--border);
+  position: relative;
+  transition: background 0.3s;
+}
+.stat-item:hover { background: rgba(124,58,237,0.05); }
+.stat-item:last-child { border-right: none; }
+.stat-num {
+  font-family: var(--font-head);
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  background: linear-gradient(135deg, #fff 0%, var(--purple-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.stat-label {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+}
+
+/* ===== SERVICES SECTION ===== */
+.services-section {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 48px 120px;
+}
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 56px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.section-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+.section-tag::before { content: ''; display: block; width: 20px; height: 1px; background: var(--border); }
+.section-title {
+  font-family: var(--font-head);
+  font-size: clamp(32px, 3.5vw, 48px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+  color: #fff;
+}
+
+/* ===== BENTO GRID ===== */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: auto;
+  gap: 20px;
+}
+
+/* CARD BASE */
+.svc-card {
+  position: relative;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 40px;
+  overflow: hidden;
+  cursor: default;
+  transition: border-color 0.4s, transform 0.4s cubic-bezier(0.23,1,0.32,1), box-shadow 0.4s;
+  animation: fade-in-up 0.8s ease both;
+}
+/* Animated glow border on hover */
+.svc-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: calc(var(--radius) + 1px);
+  background: var(--card-grad, linear-gradient(135deg, rgba(124,58,237,0.50), rgba(139,92,246,0.20)));
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: -1;
+}
+.svc-card:hover { transform: translateY(-8px) scale(1.01); box-shadow: var(--card-shadow, 0 30px 80px rgba(124,58,237,0.18)); border-color: transparent; }
+.svc-card:hover::before { opacity: 1; }
+
+/* Inner shimmer */
+.svc-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+  transition: left 0.6s ease;
+}
+.svc-card:hover::after { left: 150%; }
+
+/* Grid spans */
+.span7 { grid-column: span 7; }
+.span5 { grid-column: span 5; }
+.span6 { grid-column: span 6; }
+.span4 { grid-column: span 4; }
+.span8 { grid-column: span 8; }
+
+/* Card colors */
+.c-purple { --card-grad: linear-gradient(135deg,rgba(124,58,237,0.55),rgba(139,92,246,0.25)); --card-shadow: 0 30px 80px rgba(124,58,237,0.20); }
+.c-pink    { --card-grad: linear-gradient(135deg,rgba(236,72,153,0.55),rgba(244,114,182,0.25)); --card-shadow: 0 30px 80px rgba(236,72,153,0.18); }
+.c-blue    { --card-grad: linear-gradient(135deg,rgba(59,130,246,0.55),rgba(96,165,250,0.25)); --card-shadow: 0 30px 80px rgba(59,130,246,0.18); }
+.c-green   { --card-grad: linear-gradient(135deg,rgba(16,185,129,0.55),rgba(52,211,153,0.25)); --card-shadow: 0 30px 80px rgba(16,185,129,0.18); }
+.c-orange  { --card-grad: linear-gradient(135deg,rgba(245,158,11,0.55),rgba(251,191,36,0.25)); --card-shadow: 0 30px 80px rgba(245,158,11,0.18); }
+
+/* CARD AMBIENT GLOW */
+.card-ambient {
+  position: absolute;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.12;
+  pointer-events: none;
+  top: -80px; right: -80px;
+  transition: opacity 0.4s;
+}
+.c-purple .card-ambient { background: #7c3aed; }
+.c-pink    .card-ambient { background: #ec4899; }
+.c-blue    .card-ambient { background: #3b82f6; }
+.c-green   .card-ambient { background: #10b981; }
+.c-orange  .card-ambient { background: #f59e0b; }
+.svc-card:hover .card-ambient { opacity: 0.22; }
+
+/* Card icon wrapper */
+.card-icon-wrap {
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 24px;
+  background: var(--icon-bg);
+  border: 1px solid var(--icon-border);
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s;
+}
+.svc-card:hover .card-icon-wrap { transform: scale(1.08) rotate(-3deg); }
+.c-purple .card-icon-wrap { --icon-bg: rgba(124,58,237,0.15); --icon-border: rgba(124,58,237,0.30); }
+.c-pink   .card-icon-wrap { --icon-bg: rgba(236,72,153,0.15); --icon-border: rgba(236,72,153,0.30); }
+.c-blue   .card-icon-wrap { --icon-bg: rgba(59,130,246,0.15);  --icon-border: rgba(59,130,246,0.30);  }
+.c-green  .card-icon-wrap { --icon-bg: rgba(16,185,129,0.15);  --icon-border: rgba(16,185,129,0.30);  }
+.c-orange .card-icon-wrap { --icon-bg: rgba(245,158,11,0.15);  --icon-border: rgba(245,158,11,0.30);  }
+
+/* Card number tag */
+.card-num {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--nc);
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+}
+.c-purple .card-num { --nc: #a78bfa; }
+.c-pink   .card-num { --nc: #f9a8d4; }
+.c-blue   .card-num { --nc: #93c5fd; }
+.c-green  .card-num { --nc: #6ee7b7; }
+.c-orange .card-num { --nc: #fcd34d; }
+
+/* Card heading */
+.card-title {
+  font-family: var(--font-head);
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  line-height: 1.15;
+  color: #fff;
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 1;
+}
+.span7 .card-title, .span8 .card-title { font-size: 30px; }
+
+/* Card desc */
+.card-desc {
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: var(--text-dim);
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Feature tags */
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  position: relative;
+  z-index: 1;
+}
+.card-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--nc);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  padding: 5px 12px;
+  transition: all 0.2s;
+}
+.card-tag:hover { background: rgba(255,255,255,0.08); border-color: var(--nc); }
+.card-tag-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--nc); opacity: 0.7; }
+
+/* Card CTA link */
+.card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--nc);
+  text-decoration: none;
+  margin-top: 24px;
+  position: relative;
+  z-index: 1;
+  transition: gap 0.3s;
+  letter-spacing: 0.01em;
+}
+.card-cta:hover { gap: 12px; }
+.card-cta-arrow {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--icon-bg);
+  border: 1px solid var(--icon-border);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.3s;
+}
+.card-cta:hover .card-cta-arrow { transform: rotate(-45deg); }
+
+/* Animated decorative lines inside card */
+.card-deco {
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 180px; height: 180px;
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+/* ===== CTA SECTION ===== */
+.cta-section {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto 120px;
+  padding: 0 48px;
+}
+.cta-inner {
+  position: relative;
+  padding: 70px 72px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(124,58,237,0.15) 0%, rgba(109,40,217,0.08) 50%, rgba(0,0,0,0) 100%);
+  border: 1px solid rgba(124,58,237,0.25);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.cta-inner::before {
+  content: '';
+  position: absolute;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: rgba(124,58,237,0.12);
+  filter: blur(100px);
+  top: -200px; left: -100px;
+  pointer-events: none;
+}
+.cta-text {}
+.cta-text h2 {
+  font-family: var(--font-head);
+  font-size: clamp(30px, 3.5vw, 48px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+.cta-text p { font-size: 16px; color: var(--text-dim); line-height: 1.6; }
+.cta-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+
+/* ===== MINI FOOTER ===== */
+.mini-footer {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid var(--border);
+  padding: 28px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.mini-footer p { font-size: 13px; color: var(--text-muted); }
+.mini-footer a { color: rgba(255,255,255,0.38); text-decoration: none; transition: color 0.2s; }
+.mini-footer a:hover { color: var(--purple-light); }
+
+/* ===== ANIMATIONS ===== */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Staggered card animations */
+.svc-card:nth-child(1) { animation-delay: 0.05s; }
+.svc-card:nth-child(2) { animation-delay: 0.12s; }
+.svc-card:nth-child(3) { animation-delay: 0.19s; }
+.svc-card:nth-child(4) { animation-delay: 0.26s; }
+.svc-card:nth-child(5) { animation-delay: 0.33s; }
+
+/* ===== COUNTER ANIMATION ===== */
+.count-up { display: inline-block; }
+
+/* ===== SCROLL REVEAL ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.23,1,0.32,1);
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .span7 { grid-column: span 12; }
+  .span5 { grid-column: span 12; }
+  .span6 { grid-column: span 12; }
+  .span4 { grid-column: span 12; }
+  .span8 { grid-column: span 12; }
+}
+@media (max-width: 768px) {
+  .nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .hero { padding: 120px 24px 80px; }
+  .stats-strip { grid-template-columns: repeat(2,1fr); margin: 0 24px 70px; }
+  .stat-item:nth-child(2) { border-right: none; }
+  .stat-item:nth-child(3) { border-top: 1px solid var(--border); border-right: 1px solid var(--border); }
+  .stat-item:nth-child(4) { border-top: 1px solid var(--border); }
+  .services-section { padding: 0 20px 80px; }
+  .section-header { flex-direction: column; align-items: flex-start; }
+  .svc-card { padding: 28px 24px; }
+  .cta-section { padding: 0 20px; }
+  .cta-inner { padding: 44px 32px; flex-direction: column; text-align: center; }
+  .cta-actions { justify-content: center; }
+  .mini-footer { padding: 24px; flex-direction: column; text-align: center; }
+}
+@media (max-width: 480px) {
+  .hero h1 { letter-spacing: -1.5px; }
+  .stats-strip { grid-template-columns: 1fr 1fr; }
+  .hero-actions { flex-direction: column; width: 100%; }
+  .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
 }
 </style>
 </head>
 <body>
 
+<!-- Ambient BG Orbs -->
+<div class="bg-orbs" aria-hidden="true">
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+  <div class="bg-orb bg-orb-3"></div>
+</div>
+
 <!-- NAV -->
-<nav class="sp-nav">
-  <a href="index.html"><img src="assets/zentic_logo.png" alt="Zentic Media" class="sp-nav-logo"/></a>
-  <div class="sp-nav-links">
+<nav class="nav">
+  <a href="index.html">
+    <img src="assets/zentic_logo.png" alt="Zentic Media" class="nav-logo"/>
+  </a>
+  <div class="nav-links">
     <a href="index.html">Home</a>
     <a href="services.html" class="active">Services</a>
     <a href="index.html#work">Work</a>
     <a href="index.html#pricing">Pricing</a>
-    <a href="mailto:technicalrakib999@gmail.com" class="sp-nav-cta">Get Started</a>
+    <a href="mailto:technicalrakib999@gmail.com" class="nav-cta">
+      Get Started
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
   </div>
 </nav>
 
 <!-- HERO -->
-<div class="sp-hero">
-  <div class="sp-hero-eyebrow">
-    <span class="sp-eyebrow-dot"></span>What We Offer
+<section class="hero">
+  <div class="eyebrow">
+    <span class="eyebrow-icon"><span class="eyebrow-dot"></span></span>
+    Core Capabilities
   </div>
-  <h1>Everything Your Brand Needs<br/><span>To Dominate.</span></h1>
-  <p class="sp-hero-desc">High-converting video editing, stunning design, powerful websites &amp; AI automation — all under one roof, built to grow your business.</p>
-  <a href="mailto:technicalrakib999@gmail.com" class="sp-hero-btn">
-    Start a Project
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </a>
-</div>
+  <h1>
+    Everything Your Brand<br/>
+    Needs to <span class="grad">Dominate.</span>
+  </h1>
+  <p class="hero-desc">
+    Five high-converting services built for modern brands — from scroll-stopping video to AI-powered automation. All under one roof.
+  </p>
+  <div class="hero-actions">
+    <a href="mailto:technicalrakib999@gmail.com" class="btn-primary">
+      Start a Project
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a href="index.html" class="btn-ghost">
+      &#8592; Back to Home
+    </a>
+  </div>
+</section>
 
-<!-- STATS -->
-<div class="sp-stats">
-  <div class="sp-stat"><span class="sp-stat-num">5+</span><span class="sp-stat-label">Core Services</span></div>
-  <div class="sp-stat"><span class="sp-stat-num">24–48h</span><span class="sp-stat-label">Fast Delivery</span></div>
-  <div class="sp-stat"><span class="sp-stat-num">100%</span><span class="sp-stat-label">Satisfaction Guarantee</span></div>
-  <div class="sp-stat"><span class="sp-stat-num">&#8734;</span><span class="sp-stat-label">Revisions Until Happy</span></div>
+<!-- STATS STRIP -->
+<div class="stats-strip reveal">
+  <div class="stat-item">
+    <span class="stat-num" data-count="5">0</span>
+    <span class="stat-label">Core Services</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">24h</span>
+    <span class="stat-label">Average Turnaround</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">100%</span>
+    <span class="stat-label">Satisfaction Rate</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">&#8734;</span>
+    <span class="stat-label">Revisions Until Happy</span>
+  </div>
 </div>
 
 <!-- SERVICES BENTO GRID -->
-<div class="sp-wrap">
-  <p class="sp-section-label">&#x2014; Core Capabilities &#x2014;</p>
-  <div class="sp-grid">
+<section class="services-section">
+  <div class="section-header reveal">
+    <div>
+      <div class="section-tag">What We Do</div>
+      <h2 class="section-title">Services Designed<br/>to Convert.</h2>
+    </div>
+  </div>
 
-    <!-- VIDEO EDITING — span 2 -->
-    <div class="sp-card purple span2">
-      <div class="sp-card-icon">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="1" y="5" width="15" height="11" rx="2.5" stroke="#a78bfa" stroke-width="1.6"/>
-          <path d="M16 9.5l6-3.5v10l-6-3.5V9.5z" fill="#a78bfa" opacity="0.6"/>
+  <div class="bento-grid">
+
+    <!-- 01 — VIDEO EDITING (wide) -->
+    <div class="svc-card c-purple span7 reveal">
+      <div class="card-ambient"></div>
+      <!-- Decorative SVG -->
+      <svg class="card-deco" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="90" cy="90" r="88" stroke="#7c3aed" stroke-width="1" stroke-dasharray="6 4"/>
+        <circle cx="90" cy="90" r="60" stroke="#7c3aed" stroke-width="1" stroke-dasharray="4 6"/>
+      </svg>
+      <div class="card-icon-wrap">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <rect x="1" y="5" width="15" height="11" rx="2" stroke="#a78bfa" stroke-width="1.8"/>
+          <path d="M16 9l6-3.5v9L16 11V9z" fill="#a78bfa" opacity="0.7"/>
+          <rect x="4" y="11" width="8" height="1.5" rx="0.75" fill="#a78bfa" opacity="0.4"/>
+          <rect x="4" y="8" width="5" height="1.5" rx="0.75" fill="#a78bfa" opacity="0.4"/>
         </svg>
       </div>
-      <span class="sp-card-num">01 &mdash; Video Editing</span>
-      <h3>Cinema-Grade Video Editing</h3>
-      <p>From raw footage to scroll-stopping content. We cut, color, animate and deliver videos that hold attention and drive action. Short-form, long-form, ads, and brand films.</p>
-      <ul class="sp-feats">
-        <li>Short-form reels &amp; TikTok / YouTube Shorts</li>
-        <li>Long-form YouTube &amp; brand documentaries</li>
-        <li>Motion graphics &amp; kinetic typography</li>
-        <li>Color grading &amp; professional sound design</li>
-        <li>85%+ retention engineering on every cut</li>
-      </ul>
-      <a href="mailto:technicalrakib999@gmail.com" class="sp-card-link">Get a Quote &#x2192;</a>
+      <div class="card-num">01 &mdash; Video Editing</div>
+      <h3 class="card-title">Cinema-Grade<br/>Video Production</h3>
+      <p class="card-desc">From raw footage to scroll-stopping masterpieces. We engineer every cut for maximum retention, emotion, and action — so your viewers stay, share, and convert.</p>
+      <div class="card-tags">
+        <span class="card-tag"><span class="card-tag-dot"></span>Short-form Reels & Ads</span>
+        <span class="card-tag"><span class="card-tag-dot"></span>Long-form YouTube</span>
+        <span class="card-tag"><span class="card-tag-dot"></span>Motion Graphics</span>
+        <span class="card-tag"><span class="card-tag-dot"></span>Color Grading</span>
+        <span class="card-tag"><span class="card-tag-dot"></span>85%+ Retention</span>
+        <span class="card-tag"><span class="card-tag-dot"></span>4K / 60FPS</span>
+      </div>
+      <a href="mailto:technicalrakib999@gmail.com" class="card-cta">
+        Get a Quote
+        <span class="card-cta-arrow">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M5 2l3 3-3 3" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
     </div>
 
-    <!-- GRAPHICS DESIGN -->
-    <div class="sp-card pink">
-      <div class="sp-card-icon">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="9" stroke="#f9a8d4" stroke-width="1.6"/>
-          <circle cx="12" cy="12" r="4" fill="#ec4899" opacity="0.45"/>
-          <path d="M12 3v3M12 18v3M3 12h3M18 12h3" stroke="#f9a8d4" stroke-width="1.4" stroke-linecap="round"/>
+    <!-- 02 — GRAPHICS DESIGN -->
+    <div class="svc-card c-pink span5 reveal">
+      <div class="card-ambient"></div>
+      <svg class="card-deco" viewBox="0 0 180 180" fill="none">
+        <rect x="20" y="20" width="140" height="140" rx="20" stroke="#ec4899" stroke-width="1" stroke-dasharray="5 4"/>
+        <rect x="45" y="45" width="90" height="90" rx="12" stroke="#ec4899" stroke-width="1" stroke-dasharray="4 5" opacity="0.5"/>
+      </svg>
+      <div class="card-icon-wrap">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke="#f9a8d4" stroke-width="1.8"/>
+          <circle cx="12" cy="12" r="4" fill="#ec4899" opacity="0.5"/>
+          <path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="#f9a8d4" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
       </div>
-      <span class="sp-card-num">02 &mdash; Graphics</span>
-      <h3>Bold Graphics Design</h3>
-      <p>Thumbnails, social posts, banners and brand kits that stop the scroll instantly.</p>
-      <ul class="sp-feats">
-        <li>YouTube thumbnails</li>
-        <li>Social media graphics</li>
-        <li>Brand identity kits</li>
-        <li>Ad creatives &amp; banners</li>
-      </ul>
-      <a href="mailto:technicalrakib999@gmail.com" class="sp-card-link">Get a Quote &#x2192;</a>
+      <div class="card-num">02 &mdash; Graphics Design</div>
+      <h3 class="card-title">Bold Visual<br/>Identity</h3>
+      <p class="card-desc">Thumbnails, brand kits, social creatives and banners that stop the scroll and communicate your value in 0.3 seconds.</p>
+      <div class="card-tags">
+        <span class="card-tag"><span class="card-tag-dot"></span>Thumbnails</span>
+        <span class="card-tag"><span class="card-tag-dot"></span>Brand Kits</span>
+        <span class="card-tag"><span class="card-tag-dot"></span>Social Creatives</span>
+        <span class="card-tag"><span class="card-tag-dot"></span>Ad Banners</span>
+      </div>
+      <a href="mailto:technicalrakib999@gmail.com" class="card-cta">
+        Get a Quote
+        <span class="card-cta-arrow">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M5 2l3 3-3 3" stroke="#f9a8d4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
     </div>
 
-    <!-- WEB DESIGN -->
-    <div class="sp-card blue">
-      <div class="sp-card-icon">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="2" y="4" width="20" height="14" rx="2.5" stroke="#93c5fd" stroke-width="1.6"/>
+    <!-- 03 — WEB DESIGN -->
+    <div class="svc-card c-blue span5 reveal">
+      <div class="card-ambient"></div>
+      <svg class="card-deco" viewBox="0 0 180 180" fill="none">
+        <path d="M90 10 L170 50 L170 130 L90 170 L10 130 L10 50 Z" stroke="#3b82f6" stroke-width="1" stroke-dasharray="5 4"/>
+      </svg>
+      <div class="card-icon-wrap">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <rect x="2" y="4" width="20" height="14" rx="3" stroke="#93c5fd" stroke-width="1.8"/>
           <path d="M2 8h20" stroke="#93c5fd" stroke-width="1.4"/>
-          <circle cx="5.5" cy="6" r="0.8" fill="#93c5fd"/>
-          <circle cx="8.5" cy="6" r="0.8" fill="#93c5fd"/>
-          <rect x="6" y="11" width="12" height="1.5" rx="0.75" fill="#93c5fd" opacity="0.45"/>
-          <rect x="6" y="14" width="8" height="1.5" rx="0.75" fill="#93c5fd" opacity="0.28"/>
+          <circle cx="5.5" cy="6" r="0.9" fill="#93c5fd"/>
+          <circle cx="8.5" cy="6" r="0.9" fill="#93c5fd"/>
+          <rect x="6" y="11" width="12" height="1.8" rx="0.9" fill="#93c5fd" opacity="0.45"/>
+          <rect x="6" y="14.5" width="8" height="1.8" rx="0.9" fill="#93c5fd" opacity="0.28"/>
         </svg>
       </div>
-      <span class="sp-card-num">03 &mdash; Web Design</span>
-      <h3>High-Converting Websites</h3>
-      <p>Premium websites built to convert visitors into paying customers. Fast, mobile-first, and built with conversion psychology from day one.</p>
-      <ul class="sp-feats">
-        <li>Landing pages &amp; portfolios</li>
-        <li>SaaS &amp; product websites</li>
-        <li>E-commerce storefronts</li>
-        <li>SEO-optimized &amp; mobile-first</li>
-      </ul>
-      <a href="mailto:technicalrakib999@gmail.com" class="sp-card-link">Get a Quote &#x2192;</a>
+      <div class="card-num">03 &mdash; Web Design</div>
+      <h3 class="card-title">Conversion-First<br/>Websites</h3>
+      <p class="card-desc">Premium websites with conversion psychology baked in from pixel one. Fast, beautiful and built to turn clicks into customers.</p>
+      <div class="card-tags">
+        <span class="card-tag"><span class="card-tag-dot"></span>Landing Pages</span>
+        <span class="card-tag"><span class="card-tag-dot"></span>SaaS & Portfolios</span>
+        <span class="card-tag"><span class="card-tag-dot"></span>Mobile-First</span>
+        <span class="card-tag"><span class="card-tag-dot"></span>SEO Ready</span>
+      </div>
+      <a href="mailto:technicalrakib999@gmail.com" class="card-cta">
+        Get a Quote
+        <span class="card-cta-arrow">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M5 2l3 3-3 3" stroke="#93c5fd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
     </div>
 
-    <!-- DIGITAL MARKETING -->
-    <div class="sp-card green">
-      <div class="sp-card-icon">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 17L8.5 11L12.5 15L18 8L22 12" stroke="#86efac" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="22" cy="12" r="2" fill="#22c55e"/>
-          <circle cx="3" cy="17" r="2" fill="#22c55e" opacity="0.4"/>
+    <!-- 04 — DIGITAL MARKETING -->
+    <div class="svc-card c-green span7 reveal">
+      <div class="card-ambient"></div>
+      <svg class="card-deco" viewBox="0 0 180 180" fill="none">
+        <circle cx="90" cy="90" r="70" stroke="#10b981" stroke-width="1" stroke-dasharray="3 6"/>
+      </svg>
+      <div class="card-icon-wrap">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M3 17L8.5 11.5L12.5 15.5L18 8.5L22 12.5" stroke="#6ee7b7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="22" cy="12.5" r="2.2" fill="#10b981"/>
+          <path d="M3 20h18" stroke="#6ee7b7" stroke-width="1.2" opacity="0.3" stroke-linecap="round"/>
         </svg>
       </div>
-      <span class="sp-card-num">04 &mdash; Marketing</span>
-      <h3>Digital Marketing Strategy</h3>
-      <p>Ad campaigns, content strategies and funnels that generate real ROI. We build systems that scale.</p>
-      <ul class="sp-feats">
-        <li>Meta, Google &amp; TikTok ads</li>
-        <li>Content strategy &amp; calendars</li>
-        <li>Funnel design &amp; optimization</li>
-        <li>Analytics &amp; performance tracking</li>
-      </ul>
-      <a href="mailto:technicalrakib999@gmail.com" class="sp-card-link">Get a Quote &#x2192;</a>
+      <div class="card-num">04 &mdash; Digital Marketing</div>
+      <h3 class="card-title">Growth-Engineered<br/>Marketing Systems</h3>
+      <p class="card-desc">We don't just run ads — we build full-funnel marketing systems that compound over time. From paid media to content strategy, every touchpoint is optimized for revenue.</p>
+      <div class="card-tags">
+        <span class="card-tag"><span class="card-tag-dot"></span>Meta & TikTok Ads</span>
+        <span class="card-tag"><span class="card-tag-dot"></span>Google Ads</span>
+        <span class="card-tag"><span class="card-tag-dot"></span>Content Strategy</span>
+        <span class="card-tag"><span class="card-tag-dot"></span>Funnel Optimization</span>
+        <span class="card-tag"><span class="card-tag-dot"></span>Analytics & Reporting</span>
+      </div>
+      <a href="mailto:technicalrakib999@gmail.com" class="card-cta">
+        Get a Quote
+        <span class="card-cta-arrow">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M5 2l3 3-3 3" stroke="#6ee7b7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
     </div>
 
-    <!-- AI AUTOMATION — span 2 -->
-    <div class="sp-card orange span2">
-      <div class="sp-card-icon">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="7" y="2" width="10" height="7" rx="2" stroke="#fdba74" stroke-width="1.6"/>
-          <path d="M12 9v4" stroke="#fdba74" stroke-width="1.4" stroke-linecap="round"/>
-          <rect x="1" y="13" width="8" height="7" rx="2" stroke="#fdba74" stroke-width="1.5"/>
-          <rect x="15" y="13" width="8" height="7" rx="2" stroke="#fdba74" stroke-width="1.5"/>
-          <path d="M5 13v-1.5h14V13" stroke="#fdba74" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+    <!-- 05 — AI AUTOMATION (wide) -->
+    <div class="svc-card c-orange span12 reveal">
+      <div class="card-ambient" style="width:500px;height:300px;top:-150px;right:-150px;"></div>
+      <svg class="card-deco" style="width:220px;height:220px;" viewBox="0 0 220 220" fill="none">
+        <circle cx="110" cy="110" r="100" stroke="#f59e0b" stroke-width="1" stroke-dasharray="8 5"/>
+        <circle cx="110" cy="110" r="65" stroke="#f59e0b" stroke-width="1" opacity="0.5" stroke-dasharray="5 8"/>
+      </svg>
+      <div style="display:flex;gap:64px;flex-wrap:wrap;align-items:flex-start;position:relative;z-index:1;">
+        <div style="flex:1;min-width:280px;">
+          <div class="card-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <rect x="7" y="2" width="10" height="7" rx="2" stroke="#fcd34d" stroke-width="1.8"/>
+              <path d="M12 9v3.5" stroke="#fcd34d" stroke-width="1.5" stroke-linecap="round"/>
+              <rect x="1" y="13" width="8" height="7" rx="2" stroke="#fcd34d" stroke-width="1.6"/>
+              <rect x="15" y="13" width="8" height="7" rx="2" stroke="#fcd34d" stroke-width="1.6"/>
+              <path d="M5 13v-2h14v2" stroke="#fcd34d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="card-num">05 &mdash; AI Automation</div>
+          <h3 class="card-title">AI Systems &<br/>Smart Automation</h3>
+          <p class="card-desc">Chatbots that auto-reply across WhatsApp, Instagram, Messenger & Telegram — 24/7, under 1 second, zero missed leads. We build the systems that run your business while you sleep.</p>
+          <a href="mailto:technicalrakib999@gmail.com" class="card-cta">
+            Get a Quote
+            <span class="card-cta-arrow">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M5 2l3 3-3 3" stroke="#fcd34d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+        </div>
+        <div style="flex:1;min-width:260px;padding-top:4px;">
+          <div class="card-tags" style="flex-direction:column;gap:10px;">
+            <span class="card-tag" style="width:fit-content;"><span class="card-tag-dot"></span>AI Chatbots (WhatsApp, IG, Telegram)</span>
+            <span class="card-tag" style="width:fit-content;"><span class="card-tag-dot"></span>Lead Capture & CRM Automation</span>
+            <span class="card-tag" style="width:fit-content;"><span class="card-tag-dot"></span>n8n & Make.com Workflows</span>
+            <span class="card-tag" style="width:fit-content;"><span class="card-tag-dot"></span>Email & Follow-up Sequences</span>
+            <span class="card-tag" style="width:fit-content;"><span class="card-tag-dot"></span>24/7 Automated Support Systems</span>
+          </div>
+        </div>
       </div>
-      <span class="sp-card-num">05 &mdash; AI Automation</span>
-      <h3>AI Automation &amp; Smart Systems</h3>
-      <p>AI chatbots and automation workflows that save you hours every day. Auto-reply across WhatsApp, Messenger, Instagram &amp; Telegram — 24/7, under 1 second, zero missed leads.</p>
-      <ul class="sp-feats">
-        <li>AI chatbots (WhatsApp, Instagram, Telegram, Messenger)</li>
-        <li>Lead capture &amp; CRM automation</li>
-        <li>n8n &amp; Make.com workflow builds</li>
-        <li>Email &amp; follow-up sequences</li>
-        <li>24/7 automated customer support systems</li>
-      </ul>
-      <a href="mailto:technicalrakib999@gmail.com" class="sp-card-link">Get a Quote &#x2192;</a>
     </div>
 
   </div>
-</div>
+</section>
 
 <!-- CTA -->
-<div class="sp-cta">
-  <div class="sp-cta-inner">
-    <div>
-      <h2>Ready to get started?</h2>
-      <p>Tell us about your project and we will get back within 24 hours.</p>
+<section class="cta-section reveal">
+  <div class="cta-inner">
+    <div class="cta-text">
+      <h2>Ready to Build<br/>Something Remarkable?</h2>
+      <p>Tell us your project and we'll get back within 24 hours.</p>
     </div>
-    <div class="sp-cta-actions">
-      <a href="mailto:technicalrakib999@gmail.com" class="sp-cta-btn">
+    <div class="cta-actions">
+      <a href="mailto:technicalrakib999@gmail.com" class="btn-primary">
         Start a Project
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 7.5h9M8 3l4.5 4.5L8 12" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
-      <a href="index.html" class="sp-back">&#x2190; Back to Home</a>
+      <a href="index.html" class="btn-ghost">&#8592; Back to Home</a>
     </div>
   </div>
-</div>
+</section>
 
 <!-- MINI FOOTER -->
-<div class="sp-foot">
+<footer class="mini-footer">
   <p>&copy; 2026 <a href="index.html">Zentic Media</a>. All rights reserved.</p>
   <p><a href="mailto:technicalrakib999@gmail.com">technicalrakib999@gmail.com</a></p>
-</div>
+</footer>
 
+<!-- SCROLL REVEAL + COUNTER JS -->
+<script>
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 60);
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => io.observe(el));
+
+// Counter animation
+function animateCount(el, target, duration) {
+  let start = 0, startTime = null;
+  function step(ts) {
+    if (!startTime) startTime = ts;
+    const progress = Math.min((ts - startTime) / duration, 1);
+    el.textContent = Math.floor(progress * target) + '+';
+    if (progress < 1) requestAnimationFrame(step);
+    else el.textContent = target + '+';
+  }
+  requestAnimationFrame(step);
+}
+document.querySelectorAll('[data-count]').forEach(el => {
+  const target = parseInt(el.dataset.count);
+  const statObs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      animateCount(el, target, 1500);
+      statObs.disconnect();
+    }
+  });
+  statObs.observe(el);
+});
+
+// Subtle card 3D tilt on mouse move
+document.querySelectorAll('.svc-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    card.style.transform = `translateY(-8px) scale(1.01) rotateX(${-y * 4}deg) rotateY(${x * 4}deg)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+});
+</script>
 </body>
 </html>
