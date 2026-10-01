@@ -2994,61 +2994,72 @@
   line-height: 1.6;
 }
 
-/* ── Filter Tabs (Landscape Side-by-Side & Compact) ── */
+/* ── Filter Tabs (2-Line Stylish Buttons & Responsive Wrap) ── */
 .pf-tabs {
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
-  margin: 0 auto 40px;
-  flex-wrap: nowrap;
+  gap: 12px;
+  margin: 0 auto 36px;
+  flex-wrap: wrap;
   max-width: 100%;
 }
 
 .pf-tab-btn {
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
-  border-radius: 999px;
-  border: 1px solid rgba(184,0,245,.28);
-  background: rgba(10,3,16,.7);
-  color: rgba(225,200,250,.65);
-  font-family: 'Poppins', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
+  justify-content: center;
+  gap: 3px;
+  padding: 10px 24px;
+  border-radius: 14px;
+  border: 1px solid rgba(184, 0, 245, 0.28);
+  background: rgba(14, 5, 24, 0.75);
+  color: rgba(225, 200, 250, 0.7);
   cursor: pointer;
-  transition: all .28s ease;
+  transition: all 0.28s ease;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  white-space: nowrap;
+  min-width: 120px;
+  text-align: center;
 }
 
 .pf-tab-btn:hover {
-  border-color: rgba(184,0,245,.55);
-  color: rgba(225,200,250,.95);
-  background: rgba(184,0,245,.12);
+  border-color: rgba(184, 0, 245, 0.65);
+  color: #fff;
+  background: rgba(184, 0, 245, 0.14);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(184, 0, 245, 0.22);
 }
 
 .pf-tab-btn.pf-active {
-  background: linear-gradient(135deg,#B800F5,#7c00cc);
-  border-color: transparent;
+  background: linear-gradient(135deg, #B800F5 0%, #7c00cc 100%);
+  border-color: rgba(232, 121, 249, 0.6);
   color: #fff;
-  box-shadow: 0 4px 16px rgba(184,0,245,.45);
+  box-shadow: 0 6px 24px rgba(184, 0, 245, 0.45);
+  transform: translateY(-2px);
 }
 
-.pf-tab-count {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 18px; height: 18px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.18);
-  font-size: 10px;
+.pf-tab-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
   font-weight: 700;
+  letter-spacing: 0.3px;
+  line-height: 1.2;
 }
 
-.pf-tab-btn.pf-active .pf-tab-count { background: rgba(255,255,255,.28); }
+.pf-tab-sub {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(232, 121, 249, 0.85);
+  letter-spacing: 0.4px;
+  line-height: 1.2;
+}
+
+.pf-tab-btn.pf-active .pf-tab-sub {
+  color: rgba(255, 255, 255, 0.9);
+}
 
 /* ── Panels ── */
 .pf-panel { display: none; }
@@ -3217,17 +3228,33 @@
   .pf-grid, .pf-grid-2col { grid-template-columns: 1fr; }
   .pf-title { font-size: clamp(28px,8vw,42px); }
   .pf-tabs {
-    gap: 6px;
-    margin-bottom: 28px;
+    gap: 8px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
   }
   .pf-tab-btn {
-    padding: 6px 12px;
-    font-size: 11px;
-    gap: 5px;
+    flex: 1 1 calc(33.333% - 8px);
+    min-width: 95px;
+    padding: 8px 10px;
+    border-radius: 12px;
   }
-  .pf-tab-count {
-    width: 16px;
-    height: 16px;
+  .pf-tab-label {
+    font-size: 12px;
+  }
+  .pf-tab-sub {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .pf-tab-btn {
+    min-width: 85px;
+    padding: 7px 6px;
+  }
+  .pf-tab-label {
+    font-size: 11px;
+  }
+  .pf-tab-sub {
     font-size: 9px;
   }
 }
@@ -3243,13 +3270,16 @@
 
       <div class="pf-tabs" role="tablist">
         <button class="pf-tab-btn pf-active" data-pf-tab="saas" role="tab" aria-selected="true">
-          🎬 SaaS Promo Videos <span class="pf-tab-count">6</span>
+          <span class="pf-tab-label">SaaS Promo</span>
+          <span class="pf-tab-sub">6 Videos</span>
         </button>
         <button class="pf-tab-btn" data-pf-tab="talking" role="tab" aria-selected="false">
-          🎤 Talking Head Videos <span class="pf-tab-count">2</span>
+          <span class="pf-tab-label">Talking Head</span>
+          <span class="pf-tab-sub">2 Videos</span>
         </button>
         <button class="pf-tab-btn" data-pf-tab="bangla" role="tab" aria-selected="false">
-          🇧🇩 Bangla Promo Videos <span class="pf-tab-count">6</span>
+          <span class="pf-tab-label">Bangla Promo</span>
+          <span class="pf-tab-sub">6 Videos</span>
         </button>
       </div>
     </div>
