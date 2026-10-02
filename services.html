@@ -1497,6 +1497,292 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, label, select, textarea
 }
 
 </style>
+<style id="compact-card-styles">
+
+/* ══════════════════════════════════════════════════════════════════
+   COMPACT & MOBILE-OPTIMIZED SERVICES CARD STYLING
+   ══════════════════════════════════════════════════════════════════ */
+
+/* Inline Top Row (Icon + Number Badge) */
+.svc-card-top-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 2;
+}
+.svc-card-top-row .svc-icon {
+  margin-bottom: 0 !important;
+  width: 42px !important;
+  height: 42px !important;
+  border-radius: 11px !important;
+  flex-shrink: 0;
+}
+.svc-card-top-row .svc-num {
+  margin-bottom: 0 !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+}
+
+/* Two-column layout on Desktop for wide cards */
+@media (min-width: 901px) {
+  .svc-card.svc-span7, .svc-card.svc-span12 {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+  .svc-span7 .svc-card-inner-split {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 24px !important;
+    align-items: center !important;
+  }
+  .svc-span7 .svc-card-inner-split .saas-vis-box {
+    margin-top: 0 !important;
+  }
+}
+
+/* Mobile & Tablet Compact Adjustments (Under 900px) */
+@media (max-width: 900px) {
+  .svc-bento {
+    gap: 14px !important;
+  }
+  .svc-card {
+    padding: 18px 14px !important;
+    border-radius: 14px !important;
+  }
+  .svc-card-top-row {
+    gap: 10px !important;
+    margin-bottom: 8px !important;
+  }
+  .svc-card-top-row .svc-icon {
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 8px !important;
+  }
+  .svc-card-top-row .svc-icon svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+  .svc-ctitle {
+    font-size: 19px !important;
+    line-height: 1.18 !important;
+    margin-bottom: 6px !important;
+    letter-spacing: -0.02em !important;
+  }
+  .svc-cdesc {
+    font-size: 12.5px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 10px !important;
+    color: rgba(225, 200, 250, 0.7) !important;
+  }
+  .svc-chips {
+    gap: 4px !important;
+    margin-bottom: 10px !important;
+  }
+  .svc-chip {
+    font-size: 10px !important;
+    padding: 2px 8px !important;
+    border-radius: 6px !important;
+  }
+  .svc-clink {
+    font-size: 12px !important;
+    margin-top: 4px !important;
+  }
+
+  /* Compact SaaS Explain Animations on Mobile */
+  .saas-vis-box {
+    margin-top: 12px !important;
+    border-radius: 10px !important;
+  }
+  .saas-win-hdr {
+    padding: 6px 10px !important;
+  }
+  .saas-win-dots {
+    gap: 4px !important;
+  }
+  .saas-dot {
+    width: 7px !important;
+    height: 7px !important;
+  }
+  .saas-win-title {
+    font-size: 9.5px !important;
+  }
+  .saas-win-status {
+    font-size: 8.5px !important;
+    padding: 2px 6px !important;
+  }
+  
+  /* 1. Video Preview Compact */
+  .saas-video-preview {
+    padding: 10px !important;
+    gap: 8px !important;
+  }
+  .saas-vid-stage {
+    height: 62px !important;
+    border-radius: 6px !important;
+  }
+  .saas-vid-eq {
+    height: 24px !important;
+    gap: 2px !important;
+  }
+  .saas-eq-bar {
+    width: 3px !important;
+  }
+  .saas-vid-caption {
+    font-size: 9px !important;
+    padding: 2px 6px !important;
+    bottom: 5px !important;
+  }
+  .saas-timeline {
+    padding: 6px !important;
+    gap: 4px !important;
+    border-radius: 6px !important;
+  }
+  .saas-track-row {
+    height: 18px !important;
+  }
+  .saas-track-lbl {
+    font-size: 8px !important;
+    width: 16px !important;
+  }
+  .saas-clip {
+    font-size: 8px !important;
+    padding: 0 4px !important;
+  }
+  .saas-metrics-strip {
+    padding: 5px 8px !important;
+    font-size: 9.5px !important;
+  }
+
+  /* 2. Brand Identity Compact */
+  .saas-brand-preview {
+    padding: 10px !important;
+    gap: 8px !important;
+  }
+  .saas-vector-canvas {
+    height: 60px !important;
+    border-radius: 6px !important;
+  }
+  .saas-vector-canvas svg {
+    width: 120px !important;
+    height: 50px !important;
+  }
+  .saas-pen-tool {
+    width: 16px !important;
+    height: 16px !important;
+  }
+  .saas-palette-row {
+    gap: 4px !important;
+  }
+  .saas-swatch {
+    height: 24px !important;
+    font-size: 7.5px !important;
+  }
+  .saas-type-row {
+    padding: 5px 8px !important;
+    font-size: 9.5px !important;
+  }
+
+  /* 3. Web Design Compact */
+  .saas-web-preview {
+    padding: 10px !important;
+    gap: 8px !important;
+  }
+  .saas-code-split {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+  }
+  .saas-code-pane {
+    display: none !important; /* Hide raw code on tiny screens, show interactive preview */
+  }
+  .saas-preview-pane {
+    padding: 8px !important;
+  }
+  .saas-sim-btn {
+    padding: 4px 10px !important;
+    font-size: 9.5px !important;
+  }
+  .saas-cvr-meter {
+    padding: 6px 8px !important;
+  }
+  .saas-cvr-hdr {
+    font-size: 9px !important;
+  }
+
+  /* 4. Digital Marketing Compact */
+  .saas-mkt-preview {
+    padding: 10px !important;
+    gap: 8px !important;
+  }
+  .saas-funnel-pipeline {
+    padding: 2px 0 !important;
+  }
+  .saas-funnel-node {
+    padding: 4px 6px !important;
+  }
+  .saas-fnode-title {
+    font-size: 8px !important;
+  }
+  .saas-fnode-sub {
+    font-size: 7px !important;
+  }
+  .saas-chart-box {
+    padding: 6px 10px !important;
+    gap: 4px !important;
+  }
+  .saas-chart-metric {
+    font-size: 12px !important;
+  }
+  .saas-chart-roas {
+    font-size: 8.5px !important;
+  }
+  .saas-chart-svg {
+    height: 32px !important;
+  }
+
+  /* 5. AI Automation Compact */
+  .saas-ai-preview {
+    padding: 10px !important;
+    gap: 8px !important;
+  }
+  .saas-ai-canvas {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px !important;
+    padding: 8px !important;
+  }
+  .saas-ai-cable {
+    display: none !important; /* In 2x2 grid, cables hide to save space */
+  }
+  .saas-ai-node {
+    padding: 5px 8px !important;
+    gap: 5px !important;
+  }
+  .saas-node-icon {
+    width: 20px !important;
+    height: 20px !important;
+  }
+  .saas-node-icon svg {
+    width: 12px !important;
+    height: 12px !important;
+  }
+  .saas-node-info h4 {
+    font-size: 9px !important;
+  }
+  .saas-node-info p {
+    font-size: 7.5px !important;
+  }
+  .saas-terminal {
+    padding: 6px 8px !important;
+    font-size: 8.5px !important;
+    gap: 3px !important;
+  }
+}
+
+</style>
 </head>
 
 <style>
@@ -1943,7 +2229,8 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, label, select, textarea
         <circle cx="100" cy="100" r="98" stroke="#B800F5" stroke-width="1" stroke-dasharray="7 5"/>
         <circle cx="100" cy="100" r="65" stroke="#B800F5" stroke-width="1" stroke-dasharray="5 7" opacity=".5"/>
       </svg>
-      <div class="svc-icon">
+      <div class="svc-card-top-row">
+        <div class="svc-icon">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
           <rect x="1" y="5" width="15" height="11" rx="2" stroke="#E879F9" stroke-width="1.8"/>
           <path d="M16 9l6-3.5v9L16 11V9z" fill="#E879F9" opacity=".7"/>
@@ -1951,7 +2238,8 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, label, select, textarea
           <rect x="4" y="8" width="5" height="1.5" rx=".75" fill="#E879F9" opacity=".4"/>
         </svg>
       </div>
-      <div class="svc-num">01 — Video Editing</div>
+        <div class="svc-num">01 — Video Editing</div>
+      </div>
       <h3 class="svc-ctitle">Cinema-Grade<br/>Video Production</h3>
       <p class="svc-cdesc">From raw footage to scroll-stopping masterpieces. Every cut engineered for maximum retention, emotion and action — so your viewers stay, share and convert.</p>
       <div class="svc-chips">
@@ -2035,14 +2323,16 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, label, select, textarea
       <svg class="svc-ring" width="180" height="180" viewBox="0 0 180 180" fill="none">
         <rect x="12" y="12" width="156" height="156" rx="22" stroke="#ec4899" stroke-width="1" stroke-dasharray="6 5"/>
       </svg>
-      <div class="svc-icon">
+      <div class="svc-card-top-row">
+        <div class="svc-icon">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
           <circle cx="12" cy="12" r="9" stroke="#f9a8d4" stroke-width="1.8"/>
           <circle cx="12" cy="12" r="4" fill="#ec4899" opacity=".5"/>
           <path d="M12 3v3M12 18v3M3 12h3M18 12h3" stroke="#f9a8d4" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
       </div>
-      <div class="svc-num">02 — Graphics Design</div>
+        <div class="svc-num">02 — Graphics Design</div>
+      </div>
       <h3 class="svc-ctitle">Bold Visual<br/>Identity</h3>
       <p class="svc-cdesc">Thumbnails, brand kits and social creatives that stop the scroll and communicate your value in 0.3 seconds flat.</p>
       <div class="svc-chips">
@@ -2103,7 +2393,8 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, label, select, textarea
     <!-- 03 WEB DESIGN -->
     <div class="svc-card cc-blue svc-span5 sv-reveal">
       <div class="svc-blob"></div>
-      <div class="svc-icon">
+      <div class="svc-card-top-row">
+        <div class="svc-icon">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
           <rect x="2" y="4" width="20" height="14" rx="3" stroke="#93c5fd" stroke-width="1.8"/>
           <path d="M2 8h20" stroke="#93c5fd" stroke-width="1.4"/>
@@ -2112,7 +2403,8 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, label, select, textarea
           <rect x="6" y="14.5" width="8" height="1.8" rx=".9" fill="#93c5fd" opacity=".28"/>
         </svg>
       </div>
-      <div class="svc-num">03 — Web Design</div>
+        <div class="svc-num">03 — Web Design</div>
+      </div>
       <h3 class="svc-ctitle">Conversion-First<br/>Websites</h3>
       <p class="svc-cdesc">Premium websites with conversion psychology from pixel one. Fast, beautiful and built to turn visitors into paying customers.</p>
       <div class="svc-chips">
@@ -2177,14 +2469,16 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, label, select, textarea
       <svg class="svc-ring" width="180" height="180" viewBox="0 0 180 180" fill="none">
         <circle cx="90" cy="90" r="78" stroke="#06b6d4" stroke-width="1" stroke-dasharray="4 7"/>
       </svg>
-      <div class="svc-icon">
+      <div class="svc-card-top-row">
+        <div class="svc-icon">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
           <path d="M3 17L8.5 11.5L12.5 15.5L18 8.5L22 12.5" stroke="#67e8f9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
           <circle cx="22" cy="12.5" r="2.2" fill="#06b6d4"/>
           <path d="M3 20h18" stroke="#67e8f9" stroke-width="1.2" opacity=".3" stroke-linecap="round"/>
         </svg>
       </div>
-      <div class="svc-num">04 — Digital Marketing</div>
+        <div class="svc-num">04 — Digital Marketing</div>
+      </div>
       <h3 class="svc-ctitle">Growth-Engineered<br/>Marketing Systems</h3>
       <p class="svc-cdesc">Full-funnel campaigns that compound over time. From paid media to content strategy, every touchpoint is optimised to generate real, scalable revenue.</p>
       <div class="svc-chips">
@@ -2265,7 +2559,8 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, label, select, textarea
       </svg>
       <div style="display:flex;gap:56px;flex-wrap:wrap;align-items:flex-start;position:relative;z-index:1;">
         <div style="flex:1;min-width:280px;">
-          <div class="svc-icon">
+          <div class="svc-card-top-row">
+        <div class="svc-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <rect x="7" y="2" width="10" height="7" rx="2" stroke="#fcd34d" stroke-width="1.8"/>
               <path d="M12 9v3.5" stroke="#fcd34d" stroke-width="1.5" stroke-linecap="round"/>
@@ -2274,7 +2569,8 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, label, select, textarea
               <path d="M5 13v-2h14v2" stroke="#fcd34d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <div class="svc-num">05 — AI Automation</div>
+        <div class="svc-num">05 — AI Automation</div>
+      </div>
           <h3 class="svc-ctitle">AI Systems &amp;<br/>Smart Automation</h3>
           <p class="svc-cdesc">Chatbots that auto-reply across WhatsApp, Instagram, Messenger &amp; Telegram — 24/7, under 1 second, zero missed leads. We build the systems that run your business while you sleep.</p>
           <a href="mailto:technicalrakib999@gmail.com" class="svc-clink">
