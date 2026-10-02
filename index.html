@@ -729,32 +729,7 @@
 
 
 
-<style id="coolvetica-headers">
-@font-face {
-  font-family: "Coolvetica";
-  src: url('fonts/coolvetica rg.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
 
-h1, h2, h3, h4, h5, h6,
-.heading-01, .heading-02, .heading-03, .heading-04,
-.svc-h1, .svc-sec-h2, .svc-ctitle,
-.hiw-title, .hiw-step-title,
-.hero-headline-clean, .ap-h2, .why-title, .why-card-title {
-  font-family: "Coolvetica", "Inter", -apple-system, sans-serif !important;
-  font-weight: 400 !important;
-  letter-spacing: 0.01em !important;
-}
-
-body, p, span, li,
-.svc-cdesc, .svc-sub, .svc-chip,
-.hiw-sub, .hiw-step-desc, .hiw-eyebrow,
-.nav-link-2, .w-nav-link {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
-}
-</style>
 </head><body class="home2"><div data-w-id="a42682e8-c744-27ea-b60f-b2cb53ee771f" class="page-wrapper-02">
 
 <!-- ============ COSMIC VORTEX BACKGROUND (HERO ATMOSPHERE) ============ -->
@@ -6318,17 +6293,39 @@ document.addEventListener("DOMContentLoaded", function () {
 <script src="js/hero-3d.js?v=3.0"></script>
 
 
+
 <style id="coolvetica-final-override">
-/* FINAL COOLVETICA OVERRIDE — Loaded last, wins everything */
+/* === COOLVETICA REGULAR: ALL HEADINGS EVERYWHERE === */
+@font-face {
+  font-family: "Coolvetica";
+  src: url("fonts/coolvetica rg.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Target EVERY heading tag and class — no exceptions */
 h1, h2, h3, h4, h5, h6,
 h1.hero-headline-clean,
 h1.hero-headline-clean span,
-.hero-headline-line1, .hero-headline-line2,
+.hero-headline-line1,
+.hero-headline-line2,
+h2.g-svc-title,
+h2.fwk-title,
+h2.tools-title,
+h2.pf-title,
+h2.ap-h2,
+h2.why-title,
+h2.heading-02,
+h2.hiw-title,
+h3.fwk-panel-title,
+h3.g-svc-name,
+h3.hiw-step-title,
+h3.why-card-title,
 .heading-01, .heading-02, .heading-03, .heading-04, .heading-05,
-.ap-h2, .why-title, .why-card-title,
-.hiw-title, .hiw-step-title,
-.svc-h1, .svc-sec-h2, .svc-ctitle,
-.process-title, [class*="heading"] {
+.svc-h1, .svc-sec-h2, .svc-ctitle, .svc-panel-title,
+[class*="title"]:is(h1,h2,h3,h4,h5,h6),
+[class*="heading"] {
   font-family: "Coolvetica", "Inter", -apple-system, sans-serif !important;
   font-weight: 400 !important;
 }
