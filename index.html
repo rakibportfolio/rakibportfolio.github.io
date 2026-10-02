@@ -724,31 +724,37 @@
 </style>
 
 
-<style id="master-font-override">
-/* ══ MASTER FONT: Inter (Clean, Universal SaaS Font) ══ */
-*, *::before, *::after,
-body, h1, h2, h3, h4, h5, h6,
-p, span, a, button, input, label, select, textarea, div,
-.heading-01, .heading-02, .heading-03,
-.paragraph-01, .paragraph-02, .paragraph-03,
-.nav-link-2, .w-nav-link, .button-text,
-[class*="heading"], [class*="paragraph"], [class*="text"] {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+
+
+
+
+
+<style id="coolvetica-headers">
+@font-face {
+  font-family: "Coolvetica";
+  src: url('fonts/coolvetica rg.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
-/* Bengali language selector stays Hind Siliguri */
-.lang-current-label, .lang-option,
-[lang="bn"], .hind-siliguri {
-  font-family: 'Hind Siliguri', 'Inter', sans-serif !important;
+h1, h2, h3, h4, h5, h6,
+.heading-01, .heading-02, .heading-03, .heading-04,
+.svc-h1, .svc-sec-h2, .svc-ctitle,
+.hiw-title, .hiw-step-title,
+.hero-headline-clean, .ap-h2, .why-title, .why-card-title {
+  font-family: "Coolvetica", "Inter", -apple-system, sans-serif !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.01em !important;
 }
 
-/* Code/terminal stays monospace */
-code, pre, .saas-code-pane, .saas-terminal,
-[class*="code"], [class*="terminal"] {
-  font-family: 'Consolas', 'Courier New', monospace !important;
+body, p, span, li,
+.svc-cdesc, .svc-sub, .svc-chip,
+.hiw-sub, .hiw-step-desc, .hiw-eyebrow,
+.nav-link-2, .w-nav-link {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
 }
 </style>
-
 </head><body class="home2"><div data-w-id="a42682e8-c744-27ea-b60f-b2cb53ee771f" class="page-wrapper-02">
 
 <!-- ============ COSMIC VORTEX BACKGROUND (HERO ATMOSPHERE) ============ -->
