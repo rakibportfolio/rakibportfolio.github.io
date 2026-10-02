@@ -793,6 +793,710 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, label, select, textarea
 }
 
 </style>
+<style id="saas-explain-styles">
+
+/* ══════════════════════════════════════════════════════════════════
+   SaaS EXPLAIN ANIMATIONS FOR SERVICES
+   Universal Font: Inter | Silky 60fps GPU Animations
+   ══════════════════════════════════════════════════════════════════ */
+
+/* SaaS Visualizer Box Container */
+.saas-vis-box {
+  position: relative;
+  background: rgba(10, 2, 18, 0.85);
+  border: 1px solid rgba(184, 0, 245, 0.28);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(184, 0, 245, 0.08);
+  margin-top: 24px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* SaaS Window Header */
+.saas-win-hdr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: rgba(21, 5, 34, 0.95);
+  border-bottom: 1px solid rgba(184, 0, 245, 0.18);
+}
+.saas-win-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.saas-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.saas-dot-r { background: #ff5f56; }
+.saas-dot-y { background: #ffbd2e; }
+.saas-dot-g { background: #27c93f; }
+.saas-win-title {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(225, 200, 250, 0.65);
+  letter-spacing: 0.02em;
+}
+.saas-win-status {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 10px;
+  font-weight: 600;
+  color: #a78bfa;
+  background: rgba(168, 85, 247, 0.15);
+  padding: 3px 8px;
+  border-radius: 20px;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+.saas-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: saasPulse 1.8s infinite;
+}
+@keyframes saasPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   1. VIDEO EDITING SAAS ANIMATION
+   ══════════════════════════════════════════════════════════════ */
+.saas-video-preview {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.saas-vid-stage {
+  position: relative;
+  height: 120px;
+  background: linear-gradient(135deg, #150522 0%, #0d0216 100%);
+  border-radius: 10px;
+  border: 1px solid rgba(184, 0, 245, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+/* Ambient Video Glow */
+.saas-vid-bg-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(184, 0, 245, 0.35), transparent 70%);
+  animation: vidGlowCycle 4s ease-in-out infinite alternate;
+}
+@keyframes vidGlowCycle {
+  0% { transform: scale(0.9); opacity: 0.4; }
+  100% { transform: scale(1.3); opacity: 0.8; }
+}
+/* Audio Waveform Bars */
+.saas-vid-eq {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 40px;
+  position: relative;
+  z-index: 2;
+}
+.saas-eq-bar {
+  width: 4px;
+  background: linear-gradient(to top, #b800f5, #e879f9);
+  border-radius: 2px;
+  animation: eqBounce 1.2s ease-in-out infinite alternate;
+}
+.saas-eq-bar:nth-child(1) { height: 14px; animation-delay: 0.1s; }
+.saas-eq-bar:nth-child(2) { height: 28px; animation-delay: 0.3s; }
+.saas-eq-bar:nth-child(3) { height: 38px; animation-delay: 0.5s; }
+.saas-eq-bar:nth-child(4) { height: 18px; animation-delay: 0.2s; }
+.saas-eq-bar:nth-child(5) { height: 34px; animation-delay: 0.4s; }
+.saas-eq-bar:nth-child(6) { height: 22px; animation-delay: 0.6s; }
+.saas-eq-bar:nth-child(7) { height: 36px; animation-delay: 0.25s; }
+.saas-eq-bar:nth-child(8) { height: 16px; animation-delay: 0.45s; }
+@keyframes eqBounce {
+  0% { transform: scaleY(0.3); }
+  100% { transform: scaleY(1); }
+}
+/* Kinetic Subtitle Popup */
+.saas-vid-caption {
+  position: absolute;
+  bottom: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(232, 121, 249, 0.5);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 3;
+  animation: captionPop 3s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+.saas-vid-caption span {
+  color: #e879f9;
+}
+@keyframes captionPop {
+  0%, 15% { opacity: 0; transform: translateY(8px) scale(0.9); }
+  25%, 80% { opacity: 1; transform: translateY(0) scale(1); }
+  90%, 100% { opacity: 0; transform: translateY(-4px) scale(0.95); }
+}
+/* Multi-Track Timeline */
+.saas-timeline {
+  background: rgba(8, 1, 14, 0.95);
+  border: 1px solid rgba(184, 0, 245, 0.2);
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+  overflow: hidden;
+}
+/* Scrubber Playhead */
+.saas-scrubber {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #ff0055;
+  box-shadow: 0 0 8px #ff0055;
+  z-index: 5;
+  animation: scrubMove 4s linear infinite;
+}
+.saas-scrubber::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -4px;
+  width: 10px;
+  height: 8px;
+  background: #ff0055;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+@keyframes scrubMove {
+  0% { left: 0%; }
+  100% { left: 100%; }
+}
+/* Track Rows */
+.saas-track-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 24px;
+}
+.saas-track-lbl {
+  font-size: 9px;
+  font-weight: 700;
+  color: rgba(225, 200, 250, 0.5);
+  width: 22px;
+  text-transform: uppercase;
+}
+.saas-clips {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+  height: 100%;
+}
+.saas-clip {
+  border-radius: 4px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  font-size: 9.5px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.saas-clip-hook {
+  flex: 3;
+  background: rgba(184, 0, 245, 0.35);
+  border: 1px solid rgba(184, 0, 245, 0.6);
+  color: #f3e8ff;
+}
+.saas-clip-story {
+  flex: 4;
+  background: rgba(147, 51, 234, 0.3);
+  border: 1px solid rgba(147, 51, 234, 0.5);
+  color: #e9d5ff;
+}
+.saas-clip-cta {
+  flex: 3;
+  background: rgba(236, 72, 153, 0.35);
+  border: 1px solid rgba(236, 72, 153, 0.6);
+  color: #fbcfe8;
+}
+.saas-clip-audio {
+  flex: 1;
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #a7f3d0;
+}
+/* Retention Output Metric Pill */
+.saas-metrics-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: rgba(184, 0, 245, 0.1);
+  border: 1px solid rgba(184, 0, 245, 0.25);
+  border-radius: 8px;
+  font-size: 11px;
+}
+.saas-metric-tag {
+  color: #e879f9;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.saas-metric-score {
+  color: #10b981;
+  font-weight: 700;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   2. GRAPHICS & BRAND IDENTITY SAAS ANIMATION
+   ══════════════════════════════════════════════════════════════ */
+.saas-brand-preview {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.saas-vector-canvas {
+  height: 110px;
+  background: radial-gradient(circle at 50% 50%, rgba(236, 72, 153, 0.15), rgba(8, 1, 14, 0.95));
+  border: 1px solid rgba(236, 72, 153, 0.25);
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.saas-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-size: 14px 14px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+.saas-pen-tool {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  animation: penFloat 4s ease-in-out infinite;
+}
+@keyframes penFloat {
+  0% { transform: translate(-35px, -15px); }
+  50% { transform: translate(30px, 15px); }
+  100% { transform: translate(-35px, -15px); }
+}
+.saas-bezier-path {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: drawBezier 4s ease-in-out infinite;
+}
+@keyframes drawBezier {
+  0% { stroke-dashoffset: 200; }
+  50% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -200; }
+}
+/* Color Palette Swatches */
+.saas-palette-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+.saas-swatch {
+  height: 38px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 700;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+}
+.saas-swatch:hover {
+  transform: translateY(-2px);
+}
+.saas-swatch-1 { background: #B800F5; }
+.saas-swatch-2 { background: #EC4899; }
+.saas-swatch-3 { background: #150522; border: 1px solid rgba(255, 255, 255, 0.15); color: #e879f9; }
+.saas-swatch-4 { background: #FFFFFF; color: #08010E; }
+/* Typography morpher */
+.saas-type-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: rgba(15, 3, 24, 0.85);
+  border: 1px solid rgba(236, 72, 153, 0.2);
+  border-radius: 8px;
+  font-size: 11px;
+}
+.saas-type-sample {
+  font-size: 13px;
+  color: #fff;
+  animation: weightShift 3s ease-in-out infinite alternate;
+}
+@keyframes weightShift {
+  0% { font-weight: 400; letter-spacing: 0.05em; }
+  100% { font-weight: 800; letter-spacing: -0.02em; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   3. WEB DESIGN SAAS ANIMATION (CODE TO CONVERSION)
+   ══════════════════════════════════════════════════════════════ */
+.saas-web-preview {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.saas-code-split {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 10px;
+}
+@media (max-width: 600px) {
+  .saas-code-split { grid-template-columns: 1fr; }
+}
+.saas-code-pane {
+  background: rgba(8, 1, 14, 0.95);
+  border: 1px solid rgba(147, 197, 253, 0.25);
+  border-radius: 8px;
+  padding: 10px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 10px;
+  line-height: 1.6;
+  color: #93c5fd;
+}
+.saas-code-kw { color: #f472b6; }
+.saas-code-fn { color: #60a5fa; }
+.saas-code-str { color: #34d399; }
+.saas-preview-pane {
+  background: linear-gradient(135deg, #0f172a, #1e1b4b);
+  border: 1px solid rgba(147, 197, 253, 0.3);
+  border-radius: 8px;
+  padding: 12px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.saas-sim-btn {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.5);
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  animation: btnPulseGlow 2.5s infinite;
+}
+@keyframes btnPulseGlow {
+  0%, 100% { transform: scale(1); box-shadow: 0 4px 14px rgba(59, 130, 246, 0.5); }
+  50% { transform: scale(1.04); box-shadow: 0 0 20px rgba(139, 92, 246, 0.8); }
+}
+/* Mouse Cursor Animation */
+.saas-cursor {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  z-index: 4;
+  animation: cursorClick 3s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+@keyframes cursorClick {
+  0% { top: 75%; left: 80%; transform: scale(1); }
+  45% { top: 48%; left: 52%; transform: scale(1); }
+  52% { top: 48%; left: 52%; transform: scale(0.85); }
+  60% { top: 48%; left: 52%; transform: scale(1); }
+  100% { top: 75%; left: 80%; transform: scale(1); }
+}
+/* Conversion Surge Progress Bar */
+.saas-cvr-meter {
+  background: rgba(8, 1, 14, 0.95);
+  border: 1px solid rgba(147, 197, 253, 0.2);
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.saas-cvr-hdr {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10.5px;
+  font-weight: 600;
+}
+.saas-cvr-lbl { color: rgba(225, 200, 250, 0.7); }
+.saas-cvr-val { color: #34d399; font-weight: 700; }
+.saas-bar-track {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.saas-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #10b981);
+  border-radius: 3px;
+  animation: barSurge 3s ease-in-out infinite alternate;
+}
+@keyframes barSurge {
+  0% { width: 22%; }
+  100% { width: 88%; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   4. DIGITAL MARKETING SAAS ANIMATION (FUNNEL & ROAS GRAPH)
+   ══════════════════════════════════════════════════════════════ */
+.saas-mkt-preview {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+/* Funnel Pipeline Flow */
+.saas-funnel-pipeline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 6px 0;
+}
+.saas-funnel-node {
+  background: rgba(21, 5, 34, 0.9);
+  border: 1px solid rgba(6, 182, 212, 0.4);
+  border-radius: 8px;
+  padding: 6px 10px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s;
+}
+.saas-fnode-title {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #67e8f9;
+}
+.saas-fnode-sub {
+  font-size: 8.5px;
+  color: rgba(225, 200, 250, 0.55);
+}
+.saas-pipeline-connector {
+  flex: 1;
+  height: 2px;
+  background: rgba(6, 182, 212, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+.saas-pulse-packet {
+  position: absolute;
+  top: -2px;
+  width: 14px;
+  height: 6px;
+  background: #06b6d4;
+  border-radius: 3px;
+  box-shadow: 0 0 8px #06b6d4;
+  animation: packetSlide 2.4s linear infinite;
+}
+@keyframes packetSlide {
+  0% { left: -20%; opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+/* Live ROAS Chart */
+.saas-chart-box {
+  background: rgba(8, 1, 14, 0.95);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  border-radius: 8px;
+  padding: 10px 14px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.saas-chart-hdr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.saas-chart-metric {
+  font-size: 15px;
+  font-weight: 800;
+  color: #fff;
+}
+.saas-chart-roas {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.15);
+  padding: 2px 7px;
+  border-radius: 12px;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+.saas-chart-svg {
+  width: 100%;
+  height: 52px;
+  overflow: visible;
+}
+.saas-chart-line {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: drawLine 3.5s ease-out infinite;
+}
+@keyframes drawLine {
+  0% { stroke-dashoffset: 300; }
+  50%, 100% { stroke-dashoffset: 0; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   5. AI AUTOMATION SAAS WORKFLOW (n8n AUTONOMOUS ENGINE)
+   ══════════════════════════════════════════════════════════════ */
+.saas-ai-preview {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: rgba(12, 3, 20, 0.95);
+}
+/* n8n Flow Canvas */
+.saas-ai-canvas {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  background: rgba(7, 2, 12, 0.9);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: 10px;
+  padding: 16px 14px;
+}
+@media (max-width: 680px) {
+  .saas-ai-canvas { flex-direction: column; gap: 14px; }
+}
+.saas-ai-node {
+  background: rgba(21, 5, 34, 0.95);
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s;
+}
+.saas-ai-node:hover {
+  transform: translateY(-2px);
+}
+.saas-node-1 { border: 1px solid rgba(236, 72, 153, 0.5); }
+.saas-node-2 { border: 1px solid rgba(168, 85, 247, 0.7); box-shadow: 0 0 16px rgba(168, 85, 247, 0.25); }
+.saas-node-3 { border: 1px solid rgba(245, 158, 11, 0.6); }
+.saas-node-4 { border: 1px solid rgba(16, 185, 129, 0.6); }
+.saas-node-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.saas-node-1 .saas-node-icon { background: rgba(236, 72, 153, 0.2); }
+.saas-node-2 .saas-node-icon { background: rgba(168, 85, 247, 0.25); }
+.saas-node-3 .saas-node-icon { background: rgba(245, 158, 11, 0.2); }
+.saas-node-4 .saas-node-icon { background: rgba(16, 185, 129, 0.2); }
+.saas-node-info h4 {
+  font-size: 10.5px;
+  font-weight: 700;
+  margin: 0;
+  color: #fff;
+}
+.saas-node-info p {
+  font-size: 8.5px;
+  margin: 0;
+  color: rgba(225, 200, 250, 0.6);
+}
+.saas-ai-cable {
+  flex: 1;
+  height: 2px;
+  background: rgba(245, 158, 11, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+.saas-ai-pulse {
+  position: absolute;
+  top: -2px;
+  width: 16px;
+  height: 6px;
+  background: #f59e0b;
+  border-radius: 3px;
+  box-shadow: 0 0 10px #f59e0b;
+  animation: aiPacket 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+@keyframes aiPacket {
+  0% { left: -25%; opacity: 0; }
+  30% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+/* Live Console Ticker */
+.saas-terminal {
+  background: rgba(5, 1, 9, 0.98);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.saas-term-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: fadeInLine 0.5s ease-out;
+}
+.saas-term-time { color: #f59e0b; }
+.saas-term-txt { color: #e2e8f0; }
+.saas-term-badge {
+  font-size: 8.5px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 700;
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+}
+
+</style>
 </head>
 
 <style>
@@ -1262,6 +1966,67 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, label, select, textarea
         Get a Quote
         <span class="svc-clink-arr"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M5 2l3 3-3 3" stroke="#E879F9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
+    
+      <!-- SAAS EXPLAIN ANIMATION: Video Timeline & Retention Engine -->
+      <div class="saas-vis-box">
+        <div class="saas-win-hdr">
+          <div class="saas-win-dots">
+            <span class="saas-dot saas-dot-r"></span>
+            <span class="saas-dot saas-dot-y"></span>
+            <span class="saas-dot saas-dot-g"></span>
+            <span class="saas-win-title">Premiere_Engine • Viral_Cut_v4.mp4</span>
+          </div>
+          <div class="saas-win-status">
+            <span class="saas-pulse-dot"></span>
+            <span>4K 60FPS EXPORT</span>
+          </div>
+        </div>
+        <div class="saas-video-preview">
+          <div class="saas-vid-stage">
+            <div class="saas-vid-bg-glow"></div>
+            <div class="saas-vid-eq">
+              <div class="saas-eq-bar"></div>
+              <div class="saas-eq-bar"></div>
+              <div class="saas-eq-bar"></div>
+              <div class="saas-eq-bar"></div>
+              <div class="saas-eq-bar"></div>
+              <div class="saas-eq-bar"></div>
+              <div class="saas-eq-bar"></div>
+              <div class="saas-eq-bar"></div>
+            </div>
+            <div class="saas-vid-caption">
+              <span>⚡ HOOK:</span> "Stop scrolling right now..."
+            </div>
+          </div>
+          <div class="saas-timeline">
+            <div class="saas-scrubber"></div>
+            <div class="saas-track-row">
+              <span class="saas-track-lbl">V1</span>
+              <div class="saas-clips">
+                <div class="saas-clip saas-clip-hook">Hook 0-3s</div>
+                <div class="saas-clip saas-clip-story">B-Roll Cut</div>
+                <div class="saas-clip saas-clip-cta">CTA Zoom</div>
+              </div>
+            </div>
+            <div class="saas-track-row">
+              <span class="saas-track-lbl">A1</span>
+              <div class="saas-clips">
+                <div class="saas-clip saas-clip-audio">SFX Whoosh</div>
+                <div class="saas-clip saas-clip-audio">Beat Drop Sync</div>
+                <div class="saas-clip saas-clip-audio">Voice Enhance</div>
+              </div>
+            </div>
+          </div>
+          <div class="saas-metrics-strip">
+            <div class="saas-metric-tag">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zm3.5 6l-4.5 4.5L5 8.5 6 7.5l1 1 3.5-3.5 1 1z"/></svg>
+              <span>Viewer Retention Engine</span>
+            </div>
+            <div class="saas-metric-score">89.4% Avg Retention 🔥</div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <!-- 02 GRAPHICS DESIGN -->
@@ -1290,6 +2055,49 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, label, select, textarea
         Get a Quote
         <span class="svc-clink-arr"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M5 2l3 3-3 3" stroke="#f9a8d4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
+    
+      <!-- SAAS EXPLAIN ANIMATION: Vector Studio & Brand Kit -->
+      <div class="saas-vis-box">
+        <div class="saas-win-hdr">
+          <div class="saas-win-dots">
+            <span class="saas-dot saas-dot-r"></span>
+            <span class="saas-dot saas-dot-y"></span>
+            <span class="saas-dot saas-dot-g"></span>
+            <span class="saas-win-title">Brand_System_v2.fig</span>
+          </div>
+          <div class="saas-win-status">
+            <span class="saas-pulse-dot" style="background:#ec4899;box-shadow:0 0 8px #ec4899;"></span>
+            <span style="color:#f472b6;">VECTOR SVG</span>
+          </div>
+        </div>
+        <div class="saas-brand-preview">
+          <div class="saas-vector-canvas">
+            <div class="saas-grid-bg"></div>
+            <svg width="160" height="70" viewBox="0 0 160 70" fill="none">
+              <path class="saas-bezier-path" d="M20 50 C 40 10, 80 10, 100 45 C 115 65, 140 30, 150 20" stroke="#ec4899" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="20" cy="50" r="3.5" fill="#fff" stroke="#ec4899" stroke-width="1.5"/>
+              <circle cx="100" cy="45" r="3.5" fill="#fff" stroke="#ec4899" stroke-width="1.5"/>
+              <circle cx="150" cy="20" r="3.5" fill="#fff" stroke="#ec4899" stroke-width="1.5"/>
+            </svg>
+            <div class="saas-pen-tool">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M12 19l7-7 3 3-7 7-3-3zM18 13l-1.5-1.5M2 22l5-2-3-3-2 5z" fill="#fff" stroke="#ec4899" stroke-width="1.5"/>
+              </svg>
+            </div>
+          </div>
+          <div class="saas-palette-row">
+            <div class="saas-swatch saas-swatch-1">#B800F5</div>
+            <div class="saas-swatch saas-swatch-2">#EC4899</div>
+            <div class="saas-swatch saas-swatch-3">#150522</div>
+            <div class="saas-swatch saas-swatch-4">#FFFFFF</div>
+          </div>
+          <div class="saas-type-row">
+            <span style="color:rgba(225,200,250,0.6);">Typography Scale:</span>
+            <span class="saas-type-sample">Aa Display Bold 800</span>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <!-- 03 WEB DESIGN -->
@@ -1317,6 +2125,50 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, label, select, textarea
         Get a Quote
         <span class="svc-clink-arr"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M5 2l3 3-3 3" stroke="#93c5fd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
+    
+      <!-- SAAS EXPLAIN ANIMATION: Code to Conversion Simulator -->
+      <div class="saas-vis-box">
+        <div class="saas-win-hdr">
+          <div class="saas-win-dots">
+            <span class="saas-dot saas-dot-r"></span>
+            <span class="saas-dot saas-dot-y"></span>
+            <span class="saas-dot saas-dot-g"></span>
+            <span class="saas-win-title">LandingPage.tsx</span>
+          </div>
+          <div class="saas-win-status">
+            <span class="saas-pulse-dot" style="background:#3b82f6;box-shadow:0 0 8px #3b82f6;"></span>
+            <span style="color:#60a5fa;">100 LIGHTHOUSE</span>
+          </div>
+        </div>
+        <div class="saas-web-preview">
+          <div class="saas-code-split">
+            <div class="saas-code-pane">
+              <span class="saas-code-kw">export default</span> () =&gt; (<br/>
+              &nbsp;&nbsp;&lt;<span class="saas-code-fn">Hero</span> title="Convert" /&gt;<br/>
+              &nbsp;&nbsp;&lt;<span class="saas-code-fn">CTA</span> <span class="saas-code-str">speed</span>="0.4s" /&gt;<br/>
+              )
+            </div>
+            <div class="saas-preview-pane">
+              <button class="saas-sim-btn">Book Strategy Call ➜</button>
+              <div class="saas-cursor">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff" stroke="#000" stroke-width="1.5">
+                  <path d="M3 3l7 18 3-7 7-3L3 3z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="saas-cvr-meter">
+            <div class="saas-cvr-hdr">
+              <span class="saas-cvr-lbl">Conversion Rate Impact</span>
+              <span class="saas-cvr-val">+340% (2.1% ➔ 8.8%)</span>
+            </div>
+            <div class="saas-bar-track">
+              <div class="saas-bar-fill"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <!-- 04 DIGITAL MARKETING -->
@@ -1346,6 +2198,62 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, label, select, textarea
         Get a Quote
         <span class="svc-clink-arr"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M5 2l3 3-3 3" stroke="#67e8f9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
+    
+      <!-- SAAS EXPLAIN ANIMATION: Funnel Pipeline & ROAS Engine -->
+      <div class="saas-vis-box">
+        <div class="saas-win-hdr">
+          <div class="saas-win-dots">
+            <span class="saas-dot saas-dot-r"></span>
+            <span class="saas-dot saas-dot-y"></span>
+            <span class="saas-dot saas-dot-g"></span>
+            <span class="saas-win-title">Funnel_Engine • Real-time ROAS</span>
+          </div>
+          <div class="saas-win-status">
+            <span class="saas-pulse-dot" style="background:#06b6d4;box-shadow:0 0 8px #06b6d4;"></span>
+            <span style="color:#67e8f9;">LIVE PIPELINE</span>
+          </div>
+        </div>
+        <div class="saas-mkt-preview">
+          <div class="saas-funnel-pipeline">
+            <div class="saas-funnel-node">
+              <div class="saas-fnode-title">1. Meta/Google Ads</div>
+              <div class="saas-fnode-sub">High-Intent Traffic</div>
+            </div>
+            <div class="saas-pipeline-connector">
+              <div class="saas-pulse-packet"></div>
+            </div>
+            <div class="saas-funnel-node">
+              <div class="saas-fnode-title">2. Landing Page</div>
+              <div class="saas-fnode-sub">8.8% CVR Opt-in</div>
+            </div>
+            <div class="saas-pipeline-connector">
+              <div class="saas-pulse-packet" style="animation-delay:0.8s;"></div>
+            </div>
+            <div class="saas-funnel-node">
+              <div class="saas-fnode-title">3. Closed Deal</div>
+              <div class="saas-fnode-sub">$3,500 Retainer</div>
+            </div>
+          </div>
+          <div class="saas-chart-box">
+            <div class="saas-chart-hdr">
+              <span class="saas-chart-metric">+$52,800 Generated</span>
+              <span class="saas-chart-roas">5.4x ROAS (Verified)</span>
+            </div>
+            <svg class="saas-chart-svg" viewBox="0 0 300 50" fill="none">
+              <defs>
+                <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.35"/>
+                  <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.0"/>
+                </linearGradient>
+              </defs>
+              <path d="M0 45 Q 60 40, 110 32 T 200 18 T 300 5 L 300 50 L 0 50 Z" fill="url(#chartGrad)"/>
+              <path class="saas-chart-line" d="M0 45 Q 60 40, 110 32 T 200 18 T 300 5" stroke="#06b6d4" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="300" cy="5" r="4" fill="#fff" stroke="#06b6d4" stroke-width="2"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <!-- 05 AI AUTOMATION (full width) -->
