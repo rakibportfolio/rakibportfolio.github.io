@@ -99,7 +99,7 @@
   
 
   h1.hero-headline-clean {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    font-family: 'Coolvetica', 'Inter', -apple-system, sans-serif !important;
     font-size: clamp(3.8rem, 7.5vw, 5.8rem) !important;
     font-weight: 400 !important;
     line-height: 1.08 !important;
@@ -3575,7 +3575,7 @@ body, p, span, li,
 
 /* Big Heading: Inter Bold */
 .why-title {
-  font-family: 'Inter', -apple-system, sans-serif;
+  font-family: 'Coolvetica', 'Inter', -apple-system, sans-serif !important;
   font-weight: normal;
   font-size: clamp(30px, 3.8vw, 46px);
   color: #FFFFFF;
@@ -3686,7 +3686,7 @@ body, p, span, li,
 
 /* Big Card Heading: Inter Bold */
 .why-card-title {
-  font-family: 'Inter', -apple-system, sans-serif;
+  font-family: 'Coolvetica', 'Inter', -apple-system, sans-serif !important;
   font-weight: normal;
   font-size: 24px;
   color: #FFFFFF;
@@ -3878,7 +3878,7 @@ body, p, span, li,
 }
 
 #approach-section .ap-h2 {
-  font-family: 'Inter', -apple-system, sans-serif;
+  font-family: 'Coolvetica', 'Inter', -apple-system, sans-serif !important;
   font-size: clamp(38px, 5.2vw, 68px);
   font-weight: 400;
   color: #ffffff;
@@ -4846,7 +4846,7 @@ body, p, span, li,
   50% { transform: scale(0.8); opacity: 0.5; }
 }
 .hiw-title {
-  font-family: 'Inter', -apple-system, sans-serif;
+  font-family: 'Coolvetica', 'Inter', -apple-system, sans-serif !important;
   font-size: clamp(28px, 4vw, 54px);
   font-weight: 800;
   color: #fff;
@@ -4983,7 +4983,7 @@ body, p, span, li,
   z-index: 2;
 }
 .hiw-step-title {
-  font-family: 'Inter', -apple-system, sans-serif;
+  font-family: 'Coolvetica', 'Inter', -apple-system, sans-serif !important;
   font-size: 17px;
   font-weight: 700;
   color: #fff;
@@ -6317,5 +6317,21 @@ document.addEventListener("DOMContentLoaded", function () {
 <script src="js/i18n.js"></script>
 <script src="js/hero-3d.js?v=3.0"></script>
 
+
+<style id="coolvetica-final-override">
+/* FINAL COOLVETICA OVERRIDE — Loaded last, wins everything */
+h1, h2, h3, h4, h5, h6,
+h1.hero-headline-clean,
+h1.hero-headline-clean span,
+.hero-headline-line1, .hero-headline-line2,
+.heading-01, .heading-02, .heading-03, .heading-04, .heading-05,
+.ap-h2, .why-title, .why-card-title,
+.hiw-title, .hiw-step-title,
+.svc-h1, .svc-sec-h2, .svc-ctitle,
+.process-title, [class*="heading"] {
+  font-family: "Coolvetica", "Inter", -apple-system, sans-serif !important;
+  font-weight: 400 !important;
+}
+</style>
 </body></html>
 
