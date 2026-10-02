@@ -1783,6 +1783,61 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, label, select, textarea
 }
 
 </style>
+<style id="hero-2line-title">
+
+/* ══ HERO H1: EXACTLY 2 BALANCED LINES ══ */
+.svc-h1 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: clamp(26px, 5.2vw, 76px) !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.03em !important;
+  color: #fff !important;
+  margin: 0 auto 20px !important;
+  max-width: 980px !important;
+  text-align: center !important;
+}
+
+.svc-h1-line {
+  display: block !important;
+  white-space: nowrap !important;
+}
+
+@media (max-width: 768px) {
+  .svc-hero {
+    padding: 36px 14px 44px !important;
+  }
+  .svc-badge {
+    margin-bottom: 16px !important;
+    font-size: 8.5px !important;
+    padding: 4px 12px !important;
+  }
+  .svc-h1 {
+    font-size: clamp(19px, 5.5vw, 30px) !important;
+    line-height: 1.18 !important;
+    letter-spacing: -0.025em !important;
+    margin-bottom: 12px !important;
+  }
+  .svc-h1-line {
+    display: block !important;
+    white-space: nowrap !important;
+  }
+  .svc-sub {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    margin: 0 auto 24px !important;
+    max-width: 320px !important;
+    color: rgba(225, 200, 250, 0.7) !important;
+  }
+}
+
+@media (max-width: 375px) {
+  .svc-h1 {
+    font-size: 18.5px !important;
+  }
+}
+
+</style>
 </head>
 
 <style>
@@ -2193,7 +2248,8 @@ body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, label, select, textarea
     What We Do
   </div>
   <h1 class="svc-h1">
-    All the Firepower<br/>Your Brand Needs to<br/><span class="svc-h1-grad">Dominate.</span>
+    <span class="svc-h1-line">All the Firepower</span>
+    <span class="svc-h1-line">Your Brand Needs to <span class="svc-h1-grad">Dominate.</span></span>
   </h1>
   <p class="svc-sub">Five high-converting services — video, design, web, marketing &amp; AI automation — engineered to grow your brand and revenue.</p>
   <div class="svc-hero-btns">
