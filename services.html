@@ -4,7 +4,7 @@
 <link href="css/rotating-tagline.css?v=1.0" rel="stylesheet" type="text/css" />
 <link href="css/tools-orbit.css?v=4.0" rel="stylesheet" type="text/css" /><link href="css/framework-3d.css?v=1.0" rel="stylesheet" type="text/css" /><link href="css/services-section.css?v=43.0" rel="stylesheet" type="text/css" /><link href="css/bg-shapes.css?v=7.0" rel="stylesheet" type="text/css" /><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   html.w-mod-js:not(.w-mod-ix3) :is(.button-03), .button-03 {
     visibility: visible !important;
@@ -91,23 +91,17 @@
     z-index: 0 !important;
   }
 
-  /* Main Headline: Clean Coolvetica Regular - MUCH BIGGER */
+  /* Main Headline: Clean Inter - High Impact SaaS */
   .hero-title {
     position: relative !important;
     z-index: 1 !important;
     margin: 0 0 10px 0 !important;
     width: 100% !important;
   }
-  @font-face {
-    font-family: 'Coolvetica';
-    src: url('fonts/coolvetica rg.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
+  
 
   h1.hero-headline-clean {
-    font-family: 'Coolvetica', 'Inter', -apple-system, sans-serif !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
     font-size: clamp(3.8rem, 7.5vw, 5.8rem) !important;
     font-weight: 400 !important;
     line-height: 1.08 !important;
@@ -679,7 +673,7 @@
 }
 
 .lang-current-label {
-  font-family: 'Coolvetica', 'Hind Siliguri', sans-serif;
+  font-family: 'Inter', 'Hind Siliguri', sans-serif !important;
   font-size: 13px;
   font-weight: 600;
   color: #FFD6B8;
@@ -712,7 +706,7 @@
   transition: all 0.2s ease;
   cursor: pointer;
   line-height: 1.4;
-  font-family: 'Inter', 'Poppins', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
 }
 .lang-opt[data-lang="bn"] {
   font-family: 'Hind Siliguri', sans-serif;
@@ -731,12 +725,80 @@
 }
 </style>
 
+<style>
+
+/* ══ MASTER TYPOGRAPHY: Clean, Modern, Single Font (Inter) ══ */
+*, *::before, *::after,
+body, h1, h2, h3, h4, h5, h6, p, span, a, button, input, label, select, textarea, div {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+/* Headings: Crisp SaaS bold with tight letter-spacing */
+.svc-h1, h1 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.03em !important;
+  line-height: 1.12 !important;
+}
+.svc-sec-h2, h2 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.025em !important;
+  line-height: 1.2 !important;
+}
+.svc-card h3, h3 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.25 !important;
+}
+
+/* Subheadings & Paragraphs: Clean, highly readable */
+.svc-sub, p, .svc-card-desc, .svc-desc {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.65 !important;
+}
+
+/* Badges & Eyebrows: Sophisticated uppercase tracker */
+.svc-badge, .svc-sec-eyebrow, .svc-card-num, .svc-tag {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+}
+
+/* Buttons & Interactive Elements */
+.svc-btn-main, .svc-btn-ghost, .svc-card-cta, .nav-link, .primary-button {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
+}
+
+/* Stats */
+.svc-stat-val {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.03em !important;
+}
+.svc-stat-lbl {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.005em !important;
+}
+
+/* Language selector */
+.lang-current-label, .lang-option {
+  font-family: 'Inter', 'Hind Siliguri', sans-serif !important;
+}
+
+</style>
 </head>
 
 <style>
 /*  SERVICES PAGE — DESIGN MATCHES HOMEPAGE 100%
     Palette:  #08010E bg | #150522 card | #B800F5 accent | #580B82 mid
-    Font:     Coolvetica (headings) | Poppins (body)
+    Font:     Inter (Universal clean font across headings & body)
     Same borders, glows, gradients as homepage  */
 
 /* ── Keyframes ── */
@@ -786,7 +848,7 @@
   border-radius: 9999px;
   box-shadow: 0 0 18px rgba(184,0,245,.22), inset 0 1px 0 rgba(255,255,255,.12);
   backdrop-filter: blur(10px);
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: 9.5px; font-weight: 700;
   letter-spacing: 2.5px; text-transform: uppercase;
   color: #F5D0FE;
@@ -802,7 +864,7 @@
 
 /* Hero headline */
 .svc-h1 {
-  font-family: 'Inter', 'Poppins', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: clamp(48px, 7vw, 90px);
   font-weight: 800;
   line-height: 1.0;
@@ -820,7 +882,7 @@
 
 /* Hero sub */
 .svc-sub {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: 16px; line-height: 1.75; font-weight: 400;
   color: rgba(225,200,250,.70);
   max-width: 540px; margin: 0 auto 44px;
@@ -837,7 +899,7 @@
   display: inline-flex; align-items: center; gap: 10px;
   background: linear-gradient(135deg, #B800F5 0%, #7000A8 100%);
   color: #fff;
-  font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 600;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important; font-size: 14px; font-weight: 600;
   padding: 14px 30px; border-radius: 10px; text-decoration: none;
   border: 1px solid rgba(240,85,255,.40);
   box-shadow: 0 0 28px rgba(184,0,245,.35), 0 4px 16px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.12);
@@ -856,7 +918,7 @@
 
 .svc-btn-ghost {
   display: inline-flex; align-items: center; gap: 8px;
-  font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 500;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important; font-size: 14px; font-weight: 500;
   color: rgba(245,208,254,.60); text-decoration: none;
   padding: 14px 24px; border-radius: 10px;
   border: 1px solid rgba(184,0,245,.20);
@@ -888,14 +950,14 @@
 .svc-stat:hover { background:rgba(184,0,245,.07); }
 .svc-stat:last-child { border-right: none; }
 .svc-stat-val {
-  font-family: 'Inter', 'Poppins', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: 40px; font-weight: 800; letter-spacing: -.5px;
   background: linear-gradient(135deg, #fff 0%, #E879F9 60%, #B800F5 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   display: block; line-height: 1; margin-bottom: 6px;
 }
 .svc-stat-lbl {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: 11.5px; font-weight: 500;
   color: rgba(225,200,250,.45); letter-spacing: .03em;
 }
@@ -904,14 +966,14 @@
 .svc-sec-wrap { position:relative;z-index:2;max-width:1160px;margin:0 auto;padding:0 48px 120px; }
 .svc-sec-eyebrow {
   display:inline-flex;align-items:center;gap:8px;
-  font-family:'Poppins',sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
   color:rgba(232,121,249,.60);
   margin-bottom:12px;
 }
 .svc-sec-eyebrow::before{content:'';display:block;width:22px;height:1px;background:rgba(184,0,245,.45);}
 .svc-sec-h2 {
-  font-family:'Inter','Poppins',sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size:clamp(32px,3.5vw,52px);font-weight:800;letter-spacing:-.5px;line-height:1.05;color:#fff;
   margin-bottom:52px;
 }
@@ -980,7 +1042,7 @@
 
 /* Card number */
 .svc-num {
-  font-family:'Poppins',sans-serif;font-size:9.5px;font-weight:700;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;font-size:9.5px;font-weight:700;
   letter-spacing:.16em;text-transform:uppercase;
   color:var(--num-c,rgba(232,121,249,.65));
   margin-bottom:10px;position:relative;z-index:1;
@@ -988,7 +1050,7 @@
 
 /* Card title */
 .svc-ctitle {
-  font-family:'Inter','Poppins',sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size:26px;font-weight:800;letter-spacing:-.3px;line-height:1.12;
   color:#fff;margin-bottom:12px;position:relative;z-index:1;
 }
@@ -996,7 +1058,7 @@
 
 /* Card description */
 .svc-cdesc {
-  font-family:'Poppins',sans-serif;font-size:13.5px;line-height:1.75;font-weight:400;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;font-size:13.5px;line-height:1.75;font-weight:400;
   color:rgba(225,200,250,.60);margin-bottom:20px;position:relative;z-index:1;
 }
 
@@ -1004,7 +1066,7 @@
 .svc-chips { display:flex;flex-wrap:wrap;gap:7px;position:relative;z-index:1; }
 .svc-chip {
   display:inline-flex;align-items:center;gap:5px;
-  font-family:'Poppins',sans-serif;font-size:11.5px;font-weight:500;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;font-size:11.5px;font-weight:500;
   color:var(--num-c,rgba(245,208,254,.75));
   background:rgba(184,0,245,.08);
   border:1px solid rgba(184,0,245,.20);
@@ -1017,7 +1079,7 @@
 /* Card link */
 .svc-clink {
   display:inline-flex;align-items:center;gap:7px;
-  font-family:'Poppins',sans-serif;font-size:12.5px;font-weight:600;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;font-size:12.5px;font-weight:600;
   color:var(--num-c,#E879F9);text-decoration:none;
   margin-top:22px;position:relative;z-index:1;
   transition:gap .3s;
@@ -1083,10 +1145,10 @@
   top:-220px;left:-100px;pointer-events:none;
 }
 .svc-cta-box h2 {
-  font-family:'Inter','Poppins',sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size:clamp(26px,3.5vw,44px);font-weight:800;letter-spacing:-.3px;line-height:1.1;margin-bottom:10px;
 }
-.svc-cta-box p { font-family:'Poppins',sans-serif;font-size:14px;color:rgba(225,200,250,.55);line-height:1.6; }
+.svc-cta-box p { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;font-size:14px;color:rgba(225,200,250,.55);line-height:1.6; }
 .svc-cta-btns { display:flex;gap:14px;align-items:center;flex-wrap:wrap; }
 
 /* ── SCROLL REVEAL ── */
@@ -1344,8 +1406,8 @@
 
 <!-- ══ MINI FOOTER ══ -->
 <div style="position:relative;z-index:2;border-top:1px solid rgba(184,0,245,.18);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
-  <p style="font-family:'Poppins',sans-serif;font-size:12px;color:rgba(225,200,250,.35);">&copy; 2026 <a href="index.html" style="color:rgba(225,200,250,.45);text-decoration:none;">Zentic Media</a>. All rights reserved.</p>
-  <p style="font-family:'Poppins',sans-serif;font-size:12px;"><a href="mailto:technicalrakib999@gmail.com" style="color:rgba(225,200,250,.45);text-decoration:none;transition:color .2s;">technicalrakib999@gmail.com</a></p>
+  <p style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;font-size:12px;color:rgba(225,200,250,.35);">&copy; 2026 <a href="index.html" style="color:rgba(225,200,250,.45);text-decoration:none;">Zentic Media</a>. All rights reserved.</p>
+  <p style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;font-size:12px;"><a href="mailto:technicalrakib999@gmail.com" style="color:rgba(225,200,250,.45);text-decoration:none;transition:color .2s;">technicalrakib999@gmail.com</a></p>
 </div>
 
 </div><!-- /#svc-pg -->
