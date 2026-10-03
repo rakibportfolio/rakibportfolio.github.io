@@ -5722,7 +5722,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <style>
 /* ══════════════════════════════════════════════
-   LEAD COLLECTION FORM — SaaS Dark Theme
+   INTERACTIVE MULTI-STEP LEAD CAPTURE WIZARD
    ══════════════════════════════════════════════ */
 .lead-section {
   position: relative;
@@ -5735,7 +5735,7 @@ document.addEventListener("DOMContentLoaded", function () {
   bottom: -80px; left: 50%;
   transform: translateX(-50%);
   width: 900px; height: 600px;
-  background: radial-gradient(ellipse at 50% 80%, rgba(184,0,245,.2) 0%, rgba(88,11,130,.07) 45%, transparent 70%);
+  background: radial-gradient(ellipse at 50% 80%, rgba(184,0,245,.22) 0%, rgba(88,11,130,.08) 45%, transparent 70%);
   filter: blur(90px);
   pointer-events: none; z-index: 0;
 }
@@ -5752,15 +5752,15 @@ document.addEventListener("DOMContentLoaded", function () {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 5px 16px 5px 10px;
+  padding: 6px 16px 6px 10px;
   background: linear-gradient(135deg, rgba(184,0,245,.18), rgba(88,11,130,.22));
   border: 1px solid rgba(240,85,255,.35);
   border-radius: 9999px;
   font-family: 'Inter', sans-serif;
-  font-size: 9.5px; font-weight: 700;
-  letter-spacing: 2.5px; text-transform: uppercase;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
   color: #F5D0FE;
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
 .lead-eyebrow-dot {
   width: 7px; height: 7px; border-radius: 50%;
@@ -5774,11 +5774,11 @@ document.addEventListener("DOMContentLoaded", function () {
 .lead-title {
   font-family: 'Coolvetica','Inter',sans-serif !important;
   font-weight: 400 !important;
-  font-size: clamp(34px, 5vw, 62px);
+  font-size: clamp(34px, 5.5vw, 60px);
   color: #fff;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  margin: 0 0 14px;
+  margin: 0 0 12px;
 }
 .lead-title-grad {
   background: linear-gradient(120deg,#F5D0FE 0%,#E879F9 35%,#B800F5 65%,#7000A8 100%);
@@ -5791,154 +5791,431 @@ document.addEventListener("DOMContentLoaded", function () {
 @keyframes leadGrad{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 .lead-sub {
   font-family: 'Inter', sans-serif;
-  font-size: 14px; color: rgba(225,200,250,.58);
-  margin: 0 0 44px; line-height: 1.65;
+  font-size: 14.5px; color: rgba(225,200,250,.62);
+  margin: 0 0 36px; line-height: 1.6;
 }
 
-/* Form Card */
-.lead-form-card {
-  background: rgba(18, 4, 28, 0.75);
-  border: 1px solid rgba(184,0,245,.25);
-  border-radius: 22px;
-  padding: 40px 36px 36px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 0 0 1px rgba(255,255,255,.04), 0 24px 80px rgba(184,0,245,.1);
-}
-
-/* Form grid */
-.lead-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  margin-bottom: 14px;
-}
-.lead-grid-full { grid-column: 1 / -1; }
-
-/* Form group */
-.lead-group { display: flex; flex-direction: column; gap: 6px; }
-.lead-label {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px; font-weight: 600;
-  color: rgba(225,200,250,.7);
-  letter-spacing: 0.5px;
-}
-.lead-required { color: #E879F9; margin-left: 2px; }
-.lead-optional {
-  font-size: 9.5px; font-weight: 400;
-  color: rgba(225,200,250,.35);
-  margin-left: 4px; letter-spacing: 0;
-}
-
-/* Input styles */
-.lead-input, .lead-select, .lead-textarea {
-  width: 100%;
-  background: rgba(8, 1, 14, 0.8);
-  border: 1px solid rgba(184,0,245,.22);
-  border-radius: 10px;
-  padding: 11px 14px;
-  font-family: 'Inter', sans-serif;
-  font-size: 13px; font-weight: 400;
-  color: #fff;
-  outline: none;
-  transition: border-color .25s, box-shadow .25s;
-  box-sizing: border-box;
-}
-.lead-input::placeholder, .lead-textarea::placeholder {
-  color: rgba(225,200,250,.3);
-}
-.lead-input:focus, .lead-select:focus, .lead-textarea:focus {
-  border-color: rgba(184,0,245,.6);
-  box-shadow: 0 0 0 3px rgba(184,0,245,.12);
-}
-.lead-select {
-  cursor: pointer;
-  appearance: none;
-  -webkit-appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6 9l6 6 6-6' stroke='%23E879F9' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  padding-right: 36px;
-}
-.lead-select option {
-  background: #150522;
-  color: #fff;
-}
-.lead-textarea {
-  resize: vertical;
-  min-height: 110px;
-  line-height: 1.5;
-}
-
-/* Divider */
-.lead-divider {
-  border: none;
-  border-top: 1px solid rgba(184,0,245,.12);
-  margin: 24px 0;
-}
-
-/* Submit buttons */
-.lead-actions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-.lead-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 9px;
-  padding: 14px 20px;
-  border-radius: 12px;
-  font-family: 'Inter', sans-serif;
-  font-size: 13px; font-weight: 700;
-  cursor: pointer;
-  border: none;
-  outline: none;
-  transition: transform .3s cubic-bezier(.23,1,.32,1), box-shadow .3s, opacity .2s;
+/* Wizard Outer Card */
+.lead-wizard-card {
+  background: rgba(18, 4, 28, 0.88);
+  border: 1px solid rgba(184,0,245,.32);
+  border-radius: 24px;
+  padding: 36px 36px 32px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.05), 0 30px 90px rgba(184,0,245,.14);
   position: relative;
   overflow: hidden;
 }
-.lead-btn::after {
-  content:'';
-  position:absolute; top:0; left:-100%; width:50%; height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);
-  transition: left .5s ease;
-}
-.lead-btn:hover { transform: translateY(-3px); }
-.lead-btn:hover::after { left: 150%; }
-.lead-btn:active { transform: translateY(0); }
 
+/* Progress Bar & Header inside card */
+.lead-progress-wrap {
+  margin-bottom: 28px;
+}
+.lead-progress-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.lead-step-badge {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #E879F9;
+  background: rgba(184,0,245,.15);
+  border: 1px solid rgba(184,0,245,.3);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.lead-step-counter {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(225,200,250,.6);
+}
+.lead-bar-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(255,255,255,.06);
+  border-radius: 99px;
+  overflow: hidden;
+  position: relative;
+}
+.lead-bar-fill {
+  height: 100%;
+  width: 16.66%;
+  background: linear-gradient(90deg, #9333ea, #c084fc, #e879f9);
+  border-radius: 99px;
+  transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 0 14px rgba(232,121,249,.6);
+}
+
+/* Step Container & Animation */
+.wizard-step {
+  display: none;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.wizard-step.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Question Title & Sub */
+.step-q-title {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(20px, 3.2vw, 25px);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 8px;
+  line-height: 1.3;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.step-q-num {
+  color: #E879F9;
+  font-size: 0.9em;
+}
+.step-q-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  color: rgba(225,200,250,.65);
+  margin: 0 0 24px;
+  line-height: 1.5;
+}
+
+/* Input Fields */
+.step-input-wrap {
+  position: relative;
+  margin-bottom: 24px;
+}
+.step-input, .step-textarea, .step-select {
+  width: 100%;
+  background: rgba(8, 1, 14, 0.85);
+  border: 1.5px solid rgba(184,0,245,.28);
+  border-radius: 14px;
+  padding: 16px 18px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffffff;
+  outline: none;
+  transition: all .25s ease;
+  box-sizing: border-box;
+}
+.step-input::placeholder, .step-textarea::placeholder {
+  color: rgba(225,200,250,.35);
+  font-weight: 400;
+}
+.step-input:focus, .step-textarea:focus, .step-select:focus {
+  border-color: #c084fc;
+  box-shadow: 0 0 0 4px rgba(184,0,245,.2), 0 0 20px rgba(184,0,245,.25);
+  background: rgba(14, 3, 22, 0.95);
+}
+.step-input.error, .step-select.error, .step-textarea.error {
+  border-color: #f87171 !important;
+  box-shadow: 0 0 0 3px rgba(248,113,113,.2) !important;
+  animation: shake 0.35s ease;
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+.step-error-msg {
+  display: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #f87171;
+  margin-top: 6px;
+  font-weight: 500;
+}
+.step-textarea {
+  min-height: 130px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+/* Select Dropdown */
+.step-select {
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6 9l6 6 6-6' stroke='%23E879F9' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  padding-right: 48px;
+}
+.step-select option {
+  background: #140420;
+  color: #fff;
+  padding: 10px;
+}
+
+/* Interactive Option Pills / Grid */
+.step-options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.step-option-card {
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(184,0,245,.2);
+  border-radius: 12px;
+  padding: 13px 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: rgba(255,255,255,.85);
+  transition: all .2s ease;
+  user-select: none;
+}
+.step-option-card:hover {
+  background: rgba(184,0,245,.12);
+  border-color: rgba(184,0,245,.5);
+  transform: translateY(-2px);
+  color: #fff;
+}
+.step-option-card.selected {
+  background: linear-gradient(135deg, rgba(184,0,245,.28), rgba(124,58,237,.28));
+  border-color: #E879F9;
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(184,0,245,.3);
+}
+.step-option-dot {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(225,200,250,.4);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: all .2s;
+}
+.step-option-card.selected .step-option-dot {
+  background: #E879F9;
+  border-color: #E879F9;
+  box-shadow: 0 0 8px #E879F9;
+}
+.step-option-card.selected .step-option-dot::after {
+  content: '';
+  width: 5px; height: 5px;
+  background: #000;
+  border-radius: 50%;
+}
+
+/* Step Footer Navigation Buttons */
+.step-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(184,0,245,.14);
+}
+.step-btn-back {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 12px;
+  color: rgba(225,200,250,.8);
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: all .2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.step-btn-back:hover {
+  background: rgba(255,255,255,.1);
+  color: #fff;
+  border-color: rgba(255,255,255,.25);
+}
+.step-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+.step-btn-skip {
+  background: transparent;
+  border: none;
+  color: rgba(225,200,250,.5);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: color .2s;
+}
+.step-btn-skip:hover {
+  color: #E879F9;
+}
+.step-btn-next {
+  background: linear-gradient(135deg, #B800F5 0%, #7c3aed 100%);
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 13px 26px;
+  cursor: pointer;
+  transition: all .25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 6px 20px rgba(184,0,245,.3);
+}
+.step-btn-next:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(184,0,245,.5);
+  filter: brightness(1.1);
+}
+.step-btn-next:active {
+  transform: translateY(0);
+}
+.step-hint {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: rgba(225,200,250,.4);
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.step-hint kbd {
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-size: 10px;
+  font-family: inherit;
+  color: rgba(255,255,255,.7);
+}
+
+/* ── REVIEW & SEND FINAL STEP ── */
+.lead-review-box {
+  background: rgba(8, 1, 14, 0.7);
+  border: 1px solid rgba(184,0,245,.25);
+  border-radius: 16px;
+  padding: 20px 22px;
+  margin-bottom: 24px;
+}
+.lead-review-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+}
+.lead-review-row:last-child {
+  border-bottom: none;
+}
+.review-label {
+  color: rgba(225,200,250,.55);
+  font-weight: 500;
+  min-width: 110px;
+}
+.review-value {
+  color: #ffffff;
+  font-weight: 600;
+  text-align: right;
+  word-break: break-word;
+}
+.review-edit-btn {
+  background: transparent;
+  border: none;
+  color: #E879F9;
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 10px;
+  display: inline-block;
+  padding: 0;
+}
+
+/* Final Action Buttons */
+.lead-final-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 14px;
+}
 .lead-btn-wa {
   background: linear-gradient(135deg, #25D366, #128C3E);
   color: #fff;
-  box-shadow: 0 6px 24px rgba(37,211,102,.25);
+  border: none;
+  border-radius: 14px;
+  padding: 16px 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 8px 25px rgba(37,211,102,.3);
+  transition: all .3s cubic-bezier(.23,1,.32,1);
 }
-.lead-btn-wa:hover { box-shadow: 0 12px 40px rgba(37,211,102,.4); }
-
+.lead-btn-wa:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px rgba(37,211,102,.45);
+}
 .lead-btn-email {
   background: linear-gradient(135deg, #B800F5, #6D00D7);
   color: #fff;
-  box-shadow: 0 6px 24px rgba(184,0,245,.25);
-}
-.lead-btn-email:hover { box-shadow: 0 12px 40px rgba(184,0,245,.4); }
-
-/* Validation error */
-.lead-error {
+  border: none;
+  border-radius: 14px;
+  padding: 16px 20px;
   font-family: 'Inter', sans-serif;
-  font-size: 11px; color: #f87171;
-  display: none; margin-top: 3px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 8px 25px rgba(184,0,245,.3);
+  transition: all .3s cubic-bezier(.23,1,.32,1);
 }
-.lead-input.error, .lead-select.error, .lead-textarea.error {
-  border-color: rgba(248,113,113,.5);
+.lead-btn-email:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px rgba(184,0,245,.45);
+}
+.lead-support-note {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: rgba(225,200,250,.45);
+  text-align: center;
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
 
-/* Success toast */
+/* Success Toast */
 .lead-toast {
   position: fixed;
   bottom: 28px; right: 28px;
-  background: rgba(16,185,129,.15);
-  border: 1px solid rgba(16,185,129,.4);
+  background: rgba(16,185,129,.18);
+  border: 1px solid rgba(16,185,129,.45);
   border-radius: 14px;
   padding: 14px 20px;
   font-family: 'Inter', sans-serif;
@@ -5948,18 +6225,19 @@ document.addEventListener("DOMContentLoaded", function () {
   opacity: 0; pointer-events: none;
   transform: translateY(12px);
   transition: opacity .4s, transform .4s;
-  z-index: 9999;
-  backdrop-filter: blur(10px);
+  z-index: 99999;
+  backdrop-filter: blur(12px);
 }
 .lead-toast.show { opacity: 1; transform: translateY(0); }
 
-/* Mobile */
-@media (max-width: 600px) {
-  .lead-section { padding: 60px 0 70px; }
-  .lead-form-card { padding: 24px 16px 20px; border-radius: 16px; }
-  .lead-grid { grid-template-columns: 1fr; }
-  .lead-actions { grid-template-columns: 1fr; }
-  .lead-title { font-size: clamp(28px, 8.5vw, 38px); }
+/* Responsive adjustments */
+@media (max-width: 650px) {
+  .lead-wizard-card { padding: 26px 18px 22px; border-radius: 18px; }
+  .lead-final-actions { grid-template-columns: 1fr; gap: 10px; }
+  .step-options-grid { grid-template-columns: 1fr; }
+  .step-nav { flex-wrap: wrap; }
+  .step-nav-right { width: 100%; justify-content: space-between; margin-top: 6px; }
+  .step-btn-next { flex: 1; justify-content: center; }
 }
 </style>
 
@@ -5967,89 +6245,297 @@ document.addEventListener("DOMContentLoaded", function () {
 
   <div id="talktous" class="lead-container">
 
-    <!-- Header -->
+    <!-- Header Section -->
     <div class="lead-eyebrow">
       <span class="lead-eyebrow-dot"></span>
-      Start a Project
+      Start A Project • Quick Inquiry
     </div>
     <h2 class="lead-title">Let's Build<br><span class="lead-title-grad">Yours.</span></h2>
-    <p class="lead-sub">Fill in your details below — then choose how you'd like to reach us.<br>We reply within 24 hours.</p>
+    <p class="lead-sub">Answer a few quick questions one by one. Once complete, you can send directly via WhatsApp or Email!</p>
 
-    <!-- Form Card -->
-    <div class="lead-form-card">
-      <form id="leadForm" novalidate autocomplete="off">
+    <!-- Main Wizard Card -->
+    <div class="lead-wizard-card">
 
-        <!-- Row 1: Name + WhatsApp -->
-        <div class="lead-grid">
-          <div class="lead-group">
-            <label class="lead-label" for="lf-name">Full Name<span class="lead-required">*</span></label>
-            <input class="lead-input" id="lf-name" type="text" placeholder="e.g. John Smith" required />
-            <span class="lead-error" id="err-name">Please enter your name</span>
+      <!-- Dynamic Progress Bar -->
+      <div class="lead-progress-wrap">
+        <div class="lead-progress-meta">
+          <span class="lead-step-badge" id="stepBadgeText">Step 1 of 6</span>
+          <span class="lead-step-counter" id="stepCategoryText">Basic Info</span>
+        </div>
+        <div class="lead-bar-track">
+          <div class="lead-bar-fill" id="progressBarFill" style="width: 16.66%;"></div>
+        </div>
+      </div>
+
+      <!-- ════════════ STEP 1: NAME ════════════ -->
+      <div class="wizard-step active" id="wizardStep1" data-step="1">
+        <h3 class="step-q-title"><span class="step-q-num">01.</span> What is your full name? <span style="color:#E879F9;">*</span></h3>
+        <p class="step-q-desc">Let us know who we have the pleasure of speaking with.</p>
+        
+        <div class="step-input-wrap">
+          <input type="text" class="step-input" id="q-name" placeholder="e.g. Rakib Ahmed or John Smith" autofocus autocomplete="name" />
+          <div class="step-error-msg" id="err-q-name">Please enter your name to continue.</div>
+          <div class="step-hint"><span>Tip: Press</span> <kbd>Enter ↵</kbd> <span>to proceed to the next question.</span></div>
+        </div>
+
+        <div class="step-nav">
+          <div></div> <!-- Spacer -->
+          <div class="step-nav-right">
+            <button type="button" class="step-btn-next" onclick="nextStep(1)">
+              Next Question
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
           </div>
-          <div class="lead-group">
-            <label class="lead-label" for="lf-wa">WhatsApp Number<span class="lead-required">*</span></label>
-            <input class="lead-input" id="lf-wa" type="tel" placeholder="+880 1700 000000" required />
-            <span class="lead-error" id="err-wa">Please enter your WhatsApp number</span>
+        </div>
+      </div>
+
+      <!-- ════════════ STEP 2: WHATSAPP ════════════ -->
+      <div class="wizard-step" id="wizardStep2" data-step="2">
+        <h3 class="step-q-title"><span class="step-q-num">02.</span> What is your WhatsApp number? <span style="color:#E879F9;">*</span></h3>
+        <p class="step-q-desc">We will connect with you here with sample work, scope, and fast updates.</p>
+        
+        <div class="step-input-wrap">
+          <input type="tel" class="step-input" id="q-wa" placeholder="e.g. +880 1716 705401 or +1 234 567 890" autocomplete="tel" />
+          <div class="step-error-msg" id="err-q-wa">Please enter a valid WhatsApp or phone number.</div>
+          <div class="step-hint"><span>Tip: Include country code (e.g. +880, +1, +44)</span></div>
+        </div>
+
+        <div class="step-nav">
+          <button type="button" class="step-btn-back" onclick="prevStep(2)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Back
+          </button>
+          <div class="step-nav-right">
+            <button type="button" class="step-btn-next" onclick="nextStep(2)">
+              Next Question
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════════════ STEP 3: SERVICE NEEDED ════════════ -->
+      <div class="wizard-step" id="wizardStep3" data-step="3">
+        <h3 class="step-q-title"><span class="step-q-num">03.</span> What service do you need? <span style="color:#E879F9;">*</span></h3>
+        <p class="step-q-desc">Click an option below or choose from the dropdown.</p>
+
+        <!-- Clickable Cards -->
+        <div class="step-options-grid" id="serviceOptionsGrid">
+          <div class="step-option-card" data-val="Video Editing" onclick="selectServiceOption(this, 'Video Editing')">
+            <div class="step-option-dot"></div>
+            <span>🎬 Video Editing (Shorts/Reels)</span>
+          </div>
+          <div class="step-option-card" data-val="Graphics Design" onclick="selectServiceOption(this, 'Graphics Design')">
+            <div class="step-option-dot"></div>
+            <span>🎨 Graphics & Brand Design</span>
+          </div>
+          <div class="step-option-card" data-val="Web Design" onclick="selectServiceOption(this, 'Web Design')">
+            <div class="step-option-dot"></div>
+            <span>💻 Web Design & Landing Page</span>
+          </div>
+          <div class="step-option-card" data-val="Digital Marketing" onclick="selectServiceOption(this, 'Digital Marketing')">
+            <div class="step-option-dot"></div>
+            <span>📈 Digital Marketing & Ads</span>
+          </div>
+          <div class="step-option-card" data-val="AI Automation" onclick="selectServiceOption(this, 'AI Automation')">
+            <div class="step-option-dot"></div>
+            <span>⚡ AI Automation & N8N</span>
+          </div>
+          <div class="step-option-card" data-val="Multiple Services" onclick="selectServiceOption(this, 'Multiple Services')">
+            <div class="step-option-dot"></div>
+            <span>📦 Multiple / Full Agency Package</span>
           </div>
         </div>
 
-        <!-- Row 2: Website + Service -->
-        <div class="lead-grid" style="margin-bottom:14px;">
-          <div class="lead-group">
-            <label class="lead-label" for="lf-website">Website URL<span class="lead-optional">(optional)</span></label>
-            <input class="lead-input" id="lf-website" type="url" placeholder="https://yoursite.com" />
+        <!-- Dropdown Fallback / Alternative Box -->
+        <div class="step-input-wrap" style="margin-bottom:0;">
+          <label style="font-family:'Inter',sans-serif;font-size:12px;color:rgba(225,200,250,.6);margin-bottom:6px;display:block;">Or choose directly from dropdown:</label>
+          <select class="step-select" id="q-service" onchange="syncServiceDropdown(this.value)">
+            <option value="" disabled selected>Select a service from dropdown...</option>
+            <option value="Video Editing">Video Editing (Shorts/Reels/YouTube)</option>
+            <option value="Graphics Design">Graphics & Brand Design</option>
+            <option value="Web Design">Web Design & Landing Page</option>
+            <option value="Digital Marketing">Digital Marketing & Ads</option>
+            <option value="AI Automation">AI Automation & N8N Workflows</option>
+            <option value="Multiple Services">Multiple / Full Agency Package</option>
+            <option value="Other">Other / Custom Request</option>
+          </select>
+          <div class="step-error-msg" id="err-q-service">Please select a service to proceed.</div>
+        </div>
+
+        <div class="step-nav">
+          <button type="button" class="step-btn-back" onclick="prevStep(3)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Back
+          </button>
+          <div class="step-nav-right">
+            <button type="button" class="step-btn-next" onclick="nextStep(3)">
+              Next Question
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
           </div>
-          <div class="lead-group">
-            <label class="lead-label" for="lf-service">Service Needed<span class="lead-required">*</span></label>
-            <select class="lead-select" id="lf-service" required>
-              <option value="" disabled selected>Select a service...</option>
-              <option value="Video Editing">Video Editing</option>
-              <option value="Graphics Design">Graphics Design</option>
-              <option value="Web Design">Web Design</option>
-              <option value="Digital Marketing">Digital Marketing</option>
-              <option value="AI Automation">AI Automation</option>
-              <option value="Multiple Services">Multiple Services</option>
-              <option value="Other">Other</option>
-            </select>
-            <span class="lead-error" id="err-service">Please select a service</span>
+        </div>
+      </div>
+
+      <!-- ════════════ STEP 4: WEBSITE / SOCIAL (OPTIONAL) ════════════ -->
+      <div class="wizard-step" id="wizardStep4" data-step="4">
+        <h3 class="step-q-title"><span class="step-q-num">04.</span> Do you have a website or social page?</h3>
+        <p class="step-q-desc">Share your website link, YouTube channel, or page (Optional).</p>
+        
+        <div class="step-input-wrap">
+          <input type="url" class="step-input" id="q-website" placeholder="e.g. https://yourbrand.com or @handle" />
+          <div class="step-hint"><span>Feel free to skip this if you don't have one yet.</span></div>
+        </div>
+
+        <div class="step-nav">
+          <button type="button" class="step-btn-back" onclick="prevStep(4)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Back
+          </button>
+          <div class="step-nav-right">
+            <button type="button" class="step-btn-skip" onclick="skipStep(4)">Skip this</button>
+            <button type="button" class="step-btn-next" onclick="nextStep(4)">
+              Next Question
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════════════ STEP 5: BUDGET RANGE (OPTIONAL) ════════════ -->
+      <div class="wizard-step" id="wizardStep5" data-step="5">
+        <h3 class="step-q-title"><span class="step-q-num">05.</span> What is your estimated budget?</h3>
+        <p class="step-q-desc">This helps us tailor the most realistic and high-impact solution (Optional).</p>
+
+        <!-- Budget Options Grid -->
+        <div class="step-options-grid" id="budgetOptionsGrid">
+          <div class="step-option-card" data-val="Under $100" onclick="selectBudgetOption(this, 'Under $100')">
+            <div class="step-option-dot"></div>
+            <span>Under $100</span>
+          </div>
+          <div class="step-option-card" data-val="$100 - $300" onclick="selectBudgetOption(this, '$100 - $300')">
+            <div class="step-option-dot"></div>
+            <span>$100 - $300</span>
+          </div>
+          <div class="step-option-card" data-val="$300 - $500" onclick="selectBudgetOption(this, '$300 - $500')">
+            <div class="step-option-dot"></div>
+            <span>$300 - $500</span>
+          </div>
+          <div class="step-option-card" data-val="$500 - $1,000" onclick="selectBudgetOption(this, '$500 - $1,000')">
+            <div class="step-option-dot"></div>
+            <span>$500 - $1,000</span>
+          </div>
+          <div class="step-option-card" data-val="$1,000+" onclick="selectBudgetOption(this, '$1,000+')">
+            <div class="step-option-dot"></div>
+            <span>$1,000+</span>
+          </div>
+          <div class="step-option-card" data-val="Let's discuss" onclick="selectBudgetOption(this, 'Let\'s discuss')">
+            <div class="step-option-dot"></div>
+            <span>Let's discuss first</span>
           </div>
         </div>
 
-        <!-- Row 3: Budget -->
-        <div class="lead-grid" style="margin-bottom:14px;">
-          <div class="lead-group lead-grid-full">
-            <label class="lead-label" for="lf-budget">Monthly Budget<span class="lead-optional">(optional)</span></label>
-            <select class="lead-select" id="lf-budget">
-              <option value="" disabled selected>Select budget range...</option>
-              <option value="Under $100">Under $100</option>
-              <option value="$100 - $300">$100 - $300</option>
-              <option value="$300 - $500">$300 - $500</option>
-              <option value="$500 - $1000">$500 - $1,000</option>
-              <option value="$1000+">$1,000+</option>
-              <option value="Let's discuss">Let's discuss</option>
-            </select>
+        <!-- Dropdown Budget Box -->
+        <div class="step-input-wrap" style="margin-bottom:0;">
+          <label style="font-family:'Inter',sans-serif;font-size:12px;color:rgba(225,200,250,.6);margin-bottom:6px;display:block;">Or select budget from dropdown:</label>
+          <select class="step-select" id="q-budget" onchange="syncBudgetDropdown(this.value)">
+            <option value="" disabled selected>Select budget range...</option>
+            <option value="Under $100">Under $100</option>
+            <option value="$100 - $300">$100 - $300</option>
+            <option value="$300 - $500">$300 - $500</option>
+            <option value="$500 - $1000">$500 - $1,000</option>
+            <option value="$1000+">$1,000+</option>
+            <option value="Let's discuss">Let's discuss</option>
+          </select>
+        </div>
+
+        <div class="step-nav">
+          <button type="button" class="step-btn-back" onclick="prevStep(5)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Back
+          </button>
+          <div class="step-nav-right">
+            <button type="button" class="step-btn-skip" onclick="skipStep(5)">Skip this</button>
+            <button type="button" class="step-btn-next" onclick="nextStep(5)">
+              Next Question
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════════════ STEP 6: PROJECT DETAILS / QUESTIONS ════════════ -->
+      <div class="wizard-step" id="wizardStep6" data-step="6">
+        <h3 class="step-q-title"><span class="step-q-num">06.</span> Tell us about your project or any questions</h3>
+        <p class="step-q-desc">What goals do you have? Any specific reference videos or questions you'd like to ask?</p>
+        
+        <div class="step-input-wrap">
+          <textarea class="step-textarea" id="q-msg" placeholder="Write anything you want here — questions, ideas, project goals, timeline..."></textarea>
+        </div>
+
+        <div class="step-nav">
+          <button type="button" class="step-btn-back" onclick="prevStep(6)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Back
+          </button>
+          <div class="step-nav-right">
+            <button type="button" class="step-btn-skip" onclick="skipStep(6)">Skip & Review</button>
+            <button type="button" class="step-btn-next" onclick="nextStep(6)" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); box-shadow: 0 6px 20px rgba(16,185,129,.35);">
+              Review & Send
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════════════ STEP 7: FINAL REVIEW & SEND ════════════ -->
+      <div class="wizard-step" id="wizardStep7" data-step="7">
+        <h3 class="step-q-title">✨ All Done! Choose how to send</h3>
+        <p class="step-q-desc">Here is a quick summary of what you filled in. Pick either WhatsApp or Email to connect with Rakib directly:</p>
+
+        <!-- Summary Card -->
+        <div class="lead-review-box">
+          <div class="lead-review-row">
+            <span class="review-label">Name:</span>
+            <span class="review-value" id="rev-name">—</span>
+          </div>
+          <div class="lead-review-row">
+            <span class="review-label">WhatsApp:</span>
+            <span class="review-value" id="rev-wa">—</span>
+          </div>
+          <div class="lead-review-row">
+            <span class="review-label">Service:</span>
+            <span class="review-value" id="rev-service">—</span>
+          </div>
+          <div class="lead-review-row">
+            <span class="review-label">Website:</span>
+            <span class="review-value" id="rev-website">None provided</span>
+          </div>
+          <div class="lead-review-row">
+            <span class="review-label">Budget:</span>
+            <span class="review-value" id="rev-budget">Not specified</span>
+          </div>
+          <div class="lead-review-row" style="flex-direction:column; gap:4px;">
+            <span class="review-label">Project Details / Questions:</span>
+            <span class="review-value" id="rev-msg" style="text-align:left; color:rgba(255,255,255,.8); font-weight:400; font-size:13px; line-height:1.5;">—</span>
+          </div>
+          <div style="text-align:right;">
+            <button type="button" class="review-edit-btn" onclick="goToStep(1)">✎ Edit answers</button>
           </div>
         </div>
 
-        <!-- Row 4: Message -->
-        <div class="lead-group" style="margin-bottom:0;">
-          <label class="lead-label" for="lf-msg">Project Details / Questions<span class="lead-optional">(optional)</span></label>
-          <textarea class="lead-textarea" id="lf-msg" placeholder="Describe your project, what you need, any questions you have..."></textarea>
-        </div>
-
-        <hr class="lead-divider">
-
-        <!-- Action Buttons -->
-        <div class="lead-actions">
-          <button type="button" class="lead-btn lead-btn-wa" onclick="sendLeadWA()">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <!-- Send Buttons -->
+        <div class="lead-final-actions">
+          <button type="button" class="lead-btn-wa" onclick="sendLeadWA()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="white"/>
               <path d="M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.893c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652c1.746.943 3.71 1.444 5.71 1.447h.005c6.585 0 11.946-5.336 11.949-11.896.001-3.18-1.24-6.165-3.479-8.45z" fill="white" opacity=".35"/>
             </svg>
             Send via WhatsApp
           </button>
-          <button type="button" class="lead-btn lead-btn-email" onclick="sendLeadEmail()">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          
+          <button type="button" class="lead-btn-email" onclick="sendLeadEmail()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
               <rect x="2" y="4" width="20" height="16" rx="3" stroke="white" stroke-width="1.8"/>
               <path d="M2 7l10 7 10-7" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -6057,144 +6543,320 @@ document.addEventListener("DOMContentLoaded", function () {
           </button>
         </div>
 
-      </form>
+        <div class="lead-support-note">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Direct to Rakib (+8801716705401 • technicalrakib999@gmail.com) • Fast Reply within 24h
+        </div>
+
+        <div class="step-nav" style="margin-top:20px; padding-top:16px;">
+          <button type="button" class="step-btn-back" onclick="prevStep(7)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Back to edit questions
+          </button>
+          <div></div>
+        </div>
+      </div>
+
     </div>
 
   </div>
 
-  <!-- Toast notification -->
+  <!-- Toast Notification -->
   <div class="lead-toast" id="leadToast">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#34d399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    Opening... Please press Send to complete!
+    <span id="leadToastText">Opening... Please press Send to complete!</span>
   </div>
 
 <script>
 (function() {
+  var currentStep = 1;
+  var totalSteps = 6; // 6 questions + 1 final review step
 
-  /* ── Validate form, return data object or null ── */
-  function validate() {
-    var ok = true;
-    var fields = [
-      { id: 'lf-name',    err: 'err-name' },
-      { id: 'lf-wa',      err: 'err-wa' },
-      { id: 'lf-service', err: 'err-service' }
-    ];
-    fields.forEach(function(f) {
-      var el  = document.getElementById(f.id);
-      var err = document.getElementById(f.err);
-      if (!el.value.trim()) {
-        el.classList.add('error');
-        err.style.display = 'block';
-        ok = false;
-      } else {
-        el.classList.remove('error');
-        err.style.display = 'none';
-      }
-    });
-    return ok;
-  }
+  var stepCategories = {
+    1: 'Basic Info',
+    2: 'Contact Details',
+    3: 'Service Choice',
+    4: 'Website / Link',
+    5: 'Budget Range',
+    6: 'Project Details & Questions',
+    7: 'Review & Send'
+  };
 
-  /* ── Collect form data ── */
-  function collect() {
+  /* ── Collect state ── */
+  function getLeadData() {
     return {
-      name:    document.getElementById('lf-name').value.trim(),
-      wa:      document.getElementById('lf-wa').value.trim(),
-      website: document.getElementById('lf-website').value.trim(),
-      service: document.getElementById('lf-service').value,
-      budget:  document.getElementById('lf-budget').value,
-      msg:     document.getElementById('lf-msg').value.trim()
+      name:    (document.getElementById('q-name').value || '').trim(),
+      wa:      (document.getElementById('q-wa').value || '').trim(),
+      service: (document.getElementById('q-service').value || '').trim(),
+      website: (document.getElementById('q-website').value || '').trim(),
+      budget:  (document.getElementById('q-budget').value || '').trim(),
+      msg:     (document.getElementById('q-msg').value || '').trim()
     };
   }
 
-  /* ── Build WhatsApp message ── */
-  function buildWAMsg(d) {
-    var lines = [
-      'Hi Rakib! I found you through your portfolio website.',
-      '',
-      'Here are my details:',
-      '- Name: ' + d.name,
-      '- My WhatsApp: ' + d.wa,
-      d.website ? '- Website: ' + d.website : '',
-      '- Service Needed: ' + d.service,
-      d.budget ? '- Budget: ' + d.budget : '',
-      d.msg ? '' : '',
-      d.msg ? 'Message / Questions:' : '',
-      d.msg ? d.msg : '',
-      '',
-      "I'd love to discuss my project with you!"
-    ].filter(function(l, i, arr) {
-      // remove trailing empty lines from optional fields
-      return !(l === '' && (i === 0 || arr[i-1] === ''));
-    }).join('\n');
-    return lines;
+  /* ── Switch Steps with animation ── */
+  window.goToStep = function(step) {
+    if (step < 1 || step > 7) return;
+
+    var curEl = document.getElementById('wizardStep' + currentStep);
+    var nextEl = document.getElementById('wizardStep' + step);
+
+    if (curEl) curEl.classList.remove('active');
+    if (nextEl) {
+      nextEl.classList.add('active');
+      var input = nextEl.querySelector('input, select, textarea');
+      if (input && step !== 3 && step !== 5) {
+        setTimeout(function() { input.focus(); }, 100);
+      }
+    }
+
+    currentStep = step;
+
+    // Update Progress
+    var fillEl = document.getElementById('progressBarFill');
+    var badgeEl = document.getElementById('stepBadgeText');
+    var catEl = document.getElementById('stepCategoryText');
+
+    if (step <= totalSteps) {
+      var pct = Math.round((step / totalSteps) * 100);
+      fillEl.style.width = pct + '%';
+      badgeEl.textContent = 'Question ' + step + ' of ' + totalSteps;
+      catEl.textContent = stepCategories[step] || '';
+    } else {
+      fillEl.style.width = '100%';
+      badgeEl.textContent = 'Final Step';
+      catEl.textContent = 'Ready to Send 🎉';
+      populateReview();
+    }
+  };
+
+  /* ── Next Step with validation ── */
+  window.nextStep = function(step) {
+    if (step === 1) {
+      var nameVal = (document.getElementById('q-name').value || '').trim();
+      var nameInput = document.getElementById('q-name');
+      var errName = document.getElementById('err-q-name');
+      if (!nameVal) {
+        nameInput.classList.add('error');
+        errName.style.display = 'block';
+        return;
+      }
+      nameInput.classList.remove('error');
+      errName.style.display = 'none';
+      window.goToStep(2);
+    }
+    else if (step === 2) {
+      var waVal = (document.getElementById('q-wa').value || '').trim();
+      var waInput = document.getElementById('q-wa');
+      var errWa = document.getElementById('err-q-wa');
+      if (!waVal || waVal.length < 5) {
+        waInput.classList.add('error');
+        errWa.style.display = 'block';
+        return;
+      }
+      waInput.classList.remove('error');
+      errWa.style.display = 'none';
+      window.goToStep(3);
+    }
+    else if (step === 3) {
+      var sVal = (document.getElementById('q-service').value || '').trim();
+      var sInput = document.getElementById('q-service');
+      var errS = document.getElementById('err-q-service');
+      if (!sVal) {
+        sInput.classList.add('error');
+        errS.style.display = 'block';
+        return;
+      }
+      sInput.classList.remove('error');
+      errS.style.display = 'none';
+      window.goToStep(4);
+    }
+    else if (step === 4) {
+      window.goToStep(5);
+    }
+    else if (step === 5) {
+      window.goToStep(6);
+    }
+    else if (step === 6) {
+      window.goToStep(7);
+    }
+  };
+
+  /* ── Prev Step ── */
+  window.prevStep = function(step) {
+    if (step > 1) {
+      window.goToStep(step - 1);
+    }
+  };
+
+  /* ── Skip Optional Step ── */
+  window.skipStep = function(step) {
+    window.goToStep(step + 1);
+  };
+
+  /* ── Service Options Interactive Cards ── */
+  window.selectServiceOption = function(card, val) {
+    document.querySelectorAll('#serviceOptionsGrid .step-option-card').forEach(function(c) {
+      c.classList.remove('selected');
+    });
+    card.classList.add('selected');
+    var sel = document.getElementById('q-service');
+    sel.value = val;
+    sel.classList.remove('error');
+    var err = document.getElementById('err-q-service');
+    if (err) err.style.display = 'none';
+  };
+
+  window.syncServiceDropdown = function(val) {
+    document.querySelectorAll('#serviceOptionsGrid .step-option-card').forEach(function(c) {
+      if (c.getAttribute('data-val') === val) {
+        c.classList.add('selected');
+      } else {
+        c.classList.remove('selected');
+      }
+    });
+    var sel = document.getElementById('q-service');
+    sel.classList.remove('error');
+    var err = document.getElementById('err-q-service');
+    if (err) err.style.display = 'none';
+  };
+
+  /* ── Budget Options Interactive Cards ── */
+  window.selectBudgetOption = function(card, val) {
+    document.querySelectorAll('#budgetOptionsGrid .step-option-card').forEach(function(c) {
+      c.classList.remove('selected');
+    });
+    card.classList.add('selected');
+    var bSel = document.getElementById('q-budget');
+    bSel.value = val;
+  };
+
+  window.syncBudgetDropdown = function(val) {
+    document.querySelectorAll('#budgetOptionsGrid .step-option-card').forEach(function(c) {
+      if (c.getAttribute('data-val') === val) {
+        c.classList.add('selected');
+      } else {
+        c.classList.remove('selected');
+      }
+    });
+  };
+
+  /* ── Keyboard Enter navigation ── */
+  ['q-name', 'q-wa', 'q-website'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          if (id === 'q-name') nextStep(1);
+          else if (id === 'q-wa') nextStep(2);
+          else if (id === 'q-website') nextStep(4);
+        }
+      });
+      el.addEventListener('input', function() {
+        this.classList.remove('error');
+        var err = document.getElementById('err-' + id);
+        if (err) err.style.display = 'none';
+      });
+    }
+  });
+
+  /* ── Populate Review Step ── */
+  function populateReview() {
+    var d = getLeadData();
+    document.getElementById('rev-name').textContent = d.name || '—';
+    document.getElementById('rev-wa').textContent = d.wa || '—';
+    document.getElementById('rev-service').textContent = d.service || '—';
+    document.getElementById('rev-website').textContent = d.website || 'None provided';
+    document.getElementById('rev-budget').textContent = d.budget || 'Not specified';
+    document.getElementById('rev-msg').textContent = d.msg || 'No additional note or questions.';
   }
 
-  /* ── Build Email body ── */
+  /* ── Build Formatted Messages ── */
+  function buildWAMsg(d) {
+    var lines = [
+      '👋 Hi Rakib! I submitted an inquiry on your portfolio website.',
+      '',
+      '📌 *PROJECT DETAILS:*',
+      '• Name: ' + d.name,
+      '• WhatsApp: ' + d.wa,
+      '• Service Needed: ' + d.service,
+      d.website ? ('• Website/Link: ' + d.website) : '',
+      d.budget ? ('• Budget: ' + d.budget) : '',
+      d.msg ? ('\n💬 *Questions / Project Notes:*\n' + d.msg) : '',
+      '',
+      'Looking forward to your response!'
+    ].filter(function(line, idx, arr) {
+      return !(line === '' && (idx === 0 || arr[idx - 1] === ''));
+    });
+    return lines.join('\n');
+  }
+
   function buildEmailBody(d) {
     return [
       'Hi Rakib,',
       '',
-      'I found your portfolio and would love to discuss a project.',
+      'I am reaching out via your portfolio website with a project inquiry.',
       '',
-      '--- My Details ---',
-      'Name: ' + d.name,
-      'WhatsApp: ' + d.wa,
-      d.website ? 'Website: ' + d.website : '',
-      'Service Needed: ' + d.service,
-      d.budget ? 'Budget: ' + d.budget : '',
+      '══════════════════════════════',
+      'PROJECT INQUIRY DETAILS',
+      '══════════════════════════════',
+      '• Name: ' + d.name,
+      '• WhatsApp: ' + d.wa,
+      '• Service Needed: ' + d.service,
+      d.website ? ('• Website / Social Link: ' + d.website) : '• Website: None',
+      d.budget ? ('• Estimated Budget: ' + d.budget) : '• Budget: Not specified',
       '',
-      d.msg ? 'Project Details / Questions:' : '',
-      d.msg ? d.msg : '',
+      '• Project Details / Questions:',
+      d.msg ? d.msg : 'No extra notes provided.',
       '',
+      '══════════════════════════════',
       'Looking forward to hearing from you!',
       '',
+      'Best regards,',
       d.name
-    ].filter(function(l, i, arr) {
-      return !(l === '' && i > 0 && arr[i-1] === '');
-    }).join('\n');
+    ].join('\n');
   }
 
-  /* ── Show toast ── */
+  /* ── Toast notification ── */
   function toast(msg) {
     var t = document.getElementById('leadToast');
-    t.childNodes[t.childNodes.length - 1].textContent = ' ' + msg;
+    var txt = document.getElementById('leadToastText');
+    if (txt) txt.textContent = msg;
     t.classList.add('show');
-    setTimeout(function() { t.classList.remove('show'); }, 4000);
+    setTimeout(function() { t.classList.remove('show'); }, 4500);
   }
 
   /* ── Send via WhatsApp ── */
   window.sendLeadWA = function() {
-    if (!validate()) return;
-    var d   = collect();
+    var d = getLeadData();
+    if (!d.name || !d.wa || !d.service) {
+      alert('Please fill in your name, WhatsApp number, and required service.');
+      window.goToStep(1);
+      return;
+    }
     var msg = buildWAMsg(d);
-    var url = 'https://wa.me/8801716705401?text=' + encodeURIComponent(msg);
-    window.open(url, '_blank');
-    toast('WhatsApp opened! Press SEND to complete.');
+    var waUrl = 'https://wa.me/8801716705401?text=' + encodeURIComponent(msg);
+    window.open(waUrl, '_blank');
+    toast('WhatsApp opened! Please press Send to deliver your message.');
   };
 
   /* ── Send via Email ── */
   window.sendLeadEmail = function() {
-    if (!validate()) return;
-    var d    = collect();
-    var subj = 'Project Inquiry from ' + d.name + ' — ' + d.service;
+    var d = getLeadData();
+    if (!d.name || !d.wa || !d.service) {
+      alert('Please fill in your name, WhatsApp number, and required service.');
+      window.goToStep(1);
+      return;
+    }
+    var subj = 'New Project Inquiry: ' + d.service + ' — from ' + d.name;
     var body = buildEmailBody(d);
-    var url  = 'mailto:technicalrakib999@gmail.com'
-             + '?subject=' + encodeURIComponent(subj)
-             + '&body='    + encodeURIComponent(body);
-    window.location.href = url;
-    toast('Email client opened! Press SEND to complete.');
+    var mailUrl = 'mailto:technicalrakib999@gmail.com'
+                + '?subject=' + encodeURIComponent(subj)
+                + '&body='    + encodeURIComponent(body);
+    window.location.href = mailUrl;
+    toast('Email client opened! Please press Send to complete.');
   };
-
-  /* ── Clear error on input ── */
-  ['lf-name','lf-wa','lf-service'].forEach(function(id) {
-    var el = document.getElementById(id);
-    if (el) el.addEventListener('input', function() {
-      this.classList.remove('error');
-      var errId = 'err-' + id.replace('lf-','');
-      var err = document.getElementById(errId);
-      if (err) err.style.display = 'none';
-    });
-  });
 
 })();
 </script>
