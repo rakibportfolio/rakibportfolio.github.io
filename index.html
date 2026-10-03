@@ -8574,23 +8574,23 @@ h3.why-card-title,
 
 <!-- ================= QUICK CONTACT FLOATING SPEED-DIAL WIDGET ================= -->
 <style id="quick-contact-styles">
-/* ── Speed-Dial Container ── */
-.qc-dial-widget {
+/* ── Speed-Dial Container (Fixed at Bottom-Right) ── */
+.qc-widget-wrap {
   position: fixed;
   bottom: 24px;
   right: 24px;
   z-index: 2147483640;
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  gap: 12px;
+  width: 62px;
+  height: 62px;
   user-select: none;
   font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* ── Main Avatar Trigger Button ── */
+/* ── Main Avatar Trigger Button (Stays at Base) ── */
 .qc-main-trigger {
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  right: 0;
   width: 62px;
   height: 62px;
   border-radius: 50%;
@@ -8602,6 +8602,7 @@ h3.why-card-title,
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 10;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   -webkit-tap-highlight-color: transparent;
 }
@@ -8614,6 +8615,7 @@ h3.why-card-title,
   transform: scale(0.94);
 }
 
+/* Glowing Cyber Ring around Avatar */
 .qc-avatar-ring {
   position: relative;
   width: 60px;
@@ -8651,7 +8653,7 @@ h3.why-card-title,
   transition: filter 0.25s ease, opacity 0.25s ease;
 }
 
-/* Close 'X' overlay when opened */
+/* Close 'X' icon overlay when opened */
 .qc-close-icon {
   position: absolute;
   inset: 0;
@@ -8667,16 +8669,16 @@ h3.why-card-title,
   pointer-events: none;
 }
 
-.qc-dial-widget.is-open .qc-close-icon {
+.qc-widget-wrap.is-open .qc-close-icon {
   opacity: 1;
   transform: scale(1) rotate(0deg);
 }
 
-.qc-dial-widget.is-open .qc-avatar-img {
-  opacity: 0.25;
+.qc-widget-wrap.is-open .qc-avatar-img {
+  opacity: 0.22;
 }
 
-/* Green Online Status Dot */
+/* Green Live Online Dot */
 .qc-online-dot {
   position: absolute;
   bottom: 1px;
@@ -8690,7 +8692,7 @@ h3.why-card-title,
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.qc-dial-widget.is-open .qc-online-dot {
+.qc-widget-wrap.is-open .qc-online-dot {
   opacity: 0;
   transform: scale(0.5);
 }
@@ -8709,22 +8711,11 @@ h3.why-card-title,
   100% { transform: scale(1.9); opacity: 0; }
 }
 
-/* ── Speed Dial Actions Container ── */
-.qc-dial-items {
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  gap: 12px;
-  pointer-events: none;
-}
-
-.qc-dial-widget.is-open .qc-dial-items {
-  pointer-events: auto;
-}
-
-/* ── Individual Round Logo Button ── */
-.qc-dial-btn {
-  position: relative;
+/* ── Speed Dial Buttons: Rise UPWARDS on Click ── */
+.qc-btn {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -8733,115 +8724,127 @@ h3.why-card-title,
   justify-content: center;
   text-decoration: none;
   opacity: 0;
-  transform: translateY(20px) scale(0.5);
+  pointer-events: none;
+  transform: translateY(0) scale(0.3);
   transition: 
-    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
-    opacity 0.22s ease,
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.24s ease,
     box-shadow 0.25s ease;
+  z-index: 5;
   outline: none;
   -webkit-tap-highlight-color: transparent;
-  flex-shrink: 0;
 }
 
-/* Stagger Animation When Opened */
-.qc-dial-widget.is-open .qc-dial-btn {
+.qc-btn-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.22s ease;
+}
+
+/* Upward Rise Positions when Opened */
+/* 1. WhatsApp Button: Rises 68px UPWARDS */
+.qc-widget-wrap.is-open .qc-btn-whatsapp {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  transform: translateY(-68px) scale(1);
+  transition-delay: 0.03s;
 }
 
-.qc-dial-widget.is-open .qc-dial-btn:nth-child(1) {
-  transition-delay: 0.04s;
-}
-
-.qc-dial-widget.is-open .qc-dial-btn:nth-child(2) {
+/* 2. Messenger Button: Rises 128px UPWARDS */
+.qc-widget-wrap.is-open .qc-btn-messenger {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-128px) scale(1);
   transition-delay: 0.08s;
 }
 
-.qc-dial-widget.is-open .qc-dial-btn:nth-child(3) {
-  transition-delay: 0.12s;
+/* 3. Call Button: Rises 188px UPWARDS */
+.qc-widget-wrap.is-open .qc-btn-call {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-188px) scale(1);
+  transition-delay: 0.13s;
 }
 
-.qc-dial-btn:hover {
-  transform: scale(1.14) !important;
+/* Hover and Active Scale */
+.qc-btn:hover .qc-btn-inner {
+  transform: scale(1.12);
 }
 
-.qc-dial-btn:active {
-  transform: scale(0.92) !important;
+.qc-btn:active .qc-btn-inner {
+  transform: scale(0.92);
 }
 
-/* 1. Official WhatsApp Button */
+/* ── 3D Ultra-Realistic Brand Logos ── */
+/* WhatsApp 3D Glow */
 .qc-btn-whatsapp {
-  background: #25D366;
-  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.5), 0 0 14px rgba(37, 211, 102, 0.35);
-  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.5), 0 0 16px rgba(37, 211, 102, 0.35);
 }
-
 .qc-btn-whatsapp:hover {
-  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.7), 0 0 20px rgba(37, 211, 102, 0.5);
+  box-shadow: 0 12px 32px rgba(37, 211, 102, 0.75), 0 0 24px rgba(37, 211, 102, 0.55);
 }
 
-/* 2. Official Facebook Messenger Button */
+/* Messenger 3D Glow */
 .qc-btn-messenger {
-  background: linear-gradient(135deg, #00C6FF 0%, #0078FF 50%, #A033FF 100%);
-  box-shadow: 0 8px 24px rgba(0, 120, 255, 0.5), 0 0 14px rgba(160, 51, 255, 0.35);
-  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 24px rgba(0, 132, 255, 0.5), 0 0 16px rgba(160, 51, 255, 0.35);
 }
-
 .qc-btn-messenger:hover {
-  box-shadow: 0 10px 30px rgba(0, 120, 255, 0.7), 0 0 20px rgba(160, 51, 255, 0.5);
+  box-shadow: 0 12px 32px rgba(0, 132, 255, 0.75), 0 0 24px rgba(160, 51, 255, 0.55);
 }
 
-/* 3. Official Call / Phone Button */
+/* Call 3D Glow */
 .qc-btn-call {
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.5), 0 0 14px rgba(16, 185, 129, 0.35);
-  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.5), 0 0 16px rgba(16, 185, 129, 0.35);
 }
-
 .qc-btn-call:hover {
-  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.7), 0 0 20px rgba(16, 185, 129, 0.5);
+  box-shadow: 0 12px 32px rgba(16, 185, 129, 0.75), 0 0 24px rgba(16, 185, 129, 0.55);
 }
 
 /* SVGs inside buttons */
-.qc-dial-btn svg {
-  width: 28px;
-  height: 28px;
+.qc-btn svg {
+  width: 50px;
+  height: 50px;
   display: block;
-  pointer-events: none;
 }
 
-/* Floating Label Tooltip on Left */
-.qc-btn-tooltip {
+/* Floating Tooltip Label on Left */
+.qc-tooltip {
   position: absolute;
-  right: calc(100% + 12px);
+  right: calc(100% + 14px);
   top: 50%;
-  transform: translateY(-50%) translateX(6px);
+  transform: translateY(-50%) translateX(8px);
   opacity: 0;
   pointer-events: none;
   white-space: nowrap;
-  background: rgba(14, 3, 22, 0.94);
-  border: 1px solid rgba(184, 0, 245, 0.35);
-  backdrop-filter: blur(12px);
+  background: rgba(14, 3, 22, 0.95);
+  border: 1px solid rgba(184, 0, 245, 0.4);
+  backdrop-filter: blur(14px);
   color: #ffffff;
   padding: 5px 12px;
   border-radius: 999px;
   font-size: 11.5px;
-  font-weight: 600;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.65), 0 0 10px rgba(184, 0, 245, 0.25);
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.qc-dial-btn:hover .qc-btn-tooltip {
+.qc-btn:hover .qc-tooltip {
   opacity: 1;
   transform: translateY(-50%) translateX(0);
 }
 
 /* ── Mobile Responsive Optimizations ── */
 @media (max-width: 640px) {
-  .qc-dial-widget {
+  .qc-widget-wrap {
     bottom: 20px;
     right: 18px;
-    gap: 10px;
+    width: 56px;
+    height: 56px;
   }
 
   .qc-main-trigger {
@@ -8855,50 +8858,104 @@ h3.why-card-title,
     padding: 2px;
   }
 
-  .qc-dial-btn {
+  .qc-btn {
+    bottom: 5px;
+    right: 5px;
     width: 46px;
     height: 46px;
   }
 
-  .qc-dial-btn svg {
-    width: 25px;
-    height: 25px;
+  .qc-btn svg {
+    width: 46px;
+    height: 46px;
   }
 
-  .qc-btn-tooltip {
-    display: none; /* Hide tooltips on touch screens for cleanest look */
+  .qc-widget-wrap.is-open .qc-btn-whatsapp {
+    transform: translateY(-62px) scale(1);
+  }
+
+  .qc-widget-wrap.is-open .qc-btn-messenger {
+    transform: translateY(-116px) scale(1);
+  }
+
+  .qc-widget-wrap.is-open .qc-btn-call {
+    transform: translateY(-170px) scale(1);
+  }
+
+  .qc-tooltip {
+    display: none; /* Keep clean on touch screens */
   }
 }
 </style>
 
-<div id="quick-contact-widget" class="qc-dial-widget" aria-label="Quick Contact">
+<div id="quick-contact-widget" class="qc-widget-wrap" aria-label="Quick Contact">
 
-  <!-- Speed Dial Action Logos (Sliding up from avatar) -->
-  <div class="qc-dial-items">
-    <!-- 1. Real WhatsApp Logo Button -->
-    <a href="https://wa.me/8801716705401" target="_blank" rel="noopener noreferrer" class="qc-dial-btn qc-btn-whatsapp" aria-label="WhatsApp Chat">
-      <svg viewBox="0 0 32 32" fill="none">
-        <path fill="#ffffff" d="M16 3C8.82 3 3 8.82 3 16c0 2.5.72 4.84 1.96 6.82L3.5 28.5l5.86-1.44A12.92 12.92 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3zm6.65 18.52c-.28.78-1.63 1.45-2.25 1.54-.59.08-1.35.12-2.18-.14-.5-.16-1.16-.37-2-.74-3.52-1.52-5.81-5.09-5.99-5.33-.18-.23-1.44-1.92-1.44-3.66s.91-2.59 1.23-2.94c.32-.36.7-.45.93-.45.23 0 .47.01.67.02.21.01.5-.08.79.6.3.72 1.01 2.47 1.1 2.65.08.18.15.39.03.63-.11.23-.18.37-.35.58-.18.21-.36.46-.52.62-.18.18-.36.36-.15.72.21.36.92 1.51 1.96 2.45 1.35 1.21 2.49 1.58 2.84 1.76.36.18.56.15.78-.09.21-.23.91-1.06 1.15-1.42.23-.36.48-.3.8-.18.32.12 2.05.96 2.4 1.14.36.18.59.27.68.42.08.15.08.86-.2 1.64z"/>
+  <!-- 1. Real 3D WhatsApp Logo Button (Rises UPWARDS) -->
+  <a href="https://wa.me/8801716705401" target="_blank" rel="noopener noreferrer" class="qc-btn qc-btn-whatsapp" aria-label="WhatsApp Chat">
+    <div class="qc-btn-inner">
+      <svg viewBox="0 0 48 48" fill="none">
+        <defs>
+          <radialGradient id="wa-shine" cx="30%" cy="22%" r="75%">
+            <stop offset="0%" stop-color="#4EFA8B"/>
+            <stop offset="55%" stop-color="#25D366"/>
+            <stop offset="100%" stop-color="#128C7E"/>
+          </radialGradient>
+          <filter id="wa-drop" x="-10%" y="-10%" width="130%" height="130%">
+            <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-opacity="0.35"/>
+          </filter>
+        </defs>
+        <circle cx="24" cy="24" r="23" fill="url(#wa-shine)"/>
+        <circle cx="24" cy="24" r="22.5" stroke="rgba(255,255,255,0.4)" stroke-width="1" fill="none"/>
+        <path filter="url(#wa-drop)" fill="#FFFFFF" fill-rule="evenodd" clip-rule="evenodd" d="M24 10C16.27 10 10 16.27 10 24c0 2.68.75 5.18 2.06 7.31L10.5 37.5l6.37-1.55A13.91 13.91 0 0 0 24 38c7.73 0 14-6.27 14-14S31.73 10 24 10zm6.97 19.46c-.29.82-1.68 1.52-2.32 1.62-.61.09-1.4.13-2.26-.15-.52-.17-1.2-.39-2.07-.77-3.66-1.58-6.04-5.29-6.22-5.54-.18-.24-1.5-1.99-1.5-3.8s.94-2.69 1.28-3.06c.33-.37.73-.47.97-.47.24 0 .49.01.7.02.22.01.52-.08.82.62.31.75 1.05 2.56 1.15 2.75.09.19.16.41.03.65-.12.24-.18.39-.36.6-.18.21-.38.48-.54.64-.18.18-.37.38-.16.75.21.37.95 1.57 2.04 2.54 1.4 1.25 2.58 1.64 2.95 1.83.37.18.58.16.8-.09.22-.25.94-1.1 1.19-1.48.24-.37.5-.31.83-.19.33.13 2.13 1 2.5 1.19.37.18.61.28.71.44.09.16.09.89-.2 1.71z"/>
       </svg>
-      <span class="qc-btn-tooltip">WhatsApp</span>
-    </a>
+    </div>
+    <span class="qc-tooltip">WhatsApp</span>
+  </a>
 
-    <!-- 2. Real Facebook Messenger Logo Button -->
-    <a href="https://m.me/neel.nafis" target="_blank" rel="noopener noreferrer" class="qc-dial-btn qc-btn-messenger" aria-label="Facebook Messenger">
-      <svg viewBox="0 0 32 32" fill="none">
-        <path fill="#ffffff" d="M16 4C9.37 4 4 8.95 4 15.06c0 3.48 1.75 6.59 4.49 8.55v4.95l4.31-2.37c1.03.29 2.12.44 3.2.44 6.63 0 12-4.95 12-11.06S22.63 4 16 4zm1.26 14.88l-3.14-3.35-6.12 3.35 6.73-7.14 3.21 3.35 6.05-3.35-6.73 7.14z"/>
+  <!-- 2. Real 3D Facebook Messenger Logo Button (Rises UPWARDS) -->
+  <a href="https://m.me/neel.nafis" target="_blank" rel="noopener noreferrer" class="qc-btn qc-btn-messenger" aria-label="Facebook Messenger">
+    <div class="qc-btn-inner">
+      <svg viewBox="0 0 48 48" fill="none">
+        <defs>
+          <radialGradient id="msg-shine" cx="22%" cy="18%" r="82%">
+            <stop offset="0%" stop-color="#00E5FF"/>
+            <stop offset="35%" stop-color="#0084FF"/>
+            <stop offset="70%" stop-color="#833AB4"/>
+            <stop offset="100%" stop-color="#E1306C"/>
+          </radialGradient>
+          <filter id="msg-drop" x="-10%" y="-10%" width="130%" height="130%">
+            <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-opacity="0.35"/>
+          </filter>
+        </defs>
+        <circle cx="24" cy="24" r="23" fill="url(#msg-shine)"/>
+        <circle cx="24" cy="24" r="22.5" stroke="rgba(255,255,255,0.4)" stroke-width="1" fill="none"/>
+        <path filter="url(#msg-drop)" fill="#FFFFFF" fill-rule="evenodd" clip-rule="evenodd" d="M24 10C16.27 10 10 15.77 10 22.88c0 4.07 2.04 7.7 5.23 9.99v4.13l3.96-2.18c1.51.42 3.12.65 4.81.65 7.73 0 14-5.77 14-12.88S31.73 10 24 10zm1.48 16.92l-3.66-3.9-7.14 3.9 7.85-8.33 3.74 3.9 7.06-3.9-7.85 8.33z"/>
       </svg>
-      <span class="qc-btn-tooltip">Messenger</span>
-    </a>
+    </div>
+    <span class="qc-tooltip">Messenger</span>
+  </a>
 
-    <!-- 3. Real Call / Phone Dialer Logo Button -->
-    <a href="tel:+8801716705401" class="qc-dial-btn qc-btn-call" aria-label="Call Now">
-      <svg viewBox="0 0 32 32" fill="none">
-        <path fill="#ffffff" d="M13.6 15.73a12.8 12.8 0 0 0 5.17 5.17l1.72-1.72a1.55 1.55 0 0 1 1.55-.34c1.72.6 3.62.95 5.51.95a1.55 1.55 0 0 1 1.55 1.55v4.31a1.55 1.55 0 0 1-1.55 1.55C16.35 27.2 7.4 18.25 7.4 7.05a1.55 1.55 0 0 1 1.55-1.55h4.31a1.55 1.55 0 0 1 1.55 1.55c0 1.89.35 3.79.95 5.51.17.52.09 1.12-.34 1.55l-1.82 1.62z"/>
+  <!-- 3. Real 3D Phone Call Logo Button (Rises UPWARDS) -->
+  <a href="tel:+8801716705401" class="qc-btn qc-btn-call" aria-label="Direct Call">
+    <div class="qc-btn-inner">
+      <svg viewBox="0 0 48 48" fill="none">
+        <defs>
+          <radialGradient id="call-shine" cx="30%" cy="20%" r="70%">
+            <stop offset="0%" stop-color="#34D399"/>
+            <stop offset="50%" stop-color="#10B981"/>
+            <stop offset="100%" stop-color="#047857"/>
+          </radialGradient>
+          <filter id="call-drop" x="-10%" y="-10%" width="130%" height="130%">
+            <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-opacity="0.35"/>
+          </filter>
+        </defs>
+        <circle cx="24" cy="24" r="23" fill="url(#call-shine)"/>
+        <circle cx="24" cy="24" r="22.5" stroke="rgba(255,255,255,0.4)" stroke-width="1" fill="none"/>
+        <path filter="url(#call-drop)" fill="#FFFFFF" d="M20.4 23.6a14.8 14.8 0 0 0 6 6l2-2a1.8 1.8 0 0 1 1.8-.4c2 .7 4.2 1.1 6.4 1.1a1.8 1.8 0 0 1 1.8 1.8V35a1.8 1.8 0 0 1-1.8 1.8C23.6 36.8 13.2 26.4 13.2 13.8a1.8 1.8 0 0 1 1.8-1.8H19a1.8 1.8 0 0 1 1.8 1.8c0 2.2.4 4.4 1.1 6.4.2.6 0 1.3-.4 1.8l-2.1 2.1z"/>
       </svg>
-      <span class="qc-btn-tooltip">Direct Call</span>
-    </a>
-  </div>
+    </div>
+    <span class="qc-tooltip">Direct Call</span>
+  </a>
 
   <!-- Main Round Avatar Trigger Button -->
   <button type="button" id="qc-trigger-btn" class="qc-main-trigger" aria-label="Quick Contact Toggle" title="Quick Contact">
