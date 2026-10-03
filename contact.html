@@ -40,7 +40,10 @@
     .lead-ambient-orb-1 { position:absolute; top:-5%; left:50%; transform:translateX(-50%); width:680px; height:400px; background:radial-gradient(ellipse at center, rgba(184,0,245,0.16) 0%, rgba(88,11,130,0.05) 50%, transparent 70%); filter:blur(95px); pointer-events:none; z-index:0; animation:wz-orb 12s ease-in-out infinite alternate; }
     .lead-ambient-orb-2 { position:absolute; bottom:-5%; left:50%; transform:translateX(-50%); width:520px; height:280px; background:radial-gradient(ellipse at center, rgba(232,121,249,0.10) 0%, rgba(112,0,168,0.04) 50%, transparent 70%); filter:blur(85px); pointer-events:none; z-index:0; }
     @keyframes wz-orb { from{transform:translateX(-53%) scaleX(1)} to{transform:translateX(-47%) scaleX(1.07)} }
-    .lead-container { max-width:660px; margin:0 auto; padding:0 22px; position:relative; z-index:2; }
+    
+    .lead-container { max-width: 920px; margin: 0 auto; padding: 0 22px; position: relative; z-index: 2; }
+    .lead-wizard-wrapper { max-width: 680px; margin: 0 auto; }
+
     .lead-header-center { text-align:center; margin-bottom:46px; }
     .lead-eyebrow-pill { display:inline-flex; align-items:center; gap:7px; padding:5px 14px 5px 10px; background:rgba(184,0,245,0.12); border:1px solid rgba(184,0,245,0.30); border-radius:999px; font-family:'DM Mono',monospace; font-size:9.5px; font-weight:500; letter-spacing:2.5px; text-transform:uppercase; color:var(--wz-accent-light); margin-bottom:20px; box-shadow:0 2px 10px rgba(184,0,245,0.15); }
     .lead-pill-sparkle { width:15px; height:15px; border-radius:50%; background:rgba(184,0,245,0.25); display:flex; align-items:center; justify-content:center; }
@@ -131,6 +134,322 @@
       .nav-actions-right { width:100%; justify-content:space-between; }
       .btn-nav-next { flex:1; justify-content:center; }
     }
+  
+    /* ── DIRECT REACH CHANNELS SECTION ── */
+    .direct-channels-wrap {
+      margin-bottom: 40px;
+    }
+    .direct-channels-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .direct-channels-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      border-radius: 999px;
+      padding: 5px 14px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      color: #4ade80;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .direct-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 8px #22c55e;
+      animation: wa-dot 1.8s ease-in-out infinite;
+    }
+    .direct-channels-title {
+      font-size: clamp(24px, 4vw, 36px);
+      color: var(--wz-white);
+      margin: 0 0 8px;
+    }
+    .direct-channels-sub {
+      font-size: 14px;
+      color: var(--wz-muted);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .direct-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .direct-card {
+      position: relative;
+      background: linear-gradient(135deg, rgba(22, 6, 36, 0.88) 0%, rgba(15, 3, 24, 0.95) 100%);
+      border: 1px solid var(--wz-border);
+      border-radius: 18px;
+      padding: 22px 22px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s, box-shadow 0.28s;
+    }
+    .direct-card:hover {
+      transform: translateY(-3px);
+    }
+    .direct-card-wa:hover {
+      border-color: rgba(34, 197, 94, 0.55);
+      box-shadow: 0 18px 48px rgba(0,0,0,0.6), 0 0 24px rgba(34, 197, 94, 0.22);
+    }
+    .direct-card-fb:hover {
+      border-color: rgba(56, 189, 248, 0.55);
+      box-shadow: 0 18px 48px rgba(0,0,0,0.6), 0 0 24px rgba(56, 189, 248, 0.22);
+    }
+    .direct-card-mail:hover {
+      border-color: rgba(232, 121, 249, 0.65);
+      box-shadow: 0 18px 48px rgba(0,0,0,0.6), 0 0 24px rgba(184, 0, 245, 0.26);
+    }
+    .direct-card-call:hover {
+      border-color: rgba(52, 211, 153, 0.55);
+      box-shadow: 0 18px 48px rgba(0,0,0,0.6), 0 0 24px rgba(52, 211, 153, 0.22);
+    }
+    .direct-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+    .direct-icon-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .wa-icon-wrap {
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      color: #22c55e;
+    }
+    .fb-icon-wrap {
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+    }
+    .mail-icon-wrap {
+      background: rgba(184, 0, 245, 0.15);
+      border: 1px solid rgba(184, 0, 245, 0.4);
+      color: #e879f9;
+    }
+    .call-icon-wrap {
+      background: rgba(52, 211, 153, 0.15);
+      border: 1px solid rgba(52, 211, 153, 0.35);
+      color: #34d399;
+    }
+    .direct-live-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+    }
+    .wa-live-pill {
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #4ade80;
+    }
+    .fb-live-pill {
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+    }
+    .mail-live-pill {
+      background: rgba(184, 0, 245, 0.12);
+      border: 1px solid rgba(184, 0, 245, 0.3);
+      color: #e879f9;
+    }
+    .call-live-pill {
+      background: rgba(52, 211, 153, 0.12);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      color: #34d399;
+    }
+    .live-dot-pulse {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+    .wa-pulse { background: #22c55e; box-shadow: 0 0 6px #22c55e; }
+    .fb-pulse { background: #38bdf8; box-shadow: 0 0 6px #38bdf8; }
+    .mail-pulse { background: #e879f9; box-shadow: 0 0 6px #e879f9; }
+    .call-pulse { background: #34d399; box-shadow: 0 0 6px #34d399; }
+    .direct-card-body {
+      margin-bottom: 16px;
+    }
+    .direct-card-tag {
+      display: block;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(225, 200, 250, 0.5);
+      margin-bottom: 5px;
+    }
+    .direct-card-val {
+      display: inline-block;
+      font-size: 17px;
+      font-weight: 700;
+      color: #ffffff;
+      text-decoration: none;
+      line-height: 1.3;
+      margin-bottom: 6px;
+      word-break: break-all;
+      transition: color 0.2s;
+    }
+    .direct-card-val:hover {
+      color: #e879f9;
+    }
+    .direct-card-desc {
+      font-size: 12.5px;
+      color: var(--wz-muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .direct-card-actions {
+      display: flex;
+      gap: 8px;
+    }
+    .direct-actions-split {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 8px;
+    }
+    .direct-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      font-family: 'Inter', sans-serif;
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .direct-btn-wa {
+      background: linear-gradient(135deg, #16a34a, #15803d);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(22, 163, 74, 0.35);
+    }
+    .direct-btn-wa:hover {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(22, 163, 74, 0.55);
+    }
+    .direct-btn-fb {
+      background: linear-gradient(135deg, #0284c7, #0369a1);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+    }
+    .direct-btn-fb:hover {
+      background: linear-gradient(135deg, #38bdf8, #0284c7);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.55);
+    }
+    .direct-btn-msg {
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+    }
+    .direct-btn-msg:hover {
+      background: rgba(56, 189, 248, 0.25);
+      color: #ffffff;
+    }
+    .direct-btn-mail {
+      background: linear-gradient(135deg, #b800f5, #7000a8);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(184, 0, 245, 0.35);
+    }
+    .direct-btn-mail:hover {
+      background: linear-gradient(135deg, #d946ef, #9333ea);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(184, 0, 245, 0.55);
+    }
+    .direct-btn-copy {
+      background: rgba(184, 0, 245, 0.12);
+      border: 1px solid rgba(184, 0, 245, 0.35);
+      color: #e879f9;
+    }
+    .direct-btn-copy:hover {
+      background: rgba(184, 0, 245, 0.25);
+      color: #ffffff;
+    }
+    .direct-btn-call {
+      background: linear-gradient(135deg, #059669, #047857);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(5, 150, 105, 0.35);
+    }
+    .direct-btn-call:hover {
+      background: linear-gradient(135deg, #10b981, #059669);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(5, 150, 105, 0.55);
+    }
+    .channels-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 38px 0 30px;
+    }
+    .channels-divider-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(184, 0, 245, 0.35), transparent);
+    }
+    .channels-divider-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: var(--wz-accent-light);
+      background: rgba(18, 4, 28, 0.85);
+      border: 1px solid rgba(184, 0, 245, 0.28);
+      padding: 6px 16px;
+      border-radius: 999px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+      text-transform: uppercase;
+    }
+    .divider-sparkle {
+      color: #e879f9;
+      font-size: 11px;
+    }
+    @media (max-width: 768px) {
+      .direct-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .direct-actions-split {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
   </style>
 </head>
 <body class="home2">
@@ -196,6 +515,137 @@
         </div>
         <h1 class="lead-title-large">Let's Build <span class="lead-title-gradient">Yours.</span></h1>
         <p class="lead-subtitle-text">Answer a few quick questions below. Once done, launch your inquiry directly via WhatsApp or Email.</p>
+      </div>
+
+      
+      <!-- DIRECT CHANNELS GRID: WhatsApp, Facebook, Email, Phone -->
+      <div class="direct-channels-wrap">
+        <div class="direct-channels-header">
+          <div class="direct-channels-badge">
+            <span class="direct-badge-dot"></span>
+            DIRECT REACH &bull; ALL CHANNELS ACTIVE
+          </div>
+          <h2 class="direct-channels-title">Reach Us <span class="lead-title-gradient">Directly</span></h2>
+          <p class="direct-channels-sub">Contact our team immediately via any channel below &mdash; WhatsApp, Facebook Page, Email, or Phone Call.</p>
+        </div>
+
+        <div class="direct-cards-grid">
+
+          <!-- 1. WHATSAPP -->
+          <div class="direct-card direct-card-wa">
+            <div class="direct-card-top">
+              <div class="direct-icon-wrap wa-icon-wrap">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="direct-live-pill wa-live-pill">
+                <span class="live-dot-pulse wa-pulse"></span>
+                Instant Reply
+              </div>
+            </div>
+            <div class="direct-card-body">
+              <span class="direct-card-tag">OFFICIAL WHATSAPP</span>
+              <a href="https://wa.me/8801716705401" target="_blank" class="direct-card-val">+880 1716 705401</a>
+              <p class="direct-card-desc">Fastest way to get quotes, project timelines &amp; immediate creative consultation.</p>
+            </div>
+            <div class="direct-card-actions">
+              <a href="https://wa.me/8801716705401" target="_blank" class="direct-btn direct-btn-wa">
+                Chat on WhatsApp
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- 2. FACEBOOK PAGE & MESSENGER -->
+          <div class="direct-card direct-card-fb">
+            <div class="direct-card-top">
+              <div class="direct-icon-wrap fb-icon-wrap">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="direct-live-pill fb-live-pill">
+                <span class="live-dot-pulse fb-pulse"></span>
+                Official Page
+              </div>
+            </div>
+            <div class="direct-card-body">
+              <span class="direct-card-tag">FACEBOOK PAGE &amp; MESSENGER</span>
+              <a href="https://facebook.com/neel.nafis" target="_blank" class="direct-card-val">facebook.com/neel.nafis</a>
+              <p class="direct-card-desc">Follow our latest work showcases or message our team directly via Messenger.</p>
+            </div>
+            <div class="direct-card-actions direct-actions-split">
+              <a href="https://facebook.com/neel.nafis" target="_blank" class="direct-btn direct-btn-fb">
+                Visit Facebook
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="https://m.me/neel.nafis" target="_blank" class="direct-btn direct-btn-msg">
+                Messenger
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- 3. OFFICIAL EMAIL -->
+          <div class="direct-card direct-card-mail">
+            <div class="direct-card-top">
+              <div class="direct-icon-wrap mail-icon-wrap">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e879f9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </div>
+              <div class="direct-live-pill mail-live-pill">
+                <span class="live-dot-pulse mail-pulse"></span>
+                Founder Inbox
+              </div>
+            </div>
+            <div class="direct-card-body">
+              <span class="direct-card-tag">OFFICIAL EMAIL</span>
+              <a href="mailto:technicalrakib999@gmail.com" class="direct-card-val">technicalrakib999@gmail.com</a>
+              <p class="direct-card-desc">Send project briefs, attachments, script documents &amp; commercial RFPs.</p>
+            </div>
+            <div class="direct-card-actions direct-actions-split">
+              <a href="mailto:technicalrakib999@gmail.com" class="direct-btn direct-btn-mail">
+                Send Email
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <button type="button" class="direct-btn direct-btn-copy" onclick="copyEmail(this)">
+                Copy Email
+              </button>
+            </div>
+          </div>
+
+          <!-- 4. DIRECT PHONE CALL -->
+          <div class="direct-card direct-card-call">
+            <div class="direct-card-top">
+              <div class="direct-icon-wrap call-icon-wrap">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div class="direct-live-pill call-live-pill">
+                <span class="live-dot-pulse call-pulse"></span>
+                10 AM &ndash; 10 PM BST
+              </div>
+            </div>
+            <div class="direct-card-body">
+              <span class="direct-card-tag">DIRECT PHONE / CELL</span>
+              <a href="tel:+8801716705401" class="direct-card-val">+880 1716 705401</a>
+              <p class="direct-card-desc">Call Rakib directly for urgent project timelines or enterprise partnerships.</p>
+            </div>
+            <div class="direct-card-actions">
+              <a href="tel:+8801716705401" class="direct-btn direct-btn-call">
+                Direct Call Now
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- OR QUESTIONNAIRE WIZARD DIVIDER -->
+      <div class="channels-divider">
+        <div class="channels-divider-line"></div>
+        <div class="channels-divider-badge">
+          <span class="divider-sparkle">&#10022;</span>
+          OR COMPLETE THE 6-STEP PROJECT QUESTIONNAIRE
+          <span class="divider-sparkle">&#10022;</span>
+        </div>
+        <div class="channels-divider-line"></div>
       </div>
 
       <div class="lead-wizard-wrapper">
@@ -611,6 +1061,29 @@ document.addEventListener('DOMContentLoaded', function() {
     showToast('WhatsApp launched! Please hit Send to deliver your message.');
   };
 
+  
+  window.copyEmail = function(btn) {
+    var email = 'technicalrakib999@gmail.com';
+    navigator.clipboard.writeText(email).then(function() {
+      var orig = btn.innerText;
+      btn.innerText = 'Copied!';
+      btn.style.background = '#22c55e';
+      btn.style.borderColor = '#22c55e';
+      btn.style.color = '#ffffff';
+      if (typeof showToast === 'function') {
+        showToast('Email technicalrakib999@gmail.com copied to clipboard!');
+      }
+      setTimeout(function() {
+        btn.innerText = orig;
+        btn.style.background = '';
+        btn.style.borderColor = '';
+        btn.style.color = '';
+      }, 2000);
+    }).catch(function() {
+      prompt('Copy email address:', email);
+    });
+  };
+
   window.fireSendEmail = function() {
     var bp=getBlueprint();
     if(!bp.name||!bp.wa){alert('Please enter your name and WhatsApp number first.');window.goToWizardStep(1);return;}
@@ -982,6 +1455,9 @@ document.addEventListener('DOMContentLoaded', function() {
             <a href="https://wa.me/8801716705401" target="_blank" class="zf-soc-link" aria-label="WhatsApp">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             </a>
+            <a href="https://facebook.com/neel.nafis" target="_blank" class="zf-soc-link" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
             <a href="mailto:technicalrakib999@gmail.com" class="zf-soc-link" aria-label="Email">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2Z"/><path d="m22 6-10 7L2 6"/></svg>
             </a>
@@ -1014,6 +1490,14 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="zf-contact-group">
             <span class="zf-contact-lbl">WhatsApp</span>
             <a href="https://wa.me/8801716705401" target="_blank" class="zf-contact-val zf-contact-link zf-wa-highlight">+880 1716 705401</a>
+          </div>
+          <div class="zf-contact-group">
+            <span class="zf-contact-lbl">Facebook Page</span>
+            <a href="https://facebook.com/neel.nafis" target="_blank" class="zf-contact-val zf-contact-link">fb.com/neel.nafis</a>
+          </div>
+          <div class="zf-contact-group">
+            <span class="zf-contact-lbl">Phone Line</span>
+            <a href="tel:+8801716705401" class="zf-contact-val zf-contact-link">+880 1716 705401</a>
           </div>
           <div class="zf-contact-group">
             <span class="zf-contact-lbl">Response Time</span>

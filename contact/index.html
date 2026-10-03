@@ -1,442 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <base href="/">
   <meta charset="utf-8"/>
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
-  <meta http-equiv="Pragma" content="no-cache"/>
-  <meta http-equiv="Expires" content="0"/>
-  <title>Contact Us | Zentic Media - High-Impact Video Production</title>
-  <meta name="description" content="Get in touch with Zentic Media. Let's discuss your next SaaS product promo, viral social reels, YouTube editing, or full-scale video production."/>
-  <meta property="og:title" content="Contact Us | Zentic Media"/>
-  <meta property="og:description" content="Get in touch with Zentic Media. Let's discuss your next SaaS product promo, viral social reels, YouTube editing, or full-scale video production."/>
-  <meta property="og:image" content="https://rakibportfolio.github.io/assets/zentic_logo.png"/>
-  <meta property="og:type" content="website"/>
-  <meta name="twitter:card" content="summary_large_image"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
+  <title>Contact Us | Zentic Media &ndash; Let&rsquo;s Build Yours</title>
+  <meta name="description" content="Start your video project with Zentic Media. Answer a few quick questions and we will connect directly via WhatsApp or Email."/>
   <link rel="icon" type="image/x-icon" href="favicon.ico?v=5.0"/>
   <link rel="icon" type="image/png" sizes="32x32" href="assets/zentic_icon.png?v=5.0"/>
   <link rel="apple-touch-icon" sizes="180x180" href="assets/zentic_icon.png?v=5.0"/>
-
-  <!-- Core Global Stylesheets matching index.html -->
-  <link href="css/mzmedia.css?v=2.0" rel="stylesheet" type="text/css" />
-  <link href="css/custom-theme.css?v=12.0" rel="stylesheet" type="text/css" />
-  <link href="css/rotating-tagline.css?v=1.0" rel="stylesheet" type="text/css" />
-  <link href="css/tools-orbit.css?v=4.0" rel="stylesheet" type="text/css" />
-  <link href="css/framework-3d.css?v=1.0" rel="stylesheet" type="text/css" />
-  <link href="css/services-section.css?v=43.0" rel="stylesheet" type="text/css" />
-  <link href="css/bg-shapes.css?v=7.0" rel="stylesheet" type="text/css" />
-
-  <!-- Google Fonts: Inter and DM Mono -->
+  <link href="css/mzmedia.css?v=2.0" rel="stylesheet" type="text/css"/>
+  <link href="css/custom-theme.css?v=12.0" rel="stylesheet" type="text/css"/>
+  <link href="css/bg-shapes.css?v=7.0" rel="stylesheet" type="text/css"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-
   <style>
-    /* === COOLVETICA REGULAR: ALL HEADINGS EVERYWHERE === */
     @font-face {
       font-family: "Coolvetica";
       src: url("fonts/coolvetica rg.otf") format("opentype");
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
+      font-weight: 400; font-style: normal; font-display: swap;
     }
-
-    h1, h2, h3, h4, h5, h6,
-    .ct-hero-title,
-    .ct-card-title,
-    .ct-sec-title,
-    .zf-cta-left h2 {
-      font-family: "Coolvetica", "Inter", -apple-system, sans-serif !important;
-      font-weight: 400 !important;
-      letter-spacing: 0.01em !important;
+    :root {
+      --wz-bg: #08010e; --wz-card: #12041d; --wz-card2: #190727;
+      --wz-border: rgba(184,0,245,0.22); --wz-border-sub: rgba(255,255,255,0.08);
+      --wz-accent: #b800f5; --wz-accent-light: #e879f9; --wz-accent-deep: #7000a8;
+      --wz-accent-lo: rgba(184,0,245,0.15); --wz-accent-md: rgba(184,0,245,0.32);
+      --wz-accent-gl: rgba(184,0,245,0.55); --wz-white: #fcfaff;
+      --wz-muted: rgba(225,200,250,0.75); --wz-muted2: rgba(167,139,250,0.45);
+      --wz-red: #ef4444; --wz-green: #22c55e; --wz-r: 18px; --wz-rs: 12px;
     }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--wz-bg); font-family: 'Inter', sans-serif; color: var(--wz-white); min-height: 100vh; }
+    h1,h2,h3,h4,h5,h6 { font-family: "Coolvetica","Inter",sans-serif !important; font-weight: 400 !important; }
+    .nav-link-2.is-current-page { color: #e879f9 !important; font-weight: 700 !important; text-shadow: 0 0 12px rgba(184,0,245,0.6) !important; }
+    .ct-page-wrapper { position: relative; overflow-x: hidden; min-height: 100vh; }
+    .lead-section { position: relative; padding: 110px 0 130px; overflow: hidden; background: transparent; }
+    .lead-section::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse 70% 45% at 15% 0%, rgba(184,0,245,0.12) 0%, transparent 60%), radial-gradient(ellipse 55% 40% at 85% 100%, rgba(112,0,168,0.10) 0%, transparent 60%); pointer-events:none; z-index:0; }
+    .lead-ambient-orb-1 { position:absolute; top:-5%; left:50%; transform:translateX(-50%); width:680px; height:400px; background:radial-gradient(ellipse at center, rgba(184,0,245,0.16) 0%, rgba(88,11,130,0.05) 50%, transparent 70%); filter:blur(95px); pointer-events:none; z-index:0; animation:wz-orb 12s ease-in-out infinite alternate; }
+    .lead-ambient-orb-2 { position:absolute; bottom:-5%; left:50%; transform:translateX(-50%); width:520px; height:280px; background:radial-gradient(ellipse at center, rgba(232,121,249,0.10) 0%, rgba(112,0,168,0.04) 50%, transparent 70%); filter:blur(85px); pointer-events:none; z-index:0; }
+    @keyframes wz-orb { from{transform:translateX(-53%) scaleX(1)} to{transform:translateX(-47%) scaleX(1.07)} }
+    
+    .lead-container { max-width: 920px; margin: 0 auto; padding: 0 22px; position: relative; z-index: 2; }
+    .lead-wizard-wrapper { max-width: 680px; margin: 0 auto; }
 
-    body, p, span, a, button, input, label, select, textarea,
-    .ct-hero-sub,
-    .ct-channel-lbl,
-    .ct-channel-val,
-    .nav-link-2 {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    .lead-header-center { text-align:center; margin-bottom:46px; }
+    .lead-eyebrow-pill { display:inline-flex; align-items:center; gap:7px; padding:5px 14px 5px 10px; background:rgba(184,0,245,0.12); border:1px solid rgba(184,0,245,0.30); border-radius:999px; font-family:'DM Mono',monospace; font-size:9.5px; font-weight:500; letter-spacing:2.5px; text-transform:uppercase; color:var(--wz-accent-light); margin-bottom:20px; box-shadow:0 2px 10px rgba(184,0,245,0.15); }
+    .lead-pill-sparkle { width:15px; height:15px; border-radius:50%; background:rgba(184,0,245,0.25); display:flex; align-items:center; justify-content:center; }
+    .lead-title-large { font-size:clamp(34px,5.5vw,60px); color:var(--wz-white); line-height:1.08; letter-spacing:-0.03em; margin:0 0 14px; }
+    .lead-title-gradient { background:linear-gradient(115deg,#ffffff 0%,#e879f9 50%,#b800f5 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .lead-subtitle-text { font-size:14.5px; color:var(--wz-muted); max-width:460px; margin:0 auto; line-height:1.7; }
+    .lead-wizard-wrapper { position:relative; background:var(--wz-card); border:1px solid var(--wz-border); border-radius:var(--wz-r); padding:36px 36px 32px; box-shadow:0 1px 0 rgba(255,255,255,0.06) inset, 0 40px 80px rgba(0,0,0,0.65), 0 0 30px rgba(184,0,245,0.08); }
+    .lead-wizard-wrapper::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:45%; height:1.5px; background:linear-gradient(90deg,transparent,var(--wz-accent),var(--wz-accent-light),transparent); opacity:0.8; }
+    .lead-tracker-bar { margin-bottom:32px; }
+    .lead-tracker-meta { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
+    .lead-active-badge { display:inline-flex; align-items:center; gap:7px; font-family:'DM Mono',monospace; font-size:10px; font-weight:500; letter-spacing:2px; text-transform:uppercase; color:var(--wz-accent-light); }
+    .lead-live-dot { width:6px; height:6px; border-radius:50%; background:var(--wz-accent); box-shadow:0 0 8px var(--wz-accent); animation:wz-dot 2s ease-in-out infinite; }
+    @keyframes wz-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.45;transform:scale(0.65)} }
+    .lead-percent-badge { font-family:'DM Mono',monospace; font-size:9.5px; font-weight:500; color:var(--wz-muted2); letter-spacing:1.2px; }
+    .lead-segments-row { display:flex; gap:5px; }
+    .lead-segment { flex:1; height:3px; background:rgba(255,255,255,0.07); border-radius:99px; transition:background 0.4s ease, box-shadow 0.4s ease; }
+    .lead-segment.completed { background:rgba(184,0,245,0.45); }
+    .lead-segment.current { background:var(--wz-accent); box-shadow:0 0 10px var(--wz-accent-gl); }
+    .step-pane { display:none; }
+    .step-pane.active { display:block; animation:wz-in 0.3s cubic-bezier(0.16,1,0.3,1) forwards; }
+    @keyframes wz-in { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+    .step-heading-group { margin-bottom:26px; }
+    .step-number-tag { display:block; font-family:'DM Mono',monospace; font-size:9.5px; font-weight:500; letter-spacing:2.5px; text-transform:uppercase; color:var(--wz-accent-light); opacity:0.85; margin-bottom:9px; }
+    .step-prompt-title { font-family:'Inter',sans-serif !important; font-size:clamp(19px,3vw,24px); font-weight:600 !important; color:var(--wz-white); line-height:1.3; letter-spacing:-0.02em; margin:0 0 7px; }
+    .step-prompt-sub { font-size:13px; color:var(--wz-muted); line-height:1.65; margin:0; font-weight:400; }
+    .lead-input-container { position:relative; margin-bottom:6px; }
+    .lead-input-icon { position:absolute; left:16px; top:50%; transform:translateY(-50%); width:18px; height:18px; display:flex; align-items:center; justify-content:center; pointer-events:none; color:var(--wz-muted2); transition:color 0.22s; }
+    .lead-input-field { width:100%; background:var(--wz-card2); border:1px solid var(--wz-border); border-radius:var(--wz-rs); padding:15px 16px 15px 46px; font-family:'Inter',sans-serif; font-size:15px; font-weight:400; color:var(--wz-white); outline:none; box-sizing:border-box; transition:border-color 0.22s, background 0.22s, box-shadow 0.22s; -webkit-appearance:none; }
+    .lead-input-field::placeholder { color:var(--wz-muted2); }
+    .lead-input-field:focus { border-color:rgba(184,0,245,0.65); background:#1f0a2e; box-shadow:0 0 0 3px var(--wz-accent-lo), 0 6px 20px rgba(0,0,0,0.3); }
+    .lead-input-container:focus-within .lead-input-icon { color:var(--wz-accent-light); }
+    .lead-input-field.error { border-color:var(--wz-red) !important; box-shadow:0 0 0 3px rgba(239,68,68,0.18) !important; animation:wz-shake 0.3s ease; }
+    @keyframes wz-shake { 0%,100%{transform:translateX(0)} 25%,75%{transform:translateX(-6px)} 50%{transform:translateX(6px)} }
+    .lead-field-error { display:none; font-size:11.5px; color:#f87171; font-weight:500; margin-top:6px; padding-left:4px; }
+    .lead-select-field { cursor:pointer; appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6 9l6 6 6-6' stroke='%23e879f9' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 16px center; padding-right:42px !important; }
+    .lead-select-field option { background:#190727; color:var(--wz-white); }
+    .lead-textarea-box { width:100%; background:var(--wz-card2); border:1px solid var(--wz-border); border-radius:var(--wz-rs); padding:15px 16px; font-family:'Inter',sans-serif; font-size:14px; color:var(--wz-white); outline:none; min-height:106px; resize:vertical; line-height:1.65; box-sizing:border-box; transition:border-color 0.22s, background 0.22s, box-shadow 0.22s; }
+    .lead-textarea-box::placeholder { color:var(--wz-muted2); }
+    .lead-textarea-box:focus { border-color:rgba(184,0,245,0.65); background:#1f0a2e; box-shadow:0 0 0 3px var(--wz-accent-lo); }
+    .lead-quick-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; margin-bottom:16px; }
+    .quick-tag-chip { background:rgba(255,255,255,0.04); border:1px solid rgba(184,0,245,0.18); border-radius:999px; padding:4px 12px; font-size:11px; font-weight:500; color:var(--wz-muted); cursor:pointer; transition:all 0.2s; }
+    .quick-tag-chip:hover { background:var(--wz-accent-lo); border-color:var(--wz-accent-md); color:var(--wz-accent-light); transform:translateY(-1px); }
+    .lead-nav-footer { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:28px; padding-top:18px; border-top:1px solid rgba(255,255,255,0.06); }
+    .btn-nav-back { background:transparent; border:1px solid rgba(255,255,255,0.10); border-radius:var(--wz-rs); color:var(--wz-muted); font-family:'Inter',sans-serif; font-size:13px; font-weight:500; padding:10px 18px; cursor:pointer; transition:all 0.2s; display:inline-flex; align-items:center; gap:6px; }
+    .btn-nav-back:hover { background:rgba(255,255,255,0.06); border-color:rgba(184,0,245,0.35); color:var(--wz-white); transform:translateX(-2px); }
+    .nav-actions-right { display:flex; align-items:center; gap:8px; margin-left:auto; }
+    .btn-nav-skip { background:transparent; border:none; color:var(--wz-muted2); font-size:12.5px; font-weight:500; padding:10px; cursor:pointer; transition:color 0.2s; }
+    .btn-nav-skip:hover { color:var(--wz-muted); }
+    .btn-nav-next { background:linear-gradient(135deg,#b800f5 0%,#8b00b5 100%); border:none; border-radius:var(--wz-rs); color:#ffffff; font-family:'Inter',sans-serif; font-size:13.5px; font-weight:600; padding:12px 24px; cursor:pointer; transition:all 0.22s; display:inline-flex; align-items:center; gap:7px; box-shadow:0 4px 20px rgba(184,0,245,0.40); letter-spacing:-0.01em; }
+    .btn-nav-next:hover { background:linear-gradient(135deg,#c716ff 0%,#9900c7 100%); transform:translateY(-2px); box-shadow:0 8px 30px rgba(184,0,245,0.58); }
+    .btn-nav-next svg { transition:transform 0.2s; }
+    .btn-nav-next:hover svg { transform:translateX(3px); }
+    .lead-receipt-card { background:var(--wz-card2); border:1px solid var(--wz-border); border-radius:var(--wz-r); padding:20px 22px; margin-bottom:22px; position:relative; overflow:hidden; }
+    .lead-receipt-card::before { content:''; position:absolute; top:0; left:0; right:0; height:1.5px; background:linear-gradient(90deg,transparent,var(--wz-accent) 35%,var(--wz-accent-light) 65%,transparent); opacity:0.65; }
+    .receipt-header-row { display:flex; align-items:center; justify-content:space-between; padding-bottom:13px; margin-bottom:15px; border-bottom:1px solid rgba(255,255,255,0.06); }
+    .receipt-title-label { font-family:'DM Mono',monospace; font-size:9.5px; font-weight:500; letter-spacing:2.5px; text-transform:uppercase; color:var(--wz-accent-light); }
+    .receipt-edit-link { font-size:11.5px; color:var(--wz-muted); background:transparent; border:1px solid transparent; border-radius:7px; cursor:pointer; padding:3px 9px; transition:all 0.2s; }
+    .receipt-edit-link:hover { color:var(--wz-white); border-color:var(--wz-border); background:rgba(255,255,255,0.04); }
+    .receipt-data-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px 18px; }
+    .receipt-item { display:flex; flex-direction:column; gap:4px; }
+    .receipt-item.full-width { grid-column:1/-1; border-top:1px solid rgba(255,255,255,0.06); padding-top:13px; margin-top:2px; }
+    .receipt-label { font-family:'DM Mono',monospace; font-size:9.5px; font-weight:500; letter-spacing:1.5px; text-transform:uppercase; color:var(--wz-muted2); }
+    .receipt-val { font-size:13.5px; font-weight:500; color:var(--wz-white); word-break:break-word; line-height:1.45; }
+    .lead-final-buttons { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px; }
+    .lead-big-btn { position:relative; overflow:hidden; padding:16px 18px; border-radius:var(--wz-r); border:1px solid transparent; cursor:pointer; display:flex; align-items:center; gap:12px; transition:transform 0.26s cubic-bezier(0.16,1,0.3,1), box-shadow 0.26s; text-align:left; }
+    .lead-big-btn::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(255,255,255,0.12) 0%,transparent 55%); opacity:0; transition:opacity 0.22s; }
+    .lead-big-btn:hover::before { opacity:1; }
+    .lead-big-btn:hover { transform:translateY(-2px); }
+    .lead-btn-wa-hero { background:linear-gradient(135deg,#16a34a,#14532d); border-color:rgba(34,197,94,0.30); box-shadow:0 5px 22px rgba(22,163,74,0.32); }
+    .lead-btn-wa-hero:hover { box-shadow:0 10px 32px rgba(22,163,74,0.48); }
+    .lead-btn-email-hero { background:linear-gradient(135deg,#7000a8,#420663); border-color:rgba(184,0,245,0.40); box-shadow:0 5px 22px rgba(112,0,168,0.35); }
+    .lead-btn-email-hero:hover { box-shadow:0 10px 32px rgba(184,0,245,0.50); }
+    .big-btn-icon { width:40px; height:40px; border-radius:11px; background:rgba(255,255,255,0.14); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .big-btn-content { flex:1; min-width:0; }
+    .big-btn-title { font-size:13.5px; font-weight:700; color:#ffffff; display:flex; align-items:center; gap:6px; margin-bottom:2px; }
+    .big-btn-subtitle { font-size:11px; color:rgba(255,255,255,0.7); }
+    .big-btn-arrow { color:rgba(255,255,255,0.75); transition:transform 0.2s; flex-shrink:0; }
+    .lead-big-btn:hover .big-btn-arrow { transform:translateX(3px); }
+    .lead-guarantee-note { font-size:11.5px; color:var(--wz-muted2); text-align:center; display:flex; align-items:center; justify-content:center; gap:6px; margin-top:12px; line-height:1.55; }
+    .lead-toast-floating { position:fixed; bottom:26px; right:26px; background:var(--wz-card); border:1px solid rgba(184,0,245,0.35); border-radius:13px; padding:13px 18px; font-size:12.5px; font-weight:600; color:var(--wz-white); display:flex; align-items:center; gap:9px; opacity:0; pointer-events:none; transform:translateY(12px); transition:all 0.3s cubic-bezier(0.16,1,0.3,1); z-index:999999; box-shadow:0 18px 48px rgba(0,0,0,0.6), 0 0 25px rgba(184,0,245,0.2); backdrop-filter:blur(12px); }
+    .lead-toast-floating.show { opacity:1; transform:translateY(0); pointer-events:auto; }
+    @media (max-width:640px) {
+      .lead-section { padding:68px 0 88px; }
+      .lead-wizard-wrapper { padding:24px 18px 20px; border-radius:16px; }
+      .lead-final-buttons { grid-template-columns:1fr; gap:9px; }
+      .receipt-data-grid { grid-template-columns:1fr; }
+      .lead-nav-footer { flex-wrap:wrap; }
+      .nav-actions-right { width:100%; justify-content:space-between; }
+      .btn-nav-next { flex:1; justify-content:center; }
     }
-
-    /* Active Nav link for Contact */
-    .nav-link-2.is-current-page {
-      color: #e879f9 !important;
-      font-weight: 700 !important;
-      text-shadow: 0 0 12px rgba(184, 0, 245, 0.6) !important;
+  
+    /* ── DIRECT REACH CHANNELS SECTION ── */
+    .direct-channels-wrap {
+      margin-bottom: 40px;
     }
-
-    .ct-page-wrapper {
-      position: relative;
-      overflow-x: hidden;
-      min-height: 100vh;
-      background: #06010a;
-    }
-
-    /* ── Hero Section ── */
-    .ct-hero-section {
-      position: relative;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 120px 20px 32px;
+    .direct-channels-header {
       text-align: center;
-      z-index: 2;
+      margin-bottom: 24px;
     }
-
-    .ct-eyebrow-badge {
+    .direct-channels-badge {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: rgba(184, 0, 245, 0.14);
-      border: 1px solid rgba(184, 0, 245, 0.4);
+      gap: 7px;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.35);
       border-radius: 999px;
-      padding: 6px 18px;
-      font-family: 'DM Mono', monospace !important;
-      font-size: 11px;
+      padding: 5px 14px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
       font-weight: 600;
-      letter-spacing: 1.4px;
-      color: #e879f9;
+      letter-spacing: 1.5px;
+      color: #4ade80;
       text-transform: uppercase;
-      margin-bottom: 20px;
-      box-shadow: 0 0 24px rgba(184, 0, 245, 0.28);
+      margin-bottom: 12px;
     }
-
-    .ct-eyebrow-dot {
-      width: 7px;
-      height: 7px;
+    .direct-badge-dot {
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
-      background: #4ade80;
-      box-shadow: 0 0 10px #4ade80;
-      animation: ctDotPulse 1.8s infinite;
+      background: #22c55e;
+      box-shadow: 0 0 8px #22c55e;
+      animation: wa-dot 1.8s ease-in-out infinite;
     }
-
-    @keyframes ctDotPulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.35; transform: scale(0.7); }
+    .direct-channels-title {
+      font-size: clamp(24px, 4vw, 36px);
+      color: var(--wz-white);
+      margin: 0 0 8px;
     }
-
-    .ct-hero-title {
-      font-size: clamp(34px, 5.5vw, 64px);
-      line-height: 1.08;
-      color: #ffffff;
-      margin: 0 0 16px;
-    }
-
-    .ct-title-gradient {
-      background: linear-gradient(135deg, #ffffff 20%, #e879f9 65%, #b800f5 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .ct-hero-sub {
-      font-size: clamp(14px, 1.8vw, 17px);
-      color: rgba(225, 200, 250, 0.72);
-      max-width: 620px;
+    .direct-channels-sub {
+      font-size: 14px;
+      color: var(--wz-muted);
+      max-width: 520px;
       margin: 0 auto;
       line-height: 1.6;
     }
-
-    /* ── Main Contact Container (2 Columns) ── */
-    .ct-main-wrap {
-      max-width: 1180px;
-      margin: 0 auto 80px;
-      padding: 0 24px;
-      display: grid;
-      grid-template-columns: 1.15fr 1fr;
-      gap: 36px;
-      position: relative;
-      z-index: 2;
-    }
-
-    /* ── Right Column: Project Inquiry Form ── */
-    .ct-form-card {
-      background: linear-gradient(135deg, rgba(22, 6, 36, 0.85) 0%, rgba(38, 10, 62, 0.65) 50%, rgba(15, 3, 24, 0.9) 100%);
-      border: 1px solid rgba(184, 0, 245, 0.35);
-      border-radius: 24px;
-      padding: 34px 36px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(232, 121, 249, 0.2);
-      backdrop-filter: blur(20px);
-    }
-
-    .ct-form-header {
-      margin-bottom: 24px;
-    }
-
-    .ct-form-title {
-      font-size: 26px;
-      color: #ffffff;
-      margin: 0 0 6px;
-    }
-
-    .ct-form-sub {
-      font-size: 13.5px;
-      color: rgba(225, 200, 250, 0.65);
-      margin: 0;
-    }
-
-    /* Form Fields */
-    .ct-group {
-      margin-bottom: 20px;
-    }
-
-    .ct-label {
-      display: block;
-      font-size: 12.5px;
-      font-weight: 600;
-      color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 8px;
-    }
-
-    .ct-chips-grid {
+    .direct-cards-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
+      gap: 16px;
     }
-
-    .ct-chip-btn {
-      background: rgba(14, 3, 22, 0.7);
-      border: 1px solid rgba(184, 0, 245, 0.25);
-      border-radius: 12px;
-      padding: 10px 12px;
-      color: rgba(225, 200, 250, 0.8);
-      font-size: 12.5px;
-      font-weight: 500;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.22s ease;
-      outline: none;
-      text-align: left;
-    }
-
-    .ct-chip-btn:hover {
-      background: rgba(184, 0, 245, 0.2);
-      border-color: rgba(232, 121, 249, 0.5);
-      color: #ffffff;
-    }
-
-    .ct-chip-btn.is-selected {
-      background: linear-gradient(135deg, rgba(184, 0, 245, 0.45) 0%, rgba(112, 0, 168, 0.45) 100%);
-      border-color: #e879f9;
-      color: #ffffff;
-      box-shadow: 0 0 16px rgba(184, 0, 245, 0.35);
-    }
-
-    .ct-input, .ct-textarea {
-      width: 100%;
-      background: rgba(12, 3, 20, 0.75);
-      border: 1px solid rgba(184, 0, 245, 0.28);
-      border-radius: 12px;
-      padding: 12px 16px;
-      color: #ffffff;
-      font-size: 14px;
-      outline: none;
-      box-sizing: border-box;
-      transition: all 0.24s ease;
-    }
-
-    .ct-input::placeholder, .ct-textarea::placeholder {
-      color: rgba(225, 200, 250, 0.4);
-    }
-
-    .ct-input:focus, .ct-textarea:focus {
-      border-color: #e879f9;
-      background: rgba(22, 6, 36, 0.95);
-      box-shadow: 0 0 18px rgba(184, 0, 245, 0.35);
-    }
-
-    .ct-textarea {
-      min-height: 100px;
-      resize: vertical;
-    }
-
-    .ct-budget-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-    }
-
-    .ct-budget-pill {
-      background: rgba(14, 3, 22, 0.7);
-      border: 1px solid rgba(184, 0, 245, 0.25);
-      border-radius: 10px;
-      padding: 9px 8px;
-      color: rgba(225, 200, 250, 0.8);
-      font-size: 12px;
-      font-weight: 600;
-      cursor: pointer;
-      text-align: center;
-      transition: all 0.22s ease;
-      outline: none;
-    }
-
-    .ct-budget-pill:hover {
-      background: rgba(184, 0, 245, 0.2);
-      border-color: rgba(232, 121, 249, 0.5);
-      color: #ffffff;
-    }
-
-    .ct-budget-pill.is-selected {
-      background: linear-gradient(135deg, rgba(184, 0, 245, 0.45) 0%, rgba(112, 0, 168, 0.45) 100%);
-      border-color: #e879f9;
-      color: #ffffff;
-      box-shadow: 0 0 14px rgba(184, 0, 245, 0.35);
-    }
-
-    .ct-submit-btn {
-      width: 100%;
-      background: linear-gradient(135deg, #b800f5 0%, #8200b8 100%);
-      color: #ffffff;
-      font-size: 15px;
-      font-weight: 700;
-      padding: 15px 24px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      box-shadow: 0 8px 28px rgba(184, 0, 245, 0.5);
-      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-      margin-top: 10px;
-      outline: none;
-    }
-
-    .ct-submit-btn:hover {
-      background: linear-gradient(135deg, #d946ef 0%, #9333ea 100%);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 36px rgba(184, 0, 245, 0.7);
-    }
-
-    .ct-submit-btn:active {
-      transform: translateY(1px);
-    }
-
-    /* Success State Message */
-    .ct-success-card {
-      display: none;
-      text-align: center;
-      padding: 40px 20px;
-    }
-
-    .ct-success-card.is-visible {
-      display: block;
-      animation: ctFadeIn 0.35s ease;
-    }
-
-    .ct-success-icon {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background: rgba(34, 197, 94, 0.15);
-      border: 1px solid rgba(34, 197, 94, 0.5);
-      color: #4ade80;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 16px;
-      box-shadow: 0 0 24px rgba(34, 197, 94, 0.4);
-    }
-
-    .ct-success-title {
-      font-size: 24px;
-      color: #ffffff;
-      margin: 0 0 8px;
-    }
-
-    .ct-success-desc {
-      font-size: 14px;
-      color: rgba(225, 200, 250, 0.75);
-      line-height: 1.5;
-      max-width: 380px;
-      margin: 0 auto 24px;
-    }
-
-    /* ── Left Column: Direct Connect & Channels ── */
-    .ct-info-col {
+    .direct-card {
+      position: relative;
+      background: linear-gradient(135deg, rgba(22, 6, 36, 0.88) 0%, rgba(15, 3, 24, 0.95) 100%);
+      border: 1px solid var(--wz-border);
+      border-radius: 18px;
+      padding: 22px 22px 20px;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      justify-content: space-between;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s, box-shadow 0.28s;
     }
-
-    /* Direct Channels Card */
-    .ct-card {
-      background: rgba(16, 4, 25, 0.75);
-      border: 1px solid rgba(184, 0, 245, 0.24);
-      border-radius: 20px;
-      padding: 24px 26px;
-      box-shadow: 0 14px 38px rgba(0, 0, 0, 0.5);
+    .direct-card:hover {
+      transform: translateY(-3px);
     }
-
-    .ct-live-status {
+    .direct-card-wa:hover {
+      border-color: rgba(34, 197, 94, 0.55);
+      box-shadow: 0 18px 48px rgba(0,0,0,0.6), 0 0 24px rgba(34, 197, 94, 0.22);
+    }
+    .direct-card-fb:hover {
+      border-color: rgba(56, 189, 248, 0.55);
+      box-shadow: 0 18px 48px rgba(0,0,0,0.6), 0 0 24px rgba(56, 189, 248, 0.22);
+    }
+    .direct-card-mail:hover {
+      border-color: rgba(232, 121, 249, 0.65);
+      box-shadow: 0 18px 48px rgba(0,0,0,0.6), 0 0 24px rgba(184, 0, 245, 0.26);
+    }
+    .direct-card-call:hover {
+      border-color: rgba(52, 211, 153, 0.55);
+      box-shadow: 0 18px 48px rgba(0,0,0,0.6), 0 0 24px rgba(52, 211, 153, 0.22);
+    }
+    .direct-card-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(34, 197, 94, 0.1);
-      border: 1px solid rgba(34, 197, 94, 0.3);
-      border-radius: 12px;
-      padding: 10px 14px;
-      margin-bottom: 20px;
+      margin-bottom: 14px;
     }
-
-    .ct-status-left {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12.5px;
-      font-weight: 600;
-      color: #4ade80;
-    }
-
-    .ct-status-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #4ade80;
-      box-shadow: 0 0 8px #4ade80;
-      animation: ctDotPulse 1.6s infinite;
-    }
-
-    .ct-status-speed {
-      font-family: 'DM Mono', monospace !important;
-      font-size: 10.5px;
-      color: rgba(255, 255, 255, 0.7);
-      background: rgba(0, 0, 0, 0.35);
-      padding: 3px 8px;
-      border-radius: 6px;
-    }
-
-    /* Direct Touchpoint Items */
-    .ct-touch-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .ct-touch-item {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 12px 14px;
-      background: rgba(22, 6, 36, 0.6);
-      border: 1px solid rgba(184, 0, 245, 0.18);
-      border-radius: 14px;
-      text-decoration: none;
-      color: #ffffff;
-      transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .ct-touch-item:hover {
-      background: rgba(184, 0, 245, 0.18);
-      border-color: rgba(232, 121, 249, 0.45);
-      transform: translateX(4px);
-    }
-
-    .ct-touch-icon {
+    .direct-icon-wrap {
       width: 44px;
       height: 44px;
       border-radius: 12px;
@@ -445,258 +231,237 @@
       justify-content: center;
       flex-shrink: 0;
     }
-
-    .ct-icon-wa {
-      background: rgba(37, 211, 102, 0.15);
-      border: 1px solid rgba(37, 211, 102, 0.4);
-      color: #25d366;
+    .wa-icon-wrap {
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      color: #22c55e;
     }
-
-    .ct-icon-mail {
+    .fb-icon-wrap {
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+    }
+    .mail-icon-wrap {
       background: rgba(184, 0, 245, 0.15);
       border: 1px solid rgba(184, 0, 245, 0.4);
       color: #e879f9;
     }
-
-    .ct-icon-call {
-      background: rgba(59, 130, 246, 0.15);
-      border: 1px solid rgba(59, 130, 246, 0.4);
-      color: #60a5fa;
+    .call-icon-wrap {
+      background: rgba(52, 211, 153, 0.15);
+      border: 1px solid rgba(52, 211, 153, 0.35);
+      color: #34d399;
     }
-
-    .ct-touch-info {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .ct-touch-label {
-      font-size: 11px;
-      font-weight: 600;
-      color: rgba(225, 200, 250, 0.55);
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-      margin-bottom: 2px;
-    }
-
-    .ct-touch-val {
-      font-size: 14px;
-      font-weight: 600;
-      color: #ffffff;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .ct-copy-btn {
-      background: rgba(184, 0, 245, 0.15);
-      border: 1px solid rgba(184, 0, 245, 0.35);
-      color: #e879f9;
-      font-size: 11px;
-      font-weight: 600;
-      padding: 5px 10px;
-      border-radius: 6px;
-      cursor: pointer;
-      outline: none;
-      transition: all 0.2s ease;
-    }
-
-    .ct-copy-btn:hover {
-      background: #b800f5;
-      color: #ffffff;
-    }
-
-    /* Trust Highlights */
-    .ct-trust-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-
-    .ct-trust-box {
-      background: rgba(22, 6, 36, 0.5);
-      border: 1px solid rgba(184, 0, 245, 0.16);
-      border-radius: 12px;
-      padding: 14px 14px;
-    }
-
-    .ct-trust-title {
-      font-size: 13.5px;
-      font-weight: 700;
-      color: #ffffff;
-      margin: 0 0 3px;
-      display: flex;
+    .direct-live-pill {
+      display: inline-flex;
       align-items: center;
       gap: 6px;
-    }
-
-    .ct-trust-desc {
-      font-size: 11.5px;
-      color: rgba(225, 200, 250, 0.6);
-      margin: 0;
-      line-height: 1.4;
-    }
-
-    /* ── FAQ Section ── */
-    .ct-faq-sec {
-      max-width: 900px;
-      margin: 0 auto 90px;
-      padding: 0 24px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .ct-sec-title {
-      font-size: clamp(26px, 4vw, 42px);
-      color: #ffffff;
-      text-align: center;
-      margin: 0 0 10px;
-    }
-
-    .ct-faq-subtitle {
-      font-size: 14px;
-      color: rgba(225, 200, 250, 0.65);
-      text-align: center;
-      margin: 0 0 34px;
-    }
-
-    .ct-faq-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .ct-faq-item {
-      background: rgba(16, 4, 25, 0.75);
-      border: 1px solid rgba(184, 0, 245, 0.22);
-      border-radius: 14px;
-      overflow: hidden;
-      transition: all 0.22s ease;
-    }
-
-    .ct-faq-item:hover {
-      border-color: rgba(232, 121, 249, 0.45);
-    }
-
-    .ct-faq-q {
-      padding: 18px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      cursor: pointer;
-      color: #ffffff;
-      font-size: 15px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
       font-weight: 600;
-      user-select: none;
+      letter-spacing: 0.8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
     }
-
-    .ct-faq-icon {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: rgba(184, 0, 245, 0.18);
+    .wa-live-pill {
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #4ade80;
+    }
+    .fb-live-pill {
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+    }
+    .mail-live-pill {
+      background: rgba(184, 0, 245, 0.12);
+      border: 1px solid rgba(184, 0, 245, 0.3);
       color: #e879f9;
+    }
+    .call-live-pill {
+      background: rgba(52, 211, 153, 0.12);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      color: #34d399;
+    }
+    .live-dot-pulse {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+    .wa-pulse { background: #22c55e; box-shadow: 0 0 6px #22c55e; }
+    .fb-pulse { background: #38bdf8; box-shadow: 0 0 6px #38bdf8; }
+    .mail-pulse { background: #e879f9; box-shadow: 0 0 6px #e879f9; }
+    .call-pulse { background: #34d399; box-shadow: 0 0 6px #34d399; }
+    .direct-card-body {
+      margin-bottom: 16px;
+    }
+    .direct-card-tag {
+      display: block;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(225, 200, 250, 0.5);
+      margin-bottom: 5px;
+    }
+    .direct-card-val {
+      display: inline-block;
+      font-size: 17px;
+      font-weight: 700;
+      color: #ffffff;
+      text-decoration: none;
+      line-height: 1.3;
+      margin-bottom: 6px;
+      word-break: break-all;
+      transition: color 0.2s;
+    }
+    .direct-card-val:hover {
+      color: #e879f9;
+    }
+    .direct-card-desc {
+      font-size: 12.5px;
+      color: var(--wz-muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .direct-card-actions {
       display: flex;
+      gap: 8px;
+    }
+    .direct-actions-split {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 8px;
+    }
+    .direct-btn {
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.24s ease;
-      flex-shrink: 0;
+      gap: 7px;
+      font-family: 'Inter', sans-serif;
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      width: 100%;
+      box-sizing: border-box;
     }
-
-    .ct-faq-item.is-open .ct-faq-icon {
-      transform: rotate(180deg);
-      background: #b800f5;
+    .direct-btn-wa {
+      background: linear-gradient(135deg, #16a34a, #15803d);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(22, 163, 74, 0.35);
+    }
+    .direct-btn-wa:hover {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(22, 163, 74, 0.55);
+    }
+    .direct-btn-fb {
+      background: linear-gradient(135deg, #0284c7, #0369a1);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+    }
+    .direct-btn-fb:hover {
+      background: linear-gradient(135deg, #38bdf8, #0284c7);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.55);
+    }
+    .direct-btn-msg {
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+    }
+    .direct-btn-msg:hover {
+      background: rgba(56, 189, 248, 0.25);
       color: #ffffff;
     }
-
-    .ct-faq-a {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      padding: 0 20px;
-      font-size: 13.5px;
-      color: rgba(225, 200, 250, 0.7);
-      line-height: 1.6;
+    .direct-btn-mail {
+      background: linear-gradient(135deg, #b800f5, #7000a8);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(184, 0, 245, 0.35);
     }
-
-    .ct-faq-item.is-open .ct-faq-a {
-      padding-bottom: 18px;
+    .direct-btn-mail:hover {
+      background: linear-gradient(135deg, #d946ef, #9333ea);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(184, 0, 245, 0.55);
     }
-
-    @keyframes ctFadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
+    .direct-btn-copy {
+      background: rgba(184, 0, 245, 0.12);
+      border: 1px solid rgba(184, 0, 245, 0.35);
+      color: #e879f9;
     }
-
-    /* ── Mobile Queries ── */
-    @media (max-width: 900px) {
-      .ct-main-wrap {
+    .direct-btn-copy:hover {
+      background: rgba(184, 0, 245, 0.25);
+      color: #ffffff;
+    }
+    .direct-btn-call {
+      background: linear-gradient(135deg, #059669, #047857);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(5, 150, 105, 0.35);
+    }
+    .direct-btn-call:hover {
+      background: linear-gradient(135deg, #10b981, #059669);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(5, 150, 105, 0.55);
+    }
+    .channels-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 38px 0 30px;
+    }
+    .channels-divider-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(184, 0, 245, 0.35), transparent);
+    }
+    .channels-divider-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: var(--wz-accent-light);
+      background: rgba(18, 4, 28, 0.85);
+      border: 1px solid rgba(184, 0, 245, 0.28);
+      padding: 6px 16px;
+      border-radius: 999px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+      text-transform: uppercase;
+    }
+    .divider-sparkle {
+      color: #e879f9;
+      font-size: 11px;
+    }
+    @media (max-width: 768px) {
+      .direct-cards-grid {
         grid-template-columns: 1fr;
-        gap: 28px;
+        gap: 12px;
+      }
+      .direct-actions-split {
+        grid-template-columns: 1fr 1fr;
       }
     }
 
-    @media (max-width: 640px) {
-      .ct-hero-section {
-        padding: 85px 16px 20px;
-      }
-      .ct-hero-title {
-        font-size: clamp(26px, 7vw, 32px);
-      }
-      .ct-hero-sub {
-        font-size: 13px;
-      }
-      .ct-main-wrap {
-        padding: 0 14px;
-        margin-bottom: 50px;
-      }
-      .ct-form-card {
-        padding: 22px 18px;
-        border-radius: 18px;
-      }
-      .ct-card {
-        padding: 18px 16px;
-        border-radius: 16px;
-      }
-      .ct-chips-grid {
-        grid-template-columns: 1fr;
-      }
-      .ct-budget-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .ct-trust-grid {
-        grid-template-columns: 1fr;
-      }
-      .ct-faq-sec {
-        padding: 0 14px;
-        margin-bottom: 60px;
-      }
-      .ct-faq-q {
-        font-size: 14px;
-        padding: 14px 16px;
-      }
-    }
   </style>
 </head>
 <body class="home2">
-
 <div class="ct-page-wrapper">
 
-  <!-- ============ COSMIC VORTEX BACKGROUND ============ -->
   <div id="bg-scene" aria-hidden="true">
-    <div class="bg-corner-tl"></div>
-    <div class="bg-corner-tr"></div>
-    <div class="bg-vortex-wrap">
-      <div class="bg-vortex-ring"></div>
-    </div>
-    <div class="bg-light-pillar"></div>
-    <div class="bg-vortex-floor"></div>
-    <div class="bg-particles"></div>
-    <div class="bg-grain"></div>
+    <div class="bg-corner-tl"></div><div class="bg-corner-tr"></div>
+    <div class="bg-vortex-wrap"><div class="bg-vortex-ring"></div></div>
+    <div class="bg-light-pillar"></div><div class="bg-vortex-floor"></div>
+    <div class="bg-particles"></div><div class="bg-grain"></div>
   </div>
-  <!-- =================================================== -->
 
-  <!-- Top Navigation Bar (EXACT SAME AS PORTFOLIO & INDEX) -->
   <section class="header-section">
     <div role="banner" class="navbar-2">
       <div class="navbar-container w-container">
@@ -712,53 +477,21 @@
                   <a href="services.html" class="nav-link-2 w-nav-link" data-i18n="nav_services">Services</a>
                   <a href="portfolio.html" class="nav-link-2 w-nav-link" data-i18n="nav_portfolio">Portfolio</a>
                   <a href="contact.html" class="nav-link-2 w-nav-link is-current-page" data-i18n="nav_contact">Contact</a>
-                  <a href="/case-studies" target="_blank" class="nav-link-2 w-nav-link" data-i18n="nav_case_studies">Case Studies</a>
-                  <a href="/blog" target="_blank" class="nav-link-2 w-nav-link" data-i18n="nav_blog">Blog</a>
-                  <a href="/careers" class="nav-link-2" data-i18n="nav_careers">Careers</a>
-                  <a href="/personal-brand" class="nav-link-2 w-nav-link" data-i18n="nav_personal_brand">Personal Branding</a>
+                  <a href="/case-studies" target="_blank" class="nav-link-2 w-nav-link">Case Studies</a>
+                  <a href="/blog" target="_blank" class="nav-link-2 w-nav-link">Blog</a>
+                  <a href="/careers" class="nav-link-2">Careers</a>
+                  <a href="/personal-brand" class="nav-link-2 w-nav-link">Personal Branding</a>
                   <div class="nav-button-wrap mobile-only">
-                    <a href="https://wa.me/8801716705401" target="_blank" data-wf--button-home2--variant="nav-button" class="button-03 w-inline-block">
-                      <div class="button-text-wrapper w-variant-64a732d0-0f90-6c1d-602c-7753ea223767">
-                        <div class="button-text-wrap w-variant-64a732d0-0f90-6c1d-602c-7753ea223767">
-                          <div class="paragraph-02-m w-variant-64a732d0-0f90-6c1d-602c-7753ea223767">Let's Talk!</div>
-                        </div>
-                      </div>
-                      <div class="button-arrow-wrapper w-variant-64a732d0-0f90-6c1d-602c-7753ea223767">
-                        <div class="button-icon-wrap">
-                          <div class="button-icon w-embed">
-                            <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M13.4349 13.435L14.142 12.7279L15.5562 14.1421L16.9704 12.7279L18.3846 14.1421L9.89934 22.6274L11.3136 24.0416L19.7988 15.5564L21.2131 16.9706L19.7988 18.3848L21.2131 19.799L20.5059 20.5061L21.9202 21.9203L24.0415 19.799L22.6273 18.3848L24.0415 16.9706L22.6273 15.5564L24.0415 14.1421L23.3344 13.435L24.0415 12.7279L23.3344 12.0208L24.0415 11.3137L22.6273 9.8995L21.9202 10.6066L21.2131 9.8995L20.5059 10.6066L19.7988 9.8995L18.3846 11.3137L16.9704 9.8995L15.5562 11.3137L14.142 9.8995L12.0207 12.0208L13.4349 13.435Z" fill="white"/>
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
+                    <a href="https://wa.me/8801716705401" target="_blank" class="button-03 w-inline-block">
+                      <div class="button-text-wrapper"><div class="button-text-wrap"><div class="paragraph-02-m">Let's Talk!</div></div></div>
                     </a>
                   </div>
                 </nav>
-                <div class="menu-button-2">
-                  <div class="hamburger">
-                    <div class="hamburger-line-top"></div>
-                    <div class="hamburger-line-middle"></div>
-                    <div class="hamburger-line-bottom"></div>
-                  </div>
-                </div>
+                <div class="menu-button-2"><div class="hamburger"><div class="hamburger-line-top"></div><div class="hamburger-line-middle"></div><div class="hamburger-line-bottom"></div></div></div>
               </div>
               <div class="nav-button-wrap desktop-only">
-                <a href="https://wa.me/8801716705401" target="_blank" data-wf--button-home2--variant="nav-button" class="button-03 w-inline-block">
-                  <div class="button-text-wrapper w-variant-64a732d0-0f90-6c1d-602c-7753ea223767">
-                    <div class="button-text-wrap w-variant-64a732d0-0f90-6c1d-602c-7753ea223767">
-                      <div class="paragraph-02-m w-variant-64a732d0-0f90-6c1d-602c-7753ea223767">Let's Talk!</div>
-                    </div>
-                  </div>
-                  <div class="button-arrow-wrapper w-variant-64a732d0-0f90-6c1d-602c-7753ea223767">
-                    <div class="button-icon-wrap">
-                      <div class="button-icon w-embed">
-                        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M13.4349 13.435L14.142 12.7279L15.5562 14.1421L16.9704 12.7279L18.3846 14.1421L9.89934 22.6274L11.3136 24.0416L19.7988 15.5564L21.2131 16.9706L19.7988 18.3848L21.2131 19.799L20.5059 20.5061L21.9202 21.9203L24.0415 19.799L22.6273 18.3848L24.0415 16.9706L22.6273 15.5564L24.0415 14.1421L23.3344 13.435L24.0415 12.7279L23.3344 12.0208L24.0415 11.3137L22.6273 9.8995L21.9202 10.6066L21.2131 9.8995L20.5059 10.6066L19.7988 9.8995L18.3846 11.3137L16.9704 9.8995L15.5562 11.3137L14.142 9.8995L12.0207 12.0208L13.4349 13.435Z" fill="white"/>
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
+                <a href="https://wa.me/8801716705401" target="_blank" class="button-03 w-inline-block">
+                  <div class="button-text-wrapper"><div class="button-text-wrap"><div class="paragraph-02-m">Let's Talk!</div></div></div>
                 </a>
               </div>
             </div>
@@ -768,260 +501,601 @@
     </div>
   </section>
 
-  <!-- Hero Header Section -->
-  <header class="ct-hero-section">
-    <div class="ct-eyebrow-badge">
-      <span class="ct-eyebrow-dot"></span>
-      ACCEPTING NEW CLIENTS • &lt; 2H RESPONSE
-    </div>
-    <h1 class="ct-hero-title">
-      Let's Build Something<br>
-      <span class="ct-title-gradient">Extraordinary Together.</span>
-    </h1>
-    <p class="ct-hero-sub">
-      Looking for high-converting SaaS product promos, viral vertical reels, or a dedicated creative video team? Tell us your vision below.
-    </p>
-  </header>
+  <section class="lead-section">
+    <div class="lead-ambient-orb-1" aria-hidden="true"></div>
+    <div class="lead-ambient-orb-2" aria-hidden="true"></div>
+    <div class="lead-container">
 
-  <!-- Main 2-Column Contact Container -->
-  <main class="ct-main-wrap">
-
-    <!-- Column 1: Direct Touchpoints & VIP Founder Access -->
-    <div class="ct-info-col">
-
-      <!-- Direct Channels Card -->
-      <div class="ct-card">
-        <div class="ct-live-status">
-          <div class="ct-status-left">
-            <span class="ct-status-dot"></span>
-            Available for New Projects
+      <div class="lead-header-center">
+        <div class="lead-eyebrow-pill">
+          <div class="lead-pill-sparkle">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z" fill="#F5D0FE"/></svg>
           </div>
-          <span class="ct-status-speed">Avg Reply: ~30 Min</span>
+          1-ON-1 PROJECT INQUIRY
+        </div>
+        <h1 class="lead-title-large">Let's Build <span class="lead-title-gradient">Yours.</span></h1>
+        <p class="lead-subtitle-text">Answer a few quick questions below. Once done, launch your inquiry directly via WhatsApp or Email.</p>
+      </div>
+
+      
+      <!-- DIRECT CHANNELS GRID: WhatsApp, Facebook, Email, Phone -->
+      <div class="direct-channels-wrap">
+        <div class="direct-channels-header">
+          <div class="direct-channels-badge">
+            <span class="direct-badge-dot"></span>
+            DIRECT REACH &bull; ALL CHANNELS ACTIVE
+          </div>
+          <h2 class="direct-channels-title">Reach Us <span class="lead-title-gradient">Directly</span></h2>
+          <p class="direct-channels-sub">Contact our team immediately via any channel below &mdash; WhatsApp, Facebook Page, Email, or Phone Call.</p>
         </div>
 
-        <div class="ct-touch-list">
+        <div class="direct-cards-grid">
 
-          <!-- WhatsApp Direct -->
-          <a href="https://wa.me/8801716705401?text=Hi%20Rakib%2C%20I%20would%20like%20to%20discuss%20a%20video%20project%20with%20Zentic%20Media" target="_blank" class="ct-touch-item">
-            <div class="ct-touch-icon ct-icon-wa">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-              </svg>
+          <!-- 1. WHATSAPP -->
+          <div class="direct-card direct-card-wa">
+            <div class="direct-card-top">
+              <div class="direct-icon-wrap wa-icon-wrap">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="direct-live-pill wa-live-pill">
+                <span class="live-dot-pulse wa-pulse"></span>
+                Instant Reply
+              </div>
             </div>
-            <div class="ct-touch-info">
-              <div class="ct-touch-label">Direct WhatsApp Chat</div>
-              <div class="ct-touch-val">+880 1716 705401</div>
+            <div class="direct-card-body">
+              <span class="direct-card-tag">OFFICIAL WHATSAPP</span>
+              <a href="https://wa.me/8801716705401" target="_blank" class="direct-card-val">+880 1716 705401</a>
+              <p class="direct-card-desc">Fastest way to get quotes, project timelines &amp; immediate creative consultation.</p>
             </div>
-            <span class="ct-copy-btn">Open ➔</span>
-          </a>
-
-          <!-- Email Direct -->
-          <div class="ct-touch-item" style="cursor: default;">
-            <div class="ct-touch-icon ct-icon-mail">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-              </svg>
+            <div class="direct-card-actions">
+              <a href="https://wa.me/8801716705401" target="_blank" class="direct-btn direct-btn-wa">
+                Chat on WhatsApp
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
             </div>
-            <div class="ct-touch-info">
-              <div class="ct-touch-label">Email Support</div>
-              <div class="ct-touch-val">technicalrakib999@gmail.com</div>
+          </div>
+
+          <!-- 2. FACEBOOK PAGE & MESSENGER -->
+          <div class="direct-card direct-card-fb">
+            <div class="direct-card-top">
+              <div class="direct-icon-wrap fb-icon-wrap">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="direct-live-pill fb-live-pill">
+                <span class="live-dot-pulse fb-pulse"></span>
+                Official Page
+              </div>
             </div>
-            <button type="button" class="ct-copy-btn" id="copy-email-btn" data-email="technicalrakib999@gmail.com">Copy</button>
-          </div>
-
-          <!-- Direct Phone Call -->
-          <a href="tel:+8801716705401" class="ct-touch-item">
-            <div class="ct-touch-icon ct-icon-call">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-              </svg>
+            <div class="direct-card-body">
+              <span class="direct-card-tag">FACEBOOK PAGE &amp; MESSENGER</span>
+              <a href="https://facebook.com/neel.nafis" target="_blank" class="direct-card-val">facebook.com/neel.nafis</a>
+              <p class="direct-card-desc">Follow our latest work showcases or message our team directly via Messenger.</p>
             </div>
-            <div class="ct-touch-info">
-              <div class="ct-touch-label">Direct Line / Cell</div>
-              <div class="ct-touch-val">+880 1716 705401</div>
+            <div class="direct-card-actions direct-actions-split">
+              <a href="https://facebook.com/neel.nafis" target="_blank" class="direct-btn direct-btn-fb">
+                Visit Facebook
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="https://m.me/neel.nafis" target="_blank" class="direct-btn direct-btn-msg">
+                Messenger
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              </a>
             </div>
-            <span class="ct-copy-btn">Call</span>
-          </a>
+          </div>
+
+          <!-- 3. OFFICIAL EMAIL -->
+          <div class="direct-card direct-card-mail">
+            <div class="direct-card-top">
+              <div class="direct-icon-wrap mail-icon-wrap">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e879f9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </div>
+              <div class="direct-live-pill mail-live-pill">
+                <span class="live-dot-pulse mail-pulse"></span>
+                Founder Inbox
+              </div>
+            </div>
+            <div class="direct-card-body">
+              <span class="direct-card-tag">OFFICIAL EMAIL</span>
+              <a href="mailto:technicalrakib999@gmail.com" class="direct-card-val">technicalrakib999@gmail.com</a>
+              <p class="direct-card-desc">Send project briefs, attachments, script documents &amp; commercial RFPs.</p>
+            </div>
+            <div class="direct-card-actions direct-actions-split">
+              <a href="mailto:technicalrakib999@gmail.com" class="direct-btn direct-btn-mail">
+                Send Email
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <button type="button" class="direct-btn direct-btn-copy" onclick="copyEmail(this)">
+                Copy Email
+              </button>
+            </div>
+          </div>
+
+          <!-- 4. DIRECT PHONE CALL -->
+          <div class="direct-card direct-card-call">
+            <div class="direct-card-top">
+              <div class="direct-icon-wrap call-icon-wrap">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div class="direct-live-pill call-live-pill">
+                <span class="live-dot-pulse call-pulse"></span>
+                10 AM &ndash; 10 PM BST
+              </div>
+            </div>
+            <div class="direct-card-body">
+              <span class="direct-card-tag">DIRECT PHONE / CELL</span>
+              <a href="tel:+8801716705401" class="direct-card-val">+880 1716 705401</a>
+              <p class="direct-card-desc">Call Rakib directly for urgent project timelines or enterprise partnerships.</p>
+            </div>
+            <div class="direct-card-actions">
+              <a href="tel:+8801716705401" class="direct-btn direct-btn-call">
+                Direct Call Now
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
 
         </div>
       </div>
 
-      <!-- Trust Highlights Card -->
-      <div class="ct-card">
-        <div style="font-size: 15px; font-weight: 700; color: #ffffff; margin-bottom: 14px;">The Zentic Guarantee</div>
-        <div class="ct-trust-grid">
-          <div class="ct-trust-box">
-            <div class="ct-trust-title">⚡ 48-72h Drafts</div>
-            <p class="ct-trust-desc">Rapid turnaround on initial cuts so you never miss launch dates.</p>
-          </div>
-          <div class="ct-trust-box">
-            <div class="ct-trust-title">🔄 Unlimited Rounds</div>
-            <p class="ct-trust-desc">We polish and refine frame-by-frame until you're 100% satisfied.</p>
-          </div>
-          <div class="ct-trust-box">
-            <div class="ct-trust-title">🎯 Hook &amp; Retention</div>
-            <p class="ct-trust-desc">Every video is engineered for maximum retention, CTR and ROAS.</p>
-          </div>
-          <div class="ct-trust-box">
-            <div class="ct-trust-title">🌍 Global Clients</div>
-            <p class="ct-trust-desc">Serving founders across the USA, UK, Europe, Australia &amp; Asia.</p>
-          </div>
+      <!-- OR QUESTIONNAIRE WIZARD DIVIDER -->
+      <div class="channels-divider">
+        <div class="channels-divider-line"></div>
+        <div class="channels-divider-badge">
+          <span class="divider-sparkle">&#10022;</span>
+          OR COMPLETE THE 6-STEP PROJECT QUESTIONNAIRE
+          <span class="divider-sparkle">&#10022;</span>
         </div>
+        <div class="channels-divider-line"></div>
       </div>
 
-    </div>
+      <div class="lead-wizard-wrapper">
 
-    <!-- Column 2: Interactive Glassmorphic Inquiry Form -->
-    <div class="ct-form-card">
-      <div class="ct-form-header">
-        <h2 class="ct-form-title">Start a Project</h2>
-        <p class="ct-form-sub">Fill out the quick briefing below and get a detailed quote within hours.</p>
+        <div class="lead-tracker-bar">
+          <div class="lead-tracker-meta">
+            <div class="lead-active-badge">
+              <span class="lead-live-dot"></span>
+              <span id="wizardStepLabel">QUESTION 01 OF 06</span>
+            </div>
+            <span class="lead-percent-badge" id="wizardPercentLabel">16% COMPLETED</span>
+          </div>
+          <div class="lead-segments-row">
+            <div class="lead-segment current" id="seg1"></div>
+            <div class="lead-segment" id="seg2"></div>
+            <div class="lead-segment" id="seg3"></div>
+            <div class="lead-segment" id="seg4"></div>
+            <div class="lead-segment" id="seg5"></div>
+            <div class="lead-segment" id="seg6"></div>
+          </div>
+        </div>
+
+        <!-- STEP 1: NAME -->
+        <div class="step-pane active" id="paneStep1">
+          <div class="step-heading-group">
+            <span class="step-number-tag">01 &bull; INTRODUCTION</span>
+            <h2 class="step-prompt-title">What is your name?</h2>
+            <p class="step-prompt-sub">Let us know who we're talking to so we can personalize everything.</p>
+          </div>
+          <div class="lead-input-container">
+            <div class="lead-input-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <input type="text" class="lead-input-field" id="wizardName" placeholder="e.g. John Doe / Rakib Ahmed" autofocus autocomplete="name"/>
+            <div class="lead-field-error" id="errWizardName">Please provide your name to continue.</div>
+          </div>
+          <div class="lead-nav-footer">
+            <div></div>
+            <div class="nav-actions-right">
+              <button type="button" class="btn-nav-next" onclick="wizardNext(1)" id="btnNext1">
+                Next Question
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2: WHATSAPP -->
+        <div class="step-pane" id="paneStep2">
+          <div class="step-heading-group">
+            <span class="step-number-tag">02 &bull; CONTACT</span>
+            <h2 class="step-prompt-title">What is your WhatsApp number?</h2>
+            <p class="step-prompt-sub">We'll connect here with instant updates, sample edits, and proposals.</p>
+          </div>
+          <div class="lead-input-container">
+            <div class="lead-input-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <input type="tel" class="lead-input-field" id="wizardWA" placeholder="+880 1716 705401 or your country code" autocomplete="tel"/>
+            <div class="lead-field-error" id="errWizardWA">Please provide a valid WhatsApp or contact number.</div>
+          </div>
+          <div class="lead-nav-footer">
+            <button type="button" class="btn-nav-back" onclick="wizardBack(2)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Back
+            </button>
+            <div class="nav-actions-right">
+              <button type="button" class="btn-nav-next" onclick="wizardNext(2)" id="btnNext2">
+                Next Question
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3: SERVICE -->
+        <div class="step-pane" id="paneStep3">
+          <div class="step-heading-group">
+            <span class="step-number-tag">03 &bull; SERVICE</span>
+            <h2 class="step-prompt-title">What service are you looking for?</h2>
+            <p class="step-prompt-sub">Select your required service from the dropdown below.</p>
+          </div>
+          <div class="lead-input-container">
+            <div class="lead-input-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <select class="lead-input-field lead-select-field" id="wizardService">
+              <option value="" disabled selected>Select a service...</option>
+              <option value="SaaS Product Promo (16:9)">&#127916; SaaS Product Promo (16:9)</option>
+              <option value="Viral Reels / Shorts (9:16)">&#128241; Viral Reels / Shorts (9:16)</option>
+              <option value="YouTube Editing / Talking Head">&#127897;&#65039; YouTube Editing / Talking Head</option>
+              <option value="Commercial / Motion Design">&#127902;&#65039; Commercial / Motion Design</option>
+              <option value="Full Monthly Retainer">&#128260; Full Monthly Retainer Package</option>
+              <option value="Other / Custom">&#128161; Other / Custom Brief</option>
+            </select>
+            <div class="lead-field-error" id="errWizardService">Please select a service to continue.</div>
+          </div>
+          <div class="lead-nav-footer">
+            <button type="button" class="btn-nav-back" onclick="wizardBack(3)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Back
+            </button>
+            <div class="nav-actions-right">
+              <button type="button" class="btn-nav-next" onclick="wizardNext(3)" id="btnNext3">
+                Next Question
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 4: WEBSITE -->
+        <div class="step-pane" id="paneStep4">
+          <div class="step-heading-group">
+            <span class="step-number-tag">04 &bull; WEB PRESENCE (OPTIONAL)</span>
+            <h2 class="step-prompt-title">Do you have a website or social link?</h2>
+            <p class="step-prompt-sub">Share your website URL, YouTube channel, or page so we can audit your current style.</p>
+          </div>
+          <div class="lead-input-container">
+            <div class="lead-input-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <input type="url" class="lead-input-field" id="wizardWebsite" placeholder="https://yourbrand.com or social link"/>
+          </div>
+          <div class="lead-nav-footer">
+            <button type="button" class="btn-nav-back" onclick="wizardBack(4)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Back
+            </button>
+            <div class="nav-actions-right">
+              <button type="button" class="btn-nav-skip" onclick="wizardSkip(4)">Skip</button>
+              <button type="button" class="btn-nav-next" onclick="wizardNext(4)" id="btnNext4">
+                Next Question
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 5: BUDGET -->
+        <div class="step-pane" id="paneStep5">
+          <div class="step-heading-group">
+            <span class="step-number-tag">05 &bull; BUDGET (OPTIONAL)</span>
+            <h2 class="step-prompt-title">What is your monthly budget range?</h2>
+            <p class="step-prompt-sub">Select your estimated budget range from the dropdown.</p>
+          </div>
+          <div class="lead-input-container">
+            <div class="lead-input-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><line x1="12" y1="1" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <select class="lead-input-field lead-select-field" id="wizardBudget">
+              <option value="" disabled selected>Select budget range...</option>
+              <option value="Under $500 / Month">Under $500 / Month</option>
+              <option value="$500 - $1,000 / Month">$500 &ndash; $1,000 / Month</option>
+              <option value="$1,000 - $2,500 / Month">$1,000 &ndash; $2,500 / Month</option>
+              <option value="$2,500 - $5,000 / Month">$2,500 &ndash; $5,000 / Month</option>
+              <option value="$5,000+ / Month">$5,000+ / Month</option>
+              <option value="One-Time Project - Discuss First">One-Time Project &ndash; Discuss First</option>
+            </select>
+          </div>
+          <div class="lead-nav-footer">
+            <button type="button" class="btn-nav-back" onclick="wizardBack(5)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Back
+            </button>
+            <div class="nav-actions-right">
+              <button type="button" class="btn-nav-skip" onclick="wizardSkip(5)">Skip</button>
+              <button type="button" class="btn-nav-next" onclick="wizardNext(5)" id="btnNext5">
+                Next Question
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 6: PROJECT DETAILS -->
+        <div class="step-pane" id="paneStep6">
+          <div class="step-heading-group">
+            <span class="step-number-tag">06 &bull; PROJECT DETAILS</span>
+            <h2 class="step-prompt-title">Tell us about your project or any questions</h2>
+            <p class="step-prompt-sub">Mention your goals, deadlines, video ideas, or anything you'd like to ask directly.</p>
+          </div>
+          <div class="lead-quick-tags">
+            <button type="button" class="quick-tag-chip" onclick="appendPromptTag('Need videos for a SaaS product launch')">&#128640; SaaS Launch</button>
+            <button type="button" class="quick-tag-chip" onclick="appendPromptTag('Looking for viral reels for social media')">&#128241; Viral Reels</button>
+            <button type="button" class="quick-tag-chip" onclick="appendPromptTag('Want a YouTube channel editing partner')">&#127897;&#65039; YouTube Partner</button>
+            <button type="button" class="quick-tag-chip" onclick="appendPromptTag('Need a monthly retainer for consistent content')">&#128260; Monthly Retainer</button>
+            <button type="button" class="quick-tag-chip" onclick="appendPromptTag('Urgent deadline - need delivery ASAP')">&#9889; Urgent Delivery</button>
+          </div>
+          <textarea class="lead-textarea-box" id="wizardMsg" placeholder="e.g. I have a SaaS tool launching in 2 weeks and need a 60-second product demo video with motion graphics..."></textarea>
+          <div class="lead-nav-footer">
+            <button type="button" class="btn-nav-back" onclick="wizardBack(6)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Back
+            </button>
+            <div class="nav-actions-right">
+              <button type="button" class="btn-nav-next" onclick="wizardNext(6)" id="btnNext6">
+                Review &amp; Send
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 7: REVIEW & SEND -->
+        <div class="step-pane" id="paneStep7">
+          <div class="step-heading-group">
+            <span class="step-number-tag">&#10024; READY TO LAUNCH</span>
+            <h2 class="step-prompt-title">Everything Looks Perfect!</h2>
+            <p class="step-prompt-sub">Review your project blueprint below and tap your preferred channel to connect:</p>
+          </div>
+          <div class="lead-receipt-card">
+            <div class="receipt-header-row">
+              <span class="receipt-title-label">PROJECT BLUEPRINT SUMMARY</span>
+              <button type="button" class="receipt-edit-link" onclick="goToWizardStep(1)">&#9998; Edit answers</button>
+            </div>
+            <div class="receipt-data-grid">
+              <div class="receipt-item"><span class="receipt-label">&#128100; Full Name</span><span class="receipt-val" id="summaryName">&mdash;</span></div>
+              <div class="receipt-item"><span class="receipt-label">&#128172; WhatsApp</span><span class="receipt-val" id="summaryWA">&mdash;</span></div>
+              <div class="receipt-item"><span class="receipt-label">&#127919; Service Needed</span><span class="receipt-val" id="summaryService" style="color:#E879F9;">&mdash;</span></div>
+              <div class="receipt-item"><span class="receipt-label">&#127760; Web / Social Link</span><span class="receipt-val" id="summaryWebsite">Not specified</span></div>
+              <div class="receipt-item"><span class="receipt-label">&#128176; Monthly Budget</span><span class="receipt-val" id="summaryBudget">Discuss first</span></div>
+              <div class="receipt-item full-width"><span class="receipt-label">&#128221; Project Details &amp; Questions</span><span class="receipt-val" id="summaryMsg" style="font-weight:400;font-size:13.5px;line-height:1.6;color:rgba(255,255,255,0.85);">&mdash;</span></div>
+            </div>
+          </div>
+          <div class="lead-final-buttons">
+            <button type="button" class="lead-big-btn lead-btn-wa-hero" onclick="fireSendWA()" id="btnSendWA">
+              <div class="big-btn-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="white"/><path d="M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.893c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652c1.746.943 3.71 1.444 5.71 1.447h.005c6.585 0 11.946-5.336 11.949-11.896.001-3.18-1.24-6.165-3.479-8.45z" fill="white" opacity=".35"/></svg>
+              </div>
+              <div class="big-btn-content">
+                <span class="big-btn-title">Send via WhatsApp <span style="font-size:11px;background:rgba(255,255,255,0.25);padding:2px 7px;border-radius:10px;">Fastest</span></span>
+                <span class="big-btn-subtitle">Direct chat with Rakib (+8801716705401)</span>
+              </div>
+              <div class="big-btn-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            </button>
+            <button type="button" class="lead-big-btn lead-btn-email-hero" onclick="fireSendEmail()" id="btnSendEmail">
+              <div class="big-btn-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="3" stroke="white" stroke-width="2"/><path d="M2 7l10 7 10-7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="big-btn-content">
+                <span class="big-btn-title">Send via Email</span>
+                <span class="big-btn-subtitle">technicalrakib999@gmail.com</span>
+              </div>
+              <div class="big-btn-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            </button>
+          </div>
+          <div class="lead-guarantee-note">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Direct response from Rakib &bull; Typical reply within 1-2 hours on WhatsApp
+          </div>
+          <div class="lead-nav-footer" style="margin-top:22px;padding-top:16px;">
+            <button type="button" class="btn-nav-back" onclick="wizardBack(7)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Back to edit questions
+            </button>
+            <div></div>
+          </div>
+        </div>
+
       </div>
-
-      <form id="ct-inquiry-form">
-
-        <!-- 1. Service Needed -->
-        <div class="ct-group">
-          <label class="ct-label">1. What type of video do you need?</label>
-          <div class="ct-chips-grid">
-            <button type="button" class="ct-chip-btn is-selected" data-val="SaaS Promo (16:9)">🎬 SaaS Product Promo</button>
-            <button type="button" class="ct-chip-btn" data-val="Viral Reels (9:16)">📱 Viral Reels / Shorts</button>
-            <button type="button" class="ct-chip-btn" data-val="YouTube / Talking Head">🎙️ YouTube &amp; Podcast</button>
-            <button type="button" class="ct-chip-btn" data-val="Commercial Campaign">🇧🇩 Commercial / Ad</button>
-          </div>
-          <input type="hidden" name="service" id="ct-service-input" value="SaaS Promo (16:9)"/>
-        </div>
-
-        <!-- 2. Name & Email -->
-        <div class="ct-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-          <div>
-            <label class="ct-label" for="ct-name">Your Name *</label>
-            <input type="text" id="ct-name" class="ct-input" placeholder="e.g. Alex Smith" required/>
-          </div>
-          <div>
-            <label class="ct-label" for="ct-email">Email Address *</label>
-            <input type="email" id="ct-email" class="ct-input" placeholder="alex@company.com" required/>
-          </div>
-        </div>
-
-        <!-- 3. Brand / Website Link -->
-        <div class="ct-group">
-          <label class="ct-label" for="ct-link">Website / Social Profile (Optional)</label>
-          <input type="url" id="ct-link" class="ct-input" placeholder="https://yourbrand.com"/>
-        </div>
-
-        <!-- 4. Estimated Budget -->
-        <div class="ct-group">
-          <label class="ct-label">Estimated Project Budget</label>
-          <div class="ct-budget-grid">
-            <button type="button" class="ct-budget-pill" data-val="Under $1,000">&lt; $1k</button>
-            <button type="button" class="ct-budget-pill is-selected" data-val="$1,000 - $2,500">$1k - $2.5k</button>
-            <button type="button" class="ct-budget-pill" data-val="$2,500 - $5,000">$2.5k - $5k</button>
-            <button type="button" class="ct-budget-pill" data-val="$5,000+">$5k+</button>
-          </div>
-          <input type="hidden" name="budget" id="ct-budget-input" value="$1,000 - $2,500"/>
-        </div>
-
-        <!-- 5. Project Details -->
-        <div class="ct-group">
-          <label class="ct-label" for="ct-message">Project Goals &amp; Details</label>
-          <textarea id="ct-message" class="ct-textarea" placeholder="Briefly describe what you're looking to build, deadlines, or any inspiration links..."></textarea>
-        </div>
-
-        <!-- Submit Button -->
-        <button type="submit" class="ct-submit-btn" id="ct-submit-btn">
-          <span>Send Project Inquiry</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </button>
-
-      </form>
-
-      <!-- Success State Confirmation -->
-      <div id="ct-success-card" class="ct-success-card">
-        <div class="ct-success-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <polyline points="20 6 9 17 4 12"></polyline>
-          </svg>
-        </div>
-        <h3 class="ct-success-title">Inquiry Sent Successfully!</h3>
-        <p class="ct-success-desc">
-          Thank you for reaching out. We have received your project details and our lead editor will get back to you within 2 hours.
-        </p>
-        <a href="https://wa.me/8801716705401" target="_blank" class="ct-submit-btn" style="text-decoration: none;">
-          <span>Chat on WhatsApp Directly</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-          </svg>
-        </a>
-      </div>
-
-    </div>
-
-  </main>
-
-  <!-- FAQ Section -->
-  <section class="ct-faq-sec">
-    <h2 class="ct-sec-title">Frequently Asked Questions</h2>
-    <p class="ct-faq-subtitle">Everything you need to know before we begin your project.</p>
-
-    <div class="ct-faq-list">
-
-      <div class="ct-faq-item is-open">
-        <div class="ct-faq-q">
-          <span>How fast can we receive the first video draft?</span>
-          <div class="ct-faq-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </div>
-        </div>
-        <div class="ct-faq-a" style="max-height: 200px;">
-          For most social reels, shorts, and SaaS promos, our initial cut turnaround is between 48 to 72 hours. Larger, multi-scene 3D animations or full commercial campaigns typically take 5-7 business days.
-        </div>
-      </div>
-
-      <div class="ct-faq-item">
-        <div class="ct-faq-q">
-          <span>How does the revision and feedback process work?</span>
-          <div class="ct-faq-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </div>
-        </div>
-        <div class="ct-faq-a">
-          We use Frame.io, Google Drive, and Notion for seamless collaboration. You can pause at any exact second and leave timestamps or notes. We refine until you are 100% happy with every single frame.
-        </div>
-      </div>
-
-      <div class="ct-faq-item">
-        <div class="ct-faq-q">
-          <span>Do you work with startups on ongoing monthly retainers?</span>
-          <div class="ct-faq-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </div>
-        </div>
-        <div class="ct-faq-a">
-          Yes! Over 70% of our clients work with us on a dedicated monthly retainer (e.g. 12-20 vertical videos/month, or continuous product launches). Retainers give you priority turnaround and a dedicated editor.
-        </div>
-      </div>
-
-      <div class="ct-faq-item">
-        <div class="ct-faq-q">
-          <span>Can we schedule a quick discovery call first?</span>
-          <div class="ct-faq-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </div>
-        </div>
-        <div class="ct-faq-a">
-          Absolutely! Reach out via WhatsApp or submit the form above, and we can immediately jump on a quick 15-minute Google Meet or Zoom discovery call to align on your vision and scope.
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <!-- ================= FOOTER ================= -->
+  <div class="lead-toast-floating" id="wizardToast">
+    <div style="width:24px;height:24px;border-radius:50%;background:rgba(34,197,94,0.2);display:flex;align-items:center;justify-content:center;color:#4ade80;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <span id="wizardToastMsg">Opening WhatsApp... Please press Send!</span>
+  </div>
+
+</div>
+
+<script src="js/i18n.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var menuBtn = document.querySelector('.menu-button-2');
+  var navMenu = document.querySelector('.nav-menu-2');
+  if (menuBtn && navMenu) {
+    menuBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var open = navMenu.classList.toggle('w--open');
+      menuBtn.classList.toggle('w--open', open);
+    });
+    document.addEventListener('click', function(e) {
+      if (!menuBtn.contains(e.target) && !navMenu.contains(e.target)) {
+        navMenu.classList.remove('w--open');
+        menuBtn.classList.remove('w--open');
+      }
+    });
+  }
+});
+</script>
+<script>
+(function() {
+  var activeStep = 1;
+  var stepTitles = {1:'QUESTION 01 OF 06',2:'QUESTION 02 OF 06',3:'QUESTION 03 OF 06',4:'QUESTION 04 OF 06',5:'QUESTION 05 OF 06',6:'QUESTION 06 OF 06',7:'FINAL REVIEW & CONNECT'};
+  var stepPercents = {1:'16% COMPLETED',2:'33% COMPLETED',3:'50% COMPLETED',4:'66% COMPLETED',5:'83% COMPLETED',6:'95% COMPLETED',7:'100% READY'};
+
+  function getBlueprint() {
+    var svcEl = document.getElementById('wizardService');
+    var bdgEl = document.getElementById('wizardBudget');
+    return {
+      name:    (document.getElementById('wizardName').value||'').trim(),
+      wa:      (document.getElementById('wizardWA').value||'').trim(),
+      service: (svcEl&&svcEl.value?svcEl.value:'Video Editing').trim(),
+      website: (document.getElementById('wizardWebsite').value||'').trim(),
+      budget:  (bdgEl&&bdgEl.value?bdgEl.value:'Discuss first').trim(),
+      msg:     (document.getElementById('wizardMsg').value||'').trim()
+    };
+  }
+
+  window.goToWizardStep = function(step) {
+    if (step < 1 || step > 7) return;
+    var cur = document.getElementById('paneStep' + activeStep);
+    var tgt = document.getElementById('paneStep' + step);
+    if (cur) cur.classList.remove('active');
+    if (tgt) {
+      tgt.classList.add('active');
+      var inp = tgt.querySelector('input,textarea');
+      if (inp && step !== 3 && step !== 5) setTimeout(function(){inp.focus();}, 120);
+    }
+    activeStep = step;
+    var lbl = document.getElementById('wizardStepLabel');
+    var pct = document.getElementById('wizardPercentLabel');
+    if (lbl) lbl.textContent = stepTitles[step]||'';
+    if (pct) pct.textContent = stepPercents[step]||'';
+    for (var i=1; i<=6; i++) {
+      var seg = document.getElementById('seg'+i);
+      if (!seg) continue;
+      seg.classList.remove('completed','current');
+      if (i < step) seg.classList.add('completed');
+      else if (i===step||(step===7&&i===6)) seg.classList.add('current');
+    }
+    if (step===7) renderSummary();
+  };
+
+  window.wizardNext = function(step) {
+    if (step===1) {
+      var v=(document.getElementById('wizardName').value||'').trim();
+      var inp=document.getElementById('wizardName'); var err=document.getElementById('errWizardName');
+      if(!v){inp.classList.add('error');err.style.display='block';return;}
+      inp.classList.remove('error');err.style.display='none';window.goToWizardStep(2);
+    } else if (step===2) {
+      var v=(document.getElementById('wizardWA').value||'').trim();
+      var inp=document.getElementById('wizardWA'); var err=document.getElementById('errWizardWA');
+      if(!v||v.length<5){inp.classList.add('error');err.style.display='block';return;}
+      inp.classList.remove('error');err.style.display='none';window.goToWizardStep(3);
+    } else if (step===3) {
+      var sel=document.getElementById('wizardService'); var err=document.getElementById('errWizardService');
+      if(sel&&!sel.value){sel.classList.add('error');if(err)err.style.display='block';return;}
+      if(sel)sel.classList.remove('error');if(err)err.style.display='none';window.goToWizardStep(4);
+    } else if (step===4) { window.goToWizardStep(5);
+    } else if (step===5) { window.goToWizardStep(6);
+    } else if (step===6) { window.goToWizardStep(7); }
+  };
+
+  window.wizardBack = function(step) { if(step>1) window.goToWizardStep(step-1); };
+  window.wizardSkip = function(step) { window.goToWizardStep(step+1); };
+
+  window.appendPromptTag = function(tag) {
+    var area=document.getElementById('wizardMsg'); if(!area) return;
+    var cur=area.value.trim();
+    if(cur.indexOf(tag)===-1) area.value=cur?(cur+'\n- '+tag):('- '+tag);
+    area.focus();
+  };
+
+  var svcSel=document.getElementById('wizardService');
+  if(svcSel) svcSel.addEventListener('change',function(){this.classList.remove('error');var e=document.getElementById('errWizardService');if(e)e.style.display='none';});
+
+  ['wizardName','wizardWA','wizardWebsite'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(!el) return;
+    el.addEventListener('keydown',function(e){
+      if(e.key==='Enter'){e.preventDefault();
+        if(id==='wizardName') wizardNext(1);
+        else if(id==='wizardWA') wizardNext(2);
+        else if(id==='wizardWebsite') wizardNext(4);}
+    });
+    el.addEventListener('input',function(){this.classList.remove('error');var err=document.getElementById('err'+id.charAt(0).toUpperCase()+id.slice(1));if(err)err.style.display='none';});
+  });
+
+  function renderSummary() {
+    var bp=getBlueprint();
+    document.getElementById('summaryName').textContent=bp.name||'—';
+    document.getElementById('summaryWA').textContent=bp.wa||'—';
+    document.getElementById('summaryService').textContent=bp.service||'Video Editing';
+    document.getElementById('summaryWebsite').textContent=bp.website||'None provided';
+    document.getElementById('summaryBudget').textContent=bp.budget||'Discuss first';
+    document.getElementById('summaryMsg').textContent=bp.msg||'No additional note provided.';
+  }
+
+  function showToast(msg) {
+    var t=document.getElementById('wizardToast'); var txt=document.getElementById('wizardToastMsg');
+    if(txt) txt.textContent=msg;
+    t.classList.add('show');
+    setTimeout(function(){t.classList.remove('show');},4500);
+  }
+
+  function buildWAMsg(d) {
+    var lines=['Hi Rakib! I am contacting you from your portfolio website.','','*PROJECT BLUEPRINT:*','- Client Name: '+d.name,'- WhatsApp: '+d.wa,'- Service Needed: '+d.service,d.website?('- Website/Link: '+d.website):'',d.budget?('- Budget Range: '+d.budget):'',d.msg?('\nProject Notes:\n'+d.msg):'','','Excited to hear back and get started!'];
+    return lines.filter(function(l,i,a){return !(l===''&&(i===0||a[i-1]===''));}).join('\n');
+  }
+
+  function buildEmailBody(d) {
+    return ['Hi Rakib,','','I am reaching out via your portfolio website with a new project inquiry.','','==========================================','PROJECT BLUEPRINT','==========================================','- Client Name: '+d.name,'- WhatsApp: '+d.wa,'- Service Needed: '+d.service,d.website?('- Website: '+d.website):'- Website: None provided',d.budget?('- Budget: '+d.budget):'- Budget: Discuss first','','- Project Notes:',d.msg||'No extra notes provided.','','==========================================','Looking forward to your reply!','','Best regards,',d.name].join('\n');
+  }
+
+  window.fireSendWA = function() {
+    var bp=getBlueprint();
+    if(!bp.name||!bp.wa){alert('Please enter your name and WhatsApp number first.');window.goToWizardStep(1);return;}
+    window.open('https://wa.me/8801716705401?text='+encodeURIComponent(buildWAMsg(bp)),'_blank');
+    showToast('WhatsApp launched! Please hit Send to deliver your message.');
+  };
+
+  
+  window.copyEmail = function(btn) {
+    var email = 'technicalrakib999@gmail.com';
+    navigator.clipboard.writeText(email).then(function() {
+      var orig = btn.innerText;
+      btn.innerText = 'Copied!';
+      btn.style.background = '#22c55e';
+      btn.style.borderColor = '#22c55e';
+      btn.style.color = '#ffffff';
+      if (typeof showToast === 'function') {
+        showToast('Email technicalrakib999@gmail.com copied to clipboard!');
+      }
+      setTimeout(function() {
+        btn.innerText = orig;
+        btn.style.background = '';
+        btn.style.borderColor = '';
+        btn.style.color = '';
+      }, 2000);
+    }).catch(function() {
+      prompt('Copy email address:', email);
+    });
+  };
+
+  window.fireSendEmail = function() {
+    var bp=getBlueprint();
+    if(!bp.name||!bp.wa){alert('Please enter your name and WhatsApp number first.');window.goToWizardStep(1);return;}
+    var subj='New Project Inquiry: '+bp.service+' - '+bp.name;
+    window.location.href='mailto:technicalrakib999@gmail.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(buildEmailBody(bp));
+    showToast('Email client opened! Please send the drafted email.');
+  };
+})();
+</script>
+
+
+<!-- ================= FOOTER (EXACT 2-SIDE MOBILE-FRIENDLY FOOTER) ================= -->
   <section class="zf-footer" id="footer">
     <style>
     .zf-footer {
@@ -1101,31 +1175,29 @@
       padding: 12px 24px;
       border-radius: 999px;
       text-decoration: none;
-      box-shadow: 0 6px 20px rgba(184, 0, 245, 0.4);
-      transition: all 0.24s ease;
+      box-shadow: 0 4px 18px rgba(184, 0, 245, 0.45);
+      transition: all 0.25s ease;
     }
     .zf-cta-btn:hover {
-      background: linear-gradient(135deg, #d946ef 0%, #9333ea 100%);
       transform: translateY(-2px);
-      box-shadow: 0 8px 26px rgba(184, 0, 245, 0.6);
-      color: #ffffff;
+      box-shadow: 0 6px 24px rgba(184, 0, 245, 0.65);
     }
     .zf-cta-wa {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: rgba(37, 211, 102, 0.12);
-      border: 1px solid rgba(37, 211, 102, 0.4);
-      color: #25d366;
+      gap: 7px;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      color: #4ade80;
       font-size: 13.5px;
       font-weight: 600;
-      padding: 12px 22px;
+      padding: 12px 20px;
       border-radius: 999px;
       text-decoration: none;
       transition: all 0.24s ease;
     }
     .zf-cta-wa:hover {
-      background: rgba(37, 211, 102, 0.22);
+      background: rgba(34, 197, 94, 0.22);
       transform: translateY(-2px);
       color: #ffffff;
     }
@@ -1173,23 +1245,34 @@
       transition: all 0.22s ease;
     }
     .zf-soc-link:hover {
-      background: rgba(184, 0, 245, 0.3);
-      border-color: #e879f9;
+      background: rgba(184, 0, 245, 0.28);
+      border-color: rgba(232, 121, 249, 0.6);
       color: #ffffff;
       transform: translateY(-3px);
-      box-shadow: 0 6px 16px rgba(184, 0, 245, 0.4);
     }
-    .zf-links-col h3, .zf-contact-col h3 {
-      font-size: 15px;
+    .zf-col-title {
+      font-family: 'DM Mono', monospace !important;
+      font-size: 11px;
       font-weight: 700;
-      color: #ffffff;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #e879f9;
       margin: 0 0 16px;
-      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
-    .zf-svc-list {
+    .zf-col-title::after {
+      content: '';
+      display: inline-block;
+      width: 14px;
+      height: 1px;
+      background: rgba(184, 0, 245, 0.5);
+    }
+    .zf-services-list {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 11px;
     }
     .zf-svc-item {
       display: inline-flex;
@@ -1247,13 +1330,30 @@
       color: #e879f9;
     }
     .zf-wa-highlight {
-      color: #4ade80 !important;
+      color: #4ade80;
+      font-weight: 600;
+    }
+    .zf-trust-mini {
+      margin-top: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: rgba(225, 200, 250, 0.7);
+      background: rgba(184, 0, 245, 0.08);
+      border: 1px solid rgba(184, 0, 245, 0.18);
+      border-radius: 8px;
+      padding: 6px 10px;
+    }
+    .zf-trust-mini span {
+      color: #4ade80;
+      font-weight: 600;
     }
     .zf-bottom-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 24px 0 32px;
+      padding: 20px 0 24px;
       flex-wrap: wrap;
       gap: 12px;
     }
@@ -1336,385 +1436,525 @@
 
     <div class="zf-footer-grid-bg"></div>
     <div class="zf-footer-inner">
-
-      <!-- CTA Strip -->
       <div class="zf-cta-strip">
         <div class="zf-cta-left">
-          <h2>Ready to Scale Your Brand with Video?</h2>
-          <p>Book a free 15-minute creative strategy call with our founder.</p>
+          <h2>Ready When You Are.</h2>
+          <p>Let's build something remarkable together — fast, sharp, and high-converting.</p>
         </div>
         <div class="zf-cta-actions">
-          <a href="https://wa.me/8801716705401" target="_blank" class="zf-cta-btn">Book a Call</a>
+          <a href="index.html#talk-to-us" class="zf-cta-btn">Start Project</a>
           <a href="https://wa.me/8801716705401" target="_blank" class="zf-cta-wa">WhatsApp</a>
         </div>
       </div>
 
-      <!-- Main Footer Columns -->
       <div class="zf-main-grid">
-
-        <!-- Column 1: Brand -->
         <div class="zf-brand-col">
-          <img src="assets/zentic_logo.png" alt="Zentic Media Logo" class="zf-brand-logo"/>
-          <p class="zf-brand-desc">
-            High-converting SaaS product promos, viral vertical reels, and cinematic storytelling. Engineered for maximum retention.
-          </p>
+          <img src="assets/zentic_logo.png" alt="Zentic Media" class="zf-brand-logo"/>
+          <p class="zf-brand-desc">High-converting video editing, landing pages &amp; AI automation pipelines built for fast-growing brands.</p>
           <div class="zf-social-row">
             <a href="https://wa.me/8801716705401" target="_blank" class="zf-soc-link" aria-label="WhatsApp">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </a>
+            <a href="https://facebook.com/neel.nafis" target="_blank" class="zf-soc-link" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
             </a>
             <a href="mailto:technicalrakib999@gmail.com" class="zf-soc-link" aria-label="Email">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2Z"/><path d="m22 6-10 7L2 6"/></svg>
             </a>
-            <a href="https://linkedin.com" target="_blank" class="zf-soc-link" aria-label="LinkedIn">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            <a href="https://x.com/neel_nafis" target="_blank" class="zf-soc-link" aria-label="X">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M18.33 1.9H21.7L14.33 10.33 23 21.79h-6.79l-5.32-6.95-6.08 6.95H1.43l7.88-9.01L1 1.9h7.96l4.81 6.36 5.56-6.36Zm-1.19 17.87h1.87L6.94 3.82H4.94l12.2 15.95Z" fill="currentColor"/></svg>
             </a>
-            <a href="https://youtube.com" target="_blank" class="zf-soc-link" aria-label="YouTube">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            <a href="https://www.youtube.com/@neelnafis" target="_blank" class="zf-soc-link" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M23.76 7.2s-.24-1.66-.96-2.38c-.91-.96-1.94-.96-2.4-1.02C17.04 3.56 12 3.56 12 3.56s-5.04 0-8.4.24c-.47.06-1.49.06-2.4 1.02C.47 5.54.24 7.2.24 7.2S0 9.15 0 11.09v1.82c0 1.94.24 3.88.24 3.88s.23 1.66.96 2.38c.91.96 2.11.93 2.64 1.03 1.92.18 8.16.24 8.16.24s5.04-.01 8.4-.25c.47-.06 1.49-.06 2.4-1.02.72-.72.96-2.38.96-2.38S24 14.85 24 12.9v-1.82C24 9.15 23.76 7.2 23.76 7.2ZM9.52 15.11V8.37l6.48 3.39-6.48 3.35Z" fill="currentColor"/></svg>
             </a>
           </div>
         </div>
 
-        <!-- Column 2: Services Links -->
-        <div class="zf-links-col">
-          <h3>Services</h3>
-          <div class="zf-svc-list">
-            <a href="services.html#saas" class="zf-svc-item"><span class="zf-svc-dot"></span> SaaS Product Promos</a>
-            <a href="services.html#shorts" class="zf-svc-item"><span class="zf-svc-dot"></span> Viral Reels &amp; Shorts</a>
-            <a href="services.html#podcast" class="zf-svc-item"><span class="zf-svc-dot"></span> Talking Head / YouTube</a>
-            <a href="services.html#commercial" class="zf-svc-item"><span class="zf-svc-dot"></span> Commercial Motion Design</a>
-            <a href="portfolio.html" class="zf-svc-item"><span class="zf-svc-dot"></span> Featured Portfolio</a>
+        <div class="zf-services-col">
+          <p class="zf-col-title">Services</p>
+          <div class="zf-services-list">
+            <a href="services.html" class="zf-svc-item"><span class="zf-svc-dot"></span><span>Video Editing</span></a>
+            <a href="services.html" class="zf-svc-item"><span class="zf-svc-dot"></span><span>Ad Production</span></a>
+            <a href="services.html" class="zf-svc-item"><span class="zf-svc-dot"></span><span>Website Design</span></a>
+            <a href="services.html" class="zf-svc-item"><span class="zf-svc-dot"></span><span>Brand Identity</span></a>
+            <a href="services.html" class="zf-svc-item"><span class="zf-svc-dot"></span><span>AI Automation</span></a>
           </div>
         </div>
 
-        <!-- Column 3: Contact Info -->
         <div class="zf-contact-col">
-          <h3>Direct Contact</h3>
+          <p class="zf-col-title">Contact</p>
           <div class="zf-contact-group">
             <span class="zf-contact-lbl">Email</span>
             <a href="mailto:technicalrakib999@gmail.com" class="zf-contact-val zf-contact-link">technicalrakib999@gmail.com</a>
           </div>
           <div class="zf-contact-group">
-            <span class="zf-contact-lbl">WhatsApp / Phone</span>
+            <span class="zf-contact-lbl">WhatsApp</span>
             <a href="https://wa.me/8801716705401" target="_blank" class="zf-contact-val zf-contact-link zf-wa-highlight">+880 1716 705401</a>
           </div>
           <div class="zf-contact-group">
-            <span class="zf-contact-lbl">Headquarters</span>
-            <span class="zf-contact-val">Dhaka, Bangladesh &bull; Worldwide Remote</span>
+            <span class="zf-contact-lbl">Facebook Page</span>
+            <a href="https://facebook.com/neel.nafis" target="_blank" class="zf-contact-val zf-contact-link">fb.com/neel.nafis</a>
+          </div>
+          <div class="zf-contact-group">
+            <span class="zf-contact-lbl">Phone Line</span>
+            <a href="tel:+8801716705401" class="zf-contact-val zf-contact-link">+880 1716 705401</a>
+          </div>
+          <div class="zf-contact-group">
+            <span class="zf-contact-lbl">Response Time</span>
+            <span class="zf-contact-val" style="color: rgba(225,200,250,0.85);">Within 24 hours</span>
+          </div>
+          <div class="zf-contact-group">
+            <span class="zf-contact-lbl">Revisions</span>
+            <span class="zf-contact-val" style="color: rgba(225,200,250,0.85);">Until you're 100% happy</span>
+          </div>
+          <div class="zf-trust-mini">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>100% Guaranteed</span> Satisfaction
           </div>
         </div>
-
       </div>
 
-      <!-- Bottom Bar -->
       <div class="zf-bottom-bar">
-        <p class="zf-copy">&copy; 2026 Zentic Media. All rights reserved.</p>
-        <div class="zf-badge">
-          <span></span> Available for New Projects
-        </div>
+        <p class="zf-copy">&copy; 2026 <a href="index.html">Zentic Media</a>. All rights reserved.</p>
+        <div class="zf-badge"><span></span> Available for new projects</div>
       </div>
-
     </div>
   </section>
 
-</div>
-
-<!-- Quick Contact Floating Speed-Dial Widget -->
-<style>
-#quick-contact-widget {
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  z-index: 999999;
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  pointer-events: none;
-}
+<!-- ================= QUICK CONTACT FLOATING SPEED-DIAL WIDGET ================= -->
+<style id="quick-contact-styles">
+/* ── Speed-Dial Container (Fixed at Bottom-Right) ── */
 .qc-widget-wrap {
-  position: relative;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 2147483640;
   width: 62px;
   height: 62px;
-  pointer-events: auto;
+  user-select: none;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
+
+/* ── Main Avatar Trigger Button (Stays at Base) ── */
 .qc-main-trigger {
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  right: 0;
   width: 62px;
   height: 62px;
   border-radius: 50%;
-  border: none;
   padding: 0;
+  border: none;
+  background: none;
   cursor: pointer;
-  background: transparent;
   outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 10;
-  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  -webkit-tap-highlight-color: transparent;
 }
+
 .qc-main-trigger:hover {
   transform: scale(1.08);
 }
+
+.qc-main-trigger:active {
+  transform: scale(0.94);
+}
+
+/* Glowing Cyber Ring around Avatar */
 .qc-avatar-ring {
   position: relative;
   width: 60px;
   height: 60px;
   border-radius: 50%;
   padding: 2.5px;
-  background: linear-gradient(135deg, #b800f5 0%, #e879f9 50%, #7000a8 100%);
-  box-shadow: 0 4px 20px rgba(184, 0, 245, 0.55), 0 0 14px rgba(232, 121, 249, 0.4);
+  background: linear-gradient(135deg, #e879f9 0%, #b800f5 50%, #4a0080 100%);
+  box-shadow: 
+    0 8px 26px rgba(184, 0, 245, 0.45),
+    0 0 16px rgba(184, 0, 245, 0.35);
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: qc-pulse-border 3s ease-in-out infinite;
 }
+
+@keyframes qc-pulse-border {
+  0%, 100% {
+    box-shadow: 0 8px 26px rgba(184, 0, 245, 0.45), 0 0 16px rgba(184, 0, 245, 0.35);
+  }
+  50% {
+    box-shadow: 0 10px 34px rgba(232, 121, 249, 0.65), 0 0 24px rgba(184, 0, 245, 0.6);
+  }
+}
+
 .qc-avatar-img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
+  object-position: 54% 18%;
   display: block;
-  background: #160624;
+  background: #10021c;
+  transition: filter 0.25s ease, opacity 0.25s ease;
 }
+
+/* Close 'X' icon overlay when opened */
+.qc-close-icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(18, 4, 28, 0.88);
+  color: #ffffff;
+  opacity: 0;
+  transform: scale(0.6) rotate(-90deg);
+  transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+}
+
+.qc-widget-wrap.is-open .qc-close-icon {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+.qc-widget-wrap.is-open .qc-avatar-img {
+  opacity: 0.22;
+}
+
+/* Green Live Online Dot */
 .qc-online-dot {
   position: absolute;
-  bottom: 2px;
-  right: 2px;
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
+  bottom: 1px;
+  right: 1px;
+  width: 14px;
+  height: 14px;
   background: #22c55e;
-  border: 2px solid #06010a;
+  border: 2.5px solid #06010a;
+  border-radius: 50%;
   box-shadow: 0 0 8px #22c55e;
-  animation: qcPulseDot 2s infinite;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
-@keyframes qcPulseDot {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.15); opacity: 0.85; }
+
+.qc-widget-wrap.is-open .qc-online-dot {
+  opacity: 0;
+  transform: scale(0.5);
 }
-.qc-speed-dial {
+
+.qc-online-dot::after {
+  content: '';
   position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  gap: 12px;
-  pointer-events: none;
-  z-index: 5;
+  inset: -3px;
+  border-radius: 50%;
+  border: 2px solid #22c55e;
+  animation: qc-dot-wave 2s ease-out infinite;
 }
+
+@keyframes qc-dot-wave {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+
+/* ── Speed Dial Buttons: Rise UPWARDS on Click ── */
 .qc-btn {
   position: absolute;
-  bottom: 0;
-  left: 50%;
-  margin-left: -24px;
-  width: 48px;
-  height: 48px;
+  bottom: 6px;
+  right: 6px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
   opacity: 0;
   pointer-events: none;
-  transform: translateY(0) scale(0.4);
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  text-decoration: none;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  transform: translateY(0) scale(0.3);
+  transition: 
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.24s ease,
+    box-shadow 0.25s ease;
+  z-index: 5;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
+
+.qc-btn-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.22s ease;
+}
+
+/* Upward Rise Positions when Opened */
+/* 1. WhatsApp Button: Rises 68px UPWARDS */
 .qc-widget-wrap.is-open .qc-btn-whatsapp {
   opacity: 1;
   pointer-events: auto;
-  transform: translateY(-70px) scale(1);
-  transition-delay: 0.05s;
+  transform: translateY(-68px) scale(1);
+  transition-delay: 0.03s;
 }
+
+/* 2. Messenger Button: Rises 128px UPWARDS */
 .qc-widget-wrap.is-open .qc-btn-messenger {
   opacity: 1;
   pointer-events: auto;
-  transform: translateY(-126px) scale(1);
-  transition-delay: 0.09s;
+  transform: translateY(-128px) scale(1);
+  transition-delay: 0.08s;
 }
+
+/* 3. Call Button: Rises 188px UPWARDS */
 .qc-widget-wrap.is-open .qc-btn-call {
   opacity: 1;
   pointer-events: auto;
-  transform: translateY(-182px) scale(1);
+  transform: translateY(-188px) scale(1);
   transition-delay: 0.13s;
 }
+
+/* Hover and Active Scale */
+.qc-btn:hover .qc-btn-inner {
+  transform: scale(1.12);
+}
+
+.qc-btn:active .qc-btn-inner {
+  transform: scale(0.92);
+}
+
+/* ── 3D Ultra-Realistic Brand Logos ── */
+/* WhatsApp 3D Glow */
+.qc-btn-whatsapp {
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.5), 0 0 16px rgba(37, 211, 102, 0.35);
+}
+.qc-btn-whatsapp:hover {
+  box-shadow: 0 12px 32px rgba(37, 211, 102, 0.75), 0 0 24px rgba(37, 211, 102, 0.55);
+}
+
+/* Messenger 3D Glow */
+.qc-btn-messenger {
+  box-shadow: 0 8px 24px rgba(0, 132, 255, 0.5), 0 0 16px rgba(160, 51, 255, 0.35);
+}
+.qc-btn-messenger:hover {
+  box-shadow: 0 12px 32px rgba(0, 132, 255, 0.75), 0 0 24px rgba(160, 51, 255, 0.55);
+}
+
+/* Call 3D Glow */
+.qc-btn-call {
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.5), 0 0 16px rgba(16, 185, 129, 0.35);
+}
+.qc-btn-call:hover {
+  box-shadow: 0 12px 32px rgba(16, 185, 129, 0.75), 0 0 24px rgba(16, 185, 129, 0.55);
+}
+
+/* SVGs inside buttons */
 .qc-btn svg {
-  width: 48px;
-  height: 48px;
+  width: 50px;
+  height: 50px;
   display: block;
 }
+
+/* Floating Tooltip Label on Left */
+.qc-tooltip {
+  position: absolute;
+  right: calc(100% + 14px);
+  top: 50%;
+  transform: translateY(-50%) translateX(8px);
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  background: rgba(14, 3, 22, 0.95);
+  border: 1px solid rgba(184, 0, 245, 0.4);
+  backdrop-filter: blur(14px);
+  color: #ffffff;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.65), 0 0 10px rgba(184, 0, 245, 0.25);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.qc-btn:hover .qc-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* ── Mobile Responsive Optimizations ── */
 @media (max-width: 640px) {
-  #quick-contact-widget {
+  .qc-widget-wrap {
     bottom: 20px;
     right: 18px;
+    width: 56px;
+    height: 56px;
+  }
+
+  .qc-main-trigger {
+    width: 56px;
+    height: 56px;
+  }
+
+  .qc-avatar-ring {
+    width: 54px;
+    height: 54px;
+    padding: 2px;
+  }
+
+  .qc-btn {
+    bottom: 5px;
+    right: 5px;
+    width: 46px;
+    height: 46px;
+  }
+
+  .qc-btn svg {
+    width: 46px;
+    height: 46px;
+  }
+
+  .qc-widget-wrap.is-open .qc-btn-whatsapp {
+    transform: translateY(-62px) scale(1);
+  }
+
+  .qc-widget-wrap.is-open .qc-btn-messenger {
+    transform: translateY(-116px) scale(1);
+  }
+
+  .qc-widget-wrap.is-open .qc-btn-call {
+    transform: translateY(-170px) scale(1);
+  }
+
+  .qc-tooltip {
+    display: none; /* Keep clean on touch screens */
   }
 }
 </style>
 
-<div id="quick-contact-widget">
-  <div class="qc-widget-wrap">
-    <button type="button" class="qc-main-trigger" id="qc-trigger-btn" aria-label="Open quick contact options">
-      <div class="qc-avatar-ring">
-        <img src="assets/rakib_avatar.jpg" alt="Rakib | Zentic Media" class="qc-avatar-img"/>
-        <span class="qc-online-dot"></span>
-      </div>
-    </button>
-    <div class="qc-speed-dial">
-      <a href="https://wa.me/8801716705401" target="_blank" rel="noopener noreferrer" class="qc-btn qc-btn-whatsapp" aria-label="WhatsApp Chat">
-        <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" fill="#25D366"/><path d="M21 21C21.5 20 22.5 19.5 23.5 19.5C24.2 19.5 25 19.5 25.5 20.8C26.1 22.2 27.5 25.7 27.7 26C27.9 26.3 27.9 26.7 27.7 27.1C27.5 27.5 27.4 27.7 27 28.1C26.6 28.5 26.3 28.8 25.9 29.3C25.5 29.7 25.1 30.1 25.6 30.9C26.1 31.7 27.8 34.5 30.3 36.7C33.5 39.5 36.1 40.4 36.9 40.8C37.7 41.2 38.2 41.1 38.6 40.6C39.1 40.1 40.6 38.3 41.1 37.5C41.6 36.7 42.1 36.9 42.8 37.1C43.5 37.3 47.4 39.2 48.2 39.6C49 40 49.5 40.2 49.7 40.5C49.9 40.9 49.9 42.5 49.2 44.5C48.5 46.5 45.1 48.4 43.6 48.5C42.1 48.6 40.7 48.7 34.6 46.3C27.3 43.4 22.5 36 22.1 35.5C21.7 35 19 31.4 19 27.7C19 24 20.9 22.2 21.6 21.4L21 21Z" fill="white"/></svg>
-      </a>
-      <a href="https://m.me/technicalrakib" target="_blank" rel="noopener noreferrer" class="qc-btn qc-btn-messenger" aria-label="Facebook Messenger">
-        <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" fill="#0084FF"/><path d="M32 17C23.2 17 16 23.6 16 31.8C16 36.4 18.3 40.5 22 43.2V48L26.6 45.5C28.3 46 30.1 46.5 32 46.5C40.8 46.5 48 39.9 48 31.7C48 23.6 40.8 17 32 17ZM34.7 36.9L30.6 32.5L22.6 36.9L31.4 27.6L35.6 32L43.4 27.6L34.7 36.9Z" fill="white"/></svg>
-      </a>
-      <a href="tel:+8801716705401" class="qc-btn qc-btn-call" aria-label="Phone Call">
-        <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" fill="#10B981"/><path d="M42.2 36.3C40.9 35 39.3 35 38 36.3L36.3 38C35.9 38.4 35.5 38.6 35 38.3C33.2 37.3 30.2 35 28.5 32.7C27.8 31.8 28.2 31.3 28.7 30.8L30.2 29.3C31.5 28 31.5 26.4 30.2 25.1L27.6 22.5C26.3 21.2 24.7 21.2 23.4 22.5L21.7 24.2C20.6 25.3 20.1 26.8 20.4 28.3C21.2 32.5 24 37.6 28.7 42.3C33.4 47 38.5 49.8 42.7 50.6C44.2 50.9 45.7 50.4 46.8 49.3L48.5 47.6C49.8 46.3 49.8 44.7 48.5 43.4L42.2 36.3Z" fill="white"/></svg>
-      </a>
+<div id="quick-contact-widget" class="qc-widget-wrap" aria-label="Quick Contact">
+
+  <!-- 1. Real 3D WhatsApp Logo Button (Rises UPWARDS) -->
+  <a href="https://wa.me/8801716705401" target="_blank" rel="noopener noreferrer" class="qc-btn qc-btn-whatsapp" aria-label="WhatsApp Chat">
+    <div class="qc-btn-inner">
+      <svg viewBox="0 0 48 48" fill="none">
+        <defs>
+          <radialGradient id="wa-shine" cx="30%" cy="22%" r="75%">
+            <stop offset="0%" stop-color="#4EFA8B"/>
+            <stop offset="55%" stop-color="#25D366"/>
+            <stop offset="100%" stop-color="#128C7E"/>
+          </radialGradient>
+          <filter id="wa-drop" x="-10%" y="-10%" width="130%" height="130%">
+            <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-opacity="0.35"/>
+          </filter>
+        </defs>
+        <circle cx="24" cy="24" r="23" fill="url(#wa-shine)"/>
+        <circle cx="24" cy="24" r="22.5" stroke="rgba(255,255,255,0.4)" stroke-width="1" fill="none"/>
+        <path filter="url(#wa-drop)" fill="#FFFFFF" fill-rule="evenodd" clip-rule="evenodd" d="M24 10C16.27 10 10 16.27 10 24c0 2.68.75 5.18 2.06 7.31L10.5 37.5l6.37-1.55A13.91 13.91 0 0 0 24 38c7.73 0 14-6.27 14-14S31.73 10 24 10zm6.97 19.46c-.29.82-1.68 1.52-2.32 1.62-.61.09-1.4.13-2.26-.15-.52-.17-1.2-.39-2.07-.77-3.66-1.58-6.04-5.29-6.22-5.54-.18-.24-1.5-1.99-1.5-3.8s.94-2.69 1.28-3.06c.33-.37.73-.47.97-.47.24 0 .49.01.7.02.22.01.52-.08.82.62.31.75 1.05 2.56 1.15 2.75.09.19.16.41.03.65-.12.24-.18.39-.36.6-.18.21-.38.48-.54.64-.18.18-.37.38-.16.75.21.37.95 1.57 2.04 2.54 1.4 1.25 2.58 1.64 2.95 1.83.37.18.58.16.8-.09.22-.25.94-1.1 1.19-1.48.24-.37.5-.31.83-.19.33.13 2.13 1 2.5 1.19.37.18.61.28.71.44.09.16.09.89-.2 1.71z"/>
+      </svg>
     </div>
-  </div>
+    <span class="qc-tooltip">WhatsApp</span>
+  </a>
+
+  <!-- 2. Real 3D Facebook Messenger Logo Button (Rises UPWARDS) -->
+  <a href="https://m.me/neel.nafis" target="_blank" rel="noopener noreferrer" class="qc-btn qc-btn-messenger" aria-label="Facebook Messenger">
+    <div class="qc-btn-inner">
+      <svg viewBox="0 0 48 48" fill="none">
+        <defs>
+          <radialGradient id="msg-shine" cx="22%" cy="18%" r="82%">
+            <stop offset="0%" stop-color="#00E5FF"/>
+            <stop offset="35%" stop-color="#0084FF"/>
+            <stop offset="70%" stop-color="#833AB4"/>
+            <stop offset="100%" stop-color="#E1306C"/>
+          </radialGradient>
+          <filter id="msg-drop" x="-10%" y="-10%" width="130%" height="130%">
+            <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-opacity="0.35"/>
+          </filter>
+        </defs>
+        <circle cx="24" cy="24" r="23" fill="url(#msg-shine)"/>
+        <circle cx="24" cy="24" r="22.5" stroke="rgba(255,255,255,0.4)" stroke-width="1" fill="none"/>
+        <path filter="url(#msg-drop)" fill="#FFFFFF" fill-rule="evenodd" clip-rule="evenodd" d="M24 10C16.27 10 10 15.77 10 22.88c0 4.07 2.04 7.7 5.23 9.99v4.13l3.96-2.18c1.51.42 3.12.65 4.81.65 7.73 0 14-5.77 14-12.88S31.73 10 24 10zm1.48 16.92l-3.66-3.9-7.14 3.9 7.85-8.33 3.74 3.9 7.06-3.9-7.85 8.33z"/>
+      </svg>
+    </div>
+    <span class="qc-tooltip">Messenger</span>
+  </a>
+
+  <!-- 3. Real 3D Phone Call Logo Button (Rises UPWARDS) -->
+  <a href="tel:+8801716705401" class="qc-btn qc-btn-call" aria-label="Direct Call">
+    <div class="qc-btn-inner">
+      <svg viewBox="0 0 48 48" fill="none">
+        <defs>
+          <radialGradient id="call-shine" cx="30%" cy="20%" r="70%">
+            <stop offset="0%" stop-color="#34D399"/>
+            <stop offset="50%" stop-color="#10B981"/>
+            <stop offset="100%" stop-color="#047857"/>
+          </radialGradient>
+          <filter id="call-drop" x="-10%" y="-10%" width="130%" height="130%">
+            <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-opacity="0.35"/>
+          </filter>
+        </defs>
+        <circle cx="24" cy="24" r="23" fill="url(#call-shine)"/>
+        <circle cx="24" cy="24" r="22.5" stroke="rgba(255,255,255,0.4)" stroke-width="1" fill="none"/>
+        <path filter="url(#call-drop)" fill="#FFFFFF" d="M20.4 23.6a14.8 14.8 0 0 0 6 6l2-2a1.8 1.8 0 0 1 1.8-.4c2 .7 4.2 1.1 6.4 1.1a1.8 1.8 0 0 1 1.8 1.8V35a1.8 1.8 0 0 1-1.8 1.8C23.6 36.8 13.2 26.4 13.2 13.8a1.8 1.8 0 0 1 1.8-1.8H19a1.8 1.8 0 0 1 1.8 1.8c0 2.2.4 4.4 1.1 6.4.2.6 0 1.3-.4 1.8l-2.1 2.1z"/>
+      </svg>
+    </div>
+    <span class="qc-tooltip">Direct Call</span>
+  </a>
+
+  <!-- Main Round Avatar Trigger Button -->
+  <button type="button" id="qc-trigger-btn" class="qc-main-trigger" aria-label="Quick Contact Toggle" title="Quick Contact">
+    <div class="qc-avatar-ring">
+      <img src="assets/rakib_avatar.jpg" alt="Contact Rakib" class="qc-avatar-img" />
+      <span class="qc-online-dot"></span>
+      <div class="qc-close-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </div>
+    </div>
+  </button>
+
 </div>
 
-<!-- Core Scripts -->
-<script src="js/i18n.js" defer></script>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+(function() {
+  const widget = document.getElementById('quick-contact-widget');
+  const triggerBtn = document.getElementById('qc-trigger-btn');
+  if (!widget || !triggerBtn) return;
 
-  // 1. Mobile Menu Toggle
-  const menuBtn = document.querySelector('.menu-button-2');
-  const navMenu = document.querySelector('.nav-menu-2');
-  if (menuBtn && navMenu) {
-    function toggleMenu(forceClose) {
-      const shouldClose = forceClose === true || navMenu.classList.contains('w--open');
-      if (shouldClose) {
-        navMenu.classList.remove('w--open');
-        menuBtn.classList.remove('w--open');
-      } else {
-        navMenu.classList.add('w--open');
-        menuBtn.classList.add('w--open');
-      }
-    }
-    menuBtn.addEventListener('click', function(e) {
-      e.stopPropagation();
-      toggleMenu();
-    });
-    document.addEventListener('click', function(e) {
-      if (!menuBtn.contains(e.target) && !navMenu.contains(e.target)) {
-        toggleMenu(true);
-      }
-    });
+  function toggleWidget(e) {
+    if (e) e.stopPropagation();
+    widget.classList.toggle('is-open');
   }
 
-  // 2. Interactive Service Chips
-  const chipBtns = document.querySelectorAll('.ct-chip-btn');
-  const serviceInput = document.getElementById('ct-service-input');
-  chipBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
-      chipBtns.forEach(b => b.classList.remove('is-selected'));
-      this.classList.add('is-selected');
-      if (serviceInput) serviceInput.value = this.getAttribute('data-val');
-    });
-  });
-
-  // 3. Interactive Budget Pills
-  const budgetPills = document.querySelectorAll('.ct-budget-pill');
-  const budgetInput = document.getElementById('ct-budget-input');
-  budgetPills.forEach(pill => {
-    pill.addEventListener('click', function() {
-      budgetPills.forEach(p => p.classList.remove('is-selected'));
-      this.classList.add('is-selected');
-      if (budgetInput) budgetInput.value = this.getAttribute('data-val');
-    });
-  });
-
-  // 4. One-Click Email Copy
-  const copyBtn = document.getElementById('copy-email-btn');
-  if (copyBtn) {
-    copyBtn.addEventListener('click', function() {
-      const email = this.getAttribute('data-email');
-      navigator.clipboard.writeText(email).then(() => {
-        const orig = this.textContent;
-        this.textContent = 'Copied!';
-        this.style.background = '#22c55e';
-        this.style.color = '#fff';
-        setTimeout(() => {
-          this.textContent = orig;
-          this.style.background = '';
-          this.style.color = '';
-        }, 2200);
-      });
-    });
+  function closeWidget() {
+    widget.classList.remove('is-open');
   }
 
-  // 5. Interactive Form Submission
-  const form = document.getElementById('ct-inquiry-form');
-  const successCard = document.getElementById('ct-success-card');
-  const submitBtn = document.getElementById('ct-submit-btn');
+  triggerBtn.addEventListener('click', toggleWidget);
 
-  if (form) {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      const name = document.getElementById('ct-name').value.trim();
-      const email = document.getElementById('ct-email').value.trim();
-      const link = document.getElementById('ct-link').value.trim();
-      const service = serviceInput ? serviceInput.value : 'General Inquiry';
-      const budget = budgetInput ? budgetInput.value : 'Standard';
-      const message = document.getElementById('ct-message').value.trim();
-
-      // Button loading state
-      const origContent = submitBtn.innerHTML;
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<span>Submitting Inquiry...</span>';
-
-      setTimeout(() => {
-        form.style.display = 'none';
-        if (successCard) successCard.classList.add('is-visible');
-
-        // Optional WhatsApp prefill action link
-        const waText = encodeURIComponent(`Hi Rakib! Inquiry from ${name} (${email}). Service: ${service}, Budget: ${budget}. Details: ${message || 'No additional details'}`);
-        const waLink = `https://wa.me/8801716705401?text=${waText}`;
-        const waBtn = successCard.querySelector('a');
-        if (waBtn) waBtn.href = waLink;
-      }, 700);
-    });
-  }
-
-  // 6. FAQ Accordion Toggle
-  const faqItems = document.querySelectorAll('.ct-faq-item');
-  faqItems.forEach(item => {
-    const q = item.querySelector('.ct-faq-q');
-    const a = item.querySelector('.ct-faq-a');
-    if (q && a) {
-      q.addEventListener('click', function() {
-        const isOpen = item.classList.contains('is-open');
-        faqItems.forEach(other => {
-          other.classList.remove('is-open');
-          const otherA = other.querySelector('.ct-faq-a');
-          if (otherA) otherA.style.maxHeight = null;
-        });
-        if (!isOpen) {
-          item.classList.add('is-open');
-          a.style.maxHeight = a.scrollHeight + 30 + 'px';
-        }
-      });
+  // Close when clicking outside
+  document.addEventListener('click', function(e) {
+    if (widget.classList.contains('is-open') && !widget.contains(e.target)) {
+      closeWidget();
     }
   });
 
-  // 7. Quick Contact Speed-Dial
-  const qcWidget = document.querySelector('.qc-widget-wrap');
-  const qcTrigger = document.getElementById('qc-trigger-btn');
-  if (qcWidget && qcTrigger) {
-    qcTrigger.addEventListener('click', function(e) {
-      e.stopPropagation();
-      qcWidget.classList.toggle('is-open');
-    });
-    document.addEventListener('click', function(e) {
-      if (qcWidget.classList.contains('is-open') && !qcWidget.contains(e.target)) {
-        qcWidget.classList.remove('is-open');
-      }
-    });
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') qcWidget.classList.remove('is-open');
-    });
-  }
-
-});
+  // Close on Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && widget.classList.contains('is-open')) {
+      closeWidget();
+    }
+  });
+})();
 </script>
+<!-- ============================================================================ -->
 
 </body>
 </html>
