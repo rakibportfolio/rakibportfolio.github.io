@@ -554,6 +554,301 @@
         padding: 24px 18px;
       }
     }
+  
+    /* ========================================================
+       ULTRA-REALISTIC 3D TREE INFOGRAPHIC PIPELINE
+       ======================================================== */
+    .fm-tree-section {
+      position: relative;
+      max-width: 1040px;
+      margin: 70px auto 80px;
+      padding: 0 20px;
+      z-index: 2;
+    }
+
+    .fm-tree-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .fm-tree-pill-title {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #7c3aed 0%, #b800f5 50%, #d946ef 100%);
+      border: 3.5px solid #ffffff;
+      border-radius: 999px;
+      padding: 12px 36px;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.5), 0 0 24px rgba(184, 0, 245, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.45);
+      margin-bottom: 16px;
+    }
+
+    .fm-tree-pill-text {
+      font-size: clamp(18px, 2.5vw, 24px);
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+    }
+
+    .fm-tree-sub {
+      font-size: 14.5px;
+      color: rgba(225, 200, 250, 0.75);
+      max-width: 580px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ── Infographic Tree Stage Layout ── */
+    .fm-tree-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 0 40px;
+    }
+
+    /* SVG Connecting Branches Layer */
+    .fm-tree-svg-branches {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 980px;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Center Vertical Trunk Bar */
+    .fm-tree-spine-wrap {
+      position: absolute;
+      top: 20px;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 28px;
+      background: #ffffff;
+      border-radius: 999px;
+      padding: 4px;
+      box-sizing: border-box;
+      box-shadow: 
+        0 16px 40px rgba(0, 0, 0, 0.6),
+        0 4px 12px rgba(0, 0, 0, 0.35),
+        inset 0 2px 3px rgba(255, 255, 255, 0.8),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+      z-index: 4;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .fm-tree-spine-gradient {
+      width: 100%;
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(
+        to bottom,
+        #22c55e 0%,    /* Lime Green - Top */
+        #1d4ed8 22%,   /* Indigo Blue */
+        #7c3aed 42%,   /* Purple */
+        #db2777 62%,   /* Pink / Magenta */
+        #dc2626 82%,   /* Crimson Red */
+        #ea580c 100%   /* Amber Orange - Bottom */
+      );
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    /* 6 Tier Rows */
+    .fm-tree-rows-wrap {
+      width: 100%;
+      max-width: 980px;
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .fm-tree-row {
+      display: grid;
+      grid-template-columns: 1fr 60px 1fr;
+      align-items: center;
+      width: 100%;
+    }
+
+    .fm-tree-row-spacer {
+      height: 10px;
+    }
+
+    /* ── 3D Leaf Card Design ── */
+    .fm-leaf-card-anchor {
+      position: relative;
+      z-index: 6;
+      text-decoration: none;
+    }
+
+    .fm-leaf-card {
+      position: relative;
+      background: #ffffff;
+      padding: 6px;
+      box-sizing: border-box;
+      box-shadow: 
+        0 18px 45px rgba(0, 0, 0, 0.55),
+        0 6px 16px rgba(0, 0, 0, 0.35),
+        inset 0 2px 2px rgba(255, 255, 255, 0.8),
+        inset 0 -3px 4px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+      cursor: default;
+    }
+
+    .fm-leaf-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 
+        0 24px 55px rgba(0, 0, 0, 0.7),
+        0 8px 24px rgba(0, 0, 0, 0.45);
+    }
+
+    /* Leaf Shape: Left vs Right */
+    .fm-leaf-left {
+      border-radius: 48px 8px 48px 8px;
+    }
+    .fm-leaf-left .fm-leaf-inner {
+      border-radius: 43px 4px 43px 4px;
+    }
+
+    .fm-leaf-right {
+      border-radius: 8px 48px 8px 48px;
+    }
+    .fm-leaf-right .fm-leaf-inner {
+      border-radius: 4px 43px 4px 43px;
+    }
+
+    /* Inner Colored Body */
+    .fm-leaf-inner {
+      padding: 24px 26px 20px;
+      position: relative;
+      box-sizing: border-box;
+      box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.3), inset 0 -2px 6px rgba(255, 255, 255, 0.15);
+      overflow: hidden;
+      min-height: 165px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Distinct Vivid 3D Gradients matching reference */
+    /* 1. Green Leaf (Top Left) */
+    .leaf-color-green .fm-leaf-inner {
+      background: linear-gradient(135deg, #22c55e 0%, #15803d 60%, #14532d 100%);
+    }
+    /* 2. Blue Leaf (Top Right) */
+    .leaf-color-blue .fm-leaf-inner {
+      background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 60%, #0f172a 100%);
+    }
+    /* 3. Purple Leaf (Mid Left) */
+    .leaf-color-purple .fm-leaf-inner {
+      background: linear-gradient(135deg, #7c3aed 0%, #581c87 60%, #3b0764 100%);
+    }
+    /* 4. Pink Leaf (Mid Right) */
+    .leaf-color-pink .fm-leaf-inner {
+      background: linear-gradient(135deg, #db2777 0%, #9d174d 60%, #500724 100%);
+    }
+    /* 5. Red Leaf (Lower Left) */
+    .leaf-color-red .fm-leaf-inner {
+      background: linear-gradient(135deg, #dc2626 0%, #991b1b 60%, #450a0a 100%);
+    }
+    /* 6. Orange Leaf (Lower Right) */
+    .leaf-color-orange .fm-leaf-inner {
+      background: linear-gradient(135deg, #ea580c 0%, #c2410c 60%, #7c2d12 100%);
+    }
+
+    /* Content Typography inside Leaf */
+    .fm-leaf-tag {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .fm-leaf-title {
+      font-size: 18.5px;
+      font-weight: 800;
+      color: #ffffff;
+      margin: 0 0 8px;
+      line-height: 1.3;
+      text-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.4);
+    }
+
+    .fm-leaf-desc {
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.92);
+      line-height: 1.55;
+      margin: 0;
+      padding-right: 40px;
+    }
+
+    /* 3D Realistic Icon in Corner */
+    .fm-leaf-corner-icon {
+      position: absolute;
+      bottom: 16px;
+      right: 18px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+    .fm-leaf-right .fm-leaf-corner-icon {
+      right: auto;
+      left: 18px;
+    }
+    .fm-leaf-right .fm-leaf-desc {
+      padding-right: 0;
+      padding-left: 40px;
+    }
+
+    /* Mobile Responsive Adaptation */
+    @media (max-width: 860px) {
+      .fm-tree-spine-wrap,
+      .fm-tree-svg-branches {
+        display: none;
+      }
+      .fm-tree-rows-wrap {
+        gap: 20px;
+      }
+      .fm-tree-row {
+        display: flex;
+        flex-direction: column;
+      }
+      .fm-tree-row-spacer {
+        display: none;
+      }
+      .fm-leaf-card-anchor {
+        width: 100%;
+      }
+      .fm-leaf-desc {
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+      }
+      .fm-leaf-corner-icon {
+        position: static;
+        margin-top: 14px;
+        align-self: flex-end;
+      }
+    }
+
   </style>
 </head>
 <body class="home2">
@@ -1126,6 +1421,176 @@
     </div>
 
     <!-- ── Rapid Sprint Timeline Section ── -->
+    
+    <!-- ================= 3D REALISTIC TREE INFOGRAPHIC SECTION ================= -->
+    <section class="fm-tree-section">
+      
+      <div class="fm-tree-header">
+        <div class="fm-tree-pill-title">
+          <span style="font-size: 18px;">✦</span>
+          <h2 class="fm-tree-pill-text" style="margin: 0; font-size: inherit;">The Zero-to-Hero Production Pipeline</h2>
+          <span style="font-size: 18px;">✦</span>
+        </div>
+        <p class="fm-tree-sub">Every project ascends through our 6-stage growth tree &mdash; engineered from foundational audit to multi-platform market dominance.</p>
+      </div>
+
+      <div class="fm-tree-container">
+        
+        <!-- Central Spine / Colored Pillar -->
+        <div class="fm-tree-spine-wrap" aria-hidden="true">
+          <div class="fm-tree-spine-gradient"></div>
+        </div>
+
+        <!-- SVG Curved 3D Connecting Branches -->
+        <svg class="fm-tree-svg-branches" viewBox="0 0 980 1140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <filter id="branch-shadow" x="-10%" y="-10%" width="120%" height="120%">
+              <feDropShadow dx="0" dy="6" stdDeviation="6" flood-opacity="0.45"/>
+            </filter>
+          </defs>
+          <!-- Branch 1: Top Left (Green) -->
+          <path d="M490 120 C 440 120, 420 120, 380 120" stroke="#ffffff" stroke-width="12" stroke-linecap="round" filter="url(#branch-shadow)"/>
+          <!-- Branch 2: Top Right (Blue) -->
+          <path d="M490 290 C 540 290, 560 290, 600 290" stroke="#ffffff" stroke-width="12" stroke-linecap="round" filter="url(#branch-shadow)"/>
+          <!-- Branch 3: Mid Left (Purple) -->
+          <path d="M490 490 C 440 490, 420 490, 380 490" stroke="#ffffff" stroke-width="12" stroke-linecap="round" filter="url(#branch-shadow)"/>
+          <!-- Branch 4: Mid Right (Pink) -->
+          <path d="M490 670 C 540 670, 560 670, 600 670" stroke="#ffffff" stroke-width="12" stroke-linecap="round" filter="url(#branch-shadow)"/>
+          <!-- Branch 5: Lower Left (Red) -->
+          <path d="M490 860 C 440 860, 420 860, 380 860" stroke="#ffffff" stroke-width="12" stroke-linecap="round" filter="url(#branch-shadow)"/>
+          <!-- Branch 6: Lower Right (Orange) -->
+          <path d="M490 1040 C 540 1040, 560 1040, 600 1040" stroke="#ffffff" stroke-width="12" stroke-linecap="round" filter="url(#branch-shadow)"/>
+        </svg>
+
+        <!-- 6 Tier Leaf Nodes Grid -->
+        <div class="fm-tree-rows-wrap">
+
+          <!-- STAGE 05: Top Left (Green Leaf) -->
+          <div class="fm-tree-row">
+            <div class="fm-leaf-card-anchor">
+              <div class="fm-leaf-card fm-leaf-left leaf-color-green">
+                <div class="fm-leaf-inner">
+                  <div>
+                    <span class="fm-leaf-tag">STAGE 05 &bull; PRECISION RETENTION</span>
+                    <h3 class="fm-leaf-title">OLED Color Grade &amp; Drop-Off Polish</h3>
+                    <p class="fm-leaf-desc">High-contrast grade calibrated specifically for mobile OLED screens, removing every micro-second of audience lag.</p>
+                  </div>
+                  <div class="fm-leaf-corner-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="fm-tree-row-spacer"></div>
+            <div></div>
+          </div>
+
+          <!-- STAGE 06: Top Right (Blue Leaf) -->
+          <div class="fm-tree-row">
+            <div></div>
+            <div class="fm-tree-row-spacer"></div>
+            <div class="fm-leaf-card-anchor">
+              <div class="fm-leaf-card fm-leaf-right leaf-color-blue">
+                <div class="fm-leaf-inner">
+                  <div>
+                    <span class="fm-leaf-tag">STAGE 06 &bull; VIRAL SCALE</span>
+                    <h3 class="fm-leaf-title">Omnichannel Launch &amp; Scale-Up</h3>
+                    <p class="fm-leaf-desc">Final 4K multi-format deployment across 16:9, 9:16 and 1:1, integrated with tracking pixels and 24/7 lead capture funnels.</p>
+                  </div>
+                  <div class="fm-leaf-corner-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STAGE 03: Mid Left (Purple Leaf) -->
+          <div class="fm-tree-row">
+            <div class="fm-leaf-card-anchor">
+              <div class="fm-leaf-card fm-leaf-left leaf-color-purple">
+                <div class="fm-leaf-inner">
+                  <div>
+                    <span class="fm-leaf-tag">STAGE 03 &bull; DYNAMIC MOTION</span>
+                    <h3 class="fm-leaf-title">3D Assets &amp; Kinetic Visuals</h3>
+                    <p class="fm-leaf-desc">Custom 3D product renders, kinetic typography, dynamic whip transitions, and frame-by-frame visual pacing.</p>
+                  </div>
+                  <div class="fm-leaf-corner-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="fm-tree-row-spacer"></div>
+            <div></div>
+          </div>
+
+          <!-- STAGE 04: Mid Right (Pink Leaf) -->
+          <div class="fm-tree-row">
+            <div></div>
+            <div class="fm-tree-row-spacer"></div>
+            <div class="fm-leaf-card-anchor">
+              <div class="fm-leaf-card fm-leaf-right leaf-color-pink">
+                <div class="fm-leaf-inner">
+                  <div>
+                    <span class="fm-leaf-tag">STAGE 04 &bull; AUDIO ENGINEERING</span>
+                    <h3 class="fm-leaf-title">Binaural SFX &amp; Soundscapes</h3>
+                    <p class="fm-leaf-desc">Spatial whooshes, sub-bass drops, tactile UI clicks, and studio vocal mastering that locks subconscious viewer focus.</p>
+                  </div>
+                  <div class="fm-leaf-corner-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STAGE 01: Lower Left (Red Leaf) -->
+          <div class="fm-tree-row">
+            <div class="fm-leaf-card-anchor">
+              <div class="fm-leaf-card fm-leaf-left leaf-color-red">
+                <div class="fm-leaf-inner">
+                  <div>
+                    <span class="fm-leaf-tag">STAGE 01 &bull; STRATEGY DISCOVERY</span>
+                    <h3 class="fm-leaf-title">Audience Audit &amp; Pain Mapping</h3>
+                    <p class="fm-leaf-desc">Uncovering competitor weak spots, audience buying triggers, and eliminating guesswork before a single frame is created.</p>
+                  </div>
+                  <div class="fm-leaf-corner-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="fm-tree-row-spacer"></div>
+            <div></div>
+          </div>
+
+          <!-- STAGE 02: Lower Right (Orange Leaf) -->
+          <div class="fm-tree-row">
+            <div></div>
+            <div class="fm-tree-row-spacer"></div>
+            <div class="fm-leaf-card-anchor">
+              <div class="fm-leaf-card fm-leaf-right leaf-color-orange">
+                <div class="fm-leaf-inner">
+                  <div>
+                    <span class="fm-leaf-tag">STAGE 02 &bull; ATTENTION ARCHITECTURE</span>
+                    <h3 class="fm-leaf-title">3-Second Hook &amp; Script Science</h3>
+                    <p class="fm-leaf-desc">Engineering psychological pattern interrupts, curiosity loops, and high-velocity storytelling that stops the social scroll.</p>
+                  </div>
+                  <div class="fm-leaf-corner-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
     <section class="fm-sprint-section">
       <div class="fm-sprint-header">
         <h2 class="fm-sprint-title">Our Rapid 7-Day Sprint Timeline</h2>
