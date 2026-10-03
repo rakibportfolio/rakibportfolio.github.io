@@ -5,6 +5,9 @@
 
 const I18N_DATA = {
   en: {
+    nav_home: "Home",
+    nav_services: "Services",
+    nav_portfolio: "Portfolio",
     nav_work: "Work",
     nav_case_studies: "Case Studies",
     nav_reviews: "Reviews",
@@ -87,6 +90,9 @@ const I18N_DATA = {
     footer_to: "To Personal Branding"
   },
   bn: {
+    nav_home: "হোম",
+    nav_services: "সার্ভিসেস",
+    nav_portfolio: "পোর্টফোলিও",
     nav_work: "কাজসমূহ",
     nav_case_studies: "কেস স্টাডি",
     nav_reviews: "রিভিউ",

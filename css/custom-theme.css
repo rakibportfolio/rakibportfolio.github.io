@@ -282,12 +282,19 @@ h1, h2, h3, h4, h5,
   text-decoration: none !important;
   white-space: nowrap !important;
 }
-.nav-link-2:hover,
-.nav-link-2.w--current {
+.nav-link-2:hover {
   color: #FFFFFF !important;
   background: rgba(184, 0, 245, 0.25) !important;
   box-shadow: 0 0 10px rgba(184, 0, 245, 0.3) !important;
   text-shadow: 0 0 8px rgba(232, 121, 249, 0.5) !important;
+}
+.nav-link-2.w--current,
+.nav-link-2.is-current-page {
+  color: #e879f9 !important;
+  font-weight: 700 !important;
+  background: rgba(184, 0, 245, 0.2) !important;
+  box-shadow: 0 0 12px rgba(184, 0, 245, 0.35) !important;
+  text-shadow: 0 0 12px rgba(184, 0, 245, 0.6) !important;
 }
 
 /* ─── Primary Buttons (Navbar & Global) ──────────────── */
@@ -1334,10 +1341,12 @@ a.proof-card:hover {
 
   .nav-menu-2 .nav-link-2:hover,
   .nav-menu-2 .nav-link-2:active,
-  .nav-menu-2 .nav-link-2.w--current {
+  .nav-menu-2 .nav-link-2.w--current,
+  .nav-menu-2 .nav-link-2.is-current-page {
     background: rgba(184, 0, 245, 0.22) !important;
     border-color: rgba(184, 0, 245, 0.4) !important;
-    color: #ffffff !important;
+    color: #e879f9 !important;
+    font-weight: 700 !important;
   }
 
   /* Mobile CTA inside menu */
