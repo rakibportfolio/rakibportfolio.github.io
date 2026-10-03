@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Our Production Framework &bull; Zero to Hero | Zentic Media</title>
+  <meta name="description" content="Explore Zentic Media's battle-tested production frameworks. How we scale video editing, high-converting websites, AI automation pipelines, and brand identities from Zero to Hero."/>
+  
+  <link rel="icon" type="image/x-icon" href="favicon.ico?v=5.0"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/zentic_icon.png?v=5.0"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/zentic_icon.png?v=5.0"/>
+
+  <link href="css/mzmedia.css?v=2.0" rel="stylesheet" type="text/css"/>
+  <link href="css/custom-theme.css?v=12.0" rel="stylesheet" type="text/css"/>
+  <link href="css/bg-shapes.css?v=7.0" rel="stylesheet" type="text/css"/>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================================
+       CLEAN, MODERN, SIMPLE FONT SYSTEM (INTER SANS-SERIF)
+       ======================================================== */
+    *, *::before, *::after,
+    body, html,
+    h1, h2, h3, h4, h5, h6,
+    p, span, a, button, input, select, textarea, label, div {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+    }
+
+    :root {
+      --fm-bg: #08010e;
+      --fm-card: #12041d;
+      --fm-card2: #190727;
+      --fm-border: rgba(184, 0, 245, 0.24);
+      --fm-accent: #b800f5;
+      --fm-accent-light: #e879f9;
+      --fm-accent-deep: #7000a8;
+      --fm-white: #fcfaff;
+      --fm-muted: rgba(225, 200, 250, 0.75);
+      --fm-green: #22c55e;
+      --fm-blue: #38bdf8;
+    }
+
+    body {
+      margin: 0;
+      background: var(--fm-bg);
+      color: var(--fm-white);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .ct-page-wrapper {
+      position: relative;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* Active Nav link */
+    .nav-link-2.is-current-page {
+      color: #e879f9 !important;
+      font-weight: 700 !important;
+      text-shadow: 0 0 12px rgba(184,0,245,0.6) !important;
+    }
+
+    /* ── Hero Section ── */
+    .fm-hero-section {
+      position: relative;
+      padding: 120px 20px 48px;
+      text-align: center;
+      max-width: 960px;
+      margin: 0 auto;
+      z-index: 2;
+    }
+
+    .fm-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(184, 0, 245, 0.12);
+      border: 1px solid rgba(184, 0, 245, 0.32);
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      color: var(--fm-accent-light);
+      text-transform: uppercase;
+      margin-bottom: 22px;
+      box-shadow: 0 2px 14px rgba(184, 0, 245, 0.18);
+    }
+    .fm-pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 8px #4ade80;
+      animation: fmDotPulse 1.8s infinite;
+    }
+    @keyframes fmDotPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
+    }
+
+    .fm-title-large {
+      font-size: clamp(34px, 5.5vw, 62px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin: 0 0 18px;
+      color: #ffffff;
+    }
+
+    .fm-title-gradient {
+      background: linear-gradient(115deg, #ffffff 10%, #e879f9 55%, #b800f5 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .fm-subtitle-text {
+      font-size: clamp(15px, 2vw, 17px);
+      color: var(--fm-muted);
+      max-width: 680px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    /* Stats Quick Strip */
+    .fm-stats-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      max-width: 860px;
+      margin: 0 auto 56px;
+      padding: 0 10px;
+    }
+    .fm-stat-card {
+      background: rgba(18, 4, 28, 0.7);
+      border: 1px solid rgba(184, 0, 245, 0.22);
+      border-radius: 14px;
+      padding: 16px 14px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.4);
+    }
+    .fm-stat-num {
+      font-size: 26px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+    .fm-stat-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(225, 200, 250, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    /* ── Service Framework Tabs ── */
+    .fm-tabs-container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .fm-tabs-nav {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .fm-tab-btn {
+      background: rgba(22, 6, 36, 0.7);
+      border: 1px solid rgba(184, 0, 245, 0.22);
+      border-radius: 14px;
+      padding: 15px 16px;
+      color: rgba(225, 200, 250, 0.75);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+      outline: none;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+    .fm-tab-btn:hover {
+      background: rgba(184, 0, 245, 0.18);
+      border-color: rgba(232, 121, 249, 0.5);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+    .fm-tab-btn.is-active {
+      background: linear-gradient(135deg, rgba(184, 0, 245, 0.45) 0%, rgba(112, 0, 168, 0.45) 100%);
+      border-color: #e879f9;
+      color: #ffffff;
+      box-shadow: 0 0 24px rgba(184, 0, 245, 0.4);
+      transform: translateY(-2px);
+    }
+
+    /* ── Tab Content Panels ── */
+    .fm-tab-panel {
+      display: none;
+      animation: fmFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .fm-tab-panel.is-active {
+      display: block;
+    }
+    @keyframes fmFadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Zero vs Hero Banner ── */
+    .fm-zero-hero-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+    .fm-state-box {
+      border-radius: 18px;
+      padding: 24px 26px;
+      position: relative;
+      overflow: hidden;
+    }
+    .fm-state-zero {
+      background: linear-gradient(135deg, rgba(30, 8, 20, 0.85) 0%, rgba(20, 4, 14, 0.95) 100%);
+      border: 1px solid rgba(239, 68, 68, 0.28);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.5);
+    }
+    .fm-state-hero {
+      background: linear-gradient(135deg, rgba(8, 30, 20, 0.85) 0%, rgba(4, 22, 14, 0.95) 100%);
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.5), 0 0 24px rgba(34, 197, 94, 0.12);
+    }
+    .fm-state-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+    .badge-zero {
+      background: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+    .badge-hero {
+      background: rgba(34, 197, 94, 0.15);
+      color: #4ade80;
+      border: 1px solid rgba(34, 197, 94, 0.35);
+    }
+    .fm-state-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0 0 12px;
+    }
+    .fm-state-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .fm-state-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13.5px;
+      color: var(--fm-muted);
+      line-height: 1.5;
+    }
+    .fm-state-zero .fm-state-item svg {
+      color: #ef4444;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .fm-state-hero .fm-state-item svg {
+      color: #22c55e;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    /* ── The 4-Phase Engineering Framework Grid ── */
+    .fm-framework-header {
+      text-align: center;
+      margin: 48px 0 28px;
+    }
+    .fm-framework-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--fm-accent-light);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .fm-framework-title {
+      font-size: clamp(24px, 3.5vw, 36px);
+      font-weight: 800;
+      color: #ffffff;
+      margin: 0;
+    }
+
+    .fm-phases-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+
+    .fm-phase-card {
+      background: linear-gradient(135deg, rgba(22, 6, 36, 0.88) 0%, rgba(15, 3, 24, 0.95) 100%);
+      border: 1px solid var(--fm-border);
+      border-radius: 20px;
+      padding: 28px 28px 26px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 16px 44px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s, box-shadow 0.28s;
+    }
+    .fm-phase-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(232, 121, 249, 0.55);
+      box-shadow: 0 20px 54px rgba(0,0,0,0.6), 0 0 28px rgba(184, 0, 245, 0.25);
+    }
+
+    .fm-phase-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .fm-phase-num {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(184, 0, 245, 0.14);
+      border: 1px solid rgba(184, 0, 245, 0.35);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #e879f9;
+      text-transform: uppercase;
+    }
+    .fm-phase-badge {
+      font-size: 11px;
+      font-weight: 600;
+      color: #4ade80;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .fm-phase-heading {
+      font-size: 19px;
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0 0 10px;
+      line-height: 1.3;
+    }
+    .fm-phase-desc {
+      font-size: 13.5px;
+      color: var(--fm-muted);
+      line-height: 1.65;
+      margin: 0 0 18px;
+    }
+
+    .fm-deliverables-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: rgba(225, 200, 250, 0.5);
+      margin-bottom: 8px;
+    }
+
+    .fm-deliverables-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .fm-del-pill {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(184, 0, 245, 0.22);
+      border-radius: 8px;
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #ffffff;
+    }
+
+    /* ── Rapid 7-Day Sprint Timeline ── */
+    .fm-sprint-section {
+      background: rgba(18, 4, 28, 0.6);
+      border: 1px solid rgba(184, 0, 245, 0.25);
+      border-radius: 24px;
+      padding: 36px 36px 32px;
+      margin-bottom: 60px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .fm-sprint-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .fm-sprint-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0 0 8px;
+    }
+    .fm-sprint-sub {
+      font-size: 14px;
+      color: var(--fm-muted);
+      margin: 0;
+    }
+
+    .fm-timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      position: relative;
+    }
+    .fm-timeline-card {
+      background: rgba(12, 2, 20, 0.7);
+      border: 1px solid rgba(184, 0, 245, 0.18);
+      border-radius: 14px;
+      padding: 18px 16px;
+      position: relative;
+    }
+    .fm-time-day {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--fm-accent-light);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .fm-time-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0 0 6px;
+    }
+    .fm-time-desc {
+      font-size: 12.5px;
+      color: var(--fm-muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* ── The Zentic Guarantee Strip ── */
+    .fm-guarantee-wrap {
+      background: linear-gradient(135deg, rgba(22, 6, 36, 0.9) 0%, rgba(38, 10, 62, 0.7) 100%);
+      border: 1px solid rgba(184, 0, 245, 0.35);
+      border-radius: 20px;
+      padding: 30px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 70px;
+      box-shadow: 0 16px 48px rgba(184, 0, 245, 0.15);
+    }
+    .fm-guarantee-left h3 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0 0 6px;
+    }
+    .fm-guarantee-left p {
+      font-size: 14px;
+      color: var(--fm-muted);
+      margin: 0;
+    }
+    .fm-guarantee-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #b800f5 0%, #8200b8 100%);
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 13px 26px;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 6px 24px rgba(184, 0, 245, 0.5);
+      transition: all 0.25s ease;
+      flex-shrink: 0;
+    }
+    .fm-guarantee-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(184, 0, 245, 0.7);
+    }
+
+    @media (max-width: 900px) {
+      .fm-tabs-nav {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .fm-timeline-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+      .fm-zero-hero-row {
+        grid-template-columns: 1fr;
+      }
+      .fm-phases-grid {
+        grid-template-columns: 1fr;
+      }
+      .fm-stats-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .fm-guarantee-wrap {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .fm-tabs-nav {
+        grid-template-columns: 1fr;
+      }
+      .fm-timeline-grid {
+        grid-template-columns: 1fr;
+      }
+      .fm-hero-section {
+        padding: 90px 16px 36px;
+      }
+      .fm-sprint-section {
+        padding: 24px 18px;
+      }
+    }
+  </style>
+</head>
+<body class="home2">
+<div class="ct-page-wrapper">
+
+  <!-- Background Ambience Scene matching index.html -->
+  <div id="bg-scene" aria-hidden="true">
+    <div class="bg-corner-tl"></div><div class="bg-corner-tr"></div>
+    <div class="bg-vortex-wrap"><div class="bg-vortex-ring"></div></div>
+    <div class="bg-light-pillar"></div><div class="bg-vortex-floor"></div>
+    <div class="bg-particles"></div><div class="bg-grain"></div>
+  </div>
+
+  <!-- Main Navigation Bar -->
+  <section class="header-section">
+    <div role="banner" class="navbar-2">
+      <div class="navbar-container w-container">
+        <div class="na-outer-border">
+          <div class="nav-inner-wrap">
+            <div class="nav-inner">
+              <a href="index.html" class="brand-logo-link w-nav-brand" aria-label="Home">
+                <img loading="eager" src="assets/zentic_logo.png" alt="Zentic Media Logo" class="nav-brand-logo-img"/>
+              </a>
+              <div class="menu-button-wrapper">
+                <nav role="navigation" class="nav-menu-2">
+                  <a href="index.html" class="nav-link-2 w-nav-link" data-i18n="nav_home">Home</a>
+                  <a href="services.html" class="nav-link-2 w-nav-link" data-i18n="nav_services">Services</a>
+                  <a href="portfolio.html" class="nav-link-2 w-nav-link" data-i18n="nav_portfolio">Portfolio</a>
+                  <a href="contact.html" class="nav-link-2 w-nav-link" data-i18n="nav_contact">Contact</a>
+                  <a href="case-studies.html" class="nav-link-2 w-nav-link is-current-page" data-i18n="nav_case_studies">Our Process</a>
+                  <a href="/blog" target="_blank" class="nav-link-2 w-nav-link" data-i18n="nav_blog">Blog</a>
+                  <a href="/careers" class="nav-link-2" data-i18n="nav_careers">Careers</a>
+                  <a href="/personal-brand" class="nav-link-2 w-nav-link" data-i18n="nav_personal_brand">Personal Branding</a>
+                  <div class="nav-button-wrap mobile-only">
+                    <a href="https://wa.me/8801716705401" target="_blank" class="button-03 w-inline-block">
+                      <div class="button-text-wrapper"><div class="button-text-wrap"><div class="paragraph-02-m">Let's Talk!</div></div></div>
+                    </a>
+                  </div>
+                </nav>
+                <div class="menu-button-2"><div class="hamburger"><div class="hamburger-line-top"></div><div class="hamburger-line-middle"></div><div class="hamburger-line-bottom"></div></div></div>
+              </div>
+              <div class="nav-button-wrap desktop-only">
+                <a href="https://wa.me/8801716705401" target="_blank" class="button-03 w-inline-block">
+                  <div class="button-text-wrapper"><div class="button-text-wrap"><div class="paragraph-02-m">Let's Talk!</div></div></div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hero Section -->
+  <header class="fm-hero-section">
+    <div class="fm-badge-pill">
+      <span class="fm-pill-dot"></span>
+      THE ZERO-TO-HERO EXECUTION FRAMEWORK
+    </div>
+    <h1 class="fm-title-large">
+      How We Scale Brands From<br>
+      <span class="fm-title-gradient">Zero to Hero.</span>
+    </h1>
+    <p class="fm-subtitle-text">
+      We don't rely on luck, guesswork, or generic templates. Explore the battle-tested 4-phase production &amp; scaling frameworks we use to turn ordinary businesses into category-dominating market leaders.
+    </p>
+
+    <!-- Quick Stats -->
+    <div class="fm-stats-strip">
+      <div class="fm-stat-card">
+        <div class="fm-stat-num">4</div>
+        <div class="fm-stat-label">Core Pillars</div>
+      </div>
+      <div class="fm-stat-card">
+        <div class="fm-stat-num">&lt; 72h</div>
+        <div class="fm-stat-label">Rapid Sprints</div>
+      </div>
+      <div class="fm-stat-card">
+        <div class="fm-stat-num">100%</div>
+        <div class="fm-stat-label">Conversion Focus</div>
+      </div>
+      <div class="fm-stat-card">
+        <div class="fm-stat-num">24/7</div>
+        <div class="fm-stat-label">Automated Scale</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Frameworks Tab Section -->
+  <main class="fm-tabs-container">
+
+    <!-- Interactive Navigation Tabs -->
+    <div class="fm-tabs-nav" role="tablist">
+      <button type="button" class="fm-tab-btn is-active" data-tab="tab-video" role="tab">
+        🎬 Video Production Engine
+      </button>
+      <button type="button" class="fm-tab-btn" data-tab="tab-web" role="tab">
+        💻 High-Converting Websites
+      </button>
+      <button type="button" class="fm-tab-btn" data-tab="tab-ai" role="tab">
+        🤖 AI Automation &amp; Chatbots
+      </button>
+      <button type="button" class="fm-tab-btn" data-tab="tab-brand" role="tab">
+        ⚡ Brand Scale-Up Engine
+      </button>
+    </div>
+
+    <!-- ================= TAB 1: VIDEO PRODUCTION ================= -->
+    <div class="fm-tab-panel is-active" id="tab-video">
+      
+      <!-- Zero vs Hero State -->
+      <div class="fm-zero-hero-row">
+        <div class="fm-state-box fm-state-zero">
+          <span class="fm-state-badge badge-zero">The "Zero" State (Common Problem)</span>
+          <h2 class="fm-state-title">Where Most Brands Struggle</h2>
+          <ul class="fm-state-list">
+            <li class="fm-state-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+              <span><strong>80% Audience Drop-Off:</strong> Viewers scroll away within 3 seconds due to boring talking-head openings.</span>
+            </li>
+            <li class="fm-state-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+              <span><strong>High Ad Spend, Low ROAS:</strong> Videos look like generic paid ads and viewers skip without clicking.</span>
+            </li>
+            <li class="fm-state-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+              <span><strong>Amateur Pacing:</strong> Sloppy transitions and flat audio make the brand look untrustworthy.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="fm-state-box fm-state-hero">
+          <span class="fm-state-badge badge-hero">The "Hero" State (Zentic Result)</span>
+          <h2 class="fm-state-title">Where Zentic Media Takes You</h2>
+          <ul class="fm-state-list">
+            <li class="fm-state-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span><strong>60%+ Retention Rate:</strong> Psychological pattern interrupts keep viewers locked to the very last second.</span>
+            </li>
+            <li class="fm-state-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span><strong>3x-5x Ad Return (ROAS):</strong> High-intent visual storytelling converts cold traffic into paid customers.</span>
+            </li>
+            <li class="fm-state-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span><strong>Top-1% Industry Authority:</strong> World-class 3D motion and sound design elevates you above all competitors.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 4-Phase System -->
+      <div class="fm-framework-header">
+        <span class="fm-framework-tag">THE 4-PHASE VIDEO TRANSFORMATION PIPELINE</span>
+        <h2 class="fm-framework-title">How We Engineer Viral, High-Converting Videos</h2>
+      </div>
+
+      <div class="fm-phases-grid">
+
+        <!-- Phase 1 -->
+        <div class="fm-phase-card">
+          <div class="fm-phase-top">
+            <span class="fm-phase-num">PHASE 01</span>
+            <span class="fm-phase-badge">Attention Architecture</span>
+          </div>
+          <h3 class="fm-phase-heading">Hook &amp; Script Psychology</h3>
+          <p class="fm-phase-desc">
+            We deconstruct the target viewer's attention triggers. The first 3 seconds are engineered with visual pattern interrupts, high-stakes curiosity gaps, and tight script pacing that prevents the scroll.
+          </p>
+          <div class="fm-deliverables-title">Key Deliverables:</div>
+          <div class="fm-deliverables-pills">
+            <span class="fm-del-pill">⚡ 3-Sec Pattern Interrupt</span>
+            <span class="fm-del-pill">🧠 Cognitive Hook Framework</span>
+            <span class="fm-del-pill">📝 Word-for-Word Script Audit</span>
+          </div>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="fm-phase-card">
+          <div class="fm-phase-top">
+            <span class="fm-phase-num">PHASE 02</span>
+            <span class="fm-phase-badge">Visual Dynamics</span>
+          </div>
+          <h3 class="fm-phase-heading">Dynamic Motion &amp; 3D Visuals</h3>
+          <p class="fm-phase-desc">
+            No static screens. We integrate kinetic typography, 3D software device mockups, speed-ramped camera zooms, and frame-by-frame visual rhythm that makes every second visually stimulating.
+          </p>
+          <div class="fm-deliverables-title">Key Deliverables:</div>
+          <div class="fm-deliverables-pills">
+            <span class="fm-del-pill">🎬 3D Product Renders</span>
+            <span class="fm-del-pill">📐 Kinetic Typography</span>
+            <span class="fm-del-pill">🔄 Seamless Whip Transitions</span>
+          </div>
+        </div>
+
+        <!-- Phase 3 -->
+        <div class="fm-phase-card">
+          <div class="fm-phase-top">
+            <span class="fm-phase-num">PHASE 03</span>
+            <span class="fm-phase-badge">Subconscious Immersion</span>
+          </div>
+          <h3 class="fm-phase-heading">Spatial Audio &amp; Sound Engineering</h3>
+          <p class="fm-phase-desc">
+            Sound is 50% of the video experience. We build custom binaural soundscapes: sub-bass risers, crisp whooshes, tactile UI clicks, and dynamic volume ducking that subconsciously locks in user focus.
+          </p>
+          <div class="fm-deliverables-title">Key Deliverables:</div>
+          <div class="fm-deliverables-pills">
+            <span class="fm-del-pill">🔊 Binaural 3D SFX</span>
+            <span class="fm-del-pill">🎙️ Studio Voice Mastering</span>
+            <span class="fm-del-pill">🎵 Emotion-Driven Score</span>
+          </div>
+        </div>
+
+        <!-- Phase 4 -->
+        <div class="fm-phase-card">
+          <div class="fm-phase-top">
+            <span class="fm-phase-num">PHASE 04</span>
+            <span class="fm-phase-badge">Conversion Polish</span>
+          </div>
+          <h3 class="fm-phase-heading">Color Grading &amp; Retention Polish</h3>
+          <p class="fm-phase-desc">
+            Final cinematic grade calibrated specifically for mobile and OLED displays. Every millisecond is audited against viewer drop-off curves, followed by multi-format export (16:9, 9:16, 1:1).
+          </p>
+          <div class="fm-deliverables-title">Key Deliverables:</div>
+          <div class="fm-deliverables-pills">
+            <span class="fm-del-pill">🎨 OLED Cinematic Grade</span>
+            <span class="fm-del-pill">📱 9:16 &amp; 16:9 Multi-Platform</span>
+            <span class="fm-del-pill">🚀 100% Satisfaction Revisions</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ================= TAB 2: WEBSITES ================= -->
+    <div class="fm-tab-panel" id="tab-web">
+      
+      <div class="fm-zero-hero-row">
+        <div class="fm-state-box fm-state-zero">
+          <span class="fm-state-badge badge-zero">The "Zero" State (Common Problem)</span>
+          <h2 class="fm-state-title">Where Most Websites Fail</h2>
+          <ul class="fm-state-list">
+            <li class="fm-state-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+              <span><strong>Slow Loading (&gt; 3.5s):</strong> 53% of mobile visitors bounce before seeing your product.</span>
+            </li>
+            <li class="fm-state-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+              <span><strong>Generic Template Look:</strong> Cookie-cutter layouts that look cheap and kill high-ticket sales.</span>
+            </li>
+            <li class="fm-state-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+              <span><strong>Poor Mobile UX:</strong> Clunky navigation and unoptimized tap targets leak qualified leads.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="fm-state-box fm-state-hero">
+          <span class="fm-state-badge badge-hero">The "Hero" State (Zentic Result)</span>
+          <h2 class="fm-state-title">Where Zentic Media Takes You</h2>
+          <ul class="fm-state-list">
+            <li class="fm-state-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span><strong>Lightning &lt; 1s Speeds:</strong> Zero bloat, pure optimized CSS/JS that loads instantaneously on all phones.</span>
+            </li>
+            <li class="fm-state-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span><strong>Cyber-Glass 3D Aesthetics:</strong> Jaw-dropping visual design that screams premium Silicon Valley quality.</span>
+            </li>
+            <li class="fm-state-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span><strong>High-Converting Lead Funnel:</strong> Direct WhatsApp buttons, speed dials, and frictionless booking wizards.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="fm-framework-header">
+        <span class="fm-framework-tag">THE 4-PHASE WEB ARCHITECTURE SYSTEM</span>
+        <h2 class="fm-framework-title">How We Build High-Converting Digital Storefronts</h2>
+      </div>
+
+      <div class="fm-phases-grid">
+        <div class="fm-phase-card">
+          <div class="fm-phase-top">
+            <span class="fm-phase-num">PHASE 01</span>
+            <span class="fm-phase-badge">Strategic Foundation</span>
+          </div>
+          <h3 class="fm-phase-heading">Offer Hierarchy &amp; Conversion Flow</h3>
+          <p class="fm-phase-desc">We structure page hierarchy so every visitor immediately understands what you sell, why it matters, and why they should choose you in under 5 seconds.</p>
+          <div class="fm-deliverables-title">Key Deliverables:</div>
+          <div class="fm-deliverables-pills">
+            <span class="fm-del-pill">🎯 Value Proposition Mapping</span>
+            <span class="fm-del-pill">📐 High-Fidelity Wireframes</span>
+            <span class="fm-del-pill">🧭 Frictionless CTA Journey</span>
+          </div>
+        </div>
+
+        <div class="fm-phase-card">
+          <div class="fm-phase-top">
+            <span class="fm-phase-num">PHASE 02</span>
+            <span class="fm-phase-badge">Visual Identity</span>
+          </div>
+          <h3 class="fm-phase-heading">3D Glassmorphic UI &amp; Brand Styling</h3>
+          <p class="fm-phase-desc">We craft bespoke cyber palettes, subtle ambient glow effects, floating widgets, and smooth micro-animations that make your site memorable.</p>
+          <div class="fm-deliverables-title">Key Deliverables:</div>
+          <div class="fm-deliverables-pills">
+            <span class="fm-del-pill">💎 Glassmorphism System</span>
+            <span class="fm-del-pill">✨ Ambient Orb Animations</span>
+            <span class="fm-del-pill">📱 Mobile-First Layouts</span>
+          </div>
+        </div>
+
+        <div class="fm-phase-card">
+          <div class="fm-phase-top">
+            <span class="fm-phase-num">PHASE 03</span>
+            <span class="fm-phase-badge">Engineering &amp; Speed</span>
+          </div>
+          <h3 class="fm-phase-heading">Ultra-Fast Performance Code</h3>
+          <p class="fm-phase-desc">Hand-crafted, lightweight code. No sluggish page builder plugins. Built to achieve 95+ Google Lighthouse speed scores.</p>
+          <div class="fm-deliverables-title">Key Deliverables:</div>
+          <div class="fm-deliverables-pills">
+            <span class="fm-del-pill">⚡ &lt; 1s Load Optimization</span>
+            <span class="fm-del-pill">📱 100% Touch-Optimized</span>
+            <span class="fm-del-pill">🔍 SEO Semantic Structure</span>
+          </div>
+        </div>
+
+        <div class="fm-phase-card">
+          <div class="fm-phase-top">
+            <span class="fm-phase-num">PHASE 04</span>
+            <span class="fm-phase-badge">Conversion Channels</span>
+          </div>
+          <h3 class="fm-phase-heading">Direct Lead Capture &amp; Integrations</h3>
+          <p class="fm-phase-desc">Interactive inquiry wizards, 1-click WhatsApp connect, and instant CRM routing that capture and qualify leads 24/7.</p>
+          <div class="fm-deliverables-title">Key Deliverables:</div>
+          <div class="fm-deliverables-pills">
+            <span class="fm-del-pill">🧙 Step-by-Step Inquiry Wizard</span>
+            <span class="fm-del-pill">📞 Floating Speed-Dial Widget</span>
+            <span class="fm-del-pill">📊 Meta Pixel / Analytics Ready</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ================= TAB 3: AI AUTOMATION ================= -->
+    <div class="fm-tab-panel" id="tab-ai">
+      
+      <div class="fm-zero-hero-row">
+        <div class="fm-state-box fm-state-zero">
+          <span class="fm-state-badge badge-zero">The "Zero" State (Common Problem)</span>
+          <h2 class="fm-state-title">Where Manual Operations Fail</h2>
+          <ul class="fm-state-list">
+            <li class="fm-state-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+              <span><strong>Slow Replies (&gt; 2 Hours):</strong> 78% of customers buy from the first business that responds.</span>
+            </li>
+            <li class="fm-state-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+              <span><strong>Lost Night &amp; Weekend Leads:</strong> When your team sleeps, valuable inbound leads go cold.</span>
+            </li>
+            <li class="fm-state-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+              <span><strong>Manual Chaos:</strong> Copy-pasting data between WhatsApp, Sheets, and email wastes 20+ hours a week.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="fm-state-box fm-state-hero">
+          <span class="fm-state-badge badge-hero">The "Hero" State (Zentic Result)</span>
+          <h2 class="fm-state-title">Where Zentic Media Takes You</h2>
+          <ul class="fm-state-list">
+            <li class="fm-state-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span><strong>Sub-Second AI Replies:</strong> 24/7 instant response across WhatsApp, Instagram, Messenger &amp; Web.</span>
+            </li>
+            <li class="fm-state-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span><strong>Automatic Lead Qualification:</strong> AI asks qualifying questions and books calls directly to your calendar.</span>
+            </li>
+            <li class="fm-state-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span><strong>Hands-Free Scale:</strong> Your business runs, qualifies, and follows up with leads on complete autopilot.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="fm-framework-header">
+        <span class="fm-framework-tag">THE 4-PHASE AI AUTOMATION BLUEPRINT</span>
+        <h2 class="fm-framework-title">How We Automate Your Sales &amp; Customer Support</h2>
+      </div>
+
+      <div class="fm-phases-grid">
+        <div class="fm-phase-card">
+          <div class="fm-phase-top">
+            <span class="fm-phase-num">PHASE 01</span>
+            <span class="fm-phase-badge">Workflow Audit</span>
+          </div>
+          <h3 class="fm-phase-heading">Lead Leak &amp; Bottleneck Audit</h3>
+          <p class="fm-phase-desc">We analyze every communication channel to pinpoint exactly where leads are falling through the cracks and where manual time is wasted.</p>
+          <div class="fm-deliverables-title">Key Deliverables:</div>
+          <div class="fm-deliverables-pills">
+            <span class="fm-del-pill">🔍 Channel Leak Analysis</span>
+            <span class="fm-del-pill">📋 FAQ Knowledge Mapping</span>
+            <span class="fm-del-pill">🗺️ Logic Flow Architecture</span>
+          </div>
+        </div>
+
+        <div class="fm-phase-card">
+          <div class="fm-phase-top">
+            <span class="fm-phase-num">PHASE 02</span>
+            <span class="fm-phase-badge">AI Knowledge Brain</span>
+          </div>
+          <h3 class="fm-phase-heading">Custom AI Model Training</h3>
+          <p class="fm-phase-desc">We train intelligent AI assistants on your exact business pricing, services, tone of voice, and FAQs so it talks just like a top sales rep.</p>
+          <div class="fm-deliverables-title">Key Deliverables:</div>
+          <div class="fm-deliverables-pills">
+            <span class="fm-del-pill">🧠 Brand Voice Calibration</span>
+            <span class="fm-del-pill">📚 Knowledge Base Ingestion</span>
+            <span class="fm-del-pill">🚫 Anti-Hallucination Guardrails</span>
+          </div>
+        </div>
+
+        <div class="fm-phase-card">
+          <div class="fm-phase-top">
+            <span class="fm-phase-num">PHASE 03</span>
+            <span class="fm-phase-badge">Multi-Channel Deploy</span>
+          </div>
+          <h3 class="fm-phase-heading">Omnichannel Live Deployment</h3>
+          <p class="fm-phase-desc">Connect the AI to WhatsApp Business API, Instagram Direct Messages, Facebook Messenger, and website live chat with zero downtime.</p>
+          <div class="fm-deliverables-title">Key Deliverables:</div>
+          <div class="fm-deliverables-pills">
+            <span class="fm-del-pill">💬 WhatsApp Business API</span>
+            <span class="fm-del-pill">📸 Instagram DM Automation</span>
+            <span class="fm-del-pill">🌐 Website Chat Embed</span>
+          </div>
+        </div>
+
+        <div class="fm-phase-card">
+          <div class="fm-phase-top">
+            <span class="fm-phase-num">PHASE 04</span>
+            <span class="fm-phase-badge">Ecosystem Sync</span>
+          </div>
+          <h3 class="fm-phase-heading">CRM &amp; Automated Follow-Up Sync</h3>
+          <p class="fm-phase-desc">Qualified prospects are automatically pushed to Google Sheets, Notion, or your CRM with instant founder notification alerts.</p>
+          <div class="fm-deliverables-title">Key Deliverables:</div>
+          <div class="fm-deliverables-pills">
+            <span class="fm-del-pill">📅 Calendar Auto-Booking</span>
+            <span class="fm-del-pill">🔄 Sheets/CRM Sync</span>
+            <span class="fm-del-pill">🔔 Instant WhatsApp/Telegram Alerts</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ================= TAB 4: BRAND IDENTITY ================= -->
+    <div class="fm-tab-panel" id="tab-brand">
+      
+      <div class="fm-zero-hero-row">
+        <div class="fm-state-box fm-state-zero">
+          <span class="fm-state-badge badge-zero">The "Zero" State (Common Problem)</span>
+          <h2 class="fm-state-title">Where Most Personal Brands Stall</h2>
+          <ul class="fm-state-list">
+            <li class="fm-state-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+              <span><strong>Inconsistent Posting:</strong> Spending 10 hours creating one video and running out of steam.</span>
+            </li>
+            <li class="fm-state-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+              <span><strong>No Recognizable Identity:</strong> Random colors and fonts that make viewers forget who you are.</span>
+            </li>
+            <li class="fm-state-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+              <span><strong>Views With Zero Revenue:</strong> Lots of random impressions but zero inbound client DMs or sales.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="fm-state-box fm-state-hero">
+          <span class="fm-state-badge badge-hero">The "Hero" State (Zentic Result)</span>
+          <h2 class="fm-state-title">Where Zentic Media Takes You</h2>
+          <ul class="fm-state-list">
+            <li class="fm-state-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span><strong>1-To-20 Content Engine:</strong> Record for 1 hour a month; we turn it into 20+ viral multi-platform assets.</span>
+            </li>
+            <li class="fm-state-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span><strong>Signature Aesthetic:</strong> Instantly recognizable typography, color grading, and thumbnail system.</span>
+            </li>
+            <li class="fm-state-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span><strong>Predictable Inbound Clients:</strong> Turn passive viewers into booked discovery calls and paying partners.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="fm-framework-header">
+        <span class="fm-framework-tag">THE 4-PHASE BRAND MULTIPLICATION ENGINE</span>
+        <h2 class="fm-framework-title">How We Build Category-Dominant Personal Brands</h2>
+      </div>
+
+      <div class="fm-phases-grid">
+        <div class="fm-phase-card">
+          <div class="fm-phase-top">
+            <span class="fm-phase-num">PHASE 01</span>
+            <span class="fm-phase-badge">Strategic Moat</span>
+          </div>
+          <h3 class="fm-phase-heading">Brand Positioning &amp; Signature Style</h3>
+          <p class="fm-phase-desc">We define your unique perspective, content pillars, and visual identity (color palettes, font pairings, thumbnail templates) that command authority.</p>
+          <div class="fm-deliverables-title">Key Deliverables:</div>
+          <div class="fm-deliverables-pills">
+            <span class="fm-del-pill">👑 Market Positioning Audit</span>
+            <span class="fm-del-pill">🎨 Signature Visual Kit</span>
+            <span class="fm-del-pill">🖼️ Click-Magnet Thumbnails</span>
+          </div>
+        </div>
+
+        <div class="fm-phase-card">
+          <div class="fm-phase-top">
+            <span class="fm-phase-num">PHASE 02</span>
+            <span class="fm-phase-badge">Content Repurposing</span>
+          </div>
+          <h3 class="fm-phase-heading">The 1-To-20 Multiplication Engine</h3>
+          <p class="fm-phase-desc">Send us raw podcast recordings or talking head footage. We extract viral micro-hooks, animated quotes, carousel designs, and vertical reels.</p>
+          <div class="fm-deliverables-title">Key Deliverables:</div>
+          <div class="fm-deliverables-pills">
+            <span class="fm-del-pill">📱 Daily Short-Form Reels</span>
+            <span class="fm-del-pill">✍️ High-Impact LinkedIn Posts</span>
+            <span class="fm-del-pill">🎯 Twitter/X Thread Summaries</span>
+          </div>
+        </div>
+
+        <div class="fm-phase-card">
+          <div class="fm-phase-top">
+            <span class="fm-phase-num">PHASE 03</span>
+            <span class="fm-phase-badge">Algorithmic Growth</span>
+          </div>
+          <h3 class="fm-phase-heading">Trend Jacking &amp; Distribution</h3>
+          <p class="fm-phase-desc">We monitor trending audio, viral industry topics, and algorithmic shifts to push your content directly to high-net-worth audiences.</p>
+          <div class="fm-deliverables-title">Key Deliverables:</div>
+          <div class="fm-deliverables-pills">
+            <span class="fm-del-pill">📈 Trending Audio Strategy</span>
+            <span class="fm-del-pill">⏰ Optimal Timing Schedules</span>
+            <span class="fm-del-pill">🏷️ Hashtag &amp; SEO Metadata</span>
+          </div>
+        </div>
+
+        <div class="fm-phase-card">
+          <div class="fm-phase-top">
+            <span class="fm-phase-num">PHASE 04</span>
+            <span class="fm-phase-badge">Monetization Funnel</span>
+          </div>
+          <h3 class="fm-phase-heading">Inbound Conversion &amp; DM Funnel</h3>
+          <p class="fm-phase-desc">Convert attention into revenue. We build bio funnels, lead magnet delivery pipelines, and DM automation to book calls directly with you.</p>
+          <div class="fm-deliverables-title">Key Deliverables:</div>
+          <div class="fm-deliverables-pills">
+            <span class="fm-del-pill">🔗 Bio &amp; Landing Page Funnel</span>
+            <span class="fm-del-pill">📥 Lead Magnet Delivery</span>
+            <span class="fm-del-pill">💬 Automated Inbound DM Routing</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── Rapid Sprint Timeline Section ── -->
+    <section class="fm-sprint-section">
+      <div class="fm-sprint-header">
+        <h2 class="fm-sprint-title">Our Rapid 7-Day Sprint Timeline</h2>
+        <p class="fm-sprint-sub">How every Zentic Media project moves smoothly from Day 1 kickoff to final high-impact launch.</p>
+      </div>
+      <div class="fm-timeline-grid">
+        <div class="fm-timeline-card">
+          <div class="fm-time-day">DAY 01</div>
+          <h3 class="fm-time-title">Kickoff &amp; Blueprint</h3>
+          <p class="fm-time-desc">1-on-1 strategy alignment, goal setting, script outline, and asset ingestion.</p>
+        </div>
+        <div class="fm-timeline-card">
+          <div class="fm-time-day">DAY 02 &ndash; 03</div>
+          <h3 class="fm-time-title">Architecture &amp; Drafts</h3>
+          <p class="fm-time-desc">Hook drafting, 3D motion layout, wireframing, and initial rough cut assembly.</p>
+        </div>
+        <div class="fm-timeline-card">
+          <div class="fm-time-day">DAY 04 &ndash; 05</div>
+          <h3 class="fm-time-title">Sound &amp; Polish</h3>
+          <p class="fm-time-desc">Spatial audio engineering, kinetic typography, cinematic grade, and client feedback.</p>
+        </div>
+        <div class="fm-timeline-card">
+          <div class="fm-time-day">DAY 06 &ndash; 07</div>
+          <h3 class="fm-time-title">Delivery &amp; Launch</h3>
+          <p class="fm-time-desc">Final 4K exports in all aspect ratios, tracking setup, and live rollout.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Guarantee Banner -->
+    <div class="fm-guarantee-wrap">
+      <div class="fm-guarantee-left">
+        <h3>Ready to Scale Your Brand From Zero to Hero?</h3>
+        <p>Answer a few quick questions or text Rakib directly on WhatsApp to launch your project today.</p>
+      </div>
+      <a href="contact.html" class="fm-guarantee-btn">
+        Start Your Project ➔
+      </a>
+    </div>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <section class="zf-footer" id="footer">
+    <style>
+    .zf-footer {
+      position: relative;
+      background: #06010a;
+      color: #ffffff;
+      overflow: hidden;
+      border-top: 1px solid rgba(184, 0, 245, 0.28);
+      font-family: 'Inter', sans-serif !important;
+      z-index: 10;
+    }
+    .zf-footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 750px;
+      height: 280px;
+      background: radial-gradient(ellipse at top, rgba(184, 0, 245, 0.16) 0%, rgba(112, 0, 168, 0.06) 50%, transparent 75%);
+      pointer-events: none;
+    }
+    .zf-footer-grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(184, 0, 245, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(184, 0, 245, 0.035) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+    .zf-footer-inner {
+      position: relative;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 56px 24px 0;
+      box-sizing: border-box;
+    }
+    .zf-cta-strip {
+      background: linear-gradient(135deg, rgba(22, 6, 36, 0.92) 0%, rgba(38, 10, 62, 0.78) 50%, rgba(15, 3, 24, 0.95) 100%);
+      border: 1px solid rgba(184, 0, 245, 0.32);
+      box-shadow: 0 12px 36px rgba(184, 0, 245, 0.12), inset 0 1px 0 rgba(232, 121, 249, 0.2);
+      border-radius: 20px;
+      padding: 28px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 48px;
+      backdrop-filter: blur(12px);
+    }
+    .zf-cta-left h2 {
+      font-size: 26px;
+      font-weight: 700 !important;
+      margin: 0 0 6px;
+      background: linear-gradient(135deg, #ffffff 40%, #e879f9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .zf-cta-left p {
+      font-size: 14px;
+      color: rgba(225, 200, 250, 0.7);
+      margin: 0;
+    }
+    .zf-cta-actions {
+      display: flex;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .zf-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #b800f5 0%, #8200b8 100%);
+      color: #ffffff;
+      font-size: 13.5px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(184, 0, 245, 0.45);
+      transition: all 0.25s ease;
+    }
+    .zf-cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(184, 0, 245, 0.65);
+    }
+    .zf-cta-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      color: #4ade80;
+      font-size: 13.5px;
+      font-weight: 600;
+      padding: 12px 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: all 0.24s ease;
+    }
+    .zf-cta-wa:hover {
+      background: rgba(34, 197, 94, 0.22);
+      transform: translateY(-2px);
+      color: #ffffff;
+    }
+    .zf-main-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1.2fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .zf-brand-col {
+      display: flex;
+      flex-direction: column;
+    }
+    .zf-brand-logo {
+      height: 36px;
+      width: auto;
+      object-fit: contain;
+      margin-bottom: 14px;
+      align-self: flex-start;
+    }
+    .zf-brand-desc {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: rgba(225, 200, 250, 0.65);
+      margin: 0 0 20px;
+      max-width: 320px;
+    }
+    .zf-social-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .zf-soc-link {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(184, 0, 245, 0.22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(225, 200, 250, 0.8);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .zf-soc-link:hover {
+      background: rgba(184, 0, 245, 0.25);
+      border-color: rgba(232, 121, 249, 0.6);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+    .zf-col-title {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #e879f9;
+      margin: 0 0 16px;
+    }
+    .zf-services-list {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+    .zf-svc-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.82);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .zf-svc-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #b800f5;
+      box-shadow: 0 0 6px #b800f5;
+      flex-shrink: 0;
+    }
+    .zf-svc-item:hover {
+      color: #ffffff;
+      transform: translateX(3px);
+    }
+    .zf-contact-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .zf-contact-group {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .zf-contact-lbl {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: rgba(225, 200, 250, 0.45);
+      letter-spacing: 1.2px;
+    }
+    .zf-contact-val {
+      font-size: 13px;
+      font-weight: 500;
+      color: #ffffff;
+      line-height: 1.4;
+      word-break: break-word;
+    }
+    .zf-contact-link {
+      text-decoration: none;
+      color: #ffffff;
+      transition: color 0.2s ease;
+    }
+    .zf-contact-link:hover {
+      color: #e879f9;
+    }
+    .zf-wa-highlight {
+      color: #4ade80;
+      font-weight: 600;
+    }
+    .zf-bottom-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0 24px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .zf-copy {
+      font-size: 12px;
+      color: rgba(225, 200, 250, 0.45);
+      margin: 0;
+    }
+    .zf-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 11.5px;
+      color: rgba(225, 200, 250, 0.7);
+      background: rgba(18, 5, 28, 0.6);
+      border: 1px solid rgba(184, 0, 245, 0.22);
+      border-radius: 999px;
+      padding: 5px 13px;
+    }
+    .zf-badge span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 8px #4ade80;
+      display: inline-block;
+      animation: zfPulseBadge 2s ease-in-out infinite;
+    }
+    @keyframes zfPulseBadge {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
+    }
+    @media (max-width: 900px) {
+      .zf-main-grid {
+        grid-template-columns: 1fr 1.15fr;
+        gap: 32px 20px;
+      }
+      .zf-brand-col {
+        grid-column: 1 / -1;
+      }
+    }
+    @media (max-width: 640px) {
+      .zf-footer-inner {
+        padding: 36px 16px 0;
+      }
+      .zf-cta-strip {
+        padding: 20px 16px;
+        flex-direction: column;
+        text-align: center;
+        gap: 14px;
+      }
+      .zf-cta-actions {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      .zf-cta-btn, .zf-cta-wa {
+        width: 100%;
+        justify-content: center;
+        padding: 11px 12px;
+      }
+      .zf-main-grid {
+        grid-template-columns: 1fr 1.18fr;
+        gap: 24px 14px;
+        padding-bottom: 26px;
+      }
+      .zf-brand-col {
+        grid-column: 1 / -1;
+        border-bottom: 1px dashed rgba(184, 0, 245, 0.18);
+        padding-bottom: 12px;
+      }
+      .zf-bottom-bar {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+      }
+    }
+    </style>
+
+    <div class="zf-footer-grid-bg"></div>
+    <div class="zf-footer-inner">
+      <div class="zf-cta-strip">
+        <div class="zf-cta-left">
+          <h2>Ready When You Are.</h2>
+          <p>Let's build something remarkable together &mdash; fast, sharp, and high-converting.</p>
+        </div>
+        <div class="zf-cta-actions">
+          <a href="contact.html" class="zf-cta-btn">Start Project</a>
+          <a href="https://wa.me/8801716705401" target="_blank" class="zf-cta-wa">WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="zf-main-grid">
+        <div class="zf-brand-col">
+          <img src="assets/zentic_logo.png" alt="Zentic Media" class="zf-brand-logo"/>
+          <p class="zf-brand-desc">High-converting video editing, landing pages &amp; AI automation pipelines built for fast-growing brands.</p>
+          <div class="zf-social-row">
+            <a href="https://wa.me/8801716705401" target="_blank" class="zf-soc-link" aria-label="WhatsApp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </a>
+            <a href="https://facebook.com/neel.nafis" target="_blank" class="zf-soc-link" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="mailto:technicalrakib999@gmail.com" class="zf-soc-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2Z"/><path d="m22 6-10 7L2 6"/></svg>
+            </a>
+            <a href="https://x.com/neel_nafis" target="_blank" class="zf-soc-link" aria-label="X">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M18.33 1.9H21.7L14.33 10.33 23 21.79h-6.79l-5.32-6.95-6.08 6.95H1.43l7.88-9.01L1 1.9h7.96l4.81 6.36 5.56-6.36Zm-1.19 17.87h1.87L6.94 3.82H4.94l12.2 15.95Z" fill="currentColor"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@neelnafis" target="_blank" class="zf-soc-link" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M23.76 7.2s-.24-1.66-.96-2.38c-.91-.96-1.94-.96-2.4-1.02C17.04 3.56 12 3.56 12 3.56s-5.04 0-8.4.24c-.47.06-1.49.06-2.4 1.02C.47 5.54.24 7.2.24 7.2S0 9.15 0 11.09v1.82c0 1.94.24 3.88.24 3.88s.23 1.66.96 2.38c.91.96 2.11.93 2.64 1.03 1.92.18 8.16.24 8.16.24s5.04-.01 8.4-.25c.47-.06 1.49-.06 2.4-1.02.72-.72.96-2.38.96-2.38S24 14.85 24 12.9v-1.82C24 9.15 23.76 7.2 23.76 7.2ZM9.52 15.11V8.37l6.48 3.39-6.48 3.35Z" fill="currentColor"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="zf-services-col">
+          <p class="zf-col-title">Services</p>
+          <div class="zf-services-list">
+            <a href="services.html" class="zf-svc-item"><span class="zf-svc-dot"></span><span>Video Editing</span></a>
+            <a href="services.html" class="zf-svc-item"><span class="zf-svc-dot"></span><span>Ad Production</span></a>
+            <a href="services.html" class="zf-svc-item"><span class="zf-svc-dot"></span><span>Website Design</span></a>
+            <a href="services.html" class="zf-svc-item"><span class="zf-svc-dot"></span><span>Brand Identity</span></a>
+            <a href="services.html" class="zf-svc-item"><span class="zf-svc-dot"></span><span>AI Automation</span></a>
+          </div>
+        </div>
+
+        <div class="zf-contact-col">
+          <p class="zf-col-title">Contact</p>
+          <div class="zf-contact-group">
+            <span class="zf-contact-lbl">Email</span>
+            <a href="mailto:technicalrakib999@gmail.com" class="zf-contact-val zf-contact-link">technicalrakib999@gmail.com</a>
+          </div>
+          <div class="zf-contact-group">
+            <span class="zf-contact-lbl">WhatsApp</span>
+            <a href="https://wa.me/8801716705401" target="_blank" class="zf-contact-val zf-contact-link zf-wa-highlight">+880 1716 705401</a>
+          </div>
+          <div class="zf-contact-group">
+            <span class="zf-contact-lbl">Facebook Page</span>
+            <a href="https://facebook.com/neel.nafis" target="_blank" class="zf-contact-val zf-contact-link">fb.com/neel.nafis</a>
+          </div>
+          <div class="zf-contact-group">
+            <span class="zf-contact-lbl">Phone Line</span>
+            <a href="tel:+8801716705401" class="zf-contact-val zf-contact-link">+880 1716 705401</a>
+          </div>
+          <div class="zf-contact-group">
+            <span class="zf-contact-lbl">Response Time</span>
+            <span class="zf-contact-val" style="color: rgba(225,200,250,0.85);">Within 24 hours</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="zf-bottom-bar">
+        <p class="zf-copy">&copy; 2026 <a href="index.html">Zentic Media</a>. All rights reserved.</p>
+        <div class="zf-badge"><span></span> Available for new projects</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ================= QUICK CONTACT FLOATING SPEED-DIAL WIDGET ================= -->
+<style id="quick-contact-styles">
+.qc-widget-wrap {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 2147483640;
+  width: 62px;
+  height: 62px;
+  user-select: none;
+  font-family: 'Inter', sans-serif !important;
+}
+.qc-main-trigger {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  -webkit-tap-highlight-color: transparent;
+}
+.qc-main-trigger:hover {
+  transform: scale(1.08);
+}
+.qc-main-trigger:active {
+  transform: scale(0.94);
+}
+.qc-avatar-ring {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  padding: 2.5px;
+  background: linear-gradient(135deg, #e879f9 0%, #b800f5 50%, #4a0080 100%);
+  box-shadow: 0 8px 26px rgba(184, 0, 245, 0.45), 0 0 16px rgba(184, 0, 245, 0.35);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.qc-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 54% 18%;
+  display: block;
+  background: #10021c;
+  transition: filter 0.25s ease, opacity 0.25s ease;
+}
+.qc-close-icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(18, 4, 28, 0.88);
+  color: #ffffff;
+  opacity: 0;
+  transform: scale(0.6) rotate(-90deg);
+  transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+}
+.qc-widget-wrap.is-open .qc-close-icon {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+.qc-widget-wrap.is-open .qc-avatar-img {
+  opacity: 0.22;
+}
+.qc-online-dot {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  width: 14px;
+  height: 14px;
+  background: #22c55e;
+  border: 2.5px solid #06010a;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #22c55e;
+}
+.qc-widget-wrap.is-open .qc-online-dot {
+  opacity: 0;
+  transform: scale(0.5);
+}
+.qc-btn {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(0) scale(0.3);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.24s ease, box-shadow 0.25s ease;
+  z-index: 5;
+  outline: none;
+}
+.qc-btn-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.qc-widget-wrap.is-open .qc-btn-whatsapp {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-68px) scale(1);
+  transition-delay: 0.03s;
+}
+.qc-widget-wrap.is-open .qc-btn-messenger {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-128px) scale(1);
+  transition-delay: 0.08s;
+}
+.qc-widget-wrap.is-open .qc-btn-call {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-188px) scale(1);
+  transition-delay: 0.13s;
+}
+.qc-btn-whatsapp {
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.5), 0 0 16px rgba(37, 211, 102, 0.35);
+}
+.qc-btn-messenger {
+  box-shadow: 0 8px 24px rgba(0, 132, 255, 0.5), 0 0 16px rgba(160, 51, 255, 0.35);
+}
+.qc-btn-call {
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.5), 0 0 16px rgba(16, 185, 129, 0.35);
+}
+.qc-btn svg {
+  width: 50px;
+  height: 50px;
+  display: block;
+}
+.qc-tooltip {
+  position: absolute;
+  right: calc(100% + 14px);
+  top: 50%;
+  transform: translateY(-50%) translateX(8px);
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  background: rgba(14, 3, 22, 0.95);
+  border: 1px solid rgba(184, 0, 245, 0.4);
+  backdrop-filter: blur(14px);
+  color: #ffffff;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 700;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.qc-btn:hover .qc-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+@media (max-width: 640px) {
+  .qc-widget-wrap {
+    bottom: 20px;
+    right: 18px;
+    width: 56px;
+    height: 56px;
+  }
+  .qc-main-trigger {
+    width: 56px;
+    height: 56px;
+  }
+  .qc-avatar-ring {
+    width: 54px;
+    height: 54px;
+  }
+  .qc-btn {
+    bottom: 5px;
+    right: 5px;
+    width: 46px;
+    height: 46px;
+  }
+  .qc-btn svg {
+    width: 46px;
+    height: 46px;
+  }
+  .qc-widget-wrap.is-open .qc-btn-whatsapp {
+    transform: translateY(-62px) scale(1);
+  }
+  .qc-widget-wrap.is-open .qc-btn-messenger {
+    transform: translateY(-116px) scale(1);
+  }
+  .qc-widget-wrap.is-open .qc-btn-call {
+    transform: translateY(-170px) scale(1);
+  }
+  .qc-tooltip {
+    display: none;
+  }
+}
+</style>
+
+<div id="quick-contact-widget" class="qc-widget-wrap" aria-label="Quick Contact">
+  <!-- 1. Real 3D WhatsApp Button -->
+  <a href="https://wa.me/8801716705401" target="_blank" rel="noopener noreferrer" class="qc-btn qc-btn-whatsapp" aria-label="WhatsApp Chat">
+    <div class="qc-btn-inner">
+      <svg viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="24" r="23" fill="#25D366"/>
+        <path fill="#FFFFFF" fill-rule="evenodd" clip-rule="evenodd" d="M24 10C16.27 10 10 16.27 10 24c0 2.68.75 5.18 2.06 7.31L10.5 37.5l6.37-1.55A13.91 13.91 0 0 0 24 38c7.73 0 14-6.27 14-14S31.73 10 24 10zm6.97 19.46c-.29.82-1.68 1.52-2.32 1.62-.61.09-1.4.13-2.26-.15-.52-.17-1.2-.39-2.07-.77-3.66-1.58-6.04-5.29-6.22-5.54-.18-.24-1.5-1.99-1.5-3.8s.94-2.69 1.28-3.06c.33-.37.73-.47.97-.47.24 0 .49.01.7.02.22.01.52-.08.82.62.31.75 1.05 2.56 1.15 2.75.09.19.16.41.03.65-.12.24-.18.39-.36.6-.18.21-.38.48-.54.64-.18.18-.37.38-.16.75.21.37.95 1.57 2.04 2.54 1.4 1.25 2.58 1.64 2.95 1.83.37.18.58.16.8-.09.22-.25.94-1.1 1.19-1.48.24-.37.5-.31.83-.19.33.13 2.13 1 2.5 1.19.37.18.61.28.71.44.09.16.09.89-.2 1.71z"/>
+      </svg>
+    </div>
+    <span class="qc-tooltip">WhatsApp</span>
+  </a>
+
+  <!-- 2. Real 3D Messenger Button -->
+  <a href="https://m.me/neel.nafis" target="_blank" rel="noopener noreferrer" class="qc-btn qc-btn-messenger" aria-label="Facebook Messenger">
+    <div class="qc-btn-inner">
+      <svg viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="24" r="23" fill="#0084FF"/>
+        <path fill="#FFFFFF" fill-rule="evenodd" clip-rule="evenodd" d="M24 10C16.27 10 10 15.77 10 22.88c0 4.07 2.04 7.7 5.23 9.99v4.13l3.96-2.18c1.51.42 3.12.65 4.81.65 7.73 0 14-5.77 14-12.88S31.73 10 24 10zm1.48 16.92l-3.66-3.9-7.14 3.9 7.85-8.33 3.74 3.9 7.06-3.9-7.85 8.33z"/>
+      </svg>
+    </div>
+    <span class="qc-tooltip">Messenger</span>
+  </a>
+
+  <!-- 3. Real 3D Phone Call Button -->
+  <a href="tel:+8801716705401" class="qc-btn qc-btn-call" aria-label="Direct Call">
+    <div class="qc-btn-inner">
+      <svg viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="24" r="23" fill="#10B981"/>
+        <path fill="#FFFFFF" d="M20.4 23.6a14.8 14.8 0 0 0 6 6l2-2a1.8 1.8 0 0 1 1.8-.4c2 .7 4.2 1.1 6.4 1.1a1.8 1.8 0 0 1 1.8 1.8V35a1.8 1.8 0 0 1-1.8 1.8C23.6 36.8 13.2 26.4 13.2 13.8a1.8 1.8 0 0 1 1.8-1.8H19a1.8 1.8 0 0 1 1.8 1.8c0 2.2.4 4.4 1.1 6.4.2.6 0 1.3-.4 1.8l-2.1 2.1z"/>
+      </svg>
+    </div>
+    <span class="qc-tooltip">Direct Call</span>
+  </a>
+
+  <!-- Main Round Avatar Trigger Button -->
+  <button type="button" id="qc-trigger-btn" class="qc-main-trigger" aria-label="Quick Contact Toggle" title="Quick Contact">
+    <div class="qc-avatar-ring">
+      <img src="assets/rakib_avatar.jpg" alt="Contact Rakib" class="qc-avatar-img"/>
+      <span class="qc-online-dot"></span>
+      <div class="qc-close-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </div>
+    </div>
+  </button>
+</div>
+
+<!-- Scripts -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Mobile Nav Toggle
+  const menuBtn = document.querySelector('.menu-button-2');
+  const navMenu = document.querySelector('.nav-menu-2');
+  if (menuBtn && navMenu) {
+    menuBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      navMenu.classList.toggle('w--open');
+      menuBtn.classList.toggle('w--open');
+    });
+    document.addEventListener('click', function(e) {
+      if (!menuBtn.contains(e.target) && !navMenu.contains(e.target)) {
+        navMenu.classList.remove('w--open');
+        menuBtn.classList.remove('w--open');
+      }
+    });
+  }
+
+  // Interactive Tabs
+  const tabBtns = document.querySelectorAll('.fm-tab-btn');
+  const tabPanels = document.querySelectorAll('.fm-tab-panel');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const targetId = this.getAttribute('data-tab');
+
+      tabBtns.forEach(b => b.classList.remove('is-active'));
+      tabPanels.forEach(p => p.classList.remove('is-active'));
+
+      this.classList.add('is-active');
+      const targetPanel = document.getElementById(targetId);
+      if (targetPanel) {
+        targetPanel.classList.add('is-active');
+      }
+    });
+  });
+
+  // Quick Contact Widget
+  const widget = document.getElementById('quick-contact-widget');
+  const triggerBtn = document.getElementById('qc-trigger-btn');
+  if (widget && triggerBtn) {
+    triggerBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      widget.classList.toggle('is-open');
+    });
+    document.addEventListener('click', function(e) {
+      if (widget.classList.contains('is-open') && !widget.contains(e.target)) {
+        widget.classList.remove('is-open');
+      }
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && widget.classList.contains('is-open')) {
+        widget.classList.remove('is-open');
+      }
+    });
+  }
+});
+</script>
+
+</body>
+</html>
