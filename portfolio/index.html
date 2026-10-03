@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <base href="/">
   <meta charset="utf-8"/>
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
   <meta http-equiv="Pragma" content="no-cache"/>
@@ -19,174 +18,206 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/zentic_icon.png?v=5.0"/>
   <link rel="apple-touch-icon" sizes="180x180" href="assets/zentic_icon.png?v=5.0"/>
 
+  <!-- Core Global Stylesheets matching index.html -->
   <link href="css/mzmedia.css?v=2.0" rel="stylesheet" type="text/css" />
   <link href="css/custom-theme.css?v=12.0" rel="stylesheet" type="text/css" />
+  <link href="css/rotating-tagline.css?v=1.0" rel="stylesheet" type="text/css" />
+  <link href="css/tools-orbit.css?v=4.0" rel="stylesheet" type="text/css" />
+  <link href="css/framework-3d.css?v=1.0" rel="stylesheet" type="text/css" />
+  <link href="css/services-section.css?v=43.0" rel="stylesheet" type="text/css" />
+  <link href="css/bg-shapes.css?v=7.0" rel="stylesheet" type="text/css" />
+
+  <!-- Google Fonts: Inter for clean body text -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --brand-purple: #b800f5;
-      --brand-glow: #e879f9;
-      --brand-dark: #06010a;
-      --brand-surface: #0e0316;
-      --brand-border: rgba(184, 0, 245, 0.25);
+    /* === COOLVETICA REGULAR: ALL HEADINGS EVERYWHERE === */
+    @font-face {
+      font-family: "Coolvetica";
+      src: url("fonts/coolvetica rg.otf") format("opentype");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
     }
 
-    body {
-      background-color: var(--brand-dark);
-      color: #ffffff;
-      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
+    /* Force Coolvetica Regular on ALL Headings */
+    h1, h2, h3, h4, h5, h6,
+    .pf-hero-title,
+    .pf-hero-title span,
+    .pf-card-title,
+    .pf-sec-title,
+    .pf-pipeline-title,
+    .zf-cta-left h2,
+    [class*="title"]:is(h1,h2,h3,h4,h5,h6),
+    [class*="heading"] {
+      font-family: "Coolvetica", "Inter", -apple-system, sans-serif !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.01em !important;
     }
 
-    /* Ambient Cosmic Lighting */
-    .pf-page-glow-top {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 1000px;
-      height: 480px;
-      background: radial-gradient(ellipse at top, rgba(184, 0, 245, 0.22) 0%, rgba(112, 0, 168, 0.08) 50%, transparent 75%);
-      pointer-events: none;
-      z-index: 0;
+    /* Force Simple, Crisp Font (Inter) for ALL small text, paragraphs, buttons */
+    body, p, span, a, button, input, label,
+    .pf-hero-sub,
+    .pf-stat-val,
+    .pf-stat-lbl,
+    .pf-tab-btn,
+    .pf-card-desc,
+    .pf-tag,
+    .pf-result-badge,
+    .pf-pipe-desc,
+    .zf-brand-desc,
+    .zf-contact-val,
+    .zf-svc-item,
+    .zf-copy,
+    .paragraph-02-m,
+    .nav-link-2 {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
     }
 
-    /* ── Hero Section ── */
-    .pf-hero {
+    /* Active Nav link for Portfolio */
+    .nav-link-2.is-current-page {
+      color: #e879f9 !important;
+      font-weight: 700 !important;
+      text-shadow: 0 0 12px rgba(184, 0, 245, 0.6) !important;
+    }
+
+    /* Page Container */
+    .pf-page-wrapper {
       position: relative;
-      padding: 130px 24px 40px;
-      max-width: 1180px;
+      overflow-x: hidden;
+      min-height: 100vh;
+      background: #06010a;
+    }
+
+    /* ── Portfolio Hero ── */
+    .pf-hero-section {
+      position: relative;
+      padding: 130px 24px 30px;
+      max-width: 1140px;
       margin: 0 auto;
       text-align: center;
-      z-index: 1;
+      z-index: 2;
     }
 
-    .pf-hero-badge {
+    .pf-eyebrow-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(184, 0, 245, 0.12);
-      border: 1px solid rgba(184, 0, 245, 0.35);
+      background: rgba(184, 0, 245, 0.14);
+      border: 1px solid rgba(184, 0, 245, 0.4);
       border-radius: 999px;
-      padding: 6px 18px;
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
+      padding: 7px 20px;
+      font-family: 'DM Mono', monospace !important;
+      font-size: 11.5px;
       font-weight: 600;
-      letter-spacing: 1.5px;
+      letter-spacing: 1.6px;
       color: #e879f9;
       text-transform: uppercase;
-      margin-bottom: 22px;
-      box-shadow: 0 0 20px rgba(184, 0, 245, 0.2);
+      margin-bottom: 24px;
+      box-shadow: 0 0 24px rgba(184, 0, 245, 0.28);
     }
 
-    .pf-hero-badge-dot {
-      width: 6px;
-      height: 6px;
+    .pf-eyebrow-dot {
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
       background: #e879f9;
-      box-shadow: 0 0 8px #e879f9;
-      animation: pfPulse 1.8s infinite;
+      box-shadow: 0 0 10px #e879f9;
+      animation: pfDotPulse 1.8s infinite;
     }
 
-    @keyframes pfPulse {
+    @keyframes pfDotPulse {
       0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.7); }
+      50% { opacity: 0.35; transform: scale(0.65); }
     }
 
     .pf-hero-title {
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(34px, 5.5vw, 62px);
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      margin: 0 0 18px;
+      font-size: clamp(38px, 6.2vw, 76px);
+      line-height: 1.06;
       color: #ffffff;
+      margin: 0 0 20px;
     }
 
-    .pf-hero-gradient {
-      background: linear-gradient(135deg, #ffffff 30%, #e879f9 70%, #b800f5 100%);
+    .pf-title-gradient {
+      background: linear-gradient(135deg, #ffffff 25%, #e879f9 65%, #b800f5 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     .pf-hero-sub {
-      font-size: clamp(15px, 2vw, 18px);
+      font-size: clamp(15px, 1.8vw, 18px);
       color: rgba(225, 200, 250, 0.72);
-      max-width: 680px;
-      margin: 0 auto 36px;
-      line-height: 1.6;
+      max-width: 660px;
+      margin: 0 auto 38px;
+      line-height: 1.65;
+      font-weight: 400;
     }
 
-    /* ── Metrics Strip ── */
-    .pf-stats-strip {
+    /* ── Metrics Summary Bar ── */
+    .pf-stats-card {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
-      max-width: 980px;
-      margin: 0 auto 56px;
-      padding: 20px 24px;
-      background: rgba(18, 5, 28, 0.75);
-      border: 1px solid rgba(184, 0, 245, 0.25);
-      border-radius: 18px;
-      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
-      backdrop-filter: blur(16px);
+      max-width: 960px;
+      margin: 0 auto 52px;
+      padding: 22px 28px;
+      background: linear-gradient(135deg, rgba(22, 6, 36, 0.85) 0%, rgba(38, 10, 62, 0.65) 50%, rgba(15, 3, 24, 0.9) 100%);
+      border: 1px solid rgba(184, 0, 245, 0.3);
+      border-radius: 20px;
+      box-shadow: 0 16px 44px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(232, 121, 249, 0.2);
+      backdrop-filter: blur(20px);
     }
 
-    .pf-stat-item {
+    .pf-stat-box {
       text-align: center;
     }
 
     .pf-stat-val {
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(24px, 3.2vw, 36px);
+      font-size: clamp(26px, 3.2vw, 38px);
       font-weight: 800;
       color: #ffffff;
+      margin-bottom: 4px;
       background: linear-gradient(135deg, #ffffff 40%, #e879f9 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 4px;
     }
 
     .pf-stat-lbl {
-      font-size: 12px;
-      font-weight: 500;
+      font-size: 11.5px;
+      font-weight: 600;
       color: rgba(225, 200, 250, 0.6);
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.8px;
     }
 
-    /* ── Filter Tabs ── */
-    .pf-filter-bar {
+    /* ── Category Filter Tabs ── */
+    .pf-filter-row {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
       flex-wrap: wrap;
-      margin-bottom: 48px;
+      margin-bottom: 50px;
     }
 
     .pf-tab-btn {
-      background: rgba(24, 7, 36, 0.7);
-      border: 1px solid rgba(184, 0, 245, 0.25);
+      background: rgba(22, 6, 36, 0.7);
+      border: 1px solid rgba(184, 0, 245, 0.28);
       color: rgba(225, 200, 250, 0.75);
       padding: 10px 22px;
       border-radius: 999px;
-      font-family: 'DM Sans', sans-serif;
       font-size: 13.5px;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       outline: none;
     }
 
     .pf-tab-btn:hover {
-      background: rgba(184, 0, 245, 0.22);
-      border-color: rgba(232, 121, 249, 0.5);
+      background: rgba(184, 0, 245, 0.24);
+      border-color: rgba(232, 121, 249, 0.55);
       color: #ffffff;
       transform: translateY(-2px);
     }
@@ -195,14 +226,16 @@
       background: linear-gradient(135deg, #b800f5 0%, #8200b8 100%);
       border-color: #e879f9;
       color: #ffffff;
-      box-shadow: 0 4px 20px rgba(184, 0, 245, 0.45);
+      box-shadow: 0 4px 22px rgba(184, 0, 245, 0.55);
     }
 
-    /* ── Portfolio Grid ── */
-    .pf-showcase-container {
+    /* ── Portfolio Showcase Grid ── */
+    .pf-showcase-wrap {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 24px 80px;
+      position: relative;
+      z-index: 2;
     }
 
     .pf-grid-landscape {
@@ -222,20 +255,21 @@
     /* Card Item */
     .pf-card-item {
       position: relative;
-      background: rgba(18, 5, 28, 0.65);
+      background: rgba(16, 4, 25, 0.75);
       border: 1px solid rgba(184, 0, 245, 0.22);
-      border-radius: 18px;
+      border-radius: 20px;
       overflow: hidden;
       cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.32s cubic-bezier(0.16, 1, 0.3, 1);
       display: flex;
       flex-direction: column;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
     }
 
     .pf-card-item:hover {
-      transform: translateY(-6px);
-      border-color: rgba(232, 121, 249, 0.55);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7), 0 0 24px rgba(184, 0, 245, 0.35);
+      transform: translateY(-7px);
+      border-color: rgba(232, 121, 249, 0.6);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.8), 0 0 28px rgba(184, 0, 245, 0.4);
     }
 
     .pf-thumb-wrap {
@@ -245,14 +279,12 @@
       overflow: hidden;
     }
 
-    /* 16:9 Aspect Ratio */
     .pf-card-landscape .pf-thumb-wrap {
-      padding-top: 56.25%;
+      padding-top: 56.25%; /* 16:9 */
     }
 
-    /* 9:16 Aspect Ratio */
     .pf-card-portrait .pf-thumb-wrap {
-      padding-top: 177.78%;
+      padding-top: 177.78%; /* 9:16 */
     }
 
     .pf-thumb-wrap img {
@@ -262,20 +294,21 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.4s ease;
+      transition: transform 0.45s ease;
     }
 
     .pf-card-item:hover .pf-thumb-wrap img {
-      transform: scale(1.05);
+      transform: scale(1.06);
     }
 
     .pf-card-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(6, 1, 10, 0.85) 0%, rgba(6, 1, 10, 0.1) 60%, transparent 100%);
+      background: linear-gradient(to top, rgba(6, 1, 10, 0.85) 0%, rgba(6, 1, 10, 0.15) 60%, transparent 100%);
       pointer-events: none;
     }
 
+    /* Glowing Play Button */
     .pf-play-icon {
       position: absolute;
       top: 50%;
@@ -285,7 +318,7 @@
       height: 52px;
       border-radius: 50%;
       background: rgba(184, 0, 245, 0.85);
-      box-shadow: 0 0 24px rgba(184, 0, 245, 0.8);
+      box-shadow: 0 0 24px rgba(184, 0, 245, 0.85);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -294,28 +327,29 @@
     }
 
     .pf-card-item:hover .pf-play-icon {
-      transform: translate(-50%, -50%) scale(1.15);
+      transform: translate(-50%, -50%) scale(1.18);
       background: #e879f9;
       color: #06010a;
-      box-shadow: 0 0 32px #e879f9;
+      box-shadow: 0 0 34px #e879f9;
     }
 
-    .pf-card-info {
-      padding: 18px 20px;
+    /* Card Details */
+    .pf-card-body {
+      padding: 18px 20px 20px;
       display: flex;
       flex-direction: column;
       flex: 1;
     }
 
-    .pf-card-tags {
+    .pf-card-badges {
       display: flex;
       align-items: center;
       gap: 8px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .pf-tag {
-      font-family: 'DM Mono', monospace;
+      font-family: 'DM Mono', monospace !important;
       font-size: 10px;
       font-weight: 700;
       text-transform: uppercase;
@@ -337,12 +371,10 @@
     }
 
     .pf-card-title {
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      font-weight: 700;
+      font-size: 21px;
       color: #ffffff;
       margin: 0 0 6px;
-      line-height: 1.35;
+      line-height: 1.25;
     }
 
     .pf-card-desc {
@@ -350,14 +382,75 @@
       color: rgba(225, 200, 250, 0.65);
       margin: 0;
       line-height: 1.5;
+      font-weight: 400;
+    }
+
+    /* ── Creative 4-Pillar Pipeline ── */
+    .pf-pipeline-sec {
+      max-width: 1140px;
+      margin: 40px auto 80px;
+      padding: 0 24px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .pf-sec-title {
+      font-size: clamp(30px, 4.5vw, 52px);
+      margin: 0 0 16px;
+      color: #ffffff;
+    }
+
+    .pf-pipeline-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .pf-pipe-card {
+      background: rgba(16, 4, 25, 0.75);
+      border: 1px solid rgba(184, 0, 245, 0.22);
+      border-radius: 18px;
+      padding: 26px 20px;
+      text-align: left;
+      transition: all 0.28s ease;
+    }
+
+    .pf-pipe-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(232, 121, 249, 0.5);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), 0 0 20px rgba(184, 0, 245, 0.25);
+    }
+
+    .pf-pipe-num {
+      font-family: 'DM Mono', monospace !important;
+      font-size: 11px;
+      font-weight: 700;
+      color: #e879f9;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+
+    .pf-pipe-heading {
+      font-size: 20px;
+      color: #ffffff;
+      margin: 0 0 8px;
+    }
+
+    .pf-pipe-desc {
+      font-size: 12.5px;
+      color: rgba(225, 200, 250, 0.65);
+      line-height: 1.55;
+      margin: 0;
     }
 
     /* ── Lightbox Modal ── */
     .pf-modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(4, 1, 8, 0.92);
-      backdrop-filter: blur(20px);
+      background: rgba(4, 1, 8, 0.94);
+      backdrop-filter: blur(24px);
       z-index: 999999;
       display: flex;
       align-items: center;
@@ -366,7 +459,7 @@
       opacity: 0;
       pointer-events: none;
       visibility: hidden;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .pf-modal-backdrop.is-active {
@@ -380,10 +473,10 @@
       width: 100%;
       max-width: 960px;
       background: #000;
-      border: 1px solid rgba(184, 0, 245, 0.45);
+      border: 1.5px solid rgba(184, 0, 245, 0.5);
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.9), 0 0 40px rgba(184, 0, 245, 0.4);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.95), 0 0 44px rgba(184, 0, 245, 0.45);
       transform: scale(0.92);
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
@@ -393,7 +486,7 @@
     }
 
     .pf-modal-box.is-portrait {
-      max-width: 440px;
+      max-width: 420px;
     }
 
     .pf-iframe-wrap {
@@ -419,26 +512,27 @@
       position: absolute;
       top: -46px;
       right: 0;
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       background: rgba(18, 5, 28, 0.9);
-      border: 1px solid rgba(184, 0, 245, 0.4);
+      border: 1px solid rgba(184, 0, 245, 0.45);
       color: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       outline: none;
-      transition: all 0.2s ease;
+      transition: all 0.22s ease;
     }
 
     .pf-modal-close:hover {
       background: #b800f5;
       transform: rotate(90deg);
+      box-shadow: 0 0 16px #b800f5;
     }
 
-    /* ── Responsive Queries ── */
+    /* ── Mobile Queries ── */
     @media (max-width: 980px) {
       .pf-grid-landscape {
         grid-template-columns: repeat(2, 1fr);
@@ -446,15 +540,18 @@
       .pf-grid-portrait {
         grid-template-columns: repeat(2, 1fr);
       }
-      .pf-stats-strip {
+      .pf-pipeline-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .pf-stats-card {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
       }
     }
 
     @media (max-width: 640px) {
-      .pf-hero {
-        padding: 100px 16px 30px;
+      .pf-hero-section {
+        padding: 105px 16px 24px;
       }
       .pf-grid-landscape {
         grid-template-columns: 1fr;
@@ -464,14 +561,18 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 14px;
       }
-      .pf-stats-strip {
+      .pf-pipeline-grid {
+        grid-template-columns: 1fr;
+      }
+      .pf-stats-card {
         grid-template-columns: 1fr 1fr;
         padding: 16px 14px;
+        gap: 14px;
       }
       .pf-card-title {
-        font-size: 14.5px;
+        font-size: 19px;
       }
-      .pf-showcase-container {
+      .pf-showcase-wrap {
         padding: 0 16px 60px;
       }
     }
@@ -479,899 +580,945 @@
 </head>
 <body class="home2">
 
-<div class="pf-page-glow-top"></div>
+<div class="pf-page-wrapper">
 
-<!-- Top Navigation Bar -->
-<section class="header-section">
-  <div role="banner" class="navbar-2">
-    <div class="navbar-container w-container">
-      <div class="na-outer-border">
-        <div class="nav-inner-wrap">
-          <div class="nav-inner">
-            <a href="index.html" class="brand-logo-link w-nav-brand" aria-label="Home">
-              <img loading="eager" src="assets/zentic_logo.png" alt="Zentic Media Logo" class="nav-brand-logo-img"/>
-            </a>
-            <div class="menu-button-wrapper">
-              <nav role="navigation" class="nav-menu-2">
-                <a href="services.html" class="nav-link-2 w-nav-link">Services</a>
-                <a href="portfolio.html" class="nav-link-2 w-nav-link w--current" style="color:#e879f9;font-weight:700;">Portfolio</a>
-                <a href="/case-studies" target="_blank" class="nav-link-2 w-nav-link">Case Studies</a>
-                <a href="/blog" target="_blank" class="nav-link-2 w-nav-link">Blog</a>
-                <a href="/careers" class="nav-link-2">Careers</a>
-                <a href="/personal-brand" class="nav-link-2 w-nav-link">Personal Branding</a>
-                <div class="nav-button-wrap mobile-only">
-                  <a href="index.html#talk-to-us" class="button-03 w-inline-block">
-                    <div class="button-text-wrapper"><div class="button-text-wrap"><div class="paragraph-02-m">Let's Talk!</div></div></div>
-                  </a>
-                </div>
-              </nav>
-              <div class="menu-button-2">
-                <div class="hamburger">
-                  <div class="hamburger-line-top"></div>
-                  <div class="hamburger-line-middle"></div>
-                  <div class="hamburger-line-bottom"></div>
+  <!-- ============ COSMIC VORTEX BACKGROUND (EXACT SAME AS INDEX) ============ -->
+  <div id="bg-scene" aria-hidden="true">
+    <div class="bg-corner-tl"></div>
+    <div class="bg-corner-tr"></div>
+    <div class="bg-vortex-wrap">
+      <div class="bg-vortex-ring"></div>
+    </div>
+    <div class="bg-light-pillar"></div>
+    <div class="bg-vortex-floor"></div>
+    <div class="bg-particles"></div>
+    <div class="bg-grain"></div>
+  </div>
+  <!-- ========================================================================= -->
+
+  <!-- Top Navigation Bar (EXACT SAME AS INDEX.HTML) -->
+  <section class="header-section">
+    <div role="banner" class="navbar-2">
+      <div class="navbar-container w-container">
+        <div class="na-outer-border">
+          <div class="nav-inner-wrap">
+            <div class="nav-inner">
+              <a href="index.html" class="brand-logo-link w-nav-brand" aria-label="Home">
+                <img loading="eager" src="assets/zentic_logo.png" alt="Zentic Media Logo" class="nav-brand-logo-img"/>
+              </a>
+              <div class="menu-button-wrapper">
+                <nav role="navigation" class="nav-menu-2">
+                  <a href="services.html" class="nav-link-2 w-nav-link">Services</a>
+                  <a href="portfolio.html" class="nav-link-2 w-nav-link is-current-page">Portfolio</a>
+                  <a href="/case-studies" target="_blank" class="nav-link-2 w-nav-link">Case Studies</a>
+                  <a href="/blog" target="_blank" class="nav-link-2 w-nav-link">Blog</a>
+                  <a href="/careers" class="nav-link-2">Careers</a>
+                  <a href="/personal-brand" class="nav-link-2 w-nav-link">Personal Branding</a>
+                  <div class="nav-button-wrap mobile-only">
+                    <a href="index.html#talk-to-us" data-wf--button-home2--variant="nav-button" class="button-03 w-inline-block">
+                      <div class="button-text-wrapper w-variant-64a732d0-0f90-6c1d-602c-7753ea223767">
+                        <div class="button-text-wrap w-variant-64a732d0-0f90-6c1d-602c-7753ea223767">
+                          <div class="paragraph-02-m w-variant-64a732d0-0f90-6c1d-602c-7753ea223767">Let's Talk!</div>
+                        </div>
+                      </div>
+                      <div class="button-arrow-wrapper w-variant-64a732d0-0f90-6c1d-602c-7753ea223767">
+                        <div class="button-icon-wrap">
+                          <div class="button-icon w-embed">
+                            <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M13.4349 13.435L14.142 12.7279L15.5562 14.1421L16.9704 12.7279L18.3846 14.1421L9.89934 22.6274L11.3136 24.0416L19.7988 15.5564L21.2131 16.9706L19.7988 18.3848L21.2131 19.799L20.5059 20.5061L21.9202 21.9203L24.0415 19.799L22.6273 18.3848L24.0415 16.9706L22.6273 15.5564L24.0415 14.1421L23.3344 13.435L24.0415 12.7279L23.3344 12.0208L24.0415 11.3137L22.6273 9.8995L21.9202 10.6066L21.2131 9.8995L20.5059 10.6066L19.7988 9.8995L18.3846 11.3137L16.9704 9.8995L15.5562 11.3137L14.142 9.8995L12.0207 12.0208L13.4349 13.435Z" fill="white"/>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </nav>
+                <div class="menu-button-2">
+                  <div class="hamburger">
+                    <div class="hamburger-line-top"></div>
+                    <div class="hamburger-line-middle"></div>
+                    <div class="hamburger-line-bottom"></div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="nav-button-wrap desktop-only">
-              <a href="index.html#talk-to-us" class="button-03 w-inline-block">
-                <div class="button-text-wrapper"><div class="button-text-wrap"><div class="paragraph-02-m">Let's Talk!</div></div></div>
-              </a>
+              <div class="nav-button-wrap desktop-only">
+                <a href="index.html#talk-to-us" data-wf--button-home2--variant="nav-button" class="button-03 w-inline-block">
+                  <div class="button-text-wrapper w-variant-64a732d0-0f90-6c1d-602c-7753ea223767">
+                    <div class="button-text-wrap w-variant-64a732d0-0f90-6c1d-602c-7753ea223767">
+                      <div class="paragraph-02-m w-variant-64a732d0-0f90-6c1d-602c-7753ea223767">Let's Talk!</div>
+                    </div>
+                  </div>
+                  <div class="button-arrow-wrapper w-variant-64a732d0-0f90-6c1d-602c-7753ea223767">
+                    <div class="button-icon-wrap">
+                      <div class="button-icon w-embed">
+                        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M13.4349 13.435L14.142 12.7279L15.5562 14.1421L16.9704 12.7279L18.3846 14.1421L9.89934 22.6274L11.3136 24.0416L19.7988 15.5564L21.2131 16.9706L19.7988 18.3848L21.2131 19.799L20.5059 20.5061L21.9202 21.9203L24.0415 19.799L22.6273 18.3848L24.0415 16.9706L22.6273 15.5564L24.0415 14.1421L23.3344 13.435L24.0415 12.7279L23.3344 12.0208L24.0415 11.3137L22.6273 9.8995L21.9202 10.6066L21.2131 9.8995L20.5059 10.6066L19.7988 9.8995L18.3846 11.3137L16.9704 9.8995L15.5562 11.3137L14.142 9.8995L12.0207 12.0208L13.4349 13.435Z" fill="white"/>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Portfolio Hero Header -->
-<header class="pf-hero">
-  <div class="pf-hero-badge">
-    <span class="pf-hero-badge-dot"></span>
-    CREATIVE SHOWCASE &amp; PROVEN RESULTS
-  </div>
-  <h1 class="pf-hero-title">
-    Videos That Command Attention &amp;<br>
-    <span class="pf-hero-gradient">Drive Real Revenue.</span>
-  </h1>
-  <p class="pf-hero-sub">
-    Cinematic SaaS product promos, high-retention vertical reels, and full creative storytelling. Every edit is engineered to stop the scroll and convert viewers into loyal buyers.
-  </p>
-
-  <!-- Key Metrics Strip -->
-  <div class="pf-stats-strip">
-    <div class="pf-stat-item">
-      <div class="pf-stat-val">50+</div>
-      <div class="pf-stat-lbl">Projects Shipped</div>
+  <!-- Hero Header Section -->
+  <header class="pf-hero-section">
+    <div class="pf-eyebrow-badge">
+      <span class="pf-eyebrow-dot"></span>
+      CREATIVE SHOWCASE &amp; PROVEN RESULTS
     </div>
-    <div class="pf-stat-item">
-      <div class="pf-stat-val">15M+</div>
-      <div class="pf-stat-lbl">Organic Views</div>
-    </div>
-    <div class="pf-stat-item">
-      <div class="pf-stat-val">3.8x</div>
-      <div class="pf-stat-lbl">Avg ROAS Boost</div>
-    </div>
-    <div class="pf-stat-item">
-      <div class="pf-stat-val">100%</div>
-      <div class="pf-stat-lbl">Client Happiness</div>
-    </div>
-  </div>
+    <h1 class="pf-hero-title">
+      Videos That Command Attention &amp;<br>
+      <span class="pf-title-gradient">Drive Real Revenue.</span>
+    </h1>
+    <p class="pf-hero-sub">
+      Cinematic SaaS product promos, high-retention vertical reels, and full creative storytelling. Every edit is engineered to stop the scroll and turn viewers into buyers.
+    </p>
 
-  <!-- Interactive Filter Tabs -->
-  <div class="pf-filter-bar">
-    <button class="pf-tab-btn is-active" data-filter="all">All Works</button>
-    <button class="pf-tab-btn" data-filter="saas">SaaS Promos (16:9)</button>
-    <button class="pf-tab-btn" data-filter="shorts">Viral Reels &amp; Shorts (9:16)</button>
-    <button class="pf-tab-btn" data-filter="talking">Talking Head &amp; Podcast</button>
-    <button class="pf-tab-btn" data-filter="bangla">Bangla Commercial</button>
-  </div>
-</header>
-
-<!-- Main Showcase Section -->
-<main class="pf-showcase-container">
-
-  <!-- 16:9 Landscape Section -->
-  <div id="pf-landscape-grid" class="pf-grid-landscape">
-
-    <!-- 1. SaaS Video 1 -->
-    <div class="pf-card-item pf-card-landscape" data-category="saas" data-vid="jjAJMpfkHbU">
-      <div class="pf-thumb-wrap">
-        <img src="https://img.youtube.com/vi/jjAJMpfkHbU/maxresdefault.jpg" alt="SaaS Product Launch" loading="lazy"/>
-        <div class="pf-card-overlay"></div>
-        <div class="pf-play-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        </div>
+    <!-- Key Metrics Strip -->
+    <div class="pf-stats-card">
+      <div class="pf-stat-box">
+        <div class="pf-stat-val">50+</div>
+        <div class="pf-stat-lbl">Projects Shipped</div>
       </div>
-      <div class="pf-card-info">
-        <div class="pf-card-tags">
-          <span class="pf-tag">SaaS Promo</span>
-          <span class="pf-result-badge">+2.4M Views</span>
-        </div>
-        <h3 class="pf-card-title">Next-Gen SaaS Feature Launch</h3>
-        <p class="pf-card-desc">Kinetic 3D motion typography, screen replacement, and high-retention pacing.</p>
+      <div class="pf-stat-box">
+        <div class="pf-stat-val">15M+</div>
+        <div class="pf-stat-lbl">Organic Views</div>
+      </div>
+      <div class="pf-stat-box">
+        <div class="pf-stat-val">3.8x</div>
+        <div class="pf-stat-lbl">Avg ROAS Boost</div>
+      </div>
+      <div class="pf-stat-box">
+        <div class="pf-stat-val">100%</div>
+        <div class="pf-stat-lbl">Client Happiness</div>
       </div>
     </div>
 
-    <!-- 2. SaaS Video 2 -->
-    <div class="pf-card-item pf-card-landscape" data-category="saas" data-vid="M80rKBxzbo0">
-      <div class="pf-thumb-wrap">
-        <img src="https://img.youtube.com/vi/M80rKBxzbo0/maxresdefault.jpg" alt="AI Tool Showcase" loading="lazy"/>
-        <div class="pf-card-overlay"></div>
-        <div class="pf-play-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+    <!-- Category Filter Tabs -->
+    <div class="pf-filter-row">
+      <button class="pf-tab-btn is-active" data-filter="all">⚡ All Works</button>
+      <button class="pf-tab-btn" data-filter="saas">🎬 SaaS Promos (16:9)</button>
+      <button class="pf-tab-btn" data-filter="shorts">📱 Viral Reels &amp; Shorts (9:16)</button>
+      <button class="pf-tab-btn" data-filter="talking">🎙️ Talking Head &amp; Podcast</button>
+      <button class="pf-tab-btn" data-filter="bangla">🇧🇩 Commercial Campaigns</button>
+    </div>
+  </header>
+
+  <!-- Main Showcase Container -->
+  <main class="pf-showcase-wrap">
+
+    <!-- 16:9 Landscape Video Grid -->
+    <div id="pf-landscape-grid" class="pf-grid-landscape">
+
+      <!-- 1. SaaS Video 1 -->
+      <div class="pf-card-item pf-card-landscape" data-category="saas" data-vid="jjAJMpfkHbU">
+        <div class="pf-thumb-wrap">
+          <img src="https://img.youtube.com/vi/jjAJMpfkHbU/maxresdefault.jpg" alt="SaaS Product Launch" loading="lazy"/>
+          <div class="pf-card-overlay"></div>
+          <div class="pf-play-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div class="pf-card-body">
+          <div class="pf-card-badges">
+            <span class="pf-tag">SaaS Promo</span>
+            <span class="pf-result-badge">+2.4M Views</span>
+          </div>
+          <h3 class="pf-card-title">Next-Gen SaaS Feature Launch</h3>
+          <p class="pf-card-desc">Kinetic 3D motion typography, UI screen replacement, and high-retention pacing.</p>
         </div>
       </div>
-      <div class="pf-card-info">
-        <div class="pf-card-tags">
-          <span class="pf-tag">AI Software</span>
-          <span class="pf-result-badge">4.2x ROAS</span>
+
+      <!-- 2. SaaS Video 2 -->
+      <div class="pf-card-item pf-card-landscape" data-category="saas" data-vid="M80rKBxzbo0">
+        <div class="pf-thumb-wrap">
+          <img src="https://img.youtube.com/vi/M80rKBxzbo0/maxresdefault.jpg" alt="AI Tool Showcase" loading="lazy"/>
+          <div class="pf-card-overlay"></div>
+          <div class="pf-play-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
         </div>
-        <h3 class="pf-card-title">AI Automation Platform Demo</h3>
-        <p class="pf-card-desc">Visualizing complex backend workflows into clean, intuitive UI animations.</p>
+        <div class="pf-card-body">
+          <div class="pf-card-badges">
+            <span class="pf-tag">AI Software</span>
+            <span class="pf-result-badge">4.2x ROAS</span>
+          </div>
+          <h3 class="pf-card-title">AI Automation Platform Demo</h3>
+          <p class="pf-card-desc">Visualizing complex backend workflows into clean, intuitive UI motion graphics.</p>
+        </div>
       </div>
+
+      <!-- 3. SaaS Video 3 -->
+      <div class="pf-card-item pf-card-landscape" data-category="saas" data-vid="4bUpn46od5Q">
+        <div class="pf-thumb-wrap">
+          <img src="https://img.youtube.com/vi/4bUpn46od5Q/maxresdefault.jpg" alt="Fintech Motion Promo" loading="lazy"/>
+          <div class="pf-card-overlay"></div>
+          <div class="pf-play-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div class="pf-card-body">
+          <div class="pf-card-badges">
+            <span class="pf-tag">Fintech</span>
+            <span class="pf-result-badge">YC W24</span>
+          </div>
+          <h3 class="pf-card-title">Fintech Conversion Campaign</h3>
+          <p class="pf-card-desc">Punchy sound design and dynamic graphic cuts built for enterprise sales.</p>
+        </div>
+      </div>
+
+      <!-- 4. SaaS Video 4 -->
+      <div class="pf-card-item pf-card-landscape" data-category="saas" data-vid="WTLVybbVx0c">
+        <div class="pf-thumb-wrap">
+          <img src="https://img.youtube.com/vi/WTLVybbVx0c/maxresdefault.jpg" alt="Workflow Tool Launch" loading="lazy"/>
+          <div class="pf-card-overlay"></div>
+          <div class="pf-play-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div class="pf-card-body">
+          <div class="pf-card-badges">
+            <span class="pf-tag">Productivity</span>
+            <span class="pf-result-badge">+850K Plays</span>
+          </div>
+          <h3 class="pf-card-title">Developer Tool Teaser</h3>
+          <p class="pf-card-desc">Dark mode cyberpunk aesthetic with sleek glowing wireframe animations.</p>
+        </div>
+      </div>
+
+      <!-- 5. Talking Head 1 -->
+      <div class="pf-card-item pf-card-landscape" data-category="talking" data-vid="Ge-9rxtEGxM">
+        <div class="pf-thumb-wrap">
+          <img src="https://img.youtube.com/vi/Ge-9rxtEGxM/maxresdefault.jpg" alt="Talking Head Masterclass" loading="lazy"/>
+          <div class="pf-card-overlay"></div>
+          <div class="pf-play-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div class="pf-card-body">
+          <div class="pf-card-badges">
+            <span class="pf-tag">Talking Head</span>
+            <span class="pf-result-badge">High Retention</span>
+          </div>
+          <h3 class="pf-card-title">Founder Authority Masterclass</h3>
+          <p class="pf-card-desc">Punchy zoom cuts, kinetic b-roll overlays, and pattern interrupts that retain viewers.</p>
+        </div>
+      </div>
+
+      <!-- 6. Talking Head 2 -->
+      <div class="pf-card-item pf-card-landscape" data-category="talking" data-vid="z1mZFmzUzyI">
+        <div class="pf-thumb-wrap">
+          <img src="https://img.youtube.com/vi/z1mZFmzUzyI/maxresdefault.jpg" alt="Creator Storytelling" loading="lazy"/>
+          <div class="pf-card-overlay"></div>
+          <div class="pf-play-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div class="pf-card-body">
+          <div class="pf-card-badges">
+            <span class="pf-tag">Personal Brand</span>
+            <span class="pf-result-badge">Top 1% Edit</span>
+          </div>
+          <h3 class="pf-card-title">Creator Documentary &amp; Story</h3>
+          <p class="pf-card-desc">Cinematic color grading and emotional soundscapes for personal branding.</p>
+        </div>
+      </div>
+
+      <!-- 7. Commercial 1 -->
+      <div class="pf-card-item pf-card-landscape" data-category="bangla" data-vid="9htGN34HT3g">
+        <div class="pf-thumb-wrap">
+          <img src="https://img.youtube.com/vi/9htGN34HT3g/maxresdefault.jpg" alt="Commercial Campaign" loading="lazy"/>
+          <div class="pf-card-overlay"></div>
+          <div class="pf-play-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div class="pf-card-body">
+          <div class="pf-card-badges">
+            <span class="pf-tag">Commercial</span>
+            <span class="pf-result-badge">3.5x CTR</span>
+          </div>
+          <h3 class="pf-card-title">High-Impact Brand Ad</h3>
+          <p class="pf-card-desc">Fast-paced commercial editing built to maximize click-through and sales.</p>
+        </div>
+      </div>
+
+      <!-- 8. Commercial 2 -->
+      <div class="pf-card-item pf-card-landscape" data-category="bangla" data-vid="Gv3dhiOLS80">
+        <div class="pf-thumb-wrap">
+          <img src="https://img.youtube.com/vi/Gv3dhiOLS80/maxresdefault.jpg" alt="Creative Launch" loading="lazy"/>
+          <div class="pf-card-overlay"></div>
+          <div class="pf-play-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div class="pf-card-body">
+          <div class="pf-card-badges">
+            <span class="pf-tag">Launch Ad</span>
+            <span class="pf-result-badge">Brand Story</span>
+          </div>
+          <h3 class="pf-card-title">Creative Campaign Showcase</h3>
+          <p class="pf-card-desc">Modern kinetic pacing, sound design, and custom title typography.</p>
+        </div>
+      </div>
+
+      <!-- 9. SaaS Video 5 -->
+      <div class="pf-card-item pf-card-landscape" data-category="saas" data-vid="5Q-TPRoT6hk">
+        <div class="pf-thumb-wrap">
+          <img src="https://img.youtube.com/vi/5Q-TPRoT6hk/maxresdefault.jpg" alt="Product Explainer" loading="lazy"/>
+          <div class="pf-card-overlay"></div>
+          <div class="pf-play-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div class="pf-card-body">
+          <div class="pf-card-badges">
+            <span class="pf-tag">SaaS Promo</span>
+            <span class="pf-result-badge">Conversion Lead</span>
+          </div>
+          <h3 class="pf-card-title">SaaS UI &amp; Workflow Explainer</h3>
+          <p class="pf-card-desc">Transforming technical SaaS features into irresistible buyer benefits.</p>
+        </div>
+      </div>
+
     </div>
 
-    <!-- 3. SaaS Video 3 -->
-    <div class="pf-card-item pf-card-landscape" data-category="saas" data-vid="4bUpn46od5Q">
-      <div class="pf-thumb-wrap">
-        <img src="https://img.youtube.com/vi/4bUpn46od5Q/maxresdefault.jpg" alt="Fintech Motion Promo" loading="lazy"/>
-        <div class="pf-card-overlay"></div>
-        <div class="pf-play-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+    <!-- 9:16 Vertical Video Grid (Shorts & Reels) -->
+    <div id="pf-portrait-grid" class="pf-grid-portrait">
+
+      <!-- Short 1 -->
+      <div class="pf-card-item pf-card-portrait" data-category="shorts" data-vid="SB_q0bsxiXs">
+        <div class="pf-thumb-wrap">
+          <img src="https://img.youtube.com/vi/SB_q0bsxiXs/hqdefault.jpg" alt="Viral Hook Reel" loading="lazy"/>
+          <div class="pf-card-overlay"></div>
+          <div class="pf-play-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div class="pf-card-body">
+          <div class="pf-card-badges">
+            <span class="pf-tag">Reels</span>
+            <span class="pf-result-badge">9:16 4K</span>
+          </div>
+          <h3 class="pf-card-title">3s Retention Hook</h3>
+          <p class="pf-card-desc">Pattern interrupt sound and visual sync.</p>
         </div>
       </div>
-      <div class="pf-card-info">
-        <div class="pf-card-tags">
-          <span class="pf-tag">Fintech</span>
-          <span class="pf-result-badge">YC W24</span>
+
+      <!-- Short 2 -->
+      <div class="pf-card-item pf-card-portrait" data-category="shorts" data-vid="Zh_E8NwuK7w">
+        <div class="pf-thumb-wrap">
+          <img src="https://img.youtube.com/vi/Zh_E8NwuK7w/hqdefault.jpg" alt="Viral Caption Edit" loading="lazy"/>
+          <div class="pf-card-overlay"></div>
+          <div class="pf-play-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
         </div>
-        <h3 class="pf-card-title">Fintech Conversion Campaign</h3>
-        <p class="pf-card-desc">Punchy sound design and dynamic graphic cuts built for enterprise sales.</p>
+        <div class="pf-card-body">
+          <div class="pf-card-badges">
+            <span class="pf-tag">Viral Text</span>
+            <span class="pf-result-badge">+1.2M Plays</span>
+          </div>
+          <h3 class="pf-card-title">Hormozi Kinetic Captions</h3>
+          <p class="pf-card-desc">Color-coded typography and motion tracking.</p>
+        </div>
       </div>
+
+      <!-- Short 3 -->
+      <div class="pf-card-item pf-card-portrait" data-category="shorts" data-vid="U9X5O_1PfrY">
+        <div class="pf-thumb-wrap">
+          <img src="https://img.youtube.com/vi/U9X5O_1PfrY/hqdefault.jpg" alt="Short Form Motion" loading="lazy"/>
+          <div class="pf-card-overlay"></div>
+          <div class="pf-play-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div class="pf-card-body">
+          <div class="pf-card-badges">
+            <span class="pf-tag">Shorts</span>
+            <span class="pf-result-badge">88% Watch</span>
+          </div>
+          <h3 class="pf-card-title">Fast-Cut Kinetic Reel</h3>
+          <p class="pf-card-desc">Rapid pacing with seamless sound design.</p>
+        </div>
+      </div>
+
+      <!-- Short 4 -->
+      <div class="pf-card-item pf-card-portrait" data-category="shorts" data-vid="tNnOzQMEmmg">
+        <div class="pf-thumb-wrap">
+          <img src="https://img.youtube.com/vi/tNnOzQMEmmg/hqdefault.jpg" alt="Creator Short" loading="lazy"/>
+          <div class="pf-card-overlay"></div>
+          <div class="pf-play-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div class="pf-card-body">
+          <div class="pf-card-badges">
+            <span class="pf-tag">TikTok Ad</span>
+            <span class="pf-result-badge">High ROAS</span>
+          </div>
+          <h3 class="pf-card-title">Direct-Response Ad Edit</h3>
+          <p class="pf-card-desc">Built for paid acquisition on TikTok and Reels.</p>
+        </div>
+      </div>
+
     </div>
 
-    <!-- 4. SaaS Video 4 -->
-    <div class="pf-card-item pf-card-landscape" data-category="saas" data-vid="WTLVybbVx0c">
-      <div class="pf-thumb-wrap">
-        <img src="https://img.youtube.com/vi/WTLVybbVx0c/maxresdefault.jpg" alt="Workflow Tool Launch" loading="lazy"/>
-        <div class="pf-card-overlay"></div>
-        <div class="pf-play-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        </div>
+  </main>
+
+  <!-- 4-Pillar Video Production Pipeline Section -->
+  <section class="pf-pipeline-sec">
+    <div class="pf-eyebrow-badge">
+      <span class="pf-eyebrow-dot"></span>
+      OUR CREATIVE STANDARD
+    </div>
+    <h2 class="pf-sec-title">Engineered for High Retention &amp; Action</h2>
+    <p class="pf-hero-sub" style="margin-bottom:0;">Every frame is calculated using cognitive psychology, dynamic motion, and spatial sound.</p>
+
+    <div class="pf-pipeline-grid">
+      <div class="pf-pipe-card">
+        <div class="pf-pipe-num">01 / FIRST 3s</div>
+        <h3 class="pf-pipe-heading">Pattern Interrupt</h3>
+        <p class="pf-pipe-desc">Rapid visual hooks and dynamic 3D text that immediately arrest viewer attention.</p>
       </div>
-      <div class="pf-card-info">
-        <div class="pf-card-tags">
-          <span class="pf-tag">Productivity</span>
-          <span class="pf-result-badge">+850K Plays</span>
-        </div>
-        <h3 class="pf-card-title">Developer Tool Teaser</h3>
-        <p class="pf-card-desc">Dark mode cyberpunk aesthetic with sleek glowing wireframe graphics.</p>
+      <div class="pf-pipe-card">
+        <div class="pf-pipe-num">02 / PACING</div>
+        <h3 class="pf-pipe-heading">Kinetic Rhythm</h3>
+        <p class="pf-pipe-desc">Seamless speed ramps and b-roll cuts tailored to beat drops and speech cadence.</p>
+      </div>
+      <div class="pf-pipe-card">
+        <div class="pf-pipe-num">03 / AUDIO</div>
+        <h3 class="pf-pipe-heading">Spatial SFX</h3>
+        <p class="pf-pipe-desc">Multi-layered risers, whooshes, and impact hits that bring edits alive in headphones.</p>
+      </div>
+      <div class="pf-pipe-card">
+        <div class="pf-pipe-num">04 / CONVERSION</div>
+        <h3 class="pf-pipe-heading">Action Driven</h3>
+        <p class="pf-pipe-desc">Ending callouts designed to drive website clicks, trial signups, and booked calls.</p>
       </div>
     </div>
+  </section>
 
-    <!-- 5. Talking Head 1 -->
-    <div class="pf-card-item pf-card-landscape" data-category="talking" data-vid="Ge-9rxtEGxM">
-      <div class="pf-thumb-wrap">
-        <img src="https://img.youtube.com/vi/Ge-9rxtEGxM/maxresdefault.jpg" alt="Talking Head Masterclass" loading="lazy"/>
-        <div class="pf-card-overlay"></div>
-        <div class="pf-play-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-      </div>
-      <div class="pf-card-info">
-        <div class="pf-card-tags">
-          <span class="pf-tag">Talking Head</span>
-          <span class="pf-result-badge">High Retention</span>
-        </div>
-        <h3 class="pf-card-title">Founder Authority Masterclass</h3>
-        <p class="pf-card-desc">Zoom cuts, kinetic b-roll overlays, and pattern interrupts that retain viewers.</p>
-      </div>
-    </div>
-
-    <!-- 6. Talking Head 2 -->
-    <div class="pf-card-item pf-card-landscape" data-category="talking" data-vid="z1mZFmzUzyI">
-      <div class="pf-thumb-wrap">
-        <img src="https://img.youtube.com/vi/z1mZFmzUzyI/maxresdefault.jpg" alt="Creator Storytelling" loading="lazy"/>
-        <div class="pf-card-overlay"></div>
-        <div class="pf-play-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-      </div>
-      <div class="pf-card-info">
-        <div class="pf-card-tags">
-          <span class="pf-tag">Personal Brand</span>
-          <span class="pf-result-badge">Top 1% Edit</span>
-        </div>
-        <h3 class="pf-card-title">Creator Documentary &amp; Story</h3>
-        <p class="pf-card-desc">Cinematic color grading and emotional soundscapes for personal branding.</p>
-      </div>
-    </div>
-
-    <!-- 7. Commercial 1 -->
-    <div class="pf-card-item pf-card-landscape" data-category="bangla" data-vid="9htGN34HT3g">
-      <div class="pf-thumb-wrap">
-        <img src="https://img.youtube.com/vi/9htGN34HT3g/maxresdefault.jpg" alt="Commercial Campaign" loading="lazy"/>
-        <div class="pf-card-overlay"></div>
-        <div class="pf-play-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-      </div>
-      <div class="pf-card-info">
-        <div class="pf-card-tags">
-          <span class="pf-tag">Commercial</span>
-          <span class="pf-result-badge">3.5x CTR</span>
-        </div>
-        <h3 class="pf-card-title">High-Impact Brand Ad</h3>
-        <p class="pf-card-desc">Fast-paced commercial editing built to maximize click-through and sales.</p>
-      </div>
-    </div>
-
-    <!-- 8. Commercial 2 -->
-    <div class="pf-card-item pf-card-landscape" data-category="bangla" data-vid="Gv3dhiOLS80">
-      <div class="pf-thumb-wrap">
-        <img src="https://img.youtube.com/vi/Gv3dhiOLS80/maxresdefault.jpg" alt="Creative Launch" loading="lazy"/>
-        <div class="pf-card-overlay"></div>
-        <div class="pf-play-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-      </div>
-      <div class="pf-card-info">
-        <div class="pf-card-tags">
-          <span class="pf-tag">Launch Ad</span>
-          <span class="pf-result-badge">Brand Story</span>
-        </div>
-        <h3 class="pf-card-title">Creative Campaign Showcase</h3>
-        <p class="pf-card-desc">Modern kinetic pacing, sound design, and custom title typography.</p>
-      </div>
-    </div>
-
-    <!-- 9. SaaS Video 5 -->
-    <div class="pf-card-item pf-card-landscape" data-category="saas" data-vid="5Q-TPRoT6hk">
-      <div class="pf-thumb-wrap">
-        <img src="https://img.youtube.com/vi/5Q-TPRoT6hk/maxresdefault.jpg" alt="Product Explainer" loading="lazy"/>
-        <div class="pf-card-overlay"></div>
-        <div class="pf-play-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-      </div>
-      <div class="pf-card-info">
-        <div class="pf-card-tags">
-          <span class="pf-tag">SaaS Promo</span>
-          <span class="pf-result-badge">Conversion Lead</span>
-        </div>
-        <h3 class="pf-card-title">SaaS UI &amp; Workflow Explainer</h3>
-        <p class="pf-card-desc">Transforming technical SaaS features into irresistible buyer benefits.</p>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- 9:16 Vertical Shorts Grid -->
-  <div id="pf-portrait-grid" class="pf-grid-portrait">
-
-    <!-- Short 1 -->
-    <div class="pf-card-item pf-card-portrait" data-category="shorts" data-vid="SB_q0bsxiXs">
-      <div class="pf-thumb-wrap">
-        <img src="https://img.youtube.com/vi/SB_q0bsxiXs/hqdefault.jpg" alt="Viral Hook Reel" loading="lazy"/>
-        <div class="pf-card-overlay"></div>
-        <div class="pf-play-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-      </div>
-      <div class="pf-card-info">
-        <div class="pf-card-tags">
-          <span class="pf-tag">Reels / Shorts</span>
-          <span class="pf-result-badge">9:16 Vertical</span>
-        </div>
-        <h3 class="pf-card-title">High-Retention 3s Hook</h3>
-      </div>
-    </div>
-
-    <!-- Short 2 -->
-    <div class="pf-card-item pf-card-portrait" data-category="shorts" data-vid="Zh_E8NwuK7w">
-      <div class="pf-thumb-wrap">
-        <img src="https://img.youtube.com/vi/Zh_E8NwuK7w/hqdefault.jpg" alt="Viral Caption Edit" loading="lazy"/>
-        <div class="pf-card-overlay"></div>
-        <div class="pf-play-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-      </div>
-      <div class="pf-card-info">
-        <div class="pf-card-tags">
-          <span class="pf-tag">Dynamic Text</span>
-          <span class="pf-result-badge">Viral Style</span>
-        </div>
-        <h3 class="pf-card-title">Alex Hormozi Style Captions</h3>
-      </div>
-    </div>
-
-    <!-- Short 3 -->
-    <div class="pf-card-item pf-card-portrait" data-category="shorts" data-vid="U9X5O_1PfrY">
-      <div class="pf-thumb-wrap">
-        <img src="https://img.youtube.com/vi/U9X5O_1PfrY/hqdefault.jpg" alt="Short Form Motion" loading="lazy"/>
-        <div class="pf-card-overlay"></div>
-        <div class="pf-play-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-      </div>
-      <div class="pf-card-info">
-        <div class="pf-card-tags">
-          <span class="pf-tag">Reels / Shorts</span>
-          <span class="pf-result-badge">85% Watch</span>
-        </div>
-        <h3 class="pf-card-title">Fast-Cut Kinetic Reel</h3>
-      </div>
-    </div>
-
-    <!-- Short 4 -->
-    <div class="pf-card-item pf-card-portrait" data-category="shorts" data-vid="tNnOzQMEmmg">
-      <div class="pf-thumb-wrap">
-        <img src="https://img.youtube.com/vi/tNnOzQMEmmg/hqdefault.jpg" alt="Creator Short" loading="lazy"/>
-        <div class="pf-card-overlay"></div>
-        <div class="pf-play-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-      </div>
-      <div class="pf-card-info">
-        <div class="pf-card-tags">
-          <span class="pf-tag">TikTok Ad</span>
-          <span class="pf-result-badge">High Conversion</span>
-        </div>
-        <h3 class="pf-card-title">Commercial TikTok Ad Edit</h3>
-      </div>
-    </div>
-
-  </div>
-
-</main>
-
-<!-- Video Zoom Lightbox Modal -->
-<div id="pf-modal-backdrop" class="pf-modal-backdrop" aria-hidden="true">
-  <div id="pf-modal-box" class="pf-modal-box">
-    <button type="button" id="pf-modal-close" class="pf-modal-close" aria-label="Close video">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-    </button>
-    <div class="pf-iframe-wrap">
-      <iframe id="pf-modal-iframe" src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
-    </div>
-  </div>
-</div>
-
-<!-- ================= FOOTER (2-Side Mobile-Friendly) ================= -->
-<section class="zf-footer" id="footer">
-<style>
-/* ── 2-Side Footer Styles ── */
-.zf-footer {
-  position: relative;
-  background: #06010a;
-  color: #ffffff;
-  overflow: hidden;
-  border-top: 1px solid rgba(184, 0, 245, 0.28);
-  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  z-index: 10;
-}
-
-.zf-footer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 750px;
-  height: 280px;
-  background: radial-gradient(ellipse at top, rgba(184, 0, 245, 0.16) 0%, rgba(112, 0, 168, 0.06) 50%, transparent 75%);
-  pointer-events: none;
-}
-
-.zf-footer-grid-bg {
-  position: absolute;
-  inset: 0;
-  background-image: 
-    linear-gradient(to right, rgba(184, 0, 245, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(184, 0, 245, 0.035) 1px, transparent 1px);
-  background-size: 40px 40px;
-  pointer-events: none;
-}
-
-.zf-footer-inner {
-  position: relative;
-  max-width: 1160px;
-  margin: 0 auto;
-  padding: 56px 24px 0;
-  box-sizing: border-box;
-}
-
-.zf-cta-strip {
-  background: linear-gradient(135deg, rgba(22, 6, 36, 0.92) 0%, rgba(38, 10, 62, 0.78) 50%, rgba(15, 3, 24, 0.95) 100%);
-  border: 1px solid rgba(184, 0, 245, 0.32);
-  box-shadow: 0 12px 36px rgba(184, 0, 245, 0.12), inset 0 1px 0 rgba(232, 121, 249, 0.2);
-  border-radius: 20px;
-  padding: 28px 36px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  margin-bottom: 48px;
-  backdrop-filter: blur(12px);
-}
-
-.zf-cta-left h2 {
-  font-size: 24px;
-  font-weight: 700;
-  margin: 0 0 6px;
-  background: linear-gradient(135deg, #ffffff 40%, #e879f9 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.zf-cta-left p {
-  font-size: 14px;
-  color: rgba(225, 200, 250, 0.7);
-  margin: 0;
-}
-
-.zf-cta-actions {
-  display: flex;
-  gap: 12px;
-  flex-shrink: 0;
-}
-
-.zf-cta-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: linear-gradient(135deg, #b800f5 0%, #8200b8 100%);
-  color: #ffffff;
-  font-size: 13.5px;
-  font-weight: 600;
-  padding: 12px 24px;
-  border-radius: 999px;
-  text-decoration: none;
-  box-shadow: 0 4px 18px rgba(184, 0, 245, 0.45);
-  transition: all 0.25s ease;
-}
-
-.zf-cta-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(184, 0, 245, 0.65);
-}
-
-.zf-cta-wa {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  background: rgba(34, 197, 94, 0.12);
-  border: 1px solid rgba(34, 197, 94, 0.35);
-  color: #4ade80;
-  font-size: 13.5px;
-  font-weight: 600;
-  padding: 12px 20px;
-  border-radius: 999px;
-  text-decoration: none;
-  transition: all 0.24s ease;
-}
-
-.zf-cta-wa:hover {
-  background: rgba(34, 197, 94, 0.22);
-  transform: translateY(-2px);
-  color: #ffffff;
-}
-
-.zf-main-grid {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1.2fr;
-  gap: 40px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.zf-brand-col {
-  display: flex;
-  flex-direction: column;
-}
-
-.zf-brand-logo {
-  height: 36px;
-  width: auto;
-  object-fit: contain;
-  margin-bottom: 14px;
-  align-self: flex-start;
-}
-
-.zf-brand-desc {
-  font-size: 13.5px;
-  line-height: 1.6;
-  color: rgba(225, 200, 250, 0.65);
-  max-width: 330px;
-  margin: 0 0 18px;
-}
-
-.zf-social-row {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.zf-soc-link {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  border: 1px solid rgba(184, 0, 245, 0.22);
-  background: rgba(18, 5, 28, 0.65);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #e879f9;
-  text-decoration: none;
-  transition: all 0.22s ease;
-}
-
-.zf-soc-link:hover {
-  background: rgba(184, 0, 245, 0.28);
-  border-color: rgba(232, 121, 249, 0.6);
-  color: #ffffff;
-  transform: translateY(-3px);
-}
-
-.zf-col-title {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #e879f9;
-  margin: 0 0 16px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.zf-col-title::after {
-  content: '';
-  display: inline-block;
-  width: 14px;
-  height: 1px;
-  background: rgba(184, 0, 245, 0.5);
-}
-
-.zf-services-list {
-  display: flex;
-  flex-direction: column;
-  gap: 11px;
-}
-
-.zf-svc-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13.5px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.82);
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.zf-svc-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #b800f5;
-  box-shadow: 0 0 6px #b800f5;
-  flex-shrink: 0;
-}
-
-.zf-svc-item:hover {
-  color: #ffffff;
-  transform: translateX(3px);
-}
-
-.zf-contact-col {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.zf-contact-group {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.zf-contact-lbl {
-  font-family: 'DM Mono', monospace;
-  font-size: 9.5px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: rgba(225, 200, 250, 0.45);
-  letter-spacing: 1.2px;
-}
-
-.zf-contact-val {
-  font-size: 13px;
-  font-weight: 500;
-  color: #ffffff;
-  line-height: 1.4;
-  word-break: break-word;
-}
-
-.zf-contact-link {
-  text-decoration: none;
-  color: #ffffff;
-  transition: color 0.2s ease;
-}
-
-.zf-contact-link:hover {
-  color: #e879f9;
-}
-
-.zf-wa-highlight {
-  color: #4ade80;
-  font-weight: 600;
-}
-
-.zf-trust-mini {
-  margin-top: 4px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  color: rgba(225, 200, 250, 0.7);
-  background: rgba(184, 0, 245, 0.08);
-  border: 1px solid rgba(184, 0, 245, 0.18);
-  border-radius: 8px;
-  padding: 6px 10px;
-}
-
-.zf-trust-mini span {
-  color: #4ade80;
-  font-weight: 600;
-}
-
-.zf-bottom-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 0 24px;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.zf-copy {
-  font-size: 12px;
-  color: rgba(225, 200, 250, 0.45);
-  margin: 0;
-}
-
-.zf-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 11.5px;
-  color: rgba(225, 200, 250, 0.7);
-  background: rgba(18, 5, 28, 0.6);
-  border: 1px solid rgba(184, 0, 245, 0.22);
-  border-radius: 999px;
-  padding: 5px 13px;
-}
-
-.zf-badge span {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #4ade80;
-  box-shadow: 0 0 8px #4ade80;
-  display: inline-block;
-  animation: zf-pulse 2s ease-in-out infinite;
-}
-
-@keyframes zf-pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.7); }
-}
-
-@media (max-width: 900px) {
-  .zf-main-grid {
-    grid-template-columns: 1fr 1.15fr;
-    gap: 32px 20px;
-  }
-  .zf-brand-col {
-    grid-column: 1 / -1;
-  }
-}
-
-@media (max-width: 640px) {
-  .zf-footer-inner {
-    padding: 36px 16px 0;
-  }
-  .zf-cta-strip {
-    padding: 20px 16px;
-    flex-direction: column;
-    text-align: center;
-    gap: 14px;
-  }
-  .zf-cta-actions {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-  }
-  .zf-cta-btn, .zf-cta-wa {
-    width: 100%;
-    justify-content: center;
-    padding: 11px 12px;
-  }
-  .zf-main-grid {
-    grid-template-columns: 1fr 1.18fr;
-    gap: 24px 14px;
-    padding-bottom: 26px;
-  }
-  .zf-brand-col {
-    grid-column: 1 / -1;
-    border-bottom: 1px dashed rgba(184, 0, 245, 0.18);
-    padding-bottom: 12px;
-  }
-  .zf-bottom-bar {
-    flex-direction: column-reverse;
-    align-items: center;
-    text-align: center;
-  }
-}
-</style>
-
-<div class="zf-footer-grid-bg"></div>
-<div class="zf-footer-inner">
-  <div class="zf-cta-strip">
-    <div class="zf-cta-left">
-      <h2>Ready When You Are.</h2>
-      <p>Let's build something remarkable together — fast, sharp, and high-converting.</p>
-    </div>
-    <div class="zf-cta-actions">
-      <a href="index.html#talk-to-us" class="zf-cta-btn">Start Project</a>
-      <a href="https://wa.me/8801716705401" target="_blank" class="zf-cta-wa">WhatsApp</a>
-    </div>
-  </div>
-
-  <div class="zf-main-grid">
-    <div class="zf-brand-col">
-      <img src="assets/zentic_logo.png" alt="Zentic Media" class="zf-brand-logo"/>
-      <p class="zf-brand-desc">High-converting video editing, landing pages &amp; AI automation pipelines built for fast-growing brands.</p>
-      <div class="zf-social-row">
-        <a href="https://wa.me/8801716705401" target="_blank" class="zf-soc-link" aria-label="WhatsApp">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        </a>
-        <a href="mailto:technicalrakib999@gmail.com" class="zf-soc-link" aria-label="Email">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2Z"/><path d="m22 6-10 7L2 6"/></svg>
-        </a>
-        <a href="https://x.com/neel_nafis" target="_blank" class="zf-soc-link" aria-label="X">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M18.33 1.9H21.7L14.33 10.33 23 21.79h-6.79l-5.32-6.95-6.08 6.95H1.43l7.88-9.01L1 1.9h7.96l4.81 6.36 5.56-6.36Zm-1.19 17.87h1.87L6.94 3.82H4.94l12.2 15.95Z" fill="currentColor"/></svg>
-        </a>
-        <a href="https://www.youtube.com/@neelnafis" target="_blank" class="zf-soc-link" aria-label="YouTube">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M23.76 7.2s-.24-1.66-.96-2.38c-.91-.96-1.94-.96-2.4-1.02C17.04 3.56 12 3.56 12 3.56s-5.04 0-8.4.24c-.47.06-1.49.06-2.4 1.02C.47 5.54.24 7.2.24 7.2S0 9.15 0 11.09v1.82c0 1.94.24 3.88.24 3.88s.23 1.66.96 2.38c.91.96 2.11.93 2.64 1.03 1.92.18 8.16.24 8.16.24s5.04-.01 8.4-.25c.47-.06 1.49-.06 2.4-1.02.72-.72.96-2.38.96-2.38S24 14.85 24 12.9v-1.82C24 9.15 23.76 7.2 23.76 7.2ZM9.52 15.11V8.37l6.48 3.39-6.48 3.35Z" fill="currentColor"/></svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="zf-services-col">
-      <p class="zf-col-title">Services</p>
-      <div class="zf-services-list">
-        <a href="services.html" class="zf-svc-item"><span class="zf-svc-dot"></span><span>Video Editing</span></a>
-        <a href="services.html" class="zf-svc-item"><span class="zf-svc-dot"></span><span>Ad Production</span></a>
-        <a href="services.html" class="zf-svc-item"><span class="zf-svc-dot"></span><span>Website Design</span></a>
-        <a href="services.html" class="zf-svc-item"><span class="zf-svc-dot"></span><span>Brand Identity</span></a>
-        <a href="services.html" class="zf-svc-item"><span class="zf-svc-dot"></span><span>AI Automation</span></a>
-      </div>
-    </div>
-
-    <div class="zf-contact-col">
-      <p class="zf-col-title">Contact</p>
-      <div class="zf-contact-group">
-        <span class="zf-contact-lbl">Email</span>
-        <a href="mailto:technicalrakib999@gmail.com" class="zf-contact-val zf-contact-link">technicalrakib999@gmail.com</a>
-      </div>
-      <div class="zf-contact-group">
-        <span class="zf-contact-lbl">WhatsApp</span>
-        <a href="https://wa.me/8801716705401" target="_blank" class="zf-contact-val zf-contact-link zf-wa-highlight">+880 1716 705401</a>
-      </div>
-      <div class="zf-contact-group">
-        <span class="zf-contact-lbl">Response Time</span>
-        <span class="zf-contact-val" style="color: rgba(225,200,250,0.85);">Within 24 hours</span>
-      </div>
-      <div class="zf-contact-group">
-        <span class="zf-contact-lbl">Revisions</span>
-        <span class="zf-contact-val" style="color: rgba(225,200,250,0.85);">Until you're 100% happy</span>
-      </div>
-      <div class="zf-trust-mini">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <span>100% Guaranteed</span> Satisfaction
+  <!-- Video Zoom Lightbox Modal -->
+  <div id="pf-modal-backdrop" class="pf-modal-backdrop" aria-hidden="true">
+    <div id="pf-modal-box" class="pf-modal-box">
+      <button type="button" id="pf-modal-close" class="pf-modal-close" aria-label="Close video">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div class="pf-iframe-wrap">
+        <iframe id="pf-modal-iframe" src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
       </div>
     </div>
   </div>
 
-  <div class="zf-bottom-bar">
-    <p class="zf-copy">&copy; 2026 <a href="index.html">Zentic Media</a>. All rights reserved.</p>
-    <div class="zf-badge"><span></span> Available for new projects</div>
-  </div>
-</div>
-</section>
+  <!-- ================= FOOTER (EXACT 2-SIDE MOBILE-FRIENDLY FOOTER) ================= -->
+  <section class="zf-footer" id="footer">
+    <style>
+    .zf-footer {
+      position: relative;
+      background: #06010a;
+      color: #ffffff;
+      overflow: hidden;
+      border-top: 1px solid rgba(184, 0, 245, 0.28);
+      font-family: 'Inter', sans-serif;
+      z-index: 10;
+    }
+    .zf-footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 750px;
+      height: 280px;
+      background: radial-gradient(ellipse at top, rgba(184, 0, 245, 0.16) 0%, rgba(112, 0, 168, 0.06) 50%, transparent 75%);
+      pointer-events: none;
+    }
+    .zf-footer-grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(184, 0, 245, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(184, 0, 245, 0.035) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+    .zf-footer-inner {
+      position: relative;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 56px 24px 0;
+      box-sizing: border-box;
+    }
+    .zf-cta-strip {
+      background: linear-gradient(135deg, rgba(22, 6, 36, 0.92) 0%, rgba(38, 10, 62, 0.78) 50%, rgba(15, 3, 24, 0.95) 100%);
+      border: 1px solid rgba(184, 0, 245, 0.32);
+      box-shadow: 0 12px 36px rgba(184, 0, 245, 0.12), inset 0 1px 0 rgba(232, 121, 249, 0.2);
+      border-radius: 20px;
+      padding: 28px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 48px;
+      backdrop-filter: blur(12px);
+    }
+    .zf-cta-left h2 {
+      font-size: 26px;
+      margin: 0 0 6px;
+      background: linear-gradient(135deg, #ffffff 40%, #e879f9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .zf-cta-left p {
+      font-size: 14px;
+      color: rgba(225, 200, 250, 0.7);
+      margin: 0;
+    }
+    .zf-cta-actions {
+      display: flex;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .zf-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #b800f5 0%, #8200b8 100%);
+      color: #ffffff;
+      font-size: 13.5px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(184, 0, 245, 0.45);
+      transition: all 0.25s ease;
+    }
+    .zf-cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(184, 0, 245, 0.65);
+    }
+    .zf-cta-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      color: #4ade80;
+      font-size: 13.5px;
+      font-weight: 600;
+      padding: 12px 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: all 0.24s ease;
+    }
+    .zf-cta-wa:hover {
+      background: rgba(34, 197, 94, 0.22);
+      transform: translateY(-2px);
+      color: #ffffff;
+    }
+    .zf-main-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1.2fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .zf-brand-col {
+      display: flex;
+      flex-direction: column;
+    }
+    .zf-brand-logo {
+      height: 36px;
+      width: auto;
+      object-fit: contain;
+      margin-bottom: 14px;
+      align-self: flex-start;
+    }
+    .zf-brand-desc {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: rgba(225, 200, 250, 0.65);
+      max-width: 330px;
+      margin: 0 0 18px;
+    }
+    .zf-social-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .zf-soc-link {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      border: 1px solid rgba(184, 0, 245, 0.22);
+      background: rgba(18, 5, 28, 0.65);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e879f9;
+      text-decoration: none;
+      transition: all 0.22s ease;
+    }
+    .zf-soc-link:hover {
+      background: rgba(184, 0, 245, 0.28);
+      border-color: rgba(232, 121, 249, 0.6);
+      color: #ffffff;
+      transform: translateY(-3px);
+    }
+    .zf-col-title {
+      font-family: 'DM Mono', monospace !important;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #e879f9;
+      margin: 0 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .zf-col-title::after {
+      content: '';
+      display: inline-block;
+      width: 14px;
+      height: 1px;
+      background: rgba(184, 0, 245, 0.5);
+    }
+    .zf-services-list {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+    .zf-svc-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.82);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .zf-svc-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #b800f5;
+      box-shadow: 0 0 6px #b800f5;
+      flex-shrink: 0;
+    }
+    .zf-svc-item:hover {
+      color: #ffffff;
+      transform: translateX(3px);
+    }
+    .zf-contact-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .zf-contact-group {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .zf-contact-lbl {
+      font-family: 'DM Mono', monospace !important;
+      font-size: 9.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: rgba(225, 200, 250, 0.45);
+      letter-spacing: 1.2px;
+    }
+    .zf-contact-val {
+      font-size: 13px;
+      font-weight: 500;
+      color: #ffffff;
+      line-height: 1.4;
+      word-break: break-word;
+    }
+    .zf-contact-link {
+      text-decoration: none;
+      color: #ffffff;
+      transition: color 0.2s ease;
+    }
+    .zf-contact-link:hover {
+      color: #e879f9;
+    }
+    .zf-wa-highlight {
+      color: #4ade80;
+      font-weight: 600;
+    }
+    .zf-trust-mini {
+      margin-top: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: rgba(225, 200, 250, 0.7);
+      background: rgba(184, 0, 245, 0.08);
+      border: 1px solid rgba(184, 0, 245, 0.18);
+      border-radius: 8px;
+      padding: 6px 10px;
+    }
+    .zf-trust-mini span {
+      color: #4ade80;
+      font-weight: 600;
+    }
+    .zf-bottom-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0 24px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .zf-copy {
+      font-size: 12px;
+      color: rgba(225, 200, 250, 0.45);
+      margin: 0;
+    }
+    .zf-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 11.5px;
+      color: rgba(225, 200, 250, 0.7);
+      background: rgba(18, 5, 28, 0.6);
+      border: 1px solid rgba(184, 0, 245, 0.22);
+      border-radius: 999px;
+      padding: 5px 13px;
+    }
+    .zf-badge span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 8px #4ade80;
+      display: inline-block;
+      animation: zfPulseBadge 2s ease-in-out infinite;
+    }
+    @keyframes zfPulseBadge {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
+    }
+    @media (max-width: 900px) {
+      .zf-main-grid {
+        grid-template-columns: 1fr 1.15fr;
+        gap: 32px 20px;
+      }
+      .zf-brand-col {
+        grid-column: 1 / -1;
+      }
+    }
+    @media (max-width: 640px) {
+      .zf-footer-inner {
+        padding: 36px 16px 0;
+      }
+      .zf-cta-strip {
+        padding: 20px 16px;
+        flex-direction: column;
+        text-align: center;
+        gap: 14px;
+      }
+      .zf-cta-actions {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      .zf-cta-btn, .zf-cta-wa {
+        width: 100%;
+        justify-content: center;
+        padding: 11px 12px;
+      }
+      .zf-main-grid {
+        grid-template-columns: 1fr 1.18fr;
+        gap: 24px 14px;
+        padding-bottom: 26px;
+      }
+      .zf-brand-col {
+        grid-column: 1 / -1;
+        border-bottom: 1px dashed rgba(184, 0, 245, 0.18);
+        padding-bottom: 12px;
+      }
+      .zf-bottom-bar {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+      }
+    }
+    </style>
 
-<!-- ================= QUICK CONTACT FLOATING SPEED-DIAL WIDGET ================= -->
-<div id="quick-contact-widget" class="qc-widget-wrap" aria-label="Quick Contact">
-  <!-- 1. Real 3D WhatsApp Logo Button -->
-  <a href="https://wa.me/8801716705401" target="_blank" rel="noopener noreferrer" class="qc-btn qc-btn-whatsapp" aria-label="WhatsApp Chat">
-    <div class="qc-btn-inner">
-      <svg viewBox="0 0 48 48" fill="none">
-        <defs>
-          <radialGradient id="wa-shine-p" cx="30%" cy="22%" r="75%">
-            <stop offset="0%" stop-color="#4EFA8B"/>
-            <stop offset="55%" stop-color="#25D366"/>
-            <stop offset="100%" stop-color="#128C7E"/>
-          </radialGradient>
-        </defs>
-        <circle cx="24" cy="24" r="23" fill="url(#wa-shine-p)"/>
-        <circle cx="24" cy="24" r="22.5" stroke="rgba(255,255,255,0.4)" stroke-width="1" fill="none"/>
-        <path fill="#FFFFFF" fill-rule="evenodd" clip-rule="evenodd" d="M24 10C16.27 10 10 16.27 10 24c0 2.68.75 5.18 2.06 7.31L10.5 37.5l6.37-1.55A13.91 13.91 0 0 0 24 38c7.73 0 14-6.27 14-14S31.73 10 24 10zm6.97 19.46c-.29.82-1.68 1.52-2.32 1.62-.61.09-1.4.13-2.26-.15-.52-.17-1.2-.39-2.07-.77-3.66-1.58-6.04-5.29-6.22-5.54-.18-.24-1.5-1.99-1.5-3.8s.94-2.69 1.28-3.06c.33-.37.73-.47.97-.47.24 0 .49.01.7.02.22.01.52-.08.82.62.31.75 1.05 2.56 1.15 2.75.09.19.16.41.03.65-.12.24-.18.39-.36.6-.18.21-.38.48-.54.64-.18.18-.37.38-.16.75.21.37.95 1.57 2.04 2.54 1.4 1.25 2.58 1.64 2.95 1.83.37.18.58.16.8-.09.22-.25.94-1.1 1.19-1.48.24-.37.5-.31.83-.19.33.13 2.13 1 2.5 1.19.37.18.61.28.71.44.09.16.09.89-.2 1.71z"/>
-      </svg>
+    <div class="zf-footer-grid-bg"></div>
+    <div class="zf-footer-inner">
+      <div class="zf-cta-strip">
+        <div class="zf-cta-left">
+          <h2>Ready When You Are.</h2>
+          <p>Let's build something remarkable together — fast, sharp, and high-converting.</p>
+        </div>
+        <div class="zf-cta-actions">
+          <a href="index.html#talk-to-us" class="zf-cta-btn">Start Project</a>
+          <a href="https://wa.me/8801716705401" target="_blank" class="zf-cta-wa">WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="zf-main-grid">
+        <div class="zf-brand-col">
+          <img src="assets/zentic_logo.png" alt="Zentic Media" class="zf-brand-logo"/>
+          <p class="zf-brand-desc">High-converting video editing, landing pages &amp; AI automation pipelines built for fast-growing brands.</p>
+          <div class="zf-social-row">
+            <a href="https://wa.me/8801716705401" target="_blank" class="zf-soc-link" aria-label="WhatsApp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </a>
+            <a href="mailto:technicalrakib999@gmail.com" class="zf-soc-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2Z"/><path d="m22 6-10 7L2 6"/></svg>
+            </a>
+            <a href="https://x.com/neel_nafis" target="_blank" class="zf-soc-link" aria-label="X">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M18.33 1.9H21.7L14.33 10.33 23 21.79h-6.79l-5.32-6.95-6.08 6.95H1.43l7.88-9.01L1 1.9h7.96l4.81 6.36 5.56-6.36Zm-1.19 17.87h1.87L6.94 3.82H4.94l12.2 15.95Z" fill="currentColor"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@neelnafis" target="_blank" class="zf-soc-link" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M23.76 7.2s-.24-1.66-.96-2.38c-.91-.96-1.94-.96-2.4-1.02C17.04 3.56 12 3.56 12 3.56s-5.04 0-8.4.24c-.47.06-1.49.06-2.4 1.02C.47 5.54.24 7.2.24 7.2S0 9.15 0 11.09v1.82c0 1.94.24 3.88.24 3.88s.23 1.66.96 2.38c.91.96 2.11.93 2.64 1.03 1.92.18 8.16.24 8.16.24s5.04-.01 8.4-.25c.47-.06 1.49-.06 2.4-1.02.72-.72.96-2.38.96-2.38S24 14.85 24 12.9v-1.82C24 9.15 23.76 7.2 23.76 7.2ZM9.52 15.11V8.37l6.48 3.39-6.48 3.35Z" fill="currentColor"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="zf-services-col">
+          <p class="zf-col-title">Services</p>
+          <div class="zf-services-list">
+            <a href="services.html" class="zf-svc-item"><span class="zf-svc-dot"></span><span>Video Editing</span></a>
+            <a href="services.html" class="zf-svc-item"><span class="zf-svc-dot"></span><span>Ad Production</span></a>
+            <a href="services.html" class="zf-svc-item"><span class="zf-svc-dot"></span><span>Website Design</span></a>
+            <a href="services.html" class="zf-svc-item"><span class="zf-svc-dot"></span><span>Brand Identity</span></a>
+            <a href="services.html" class="zf-svc-item"><span class="zf-svc-dot"></span><span>AI Automation</span></a>
+          </div>
+        </div>
+
+        <div class="zf-contact-col">
+          <p class="zf-col-title">Contact</p>
+          <div class="zf-contact-group">
+            <span class="zf-contact-lbl">Email</span>
+            <a href="mailto:technicalrakib999@gmail.com" class="zf-contact-val zf-contact-link">technicalrakib999@gmail.com</a>
+          </div>
+          <div class="zf-contact-group">
+            <span class="zf-contact-lbl">WhatsApp</span>
+            <a href="https://wa.me/8801716705401" target="_blank" class="zf-contact-val zf-contact-link zf-wa-highlight">+880 1716 705401</a>
+          </div>
+          <div class="zf-contact-group">
+            <span class="zf-contact-lbl">Response Time</span>
+            <span class="zf-contact-val" style="color: rgba(225,200,250,0.85);">Within 24 hours</span>
+          </div>
+          <div class="zf-contact-group">
+            <span class="zf-contact-lbl">Revisions</span>
+            <span class="zf-contact-val" style="color: rgba(225,200,250,0.85);">Until you're 100% happy</span>
+          </div>
+          <div class="zf-trust-mini">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>100% Guaranteed</span> Satisfaction
+          </div>
+        </div>
+      </div>
+
+      <div class="zf-bottom-bar">
+        <p class="zf-copy">&copy; 2026 <a href="index.html">Zentic Media</a>. All rights reserved.</p>
+        <div class="zf-badge"><span></span> Available for new projects</div>
+      </div>
     </div>
-    <span class="qc-tooltip">WhatsApp</span>
-  </a>
+  </section>
 
-  <!-- 2. Real 3D Facebook Messenger Logo Button -->
-  <a href="https://m.me/neel.nafis" target="_blank" rel="noopener noreferrer" class="qc-btn qc-btn-messenger" aria-label="Facebook Messenger">
-    <div class="qc-btn-inner">
-      <svg viewBox="0 0 48 48" fill="none">
-        <defs>
-          <radialGradient id="msg-shine-p" cx="22%" cy="18%" r="82%">
-            <stop offset="0%" stop-color="#00E5FF"/>
-            <stop offset="35%" stop-color="#0084FF"/>
-            <stop offset="70%" stop-color="#833AB4"/>
-            <stop offset="100%" stop-color="#E1306C"/>
-          </radialGradient>
-        </defs>
-        <circle cx="24" cy="24" r="23" fill="url(#msg-shine-p)"/>
-        <circle cx="24" cy="24" r="22.5" stroke="rgba(255,255,255,0.4)" stroke-width="1" fill="none"/>
-        <path fill="#FFFFFF" fill-rule="evenodd" clip-rule="evenodd" d="M24 10C16.27 10 10 15.77 10 22.88c0 4.07 2.04 7.7 5.23 9.99v4.13l3.96-2.18c1.51.42 3.12.65 4.81.65 7.73 0 14-5.77 14-12.88S31.73 10 24 10zm1.48 16.92l-3.66-3.9-7.14 3.9 7.85-8.33 3.74 3.9 7.06-3.9-7.85 8.33z"/>
-      </svg>
-    </div>
-    <span class="qc-tooltip">Messenger</span>
-  </a>
-
-  <!-- 3. Real 3D Phone Call Logo Button -->
-  <a href="tel:+8801716705401" class="qc-btn qc-btn-call" aria-label="Direct Call">
-    <div class="qc-btn-inner">
-      <svg viewBox="0 0 48 48" fill="none">
-        <defs>
-          <radialGradient id="call-shine-p" cx="30%" cy="20%" r="70%">
-            <stop offset="0%" stop-color="#34D399"/>
-            <stop offset="50%" stop-color="#10B981"/>
-            <stop offset="100%" stop-color="#047857"/>
-          </radialGradient>
-        </defs>
-        <circle cx="24" cy="24" r="23" fill="url(#call-shine-p)"/>
-        <circle cx="24" cy="24" r="22.5" stroke="rgba(255,255,255,0.4)" stroke-width="1" fill="none"/>
-        <path fill="#FFFFFF" d="M20.4 23.6a14.8 14.8 0 0 0 6 6l2-2a1.8 1.8 0 0 1 1.8-.4c2 .7 4.2 1.1 6.4 1.1a1.8 1.8 0 0 1 1.8 1.8V35a1.8 1.8 0 0 1-1.8 1.8C23.6 36.8 13.2 26.4 13.2 13.8a1.8 1.8 0 0 1 1.8-1.8H19a1.8 1.8 0 0 1 1.8 1.8c0 2.2.4 4.4 1.1 6.4.2.6 0 1.3-.4 1.8l-2.1 2.1z"/>
-      </svg>
-    </div>
-    <span class="qc-tooltip">Direct Call</span>
-  </a>
-
-  <!-- Main Round Avatar Trigger Button -->
-  <button type="button" id="qc-trigger-btn" class="qc-main-trigger" aria-label="Quick Contact Toggle" title="Quick Contact">
-    <div class="qc-avatar-ring">
-      <img src="assets/rakib_avatar.jpg" alt="Contact Rakib" class="qc-avatar-img" />
-      <span class="qc-online-dot"></span>
-      <div class="qc-close-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
+  <!-- ================= QUICK CONTACT FLOATING SPEED-DIAL WIDGET (SHOOTING UPWARDS) ================= -->
+  <div id="quick-contact-widget" class="qc-widget-wrap" aria-label="Quick Contact">
+    <!-- 1. Real 3D WhatsApp Logo Button -->
+    <a href="https://wa.me/8801716705401" target="_blank" rel="noopener noreferrer" class="qc-btn qc-btn-whatsapp" aria-label="WhatsApp Chat">
+      <div class="qc-btn-inner">
+        <svg viewBox="0 0 48 48" fill="none">
+          <defs>
+            <radialGradient id="wa-shine-pf" cx="30%" cy="22%" r="75%">
+              <stop offset="0%" stop-color="#4EFA8B"/>
+              <stop offset="55%" stop-color="#25D366"/>
+              <stop offset="100%" stop-color="#128C7E"/>
+            </radialGradient>
+            <filter id="wa-drop-pf" x="-10%" y="-10%" width="130%" height="130%">
+              <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-opacity="0.35"/>
+            </filter>
+          </defs>
+          <circle cx="24" cy="24" r="23" fill="url(#wa-shine-pf)"/>
+          <circle cx="24" cy="24" r="22.5" stroke="rgba(255,255,255,0.4)" stroke-width="1" fill="none"/>
+          <path filter="url(#wa-drop-pf)" fill="#FFFFFF" fill-rule="evenodd" clip-rule="evenodd" d="M24 10C16.27 10 10 16.27 10 24c0 2.68.75 5.18 2.06 7.31L10.5 37.5l6.37-1.55A13.91 13.91 0 0 0 24 38c7.73 0 14-6.27 14-14S31.73 10 24 10zm6.97 19.46c-.29.82-1.68 1.52-2.32 1.62-.61.09-1.4.13-2.26-.15-.52-.17-1.2-.39-2.07-.77-3.66-1.58-6.04-5.29-6.22-5.54-.18-.24-1.5-1.99-1.5-3.8s.94-2.69 1.28-3.06c.33-.37.73-.47.97-.47.24 0 .49.01.7.02.22.01.52-.08.82.62.31.75 1.05 2.56 1.15 2.75.09.19.16.41.03.65-.12.24-.18.39-.36.6-.18.21-.38.48-.54.64-.18.18-.37.38-.16.75.21.37.95 1.57 2.04 2.54 1.4 1.25 2.58 1.64 2.95 1.83.37.18.58.16.8-.09.22-.25.94-1.1 1.19-1.48.24-.37.5-.31.83-.19.33.13 2.13 1 2.5 1.19.37.18.61.28.71.44.09.16.09.89-.2 1.71z"/>
         </svg>
       </div>
-    </div>
-  </button>
+      <span class="qc-tooltip">WhatsApp</span>
+    </a>
+
+    <!-- 2. Real 3D Facebook Messenger Logo Button -->
+    <a href="https://m.me/neel.nafis" target="_blank" rel="noopener noreferrer" class="qc-btn qc-btn-messenger" aria-label="Facebook Messenger">
+      <div class="qc-btn-inner">
+        <svg viewBox="0 0 48 48" fill="none">
+          <defs>
+            <radialGradient id="msg-shine-pf" cx="22%" cy="18%" r="82%">
+              <stop offset="0%" stop-color="#00E5FF"/>
+              <stop offset="35%" stop-color="#0084FF"/>
+              <stop offset="70%" stop-color="#833AB4"/>
+              <stop offset="100%" stop-color="#E1306C"/>
+            </radialGradient>
+            <filter id="msg-drop-pf" x="-10%" y="-10%" width="130%" height="130%">
+              <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-opacity="0.35"/>
+            </filter>
+          </defs>
+          <circle cx="24" cy="24" r="23" fill="url(#msg-shine-pf)"/>
+          <circle cx="24" cy="24" r="22.5" stroke="rgba(255,255,255,0.4)" stroke-width="1" fill="none"/>
+          <path filter="url(#msg-drop-pf)" fill="#FFFFFF" fill-rule="evenodd" clip-rule="evenodd" d="M24 10C16.27 10 10 15.77 10 22.88c0 4.07 2.04 7.7 5.23 9.99v4.13l3.96-2.18c1.51.42 3.12.65 4.81.65 7.73 0 14-5.77 14-12.88S31.73 10 24 10zm1.48 16.92l-3.66-3.9-7.14 3.9 7.85-8.33 3.74 3.9 7.06-3.9-7.85 8.33z"/>
+        </svg>
+      </div>
+      <span class="qc-tooltip">Messenger</span>
+    </a>
+
+    <!-- 3. Real 3D Phone Call Logo Button -->
+    <a href="tel:+8801716705401" class="qc-btn qc-btn-call" aria-label="Direct Call">
+      <div class="qc-btn-inner">
+        <svg viewBox="0 0 48 48" fill="none">
+          <defs>
+            <radialGradient id="call-shine-pf" cx="30%" cy="20%" r="70%">
+              <stop offset="0%" stop-color="#34D399"/>
+              <stop offset="50%" stop-color="#10B981"/>
+              <stop offset="100%" stop-color="#047857"/>
+            </radialGradient>
+            <filter id="call-drop-pf" x="-10%" y="-10%" width="130%" height="130%">
+              <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-opacity="0.35"/>
+            </filter>
+          </defs>
+          <circle cx="24" cy="24" r="23" fill="url(#call-shine-pf)"/>
+          <circle cx="24" cy="24" r="22.5" stroke="rgba(255,255,255,0.4)" stroke-width="1" fill="none"/>
+          <path filter="url(#call-drop-pf)" fill="#FFFFFF" d="M20.4 23.6a14.8 14.8 0 0 0 6 6l2-2a1.8 1.8 0 0 1 1.8-.4c2 .7 4.2 1.1 6.4 1.1a1.8 1.8 0 0 1 1.8 1.8V35a1.8 1.8 0 0 1-1.8 1.8C23.6 36.8 13.2 26.4 13.2 13.8a1.8 1.8 0 0 1 1.8-1.8H19a1.8 1.8 0 0 1 1.8 1.8c0 2.2.4 4.4 1.1 6.4.2.6 0 1.3-.4 1.8l-2.1 2.1z"/>
+        </svg>
+      </div>
+      <span class="qc-tooltip">Direct Call</span>
+    </a>
+
+    <!-- Main Round Avatar Trigger Button -->
+    <button type="button" id="qc-trigger-btn" class="qc-main-trigger" aria-label="Quick Contact Toggle" title="Quick Contact">
+      <div class="qc-avatar-ring">
+        <img src="assets/rakib_avatar.jpg" alt="Contact Rakib" class="qc-avatar-img" />
+        <span class="qc-online-dot"></span>
+        <div class="qc-close-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </div>
+      </div>
+    </button>
+  </div>
+
 </div>
 
-<!-- Scripts for Filtering, Video Modal & Mobile Menu -->
+<!-- Scripts -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 
