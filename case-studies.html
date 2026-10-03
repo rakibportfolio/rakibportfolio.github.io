@@ -2666,8 +2666,8 @@
     }
     @media (max-width: 900px) {
       .zf-main-grid {
-        grid-template-columns: 1fr 1.15fr;
-        gap: 32px 20px;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px 24px;
       }
       .zf-brand-col {
         grid-column: 1 / -1;
@@ -2675,13 +2675,14 @@
     }
     @media (max-width: 640px) {
       .zf-footer-inner {
-        padding: 36px 16px 0;
+        padding: 32px 16px 95px !important; /* 95px clearance so floating widget never covers content */
       }
       .zf-cta-strip {
         padding: 20px 16px;
         flex-direction: column;
         text-align: center;
         gap: 14px;
+        border-radius: 16px;
       }
       .zf-cta-actions {
         width: 100%;
@@ -2693,21 +2694,82 @@
         width: 100%;
         justify-content: center;
         padding: 11px 12px;
+        font-size: 13px;
       }
+      /* Clean single-column stack on mobile - no squeezed columns */
       .zf-main-grid {
-        grid-template-columns: 1fr 1.18fr;
-        gap: 24px 14px;
-        padding-bottom: 26px;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 26px !important;
+        padding-bottom: 24px;
       }
       .zf-brand-col {
-        grid-column: 1 / -1;
-        border-bottom: 1px dashed rgba(184, 0, 245, 0.18);
-        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(184, 0, 245, 0.2);
+        padding-bottom: 18px;
       }
+      .zf-brand-desc {
+        max-width: 100%;
+        font-size: 13px;
+      }
+      .zf-social-row {
+        gap: 10px;
+      }
+      .zf-soc-link {
+        width: 42px;
+        height: 42px;
+      }
+      
+      /* Services in a clean 2-column touchable grid on mobile */
+      .zf-services-col {
+        border-bottom: 1px solid rgba(184, 0, 245, 0.2);
+        padding-bottom: 18px;
+      }
+      .zf-services-list {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 10px 12px !important;
+      }
+      .zf-svc-item {
+        font-size: 13px;
+      }
+
+      /* Contact items in full-width spacious card layout */
+      .zf-contact-col {
+        gap: 12px;
+      }
+      .zf-contact-group {
+        background: rgba(255, 255, 255, 0.025);
+        border: 1px solid rgba(184, 0, 245, 0.2);
+        padding: 10px 14px;
+        border-radius: 12px;
+      }
+      .zf-contact-lbl {
+        font-size: 10px;
+        color: #e879f9;
+        margin-bottom: 2px;
+      }
+      .zf-contact-val {
+        font-size: 13px;
+        word-break: break-all;
+      }
+
+      /* Bottom Bar Cleanly Centered with No Floating Widget Overlap */
       .zf-bottom-bar {
-        flex-direction: column-reverse;
-        align-items: center;
-        text-align: center;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 10px !important;
+        padding: 16px 0 0 !important;
+      }
+      .zf-copy {
+        font-size: 12px;
+        line-height: 1.5;
+        white-space: normal;
+      }
+      .zf-badge {
+        font-size: 11px;
+        padding: 4px 12px;
       }
     }
     </style>
