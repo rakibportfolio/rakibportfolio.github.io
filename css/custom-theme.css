@@ -948,11 +948,16 @@ a.button-03 .button-arrow-wrapper {
 
 /* Floating "Get Yours Next" Tag popped in 3D */
 .hero-book-a-call.hero-3d-floating-tag {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  z-index: 8;
   transform: translateZ(42px);
   transform-style: preserve-3d;
   transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.4, 1);
   display: inline-block;
 }
+.holder.hero:hover .hero-book-a-call.hero-3d-floating-tag,
 .hero-3d-card-wrapper:hover .hero-book-a-call.hero-3d-floating-tag {
   transform: translateZ(48px) translateY(-3px);
 }
@@ -1628,7 +1633,13 @@ a.proof-card:hover {
 }
 
 .holder.hero.is-video-playing {
-  box-shadow: 0 0 35px rgba(255, 30, 0, 0.45), 0 20px 45px rgba(0, 0, 0, 0.8) !important;
+  border-color: rgba(184, 0, 245, 0.85) !important;
+  box-shadow: 
+    0 32px 80px -10px rgba(0, 0, 0, 0.95),
+    0 0 75px rgba(184, 0, 245, 0.65),
+    0 0 110px rgba(112, 0, 168, 0.5),
+    0 0 35px rgba(232, 121, 249, 0.4),
+    inset 0 1px 0 rgba(184, 0, 245, 0.3) !important;
 }
 
 .holder.hero.hero-3d-card,
