@@ -6028,132 +6028,20 @@ document.addEventListener("DOMContentLoaded", function () {
   padding-left: 4px;
 }
 
-/* Service Selection Grid */
-.lead-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  margin-bottom: 20px;
-}
-.lead-choice-card {
-  position: relative;
-  background: rgba(255, 255, 255, 0.025);
-  border: 1.5px solid rgba(184, 0, 245, 0.2);
-  border-radius: 16px;
-  padding: 16px 18px;
+/* Custom Styled Select Dropdown */
+.lead-select-field {
   cursor: pointer;
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  user-select: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6 9l6 6 6-6' stroke='%23E879F9' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 22px center;
+  padding-right: 48px !important;
 }
-.lead-choice-card:hover {
-  background: rgba(184, 0, 245, 0.1);
-  border-color: rgba(232, 121, 249, 0.5);
-  transform: translateY(-2px);
-}
-.lead-choice-card.selected {
-  background: linear-gradient(135deg, rgba(184, 0, 245, 0.25) 0%, rgba(124, 58, 237, 0.22) 100%);
-  border-color: #E879F9;
-  box-shadow: 0 0 20px rgba(184, 0, 245, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-}
-.card-icon-pill {
-  width: 38px; height: 38px;
-  border-radius: 10px;
-  background: rgba(184, 0, 245, 0.18);
-  border: 1px solid rgba(184, 0, 245, 0.35);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  font-size: 18px;
-  transition: all 0.25s;
-}
-.lead-choice-card.selected .card-icon-pill {
-  background: #E879F9;
-  border-color: #fff;
-  color: #000;
-  box-shadow: 0 0 12px rgba(232, 121, 249, 0.8);
-}
-.card-text-box {
-  flex: 1;
-}
-.card-title {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
+.lead-select-field option {
+  background: #140420;
   color: #ffffff;
-  margin: 0 0 3px;
-}
-.card-desc {
-  font-family: 'Inter', sans-serif;
-  font-size: 11.5px;
-  color: rgba(225, 200, 250, 0.55);
-  line-height: 1.4;
-  margin: 0;
-}
-.card-check-circle {
-  width: 18px; height: 18px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(225, 200, 250, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: all 0.2s;
-  margin-top: 2px;
-}
-.lead-choice-card.selected .card-check-circle {
-  background: #E879F9;
-  border-color: #E879F9;
-}
-.lead-choice-card.selected .card-check-circle::after {
-  content: '';
-  width: 6px; height: 6px;
-  background: #090111;
-  border-radius: 50%;
-}
-
-/* Budget Cards Grid */
-.lead-budget-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-bottom: 20px;
-}
-.lead-budget-pill {
-  background: rgba(255, 255, 255, 0.025);
-  border: 1.5px solid rgba(184, 0, 245, 0.2);
-  border-radius: 14px;
-  padding: 16px 12px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  user-select: none;
-}
-.lead-budget-pill:hover {
-  background: rgba(184, 0, 245, 0.1);
-  border-color: rgba(232, 121, 249, 0.5);
-  transform: translateY(-2px);
-}
-.lead-budget-pill.selected {
-  background: linear-gradient(135deg, rgba(184, 0, 245, 0.3) 0%, rgba(124, 58, 237, 0.3) 100%);
-  border-color: #E879F9;
-  box-shadow: 0 0 18px rgba(184, 0, 245, 0.3);
-}
-.budget-amount {
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 3px;
-  display: block;
-}
-.budget-tier {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  color: rgba(225, 200, 250, 0.5);
+  padding: 12px;
 }
 
 /* Textarea Box & Quick Tags */
@@ -6602,65 +6490,24 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="step-heading-group">
           <span class="step-number-tag">03 • CORE CAPABILITY</span>
           <h3 class="step-prompt-title">What service are you looking for?</h3>
-          <p class="step-prompt-sub">Tap one of the cards below that matches your project requirements.</p>
+          <p class="step-prompt-sub">Select your required service from the dropdown below.</p>
         </div>
 
-        <div class="lead-cards-grid" id="serviceCardsContainer">
-          
-          <div class="lead-choice-card selected" data-value="Video Editing" onclick="pickServiceCard(this, 'Video Editing')">
-            <div class="card-icon-pill">🎬</div>
-            <div class="card-text-box">
-              <div class="card-title">Video Editing</div>
-              <p class="card-desc">Shorts, Reels, YouTube Videos &amp; Paid Ad Creatives.</p>
-            </div>
-            <div class="card-check-circle"></div>
+        <div class="lead-input-container">
+          <div class="lead-input-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           </div>
-
-          <div class="lead-choice-card" data-value="Graphics Design" onclick="pickServiceCard(this, 'Graphics Design')">
-            <div class="card-icon-pill">🎨</div>
-            <div class="card-text-box">
-              <div class="card-title">Graphic Design</div>
-              <p class="card-desc">Thumbnails, Brand Identity, Social Posts &amp; Banners.</p>
-            </div>
-            <div class="card-check-circle"></div>
-          </div>
-
-          <div class="lead-choice-card" data-value="Web Design" onclick="pickServiceCard(this, 'Web Design')">
-            <div class="card-icon-pill">💻</div>
-            <div class="card-text-box">
-              <div class="card-title">Web Design</div>
-              <p class="card-desc">High-converting Landing Pages, SaaS Portals &amp; UI/UX.</p>
-            </div>
-            <div class="card-check-circle"></div>
-          </div>
-
-          <div class="lead-choice-card" data-value="Digital Marketing" onclick="pickServiceCard(this, 'Digital Marketing')">
-            <div class="card-icon-pill">📈</div>
-            <div class="card-text-box">
-              <div class="card-title">Digital Marketing</div>
-              <p class="card-desc">Meta Ads, Google Growth, Scaling Strategy &amp; Funnels.</p>
-            </div>
-            <div class="card-check-circle"></div>
-          </div>
-
-          <div class="lead-choice-card" data-value="AI Automation" onclick="pickServiceCard(this, 'AI Automation')">
-            <div class="card-icon-pill">⚡</div>
-            <div class="card-text-box">
-              <div class="card-title">AI Automation</div>
-              <p class="card-desc">N8N Workflows, AI Chatbots &amp; Custom Automations.</p>
-            </div>
-            <div class="card-check-circle"></div>
-          </div>
-
-          <div class="lead-choice-card" data-value="Multiple Services" onclick="pickServiceCard(this, 'Multiple Services')">
-            <div class="card-icon-pill">🚀</div>
-            <div class="card-text-box">
-              <div class="card-title">Full Agency Package</div>
-              <p class="card-desc">Complete end-to-end design, video and growth stack.</p>
-            </div>
-            <div class="card-check-circle"></div>
-          </div>
-
+          <select class="lead-input-field lead-select-field" id="wizardService">
+            <option value="" disabled selected>Select a service...</option>
+            <option value="Video Editing">Video Editing</option>
+            <option value="Graphic Design">Graphic Design</option>
+            <option value="Web Design">Web Design</option>
+            <option value="Digital Marketing">Digital Marketing</option>
+            <option value="AI Automation">AI Automation</option>
+            <option value="Full Agency Package">Full Agency Package</option>
+            <option value="Other">Other / Custom</option>
+          </select>
+          <div class="lead-field-error" id="errWizardService">Please select a service to continue.</div>
         </div>
 
         <div class="lead-nav-footer">
@@ -6712,34 +6559,22 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="step-heading-group">
           <span class="step-number-tag">05 • ESTIMATED INVESTMENT</span>
           <h3 class="step-prompt-title">What is your monthly budget range?</h3>
-          <p class="step-prompt-sub">This helps us propose the best scope and deliverables (Optional).</p>
+          <p class="step-prompt-sub">Select your estimated budget range from the dropdown (Optional).</p>
         </div>
 
-        <div class="lead-budget-grid" id="budgetCardsContainer">
-          <div class="lead-budget-pill" data-val="Under $100" onclick="pickBudgetPill(this, 'Under $100')">
-            <span class="budget-amount">&lt; $100</span>
-            <span class="budget-tier">Starter</span>
+        <div class="lead-input-container">
+          <div class="lead-input-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <div class="lead-budget-pill selected" data-val="$100 - $300" onclick="pickBudgetPill(this, '$100 - $300')">
-            <span class="budget-amount">$100 - $300</span>
-            <span class="budget-tier">Growth</span>
-          </div>
-          <div class="lead-budget-pill" data-val="$300 - $500" onclick="pickBudgetPill(this, '$300 - $500')">
-            <span class="budget-amount">$300 - $500</span>
-            <span class="budget-tier">Pro Brand</span>
-          </div>
-          <div class="lead-budget-pill" data-val="$500 - $1,000" onclick="pickBudgetPill(this, '$500 - $1,000')">
-            <span class="budget-amount">$500 - $1,000</span>
-            <span class="budget-tier">Scaling</span>
-          </div>
-          <div class="lead-budget-pill" data-val="$1,000+" onclick="pickBudgetPill(this, '$1,000+')">
-            <span class="budget-amount">$1,000+</span>
-            <span class="budget-tier">Enterprise</span>
-          </div>
-          <div class="lead-budget-pill" data-val="Let's discuss" onclick="pickBudgetPill(this, 'Let\'s discuss')">
-            <span class="budget-amount">Discuss</span>
-            <span class="budget-tier">Flexible</span>
-          </div>
+          <select class="lead-input-field lead-select-field" id="wizardBudget">
+            <option value="" disabled selected>Select budget range...</option>
+            <option value="Under $100">Under $100</option>
+            <option value="$100 - $300">$100 - $300</option>
+            <option value="$300 - $500">$300 - $500</option>
+            <option value="$500 - $1,000">$500 - $1,000</option>
+            <option value="$1,000+">$1,000+</option>
+            <option value="Let's discuss first">Let's discuss first</option>
+          </select>
         </div>
 
         <div class="lead-nav-footer">
@@ -6896,8 +6731,6 @@ document.addEventListener("DOMContentLoaded", function () {
 (function() {
   var activeStep = 1;
   var totalQuestionSteps = 6;
-  var selectedService = 'Video Editing';
-  var selectedBudget = '$100 - $300';
 
   var stepTitles = {
     1: 'QUESTION 01 OF 06',
@@ -6921,12 +6754,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* ── Get All Field Values ── */
   function getBlueprint() {
+    var svcEl = document.getElementById('wizardService');
+    var bdgEl = document.getElementById('wizardBudget');
     return {
       name:    (document.getElementById('wizardName').value || '').trim(),
       wa:      (document.getElementById('wizardWA').value || '').trim(),
-      service: selectedService,
+      service: (svcEl && svcEl.value ? svcEl.value : 'Video Editing').trim(),
       website: (document.getElementById('wizardWebsite').value || '').trim(),
-      budget:  selectedBudget,
+      budget:  (bdgEl && bdgEl.value ? bdgEl.value : 'Discuss first').trim(),
       msg:     (document.getElementById('wizardMsg').value || '').trim()
     };
   }
@@ -7001,6 +6836,15 @@ document.addEventListener("DOMContentLoaded", function () {
       window.goToWizardStep(3);
     }
     else if (step === 3) {
+      var svcEl = document.getElementById('wizardService');
+      var errSvc = document.getElementById('errWizardService');
+      if (svcEl && !svcEl.value) {
+        svcEl.classList.add('error');
+        if (errSvc) errSvc.style.display = 'block';
+        return;
+      }
+      if (svcEl) svcEl.classList.remove('error');
+      if (errSvc) errSvc.style.display = 'none';
       window.goToWizardStep(4);
     }
     else if (step === 4) {
@@ -7026,24 +6870,6 @@ document.addEventListener("DOMContentLoaded", function () {
     window.goToWizardStep(step + 1);
   };
 
-  /* ── Service Choice Handler ── */
-  window.pickServiceCard = function(el, serviceVal) {
-    document.querySelectorAll('#serviceCardsContainer .lead-choice-card').forEach(function(c) {
-      c.classList.remove('selected');
-    });
-    el.classList.add('selected');
-    selectedService = serviceVal;
-  };
-
-  /* ── Budget Pill Handler ── */
-  window.pickBudgetPill = function(el, budgetVal) {
-    document.querySelectorAll('#budgetCardsContainer .lead-budget-pill').forEach(function(b) {
-      b.classList.remove('selected');
-    });
-    el.classList.add('selected');
-    selectedBudget = budgetVal;
-  };
-
   /* ── Quick Add Tag to Message ── */
   window.appendPromptTag = function(tagText) {
     var area = document.getElementById('wizardMsg');
@@ -7054,6 +6880,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     area.focus();
   };
+
+  /* ── Select Change Event Listeners ── */
+  var svcSelect = document.getElementById('wizardService');
+  if (svcSelect) {
+    svcSelect.addEventListener('change', function() {
+      this.classList.remove('error');
+      var err = document.getElementById('errWizardService');
+      if (err) err.style.display = 'none';
+    });
+  }
 
   /* ── Enter Key Navigation ── */
   ['wizardName', 'wizardWA', 'wizardWebsite'].forEach(function(id) {
