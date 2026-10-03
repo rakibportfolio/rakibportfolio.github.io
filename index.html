@@ -7481,116 +7481,624 @@
 
 <section class="zf-footer" id="footer">
 <style>
-.zf-footer{position:relative;background:#09090b;overflow:hidden;padding:0;}
-.zf-footer::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(124,58,237,0.18) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 10% 100%,rgba(139,92,246,0.10) 0%,transparent 60%);pointer-events:none;}
-.zf-footer-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(124,58,237,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(124,58,237,0.05) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;opacity:0.5;}
-.zf-footer-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:70px 40px 0;}
-/* CTA Strip */
-.zf-cta-strip{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:40px 48px;background:linear-gradient(135deg,rgba(124,58,237,0.20) 0%,rgba(109,40,217,0.12) 100%);border:1px solid rgba(124,58,237,0.30);border-radius:20px;margin-bottom:64px;flex-wrap:wrap;}
-.zf-cta-left h2{font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;font-size:clamp(28px,4vw,42px);color:#fff;letter-spacing:1px;margin:0 0 6px;}
-.zf-cta-left p{font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;font-size:14px;color:rgba(255,255,255,0.55);margin:0;}
-.zf-cta-btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#7c3aed,#6d28d9);color:#fff;font-family:'Inter',sans-serif;font-size:15px;font-weight:600;padding:14px 32px;border-radius:50px;text-decoration:none;white-space:nowrap;transition:all 0.3s ease;box-shadow:0 0 30px rgba(124,58,237,0.4);}
-.zf-cta-btn:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(124,58,237,0.65);}
-.zf-cta-btn svg{transition:transform 0.3s;}
-.zf-cta-btn:hover svg{transform:translateX(4px);}
-/* Main grid */
-.zf-main-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.07);}
-.zf-brand-col{}
-.zf-brand-logo{height:36px;width:auto;object-fit:contain;margin-bottom:20px;display:block;}
-.zf-brand-desc{font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;font-size:14px;line-height:1.7;color:rgba(255,255,255,0.48);max-width:280px;margin-bottom:28px;}
-.zf-social-row{display:flex;gap:12px;}
-.zf-soc-link{width:40px;height:40px;border-radius:10px;border:1px solid rgba(255,255,255,0.10);background:rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:center;transition:all 0.3s;}
-.zf-soc-link:hover{background:rgba(124,58,237,0.25);border-color:rgba(124,58,237,0.5);transform:translateY(-3px);}
-.zf-col-title{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin:0 0 20px;}
-.zf-nav-links{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;}
-.zf-nav-links a{font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s;}
-.zf-nav-links a:hover{color:#a78bfa;}
-.zf-contact-col{}
-.zf-contact-item{display:flex;flex-direction:column;gap:4px;margin-bottom:20px;}
-.zf-contact-label{font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.30);}
-.zf-contact-val{font-family:'Inter',sans-serif;font-size:14px;color:rgba(255,255,255,0.60);text-decoration:none;transition:color 0.2s;}
-.zf-contact-val:hover{color:#a78bfa;}
-/* Bottom bar */
-.zf-bottom-bar{display:flex;align-items:center;justify-content:space-between;padding:24px 0 32px;flex-wrap:wrap;gap:16px;}
-.zf-copy{font-family:'Inter',sans-serif;font-size:13px;color:rgba(255,255,255,0.30);}
-.zf-copy a{color:rgba(255,255,255,0.45);text-decoration:none;}
-.zf-copy a:hover{color:#a78bfa;}
-.zf-badge{display:inline-flex;align-items:center;gap:6px;font-family:'Inter',sans-serif;font-size:12px;color:rgba(255,255,255,0.25);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:50px;padding:5px 14px;}
-.zf-badge span{width:6px;height:6px;border-radius:50%;background:#4ade80;display:inline-block;animation:zf-pulse 2s ease-in-out infinite;}
-@keyframes zf-pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(0.8);}}
-/* Mobile */
-@media(max-width:768px){
-  .zf-footer-inner{padding:50px 20px 0;}
-  .zf-cta-strip{padding:28px 24px;flex-direction:column;text-align:center;gap:20px;}
-  .zf-cta-btn{width:100%;justify-content:center;}
-  .zf-main-grid{grid-template-columns:1fr;gap:32px;}
-  .zf-brand-desc{max-width:100%;}
-  .zf-bottom-bar{flex-direction:column;align-items:center;text-align:center;}
+/* ═══════════════════════════════════════════════════════
+   PREMIUM MOBILE-FIRST FOOTER DESIGN
+   ═══════════════════════════════════════════════════════ */
+.zf-footer {
+  position: relative;
+  background: #06010a;
+  overflow: hidden;
+  padding: 0;
+  border-top: 1px solid rgba(184, 0, 245, 0.18);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #ffffff;
 }
-@media(max-width:480px){
-  .zf-cta-left h2{font-size:26px;}
-  .zf-cta-strip{padding:24px 20px;}
+
+.zf-footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(184, 0, 245, 0.14) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 40% at 90% 100%, rgba(112, 0, 168, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.zf-footer-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(184, 0, 245, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(184, 0, 245, 0.03) 1px, transparent 1px);
+  background-size: 36px 36px;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.zf-footer-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 24px 0;
+}
+
+/* ── CTA Banner Strip ── */
+.zf-cta-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 34px 40px;
+  background: linear-gradient(135deg, rgba(28, 7, 44, 0.8) 0%, rgba(15, 3, 24, 0.85) 100%);
+  border: 1px solid rgba(184, 0, 245, 0.32);
+  border-radius: 20px;
+  margin-bottom: 56px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(184, 0, 245, 0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+.zf-cta-strip::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, #b800f5 35%, #e879f9 65%, transparent);
+  opacity: 0.7;
+}
+
+.zf-cta-left h2 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin: 0 0 6px;
+  line-height: 1.2;
+}
+
+.zf-cta-left p {
+  font-size: 14.5px;
+  color: rgba(225, 200, 250, 0.65);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.zf-cta-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.zf-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #b800f5 0%, #7c00cc 100%);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 13px 26px;
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 20px rgba(184, 0, 245, 0.42);
+}
+
+.zf-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(184, 0, 245, 0.65);
+  color: #ffffff;
+}
+
+.zf-cta-btn svg {
+  transition: transform 0.2s;
+}
+
+.zf-cta-btn:hover svg {
+  transform: translateX(3px);
+}
+
+.zf-cta-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  color: #4ade80;
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 12px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.24s ease;
+}
+
+.zf-cta-wa:hover {
+  background: rgba(34, 197, 94, 0.22);
+  border-color: rgba(34, 197, 94, 0.6);
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+/* ── Main Footer Grid ── */
+.zf-main-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1.2fr 1.2fr;
+  gap: 40px;
+  padding-bottom: 44px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Brand Column */
+.zf-brand-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.zf-brand-logo {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 16px;
+  display: block;
+  align-self: flex-start;
+}
+
+.zf-brand-desc {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: rgba(225, 200, 250, 0.65);
+  max-width: 320px;
+  margin: 0 0 20px;
+}
+
+.zf-social-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.zf-soc-link {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid rgba(184, 0, 245, 0.22);
+  background: rgba(18, 5, 28, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e879f9;
+  transition: all 0.24s ease;
+  text-decoration: none;
+}
+
+.zf-soc-link:hover {
+  background: rgba(184, 0, 245, 0.28);
+  border-color: rgba(232, 121, 249, 0.6);
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(184, 0, 245, 0.35);
+}
+
+/* Titles */
+.zf-col-title {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #e879f9;
+  margin: 0 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.zf-col-title::after {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 1px;
+  background: rgba(184, 0, 245, 0.5);
+}
+
+/* Services Links Grid */
+.zf-services-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.zf-svc-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  color: rgba(225, 200, 250, 0.72);
+  text-decoration: none;
+  transition: color 0.2s, transform 0.2s;
+  padding: 4px 0;
+}
+
+.zf-svc-link svg {
+  color: rgba(184, 0, 245, 0.6);
+  transition: transform 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+
+.zf-svc-link:hover {
+  color: #ffffff;
+  transform: translateX(3px);
+}
+
+.zf-svc-link:hover svg {
+  color: #e879f9;
+  transform: translateX(2px);
+}
+
+/* Contact Column */
+.zf-contact-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.zf-contact-card {
+  background: rgba(18, 5, 28, 0.5);
+  border: 1px solid rgba(184, 0, 245, 0.18);
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  transition: all 0.22s ease;
+}
+
+.zf-contact-card:hover {
+  background: rgba(26, 8, 42, 0.75);
+  border-color: rgba(184, 0, 245, 0.45);
+  transform: translateY(-2px);
+}
+
+.zf-contact-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(184, 0, 245, 0.15);
+  border: 1px solid rgba(184, 0, 245, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e879f9;
+  flex-shrink: 0;
+}
+
+.zf-contact-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.zf-contact-lbl {
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: rgba(225, 200, 250, 0.45);
+  letter-spacing: 1px;
+}
+
+.zf-contact-txt {
+  font-size: 13px;
+  font-weight: 500;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.zf-trust-badge {
+  background: rgba(184, 0, 245, 0.08);
+  border: 1px solid rgba(184, 0, 245, 0.2);
+  border-radius: 12px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: rgba(225, 200, 250, 0.85);
+}
+
+.zf-trust-badge span {
+  color: #4ade80;
+  font-weight: 600;
+}
+
+/* ── Bottom Bar ── */
+.zf-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 0 28px;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.zf-copy {
+  font-size: 12.5px;
+  color: rgba(225, 200, 250, 0.45);
+  margin: 0;
+}
+
+.zf-copy a {
+  color: rgba(225, 200, 250, 0.7);
+  text-decoration: none;
+}
+
+.zf-copy a:hover {
+  color: #e879f9;
+}
+
+.zf-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11.5px;
+  color: rgba(225, 200, 250, 0.7);
+  background: rgba(18, 5, 28, 0.6);
+  border: 1px solid rgba(184, 0, 245, 0.22);
+  border-radius: 999px;
+  padding: 5px 14px;
+}
+
+.zf-badge span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 8px #4ade80;
+  display: inline-block;
+  animation: zf-pulse 2s ease-in-out infinite;
+}
+
+@keyframes zf-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+/* ── Mobile Layout Optimization ── */
+@media (max-width: 900px) {
+  .zf-main-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .zf-brand-col {
+    grid-column: 1 / -1;
+  }
+  .zf-brand-desc {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .zf-footer-inner {
+    padding: 38px 16px 0;
+  }
+  
+  .zf-cta-strip {
+    padding: 22px 18px;
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+    margin-bottom: 34px;
+    border-radius: 16px;
+  }
+  
+  .zf-cta-left h2 {
+    font-size: 21px;
+  }
+  
+  .zf-cta-left p {
+    font-size: 13px;
+  }
+
+  .zf-cta-actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .zf-cta-btn, .zf-cta-wa {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 12px 18px;
+    font-size: 13px;
+  }
+
+  .zf-main-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding-bottom: 28px;
+  }
+
+  .zf-brand-logo {
+    height: 32px;
+    margin-bottom: 12px;
+  }
+
+  .zf-brand-desc {
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+
+  .zf-soc-link {
+    width: 38px;
+    height: 38px;
+  }
+
+  /* Services in 2 columns on mobile so it doesn't waste vertical space! */
+  .zf-services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 10px;
+  }
+
+  .zf-svc-link {
+    font-size: 12px;
+    background: rgba(18, 5, 28, 0.45);
+    border: 1px solid rgba(184, 0, 245, 0.14);
+    border-radius: 10px;
+    padding: 9px 10px;
+    line-height: 1.35;
+  }
+
+  .zf-contact-card {
+    padding: 10px 12px;
+  }
+
+  .zf-contact-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .zf-contact-txt {
+    font-size: 12.5px;
+  }
+
+  .zf-trust-badge {
+    padding: 9px 12px;
+    font-size: 11.5px;
+  }
+
+  .zf-bottom-bar {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+    padding: 18px 0 24px;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .zf-services-grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
+
 <div class="zf-footer-grid-bg"></div>
+
 <div class="zf-footer-inner">
-  <!-- CTA Strip -->
+  <!-- CTA Banner Strip -->
   <div class="zf-cta-strip">
     <div class="zf-cta-left">
       <h2>Ready When You Are.</h2>
-      <p>Let&#39;s build something remarkable together — fast, sharp, and unforgettable.</p>
+      <p>Let's build something remarkable together — fast, sharp, and high-converting.</p>
     </div>
-    <a href="mailto:technicalrakib999@gmail.com" class="zf-cta-btn">
-      Start a Project
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
+    <div class="zf-cta-actions">
+      <a href="#talk-to-us" class="zf-cta-btn">
+        Start a Project
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="https://wa.me/8801716705401" target="_blank" class="zf-cta-wa">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        WhatsApp
+      </a>
+    </div>
   </div>
+
   <!-- Main Grid -->
   <div class="zf-main-grid">
-    <!-- Brand -->
+
+    <!-- Brand Column -->
     <div class="zf-brand-col">
       <img src="assets/zentic_logo.png" alt="Zentic Media" class="zf-brand-logo"/>
-      <p class="zf-brand-desc">Premium video editing &amp; digital production that converts viewers into loyal customers. Fast. Sharp. Unforgettable.</p>
+      <p class="zf-brand-desc">High-converting video editing, landing pages &amp; AI automation pipelines built for fast-growing brands.</p>
       <div class="zf-social-row">
-        <a href="https://x.com/neel_nafis" target="_blank" class="zf-soc-link" aria-label="X / Twitter">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M18.33 1.9H21.7L14.33 10.33 23 21.79h-6.79l-5.32-6.95-6.08 6.95H1.43l7.88-9.01L1 1.9h7.96l4.81 6.36 5.56-6.36Zm-1.19 17.87h1.87L6.94 3.82H4.94l12.2 15.95Z" fill="rgba(255,255,255,0.7)"/></svg>
-        </a>
-        <a href="https://www.youtube.com/@neelnafis" target="_blank" class="zf-soc-link" aria-label="YouTube">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M23.76 7.2s-.24-1.66-.96-2.38c-.91-.96-1.94-.96-2.4-1.02C17.04 3.56 12 3.56 12 3.56s-5.04 0-8.4.24c-.47.06-1.49.06-2.4 1.02C.47 5.54.24 7.2.24 7.2S0 9.15 0 11.09v1.82c0 1.94.24 3.88.24 3.88s.23 1.66.96 2.38c.91.96 2.11.93 2.64 1.03 1.92.18 8.16.24 8.16.24s5.04-.01 8.4-.25c.47-.06 1.49-.06 2.4-1.02.72-.72.96-2.38.96-2.38S24 14.85 24 12.9v-1.82C24 9.15 23.76 7.2 23.76 7.2ZM9.52 15.11V8.37l6.48 3.39-6.48 3.35Z" fill="rgba(255,255,255,0.7)"/></svg>
+        <a href="https://wa.me/8801716705401" target="_blank" class="zf-soc-link" aria-label="WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         </a>
         <a href="mailto:technicalrakib999@gmail.com" class="zf-soc-link" aria-label="Email">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2Z" stroke="rgba(255,255,255,0.7)" stroke-width="1.8"/><path d="m22 6-10 7L2 6" stroke="rgba(255,255,255,0.7)" stroke-width="1.8"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2Z"/><path d="m22 6-10 7L2 6"/></svg>
+        </a>
+        <a href="https://x.com/neel_nafis" target="_blank" class="zf-soc-link" aria-label="X / Twitter">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M18.33 1.9H21.7L14.33 10.33 23 21.79h-6.79l-5.32-6.95-6.08 6.95H1.43l7.88-9.01L1 1.9h7.96l4.81 6.36 5.56-6.36Zm-1.19 17.87h1.87L6.94 3.82H4.94l12.2 15.95Z" fill="currentColor"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@neelnafis" target="_blank" class="zf-soc-link" aria-label="YouTube">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M23.76 7.2s-.24-1.66-.96-2.38c-.91-.96-1.94-.96-2.4-1.02C17.04 3.56 12 3.56 12 3.56s-5.04 0-8.4.24c-.47.06-1.49.06-2.4 1.02C.47 5.54.24 7.2.24 7.2S0 9.15 0 11.09v1.82c0 1.94.24 3.88.24 3.88s.23 1.66.96 2.38c.91.96 2.11.93 2.64 1.03 1.92.18 8.16.24 8.16.24s5.04-.01 8.4-.25c.47-.06 1.49-.06 2.4-1.02.72-.72.96-2.38.96-2.38S24 14.85 24 12.9v-1.82C24 9.15 23.76 7.2 23.76 7.2ZM9.52 15.11V8.37l6.48 3.39-6.48 3.35Z" fill="currentColor"/></svg>
         </a>
       </div>
     </div>
-    <!-- Services -->
+
+    <!-- Services Column -->
     <div>
       <p class="zf-col-title">Services</p>
-      <ul class="zf-nav-links">
-        <li><a href="#">Video Editing</a></li>
-        <li><a href="#">Ad Production</a></li>
-        <li><a href="#">Website Design</a></li>
-        <li><a href="#">Brand Identity</a></li>
-        <li><a href="#">Content Strategy</a></li>
-      </ul>
+      <div class="zf-services-grid">
+        <a href="#services-section" class="zf-svc-link">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          Video Editing (SaaS &amp; Reels)
+        </a>
+        <a href="#services-section" class="zf-svc-link">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          Graphic Design &amp; Thumbnails
+        </a>
+        <a href="#services-section" class="zf-svc-link">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          Landing Pages &amp; Web Design
+        </a>
+        <a href="#services-section" class="zf-svc-link">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          Digital Marketing &amp; Ads
+        </a>
+        <a href="#services-section" class="zf-svc-link">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          AI Automation &amp; Pipelines
+        </a>
+      </div>
     </div>
-    <!-- Contact -->
+
+    <!-- Contact & Trust Column -->
     <div class="zf-contact-col">
-      <p class="zf-col-title">Contact</p>
-      <div class="zf-contact-item">
-        <span class="zf-contact-label">Email</span>
-        <a href="mailto:technicalrakib999@gmail.com" class="zf-contact-val">technicalrakib999@gmail.com</a>
+      <p class="zf-col-title">Direct Contact</p>
+      
+      <a href="mailto:technicalrakib999@gmail.com" class="zf-contact-card">
+        <div class="zf-contact-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2Z"/><path d="m22 6-10 7L2 6"/></svg>
+        </div>
+        <div class="zf-contact-info">
+          <span class="zf-contact-lbl">Email Inquiry</span>
+          <span class="zf-contact-txt">technicalrakib999@gmail.com</span>
+        </div>
+      </a>
+
+      <a href="https://wa.me/8801716705401" target="_blank" class="zf-contact-card">
+        <div class="zf-contact-icon" style="background:rgba(34,197,94,0.15);border-color:rgba(34,197,94,0.3);color:#4ade80;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div class="zf-contact-info">
+          <span class="zf-contact-lbl">Instant Chat</span>
+          <span class="zf-contact-txt">+880 1716 705401</span>
+        </div>
+      </a>
+
+      <div class="zf-trust-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div><span>24h Response</span> &bull; Unlimited Revisions</div>
       </div>
-      <div class="zf-contact-item">
-        <span class="zf-contact-label">Response Time</span>
-        <span class="zf-contact-val">Within 24 hours</span>
-      </div>
-      <div class="zf-contact-item">
-        <span class="zf-contact-label">Revisions</span>
-        <span class="zf-contact-val">Until you&#39;re 100% happy</span>
-      </div>
+
     </div>
+
   </div>
+
   <!-- Bottom Bar -->
   <div class="zf-bottom-bar">
     <p class="zf-copy">&copy; 2026 <a href="/">Zentic Media</a>. All rights reserved.</p>
