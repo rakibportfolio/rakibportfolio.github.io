@@ -16,6 +16,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
+    /* ========================================================
+       CLEAN, MODERN, SIMPLE FONT SYSTEM (INTER SANS-SERIF)
+       ======================================================== */
+    *, *::before, *::after,
+    body, html,
+    h1, h2, h3, h4, h5, h6,
+    p, span, a, button, input, select, textarea, label, div {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+    }
+
     @font-face {
       font-family: "Coolvetica";
       src: url("fonts/coolvetica rg.otf") format("opentype");
@@ -32,7 +42,7 @@
     }
     *, *::before, *::after { box-sizing: border-box; }
     body { margin: 0; background: var(--wz-bg); font-family: 'Inter', sans-serif; color: var(--wz-white); min-height: 100vh; }
-    h1,h2,h3,h4,h5,h6 { font-family: "Coolvetica","Inter",sans-serif !important; font-weight: 400 !important; }
+    h1,h2,h3,h4,h5,h6 { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important; font-weight: 700 !important; letter-spacing: -0.02em !important; }
     .nav-link-2.is-current-page { color: #e879f9 !important; font-weight: 700 !important; text-shadow: 0 0 12px rgba(184,0,245,0.6) !important; }
     .ct-page-wrapper { position: relative; overflow-x: hidden; min-height: 100vh; }
     .lead-section { position: relative; padding: 110px 0 130px; overflow: hidden; background: transparent; }
@@ -45,7 +55,7 @@
     .lead-wizard-wrapper { max-width: 680px; margin: 0 auto; }
 
     .lead-header-center { text-align:center; margin-bottom:46px; }
-    .lead-eyebrow-pill { display:inline-flex; align-items:center; gap:7px; padding:5px 14px 5px 10px; background:rgba(184,0,245,0.12); border:1px solid rgba(184,0,245,0.30); border-radius:999px; font-family:'DM Mono',monospace; font-size:9.5px; font-weight:500; letter-spacing:2.5px; text-transform:uppercase; color:var(--wz-accent-light); margin-bottom:20px; box-shadow:0 2px 10px rgba(184,0,245,0.15); }
+    .lead-eyebrow-pill { display:inline-flex; align-items:center; gap:7px; padding:5px 14px 5px 10px; background:rgba(184,0,245,0.12); border:1px solid rgba(184,0,245,0.30); border-radius:999px; font-family: 'Inter', sans-serif !important; font-size:9.5px; font-weight:500; letter-spacing:2.5px; text-transform:uppercase; color:var(--wz-accent-light); margin-bottom:20px; box-shadow:0 2px 10px rgba(184,0,245,0.15); }
     .lead-pill-sparkle { width:15px; height:15px; border-radius:50%; background:rgba(184,0,245,0.25); display:flex; align-items:center; justify-content:center; }
     .lead-title-large { font-size:clamp(34px,5.5vw,60px); color:var(--wz-white); line-height:1.08; letter-spacing:-0.03em; margin:0 0 14px; }
     .lead-title-gradient { background:linear-gradient(115deg,#ffffff 0%,#e879f9 50%,#b800f5 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
@@ -54,10 +64,10 @@
     .lead-wizard-wrapper::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:45%; height:1.5px; background:linear-gradient(90deg,transparent,var(--wz-accent),var(--wz-accent-light),transparent); opacity:0.8; }
     .lead-tracker-bar { margin-bottom:32px; }
     .lead-tracker-meta { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
-    .lead-active-badge { display:inline-flex; align-items:center; gap:7px; font-family:'DM Mono',monospace; font-size:10px; font-weight:500; letter-spacing:2px; text-transform:uppercase; color:var(--wz-accent-light); }
+    .lead-active-badge { display:inline-flex; align-items:center; gap:7px; font-family: 'Inter', sans-serif !important; font-size:10px; font-weight:500; letter-spacing:2px; text-transform:uppercase; color:var(--wz-accent-light); }
     .lead-live-dot { width:6px; height:6px; border-radius:50%; background:var(--wz-accent); box-shadow:0 0 8px var(--wz-accent); animation:wz-dot 2s ease-in-out infinite; }
     @keyframes wz-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.45;transform:scale(0.65)} }
-    .lead-percent-badge { font-family:'DM Mono',monospace; font-size:9.5px; font-weight:500; color:var(--wz-muted2); letter-spacing:1.2px; }
+    .lead-percent-badge { font-family: 'Inter', sans-serif !important; font-size:9.5px; font-weight:500; color:var(--wz-muted2); letter-spacing:1.2px; }
     .lead-segments-row { display:flex; gap:5px; }
     .lead-segment { flex:1; height:3px; background:rgba(255,255,255,0.07); border-radius:99px; transition:background 0.4s ease, box-shadow 0.4s ease; }
     .lead-segment.completed { background:rgba(184,0,245,0.45); }
@@ -66,7 +76,7 @@
     .step-pane.active { display:block; animation:wz-in 0.3s cubic-bezier(0.16,1,0.3,1) forwards; }
     @keyframes wz-in { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
     .step-heading-group { margin-bottom:26px; }
-    .step-number-tag { display:block; font-family:'DM Mono',monospace; font-size:9.5px; font-weight:500; letter-spacing:2.5px; text-transform:uppercase; color:var(--wz-accent-light); opacity:0.85; margin-bottom:9px; }
+    .step-number-tag { display:block; font-family: 'Inter', sans-serif !important; font-size:9.5px; font-weight:500; letter-spacing:2.5px; text-transform:uppercase; color:var(--wz-accent-light); opacity:0.85; margin-bottom:9px; }
     .step-prompt-title { font-family:'Inter',sans-serif !important; font-size:clamp(19px,3vw,24px); font-weight:600 !important; color:var(--wz-white); line-height:1.3; letter-spacing:-0.02em; margin:0 0 7px; }
     .step-prompt-sub { font-size:13px; color:var(--wz-muted); line-height:1.65; margin:0; font-weight:400; }
     .lead-input-container { position:relative; margin-bottom:6px; }
@@ -99,13 +109,13 @@
     .lead-receipt-card { background:var(--wz-card2); border:1px solid var(--wz-border); border-radius:var(--wz-r); padding:20px 22px; margin-bottom:22px; position:relative; overflow:hidden; }
     .lead-receipt-card::before { content:''; position:absolute; top:0; left:0; right:0; height:1.5px; background:linear-gradient(90deg,transparent,var(--wz-accent) 35%,var(--wz-accent-light) 65%,transparent); opacity:0.65; }
     .receipt-header-row { display:flex; align-items:center; justify-content:space-between; padding-bottom:13px; margin-bottom:15px; border-bottom:1px solid rgba(255,255,255,0.06); }
-    .receipt-title-label { font-family:'DM Mono',monospace; font-size:9.5px; font-weight:500; letter-spacing:2.5px; text-transform:uppercase; color:var(--wz-accent-light); }
+    .receipt-title-label { font-family: 'Inter', sans-serif !important; font-size:9.5px; font-weight:500; letter-spacing:2.5px; text-transform:uppercase; color:var(--wz-accent-light); }
     .receipt-edit-link { font-size:11.5px; color:var(--wz-muted); background:transparent; border:1px solid transparent; border-radius:7px; cursor:pointer; padding:3px 9px; transition:all 0.2s; }
     .receipt-edit-link:hover { color:var(--wz-white); border-color:var(--wz-border); background:rgba(255,255,255,0.04); }
     .receipt-data-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px 18px; }
     .receipt-item { display:flex; flex-direction:column; gap:4px; }
     .receipt-item.full-width { grid-column:1/-1; border-top:1px solid rgba(255,255,255,0.06); padding-top:13px; margin-top:2px; }
-    .receipt-label { font-family:'DM Mono',monospace; font-size:9.5px; font-weight:500; letter-spacing:1.5px; text-transform:uppercase; color:var(--wz-muted2); }
+    .receipt-label { font-family: 'Inter', sans-serif !important; font-size:9.5px; font-weight:500; letter-spacing:1.5px; text-transform:uppercase; color:var(--wz-muted2); }
     .receipt-val { font-size:13.5px; font-weight:500; color:var(--wz-white); word-break:break-word; line-height:1.45; }
     .lead-final-buttons { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px; }
     .lead-big-btn { position:relative; overflow:hidden; padding:16px 18px; border-radius:var(--wz-r); border:1px solid transparent; cursor:pointer; display:flex; align-items:center; gap:12px; transition:transform 0.26s cubic-bezier(0.16,1,0.3,1), box-shadow 0.26s; text-align:left; }
@@ -151,7 +161,7 @@
       border: 1px solid rgba(34, 197, 94, 0.35);
       border-radius: 999px;
       padding: 5px 14px;
-      font-family: 'DM Mono', monospace;
+      font-family: 'Inter', sans-serif !important;
       font-size: 10px;
       font-weight: 600;
       letter-spacing: 1.5px;
@@ -255,7 +265,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-family: 'DM Mono', monospace;
+      font-family: 'Inter', sans-serif !important;
       font-size: 10px;
       font-weight: 600;
       letter-spacing: 0.8px;
@@ -297,7 +307,7 @@
     }
     .direct-card-tag {
       display: block;
-      font-family: 'DM Mono', monospace;
+      font-family: 'Inter', sans-serif !important;
       font-size: 10px;
       font-weight: 600;
       letter-spacing: 1.5px;
@@ -307,23 +317,27 @@
     }
     .direct-card-val {
       display: inline-block;
-      font-size: 17px;
-      font-weight: 700;
-      color: #ffffff;
-      text-decoration: none;
-      line-height: 1.3;
-      margin-bottom: 6px;
-      word-break: break-all;
-      transition: color 0.2s;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+      font-size: 18px !important;
+      font-weight: 700 !important;
+      color: #ffffff !important;
+      text-decoration: none !important;
+      line-height: 1.4 !important;
+      margin-bottom: 6px !important;
+      word-break: break-all !important;
+      letter-spacing: -0.01em !important;
+      transition: color 0.2s ease !important;
     }
     .direct-card-val:hover {
       color: #e879f9;
     }
     .direct-card-desc {
-      font-size: 12.5px;
-      color: var(--wz-muted);
-      line-height: 1.5;
-      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+      font-size: 13.5px !important;
+      color: rgba(225, 200, 250, 0.75) !important;
+      line-height: 1.55 !important;
+      margin: 0 !important;
+      font-weight: 400 !important;
     }
     .direct-card-actions {
       display: flex;
@@ -339,17 +353,18 @@
       align-items: center;
       justify-content: center;
       gap: 7px;
-      font-family: 'Inter', sans-serif;
-      font-size: 12.5px;
-      font-weight: 600;
-      padding: 10px 14px;
-      border-radius: 10px;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      transition: all 0.22s ease;
-      width: 100%;
-      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+      font-size: 13.5px !important;
+      font-weight: 600 !important;
+      padding: 11px 16px !important;
+      border-radius: 10px !important;
+      text-decoration: none !important;
+      border: none !important;
+      cursor: pointer !important;
+      transition: all 0.22s ease !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+      letter-spacing: 0 !important;
     }
     .direct-btn-wa {
       background: linear-gradient(135deg, #16a34a, #15803d);
@@ -424,7 +439,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-family: 'DM Mono', monospace;
+      font-family: 'Inter', sans-serif !important;
       font-size: 10px;
       font-weight: 600;
       letter-spacing: 2px;
