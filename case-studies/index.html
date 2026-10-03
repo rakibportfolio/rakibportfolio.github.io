@@ -1705,6 +1705,267 @@
       }
     }
 
+  
+    /* ========================================================
+       PREMIUM ZENTIC MEDIA INFOGRAPHIC & PIPELINE DESIGN
+       (Erradiating white button bug & perfecting 3D glow)
+       ======================================================== */
+
+    /* ── Service Switcher Filter Pills ── */
+    .pipeline-service-nav {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 12px !important;
+      margin-bottom: 44px !important;
+      overflow-x: auto !important;
+      padding: 8px 12px 18px !important;
+      -webkit-overflow-scrolling: touch !important;
+      scrollbar-width: none !important;
+    }
+    .pipeline-service-nav::-webkit-scrollbar {
+      display: none !important;
+    }
+
+    /* Force override any Webflow default button background */
+    .pipeline-svc-btn,
+    button.pipeline-svc-btn,
+    .pipeline-service-nav button {
+      background: rgba(24, 7, 38, 0.92) !important;
+      background-color: rgba(24, 7, 38, 0.92) !important;
+      border: 1.5px solid rgba(184, 0, 245, 0.4) !important;
+      border-radius: 999px !important;
+      padding: 11px 22px !important;
+      color: #E9D5FF !important;
+      -webkit-text-fill-color: #E9D5FF !important;
+      font-size: 13.5px !important;
+      font-weight: 700 !important;
+      font-family: 'Inter', sans-serif !important;
+      letter-spacing: 0.3px !important;
+      cursor: pointer !important;
+      white-space: nowrap !important;
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      backdrop-filter: blur(18px) !important;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+      outline: none !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+    }
+    .pipeline-svc-btn:hover,
+    button.pipeline-svc-btn:hover,
+    .pipeline-service-nav button:hover {
+      background: rgba(42, 11, 68, 0.98) !important;
+      background-color: rgba(42, 11, 68, 0.98) !important;
+      border-color: #E879F9 !important;
+      color: #FFFFFF !important;
+      -webkit-text-fill-color: #FFFFFF !important;
+      box-shadow: 0 0 22px rgba(184, 0, 245, 0.55), 0 6px 20px rgba(0, 0, 0, 0.7) !important;
+      transform: translateY(-2px) !important;
+    }
+    .pipeline-svc-btn.active,
+    button.pipeline-svc-btn.active,
+    .pipeline-service-nav button.active {
+      background: linear-gradient(135deg, #7000A8 0%, #B800F5 50%, #D700FE 100%) !important;
+      background-color: #B800F5 !important;
+      border-color: #FFFFFF !important;
+      color: #FFFFFF !important;
+      -webkit-text-fill-color: #FFFFFF !important;
+      box-shadow: 0 0 28px rgba(184, 0, 245, 0.8), 0 6px 22px rgba(0, 0, 0, 0.75) !important;
+      transform: translateY(-2px) scale(1.02) !important;
+    }
+    .pipeline-svc-btn span,
+    button.pipeline-svc-btn span {
+      font-size: 15px !important;
+    }
+
+    /* ── Continuous Glowing Laser Spine ── */
+    .stepped-list-container::before {
+      content: '' !important;
+      position: absolute !important;
+      top: 26px !important;
+      bottom: 26px !important;
+      left: 26px !important;
+      width: 3.5px !important;
+      background: linear-gradient(
+        to bottom,
+        #E879F9 0%,
+        #B800F5 25%,
+        #7000A8 50%,
+        #D700FE 75%,
+        #E879F9 100%
+      ) !important;
+      box-shadow: 
+        0 0 14px rgba(184, 0, 245, 0.9),
+        0 0 28px rgba(215, 0, 254, 0.6),
+        0 0 4px #FFFFFF !important;
+      z-index: 1 !important;
+      pointer-events: none !important;
+      border-radius: 999px !important;
+    }
+
+    /* ── 3D Circular Badges ── */
+    .stepped-badge-circle {
+      width: 52px !important;
+      height: 52px !important;
+      border-radius: 50% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-size: 18px !important;
+      font-weight: 900 !important;
+      color: #FFFFFF !important;
+      -webkit-text-fill-color: #FFFFFF !important;
+      flex-shrink: 0 !important;
+      position: relative !important;
+      z-index: 4 !important;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    .badge-gradient-1 {
+      background: linear-gradient(135deg, #4A0E6B 0%, #7000A8 60%, #B800F5 100%) !important;
+      border: 2px solid rgba(232, 121, 249, 0.85) !important;
+      box-shadow: 0 0 22px rgba(184, 0, 245, 0.55), 0 8px 20px rgba(0, 0, 0, 0.7) !important;
+    }
+    .badge-gradient-2 {
+      background: linear-gradient(135deg, #7000A8 0%, #B800F5 60%, #E879F9 100%) !important;
+      border: 2px solid #FFFFFF !important;
+      box-shadow: 0 0 24px rgba(184, 0, 245, 0.7), 0 8px 20px rgba(0, 0, 0, 0.7) !important;
+    }
+    /* Active Step 03 has radiant pulsating double-ring aura */
+    .badge-gradient-3 {
+      background: linear-gradient(135deg, #B800F5 0%, #D700FE 50%, #FF6EF7 100%) !important;
+      border: 2.5px solid #FFFFFF !important;
+      box-shadow: 
+        0 0 0 5px rgba(184, 0, 245, 0.35),
+        0 0 35px rgba(215, 0, 254, 0.95),
+        0 8px 25px rgba(0, 0, 0, 0.8) !important;
+    }
+    .badge-gradient-4 {
+      background: linear-gradient(135deg, #580B82 0%, #7000A8 60%, #B800F5 100%) !important;
+      border: 2px solid rgba(232, 121, 249, 0.85) !important;
+      box-shadow: 0 0 22px rgba(184, 0, 245, 0.55), 0 8px 20px rgba(0, 0, 0, 0.7) !important;
+    }
+    .badge-gradient-5 {
+      background: linear-gradient(135deg, #7000A8 0%, #B800F5 50%, #E879F9 100%) !important;
+      border: 2px solid #FFFFFF !important;
+      box-shadow: 0 0 26px rgba(232, 121, 249, 0.7), 0 8px 20px rgba(0, 0, 0, 0.7) !important;
+    }
+
+    /* ── The 3D Glassmorphic Pill Capsules (Image 3 Inspiration) ── */
+    .stepped-capsule {
+      flex: 1 !important;
+      min-width: 0 !important;
+      position: relative !important;
+      background: linear-gradient(135deg, rgba(28, 9, 44, 0.92) 0%, rgba(14, 3, 24, 0.96) 100%) !important;
+      border: 1.5px solid rgba(184, 0, 245, 0.38) !important;
+      border-radius: 20px !important;
+      padding: 16px 22px !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 18px !important;
+      box-sizing: border-box !important;
+      box-shadow: 
+        0 14px 40px rgba(0, 0, 0, 0.75),
+        0 0 25px rgba(184, 0, 245, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.14) !important;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    .stepped-capsule:hover {
+      transform: translateX(4px) translateY(-2px) !important;
+      border-color: #B800F5 !important;
+      box-shadow: 
+        0 18px 50px rgba(0, 0, 0, 0.85),
+        0 0 32px rgba(184, 0, 245, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22) !important;
+    }
+
+    .stepped-phase-tag {
+      font-size: 10.5px !important;
+      font-weight: 800 !important;
+      letter-spacing: 1.8px !important;
+      text-transform: uppercase !important;
+      color: #E879F9 !important;
+      -webkit-text-fill-color: #E879F9 !important;
+      margin-bottom: 3px !important;
+      display: block !important;
+    }
+    .stepped-heading {
+      font-size: 16.5px !important;
+      font-weight: 700 !important;
+      color: #FFFFFF !important;
+      -webkit-text-fill-color: #FFFFFF !important;
+      margin: 0 0 5px !important;
+      line-height: 1.35 !important;
+    }
+    .stepped-desc {
+      font-size: 13px !important;
+      color: rgba(233, 213, 255, 0.82) !important;
+      -webkit-text-fill-color: rgba(233, 213, 255, 0.82) !important;
+      line-height: 1.55 !important;
+      margin: 0 !important;
+    }
+
+    .stepped-icon-end {
+      width: 42px !important;
+      height: 42px !important;
+      border-radius: 50% !important;
+      background: rgba(184, 0, 245, 0.16) !important;
+      border: 1px solid rgba(184, 0, 245, 0.45) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      color: #E879F9 !important;
+      flex-shrink: 0 !important;
+      box-shadow: 0 0 16px rgba(184, 0, 245, 0.3) !important;
+      transition: transform 0.25s ease !important;
+    }
+    .stepped-capsule:hover .stepped-icon-end {
+      transform: scale(1.08) rotate(6deg) !important;
+      background: rgba(184, 0, 245, 0.28) !important;
+      border-color: #E879F9 !important;
+    }
+
+    /* Mobile Adaptations */
+    @media (max-width: 820px) {
+      .pipeline-service-nav {
+        justify-content: flex-start !important;
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+        margin-bottom: 28px !important;
+      }
+      .pipeline-svc-btn,
+      button.pipeline-svc-btn {
+        padding: 9px 16px !important;
+        font-size: 12.5px !important;
+      }
+      .stepped-list-container::before {
+        left: 21px !important;
+        top: 20px !important;
+        bottom: 20px !important;
+        width: 3px !important;
+      }
+      .stepped-badge-circle {
+        width: 42px !important;
+        height: 42px !important;
+        font-size: 16px !important;
+      }
+      .stepped-capsule {
+        padding: 14px 16px !important;
+        gap: 12px !important;
+        border-radius: 16px !important;
+      }
+      .stepped-heading {
+        font-size: 15px !important;
+      }
+      .stepped-desc {
+        font-size: 12px !important;
+      }
+      .stepped-icon-end {
+        width: 34px !important;
+        height: 34px !important;
+      }
+    }
+
   </style>
 </head>
 <body class="home2">
