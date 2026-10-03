@@ -1,96 +1,139 @@
 /**
- * Hero 3D Card + Video Controller (v4.0 - Scroll Zoom + Enhanced 3D)
- * - New: scroll-based scale/zoom-in on mobile
- * - Enhanced: smooth 3D tilt on desktop (mouse/pointer)
- * - Enhanced: gyroscope tilt on mobile
- * - Preserved: click-to-play inline video logic
+ * Hero 3D Card + Video Controller (v4.2 - Interactive Play/Pause + Sound Toggle + Scroll Zoom + 3D)
+ * - Video: Autoplay loop on load, click card or play button to pause / play
+ * - Sound: Sound toggle button to unmute / mute
+ * - Scroll: Smooth dynamic scroll-based scale/zoom
+ * - 3D: Mouse tilt (desktop) + Gyroscope (mobile)
  */
 (function () {
   'use strict';
 
   /* ── DOM refs ────────────────────────────────────────── */
-  var scene     = document.getElementById('hero3DScene');
-  var wrapper   = document.getElementById('hero3DWrapper');
-  var card      = document.getElementById('heroVideoHolder');
-  var glare     = document.getElementById('heroCardGlare');
-  var heroVideo = document.getElementById('heroTrailerVideo');
+  var scene       = document.getElementById('hero3DScene');
+  var wrapper     = document.getElementById('hero3DWrapper');
+  var card        = document.getElementById('heroVideoHolder');
+  var glare       = document.getElementById('heroCardGlare');
+  var heroVideo   = document.getElementById('heroTrailerVideo');
   var heroPlayBtn = document.getElementById('heroPlayButton');
+  var heroSoundBtn= document.getElementById('heroSoundToggle');
 
   if (!card || !heroVideo) return;
 
-  /* ── Autoplay muted loop on page load ───────────────── */
-  heroVideo.muted = true;
+  /* ── Setup Video Properties ─────────────────────────── */
+  heroVideo.muted  = true;
+  heroVideo.loop   = true;
   heroVideo.setAttribute('muted', '');
   heroVideo.setAttribute('playsinline', '');
   heroVideo.setAttribute('webkit-playsinline', 'true');
   heroVideo.setAttribute('x5-playsinline', 'true');
   heroVideo.setAttribute('loop', '');
-
-  // Start loading the video
+  heroVideo.setAttribute('disablePictureInPicture', '');
   heroVideo.load();
 
-  var autoplayStarted = false;
+  function updateVideoUI(isPlaying) {
+    if (isPlaying) {
+      card.classList.add('is-video-playing');
+      if (heroPlayBtn) {
+        heroPlayBtn.style.opacity = '0';
+        heroPlayBtn.style.pointerEvents = 'none';
+      }
+    } else {
+      card.classList.remove('is-video-playing');
+      if (heroPlayBtn) {
+        heroPlayBtn.style.opacity = '1';
+        heroPlayBtn.style.pointerEvents = 'auto';
+      }
+    }
+  }
+
+  /* ── Autoplay on page load ──────────────────────────── */
   function tryAutoplay() {
-    if (autoplayStarted) return;
     heroVideo.muted = true;
-    var p = heroVideo.play();
-    if (p !== undefined) {
-      p.then(function () {
-        autoplayStarted = true;
-        if (heroPlayBtn) {
-          heroPlayBtn.style.opacity = '0';
-          heroPlayBtn.style.pointerEvents = 'none';
-        }
-        card.classList.add('is-video-playing');
+    var playPromise = heroVideo.play();
+    if (playPromise !== undefined) {
+      playPromise.then(function () {
+        updateVideoUI(true);
       }).catch(function () {
-        // autoplay blocked – keep play button visible
+        // Autoplay blocked by browser policy: show play button
+        updateVideoUI(false);
       });
     }
   }
 
-  // Try autoplay as soon as data is available
   heroVideo.addEventListener('loadeddata', tryAutoplay);
-  heroVideo.addEventListener('canplay', tryAutoplay);
+  heroVideo.addEventListener('canplay',    tryAutoplay);
   document.addEventListener('DOMContentLoaded', function () {
-    setTimeout(tryAutoplay, 400);
+    setTimeout(tryAutoplay, 300);
   });
 
-  /* ── Click to toggle sound on/off (not pause) ─────── */
-  function toggleSound(e) {
-    if (e) { e.preventDefault(); e.stopPropagation(); }
+  /* ── Play / Pause Toggle Logic ──────────────────────── */
+  function togglePlayPause(e) {
+    // Prevent if click was on sound button or book-a-call link
+    if (e) {
+      if (e.target && e.target.closest && (e.target.closest('.hero-sound-btn') || e.target.closest('.hero-book-a-call'))) {
+        return;
+      }
+      e.preventDefault();
+      e.stopPropagation();
+    }
+
     if (heroVideo.paused) {
-      heroVideo.muted = false;
       var p = heroVideo.play();
       if (p !== undefined) {
         p.then(function () {
-          if (heroPlayBtn) { heroPlayBtn.style.opacity = '0'; heroPlayBtn.style.pointerEvents = 'none'; }
-          card.classList.add('is-video-playing');
+          updateVideoUI(true);
         }).catch(function () {
+          // If unmuted play fails, try muted
           heroVideo.muted = true;
-          heroVideo.play().catch(function () {});
+          heroVideo.play().then(function() { updateVideoUI(true); }).catch(function(){});
         });
       }
     } else {
-      // Toggle mute instead of pause
-      heroVideo.muted = !heroVideo.muted;
+      heroVideo.pause();
+      updateVideoUI(false);
     }
   }
 
-  card.addEventListener('click', toggleSound);
-  if (heroPlayBtn) heroPlayBtn.addEventListener('click', toggleSound);
-
-  heroVideo.addEventListener('play', function () {
-    if (heroPlayBtn) { heroPlayBtn.style.opacity = '0'; heroPlayBtn.style.pointerEvents = 'none'; }
-    card.classList.add('is-video-playing');
-  });
-  heroVideo.addEventListener('pause', function () {
-    if (heroPlayBtn) { heroPlayBtn.style.opacity = '1'; heroPlayBtn.style.pointerEvents = 'auto'; }
-    card.classList.remove('is-video-playing');
-  });
+  // Listen for video native play/pause events
+  heroVideo.addEventListener('play',  function () { updateVideoUI(true); });
+  heroVideo.addEventListener('pause', function () { updateVideoUI(false); });
   heroVideo.addEventListener('ended', function () {
     heroVideo.currentTime = 0;
     heroVideo.play().catch(function () {});
   });
+
+  // Click card or play button toggles play/pause
+  card.addEventListener('click', togglePlayPause);
+  if (heroPlayBtn) {
+    heroPlayBtn.addEventListener('click', togglePlayPause);
+  }
+
+  /* ── Sound Toggle Logic ─────────────────────────────── */
+  if (heroSoundBtn) {
+    heroSoundBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      heroVideo.muted = !heroVideo.muted;
+      var mutedIcon = heroSoundBtn.querySelector('.sound-icon-muted');
+      var onIcon    = heroSoundBtn.querySelector('.sound-icon-on');
+
+      if (heroVideo.muted) {
+        if (mutedIcon) mutedIcon.style.display = 'block';
+        if (onIcon)    onIcon.style.display    = 'none';
+        heroSoundBtn.setAttribute('title', 'Unmute Sound');
+      } else {
+        if (mutedIcon) mutedIcon.style.display = 'none';
+        if (onIcon)    onIcon.style.display    = 'block';
+        heroSoundBtn.setAttribute('title', 'Mute Sound');
+        // Ensure video is playing when user wants sound
+        if (heroVideo.paused) {
+          heroVideo.play().catch(function () {});
+        }
+      }
+    });
+  }
+
 
   /* ── Helpers ─────────────────────────────────────────── */
   var isMobile = ('ontouchstart' in window) || (window.innerWidth <= 900);

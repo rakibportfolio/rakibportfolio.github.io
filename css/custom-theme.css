@@ -786,7 +786,7 @@ a.button-03 .button-arrow-wrapper {
   pointer-events: none;
   z-index: 5;
   opacity: 0;
-  background: radial-gradient(circle 380px at 50% 50%, rgba(255, 255, 255, 0.35) 0%, rgba(232, 121, 249, 0.15) 35%, transparent 70%);
+  background: radial-gradient(circle 380px at 50% 50%, rgba(184, 0, 245, 0.28) 0%, rgba(112, 0, 168, 0.18) 45%, transparent 70%);
   mix-blend-mode: overlay;
   transition: opacity 0.35s ease;
   transform: translateZ(16px);
@@ -797,20 +797,29 @@ a.button-03 .button-arrow-wrapper {
   opacity: 1;
 }
 
-/* 3D Border Beam Light Sweep */
+/* 3D Border Beam Light Sweep - Purple Brand Color */
 .hero-3d-border-beam {
   position: absolute;
-  inset: -1px;
+  inset: -2px;
   border-radius: inherit;
-  padding: 1.5px;
-  background: conic-gradient(from 0deg at 50% 50%, transparent 0deg, #B800F5 50deg, #E879F9 100deg, transparent 160deg);
+  padding: 2px;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    transparent 0deg,
+    #7000A8 30deg,
+    #B800F5 80deg,
+    #d44cff 120deg,
+    #7000A8 160deg,
+    transparent 220deg
+  );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
   z-index: 6;
-  opacity: 0.75;
-  animation: borderBeamSpin 6s linear infinite;
+  opacity: 0.92;
+  animation: borderBeamSpin 5s linear infinite;
+  filter: drop-shadow(0 0 8px rgba(184, 0, 245, 0.7));
 }
 
 @keyframes borderBeamSpin {
@@ -863,13 +872,16 @@ a.button-03 .button-arrow-wrapper {
   transform: translateZ(52px);
   transform-style: preserve-3d;
   transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.2, 0.8, 0.4, 1) !important;
-  pointer-events: none; /* Allows click to trigger video toggle */
+  pointer-events: auto;
+  cursor: pointer;
+  z-index: 10;
 }
 .video-play {
   background: linear-gradient(135deg, #B800F5 0%, #580B82 100%) !important;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7), 0 0 28px rgba(184, 0, 245, 0.8), inset 0 0 10px rgba(255,255,255,0.25) !important;
   border: 1.5px solid rgba(232, 121, 249, 0.5) !important;
   transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  cursor: pointer;
 }
 .holder.hero:hover .video-play,
 .hero-3d-card-wrapper:hover .video-play {
@@ -877,22 +889,61 @@ a.button-03 .button-arrow-wrapper {
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 45px rgba(184, 0, 245, 1), 0 0 20px #E879F9 !important;
 }
 
-/* When video is actively playing inside hero card */
+/* When video is actively playing: hide center play button */
 .holder.hero.is-video-playing .video-play-button {
   opacity: 0 !important;
   pointer-events: none !important;
 }
-.holder.hero.is-video-playing:hover .video-play-button {
-  opacity: 0.85 !important;
+
+/* When video is paused: show center play button */
+.holder.hero:not(.is-video-playing) .video-play-button {
+  opacity: 1 !important;
   pointer-events: auto !important;
 }
+
+/* Hero card side glow matching website purple/crimson brand colors */
 .holder.hero.is-video-playing {
-  border-color: rgba(232, 121, 249, 0.85) !important;
+  border-color: rgba(184, 0, 245, 0.85) !important;
   box-shadow: 
     0 32px 80px -10px rgba(0, 0, 0, 0.95),
-    0 0 55px rgba(184, 0, 245, 0.6),
-    0 0 25px rgba(232, 121, 249, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+    0 0 75px rgba(184, 0, 245, 0.65),
+    0 0 110px rgba(112, 0, 168, 0.5),
+    0 0 35px rgba(232, 121, 249, 0.4),
+    inset 0 1px 0 rgba(184, 0, 245, 0.3) !important;
+}
+
+/* Sound toggle button in top right of hero card */
+.hero-sound-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 8;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 50%;
+  background: rgba(15, 8, 3, 0.85);
+  border: 1px solid rgba(184, 0, 245, 0.45);
+  color: #F3E8FF;
+  cursor: pointer;
+  transform: translateZ(38px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6), 0 0 12px rgba(184, 0, 245, 0.3);
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.hero-sound-btn:hover {
+  transform: translateZ(46px) scale(1.12);
+  background: rgba(88, 11, 130, 0.9);
+  border-color: #B800F5;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7), 0 0 22px rgba(184, 0, 245, 0.7);
+}
+.hero-sound-btn svg {
+  pointer-events: none;
+  stroke: #F3E8FF;
 }
 
 /* Floating "Get Yours Next" Tag popped in 3D */
