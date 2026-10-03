@@ -26,15 +26,40 @@ const MIME_TYPES = {
 };
 
 const server = http.createServer((req, res) => {
-  let reqUrl = req.url.split('?')[0];
-  if (reqUrl === '/') reqUrl = '/index.html';
-  
-  // decode url
+  const [rawPath, rawQuery] = req.url.split('?');
+  const queryStr = rawQuery ? `?${rawQuery}` : '';
+
+  // 1. Redirect /index.html to clean root domain /
+  if (rawPath === '/index.html') {
+    res.writeHead(301, { 'Location': '/' + queryStr });
+    res.end();
+    return;
+  }
+
+  // 2. Redirect .html extension to clean path (e.g. /services.html -> /services)
+  if (rawPath.endsWith('.html')) {
+    const cleanPath = rawPath.replace(/\.html$/, '');
+    res.writeHead(301, { 'Location': cleanPath + queryStr });
+    res.end();
+    return;
+  }
+
+  // 3. Resolve file path
+  let reqUrl = rawPath === '/' ? '/index.html' : rawPath;
   try {
     reqUrl = decodeURIComponent(reqUrl);
   } catch (e) {}
 
-  const filePath = path.join(__dirname, reqUrl);
+  let filePath = path.join(__dirname, reqUrl);
+
+  // If path is a clean directory or clean route, find corresponding html file
+  if (!fs.existsSync(filePath) || !fs.statSync(filePath).isFile()) {
+    if (fs.existsSync(filePath + '.html') && fs.statSync(filePath + '.html').isFile()) {
+      filePath = filePath + '.html';
+    } else if (fs.existsSync(path.join(filePath, 'index.html')) && fs.statSync(path.join(filePath, 'index.html')).isFile()) {
+      filePath = path.join(filePath, 'index.html');
+    }
+  }
 
   fs.stat(filePath, (err, stats) => {
     if (err || !stats.isFile()) {
