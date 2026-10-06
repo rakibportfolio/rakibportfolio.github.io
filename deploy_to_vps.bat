@@ -17,10 +17,10 @@ echo [1/3] Uploading verification files, index, and server...
 echo Enter your VPS root password when prompted:
 echo.
 
-scp -o StrictHostKeyChecking=no google4a96bd205ee4c471.html robots.txt sitemap.xml server.js index.html hire-video-editor.html %VPS_USER%@%VPS_IP%:/var/www/portfolio/ 2>nul
+scp -o StrictHostKeyChecking=no google4a96bd205ee4c471.html robots.txt sitemap.xml server.js *.html %VPS_USER%@%VPS_IP%:/var/www/portfolio/ 2>nul
 if %ERRORLEVEL% NEQ 0 (
     echo Path /var/www/portfolio/ failed, trying /var/www/html/ ...
-    scp -o StrictHostKeyChecking=no google4a96bd205ee4c471.html robots.txt sitemap.xml server.js index.html hire-video-editor.html %VPS_USER%@%VPS_IP%:/var/www/html/ 2>nul
+    scp -o StrictHostKeyChecking=no google4a96bd205ee4c471.html robots.txt sitemap.xml server.js *.html %VPS_USER%@%VPS_IP%:/var/www/html/ 2>nul
 )
 
 echo.
