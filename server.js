@@ -190,7 +190,8 @@ const server = http.createServer((req, res) => {
   }
 
   // 2. Redirect .html extension to clean path (e.g. /services.html -> /services)
-  if (rawPath.endsWith('.html')) {
+  // IMPORTANT: Do NOT redirect Google site verification files
+  if (rawPath.endsWith('.html') && !rawPath.startsWith('/google')) {
     const cleanPath = rawPath.replace(/\.html$/, '');
     res.writeHead(301, { 'Location': cleanPath + queryStr });
     res.end();
