@@ -51,7 +51,8 @@
     .lc, .lc h3, .lc ul, .lc ul li, .terms, .term, .t-body, .t-body h4, .t-body p,
     .form-card, .form-card h2, .fsub, .fld, .flbl, .fi, .fsel, .fta, .fhint, .ferr,
     .chks, .chk, .chk-l, .agree, .agree-l, .sbtn, .succ, .succ h2, .succ p, .wa-link, .back-l, .footer,
-    .steps-nav, .step-node, .step-num, .step-text, .step-badge, .sbtn-back, .sbtn-next {
+    .steps-nav, .step-node, .step-num, .step-text, .step-badge, .sbtn-back, .sbtn-next,
+    .sw-pair, .sw-badge, .sw-logo, .sw-name, .sw-plus, .lc-badge {
       font-family: var(--sys) !important;
     }
 
@@ -62,9 +63,9 @@
       position: fixed; border-radius: 50%; pointer-events: none; z-index: 0;
       filter: blur(110px); animation: od 22s ease-in-out infinite alternate;
     }
-    .o1 { width: 500px; height: 300px; background: radial-gradient(ellipse, rgba(184,0,245,0.12), transparent 70%); top: -80px; left: -100px; }
-    .o2 { width: 380px; height: 240px; background: radial-gradient(ellipse, rgba(112,0,168,0.08), transparent 70%); bottom: 0; right: -80px; animation-delay: -11s; }
-    @keyframes od { to { transform: translate(20px,14px); } }
+    .o1 { width: 520px; height: 320px; background: radial-gradient(ellipse, rgba(184,0,245,0.18), transparent 70%); top: -90px; left: -100px; }
+    .o2 { width: 420px; height: 260px; background: radial-gradient(ellipse, rgba(140,0,210,0.14), transparent 70%); bottom: 0; right: -80px; animation-delay: -11s; }
+    @keyframes od { to { transform: translate(24px,18px); } }
 
     .page { position: relative; z-index: 1; }
 
@@ -73,155 +74,288 @@
 
     /* ════════════ HERO ════════════ */
     .hero {
-      padding: 116px 20px 64px;
+      padding: 110px 18px 60px;
       text-align: center;
-      max-width: 660px;
+      max-width: 720px;
       margin: 0 auto;
     }
 
     .badge {
-      display: inline-flex; align-items: center; gap: 7px;
-      background: var(--alo); border: 1px solid rgba(184,0,245,0.28);
-      border-radius: 6px; padding: 5px 14px;
-      font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
-      color: var(--alt); margin-bottom: 22px;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(184,0,245,0.12); border: 1px solid rgba(232,121,249,0.38);
+      border-radius: 999px; padding: 6px 16px;
+      font-size: 10.5px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--alt); margin-bottom: 20px;
+      box-shadow: 0 0 20px rgba(184,0,245,0.22);
     }
-    .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--acc); box-shadow: 0 0 8px var(--acc); animation: bl 2s ease-in-out infinite; }
-    @keyframes bl { 0%,100%{opacity:1} 50%{opacity:0.25} }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 10px #4ade80; animation: bl 1.8s ease-in-out infinite; }
+    @keyframes bl { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.35;transform:scale(0.8)} }
+
+    /* Adobe Software Badges */
+    .sw-pair {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 0 auto 20px;
+      flex-wrap: wrap;
+    }
+    .sw-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 15px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .sw-badge:hover { transform: translateY(-2px); }
+    .sw-pr {
+      background: rgba(8, 6, 32, 0.90);
+      border: 1px solid rgba(153, 153, 255, 0.45);
+      color: #c4c4ff;
+      box-shadow: 0 0 18px rgba(153, 153, 255, 0.20), inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .sw-ae {
+      background: rgba(24, 6, 38, 0.90);
+      border: 1px solid rgba(210, 145, 255, 0.45);
+      color: #eecaff;
+      box-shadow: 0 0 18px rgba(210, 145, 255, 0.20), inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .sw-logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 5px;
+      font-size: 11.5px;
+      font-weight: 900;
+      font-family: monospace !important;
+    }
+    .sw-pr .sw-logo {
+      background: #00005b;
+      color: #9999ff;
+      border: 1px solid #9999ff;
+    }
+    .sw-ae .sw-logo {
+      background: #24003d;
+      color: #d291ff;
+      border: 1px solid #d291ff;
+    }
+    .sw-plus {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--alt);
+    }
 
     h1 {
       font-family: 'CV', sans-serif !important;
       font-weight: 400 !important;
-      font-size: clamp(40px, 9vw, 72px);
-      line-height: 1.05;
+      font-size: clamp(38px, 8.5vw, 68px);
+      line-height: 1.04;
       letter-spacing: 0.01em;
       color: var(--w);
       margin-bottom: 16px;
     }
     .g {
-      background: linear-gradient(120deg, #fff 0%, #e879f9 50%, #b800f5 100%);
+      background: linear-gradient(120deg, #ffffff 0%, #f0abfc 45%, #b800f5 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
-    .hero p { font-size: 15px; color: var(--m); max-width: 420px; margin: 0 auto 30px; }
+    .hero p {
+      font-size: 15px; color: var(--m); max-width: 520px;
+      margin: 0 auto 28px; line-height: 1.65;
+    }
 
     /* pills row */
-    .pills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 34px; }
+    .pills { display: flex; flex-wrap: wrap; gap: 9px; justify-content: center; margin-bottom: 32px; }
     .pill {
-      padding: 5px 13px; border-radius: 5px; font-size: 12px; font-weight: 500;
-      border: 1px solid var(--bdr); background: var(--alo); color: var(--m);
+      padding: 7px 15px; border-radius: 8px; font-size: 12.5px; font-weight: 600;
+      border: 1px solid var(--bdr); background: rgba(184,0,245,0.08); color: var(--w);
+      display: inline-flex; align-items: center; gap: 6px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+      backdrop-filter: blur(10px);
     }
-    .pill.g2 { border-color: rgba(34,197,94,0.28); background: rgba(34,197,94,0.06); color: #86efac; }
-    .pill.p2 { border-color: rgba(232,121,249,0.28); background: rgba(232,121,249,0.06); color: #e879f9; }
+    .pill.g2 { border-color: rgba(34,197,94,0.35); background: rgba(34,197,94,0.08); color: #86efac; }
+    .pill.p2 { border-color: rgba(232,121,249,0.35); background: rgba(232,121,249,0.08); color: #f0abfc; }
 
     /* apply btn */
     .btn-main {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 13px 30px; border-radius: 8px;
-      background: linear-gradient(135deg, #b800f5, #6b00a0);
-      border: 1px solid rgba(184,0,245,0.40);
-      color: #fff; font-size: 14px; font-weight: 600;
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 14px 34px; border-radius: 10px;
+      background: linear-gradient(135deg, #b800f5 0%, #7000a8 100%);
+      border: 1px solid rgba(232,121,249,0.45);
+      color: #fff; font-size: 14.5px; font-weight: 700;
       font-family: var(--sys) !important;
-      cursor: pointer; transition: all .22s;
-      box-shadow: 0 5px 22px rgba(184,0,245,0.35);
+      cursor: pointer; transition: all .24s;
+      box-shadow: 0 8px 30px rgba(184,0,245,0.45), inset 0 1px 0 rgba(255,255,255,0.25);
       text-decoration: none;
     }
-    .btn-main:hover { background: linear-gradient(135deg, #cc1aff, #8000c0); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(184,0,245,0.52); }
+    .btn-main:hover {
+      background: linear-gradient(135deg, #cc1aff 0%, #8500c7 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 38px rgba(184,0,245,0.65);
+    }
     .btn-main .ar { transition: transform .2s; }
-    .btn-main:hover .ar { transform: translateX(3px); }
+    .btn-main:hover .ar { transform: translateX(4px); }
 
     /* ════════════ WRAP ════════════ */
-    .wrap { max-width: 800px; margin: 0 auto; padding: 0 18px; }
+    .wrap { max-width: 820px; margin: 0 auto; padding: 0 18px; }
 
     /* divider */
     .div {
       display: flex; align-items: center; gap: 14px;
-      margin: 50px 0 34px;
+      margin: 54px 0 32px;
     }
-    .dline { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(184,0,245,0.26), transparent); }
+    .dline { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(184,0,245,0.35), transparent); }
     .dlbl {
-      font-size: 9.5px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      font-size: 10px; font-weight: 800; letter-spacing: 2.2px; text-transform: uppercase;
       color: var(--alt);
-      background: rgba(10,2,18,0.98); border: 1px solid rgba(184,0,245,0.20);
-      padding: 5px 13px; border-radius: 4px; white-space: nowrap;
+      background: rgba(14,3,24,0.95); border: 1px solid rgba(184,0,245,0.30);
+      padding: 6px 15px; border-radius: 6px; white-space: nowrap;
+      box-shadow: 0 0 14px rgba(184,0,245,0.2);
     }
 
     /* section h2 — Coolvetica regular for headings */
     .sh2, h2.sh2 {
       font-family: 'CV', sans-serif !important;
       font-weight: 400 !important;
-      font-size: clamp(24px, 4.5vw, 34px);
+      font-size: clamp(26px, 5vw, 36px);
       margin-bottom: 6px; color: var(--w); letter-spacing: 0.02em;
     }
-    .sp { font-size: 13px; color: var(--m); margin-bottom: 26px; }
+    .sp { font-size: 13.5px; color: var(--m); margin-bottom: 26px; }
 
     /* ════════════ ROLE CARD ════════════ */
     .role {
-      background: linear-gradient(135deg, rgba(22,6,38,0.92), rgba(10,2,18,0.96));
-      border: 1px solid var(--bdr); border-radius: 12px; padding: 24px 20px;
-      position: relative; overflow: hidden; margin-bottom: 14px;
+      background: linear-gradient(135deg, rgba(26,7,44,0.88) 0%, rgba(12,2,20,0.96) 100%);
+      border: 1px solid rgba(184,0,245,0.30); border-radius: 16px; padding: 26px 22px;
+      position: relative; overflow: hidden; margin-bottom: 16px;
+      box-shadow: 0 18px 46px rgba(0,0,0,0.55), 0 0 24px rgba(184,0,245,0.12);
+      backdrop-filter: blur(16px);
     }
     .role::before {
       content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-      width: 50%; height: 1.5px;
-      background: linear-gradient(90deg, transparent, var(--acc), var(--alt), transparent);
+      width: 55%; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--alt), var(--acc), transparent);
     }
     .rgrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
-    @media(max-width:480px){ .rgrid{ grid-template-columns: repeat(2,1fr); } }
-    .ri-l { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--m2); margin-bottom: 4px; }
+    @media(max-width:540px){
+      .rgrid{ grid-template-columns: repeat(2,1fr); gap: 14px 10px; }
+    }
+    .r-item {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(184,0,245,0.15);
+      border-radius: 10px;
+      padding: 12px 14px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .r-item:hover {
+      border-color: rgba(232,121,249,0.35);
+      transform: translateY(-2px);
+    }
+    .ri-l {
+      font-size: 9.5px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--m2); margin-bottom: 4px; display: flex; align-items: center; gap: 5px;
+    }
     .ri-v { font-size: 14px; font-weight: 600; color: var(--w); }
-    .ri-v.ac { color: var(--alt); }
+    .ri-v.ac { color: #f0abfc; font-weight: 700; }
 
     /* ════════════ LIST CARDS ════════════ */
-    .gcols { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    @media(max-width:520px){ .gcols{ grid-template-columns: 1fr; } }
+    .gcols { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media(max-width:560px){ .gcols{ grid-template-columns: 1fr; } }
 
     .lc {
-      background: var(--card); border: 1px solid var(--bdr); border-radius: 10px; padding: 18px 16px;
-      transition: border-color .2s, transform .2s;
+      background: linear-gradient(135deg, rgba(22,6,38,0.85) 0%, rgba(12,2,20,0.92) 100%);
+      border: 1px solid rgba(184,0,245,0.25); border-radius: 14px; padding: 22px 20px;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.45);
+      backdrop-filter: blur(14px);
+      transition: border-color .22s, transform .22s, box-shadow .22s;
     }
-    .lc:hover { border-color: rgba(184,0,245,0.42); transform: translateY(-2px); }
-    .lc-ico { font-size: 22px; margin-bottom: 10px; }
-    .lc h3 { font-size: 13.5px; font-weight: 700; color: var(--w); margin-bottom: 7px; }
+    .lc:hover {
+      border-color: rgba(232,121,249,0.50);
+      transform: translateY(-3px);
+      box-shadow: 0 20px 46px rgba(0,0,0,0.6), 0 0 24px rgba(184,0,245,0.22);
+    }
+    .lc-header {
+      display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;
+    }
+    .lc-ico { font-size: 24px; }
+    .lc-badge {
+      font-size: 9.5px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 6px;
+    }
+    .lc-badge.req {
+      background: rgba(239,68,68,0.12); color: #fca5a5; border: 1px solid rgba(239,68,68,0.30);
+    }
+    .lc-badge.nice {
+      background: rgba(232,121,249,0.12); color: #f0abfc; border: 1px solid rgba(232,121,249,0.30);
+    }
+    .lc h3 { font-size: 15px; font-weight: 700; color: var(--w); margin-bottom: 10px; }
     .lc ul { padding-left: 0; list-style: none; }
-    .lc ul li { font-size: 12.5px; color: var(--m); padding: 3px 0; }
-    .lc ul li::before { content: '· '; color: var(--alt); font-weight: 700; }
+    .lc ul li {
+      font-size: 13px; color: var(--m); padding: 5px 0; display: flex; align-items: flex-start; gap: 8px; line-height: 1.5;
+    }
+    .lc ul li .bdot {
+      color: var(--alt); font-size: 14px; line-height: 1.3; flex-shrink: 0;
+    }
 
     /* ════════════ TERMS ════════════ */
-    .terms { display: flex; flex-direction: column; gap: 8px; }
+    .terms { display: flex; flex-direction: column; gap: 10px; }
     .term {
-      display: flex; align-items: flex-start; gap: 13px;
-      padding: 14px 16px;
-      background: var(--card); border: 1px solid var(--bdr); border-radius: 10px;
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 16px 18px;
+      background: linear-gradient(135deg, rgba(20,5,34,0.85) 0%, rgba(10,2,18,0.94) 100%);
+      border: 1px solid rgba(184,0,245,0.22);
+      border-left: 3.5px solid var(--acc);
+      border-radius: 12px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+      backdrop-filter: blur(12px);
+      transition: transform 0.2s, border-color 0.2s;
     }
-    .term.red { border-color: rgba(239,68,68,0.28); background: rgba(239,68,68,0.04); }
-    .term.yel { border-color: rgba(251,191,36,0.25); background: rgba(251,191,36,0.03); }
+    .term:hover { transform: translateX(3px); }
+    .term.red {
+      border-color: rgba(239,68,68,0.32);
+      border-left: 3.5px solid #ef4444;
+      background: linear-gradient(135deg, rgba(34,6,12,0.85) 0%, rgba(16,2,6,0.94) 100%);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.35), inset 4px 0 14px rgba(239,68,68,0.10);
+    }
+    .term.yel {
+      border-color: rgba(245,158,11,0.32);
+      border-left: 3.5px solid #f59e0b;
+      background: linear-gradient(135deg, rgba(30,18,6,0.85) 0%, rgba(14,8,2,0.94) 100%);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.35), inset 4px 0 14px rgba(245,158,11,0.10);
+    }
 
-    .t-ico { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
-    .t-body h4 { font-size: 13px; font-weight: 700; color: var(--w); margin-bottom: 3px; }
+    .t-ico { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+    .t-body h4 { font-size: 13.5px; font-weight: 700; color: var(--w); margin-bottom: 4px; }
     .t-body h4.rc { color: #fca5a5; }
-    .t-body p  { font-size: 12px; color: var(--m); line-height: 1.58; }
+    .t-body p  { font-size: 12.5px; color: var(--m); line-height: 1.58; }
 
-    /* ════════════ FORM ════════════ */
+    /* ════════════ FORM CARD ════════════ */
     .form-card {
-      background: var(--card); border: 1px solid var(--bdr); border-radius: 14px;
-      padding: 32px 26px; position: relative; overflow: hidden;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+      background: linear-gradient(135deg, rgba(24,6,42,0.92) 0%, rgba(10,2,18,0.98) 100%);
+      border: 1px solid rgba(184,0,245,0.32); border-radius: 18px;
+      padding: 34px 28px; position: relative; overflow: hidden;
+      box-shadow: 0 28px 70px rgba(0,0,0,0.65), 0 0 45px rgba(184,0,245,0.18);
       margin-bottom: 70px;
+      backdrop-filter: blur(20px);
     }
     .form-card::before {
       content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-      width: 46%; height: 1.5px;
-      background: linear-gradient(90deg, transparent, var(--acc), var(--alt), transparent);
+      width: 52%; height: 2px;
+      background: linear-gradient(90deg, transparent, #f0abfc, var(--acc), transparent);
     }
-    @media(max-width:520px){ .form-card{ padding: 22px 14px; } }
+    @media(max-width:520px){ .form-card{ padding: 24px 16px; border-radius: 14px; } }
 
     .form-card h2 {
       font-family: var(--sys); font-weight: 700;
-      font-size: clamp(20px, 3.5vw, 26px); margin-bottom: 5px; letter-spacing: -0.01em;
+      font-size: clamp(22px, 4vw, 28px); margin-bottom: 5px; letter-spacing: -0.01em;
     }
-    .form-card > .fsub { font-size: 13px; color: var(--m); margin-bottom: 26px; }
+    .form-card > .fsub { font-size: 13.5px; color: var(--m); margin-bottom: 26px; }
 
     /* fields */
     .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -900,16 +1034,33 @@
 
   <!-- HERO -->
   <div class="hero fu">
-    <div class="badge"><span class="dot"></span> NOW HIRING</div>
-    <h1>Looking for a<br><span class="g">Video Editor</span></h1>
-    <p>Remote &bull; Project-based &bull; New studio &bull; Immediate start</p>
-    <div class="pills">
-      <span class="pill g2">&#127758; 100% Remote</span>
-      <span class="pill p2">&#128176; Per Project Pay</span>
-      <span class="pill">&#9889; Start Immediately</span>
+    <div class="badge"><span class="dot"></span> URGENT HIRING &bull; IMMEDIATE START</div>
+    
+    <!-- Adobe Badges -->
+    <div class="sw-pair">
+      <div class="sw-badge sw-pr">
+        <span class="sw-logo">Pr</span>
+        <span class="sw-name">Premiere Pro</span>
+      </div>
+      <span class="sw-plus">+</span>
+      <div class="sw-badge sw-ae">
+        <span class="sw-logo">Ae</span>
+        <span class="sw-name">After Effects</span>
+      </div>
     </div>
+
+    <h1>Looking for an Expert<br><span class="g">Video Editor</span></h1>
+    <p>We are expanding our creative team. Looking for a dedicated editor specialized exclusively in <strong>Premiere Pro &amp; After Effects</strong>. Fast-paced, high-retention cuts, kinetic typography &amp; commercial edits.</p>
+    
+    <div class="pills">
+      <span class="pill p2">&#9889; Premiere Pro + After Effects Only</span>
+      <span class="pill g2">&#127758; 100% Remote / Anywhere</span>
+      <span class="pill">&#128176; Fast Per-Project Payout</span>
+      <span class="pill">&#128640; Immediate Client Workload</span>
+    </div>
+    
     <a href="#apply" class="btn-main">
-      Apply Now
+      Apply as Video Editor
       <svg class="ar" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
   </div>
@@ -917,92 +1068,120 @@
   <div class="wrap">
 
     <!-- ROLE -->
-    <div class="div fu"><div class="dline"></div><span class="dlbl">THE ROLE</span><div class="dline"></div></div>
+    <div class="div fu"><div class="dline"></div><span class="dlbl">THE ROLE OVERVIEW</span><div class="dline"></div></div>
     <div class="role fu">
       <div class="rgrid">
-        <div><div class="ri-l">Position</div><div class="ri-v">Video Editor</div></div>
-        <div><div class="ri-l">Type</div><div class="ri-v">Remote / Freelance</div></div>
-        <div><div class="ri-l">Experience</div><div class="ri-v">1+ Year</div></div>
-        <div><div class="ri-l">Payment</div><div class="ri-v ac">Per Project</div></div>
-        <div><div class="ri-l">Software</div><div class="ri-v">Premiere / DaVinci</div></div>
-        <div><div class="ri-l">Start</div><div class="ri-v">Immediately</div></div>
+        <div class="r-item">
+          <div class="ri-l">&#127916; Position</div>
+          <div class="ri-v">Video Editor &amp; Motion Artist</div>
+        </div>
+        <div class="r-item">
+          <div class="ri-l">&#128187; Required Software</div>
+          <div class="ri-v ac">Premiere Pro &amp; After Effects Only</div>
+        </div>
+        <div class="r-item">
+          <div class="ri-l">&#9203; Experience</div>
+          <div class="ri-v">1+ Year (Real Client Work)</div>
+        </div>
+        <div class="r-item">
+          <div class="ri-l">&#128179; Payment Type</div>
+          <div class="ri-v ac">Per Project (Direct &amp; Fast)</div>
+        </div>
+        <div class="r-item">
+          <div class="ri-l">&#127757; Work Mode</div>
+          <div class="ri-v">100% Remote / Freelance</div>
+        </div>
+        <div class="r-item">
+          <div class="ri-l">&#9889; Turnaround</div>
+          <div class="ri-v">Fast (24h &ndash; 48h Deadlines)</div>
+        </div>
       </div>
     </div>
 
     <!-- REQUIREMENTS -->
-    <div class="div fu"><div class="dline"></div><span class="dlbl">REQUIREMENTS</span><div class="dline"></div></div>
+    <div class="div fu"><div class="dline"></div><span class="dlbl">CANDIDATE REQUIREMENTS</span><div class="dline"></div></div>
     <div class="gcols fu">
       <div class="lc">
-        <div class="lc-ico">&#9989;</div>
-        <h3>Must Have</h3>
+        <div class="lc-header">
+          <div class="lc-ico">&#9989;</div>
+          <span class="lc-badge req">Must Have</span>
+        </div>
+        <h3>Mandatory Expertise</h3>
         <ul>
-          <li>Premiere Pro or DaVinci</li>
-          <li>Good timing &amp; pacing</li>
-          <li>Portfolio / demo reel</li>
-          <li>Reliable PC &amp; internet</li>
+          <li><span class="bdot">&#10003;</span> <strong>Premiere Pro &amp; After Effects mastery</strong> (clean cuts, keyframing, timeline organization)</li>
+          <li><span class="bdot">&#10003;</span> <strong>Kinetic typography &amp; text animation</strong> in After Effects for high engagement</li>
+          <li><span class="bdot">&#10003;</span> <strong>Sound design mastery</strong> (impacts, whooshes, risers, ducking &amp; clean leveling)</li>
+          <li><span class="bdot">&#10003;</span> <strong>Speed ramping, zooms &amp; visual hooks</strong> designed for viewer retention</li>
+          <li><span class="bdot">&#10003;</span> <strong>Solid demo reel / portfolio</strong> with actual Premiere Pro &amp; AE work</li>
+          <li><span class="bdot">&#10003;</span> <strong>High-performance PC / Mac</strong> &amp; stable high-speed internet</li>
         </ul>
       </div>
+
       <div class="lc">
-        <div class="lc-ico">&#11088;</div>
-        <h3>Nice to Have</h3>
+        <div class="lc-header">
+          <div class="lc-ico">&#127775;</div>
+          <span class="lc-badge nice">Key Advantage</span>
+        </div>
+        <h3>What Sets You Apart</h3>
         <ul>
-          <li>After Effects</li>
-          <li>Color grading skills</li>
-          <li>Social media experience</li>
-          <li>Motion graphics</li>
+          <li><span class="bdot">&#9733;</span> <strong>Deep understanding of viewer retention</strong> (first 3-second hook mechanics)</li>
+          <li><span class="bdot">&#9733;</span> <strong>Motion graphics &amp; VFX in After Effects</strong> (masking, tracking, overlays)</li>
+          <li><span class="bdot">&#9733;</span> <strong>Color correction &amp; cinematic grading</strong> with LUTs</li>
+          <li><span class="bdot">&#9733;</span> <strong>Extreme reliability</strong> — messages answered promptly, deadlines hit 100%</li>
+          <li><span class="bdot">&#9733;</span> <strong>Storytelling mindset</strong> — turning raw footage into compelling viral videos</li>
         </ul>
       </div>
     </div>
 
     <!-- TERMS -->
-    <div class="div fu"><div class="dline"></div><span class="dlbl">WORKING TERMS</span><div class="dline"></div></div>
+    <div class="div fu"><div class="dline"></div><span class="dlbl">STUDIO WORKING TERMS</span><div class="dline"></div></div>
     <div class="terms fu">
-
-      <div class="term">
-        <div class="t-ico">&#128187;</div>
-        <div class="t-body">
-          <h4>Project-Based Work</h4>
-          <p>All work is per project. No fixed salary. Payment is made after each delivery.</p>
-        </div>
-      </div>
 
       <div class="term red">
         <div class="t-ico">&#128683;</div>
         <div class="t-body">
-          <h4 class="rc">No Advance = No Work</h4>
-          <p>Work starts only after the client's advance payment is confirmed by us. Do not start any project before confirmation.</p>
+          <h4 class="rc">Advance Payment Policy</h4>
+          <p>We work strictly project-by-project. Projects begin only after client confirmation. We do not provide advance payments before work completion and approval.</p>
         </div>
       </div>
 
       <div class="term red">
-        <div class="t-ico">&#128337;</div>
+        <div class="t-ico">&#9200;</div>
         <div class="t-body">
           <h4 class="rc">Deadlines Are 100% Non-Negotiable</h4>
-          <p>You must meet every deadline. If you see a delay coming, inform us before — not after. Consistent late delivery = termination.</p>
+          <p>When an agreed deadline is set, delivery must be on time. If any unexpected obstacle arises, notify us well before the deadline — not after.</p>
         </div>
       </div>
 
       <div class="term yel">
-        <div class="t-ico">&#128276;</div>
+        <div class="t-ico">&#9889;</div>
         <div class="t-body">
-          <h4>Stay Active &amp; Responsive</h4>
-          <p>Be as responsive as possible. When we message you, reply quickly. If unavailable, let us know in advance.</p>
+          <h4>Active &amp; Rapid Communication</h4>
+          <p>Stay as responsive as possible on WhatsApp. When we message you for a project, timely replies guarantee you get the project first.</p>
+        </div>
+      </div>
+
+      <div class="term">
+        <div class="t-ico">&#128187;</div>
+        <div class="t-body">
+          <h4>Software Standard: Pr + Ae Only</h4>
+          <p>We work with Premiere Pro and After Effects project files. Deliverables must be organized, high-resolution and match our agency quality standards.</p>
         </div>
       </div>
 
       <div class="term">
         <div class="t-ico">&#128274;</div>
         <div class="t-body">
-          <h4>Confidentiality</h4>
-          <p>All client files, footage, and project details are strictly confidential. Do not share with anyone.</p>
+          <h4>100% Confidentiality &amp; Client Privacy</h4>
+          <p>All client assets, raw footage, scripts, and internal communication are strictly confidential. Sharing them publicly or with third parties is strictly prohibited.</p>
         </div>
       </div>
 
       <div class="term">
         <div class="t-ico">&#128200;</div>
         <div class="t-body">
-          <h4>Perform Well, Grow With Us</h4>
-          <p>We are a new studio growing fast. Top editors get more projects, better rates, and long-term contracts.</p>
+          <h4>High-Performing Editors Earn Long-Term Retainers</h4>
+          <p>We reward speed and consistency. Editors who consistently deliver quality on time get priority projects, higher rates, and dedicated monthly client retainers.</p>
         </div>
       </div>
 
@@ -1067,43 +1246,40 @@
             </div>
           </div>
 
-          <!-- STEP 2: SKILLS & EXPERIENCE -->
+          <!-- STEP 2: SKILLS & EXPERIENCE (PREMIERE PRO & AFTER EFFECTS ONLY) -->
           <div class="form-step" id="step-2">
-            <div class="step-badge">&#9874; Step 2 of 3: Experience &amp; Software</div>
+            <div class="step-badge">&#9889; Step 2 of 3: Premiere Pro &amp; After Effects Mastery</div>
 
-            <div class="frow">
-              <div class="fld">
-                <label class="flbl" for="ex">Experience <span>*</span></label>
-                <select class="fi fsel" id="ex" required>
-                  <option value="">Select experience level...</option>
-                  <option value="less-1">Less than 1 year</option>
-                  <option value="1-2">1 – 2 years</option>
-                  <option value="2-4">2 – 4 years</option>
-                  <option value="4+">4+ years</option>
-                </select>
-                <div class="ferr" id="ex-e">Please select your experience level.</div>
-              </div>
-              <div class="fld">
-                <label class="flbl" for="sw">Primary Software <span>*</span></label>
-                <select class="fi fsel" id="sw" required>
-                  <option value="">Select editing software...</option>
-                  <option value="premiere">Premiere Pro</option>
-                  <option value="davinci">DaVinci Resolve</option>
-                  <option value="finalcut">Final Cut Pro</option>
-                  <option value="capcut">CapCut</option>
-                  <option value="other">Other</option>
-                </select>
-                <div class="ferr" id="sw-e">Please select your software.</div>
-              </div>
+            <div class="fld">
+              <label class="flbl" for="ex">Premiere Pro &amp; After Effects Experience <span>*</span></label>
+              <select class="fi fsel" id="ex" required>
+                <option value="">Select your experience level...</option>
+                <option value="1-2">1 – 2 Years (Solid Skills &amp; Real Projects)</option>
+                <option value="2-4">2 – 4 Years (Advanced Expert / High-Retention)</option>
+                <option value="4+">4+ Years (Senior Master / Motion Designer)</option>
+              </select>
+              <div class="ferr" id="ex-e">Please select your experience level.</div>
             </div>
 
             <div class="fld">
-              <label class="flbl">Content You Edit (Select all that apply) <span>*</span></label>
+              <label class="flbl">Your Core Pr + Ae Specialities (Select all that apply) <span>*</span></label>
               <div class="chks">
-                <label class="chk"><input type="checkbox" name="ct" value="short"><div class="chkb"></div><span class="chk-l">&#127916; Short-form (Reels, TikTok, Shorts)</span></label>
-                <label class="chk"><input type="checkbox" name="ct" value="long"><div class="chkb"></div><span class="chk-l">&#9654;&#65039; Long-form (YouTube, Podcast)</span></label>
-                <label class="chk"><input type="checkbox" name="ct" value="ads"><div class="chkb"></div><span class="chk-l">&#128226; Ads &amp; Promotional</span></label>
-                <label class="chk"><input type="checkbox" name="ct" value="saas"><div class="chkb"></div><span class="chk-l">&#128188; Product / SaaS Videos</span></label>
+                <label class="chk"><input type="checkbox" name="aes" value="Kinetic Typography"><div class="chkb"></div><span class="chk-l">&#9889; Kinetic Typography &amp; Custom Title Animations</span></label>
+                <label class="chk"><input type="checkbox" name="aes" value="Motion Graphics & VFX"><div class="chkb"></div><span class="chk-l">&#127916; Motion Graphics, 2D Animations &amp; VFX in AE</span></label>
+                <label class="chk"><input type="checkbox" name="aes" value="Sound Design & SFX"><div class="chkb"></div><span class="chk-l">&#128266; Sound Design, SFX, Risers &amp; Audio Leveling</span></label>
+                <label class="chk"><input type="checkbox" name="aes" value="Color Grading & LUTs"><div class="chkb"></div><span class="chk-l">&#127912; Color Correction, Cinematic Grading &amp; LUTs</span></label>
+                <label class="chk"><input type="checkbox" name="aes" value="Retention Pacing & Speed Ramps"><div class="chkb"></div><span class="chk-l">&#9986;&#65039; High-Retention Pacing, Speed Ramps &amp; Smooth Zooms</span></label>
+              </div>
+              <div class="ferr" id="aes-e">Please select at least one speciality.</div>
+            </div>
+
+            <div class="fld">
+              <label class="flbl">Content You Edit Best <span>*</span></label>
+              <div class="chks">
+                <label class="chk"><input type="checkbox" name="ct" value="Short-form (Reels/TikTok/Shorts)"><div class="chkb"></div><span class="chk-l">&#127916; Viral Short-form (Reels, TikTok, Shorts)</span></label>
+                <label class="chk"><input type="checkbox" name="ct" value="Long-form (YouTube/Doc)"><div class="chkb"></div><span class="chk-l">&#9654;&#65039; Long-form YouTube &amp; Documentary Edits</span></label>
+                <label class="chk"><input type="checkbox" name="ct" value="High-Converting Ads"><div class="chkb"></div><span class="chk-l">&#128226; High-Converting Paid Ads &amp; Commercials</span></label>
+                <label class="chk"><input type="checkbox" name="ct" value="SaaS & Product Promos"><div class="chkb"></div><span class="chk-l">&#128188; SaaS Product Promos &amp; Explainer Videos</span></label>
               </div>
               <div class="ferr" id="ct-e">Select at least one content category.</div>
             </div>
@@ -1344,15 +1520,16 @@
   var btnTo3 = document.getElementById('btn-to-3');
   if (btnTo3) {
     btnTo3.addEventListener('click', function() {
-      se('ex', false); se('sw', false);
+      se('ex', false);
+      document.getElementById('aes-e').style.display = 'none';
       document.getElementById('ct-e').style.display = 'none';
-      var ex  = document.getElementById('ex').value;
-      var sw  = document.getElementById('sw').value;
-      var cts = Array.from(document.querySelectorAll('input[name="ct"]:checked')).map(function(c) { return c.value; });
+      var ex   = document.getElementById('ex').value;
+      var aess = Array.from(document.querySelectorAll('input[name="aes"]:checked')).map(function(c) { return c.value; });
+      var cts  = Array.from(document.querySelectorAll('input[name="ct"]:checked')).map(function(c) { return c.value; });
       var ok = true;
       if (!ex) { se('ex', true); ok = false; }
-      if (!sw) { se('sw', true); ok = false; }
-      if (cts.length === 0) { document.getElementById('ct-e').style.display = 'block'; ok = false; }
+      if (aess.length === 0) { document.getElementById('aes-e').style.display = 'block'; ok = false; }
+      if (cts.length === 0)  { document.getElementById('ct-e').style.display = 'block'; ok = false; }
       if (!ok) {
         var f = document.querySelector('#step-2 .err, #step-2 [style*="block"]');
         if (f) f.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -1395,9 +1572,8 @@
     var wa   = document.getElementById('w').value.trim();
     var em   = document.getElementById('em').value.trim();
     var exEl = document.getElementById('ex');
-    var swEl = document.getElementById('sw');
     var exT  = exEl.options[exEl.selectedIndex] ? exEl.options[exEl.selectedIndex].text : '';
-    var swT  = swEl.options[swEl.selectedIndex] ? swEl.options[swEl.selectedIndex].text : '';
+    var aess = Array.from(document.querySelectorAll('input[name="aes"]:checked')).map(function(c) { return c.value; });
     var cts  = Array.from(document.querySelectorAll('input[name="ct"]:checked')).map(function(c) { return c.value; });
 
     var msg = encodeURIComponent(
@@ -1405,11 +1581,12 @@
       '👤 Name: ' + name + '\n' +
       '📱 WhatsApp: ' + wa + '\n' +
       '✉️ Email: ' + em + '\n' +
-      '⏳ Experience: ' + exT + '\n' +
-      '💻 Software: ' + swT + '\n' +
+      '💻 Software: Adobe Premiere Pro & After Effects (Expert)\n' +
+      '⏳ Pr + Ae Experience: ' + exT + '\n' +
+      '⚡ Pr & Ae Skills: ' + aess.join(', ') + '\n' +
       '🎯 Content Types: ' + cts.join(', ') + '\n' +
       '🔗 Portfolio: ' + rl + '\n\n' +
-      '📝 About:\n' + inp + '\n\n' +
+      '📝 Workflow & Tools:\n' + inp + '\n\n' +
       '✅ [Agreed to All Terms & Deadlines]'
     );
 
