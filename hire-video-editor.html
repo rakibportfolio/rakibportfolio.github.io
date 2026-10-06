@@ -305,344 +305,338 @@
     /* ═══════════════════════════
        FORM — Masterpiece Design
     ═══════════════════════════ */
-    .form-section { padding: 90px 0 90px; }
+    /* ═══════════════════════════════════════
+       MOBILE-FIRST CYBER FORM ARCHITECTURE
+    ═══════════════════════════════════════ */
+    .form-section { padding: 60px 0 80px; }
+    @media(max-width: 600px) { .form-section { padding: 36px 0 50px; } }
 
     .form-shell {
-      background: radial-gradient(circle at 50% 0%, rgba(162, 0, 245, 0.14) 0%, transparent 60%),
-                  linear-gradient(165deg, rgba(16, 4, 34, 0.96) 0%, rgba(8, 2, 18, 0.99) 100%);
-      border: 1px solid rgba(162, 0, 245, 0.34);
-      border-radius: 26px;
-      overflow: hidden;
+      max-width: 620px;
+      margin: 0 auto;
+      background: linear-gradient(175deg, rgba(16, 5, 34, 0.94) 0%, rgba(7, 1, 15, 0.98) 100%);
+      border: 1px solid rgba(162, 0, 245, 0.32);
+      border-radius: 24px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.75), 0 0 50px rgba(162, 0, 245, 0.14);
       position: relative;
-      box-shadow: 0 45px 120px rgba(0, 0, 0, 0.75), 0 0 70px rgba(162, 0, 245, 0.16);
-      backdrop-filter: blur(28px);
-      -webkit-backdrop-filter: blur(28px);
+      overflow: hidden;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
     }
     .form-shell::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, transparent, #a200f5 25%, #e879f9 50%, #a200f5 75%, transparent);
+      background: linear-gradient(90deg, transparent, #a200f5 20%, #e879f9 50%, #a200f5 80%, transparent);
     }
 
-    .fi-inner { padding: 46px 42px; position: relative; z-index: 1; }
-    @media(max-width: 600px) { .fi-inner { padding: 28px 20px; } }
+    .fi-inner {
+      padding: 34px 28px;
+    }
+    @media(max-width: 600px) {
+      .fi-inner { padding: 22px 16px; }
+    }
 
-    .form-header-badge {
+    /* Minimalist HUD Header */
+    .form-hud {
+      margin-bottom: 22px;
+    }
+    .hud-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .hud-step-pill {
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: rgba(162, 0, 245, 0.12);
-      border: 1px solid rgba(232, 121, 249, 0.30);
       font-size: 10px;
       font-weight: 800;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: var(--alt);
-      margin-bottom: 14px;
+      color: #e879f9;
+      background: rgba(162, 0, 245, 0.12);
+      border: 1px solid rgba(232, 121, 249, 0.30);
+      border-radius: 999px;
+      padding: 4px 12px;
+    }
+    .hud-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 8px #4ade80;
+      animation: pulse 2s infinite;
+    }
+    .hud-percent {
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: var(--m2);
+      text-transform: uppercase;
     }
 
-    .form-title { font-size: clamp(26px, 4.5vw, 38px); margin-bottom: 6px; letter-spacing: -0.01em; }
-    .form-sub { font-size: 13.5px; color: var(--m); margin-bottom: 34px; line-height: 1.5; }
-
-    /* Stepper Header */
-    .stepper-wrap {
-      margin-bottom: 36px;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(162, 0, 245, 0.20);
-      border-radius: 18px;
-      padding: 16px 20px;
-    }
-    .stepper-bar {
-      height: 4px;
-      background: rgba(255, 255, 255, 0.07);
+    .hud-track {
+      height: 3px;
+      background: rgba(255, 255, 255, 0.08);
       border-radius: 999px;
       overflow: hidden;
-      margin-bottom: 16px;
-      position: relative;
+      margin-bottom: 18px;
     }
-    .stepper-progress {
+    .hud-bar {
       height: 100%;
       width: 33.33%;
       background: linear-gradient(90deg, #a200f5, #e879f9);
-      box-shadow: 0 0 12px #e879f9;
+      box-shadow: 0 0 10px #e879f9;
       border-radius: 999px;
-      transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .stepper {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-    }
-    .stp {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 12px;
-      border-radius: 12px;
-      transition: all 0.3s;
-      background: transparent;
-      opacity: 0.55;
-    }
-    .stp.act {
-      opacity: 1;
-      background: rgba(162, 0, 245, 0.12);
-      border: 1px solid rgba(232, 121, 249, 0.30);
-    }
-    .stp.done {
-      opacity: 0.9;
-    }
-    .stp-c {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      border: 1.5px solid rgba(162, 0, 245, 0.35);
-      background: var(--card);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11.5px;
+    .hud-title {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+      font-size: clamp(21px, 5.2vw, 28px);
       font-weight: 800;
-      color: var(--m2);
-      flex-shrink: 0;
-      transition: all 0.3s;
-    }
-    .stp.act .stp-c {
-      background: linear-gradient(135deg, #a200f5, #e879f9);
-      border-color: #e879f9;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
       color: #fff;
-      box-shadow: 0 0 14px rgba(232, 121, 249, 0.55);
+      margin-bottom: 4px;
     }
-    .stp.done .stp-c {
-      background: rgba(34, 197, 94, 0.20);
-      border-color: #22c55e;
-      color: #4ade80;
+    .hud-title .g {
+      background: linear-gradient(135deg, #fff 30%, #e879f9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    .stp-info { display: flex; flex-direction: column; overflow: hidden; }
-    .stp-num { font-size: 9px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--m2); }
-    .stp.act .stp-num { color: var(--alt); }
-    .stp-l { font-size: 11.5px; font-weight: 700; color: var(--w); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-
-    @media(max-width: 580px) {
-      .stp-info { display: none; }
-      .stp { justify-content: center; padding: 6px 0; }
+    .hud-desc {
+      font-size: 12.5px;
+      color: var(--m);
+      line-height: 1.5;
     }
 
-    /* Steps Content */
+    /* Steps */
     .fstep { display: none; }
-    .fstep.act { display: block; animation: stepFadeIn .35s cubic-bezier(0.16,1,0.3,1) both; }
-    @keyframes stepFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+    .fstep.act { display: block; animation: stepFadeIn .32s cubic-bezier(0.16,1,0.3,1) both; }
+    @keyframes stepFadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 
-    .step-banner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      background: linear-gradient(90deg, rgba(162, 0, 245, 0.12), rgba(232, 121, 249, 0.04));
+    /* Touch-Tiles (All-in-one fields) */
+    .tile-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    @media(max-width: 540px) {
+      .tile-grid { grid-template-columns: 1fr; }
+    }
+    .tile-full {
+      grid-column: 1 / -1;
+    }
+
+    .touch-tile {
+      background: rgba(255, 255, 255, 0.025);
       border: 1px solid rgba(162, 0, 245, 0.22);
-      border-radius: 12px;
-      padding: 10px 16px;
-      margin-bottom: 24px;
+      border-radius: 14px;
+      padding: 10px 14px 11px;
+      margin-bottom: 10px;
+      transition: all 0.22s ease;
+      position: relative;
+      cursor: text;
     }
-    .step-tag-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
-      color: var(--alt);
+    .touch-tile:hover, .touch-tile:focus-within {
+      border-color: rgba(232, 121, 249, 0.55);
+      background: rgba(26, 7, 48, 0.85);
+      box-shadow: 0 0 0 2px rgba(162, 0, 245, 0.25), 0 0 22px rgba(162, 0, 245, 0.18);
     }
-    .step-hint { font-size: 11.5px; color: var(--m2); }
+    .touch-tile.err {
+      border-color: #ef4444 !important;
+      box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.25) !important;
+    }
 
-    /* Inputs & Custom Dropdowns */
-    .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    @media(max-width: 600px) { .frow { grid-template-columns: 1fr; gap: 0; } }
-
-    .fld { margin-bottom: 18px; position: relative; }
-    .flbl {
+    .tile-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 10.5px;
-      font-weight: 700;
-      letter-spacing: 0.9px;
+      margin-bottom: 5px;
+    }
+    .tile-tag {
+      font-size: 9.5px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
-      color: rgba(225, 200, 250, 0.78);
-      margin-bottom: 8px;
+      color: rgba(225, 200, 250, 0.65);
+      transition: color 0.2s;
     }
-    .flbl span { color: var(--alt); }
-    .flbl-hint { font-size: 9.5px; color: var(--m2); font-weight: 500; text-transform: none; letter-spacing: 0; }
+    .touch-tile:focus-within .tile-tag {
+      color: #e879f9;
+    }
+    .tile-tag em {
+      color: var(--alt);
+      font-style: normal;
+    }
+    .tile-sub {
+      font-size: 9px;
+      color: var(--m2);
+      font-weight: 600;
+    }
 
-    .input-wrap {
-      position: relative;
-      display: flex;
-      align-items: center;
-    }
-    .input-ico {
-      position: absolute;
-      left: 14px;
+    .tile-input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
       font-size: 14px;
-      color: rgba(232, 121, 249, 0.65);
-      pointer-events: none;
-      z-index: 1;
-    }
-    .fi {
-      width: 100%;
-      background: rgba(14, 4, 28, 0.75);
-      border: 1px solid rgba(162, 0, 245, 0.28);
-      border-radius: 12px;
-      padding: 14px 16px 14px 40px;
-      font-size: 13.5px;
-      color: #fff;
-      outline: none;
-      transition: all .24s ease;
-      -webkit-appearance: none;
-      appearance: none;
-    }
-    .fi.no-ico { padding-left: 16px; }
-    .fi::placeholder { color: rgba(180, 140, 240, 0.42); }
-    .fi:hover {
-      border-color: rgba(232, 121, 249, 0.50);
-      background: rgba(22, 6, 42, 0.85);
-    }
-    .fi:focus {
-      border-color: #e879f9;
-      background: rgba(26, 8, 48, 0.95);
-      box-shadow: 0 0 0 3px rgba(162, 0, 245, 0.30), 0 0 24px rgba(162, 0, 245, 0.22);
-    }
-    .fi.err { border-color: #ef4444 !important; box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.20) !important; }
-
-    /* Custom Dropdown Styling */
-    .fsel-box {
-      position: relative;
-      width: 100%;
-    }
-    .fsel-box select {
-      width: 100%;
-      background: rgba(14, 4, 28, 0.80);
-      border: 1px solid rgba(162, 0, 245, 0.30);
-      border-radius: 12px;
-      padding: 14px 44px 14px 16px;
-      font-size: 13px;
       font-weight: 500;
-      color: #f4eeff;
-      outline: none;
+      color: #fff;
+      padding: 0;
+    }
+    .tile-input::placeholder {
+      color: rgba(180, 140, 240, 0.35);
+      font-weight: 400;
+    }
+
+    /* Select in Tile */
+    .touch-tile.is-select {
       cursor: pointer;
-      transition: all .24s ease;
+      padding-right: 36px;
+    }
+    .tile-select {
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #f4eeff;
+      cursor: pointer;
       -webkit-appearance: none;
       appearance: none;
+      padding: 0;
     }
-    .fsel-box select:hover {
-      border-color: rgba(232, 121, 249, 0.55);
-      background: rgba(22, 6, 42, 0.90);
-    }
-    .fsel-box select:focus {
-      border-color: #e879f9;
-      background: rgba(26, 8, 48, 0.98);
-      box-shadow: 0 0 0 3px rgba(162, 0, 245, 0.30), 0 0 24px rgba(162, 0, 245, 0.22);
-    }
-    .fsel-box select.err { border-color: #ef4444 !important; box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.20) !important; }
-    .fsel-box select option {
+    .tile-select option {
       background: #0d021c;
       color: #f4eeff;
-      padding: 12px 14px;
+      padding: 10px;
     }
-    .fsel-arr {
+    .tile-arr {
       position: absolute;
-      right: 15px;
-      top: 50%;
-      transform: translateY(-50%);
+      right: 14px;
+      bottom: 13px;
       pointer-events: none;
       color: #e879f9;
-      transition: transform 0.24s;
+      transition: transform 0.22s;
     }
-    .fsel-box:focus-within .fsel-arr {
-      transform: translateY(-50%) rotate(180deg);
+    .touch-tile:focus-within .tile-arr {
+      transform: rotate(180deg);
     }
 
-    .fta {
+    /* Textarea in tile */
+    .tile-textarea {
       width: 100%;
-      background: rgba(14, 4, 28, 0.75);
-      border: 1px solid rgba(162, 0, 245, 0.28);
-      border-radius: 12px;
-      padding: 14px 16px;
-      font-size: 13.5px;
-      color: #fff;
+      background: transparent;
+      border: none;
       outline: none;
-      transition: all .24s ease;
-      min-height: 110px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: #fff;
+      padding: 0;
+      min-height: 85px;
       resize: vertical;
-      line-height: 1.6;
+      line-height: 1.5;
     }
-    .fta::placeholder { color: rgba(180, 140, 240, 0.42); }
-    .fta:focus {
-      border-color: #e879f9;
-      background: rgba(26, 8, 48, 0.95);
-      box-shadow: 0 0 0 3px rgba(162, 0, 245, 0.30), 0 0 24px rgba(162, 0, 245, 0.22);
+    .tile-textarea::placeholder {
+      color: rgba(180, 140, 240, 0.35);
     }
-    .fta.err { border-color: #ef4444 !important; box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.20) !important; }
 
-    .fhint { font-size: 11px; color: var(--m2); margin-top: 6px; }
-    .ferr { display: none; font-size: 11px; color: #f87171; margin-top: 6px; font-weight: 600; }
+    .ferr {
+      display: none;
+      font-size: 10.5px;
+      color: #f87171;
+      margin-top: 5px;
+      font-weight: 600;
+    }
 
-    /* Terms Agreement Card */
-    .agree-card {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      padding: 18px 20px;
-      border-radius: 14px;
+    /* Interactive Studio Terms Switch Card */
+    .terms-switch-card {
       background: linear-gradient(145deg, rgba(162, 0, 245, 0.08), rgba(232, 121, 249, 0.03));
-      border: 1px solid rgba(162, 0, 245, 0.26);
-      cursor: pointer;
-      transition: all .24s ease;
-      margin-bottom: 20px;
-    }
-    .agree-card:hover {
-      border-color: rgba(232, 121, 249, 0.50);
-      background: rgba(162, 0, 245, 0.12);
-    }
-    .agree-card input { display: none; }
-    .achk-box {
-      width: 22px;
-      height: 22px;
-      flex-shrink: 0;
-      margin-top: 2px;
-      border-radius: 6px;
-      border: 1.5px solid rgba(162, 0, 245, 0.45);
-      background: rgba(10, 2, 20, 0.85);
+      border: 1px solid rgba(162, 0, 245, 0.28);
+      border-radius: 16px;
+      padding: 14px 16px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      transition: all .2s;
+      justify-content: space-between;
+      gap: 14px;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      margin-bottom: 20px;
+      user-select: none;
     }
-    .agree-card input:checked ~ .achk-box {
-      background: linear-gradient(135deg, #a200f5, #e879f9);
-      border-color: #e879f9;
-      box-shadow: 0 0 12px rgba(232, 121, 249, 0.6);
+    .terms-switch-card:hover {
+      border-color: rgba(232, 121, 249, 0.5);
+      background: rgba(162, 0, 245, 0.14);
     }
-    .agree-card input:checked ~ .achk-box::after {
-      content: '';
-      display: block;
-      width: 5px;
-      height: 9px;
-      border: 2px solid #fff;
-      border-top: none;
-      border-left: none;
-      transform: rotate(45deg) translateY(-1px);
+    .terms-switch-card.is-active {
+      border-color: #4ade80;
+      background: rgba(34, 197, 94, 0.10);
+      box-shadow: 0 0 20px rgba(34, 197, 94, 0.15);
     }
-    .agree-body { font-size: 12.5px; color: var(--m); line-height: 1.6; }
-    .agree-body strong { color: #fff; }
+    .tsc-left {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .tsc-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .tsc-desc {
+      font-size: 11px;
+      color: var(--m);
+      line-height: 1.45;
+    }
+    .tsc-toggle {
+      width: 44px;
+      height: 24px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+      flex-shrink: 0;
+      transition: all 0.25s ease;
+    }
+    .tsc-knob {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #fff;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      transition: transform 0.25s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    }
+    .terms-switch-card.is-active .tsc-toggle {
+      background: #22c55e;
+      border-color: #4ade80;
+      box-shadow: 0 0 12px rgba(34, 197, 94, 0.6);
+    }
+    .terms-switch-card.is-active .tsc-knob {
+      transform: translateX(20px);
+    }
 
     /* Actions */
-    .acts { display: flex; gap: 14px; margin-top: 30px; }
-    .sbk {
-      padding: 14px 24px;
+    .action-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .back-btn {
+      padding: 14px 20px;
       border-radius: 12px;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.12);
@@ -652,77 +646,80 @@
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      transition: all .22s;
+      gap: 6px;
+      transition: all 0.2s;
     }
-    .sbk:hover {
-      background: rgba(162, 0, 245, 0.16);
-      border-color: rgba(232, 121, 249, 0.45);
+    .back-btn:hover {
+      background: rgba(162, 0, 245, 0.15);
+      border-color: rgba(232, 121, 249, 0.4);
       color: #fff;
-      transform: translateX(-2px);
     }
-    .snx {
+    .primary-btn {
       flex: 1;
-      padding: 15px 28px;
+      padding: 15px 22px;
       border-radius: 12px;
-      background: linear-gradient(135deg, #a200f5 0%, #bd00f8 50%, #e879f9 100%);
+      background: linear-gradient(135deg, #a200f5 0%, #c026d3 50%, #e879f9 100%);
       border: 1px solid rgba(255, 255, 255, 0.25);
       color: #fff;
-      font-size: 14.5px;
+      font-size: 14px;
       font-weight: 800;
-      letter-spacing: 0.2px;
+      letter-spacing: 0.3px;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      box-shadow: 0 6px 30px rgba(162, 0, 245, 0.45);
-      transition: all .25s ease;
+      gap: 8px;
+      box-shadow: 0 6px 24px rgba(162, 0, 245, 0.45);
+      transition: all 0.24s ease;
       position: relative;
       overflow: hidden;
     }
-    .snx::before {
-      content: '';
-      position: absolute;
-      top: 0; left: -100%;
-      width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
-      transition: left .5s;
+    .primary-btn.full {
+      width: 100%;
     }
-    .snx:hover::before { left: 110%; }
-    .snx:hover {
+    .primary-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 38px rgba(162, 0, 245, 0.65), 0 0 20px rgba(232, 121, 249, 0.4);
+      box-shadow: 0 10px 32px rgba(162, 0, 245, 0.65), 0 0 16px rgba(232, 121, 249, 0.4);
     }
-    .snx .ar { transition: transform .22s; }
-    .snx:hover .ar { transform: translateX(4px); }
-    .snx.loading { opacity: 0.65; pointer-events: none; }
+    .primary-btn:active {
+      transform: translateY(1px);
+    }
+    .primary-btn .ar {
+      transition: transform 0.2s;
+    }
+    .primary-btn:hover .ar {
+      transform: translateX(3px);
+    }
+    .primary-btn.loading {
+      opacity: 0.65;
+      pointer-events: none;
+    }
 
     /* Success View */
-    .succ { display: none; text-align: center; padding: 64px 24px; }
+    .succ { display: none; text-align: center; padding: 50px 20px; }
     .succ-ring {
-      width: 90px;
-      height: 90px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
       background: conic-gradient(from 0deg, #22c55e, #4ade80, #22c55e);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 24px;
-      box-shadow: 0 0 60px rgba(34, 197, 94, 0.35);
+      margin: 0 auto 20px;
+      box-shadow: 0 0 50px rgba(34, 197, 94, 0.35);
       animation: succIn .55s cubic-bezier(0.16,1,0.3,1) both;
       position: relative;
     }
     .succ-ring::before { content: ''; position: absolute; inset: 4px; border-radius: 50%; background: var(--card); }
     .succ-ring svg { position: relative; z-index: 1; }
     @keyframes succIn { from { transform: scale(0.4); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-    .succ h2 { font-size: clamp(24px, 5vw, 36px); margin-bottom: 12px; }
-    .succ p { font-size: 14px; color: var(--m); max-width: 380px; margin: 0 auto 28px; line-height: 1.7; }
+    .succ h2 { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important; font-size: clamp(22px, 5vw, 32px); font-weight: 800; margin-bottom: 10px; }
+    .succ p { font-size: 13.5px; color: var(--m); max-width: 360px; margin: 0 auto 24px; line-height: 1.65; }
     .succ-back {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 12px 26px;
+      padding: 12px 24px;
       border-radius: 12px;
       background: rgba(162, 0, 245, 0.12);
       border: 1px solid rgba(162, 0, 245, 0.32);
@@ -1014,288 +1011,233 @@
     <div id="apply" class="form-shell fu">
       <div class="fi-inner">
         <div id="fw">
-          <div class="form-header-badge">&#9889; FAST-TRACK CREATIVE ONBOARDING</div>
-          <h2 class="cv form-title">Video Editor <span class="g">Application</span></h2>
-          <p class="form-sub">3 streamlined steps · 100% dropdown selection · reviewed within 48h</p>
-
-          <!-- Stepper Wrap -->
-          <div class="stepper-wrap">
-            <div class="stepper-bar">
-              <div class="stepper-progress" id="step-bar"></div>
+          <!-- Minimalist Dynamic HUD Header -->
+          <div class="form-hud">
+            <div class="hud-top">
+              <div class="hud-step-pill"><span class="hud-dot"></span><span id="hud-step-txt">Step 01 of 03</span></div>
+              <span class="hud-percent" id="hud-pct-txt">33% Completed</span>
             </div>
-            <div class="stepper">
-              <div class="stp act" id="sn-1">
-                <div class="stp-c">1</div>
-                <div class="stp-info">
-                  <span class="stp-num">Step 01</span>
-                  <span class="stp-l">Contact &amp; Info</span>
-                </div>
-              </div>
-              <div class="stp" id="sn-2">
-                <div class="stp-c">2</div>
-                <div class="stp-info">
-                  <span class="stp-num">Step 02</span>
-                  <span class="stp-l">Pr &amp; Ae Skills</span>
-                </div>
-              </div>
-              <div class="stp" id="sn-3">
-                <div class="stp-c">3</div>
-                <div class="stp-info">
-                  <span class="stp-num">Step 03</span>
-                  <span class="stp-l">Reel &amp; Submit</span>
-                </div>
-              </div>
-            </div>
+            <div class="hud-track"><div class="hud-bar" id="hud-bar"></div></div>
+            <h3 class="hud-title" id="hud-title">Your <span class="g">Contact Info</span></h3>
+            <p class="hud-desc" id="hud-desc">Direct line to creative leads — no agency middlemen.</p>
           </div>
 
           <form id="hf" novalidate>
 
-            <!-- STEP 1: CONTACT -->
+            <!-- STEP 1: CONTACT (Touch-Tiles) -->
             <div class="fstep act" id="step-1">
-              <div class="step-banner">
-                <span class="step-tag-pill">&#128100; Step 1 of 3 — Contact &amp; Identity</span>
-                <span class="step-hint">Direct outreach info</span>
-              </div>
-
-              <div class="frow">
-                <div class="fld">
-                  <label class="flbl" for="n">
-                    <span>Full Name <em>*</em></span>
-                  </label>
-                  <div class="input-wrap">
-                    <span class="input-ico">&#128100;</span>
-                    <input class="fi" id="n" type="text" placeholder="e.g. Rakibul Hasan" required/>
+              <div class="tile-grid">
+                
+                <div class="touch-tile" id="tile-n">
+                  <div class="tile-top">
+                    <span class="tile-tag">Full Name <em>*</em></span>
+                    <span class="tile-sub">&#128100; Identity</span>
                   </div>
+                  <input class="tile-input" id="n" type="text" placeholder="e.g. Rakibul Hasan" autocomplete="name" required/>
                   <div class="ferr" id="n-e">Full name is required.</div>
                 </div>
 
-                <div class="fld">
-                  <label class="flbl" for="w">
-                    <span>WhatsApp Number <em>*</em></span>
-                    <span class="flbl-hint">We reach out here</span>
-                  </label>
-                  <div class="input-wrap">
-                    <span class="input-ico">&#128241;</span>
-                    <input class="fi" id="w" type="tel" placeholder="+880 1XXX XXXXXX" required/>
+                <div class="touch-tile" id="tile-w">
+                  <div class="tile-top">
+                    <span class="tile-tag">WhatsApp Number <em>*</em></span>
+                    <span class="tile-sub">&#128241; Fast Outreach</span>
                   </div>
+                  <input class="tile-input" id="w" type="tel" placeholder="+880 1XXX XXXXXX" autocomplete="tel" required/>
                   <div class="ferr" id="w-e">Active WhatsApp number required.</div>
                 </div>
-              </div>
 
-              <div class="frow">
-                <div class="fld">
-                  <label class="flbl" for="em">
-                    <span>Email Address <em>*</em></span>
-                  </label>
-                  <div class="input-wrap">
-                    <span class="input-ico">&#9993;&#65039;</span>
-                    <input class="fi" id="em" type="email" placeholder="you@domain.com" required/>
+                <div class="touch-tile" id="tile-em">
+                  <div class="tile-top">
+                    <span class="tile-tag">Email Address <em>*</em></span>
+                    <span class="tile-sub">&#9993;&#65039; Official</span>
                   </div>
+                  <input class="tile-input" id="em" type="email" placeholder="you@domain.com" autocomplete="email" required/>
                   <div class="ferr" id="em-e">Valid email required.</div>
                 </div>
 
-                <div class="fld">
-                  <label class="flbl" for="loc">
-                    <span>Location / City <em>*</em></span>
-                    <span class="flbl-hint">Remote</span>
-                  </label>
-                  <div class="input-wrap">
-                    <span class="input-ico">&#128205;</span>
-                    <input class="fi" id="loc" type="text" placeholder="e.g. Dhaka, Bangladesh" required/>
+                <div class="touch-tile" id="tile-loc">
+                  <div class="tile-top">
+                    <span class="tile-tag">Location / City <em>*</em></span>
+                    <span class="tile-sub">&#128205; Remote</span>
                   </div>
+                  <input class="tile-input" id="loc" type="text" placeholder="e.g. Dhaka, Bangladesh" required/>
                   <div class="ferr" id="loc-e">Location is required.</div>
                 </div>
+
               </div>
 
-              <div class="acts">
-                <button type="button" class="snx" id="btn-to-2">
-                  <span>Continue to Skills &amp; Software</span>
+              <div class="action-row">
+                <button type="button" class="primary-btn full" id="btn-to-2">
+                  <span>Continue to Skills &amp; Stack</span>
                   <svg class="ar" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </button>
               </div>
             </div>
 
-            <!-- STEP 2: ALL DROPDOWNS -->
+            <!-- STEP 2: ALL DROPDOWNS (Touch-Tiles) -->
             <div class="fstep" id="step-2">
-              <div class="step-banner">
-                <span class="step-tag-pill">&#9889; Step 2 of 3 — Expertise &amp; Setup (All Dropdowns)</span>
-                <span class="step-hint">Select matching options</span>
-              </div>
+              <div class="tile-grid">
 
-              <div class="frow">
                 <!-- Dropdown 1: Experience -->
-                <div class="fld">
-                  <label class="flbl" for="ex">
-                    <span>Experience Level <em>*</em></span>
-                  </label>
-                  <div class="fsel-box">
-                    <select id="ex" required>
-                      <option value="">Choose experience level...</option>
-                      <option value="1-2 Years (Mid-Level Editor · Real Projects)">⚡ 1 – 2 Years (Mid-Level Editor · Real Client Projects)</option>
-                      <option value="2-4 Years (Advanced Pr + Ae Pro)">🔥 2 – 4 Years (Advanced Pr + Ae Specialist)</option>
-                      <option value="4+ Years (Senior Lead / Motion Designer)">👑 4+ Years (Senior Editor &amp; Motion Lead)</option>
-                    </select>
-                    <svg class="fsel-arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                <div class="touch-tile is-select" id="tile-ex">
+                  <div class="tile-top">
+                    <span class="tile-tag">Experience Level <em>*</em></span>
+                    <span class="tile-sub">&#9889; Track Record</span>
                   </div>
+                  <select class="tile-select" id="ex" required>
+                    <option value="">Select experience level...</option>
+                    <option value="1-2 Years (Mid-Level Editor · Real Projects)">⚡ 1 – 2 Years (Mid-Level Editor · Real Client Projects)</option>
+                    <option value="2-4 Years (Advanced Pr + Ae Pro)">🔥 2 – 4 Years (Advanced Pr + Ae Specialist)</option>
+                    <option value="4+ Years (Senior Lead / Motion Designer)">👑 4+ Years (Senior Editor &amp; Motion Lead)</option>
+                  </select>
+                  <svg class="tile-arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                   <div class="ferr" id="ex-e">Please select your experience level.</div>
                 </div>
 
                 <!-- Dropdown 2: Primary Speciality -->
-                <div class="fld">
-                  <label class="flbl" for="spec_primary">
-                    <span>Primary Pr / Ae Speciality <em>*</em></span>
-                  </label>
-                  <div class="fsel-box">
-                    <select id="spec_primary" required>
-                      <option value="">Select primary speciality...</option>
-                      <option value="Kinetic Typography & Dynamic Motion Text">⚡ Kinetic Typography &amp; Dynamic Captions (Hormozi / Viral Style)</option>
-                      <option value="Motion Graphics & 2D/3D VFX (After Effects)">🎬 Advanced Motion Graphics &amp; Visual Effects (After Effects)</option>
-                      <option value="Sound Design, SFX & Audio Dynamics">🔊 Cinematic Sound Design, SFX &amp; Audio Leveling</option>
-                      <option value="Lumetri Color Grading & Look Development">🎨 Lumetri Color Grading, Film Emulation &amp; LUTs</option>
-                      <option value="Retention Pacing, Speed Ramps & Fast Cuts">✂️ Retention Pacing, Speed Ramps &amp; Hook Delivery</option>
-                      <option value="Full-Stack Generalist (Complete Video + Motion)">💎 Full-Stack Editor (End-to-End Motion Graphics + Editing)</option>
-                    </select>
-                    <svg class="fsel-arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                <div class="touch-tile is-select" id="tile-spec_primary">
+                  <div class="tile-top">
+                    <span class="tile-tag">Primary Speciality <em>*</em></span>
+                    <span class="tile-sub">&#127916; Main Superpower</span>
                   </div>
+                  <select class="tile-select" id="spec_primary" required>
+                    <option value="">Select primary superpower...</option>
+                    <option value="Kinetic Typography & Dynamic Motion Text">⚡ Kinetic Typography &amp; Dynamic Captions (Viral Style)</option>
+                    <option value="Motion Graphics & 2D/3D VFX (After Effects)">🎬 Advanced Motion Graphics &amp; Visual Effects (After Effects)</option>
+                    <option value="Sound Design, SFX & Audio Dynamics">🔊 Cinematic Sound Design, SFX &amp; Audio Leveling</option>
+                    <option value="Lumetri Color Grading & Look Development">🎨 Lumetri Color Grading, Film Emulation &amp; LUTs</option>
+                    <option value="Retention Pacing, Speed Ramps & Fast Cuts">✂️ Retention Pacing, Speed Ramps &amp; Hook Delivery</option>
+                    <option value="Full-Stack Generalist (Complete Video + Motion)">💎 Full-Stack Editor (End-to-End Motion + Editing)</option>
+                  </select>
+                  <svg class="tile-arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                   <div class="ferr" id="spec_primary-e">Please select your primary speciality.</div>
                 </div>
-              </div>
 
-              <div class="frow">
                 <!-- Dropdown 3: Secondary Speciality -->
-                <div class="fld">
-                  <label class="flbl" for="spec_secondary">
-                    <span>Secondary Focus / Additional Strength <em>*</em></span>
-                  </label>
-                  <div class="fsel-box">
-                    <select id="spec_secondary" required>
-                      <option value="">Select secondary strength...</option>
-                      <option value="Motion Graphics & VFX in After Effects">🎬 Motion Graphics &amp; VFX in After Effects</option>
-                      <option value="Kinetic Typography & Viral Captions">⚡ Kinetic Typography &amp; Viral Captions</option>
-                      <option value="Cinematic Sound Design & Audio Mixing">🔊 Cinematic Sound Design &amp; Audio Mixing</option>
-                      <option value="Lumetri Color Grading & Cinematic Looks">🎨 Lumetri Color Grading &amp; Cinematic Looks</option>
-                      <option value="Fast Retention Pacing & B-roll Assembly">✂️ Fast Retention Pacing &amp; B-roll Assembly</option>
-                      <option value="3D Mockups, Tracking & Rotoscoping">📦 3D Mockups, Camera Tracking &amp; Rotoscoping</option>
-                      <option value="Focused Solely on Primary Speciality">✨ Focused Solely on Primary Speciality</option>
-                    </select>
-                    <svg class="fsel-arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                <div class="touch-tile is-select" id="tile-spec_secondary">
+                  <div class="tile-top">
+                    <span class="tile-tag">Secondary Focus <em>*</em></span>
+                    <span class="tile-sub">&#10024; Added Strength</span>
                   </div>
+                  <select class="tile-select" id="spec_secondary" required>
+                    <option value="">Select secondary focus...</option>
+                    <option value="Motion Graphics & VFX in After Effects">🎬 Motion Graphics &amp; VFX in After Effects</option>
+                    <option value="Kinetic Typography & Viral Captions">⚡ Kinetic Typography &amp; Viral Captions</option>
+                    <option value="Cinematic Sound Design & Audio Mixing">🔊 Cinematic Sound Design &amp; Audio Mixing</option>
+                    <option value="Lumetri Color Grading & Cinematic Looks">🎨 Lumetri Color Grading &amp; Cinematic Looks</option>
+                    <option value="Fast Retention Pacing & B-roll Assembly">✂️ Fast Retention Pacing &amp; B-roll Assembly</option>
+                    <option value="3D Mockups, Tracking & Rotoscoping">📦 3D Mockups, Camera Tracking &amp; Rotoscoping</option>
+                    <option value="Focused Solely on Primary Speciality">✨ Focused Solely on Primary Speciality</option>
+                  </select>
+                  <svg class="tile-arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                   <div class="ferr" id="spec_secondary-e">Please select your secondary focus.</div>
                 </div>
 
-                <!-- Dropdown 4: Preferred Content Format -->
-                <div class="fld">
-                  <label class="flbl" for="content_style">
-                    <span>Preferred Content Format <em>*</em></span>
-                  </label>
-                  <div class="fsel-box">
-                    <select id="content_style" required>
-                      <option value="">Select preferred format...</option>
-                      <option value="Viral Short-form (Reels, TikTok, YouTube Shorts)">📱 Viral Short-form (Reels, TikTok, YouTube Shorts)</option>
-                      <option value="High-Retention Long-form (YouTube, Essays, Podcasts)">▶️ High-Retention Long-form (YouTube, Essays, Podcasts)</option>
-                      <option value="High-Converting Paid Ads & Commercial Spots">📣 High-Converting Paid Ads &amp; Commercial Spots</option>
-                      <option value="SaaS & Tech Product Showcases">💼 SaaS, Tech Products &amp; Explainer Videos</option>
-                      <option value="Versatile Multi-Format (Both Short & Long-form)">🌐 Versatile Multi-Format (Both Short &amp; Long-form)</option>
-                    </select>
-                    <svg class="fsel-arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                <!-- Dropdown 4: Content Style -->
+                <div class="touch-tile is-select" id="tile-content_style">
+                  <div class="tile-top">
+                    <span class="tile-tag">Preferred Format <em>*</em></span>
+                    <span class="tile-sub">&#128241; Video Genre</span>
                   </div>
-                  <div class="ferr" id="content_style-e">Please select your preferred content format.</div>
+                  <select class="tile-select" id="content_style" required>
+                    <option value="">Select preferred format...</option>
+                    <option value="Viral Short-form (Reels, TikTok, YouTube Shorts)">📱 Viral Short-form (Reels, TikTok, Shorts)</option>
+                    <option value="High-Retention Long-form (YouTube, Essays, Podcasts)">▶️ High-Retention Long-form (YouTube, Essays)</option>
+                    <option value="High-Converting Paid Ads & Commercial Spots">📣 High-Converting Paid Ads &amp; Commercials</option>
+                    <option value="SaaS & Tech Product Showcases">💼 SaaS, Tech Products &amp; Explainer Videos</option>
+                    <option value="Versatile Multi-Format (Both Short & Long-form)">🌐 Versatile Multi-Format (Short &amp; Long-form)</option>
+                  </select>
+                  <svg class="tile-arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                  <div class="ferr" id="content_style-e">Please select your preferred format.</div>
                 </div>
-              </div>
 
-              <div class="frow">
                 <!-- Dropdown 5: Hardware Rig -->
-                <div class="fld">
-                  <label class="flbl" for="hardware">
-                    <span>Editing Rig / Hardware Specs <em>*</em></span>
-                  </label>
-                  <div class="fsel-box">
-                    <select id="hardware" required>
-                      <option value="">Select hardware setup...</option>
-                      <option value="High-End PC (RTX 3070/4070+ · 32-64GB RAM · Fast NVMe)">🚀 High-End PC (RTX 3070/4070+ · 32–64GB RAM · Fast NVMe)</option>
-                      <option value="Mid-Range PC (RTX 2060/3060 · 16-32GB RAM · Smooth 1080/4K)">💻 Mid-Range PC (RTX 2060/3060 · 16–32GB RAM · Smooth 1080/4K)</option>
-                      <option value="Apple Silicon Mac (M1/M2/M3 Pro or Max)">🍎 Apple Silicon Mac (M1/M2/M3 Pro or Max)</option>
-                      <option value="Other High-Performance Rig (Handles 4K/60fps without lag)">⚡ Other High-Performance Rig (Handles 4K/60fps without lag)</option>
-                    </select>
-                    <svg class="fsel-arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                <div class="touch-tile is-select" id="tile-hardware">
+                  <div class="tile-top">
+                    <span class="tile-tag">Editing Rig / Hardware <em>*</em></span>
+                    <span class="tile-sub">&#128187; Render Specs</span>
                   </div>
-                  <div class="ferr" id="hardware-e">Please select your editing hardware rig.</div>
+                  <select class="tile-select" id="hardware" required>
+                    <option value="">Select hardware setup...</option>
+                    <option value="High-End PC (RTX 3070/4070+ · 32-64GB RAM · Fast NVMe)">🚀 High-End PC (RTX 3070/4070+ · 32–64GB RAM · NVMe)</option>
+                    <option value="Mid-Range PC (RTX 2060/3060 · 16-32GB RAM · Smooth 1080/4K)">💻 Mid-Range PC (RTX 2060/3060 · 16–32GB RAM)</option>
+                    <option value="Apple Silicon Mac (M1/M2/M3 Pro or Max)">🍎 Apple Silicon Mac (M1/M2/M3 Pro or Max)</option>
+                    <option value="Other High-Performance Rig (Handles 4K/60fps without lag)">⚡ Other High-Performance Rig (Smooth 4K)</option>
+                  </select>
+                  <svg class="tile-arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                  <div class="ferr" id="hardware-e">Please select your hardware rig.</div>
                 </div>
 
-                <!-- Dropdown 6: Turnaround & Capacity -->
-                <div class="fld">
-                  <label class="flbl" for="capacity">
-                    <span>Turnaround Speed &amp; Capacity <em>*</em></span>
-                  </label>
-                  <div class="fsel-box">
-                    <select id="capacity" required>
-                      <option value="">Select delivery turnaround...</option>
-                      <option value="24–48 Hours Fast Delivery (High Capacity)">⚡ 24 – 48 Hours Fast Delivery (Full Capacity)</option>
-                      <option value="48–72 Hours Standard Delivery (Part-Time)">🎯 48 – 72 Hours Standard Delivery (Regular)</option>
-                      <option value="Priority On-Demand / Same-Day (When Urgent)">🚀 Priority On-Demand / Same-Day Delivery</option>
-                    </select>
-                    <svg class="fsel-arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                <!-- Dropdown 6: Turnaround Speed -->
+                <div class="touch-tile is-select" id="tile-capacity">
+                  <div class="tile-top">
+                    <span class="tile-tag">Delivery Speed &amp; Capacity <em>*</em></span>
+                    <span class="tile-sub">&#9201; Turnaround</span>
                   </div>
+                  <select class="tile-select" id="capacity" required>
+                    <option value="">Select delivery turnaround...</option>
+                    <option value="24–48 Hours Fast Delivery (High Capacity)">⚡ 24 – 48 Hours Fast Delivery (Full Capacity)</option>
+                    <option value="48–72 Hours Standard Delivery (Part-Time)">🎯 48 – 72 Hours Standard Delivery (Regular)</option>
+                    <option value="Priority On-Demand / Same-Day (When Urgent)">🚀 Priority On-Demand / Same-Day Delivery</option>
+                  </select>
+                  <svg class="tile-arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                   <div class="ferr" id="capacity-e">Please select your turnaround capacity.</div>
                 </div>
+
               </div>
 
-              <div class="acts">
-                <button type="button" class="sbk" id="btn-back-1">&#8592; Back</button>
-                <button type="button" class="snx" id="btn-to-3">
-                  <span>Continue to Portfolio &amp; Reel</span>
+              <div class="action-row">
+                <button type="button" class="back-btn" id="btn-back-1">&#8592; Back</button>
+                <button type="button" class="primary-btn" id="btn-to-3">
+                  <span>Continue to Reel &amp; Review</span>
                   <svg class="ar" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </button>
               </div>
             </div>
 
-            <!-- STEP 3: PORTFOLIO & REEL -->
+            <!-- STEP 3: PORTFOLIO & REEL (Touch-Tiles) -->
             <div class="fstep" id="step-3">
-              <div class="step-banner">
-                <span class="step-tag-pill">&#127915; Step 3 of 3 — Showreel, Notes &amp; Terms</span>
-                <span class="step-hint">Final review</span>
-              </div>
 
-              <div class="fld">
-                <label class="flbl" for="rl">
-                  <span>Portfolio / Showreel URL <em>*</em></span>
-                  <span class="flbl-hint">Public link</span>
-                </label>
-                <div class="input-wrap">
-                  <span class="input-ico">&#128279;</span>
-                  <input class="fi" id="rl" type="url" placeholder="https://youtube.com/... or Google Drive / Vimeo / Behance" required/>
+              <div class="touch-tile" id="tile-rl">
+                <div class="tile-top">
+                  <span class="tile-tag">Showreel / Portfolio URL <em>*</em></span>
+                  <span class="tile-sub">&#128279; Public Link</span>
                 </div>
-                <div class="fhint">Public link only — ensure Drive folder/video permissions are set to "Anyone with the link".</div>
-                <div class="ferr" id="rl-e">Valid portfolio link is required.</div>
+                <input class="tile-input" id="rl" type="url" placeholder="https://youtube.com/... or Google Drive / Vimeo / Behance" required/>
+                <div class="ferr" id="rl-e">Valid portfolio link is required. (Ensure Drive is public)</div>
               </div>
 
-              <div class="fld">
-                <label class="flbl" for="in">
-                  <span>About Your Workflow &amp; Why Zentic Media <em>*</em></span>
-                  <span class="flbl-hint">Brief intro</span>
-                </label>
-                <textarea class="fta" id="in" placeholder="Tell us about your recent projects, preferred plugins (BCC, Sapphire, Mister Horse, etc.), your availability, and what makes your edits stand out..." required></textarea>
+              <div class="touch-tile" id="tile-in">
+                <div class="tile-top">
+                  <span class="tile-tag">Workflow Notes &amp; Why Zentic <em>*</em></span>
+                  <span class="tile-sub">&#10024; Plugins &amp; Style</span>
+                </div>
+                <textarea class="tile-textarea" id="in" placeholder="Recent client work, key plugins (BCC, Sapphire, Mister Horse), your editing pacing, and your weekly availability..." required></textarea>
                 <div class="ferr" id="in-e">Please share a brief note about your workflow.</div>
               </div>
 
-              <!-- Terms Agreement Card -->
-              <label class="agree-card" id="agree-lbl" for="ag">
-                <input type="checkbox" id="ag">
-                <div class="achk-box"></div>
-                <div class="agree-body">
-                  I agree to the <strong>Zentic Media Studio Ground Rules</strong> — no upfront advance (payment released upon approved export), 100% adherence to deadlines, active WhatsApp replies, and strict client NDA confidentiality.
+              <!-- Interactive Cyber Terms Switch Card -->
+              <div class="terms-switch-card" id="terms-card" role="checkbox" aria-checked="false" tabindex="0">
+                <input type="checkbox" id="ag" style="display:none;" required/>
+                <div class="tsc-left">
+                  <span class="tsc-title">&#9889; Studio Ground Rules Agreement <em>*</em></span>
+                  <span class="tsc-desc">No upfront advances (paid on approved export), zero missed deadlines, responsive WhatsApp communication, and strict client NDA confidentiality.</span>
                 </div>
-              </label>
-              <div class="ferr" id="ag-e" style="margin-top:-12px; margin-bottom:14px;">You must agree to the Studio Ground Rules to submit.</div>
+                <div class="tsc-toggle">
+                  <div class="tsc-knob"></div>
+                </div>
+              </div>
+              <div class="ferr" id="ag-e" style="margin-top:-14px; margin-bottom:14px;">You must switch ON agreement to Studio Ground Rules to submit.</div>
 
-              <div class="acts">
-                <button type="button" class="sbk" id="btn-back-2">&#8592; Back</button>
-                <button type="submit" class="snx" id="sbtn" style="flex:2.2;">
+              <div class="action-row">
+                <button type="button" class="back-btn" id="btn-back-2">&#8592; Back</button>
+                <button type="submit" class="primary-btn" id="sbtn">
                   <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
                   <span>Submit Application Directly</span>
                   <svg class="ar" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </button>
               </div>
+
             </div>
 
           </form>
@@ -1306,14 +1248,10 @@
           <div class="succ-ring">
             <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
-          <h2 class="cv">Application <span class="g">Received!</span></h2>
+          <h2>Application <span class="g">Received!</span></h2>
           <p>Your details have been submitted directly to our creative team. If your portfolio fits our current active projects, we'll reach out on <strong>WhatsApp within 48 hours</strong> with a paid test project.</p>
           <a href="/" class="succ-back">&#8592; Back to Home</a>
         </div>
-
-      </div>
-    </div>
-  </div>
 
       </div>
     </div>
@@ -1396,21 +1334,54 @@
     });
   });
 
-  /* ══ MULTI-STEP ALL-DROPDOWN WIZARD ══ */
+  /* ══ CYBER HUD MULTI-STEP WIZARD ══ */
   var hf = document.getElementById('hf');
   var fw = document.getElementById('fw');
   var sw2 = document.getElementById('sw2');
   var sbtn = document.getElementById('sbtn');
-  var stepBar = document.getElementById('step-bar');
+  var stepTxt = document.getElementById('hud-step-txt');
+  var pctTxt = document.getElementById('hud-pct-txt');
+  var hudBar = document.getElementById('hud-bar');
+  var hudTitle = document.getElementById('hud-title');
+  var hudDesc = document.getElementById('hud-desc');
   var curStep = 1;
+
+  var stepMeta = {
+    1: {
+      txt: 'Step 01 of 03',
+      pct: '33% Completed',
+      bar: '33.33%',
+      title: 'Your <span class="g">Contact Info</span>',
+      desc: 'Direct line to creative leads — no agency middlemen.'
+    },
+    2: {
+      txt: 'Step 02 of 03',
+      pct: '66% Completed',
+      bar: '66.66%',
+      title: 'Stack & <span class="g">Creative Setup</span>',
+      desc: 'Select your primary weapons and render horsepower.'
+    },
+    3: {
+      txt: 'Step 03 of 03',
+      pct: '100% Final Review',
+      bar: '100%',
+      title: 'Showreel & <span class="g">Final Terms</span>',
+      desc: 'Drop your best work link & review our studio ground rules.'
+    }
+  };
 
   function se(id, show) {
     var e = document.getElementById(id + '-e');
     var i = document.getElementById(id);
+    var tile = document.getElementById('tile-' + id);
     if (e) e.style.display = show ? 'block' : 'none';
     if (i) {
       if (show) i.classList.add('err');
       else i.classList.remove('err');
+    }
+    if (tile) {
+      if (show) tile.classList.add('err');
+      else tile.classList.remove('err');
     }
   }
 
@@ -1418,20 +1389,40 @@
     curStep = s;
     for (var i = 1; i <= 3; i++) {
       var stepEl = document.getElementById('step-' + i);
-      var snEl = document.getElementById('sn-' + i);
       if (stepEl) stepEl.classList.toggle('act', i === s);
-      if (snEl) {
-        snEl.classList.toggle('act', i === s);
-        snEl.classList.toggle('done', i < s);
-      }
     }
-    if (stepBar) {
-      stepBar.style.width = (s === 1 ? '33.33%' : (s === 2 ? '66.66%' : '100%'));
+    if (stepMeta[s]) {
+      if (stepTxt) stepTxt.textContent = stepMeta[s].txt;
+      if (pctTxt) pctTxt.textContent = stepMeta[s].pct;
+      if (hudBar) hudBar.style.width = stepMeta[s].bar;
+      if (hudTitle) hudTitle.innerHTML = stepMeta[s].title;
+      if (hudDesc) hudDesc.textContent = stepMeta[s].desc;
     }
     var card = document.getElementById('apply');
     if (card) {
       card.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  }
+
+  /* Interactive Terms Switch Card */
+  var termsCard = document.getElementById('terms-card');
+  var agChk = document.getElementById('ag');
+  if (termsCard && agChk) {
+    function toggleTerms() {
+      agChk.checked = !agChk.checked;
+      termsCard.classList.toggle('is-active', agChk.checked);
+      termsCard.setAttribute('aria-checked', agChk.checked ? 'true' : 'false');
+      if (agChk.checked) {
+        document.getElementById('ag-e').style.display = 'none';
+      }
+    }
+    termsCard.addEventListener('click', toggleTerms);
+    termsCard.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleTerms();
+      }
+    });
   }
 
   /* Step 1 → Step 2 */
@@ -1503,7 +1494,7 @@
 
     var rl = document.getElementById('rl').value.trim();
     var inp = document.getElementById('in').value.trim();
-    var ag = document.getElementById('ag').checked;
+    var ag = agChk ? agChk.checked : false;
     var ok = true;
 
     if (!rl) { se('rl', true); ok = false; }
