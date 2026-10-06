@@ -50,7 +50,8 @@
     .badge, .pill, .btn-main, .role, .rgrid, .ri-l, .ri-v,
     .lc, .lc h3, .lc ul, .lc ul li, .terms, .term, .t-body, .t-body h4, .t-body p,
     .form-card, .form-card h2, .fsub, .fld, .flbl, .fi, .fsel, .fta, .fhint, .ferr,
-    .chks, .chk, .chk-l, .agree, .agree-l, .sbtn, .succ, .succ h2, .succ p, .wa-link, .back-l, .footer {
+    .chks, .chk, .chk-l, .agree, .agree-l, .sbtn, .succ, .succ h2, .succ p, .wa-link, .back-l, .footer,
+    .steps-nav, .step-node, .step-num, .step-text, .step-badge, .sbtn-back, .sbtn-next {
       font-family: var(--sys) !important;
     }
 
@@ -306,21 +307,168 @@
     .agree-l { font-size: 12px; color: var(--m); line-height: 1.55; }
     .agree-l strong { color: var(--w); }
 
-    /* submit */
-    .sbtn {
-      width: 100%; padding: 14px; margin-top: 22px;
-      background: linear-gradient(135deg, #b800f5, #6b00a0);
-      border: 1px solid rgba(184,0,245,0.38); border-radius: 8px;
-      color: #fff; font-size: 14.5px; font-weight: 700;
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      cursor: pointer; transition: all .22s; font-family: var(--sys);
-      box-shadow: 0 5px 20px rgba(184,0,245,0.35);
+    /* ════════════ MULTI-STEP WIZARD ════════════ */
+    .steps-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      margin: 6px 0 28px;
+      padding: 0 10px;
     }
-    .sbtn:hover { background: linear-gradient(135deg, #cc1aff, #8000c0); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(184,0,245,0.52); }
-    .sbtn:active { transform: translateY(0); }
-    .sbtn .ar { transition: transform .2s; }
-    .sbtn:hover .ar { transform: translateX(3px); }
-    .sbtn.loading { opacity: 0.7; pointer-events: none; }
+    .steps-line {
+      position: absolute;
+      top: 17px;
+      left: 24px;
+      right: 24px;
+      height: 2px;
+      background: rgba(184,0,245,0.20);
+      z-index: 1;
+    }
+    .steps-progress {
+      position: absolute;
+      top: 17px;
+      left: 24px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--acc), var(--alt));
+      z-index: 2;
+      transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      width: 0%;
+    }
+    .step-node {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .step-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--card2);
+      border: 1.5px solid rgba(184,0,245,0.32);
+      color: var(--m2);
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s ease;
+    }
+    .step-node.active .step-num {
+      background: linear-gradient(135deg, var(--acc), #7000a8);
+      border-color: var(--alt);
+      color: #fff;
+      box-shadow: 0 0 14px rgba(184,0,245,0.60);
+    }
+    .step-node.completed .step-num {
+      background: rgba(34,197,94,0.18);
+      border-color: #22c55e;
+      color: #86efac;
+    }
+    .step-text {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--m2);
+      letter-spacing: 0.3px;
+      transition: color 0.25s;
+    }
+    .step-node.active .step-text {
+      color: var(--alt);
+      font-weight: 700;
+    }
+    .step-node.completed .step-text {
+      color: #86efac;
+    }
+    @media(max-width: 480px) {
+      .step-text { display: none; }
+      .steps-line, .steps-progress { top: 15px; left: 16px; right: 16px; }
+      .step-num { width: 30px; height: 30px; font-size: 12px; }
+    }
+
+    .form-step {
+      display: none;
+      animation: stFade 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .form-step.active {
+      display: block;
+    }
+    @keyframes stFade {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .step-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background: var(--alo);
+      border: 1px solid rgba(184,0,245,0.24);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--alt);
+      margin-bottom: 18px;
+    }
+
+    .step-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .sbtn-back {
+      padding: 13px 20px;
+      border-radius: 8px;
+      background: var(--card2);
+      border: 1px solid var(--bdr);
+      color: var(--m);
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .sbtn-back:hover {
+      background: rgba(184,0,245,0.15);
+      border-color: rgba(184,0,245,0.40);
+      color: #fff;
+    }
+    .sbtn-next {
+      flex: 1;
+      padding: 13px 24px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #b800f5, #6b00a0);
+      border: 1px solid rgba(184,0,245,0.40);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 18px rgba(184,0,245,0.35);
+      transition: all 0.2s;
+    }
+    .sbtn-next:hover {
+      background: linear-gradient(135deg, #cc1aff, #8000c0);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 26px rgba(184,0,245,0.50);
+    }
+    .sbtn-next .ar {
+      transition: transform 0.2s;
+    }
+    .sbtn-next:hover .ar {
+      transform: translateX(3px);
+    }
+    .sbtn-next.loading { opacity: 0.7; pointer-events: none; }
 
     /* success */
     .succ { display: none; text-align: center; padding: 48px 18px; }
@@ -527,94 +675,145 @@
     <div id="apply" class="form-card fu">
       <div id="fw">
         <h2>Submit <span class="g">Application</span></h2>
-        <p class="fsub">No resume needed — just your portfolio &amp; a quick intro.</p>
+        <p class="fsub">Complete step by step — takes less than 2 minutes.</p>
+
+        <!-- Stepper indicator -->
+        <div class="steps-nav">
+          <div class="steps-line"></div>
+          <div class="steps-progress" id="spg"></div>
+          <div class="step-node active" id="sn-1">
+            <div class="step-num">1</div>
+            <span class="step-text">Contact</span>
+          </div>
+          <div class="step-node" id="sn-2">
+            <div class="step-num">2</div>
+            <span class="step-text">Skills</span>
+          </div>
+          <div class="step-node" id="sn-3">
+            <div class="step-num">3</div>
+            <span class="step-text">Portfolio</span>
+          </div>
+        </div>
 
         <form id="hf" novalidate>
 
-          <div class="frow">
+          <!-- STEP 1: CONTACT -->
+          <div class="form-step active" id="step-1">
+            <div class="step-badge">&#128100; Step 1 of 3: Your Contact Info</div>
+            
+            <div class="frow">
+              <div class="fld">
+                <label class="flbl" for="n">Full Name <span>*</span></label>
+                <input class="fi" id="n" type="text" placeholder="Your name" required/>
+                <div class="ferr" id="n-e">Please enter your name.</div>
+              </div>
+              <div class="fld">
+                <label class="flbl" for="w">WhatsApp Number <span>*</span></label>
+                <input class="fi" id="w" type="tel" placeholder="+880 1XXX XXXXXX" required/>
+                <div class="ferr" id="w-e">WhatsApp number is required.</div>
+              </div>
+            </div>
+
             <div class="fld">
-              <label class="flbl" for="n">Full Name <span>*</span></label>
-              <input class="fi" id="n" type="text" placeholder="Your name" required/>
-              <div class="ferr" id="n-e">Required.</div>
+              <label class="flbl" for="em">Email Address <span>*</span></label>
+              <input class="fi" id="em" type="email" placeholder="you@email.com" required/>
+              <div class="ferr" id="em-e">Enter a valid email address.</div>
             </div>
+
+            <div class="step-actions">
+              <button type="button" class="sbtn-next" id="btn-to-2">
+                Next: Skills &amp; Experience
+                <svg class="ar" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 2: SKILLS & EXPERIENCE -->
+          <div class="form-step" id="step-2">
+            <div class="step-badge">&#9874; Step 2 of 3: Experience &amp; Software</div>
+
+            <div class="frow">
+              <div class="fld">
+                <label class="flbl" for="ex">Experience <span>*</span></label>
+                <select class="fi fsel" id="ex" required>
+                  <option value="">Select experience level...</option>
+                  <option value="less-1">Less than 1 year</option>
+                  <option value="1-2">1 – 2 years</option>
+                  <option value="2-4">2 – 4 years</option>
+                  <option value="4+">4+ years</option>
+                </select>
+                <div class="ferr" id="ex-e">Please select your experience level.</div>
+              </div>
+              <div class="fld">
+                <label class="flbl" for="sw">Primary Software <span>*</span></label>
+                <select class="fi fsel" id="sw" required>
+                  <option value="">Select editing software...</option>
+                  <option value="premiere">Premiere Pro</option>
+                  <option value="davinci">DaVinci Resolve</option>
+                  <option value="finalcut">Final Cut Pro</option>
+                  <option value="capcut">CapCut</option>
+                  <option value="other">Other</option>
+                </select>
+                <div class="ferr" id="sw-e">Please select your software.</div>
+              </div>
+            </div>
+
             <div class="fld">
-              <label class="flbl" for="w">WhatsApp <span>*</span></label>
-              <input class="fi" id="w" type="tel" placeholder="+880 1XXX XXXXXX" required/>
-              <div class="ferr" id="w-e">Required.</div>
+              <label class="flbl">Content You Edit (Select all that apply) <span>*</span></label>
+              <div class="chks">
+                <label class="chk"><input type="checkbox" name="ct" value="short"><div class="chkb"></div><span class="chk-l">&#127916; Short-form (Reels, TikTok, Shorts)</span></label>
+                <label class="chk"><input type="checkbox" name="ct" value="long"><div class="chkb"></div><span class="chk-l">&#9654;&#65039; Long-form (YouTube, Podcast)</span></label>
+                <label class="chk"><input type="checkbox" name="ct" value="ads"><div class="chkb"></div><span class="chk-l">&#128226; Ads &amp; Promotional</span></label>
+                <label class="chk"><input type="checkbox" name="ct" value="saas"><div class="chkb"></div><span class="chk-l">&#128188; Product / SaaS Videos</span></label>
+              </div>
+              <div class="ferr" id="ct-e">Select at least one content category.</div>
+            </div>
+
+            <div class="step-actions">
+              <button type="button" class="sbtn-back" id="btn-back-1">&#8592; Back</button>
+              <button type="button" class="sbtn-next" id="btn-to-3">
+                Next: Portfolio &amp; Submit
+                <svg class="ar" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
             </div>
           </div>
 
-          <div class="fld">
-            <label class="flbl" for="em">Email <span>*</span></label>
-            <input class="fi" id="em" type="email" placeholder="you@email.com" required/>
-            <div class="ferr" id="em-e">Enter a valid email.</div>
-          </div>
+          <!-- STEP 3: PORTFOLIO & CONFIRMATION -->
+          <div class="form-step" id="step-3">
+            <div class="step-badge">&#127915; Step 3 of 3: Portfolio &amp; Terms</div>
 
-          <div class="frow">
             <div class="fld">
-              <label class="flbl" for="ex">Experience <span>*</span></label>
-              <select class="fi fsel" id="ex" required>
-                <option value="">Select...</option>
-                <option value="less-1">Less than 1 year</option>
-                <option value="1-2">1 – 2 years</option>
-                <option value="2-4">2 – 4 years</option>
-                <option value="4+">4+ years</option>
-              </select>
-              <div class="ferr" id="ex-e">Required.</div>
+              <label class="flbl" for="rl">Portfolio / Demo Reel Link <span>*</span></label>
+              <input class="fi" id="rl" type="url" placeholder="https://youtube.com/... or Google Drive link" required/>
+              <div class="fhint">Any public link works (Drive, YouTube, Vimeo, Behance).</div>
+              <div class="ferr" id="rl-e">Portfolio link is required.</div>
             </div>
+
             <div class="fld">
-              <label class="flbl" for="sw">Software <span>*</span></label>
-              <select class="fi fsel" id="sw" required>
-                <option value="">Select...</option>
-                <option value="premiere">Premiere Pro</option>
-                <option value="davinci">DaVinci Resolve</option>
-                <option value="finalcut">Final Cut Pro</option>
-                <option value="capcut">CapCut</option>
-                <option value="other">Other</option>
-              </select>
-              <div class="ferr" id="sw-e">Required.</div>
+              <label class="flbl" for="in">About You &amp; Your Style <span>*</span></label>
+              <textarea class="fta" id="in" placeholder="Briefly describe your editing style, turnaround speed, and why you want to work with Zentic Media..." required></textarea>
+              <div class="ferr" id="in-e">Please add a brief description.</div>
+            </div>
+
+            <!-- Terms agreement -->
+            <div class="fld">
+              <label class="agree" id="agree-lbl">
+                <input type="checkbox" id="ag">
+                <div class="achk"></div>
+                <span class="agree-l">I have read the <strong>Working Terms</strong> above and I agree. I understand: no advance = no work, deadlines are 100% mandatory, and I must stay active and responsive.</span>
+              </label>
+              <div class="ferr" id="ag-e">You must agree to the terms before submitting.</div>
+            </div>
+
+            <div class="step-actions">
+              <button type="button" class="sbtn-back" id="btn-back-2">&#8592; Back</button>
+              <button type="submit" class="sbtn-next" id="sbtn" style="flex:2;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
+                Submit Application
+                <svg class="ar" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
             </div>
           </div>
-
-          <div class="fld">
-            <label class="flbl" for="rl">Portfolio / Demo Reel Link <span>*</span></label>
-            <input class="fi" id="rl" type="url" placeholder="YouTube, Drive, Vimeo..." required/>
-            <div class="fhint">Any public link works.</div>
-            <div class="ferr" id="rl-e">Required.</div>
-          </div>
-
-          <div class="fld">
-            <label class="flbl">Content You Edit <span>*</span></label>
-            <div class="chks">
-              <label class="chk"><input type="checkbox" name="ct" value="short"><div class="chkb"></div><span class="chk-l">&#127916; Short-form (Reels, TikTok, Shorts)</span></label>
-              <label class="chk"><input type="checkbox" name="ct" value="long"><div class="chkb"></div><span class="chk-l">&#9654;&#65039; Long-form (YouTube, Podcast)</span></label>
-              <label class="chk"><input type="checkbox" name="ct" value="ads"><div class="chkb"></div><span class="chk-l">&#128226; Ads &amp; Promotional</span></label>
-              <label class="chk"><input type="checkbox" name="ct" value="saas"><div class="chkb"></div><span class="chk-l">&#128188; Product / SaaS Videos</span></label>
-            </div>
-            <div class="ferr" id="ct-e">Select at least one.</div>
-          </div>
-
-          <div class="fld">
-            <label class="flbl" for="in">About You &amp; Your Style <span>*</span></label>
-            <textarea class="fta" id="in" placeholder="Briefly describe your editing style and why you want to work with Zentic Media..." required></textarea>
-            <div class="ferr" id="in-e">Required.</div>
-          </div>
-
-          <!-- Terms agreement -->
-          <div class="fld">
-            <label class="agree" id="agree-lbl">
-              <input type="checkbox" id="ag">
-              <div class="achk"></div>
-              <span class="agree-l">I have read the <strong>Working Terms</strong> above and I agree. I understand: no advance = no work, deadlines are 100% mandatory, and I must stay active and responsive.</span>
-            </label>
-            <div class="ferr" id="ag-e">You must agree to the terms.</div>
-          </div>
-
-          <button type="submit" class="sbtn" id="sbtn">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
-            Submit Application
-            <svg class="ar" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
 
         </form>
       </div>
@@ -658,11 +857,13 @@
     });
   });
 
-  /* form */
+  /* ════════════ MULTI-STEP LOGIC ════════════ */
   var hf   = document.getElementById('hf');
   var fw   = document.getElementById('fw');
   var sw2  = document.getElementById('sw2');
   var sbtn = document.getElementById('sbtn');
+  var curStep = 1;
+  var totalSteps = 3;
 
   function se(id,show){
     var e=document.getElementById(id+'-e');
@@ -671,55 +872,140 @@
     if(i){ if(show) i.classList.add('err'); else i.classList.remove('err'); }
   }
 
-  hf.addEventListener('submit',function(e){
+  function setStep(step) {
+    curStep = step;
+    for (var s = 1; s <= totalSteps; s++) {
+      var stepEl = document.getElementById('step-' + s);
+      var nodeEl = document.getElementById('sn-' + s);
+      if (stepEl) {
+        stepEl.classList.toggle('active', s === curStep);
+      }
+      if (nodeEl) {
+        nodeEl.classList.toggle('active', s === curStep);
+        nodeEl.classList.toggle('completed', s < curStep);
+      }
+    }
+    var spg = document.getElementById('spg');
+    if (spg) {
+      var pct = ((curStep - 1) / (totalSteps - 1)) * 100;
+      spg.style.width = pct + '%';
+    }
+    var card = document.getElementById('apply');
+    if (card) {
+      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  /* Step 1 -> Step 2 */
+  var btnTo2 = document.getElementById('btn-to-2');
+  if (btnTo2) {
+    btnTo2.addEventListener('click', function() {
+      se('n', false); se('w', false); se('em', false);
+      var name = document.getElementById('n').value.trim();
+      var wa   = document.getElementById('w').value.trim();
+      var em   = document.getElementById('em').value.trim();
+      var ok = true;
+      if (!name) { se('n', true); ok = false; }
+      if (!wa)   { se('w', true); ok = false; }
+      if (!em || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) { se('em', true); ok = false; }
+      if (!ok) {
+        var f = document.querySelector('#step-1 .err, #step-1 [style*="block"]');
+        if (f) f.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      setStep(2);
+    });
+  }
+
+  /* Step 2 -> Step 1 (Back) */
+  var btnBack1 = document.getElementById('btn-back-1');
+  if (btnBack1) {
+    btnBack1.addEventListener('click', function() {
+      setStep(1);
+    });
+  }
+
+  /* Step 2 -> Step 3 */
+  var btnTo3 = document.getElementById('btn-to-3');
+  if (btnTo3) {
+    btnTo3.addEventListener('click', function() {
+      se('ex', false); se('sw', false);
+      document.getElementById('ct-e').style.display = 'none';
+      var ex  = document.getElementById('ex').value;
+      var sw  = document.getElementById('sw').value;
+      var cts = Array.from(document.querySelectorAll('input[name="ct"]:checked')).map(function(c) { return c.value; });
+      var ok = true;
+      if (!ex) { se('ex', true); ok = false; }
+      if (!sw) { se('sw', true); ok = false; }
+      if (cts.length === 0) { document.getElementById('ct-e').style.display = 'block'; ok = false; }
+      if (!ok) {
+        var f = document.querySelector('#step-2 .err, #step-2 [style*="block"]');
+        if (f) f.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      setStep(3);
+    });
+  }
+
+  /* Step 3 -> Step 2 (Back) */
+  var btnBack2 = document.getElementById('btn-back-2');
+  if (btnBack2) {
+    btnBack2.addEventListener('click', function() {
+      setStep(2);
+    });
+  }
+
+  /* Final Submit on Step 3 */
+  hf.addEventListener('submit', function(e) {
     e.preventDefault();
-    ['n','w','em','ex','sw','rl','in'].forEach(function(id){se(id,false);});
-    document.getElementById('ct-e').style.display='none';
-    document.getElementById('ag-e').style.display='none';
+    se('rl', false); se('in', false);
+    document.getElementById('ag-e').style.display = 'none';
+
+    var rl  = document.getElementById('rl').value.trim();
+    var inp = document.getElementById('in').value.trim();
+    var ag  = document.getElementById('ag').checked;
+
+    var ok = true;
+    if (!rl)  { se('rl', true); ok = false; }
+    if (!inp) { se('in', true); ok = false; }
+    if (!ag)  { document.getElementById('ag-e').style.display = 'block'; ok = false; }
+
+    if (!ok) {
+      var f = document.querySelector('#step-3 .err, #step-3 [style*="block"]');
+      if (f) f.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
 
     var name = document.getElementById('n').value.trim();
     var wa   = document.getElementById('w').value.trim();
     var em   = document.getElementById('em').value.trim();
-    var ex   = document.getElementById('ex').value;
-    var sw   = document.getElementById('sw').value;
-    var rl   = document.getElementById('rl').value.trim();
-    var inp  = document.getElementById('in').value.trim();
-    var ag   = document.getElementById('ag').checked;
-    var cts  = Array.from(document.querySelectorAll('input[name="ct"]:checked')).map(function(c){return c.value;});
+    var exEl = document.getElementById('ex');
+    var swEl = document.getElementById('sw');
+    var exT  = exEl.options[exEl.selectedIndex] ? exEl.options[exEl.selectedIndex].text : '';
+    var swT  = swEl.options[swEl.selectedIndex] ? swEl.options[swEl.selectedIndex].text : '';
+    var cts  = Array.from(document.querySelectorAll('input[name="ct"]:checked')).map(function(c) { return c.value; });
 
-    var exEl=document.getElementById('ex'); var swEl=document.getElementById('sw');
-    var exT=exEl.options[exEl.selectedIndex]?exEl.options[exEl.selectedIndex].text:ex;
-    var swT=swEl.options[swEl.selectedIndex]?swEl.options[swEl.selectedIndex].text:sw;
-
-    var ok=true;
-    if(!name){se('n',true);ok=false;}
-    if(!wa)  {se('w',true);ok=false;}
-    if(!em||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){se('em',true);ok=false;}
-    if(!ex)  {se('ex',true);ok=false;}
-    if(!sw)  {se('sw',true);ok=false;}
-    if(!rl)  {se('rl',true);ok=false;}
-    if(cts.length===0){document.getElementById('ct-e').style.display='block';ok=false;}
-    if(!inp) {se('in',true);ok=false;}
-    if(!ag)  {document.getElementById('ag-e').style.display='block';ok=false;}
-
-    if(!ok){var f=hf.querySelector('.err,[style*="block"]');if(f)f.scrollIntoView({behavior:'smooth',block:'center'});return;}
-
-    var msg=encodeURIComponent(
-      'Video Editor Application - Zentic Media\n\n'+
-      'Name: '+name+'\nWhatsApp: '+wa+'\nEmail: '+em+'\n'+
-      'Experience: '+exT+'\nSoftware: '+swT+'\n'+
-      'Content Types: '+cts.join(', ')+'\n'+
-      'Portfolio: '+rl+'\n\nAbout:\n'+inp+'\n\n[Agreed to Terms]'
+    var msg = encodeURIComponent(
+      '🎬 Video Editor Application - Zentic Media\n\n' +
+      '👤 Name: ' + name + '\n' +
+      '📱 WhatsApp: ' + wa + '\n' +
+      '✉️ Email: ' + em + '\n' +
+      '⏳ Experience: ' + exT + '\n' +
+      '💻 Software: ' + swT + '\n' +
+      '🎯 Content Types: ' + cts.join(', ') + '\n' +
+      '🔗 Portfolio: ' + rl + '\n\n' +
+      '📝 About:\n' + inp + '\n\n' +
+      '✅ [Agreed to All Terms & Deadlines]'
     );
 
     sbtn.classList.add('loading');
-    sbtn.textContent='Sending...';
-    setTimeout(function(){
-      window.open('https://wa.me/8801716705401?text='+msg,'_blank');
-      fw.style.display='none';
-      sw2.style.display='block';
-      sw2.scrollIntoView({behavior:'smooth',block:'center'});
-    },800);
+    sbtn.textContent = 'Submitting...';
+    setTimeout(function() {
+      window.open('https://wa.me/8801716705401?text=' + msg, '_blank');
+      fw.style.display = 'none';
+      sw2.style.display = 'block';
+      sw2.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 700);
   });
 
   /* hamburger */
