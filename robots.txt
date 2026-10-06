@@ -1,6 +1,14 @@
 User-agent: *
 Allow: /
+Disallow: /api/
 
-# Sitemaps
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
 Sitemap: https://zenticmedia.com/sitemap.xml
-Sitemap: https://rakibportfolio.github.io/sitemap.xml
