@@ -4,37 +4,37 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
-    <loc>https://rakibportfolio.github.io/</loc>
+    <loc>https://zenticmedia.com/</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://rakibportfolio.github.io/services</loc>
+    <loc>https://zenticmedia.com/services</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://rakibportfolio.github.io/portfolio</loc>
+    <loc>https://zenticmedia.com/portfolio</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://rakibportfolio.github.io/hire-video-editor</loc>
+    <loc>https://zenticmedia.com/hire-video-editor</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://rakibportfolio.github.io/case-studies</loc>
+    <loc>https://zenticmedia.com/case-studies</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://rakibportfolio.github.io/contact</loc>
+    <loc>https://zenticmedia.com/contact</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
