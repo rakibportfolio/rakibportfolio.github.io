@@ -15,409 +15,564 @@
   <link href="css/bg-shapes.css?v=7.0" rel="stylesheet" type="text/css"/>
 
   <style>
-    /* ============================================================
-       HIRING PAGE — Simple System Font + Mobile First
-    ============================================================ */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg:         #08010E;
-      --card:       #12041d;
-      --card2:      #190727;
-      --border:     rgba(184,0,245,0.22);
-      --border-sub: rgba(255,255,255,0.07);
-      --accent:     #b800f5;
-      --accent-lt:  #e879f9;
-      --accent-lo:  rgba(184,0,245,0.12);
-      --accent-md:  rgba(184,0,245,0.30);
-      --white:      #f5f0ff;
-      --muted:      rgba(210,185,245,0.80);
-      --muted2:     rgba(160,130,220,0.55);
-      --red:        #ef4444;
-      --r:  14px;
-      --rs: 10px;
-      /* Simple system font stack — no Google Fonts */
-      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    /* ── Coolvetica for headings only ── */
+    @font-face {
+      font-family: 'Coolvetica';
+      src: url('fonts/coolvetica rg.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
     }
 
+    :root {
+      --bg:        #08010E;
+      --card:      #0f031a;
+      --card2:     #160526;
+      --border:    rgba(184,0,245,0.20);
+      --bsub:      rgba(255,255,255,0.06);
+      --accent:    #b800f5;
+      --alt:       #e879f9;
+      --alo:       rgba(184,0,245,0.10);
+      --amd:       rgba(184,0,245,0.28);
+      --white:     #f4eeff;
+      --muted:     rgba(210,185,245,0.78);
+      --muted2:    rgba(160,130,215,0.50);
+      --red:       #ef4444;
+      --green:     #22c55e;
+      --sys: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
       background: var(--bg);
       color: var(--white);
-      font-family: var(--font);
+      font-family: var(--sys);
       font-size: 15px;
-      line-height: 1.6;
-      min-height: 100vh;
+      line-height: 1.65;
       overflow-x: hidden;
+      min-height: 100vh;
     }
-    h1, h2, h3 {
-      font-family: var(--font);
-      font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: -0.01em;
-    }
+
+    /* Coolvetica ONLY for big headings */
+    .cv { font-family: 'Coolvetica', var(--sys) !important; font-weight: 400 !important; letter-spacing: 0.01em; }
+
+    /* system font headings */
+    h2, h3, h4 { font-family: var(--sys); font-weight: 700; line-height: 1.2; }
     a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
 
     /* nav override */
-    .nav-link-2.is-current-page {
-      color: #e879f9 !important;
-      font-weight: 700 !important;
+    .nav-link-2.is-current-page { color: #e879f9 !important; font-weight: 700 !important; }
+
+    /* ── fixed orbs ── */
+    .orb {
+      position: fixed; border-radius: 50%; pointer-events: none; z-index: 0;
+      filter: blur(110px); animation: od 22s ease-in-out infinite alternate;
     }
+    .orb1 { width: 560px; height: 340px; background: radial-gradient(ellipse, rgba(184,0,245,0.13), transparent 70%); top: -100px; left: -130px; }
+    .orb2 { width: 400px; height: 260px; background: radial-gradient(ellipse, rgba(112,0,168,0.09), transparent 70%); bottom: 0; right: -90px; animation-delay: -11s; }
+    @keyframes od { from { transform: translate(0,0); } to { transform: translate(25px,18px); } }
 
-    /* ── ambient orbs ── */
-    .h-orb {
-      position: fixed; border-radius: 50%;
-      pointer-events: none; z-index: 0;
-      filter: blur(90px);
-      animation: orb 20s ease-in-out infinite alternate;
-    }
-    .h-orb-1 { width: 500px; height: 300px; background: radial-gradient(ellipse, rgba(184,0,245,0.13) 0%, transparent 70%); top: -80px; left: -100px; }
-    .h-orb-2 { width: 380px; height: 240px; background: radial-gradient(ellipse, rgba(112,0,168,0.09) 0%, transparent 70%); bottom: 0; right: -80px; animation-delay: -10s; }
-    @keyframes orb { from { transform: translate(0,0); } to { transform: translate(20px,15px); } }
+    .page { position: relative; z-index: 1; }
 
-    .h-page { position: relative; z-index: 1; }
-
-    /* ── HERO ── */
-    .h-hero {
-      padding: 110px 20px 60px;
+    /* ════════════════════════════════
+       HERO
+    ════════════════════════════════ */
+    .hero {
+      padding: 120px 20px 70px;
       text-align: center;
-      max-width: 700px;
+      max-width: 780px;
       margin: 0 auto;
     }
-    .h-badge {
-      display: inline-flex; align-items: center; gap: 7px;
-      background: rgba(184,0,245,0.10);
-      border: 1px solid rgba(184,0,245,0.28);
-      border-radius: 999px;
-      padding: 5px 14px 5px 10px;
-      font-size: 11px; font-weight: 600;
-      letter-spacing: 1.5px; text-transform: uppercase;
-      color: var(--accent-lt);
-      margin-bottom: 20px;
+
+    /* NEW tag */
+    .new-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: linear-gradient(135deg, rgba(184,0,245,0.18), rgba(112,0,168,0.10));
+      border: 1px solid rgba(184,0,245,0.35);
+      border-radius: 6px;
+      padding: 5px 14px;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--alt);
+      margin-bottom: 24px;
     }
-    .h-badge-dot {
-      width: 7px; height: 7px; border-radius: 50%;
+    .new-dot {
+      width: 6px; height: 6px; border-radius: 50%;
       background: var(--accent);
       box-shadow: 0 0 8px var(--accent);
-      animation: blink 2s ease-in-out infinite;
+      animation: blink 1.8s ease-in-out infinite;
     }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.35} }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
-    .h-hero h1 {
-      font-size: clamp(30px, 7vw, 58px);
+    /* Big hero h1 — Coolvetica */
+    .hero-h1 {
+      font-family: 'Coolvetica', var(--sys);
+      font-weight: 400;
+      font-size: clamp(44px, 10vw, 86px);
+      line-height: 0.97;
+      letter-spacing: 0.01em;
       color: var(--white);
-      margin-bottom: 14px;
+      margin-bottom: 18px;
     }
-    .h-grad {
+    .hero-h1 .grad {
+      background: linear-gradient(120deg, #fff 0%, #e879f9 50%, #b800f5 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: clamp(14px, 2.5vw, 16px);
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto 30px;
+      line-height: 1.7;
+    }
+
+    /* pills */
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 36px; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; border-radius: 6px; font-size: 12px; font-weight: 500;
+      border: 1px solid var(--border); background: var(--alo); color: var(--muted);
+    }
+    .pill-g { border-color: rgba(34,197,94,0.28);  background: rgba(34,197,94,0.06);  color: #86efac; }
+    .pill-p { border-color: rgba(232,121,249,0.28); background: rgba(232,121,249,0.06); color: #e879f9; }
+    .pill-b { border-color: rgba(100,170,255,0.28); background: rgba(100,170,255,0.06); color: #93c5fd; }
+    .pill-y { border-color: rgba(251,191,36,0.28);  background: rgba(251,191,36,0.06);  color: #fcd34d; }
+
+    /* CTA button */
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, #b800f5, #6b00a0);
+      border: 1px solid rgba(184,0,245,0.45);
+      border-radius: 8px;
+      color: #fff; font-size: 15px; font-weight: 600;
+      cursor: pointer; transition: all 0.22s;
+      box-shadow: 0 6px 24px rgba(184,0,245,0.38), inset 0 1px 0 rgba(255,255,255,0.12);
+      text-decoration: none;
+    }
+    .cta-btn:hover { background: linear-gradient(135deg, #cc1aff, #8000c0); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(184,0,245,0.55); }
+    .cta-btn .arr { transition: transform 0.2s; }
+    .cta-btn:hover .arr { transform: translateX(4px); }
+
+    /* ════════════════════════════════
+       LAYOUT
+    ════════════════════════════════ */
+    .wrap { max-width: 880px; margin: 0 auto; padding: 0 18px; }
+
+    /* ── section divider ── */
+    .sdiv {
+      display: flex; align-items: center; gap: 14px;
+      margin: 56px 0 40px;
+    }
+    .sdiv-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(184,0,245,0.28), transparent); }
+    .sdiv-lbl {
+      font-size: 9.5px; font-weight: 700; letter-spacing: 2.2px; text-transform: uppercase;
+      color: var(--alt);
+      background: rgba(14,3,24,0.98); border: 1px solid rgba(184,0,245,0.22);
+      padding: 5px 14px; border-radius: 4px; white-space: nowrap;
+    }
+
+    /* ── section heading (h2) ── */
+    .sh {
+      font-family: 'Coolvetica', var(--sys);
+      font-weight: 400;
+      font-size: clamp(30px, 5vw, 46px);
+      line-height: 1.05;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .sh .grad {
       background: linear-gradient(120deg, #fff 0%, #e879f9 55%, #b800f5 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    .h-hero p {
-      font-size: clamp(14px, 2.5vw, 17px);
-      color: var(--muted);
-      max-width: 500px;
-      margin: 0 auto 28px;
-    }
+    .ssub { font-size: 14px; color: var(--muted); line-height: 1.7; max-width: 580px; margin-bottom: 30px; }
 
-    /* pills */
-    .h-pills { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 36px; }
-    .h-pill {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 500;
-      border: 1px solid var(--border); background: var(--accent-lo); color: var(--muted);
-    }
-    .h-pill-g { border-color: rgba(34,197,94,0.3);  background: rgba(34,197,94,0.07);  color: #86efac; }
-    .h-pill-p { border-color: rgba(232,121,249,0.3); background: rgba(232,121,249,0.07); color: #e879f9; }
-    .h-pill-b { border-color: rgba(100,160,250,0.3); background: rgba(100,160,250,0.07); color: #93c5fd; }
-
-    /* CTA button */
-    .h-cta {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 13px 28px;
-      background: linear-gradient(135deg, #b800f5, #7000a8);
-      border: none; border-radius: var(--rs);
-      color: #fff; font-size: 15px; font-weight: 600;
-      cursor: pointer; transition: all 0.2s;
-      box-shadow: 0 5px 22px rgba(184,0,245,0.40);
-      text-decoration: none;
-    }
-    .h-cta:hover { background: linear-gradient(135deg, #c716ff, #8800c5); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(184,0,245,0.55); }
-    .h-cta .arr { transition: transform 0.2s; }
-    .h-cta:hover .arr { transform: translateX(3px); }
-
-    /* ── SECTION WRAPPER ── */
-    .h-wrap { max-width: 860px; margin: 0 auto; padding: 0 16px; }
-
-    /* ── DIVIDER ── */
-    .h-div {
-      display: flex; align-items: center; gap: 14px;
-      margin: 52px 0 38px;
-    }
-    .h-div-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(184,0,245,0.3), transparent); }
-    .h-div-lbl {
-      font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
-      color: var(--accent-lt);
-      background: rgba(18,4,28,0.95); border: 1px solid rgba(184,0,245,0.25);
-      padding: 5px 14px; border-radius: 999px; white-space: nowrap;
-    }
-
-    /* ── ROLE SUMMARY CARD ── */
-    .h-role-card {
-      background: rgba(22,6,36,0.9);
+    /* ════════════════════════════════
+       ROLE SUMMARY
+    ════════════════════════════════ */
+    .role-card {
+      background: linear-gradient(135deg, rgba(24,6,40,0.92), rgba(10,2,20,0.96));
       border: 1px solid var(--border);
-      border-radius: var(--r);
-      padding: 24px 20px;
+      border-radius: 12px;
+      padding: 26px 22px;
       position: relative; overflow: hidden;
       margin-bottom: 16px;
     }
-    .h-role-card::before {
-      content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-      width: 55%; height: 1.5px;
-      background: linear-gradient(90deg, transparent, var(--accent), var(--accent-lt), transparent);
-      opacity: 0.7;
-    }
-    .h-role-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-    @media (max-width: 520px) {
-      .h-role-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    .h-role-item { display: flex; flex-direction: column; gap: 4px; }
-    .h-role-lbl { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted2); }
-    .h-role-val { font-size: 14px; font-weight: 600; color: var(--white); }
-    .h-role-val.accent { color: var(--accent-lt); }
-
-    /* ── CARDS GRID ── */
-    .h-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-    @media (max-width: 560px) {
-      .h-grid { grid-template-columns: 1fr; }
-    }
-    .h-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--r);
-      padding: 20px 18px;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .h-card:hover { border-color: rgba(184,0,245,0.45); transform: translateY(-2px); }
-    .h-card-icon { font-size: 24px; margin-bottom: 10px; }
-    .h-card h3  { font-size: 14px; font-weight: 700; margin-bottom: 6px; color: var(--white); }
-    .h-card p   { font-size: 13px; color: var(--muted); line-height: 1.6; }
-
-    /* ── PERKS LIST ── */
-    .h-perks {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-    }
-    @media (max-width: 560px) {
-      .h-perks { grid-template-columns: 1fr; }
-    }
-    .h-perk {
-      display: flex; align-items: flex-start; gap: 12px;
-      padding: 16px;
-      background: var(--card); border: 1px solid var(--border-sub); border-radius: var(--r);
-      transition: border-color 0.2s;
-    }
-    .h-perk:hover { border-color: rgba(184,0,245,0.28); }
-    .h-perk-ico { font-size: 22px; flex-shrink: 0; width: 34px; text-align: center; }
-    .h-perk h3  { font-size: 13px; font-weight: 700; color: var(--white); margin-bottom: 3px; }
-    .h-perk p   { font-size: 12px; color: var(--muted); line-height: 1.55; }
-
-    /* ── SKILLS TAGS ── */
-    .h-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 20px; }
-    .h-tag {
-      padding: 5px 12px; border-radius: 999px; font-size: 11.5px; font-weight: 500;
-      border: 1px solid var(--border); background: var(--accent-lo); color: var(--muted);
-      transition: all 0.18s;
-    }
-    .h-tag:hover { border-color: rgba(184,0,245,0.50); background: rgba(184,0,245,0.16); color: var(--accent-lt); }
-
-    /* ── TIMELINE ── */
-    .h-timeline { padding-left: 28px; position: relative; }
-    .h-timeline::before {
-      content: ''; position: absolute;
-      left: 8px; top: 14px; bottom: 14px;
-      width: 1.5px; background: linear-gradient(180deg, var(--accent) 0%, rgba(184,0,245,0.12) 100%);
-    }
-    .h-step { position: relative; padding: 16px 0; }
-    .h-step-dot {
-      position: absolute; left: -24px; top: 20px;
-      width: 13px; height: 13px; border-radius: 50%;
-      background: var(--accent); border: 2px solid var(--bg);
-      box-shadow: 0 0 10px rgba(184,0,245,0.6);
-    }
-    .h-step-dot.dim { background: rgba(184,0,245,0.3); box-shadow: none; }
-    .h-step-num { font-size: 9.5px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; color: var(--accent-lt); margin-bottom: 4px; }
-    .h-step h3  { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 3px; }
-    .h-step p   { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
-
-    /* ── FORM CARD ── */
-    .h-form-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 32px 28px;
-      position: relative; overflow: hidden;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 30px rgba(184,0,245,0.06);
-      margin-bottom: 70px;
-    }
-    .h-form-card::before {
+    .role-card::before {
       content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
       width: 50%; height: 1.5px;
-      background: linear-gradient(90deg, transparent, var(--accent), var(--accent-lt), transparent);
-      opacity: 0.7;
+      background: linear-gradient(90deg, transparent, var(--accent), var(--alt), transparent);
     }
-    @media (max-width: 560px) {
-      .h-form-card { padding: 24px 16px; border-radius: 12px; }
+    .role-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    @media(max-width:500px){ .role-grid{ grid-template-columns: repeat(2,1fr); } }
+    .ri-lbl { font-size: 9px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--muted2); margin-bottom: 4px; }
+    .ri-val { font-size: 14px; font-weight: 600; color: var(--white); }
+    .ri-val.ac { color: var(--alt); }
+
+    /* ════════════════════════════════
+       CARDS GRID
+    ════════════════════════════════ */
+    .grid2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin-bottom: 12px; }
+    @media(max-width:560px){ .grid2{ grid-template-columns:1fr; } }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 18px;
+      transition: border-color .22s, transform .22s;
     }
-    .h-form-card h2 { font-size: clamp(20px, 4vw, 27px); margin-bottom: 6px; }
-    .h-form-card > p { font-size: 13px; color: var(--muted); margin-bottom: 28px; }
+    .card:hover { border-color: rgba(184,0,245,0.44); transform: translateY(-2px); }
+    .card-ico { font-size: 24px; margin-bottom: 10px; }
+    .card h3 { font-size: 14px; font-weight: 700; margin-bottom: 6px; color: var(--white); }
+    .card p  { font-size: 13px; color: var(--muted); line-height: 1.62; }
+    .card.full { grid-column: span 2; }
+    @media(max-width:560px){ .card.full{ grid-column: span 1; } }
 
-    /* form fields */
-    .h-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    @media (max-width: 520px) { .h-row { grid-template-columns: 1fr; gap: 0; } }
+    /* ════════════════════════════════
+       PERKS
+    ════════════════════════════════ */
+    .perks { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; }
+    @media(max-width:540px){ .perks{ grid-template-columns:1fr; } }
+    .perk {
+      display: flex; align-items: flex-start; gap: 13px;
+      padding: 16px 16px;
+      background: var(--card); border: 1px solid var(--bsub); border-radius: 10px;
+      transition: border-color .2s;
+    }
+    .perk:hover { border-color: rgba(184,0,245,0.26); }
+    .perk-ico { font-size: 22px; flex-shrink: 0; width: 32px; text-align: center; margin-top: 1px; }
+    .perk h3 { font-size: 13.5px; font-weight: 700; margin-bottom: 3px; color: var(--white); }
+    .perk p  { font-size: 12px; color: var(--muted); line-height: 1.55; }
 
-    .h-field { margin-bottom: 18px; }
-    .h-label {
+    /* tags */
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 22px; }
+    .tag {
+      padding: 5px 12px; border-radius: 5px; font-size: 11.5px; font-weight: 500;
+      border: 1px solid var(--border); background: var(--alo); color: var(--muted);
+      transition: all .18s;
+    }
+    .tag:hover { border-color: rgba(184,0,245,.48); background: rgba(184,0,245,.14); color: var(--alt); }
+
+    /* ════════════════════════════════
+       TIMELINE
+    ════════════════════════════════ */
+    .tl { padding-left: 28px; position: relative; margin-bottom: 10px; }
+    .tl::before {
+      content: ''; position: absolute; left: 7px; top: 16px; bottom: 16px;
+      width: 1.5px; background: linear-gradient(180deg, var(--accent), rgba(184,0,245,0.08));
+    }
+    .tl-step { position: relative; padding: 14px 0; }
+    .tl-dot {
+      position: absolute; left: -24px; top: 19px;
+      width: 13px; height: 13px; border-radius: 50%;
+      background: var(--accent); border: 2px solid var(--bg);
+      box-shadow: 0 0 10px rgba(184,0,245,0.55);
+    }
+    .tl-dot.dim { background: rgba(184,0,245,0.28); box-shadow: none; }
+    .tl-num { font-size: 9.5px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; color: var(--alt); margin-bottom: 3px; }
+    .tl-step h3 { font-size: 14px; font-weight: 700; margin-bottom: 3px; color: var(--white); }
+    .tl-step p  { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+
+    /* ════════════════════════════════
+       TEAM SECTION
+    ════════════════════════════════ */
+    .team-banner {
+      background: linear-gradient(135deg, rgba(24,6,40,0.90), rgba(10,2,20,0.96));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 24px;
+      position: relative; overflow: hidden;
+      margin-bottom: 12px;
+    }
+    .team-banner::before {
+      content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 45%; height: 1.5px;
+      background: linear-gradient(90deg, transparent, var(--accent), var(--alt), transparent);
+    }
+    .team-startup-tag {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(251,191,36,0.10); border: 1px solid rgba(251,191,36,0.28);
+      border-radius: 5px; padding: 4px 12px;
+      font-size: 10px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase;
+      color: #fcd34d; margin-bottom: 16px;
+    }
+    .team-startup-tag span {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #fbbf24; box-shadow: 0 0 6px #fbbf24;
+      animation: blink 2s ease-in-out infinite;
+    }
+    .team-banner h2 {
+      font-family: 'Coolvetica', var(--sys); font-weight: 400;
+      font-size: clamp(24px,4vw,36px); color: var(--white); margin-bottom: 10px;
+    }
+    .team-banner > p { font-size: 13.5px; color: var(--muted); line-height: 1.7; max-width: 620px; margin-bottom: 22px; }
+    .team-stats {
+      display: flex; flex-wrap: wrap; gap: 10px;
+    }
+    .ts {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 16px;
+      background: rgba(255,255,255,0.03); border: 1px solid var(--bsub); border-radius: 8px;
+      font-size: 12.5px; color: var(--muted); font-weight: 500;
+    }
+    .ts-ico { font-size: 18px; }
+
+    /* ════════════════════════════════
+       TERMS SECTION
+    ════════════════════════════════ */
+    .terms-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+    .terms-header {
+      background: linear-gradient(135deg, rgba(184,0,245,0.12), rgba(112,0,168,0.07));
+      border-bottom: 1px solid var(--border);
+      padding: 18px 22px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .terms-header-ico {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: rgba(184,0,245,0.15); border: 1px solid rgba(184,0,245,0.30);
+      display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;
+    }
+    .terms-header h3 {
+      font-family: 'Coolvetica', var(--sys); font-weight: 400;
+      font-size: clamp(18px,3.5vw,24px); color: var(--white);
+    }
+    .terms-header p { font-size: 12px; color: var(--muted2); margin-top: 2px; }
+
+    .terms-body { padding: 22px; }
+    .term-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 16px;
+      background: var(--card2); border: 1px solid var(--bsub); border-radius: 8px;
+      margin-bottom: 10px;
+      transition: border-color .2s;
+    }
+    .term-item:last-child { margin-bottom: 0; }
+    .term-item:hover { border-color: rgba(184,0,245,0.22); }
+    .term-num {
+      width: 28px; height: 28px; border-radius: 7px; flex-shrink: 0;
+      background: rgba(184,0,245,0.13); border: 1px solid rgba(184,0,245,0.28);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700; color: var(--alt);
+    }
+    .term-ico {
+      font-size: 22px; flex-shrink: 0; width: 28px; text-align: center; margin-top: 1px;
+    }
+    .term-item h4 { font-size: 13.5px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+    .term-item p  { font-size: 12.5px; color: var(--muted); line-height: 1.62; }
+
+    /* important term */
+    .term-item.imp {
+      border-color: rgba(239,68,68,0.28);
+      background: rgba(239,68,68,0.05);
+    }
+    .term-item.imp:hover { border-color: rgba(239,68,68,0.45); }
+    .term-item.imp .term-num { background: rgba(239,68,68,0.12); border-color: rgba(239,68,68,0.30); color: #f87171; }
+    .term-item.imp h4 { color: #fca5a5; }
+
+    /* warning term */
+    .term-item.warn {
+      border-color: rgba(251,191,36,0.25);
+      background: rgba(251,191,36,0.04);
+    }
+    .term-item.warn:hover { border-color: rgba(251,191,36,0.40); }
+    .term-item.warn .term-num { background: rgba(251,191,36,0.10); border-color: rgba(251,191,36,0.28); color: #fcd34d; }
+
+    /* ════════════════════════════════
+       APPLICATION FORM
+    ════════════════════════════════ */
+    .form-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 34px 28px;
+      position: relative; overflow: hidden;
+      box-shadow: 0 28px 70px rgba(0,0,0,0.5), 0 0 28px rgba(184,0,245,0.05);
+      margin-bottom: 80px;
+    }
+    .form-card::before {
+      content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 48%; height: 1.5px;
+      background: linear-gradient(90deg, transparent, var(--accent), var(--alt), transparent);
+    }
+    @media(max-width:560px){ .form-card{ padding: 22px 16px; border-radius: 10px; } }
+
+    .form-card h2 {
+      font-family: 'Coolvetica', var(--sys); font-weight: 400;
+      font-size: clamp(24px,4.5vw,36px); color: var(--white); margin-bottom: 6px;
+    }
+    .form-card > p { font-size: 13px; color: var(--muted); margin-bottom: 28px; }
+
+    .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media(max-width:520px){ .frow{ grid-template-columns:1fr; gap:0; } }
+
+    .fld { margin-bottom: 18px; }
+    .flbl {
       display: block; font-size: 11px; font-weight: 700;
-      letter-spacing: 0.6px; text-transform: uppercase;
+      letter-spacing: 0.5px; text-transform: uppercase;
       color: var(--muted); margin-bottom: 7px;
     }
-    .h-label span { color: var(--accent); }
+    .flbl span { color: var(--accent); }
 
-    .h-input, .h-select, .h-textarea {
+    .finput, .fsel, .ftarea {
       width: 100%;
       background: var(--card2);
       border: 1px solid var(--border);
-      border-radius: var(--rs);
+      border-radius: 8px;
       padding: 12px 14px;
-      font-family: var(--font);
+      font-family: var(--sys);
       font-size: 14px; color: var(--white);
       outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
+      transition: border-color .2s, box-shadow .2s, background .2s;
       -webkit-appearance: none; appearance: none;
     }
-    .h-input::placeholder, .h-textarea::placeholder { color: var(--muted2); }
-    .h-input:focus, .h-select:focus, .h-textarea:focus {
+    .finput::placeholder, .ftarea::placeholder { color: var(--muted2); }
+    .finput:focus, .fsel:focus, .ftarea:focus {
       border-color: rgba(184,0,245,0.60);
-      box-shadow: 0 0 0 3px rgba(184,0,245,0.10);
-      background: #1c062c;
+      box-shadow: 0 0 0 3px rgba(184,0,245,0.09);
+      background: #1a052b;
     }
-    .h-input.err { border-color: var(--red) !important; }
-    .h-select {
+    .finput.err { border-color: var(--red) !important; box-shadow: 0 0 0 3px rgba(239,68,68,0.12) !important; }
+    .fsel {
       cursor: pointer;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6 9l6 6 6-6' stroke='%23e879f9' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: right 14px center;
-      padding-right: 40px;
+      background-repeat: no-repeat; background-position: right 13px center;
+      padding-right: 38px;
     }
-    .h-select option { background: #190727; color: var(--white); }
-    .h-textarea { min-height: 110px; resize: vertical; line-height: 1.6; }
+    .fsel option { background: #190727; color: var(--white); }
+    .ftarea { min-height: 108px; resize: vertical; line-height: 1.62; }
+    .fhint { font-size: 11px; color: var(--muted2); margin-top: 5px; }
+    .ferr  { display: none; font-size: 11px; color: #f87171; margin-top: 4px; font-weight: 600; }
 
-    .h-hint { font-size: 11px; color: var(--muted2); margin-top: 5px; }
-    .h-err  { display: none; font-size: 11px; color: #f87171; margin-top: 4px; font-weight: 600; }
-
-    /* checkboxes */
-    .h-checks { display: flex; flex-direction: column; gap: 8px; }
-    .h-chk {
-      display: flex; align-items: center; gap: 11px;
-      padding: 11px 14px;
-      background: var(--card2); border: 1px solid var(--border-sub); border-radius: var(--rs);
-      cursor: pointer; transition: border-color 0.18s, background 0.18s;
-      user-select: none;
+    /* agree checkbox */
+    .agree-box {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 16px;
+      background: rgba(184,0,245,0.05); border: 1px solid rgba(184,0,245,0.22); border-radius: 8px;
+      margin-bottom: 6px; cursor: pointer;
     }
-    .h-chk:hover { border-color: var(--border); }
-    .h-chk input { display: none; }
-    .h-chkbox {
-      width: 18px; height: 18px; flex-shrink: 0;
-      border-radius: 5px; border: 1.5px solid rgba(184,0,245,0.35);
+    .agree-box input { display: none; }
+    .achk {
+      width: 20px; height: 20px; flex-shrink: 0; margin-top: 1px;
+      border-radius: 5px; border: 1.5px solid rgba(184,0,245,0.38);
       background: transparent;
       display: flex; align-items: center; justify-content: center;
-      transition: all 0.18s;
+      transition: all .18s;
     }
-    .h-chk input:checked ~ .h-chkbox {
-      background: var(--accent); border-color: var(--accent);
-    }
-    .h-chk input:checked ~ .h-chkbox::after {
+    .agree-box input:checked ~ .achk { background: var(--accent); border-color: var(--accent); }
+    .agree-box input:checked ~ .achk::after {
       content: ''; display: block;
       width: 4px; height: 8px;
       border: 2px solid #fff; border-top: none; border-left: none;
       transform: rotate(45deg) translateY(-1px);
     }
-    .h-chk-lbl { font-size: 13px; font-weight: 500; color: var(--muted); }
-    .h-chk:has(input:checked) { border-color: rgba(184,0,245,0.40); background: rgba(184,0,245,0.06); }
-    .h-chk:has(input:checked) .h-chk-lbl { color: var(--white); }
+    .agree-lbl { font-size: 12.5px; color: var(--muted); line-height: 1.55; font-weight: 500; }
+    .agree-lbl strong { color: var(--white); }
+    .ferr.agree-err { margin-top: 6px; padding-left: 2px; }
 
-    /* submit */
-    .h-submit {
-      width: 100%; padding: 14px 24px; margin-top: 24px;
-      background: linear-gradient(135deg, #b800f5, #7000a8);
-      border: none; border-radius: var(--rs);
+    /* checkboxes */
+    .chks { display: flex; flex-direction: column; gap: 8px; }
+    .chk {
+      display: flex; align-items: center; gap: 11px;
+      padding: 10px 14px;
+      background: var(--card2); border: 1px solid var(--bsub); border-radius: 7px;
+      cursor: pointer; transition: border-color .18s, background .18s; user-select: none;
+    }
+    .chk:hover { border-color: var(--border); }
+    .chk input { display: none; }
+    .chkbox {
+      width: 18px; height: 18px; flex-shrink: 0;
+      border-radius: 4px; border: 1.5px solid rgba(184,0,245,0.32);
+      background: transparent;
+      display: flex; align-items: center; justify-content: center;
+      transition: all .18s;
+    }
+    .chk input:checked ~ .chkbox { background: var(--accent); border-color: var(--accent); }
+    .chk input:checked ~ .chkbox::after {
+      content: ''; display: block;
+      width: 4px; height: 8px;
+      border: 2px solid #fff; border-top: none; border-left: none;
+      transform: rotate(45deg) translateY(-1px);
+    }
+    .chk-lbl { font-size: 13px; font-weight: 500; color: var(--muted); }
+    .chk:has(input:checked) { border-color: rgba(184,0,245,0.38); background: rgba(184,0,245,0.06); }
+    .chk:has(input:checked) .chk-lbl { color: var(--white); }
+
+    /* submit button */
+    .sub-btn {
+      width: 100%; padding: 15px 24px; margin-top: 24px;
+      background: linear-gradient(135deg, #b800f5, #6b00a0);
+      border: 1px solid rgba(184,0,245,0.40);
+      border-radius: 8px;
       color: #fff; font-size: 15px; font-weight: 700;
       display: flex; align-items: center; justify-content: center; gap: 8px;
-      cursor: pointer; transition: all 0.22s;
-      box-shadow: 0 5px 24px rgba(184,0,245,0.40);
+      cursor: pointer; transition: all .22s;
+      box-shadow: 0 5px 22px rgba(184,0,245,0.38), inset 0 1px 0 rgba(255,255,255,0.10);
+      font-family: var(--sys);
     }
-    .h-submit:hover { background: linear-gradient(135deg, #c716ff, #8800c5); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(184,0,245,0.55); }
-    .h-submit:active { transform: translateY(0); }
-    .h-submit.loading { opacity: 0.7; pointer-events: none; }
-    .h-submit .arr { transition: transform 0.2s; }
-    .h-submit:hover .arr { transform: translateX(3px); }
+    .sub-btn:hover { background: linear-gradient(135deg, #cc1aff, #8000c0); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(184,0,245,0.55); }
+    .sub-btn:active { transform: translateY(0); }
+    .sub-btn .arr { transition: transform .2s; }
+    .sub-btn:hover .arr { transform: translateX(3px); }
+    .sub-btn.loading { opacity: 0.72; pointer-events: none; }
 
-    /* ── SUCCESS ── */
-    .h-success { display: none; text-align: center; padding: 50px 20px; }
-    .h-success-icon {
+    /* success */
+    .success { display: none; text-align: center; padding: 50px 20px; }
+    .success-ico {
       width: 72px; height: 72px; border-radius: 50%;
-      background: rgba(34,197,94,0.10); border: 1.5px solid rgba(34,197,94,0.40);
+      background: rgba(34,197,94,0.09); border: 1.5px solid rgba(34,197,94,0.38);
       display: flex; align-items: center; justify-content: center;
       margin: 0 auto 20px;
-      animation: pop 0.45s cubic-bezier(0.16,1,0.3,1) forwards;
+      animation: pop .45s cubic-bezier(0.16,1,0.3,1) forwards;
     }
-    @keyframes pop { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-    .h-success h2 { font-size: clamp(22px, 5vw, 32px); margin-bottom: 10px; }
-    .h-success p  { font-size: 14px; color: var(--muted); max-width: 380px; margin: 0 auto 28px; line-height: 1.7; }
-    .h-wa-btn {
+    @keyframes pop { from{transform:scale(0.5);opacity:0} to{transform:scale(1);opacity:1} }
+    .success h2 {
+      font-family: 'Coolvetica', var(--sys); font-weight: 400;
+      font-size: clamp(26px,5vw,38px); margin-bottom: 10px;
+    }
+    .success p  { font-size: 14px; color: var(--muted); max-width: 360px; margin: 0 auto 26px; line-height: 1.7; }
+    .wa-btn {
       display: inline-flex; align-items: center; gap: 8px;
-      padding: 13px 24px; border-radius: var(--rs);
+      padding: 13px 24px; border-radius: 8px;
       background: linear-gradient(135deg, #16a34a, #14532d);
       color: #fff; font-size: 14px; font-weight: 700;
-      border: none; cursor: pointer; text-decoration: none;
-      box-shadow: 0 4px 18px rgba(22,163,74,0.35);
-      transition: all 0.2s; margin-bottom: 12px;
+      border: 1px solid rgba(34,197,94,0.3); cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(22,163,74,0.32); transition: all .2s;
+      margin-bottom: 12px;
     }
-    .h-wa-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(22,163,74,0.50); }
-    .h-back-btn {
+    .wa-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 26px rgba(22,163,74,0.48); }
+    .back-btn {
       display: inline-flex; align-items: center; gap: 7px;
-      padding: 11px 22px; border-radius: var(--rs);
-      background: var(--accent-lo); border: 1px solid var(--border);
-      color: var(--accent-lt); font-size: 13px; font-weight: 600;
-      text-decoration: none; transition: all 0.18s;
+      padding: 10px 20px; border-radius: 7px;
+      background: var(--alo); border: 1px solid var(--border);
+      color: var(--alt); font-size: 13px; font-weight: 600;
+      text-decoration: none; transition: all .18s;
     }
-    .h-back-btn:hover { background: var(--accent-md); color: #fff; }
+    .back-btn:hover { background: var(--amd); color: #fff; }
 
-    /* ── FOOTER ── */
-    .h-footer { text-align: center; padding: 40px 20px 32px; font-size: 12px; color: var(--muted2); line-height: 1.6; }
-    .h-footer a { color: var(--accent-lt); }
+    /* footer */
+    .footer { text-align: center; padding: 36px 20px 28px; font-size: 12px; color: var(--muted2); line-height: 1.6; }
+    .footer a { color: var(--alt); }
 
-    /* ── FADE UP ANIMATION ── */
-    .fu { opacity: 0; transform: translateY(18px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    /* fade-up */
+    .fu { opacity: 0; transform: translateY(16px); transition: opacity .48s ease, transform .48s ease; }
     .fu.in { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
 
-<div class="h-orb h-orb-1" aria-hidden="true"></div>
-<div class="h-orb h-orb-2" aria-hidden="true"></div>
-
+<div class="orb orb1" aria-hidden="true"></div>
+<div class="orb orb2" aria-hidden="true"></div>
 <div id="bg-scene" aria-hidden="true">
   <div class="bg-corner-tl"></div><div class="bg-corner-tr"></div>
   <div class="bg-vortex-wrap"><div class="bg-vortex-ring"></div></div>
@@ -425,9 +580,9 @@
   <div class="bg-particles"></div><div class="bg-grain"></div>
 </div>
 
-<div class="h-page">
+<div class="page">
 
-  <!-- ── NAVBAR ── -->
+  <!-- NAVBAR -->
   <section class="header-section">
     <div role="banner" class="navbar-2">
       <div class="navbar-container w-container">
@@ -464,278 +619,258 @@
     </div>
   </section>
 
-  <!-- ── HERO ── -->
-  <div class="h-hero fu">
-    <div class="h-badge">
-      <span class="h-badge-dot"></span>
-      NOW HIRING &bull; ZENTIC MEDIA
-    </div>
-    <h1>We're Looking for a<br><span class="h-grad">Video Editor</span></h1>
-    <p>Join our creative studio. Remote-first, paid per project, quality over quantity.</p>
-
-    <div class="h-pills">
-      <span class="h-pill h-pill-g">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        Part-time / Full-time
+  <!-- ══ HERO ══ -->
+  <div class="hero fu">
+    <div class="new-tag"><span class="new-dot"></span>NOW HIRING &bull; OPEN POSITION</div>
+    <h1 class="hero-h1">
+      Join Our<br>
+      <span class="grad">Creative Team</span>
+    </h1>
+    <p class="hero-sub">We're looking for a talented Video Editor to grow with us. Remote, project-based, and built on trust.</p>
+    <div class="pills">
+      <span class="pill pill-g">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Flexible Hours
       </span>
-      <span class="h-pill h-pill-p">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#e879f9" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span class="pill pill-p">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#e879f9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         100% Remote
       </span>
-      <span class="h-pill h-pill-b">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#93c5fd" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        Competitive Pay
+      <span class="pill pill-b">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#93c5fd" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Project-Based Pay
       </span>
-      <span class="h-pill">&#9889; Immediate Start</span>
+      <span class="pill pill-y">&#9889; Immediate Start</span>
     </div>
-
-    <a href="#apply" class="h-cta">
+    <a href="#apply" class="cta-btn">
       Apply Now
       <svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
   </div>
 
-  <div class="h-wrap">
+  <div class="wrap">
 
-    <!-- Role -->
-    <div class="h-div fu">
-      <div class="h-div-line"></div>
-      <span class="h-div-lbl">&#10022; THE ROLE</span>
-      <div class="h-div-line"></div>
-    </div>
+    <!-- ══ ROLE ══ -->
+    <div class="sdiv fu"><div class="sdiv-line"></div><span class="sdiv-lbl">&#10022; THE ROLE</span><div class="sdiv-line"></div></div>
 
-    <div class="h-role-card fu">
-      <div class="h-role-grid">
-        <div class="h-role-item">
-          <span class="h-role-lbl">Position</span>
-          <span class="h-role-val">Video Editor</span>
-        </div>
-        <div class="h-role-item">
-          <span class="h-role-lbl">Work Type</span>
-          <span class="h-role-val">Remote / Freelance</span>
-        </div>
-        <div class="h-role-item">
-          <span class="h-role-lbl">Experience</span>
-          <span class="h-role-val">1+ Year</span>
-        </div>
-        <div class="h-role-item">
-          <span class="h-role-lbl">Pay Model</span>
-          <span class="h-role-val accent">Per Project + Bonus</span>
-        </div>
-        <div class="h-role-item">
-          <span class="h-role-lbl">Software</span>
-          <span class="h-role-val">Premiere / DaVinci</span>
-        </div>
-        <div class="h-role-item">
-          <span class="h-role-lbl">Start</span>
-          <span class="h-role-val">Immediately</span>
-        </div>
+    <div class="role-card fu">
+      <div class="role-grid">
+        <div><div class="ri-lbl">Position</div><div class="ri-val">Video Editor</div></div>
+        <div><div class="ri-lbl">Work Type</div><div class="ri-val">Remote / Freelance</div></div>
+        <div><div class="ri-lbl">Experience</div><div class="ri-val">1+ Year</div></div>
+        <div><div class="ri-lbl">Pay Model</div><div class="ri-val ac">Per Project + Bonus</div></div>
+        <div><div class="ri-lbl">Software</div><div class="ri-val">Premiere / DaVinci</div></div>
+        <div><div class="ri-lbl">Start Date</div><div class="ri-val">Immediately</div></div>
       </div>
     </div>
 
-    <!-- What We Do -->
-    <div class="h-div fu">
-      <div class="h-div-line"></div>
-      <span class="h-div-lbl">&#10022; WHAT WE DO</span>
-      <div class="h-div-line"></div>
-    </div>
+    <!-- ══ ABOUT US / TEAM ══ -->
+    <div class="sdiv fu"><div class="sdiv-line"></div><span class="sdiv-lbl">&#10022; ABOUT US</span><div class="sdiv-line"></div></div>
 
-    <div class="h-grid fu">
-      <div class="h-card">
-        <div class="h-card-icon">&#127916;</div>
-        <h3>Short-Form Content</h3>
-        <p>Reels, TikToks, Shorts — fast edits that hook viewers in the first 3 seconds.</p>
-      </div>
-      <div class="h-card">
-        <div class="h-card-icon">&#128640;</div>
-        <h3>SaaS Product Videos</h3>
-        <p>Clean product demos and explainer videos that drive software sign-ups.</p>
-      </div>
-      <div class="h-card">
-        <div class="h-card-icon">&#127919;</div>
-        <h3>Promotional Ads</h3>
-        <p>Ad videos built for ROI — strong hooks, clear CTAs, optimized to sell.</p>
-      </div>
-      <div class="h-card">
-        <div class="h-card-icon">&#127909;</div>
-        <h3>Personal Brand</h3>
-        <p>Videos for founders and creators to grow their audience and authority.</p>
+    <div class="team-banner fu">
+      <div class="team-startup-tag"><span></span>FRESH START &bull; NEW STUDIO</div>
+      <h2>We Are <span style="background:linear-gradient(120deg,#fff,#e879f9,#b800f5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Zentic Media</span></h2>
+      <p>We're a brand-new video production studio — just getting started, but building something real. We partner with SaaS companies, e-commerce brands, and personal brands to create videos that actually convert. We're not a big agency. We're a small, focused team that moves fast and cares deeply about quality.</p>
+      <p style="font-size:13px; color:var(--muted2); margin-top:10px; margin-bottom:22px;">Because we're new, every person we bring on board matters a lot. We're looking for someone who wants to grow with us — not just do gigs.</p>
+      <div class="team-stats">
+        <div class="ts"><span class="ts-ico">&#127756;</span> Brand New Studio</div>
+        <div class="ts"><span class="ts-ico">&#128640;</span> Growing Fast</div>
+        <div class="ts"><span class="ts-ico">&#129309;</span> Small Tight Team</div>
+        <div class="ts"><span class="ts-ico">&#128161;</span> Quality-Focused</div>
+        <div class="ts"><span class="ts-ico">&#127919;</span> Results-Driven</div>
       </div>
     </div>
 
-    <!-- Requirements -->
-    <div class="h-div fu">
-      <div class="h-div-line"></div>
-      <span class="h-div-lbl">&#10022; REQUIREMENTS</span>
-      <div class="h-div-line"></div>
+    <!-- ══ WHAT WE DO ══ -->
+    <div class="sdiv fu"><div class="sdiv-line"></div><span class="sdiv-lbl">&#10022; WHAT WE DO</span><div class="sdiv-line"></div></div>
+
+    <div class="grid2 fu">
+      <div class="card"><div class="card-ico">&#127916;</div><h3>Short-Form Content</h3><p>Reels, TikToks, Shorts — edits that grab attention in the first 3 seconds.</p></div>
+      <div class="card"><div class="card-ico">&#128640;</div><h3>SaaS Product Videos</h3><p>Clean product demos and explainers that drive software sign-ups and trials.</p></div>
+      <div class="card"><div class="card-ico">&#127919;</div><h3>Promotional Ads</h3><p>Ad videos built for ROI — strong hooks, clear CTAs, designed to sell.</p></div>
+      <div class="card"><div class="card-ico">&#127909;</div><h3>Personal Brand</h3><p>Videos for founders and creators to grow audience, trust, and authority.</p></div>
     </div>
 
-    <div class="h-grid fu">
-      <div class="h-card">
-        <div class="h-card-icon">&#9989;</div>
-        <h3>Must Have</h3>
-        <p>
-          &bull; Premiere Pro or DaVinci Resolve<br>
-          &bull; Good sense of timing &amp; pacing<br>
-          &bull; Portfolio / demo reel<br>
-          &bull; Reliable internet &amp; PC
-        </p>
-      </div>
-      <div class="h-card">
-        <div class="h-card-icon">&#11088;</div>
-        <h3>Nice to Have</h3>
-        <p>
-          &bull; After Effects / motion graphics<br>
-          &bull; Social media editing experience<br>
-          &bull; Color grading skills<br>
-          &bull; Video marketing knowledge
-        </p>
-      </div>
-      <div class="h-card" style="grid-column: span 2;">
-        <div class="h-card-icon">&#128172;</div>
-        <h3>Soft Skills We Value</h3>
-        <p>Fast communicator &bull; Takes feedback well &bull; Meets deadlines &bull; Proactive with ideas</p>
-      </div>
+    <!-- ══ REQUIREMENTS ══ -->
+    <div class="sdiv fu"><div class="sdiv-line"></div><span class="sdiv-lbl">&#10022; REQUIREMENTS</span><div class="sdiv-line"></div></div>
+
+    <div class="grid2 fu">
+      <div class="card"><div class="card-ico">&#9989;</div><h3>Must Have</h3><p>&bull; Premiere Pro or DaVinci Resolve<br>&bull; Good timing &amp; storytelling sense<br>&bull; Portfolio / demo reel<br>&bull; Reliable internet &amp; PC</p></div>
+      <div class="card"><div class="card-ico">&#11088;</div><h3>Nice to Have</h3><p>&bull; After Effects / Motion Graphics<br>&bull; Social media editing experience<br>&bull; Color grading skills<br>&bull; Understanding of video marketing</p></div>
+      <div class="card full"><div class="card-ico">&#128172;</div><h3>Soft Skills That Matter</h3><p>Fast communicator &nbsp;&bull;&nbsp; Takes feedback without ego &nbsp;&bull;&nbsp; Meets deadlines 100% &nbsp;&bull;&nbsp; Proactive with ideas &nbsp;&bull;&nbsp; Stays active &amp; responsive</p></div>
     </div>
 
-    <div class="h-tags fu">
-      <span class="h-tag">Adobe Premiere Pro</span>
-      <span class="h-tag">DaVinci Resolve</span>
-      <span class="h-tag">After Effects</span>
-      <span class="h-tag">Color Grading</span>
-      <span class="h-tag">Motion Graphics</span>
-      <span class="h-tag">Short-Form</span>
-      <span class="h-tag">YouTube</span>
-      <span class="h-tag">Reels / TikTok</span>
-      <span class="h-tag">Captions</span>
-      <span class="h-tag">Storytelling</span>
+    <div class="tags fu">
+      <span class="tag">Adobe Premiere Pro</span>
+      <span class="tag">DaVinci Resolve</span>
+      <span class="tag">After Effects</span>
+      <span class="tag">Color Grading</span>
+      <span class="tag">Motion Graphics</span>
+      <span class="tag">Short-Form</span>
+      <span class="tag">YouTube</span>
+      <span class="tag">Reels / TikTok</span>
+      <span class="tag">Captions</span>
+      <span class="tag">Storytelling</span>
+      <span class="tag">Audio Sync</span>
     </div>
 
-    <!-- Perks -->
-    <div class="h-div fu">
-      <div class="h-div-line"></div>
-      <span class="h-div-lbl">&#10022; WHAT YOU GET</span>
-      <div class="h-div-line"></div>
+    <!-- ══ PERKS ══ -->
+    <div class="sdiv fu"><div class="sdiv-line"></div><span class="sdiv-lbl">&#10022; WHAT YOU GET</span><div class="sdiv-line"></div></div>
+
+    <div class="perks fu">
+      <div class="perk"><div class="perk-ico">&#128176;</div><div><h3>Competitive Pay</h3><p>Fair per-project rates with bonuses for outstanding work and client referrals.</p></div></div>
+      <div class="perk"><div class="perk-ico">&#127760;</div><div><h3>100% Remote</h3><p>Work from anywhere. No office, no commute, no fixed location required.</p></div></div>
+      <div class="perk"><div class="perk-ico">&#128200;</div><div><h3>Grow With Us</h3><p>Top performers get long-term retainer contracts with steadily increasing rates.</p></div></div>
+      <div class="perk"><div class="perk-ico">&#127912;</div><div><h3>Creative Freedom</h3><p>We give clear briefs but trust your eye. Suggest ideas, lead the visual direction.</p></div></div>
+      <div class="perk"><div class="perk-ico">&#9889;</div><div><h3>Fast Payments</h3><p>Paid right after project delivery. No 30-60 day agency wait times.</p></div></div>
+      <div class="perk"><div class="perk-ico">&#129309;</div><div><h3>Direct Access</h3><p>WhatsApp with the founder directly. Quick feedback, no middlemen or delays.</p></div></div>
     </div>
 
-    <div class="h-perks fu">
-      <div class="h-perk">
-        <div class="h-perk-ico">&#128176;</div>
+    <!-- ══ PROCESS ══ -->
+    <div class="sdiv fu"><div class="sdiv-line"></div><span class="sdiv-lbl">&#10022; HOW IT WORKS</span><div class="sdiv-line"></div></div>
+
+    <div class="tl fu">
+      <div class="tl-step"><div class="tl-dot"></div><div class="tl-num">Step 01</div><h3>Submit Application</h3><p>Fill out the form below — under 5 minutes, no resume needed.</p></div>
+      <div class="tl-step"><div class="tl-dot"></div><div class="tl-num">Step 02</div><h3>Portfolio Review</h3><p>We review your reel within 48 hours — pacing, creativity, and detail.</p></div>
+      <div class="tl-step"><div class="tl-dot dim"></div><div class="tl-num">Step 03</div><h3>WhatsApp Chat</h3><p>A quick, casual chat with the founder about your style and availability.</p></div>
+      <div class="tl-step"><div class="tl-dot dim"></div><div class="tl-num">Step 04</div><h3>Paid Test Edit</h3><p>A small, paid test project. Great fit? Welcome to the team!</p></div>
+    </div>
+
+    <!-- ══ TERMS & CONDITIONS ══ -->
+    <div class="sdiv fu"><div class="sdiv-line"></div><span class="sdiv-lbl">&#10022; TERMS &amp; CONDITIONS</span><div class="sdiv-line"></div></div>
+
+    <div class="fu" style="margin-bottom:10px;">
+      <h2 class="sh">Before You <span class="grad">Apply</span></h2>
+      <p class="ssub">Please read these terms carefully. By applying, you agree to follow these working rules. These exist to protect both you and us.</p>
+    </div>
+
+    <div class="terms-card fu">
+      <div class="terms-header">
+        <div class="terms-header-ico">&#128220;</div>
         <div>
-          <h3>Competitive Pay</h3>
-          <p>Fair per-project rates + bonuses for exceptional work.</p>
+          <h3>Working Terms</h3>
+          <p>Effective for all freelance editors working with Zentic Media</p>
         </div>
       </div>
-      <div class="h-perk">
-        <div class="h-perk-ico">&#127760;</div>
-        <div>
-          <h3>100% Remote</h3>
-          <p>Work from anywhere. No office, no commute.</p>
+      <div class="terms-body">
+
+        <div class="term-item">
+          <div class="term-num">01</div>
+          <div>
+            <h4>&#128187;&nbsp; Project-Based Work Only</h4>
+            <p>All work at Zentic Media is <strong>project-based</strong>. You will be assigned individual video projects with clear briefs, timelines, and deliverables. There is no fixed monthly salary — payment is made per completed project.</p>
+          </div>
         </div>
-      </div>
-      <div class="h-perk">
-        <div class="h-perk-ico">&#128200;</div>
-        <div>
-          <h3>Growth &amp; Retainer</h3>
-          <p>Top editors get long-term contracts with higher rates.</p>
+
+        <div class="term-item imp">
+          <div class="term-num">02</div>
+          <div>
+            <h4>&#128181;&nbsp; Advance Payment is Required to Start Work</h4>
+            <p>Before any project begins, the <strong>client must pay an advance</strong> to Zentic Media. Work on a project will <strong>not start</strong> until the advance has been received and confirmed. If a client does not pay the advance, the project will not proceed — and no work should be started by the editor under any circumstances.</p>
+          </div>
         </div>
-      </div>
-      <div class="h-perk">
-        <div class="h-perk-ico">&#127912;</div>
-        <div>
-          <h3>Creative Freedom</h3>
-          <p>Clear briefs, but your creative eye leads the final look.</p>
+
+        <div class="term-item imp">
+          <div class="term-num">03</div>
+          <div>
+            <h4>&#128683;&nbsp; No Advance = No Work</h4>
+            <p>This is a strict rule. <strong>Do not begin any editing work</strong> until you receive confirmation from us that the client's advance payment has been received. Starting work without advance confirmation will not be compensated.</p>
+          </div>
         </div>
-      </div>
-      <div class="h-perk">
-        <div class="h-perk-ico">&#9889;</div>
-        <div>
-          <h3>Fast Payments</h3>
-          <p>Paid right after delivery — no 30-60 day waits.</p>
+
+        <div class="term-item warn">
+          <div class="term-num">04</div>
+          <div>
+            <h4>&#128276;&nbsp; Stay Active &amp; Responsive</h4>
+            <p>You must remain <strong>as active as possible</strong> during working hours. When we send you a message, we expect a reply within a reasonable time. Slow or no responses delay projects and affect client relationships. If you're unavailable, inform us in advance.</p>
+          </div>
         </div>
-      </div>
-      <div class="h-perk">
-        <div class="h-perk-ico">&#129309;</div>
-        <div>
-          <h3>Direct Access</h3>
-          <p>WhatsApp with the founder. No bureaucracy, quick decisions.</p>
+
+        <div class="term-item imp">
+          <div class="term-num">05</div>
+          <div>
+            <h4>&#128337;&nbsp; Deadlines Are Non-Negotiable</h4>
+            <p>You must <strong>meet every deadline 100%</strong> of the time. Late deliveries damage our reputation with clients and will not be tolerated. If you foresee a delay, you must communicate it to us <em>before</em> the deadline — not after. Consistent late delivery will result in termination.</p>
+          </div>
         </div>
+
+        <div class="term-item">
+          <div class="term-num">06</div>
+          <div>
+            <h4>&#128274;&nbsp; Client Confidentiality</h4>
+            <p>All client information, project files, briefs, and footage shared with you are <strong>strictly confidential</strong>. You may not share, publish, or use any client material without explicit written permission from Zentic Media and the client.</p>
+          </div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-num">07</div>
+          <div>
+            <h4>&#127775;&nbsp; Quality Standards</h4>
+            <p>Every deliverable must meet our quality standards before submission. Rushed, low-effort work will be sent back for revision. We value quality over speed — but both matter. Take pride in your work.</p>
+          </div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-num">08</div>
+          <div>
+            <h4>&#128257;&nbsp; Revisions</h4>
+            <p>You must be willing to make <strong>reasonable revisions</strong> based on client or team feedback. Revisions that fall within the original project scope are expected as part of the project and will not be separately charged to the client.</p>
+          </div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-num">09</div>
+          <div>
+            <h4>&#128200;&nbsp; Performance &amp; Growth</h4>
+            <p>Editors who consistently deliver quality work on time, communicate professionally, and show initiative will be considered for <strong>higher rates, more projects, and long-term retainer contracts</strong>. We reward dedication.</p>
+          </div>
+        </div>
+
+        <div class="term-item warn">
+          <div class="term-num">10</div>
+          <div>
+            <h4>&#129296;&nbsp; Mutual Respect</h4>
+            <p>We run a professional and respectful environment. We expect editors to treat our team and clients with respect. In return, we commit to being fair, transparent, and supportive in every interaction.</p>
+          </div>
+        </div>
+
       </div>
     </div>
 
-    <!-- Process -->
-    <div class="h-div fu">
-      <div class="h-div-line"></div>
-      <span class="h-div-lbl">&#10022; PROCESS</span>
-      <div class="h-div-line"></div>
-    </div>
+    <!-- ══ APPLICATION FORM ══ -->
+    <div class="sdiv fu"><div class="sdiv-line"></div><span class="sdiv-lbl">&#10022; APPLY NOW</span><div class="sdiv-line"></div></div>
 
-    <div class="h-timeline fu" style="margin-bottom: 16px;">
-      <div class="h-step">
-        <div class="h-step-dot"></div>
-        <div class="h-step-num">Step 01</div>
-        <h3>Submit Application</h3>
-        <p>Fill out the form below — takes under 5 minutes.</p>
-      </div>
-      <div class="h-step">
-        <div class="h-step-dot"></div>
-        <div class="h-step-num">Step 02</div>
-        <h3>Portfolio Review</h3>
-        <p>We review your reel within 48 hours. Pacing, creativity, detail.</p>
-      </div>
-      <div class="h-step">
-        <div class="h-step-dot dim"></div>
-        <div class="h-step-num">Step 03</div>
-        <h3>WhatsApp Chat</h3>
-        <p>A quick chat with the founder about your style and availability.</p>
-      </div>
-      <div class="h-step">
-        <div class="h-step-dot dim"></div>
-        <div class="h-step-num">Step 04</div>
-        <h3>Paid Test Edit</h3>
-        <p>A small paid test. Good fit? You're in!</p>
-      </div>
-    </div>
+    <div id="apply" class="form-card fu">
 
-    <!-- FORM -->
-    <div class="h-div fu">
-      <div class="h-div-line"></div>
-      <span class="h-div-lbl">&#10022; APPLY NOW</span>
-      <div class="h-div-line"></div>
-    </div>
+      <div id="form-wrap">
+        <h2>Submit Your <span style="background:linear-gradient(120deg,#fff,#e879f9,#b800f5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Application</span></h2>
+        <p>No resume needed — just your portfolio and a quick intro. Under 5 minutes.</p>
 
-    <div id="apply" class="h-form-card fu">
+        <form id="the-form" novalidate>
 
-      <!-- Form -->
-      <div id="h-form-wrap">
-        <h2>Submit Your <span class="h-grad">Application</span></h2>
-        <p>No resume needed — just your portfolio and a quick intro.</p>
-
-        <form id="h-form" novalidate>
-
-          <div class="h-row">
-            <div class="h-field">
-              <label class="h-label" for="f-name">Full Name <span>*</span></label>
-              <input class="h-input" id="f-name" type="text" placeholder="Your full name" required/>
-              <div class="h-err" id="f-name-e">Please enter your name.</div>
+          <div class="frow">
+            <div class="fld">
+              <label class="flbl" for="f-name">Full Name <span>*</span></label>
+              <input class="finput" id="f-name" type="text" placeholder="Your full name" required/>
+              <div class="ferr" id="f-name-e">Please enter your name.</div>
             </div>
-            <div class="h-field">
-              <label class="h-label" for="f-wa">WhatsApp Number <span>*</span></label>
-              <input class="h-input" id="f-wa" type="tel" placeholder="+880 1XXX XXXXXX" required/>
-              <div class="h-err" id="f-wa-e">Please enter your WhatsApp number.</div>
+            <div class="fld">
+              <label class="flbl" for="f-wa">WhatsApp Number <span>*</span></label>
+              <input class="finput" id="f-wa" type="tel" placeholder="+880 1XXX XXXXXX" required/>
+              <div class="ferr" id="f-wa-e">Please enter your WhatsApp number.</div>
             </div>
           </div>
 
-          <div class="h-field">
-            <label class="h-label" for="f-email">Email Address <span>*</span></label>
-            <input class="h-input" id="f-email" type="email" placeholder="you@example.com" required/>
-            <div class="h-err" id="f-email-e">Please enter a valid email.</div>
+          <div class="fld">
+            <label class="flbl" for="f-email">Email Address <span>*</span></label>
+            <input class="finput" id="f-email" type="email" placeholder="you@example.com" required/>
+            <div class="ferr" id="f-email-e">Please enter a valid email.</div>
           </div>
 
-          <div class="h-row">
-            <div class="h-field">
-              <label class="h-label" for="f-exp">Years of Experience <span>*</span></label>
-              <select class="h-input h-select" id="f-exp" required>
+          <div class="frow">
+            <div class="fld">
+              <label class="flbl" for="f-exp">Years of Experience <span>*</span></label>
+              <select class="finput fsel" id="f-exp" required>
                 <option value="">Select...</option>
                 <option value="less-1">Less than 1 year</option>
                 <option value="1-2">1 &ndash; 2 years</option>
@@ -743,11 +878,11 @@
                 <option value="4-6">4 &ndash; 6 years</option>
                 <option value="6+">6+ years</option>
               </select>
-              <div class="h-err" id="f-exp-e">Please select experience.</div>
+              <div class="ferr" id="f-exp-e">Please select experience.</div>
             </div>
-            <div class="h-field">
-              <label class="h-label" for="f-sw">Primary Software <span>*</span></label>
-              <select class="h-input h-select" id="f-sw" required>
+            <div class="fld">
+              <label class="flbl" for="f-sw">Primary Software <span>*</span></label>
+              <select class="finput fsel" id="f-sw" required>
                 <option value="">Select...</option>
                 <option value="premiere">Adobe Premiere Pro</option>
                 <option value="davinci">DaVinci Resolve</option>
@@ -755,32 +890,32 @@
                 <option value="capcut">CapCut</option>
                 <option value="other">Other</option>
               </select>
-              <div class="h-err" id="f-sw-e">Please select software.</div>
+              <div class="ferr" id="f-sw-e">Please select your software.</div>
             </div>
           </div>
 
-          <div class="h-field">
-            <label class="h-label" for="f-reel">Portfolio / Demo Reel Link <span>*</span></label>
-            <input class="h-input" id="f-reel" type="url" placeholder="YouTube, Drive, Vimeo, Behance..." required/>
-            <div class="h-hint">Any public link works.</div>
-            <div class="h-err" id="f-reel-e">Please provide a portfolio link.</div>
+          <div class="fld">
+            <label class="flbl" for="f-reel">Portfolio / Demo Reel Link <span>*</span></label>
+            <input class="finput" id="f-reel" type="url" placeholder="YouTube, Google Drive, Vimeo, Behance..." required/>
+            <div class="fhint">Any public link works — just make sure it's accessible.</div>
+            <div class="ferr" id="f-reel-e">Please provide a portfolio link.</div>
           </div>
 
-          <div class="h-field">
-            <label class="h-label">Content Types You Edit <span>*</span></label>
-            <div class="h-checks">
-              <label class="h-chk"><input type="checkbox" name="ct" value="short-form"><div class="h-chkbox"></div><span class="h-chk-lbl">&#127916; Short-form (Reels, TikTok, Shorts)</span></label>
-              <label class="h-chk"><input type="checkbox" name="ct" value="longform"><div class="h-chkbox"></div><span class="h-chk-lbl">&#9654;&#65039; Long-form (YouTube, Podcast)</span></label>
-              <label class="h-chk"><input type="checkbox" name="ct" value="ads"><div class="h-chkbox"></div><span class="h-chk-lbl">&#128226; Ads &amp; Promotional</span></label>
-              <label class="h-chk"><input type="checkbox" name="ct" value="product"><div class="h-chkbox"></div><span class="h-chk-lbl">&#128188; Product / SaaS Videos</span></label>
-              <label class="h-chk"><input type="checkbox" name="ct" value="other"><div class="h-chkbox"></div><span class="h-chk-lbl">&#10024; Other / Mixed</span></label>
+          <div class="fld">
+            <label class="flbl">Content Types You Edit <span>*</span></label>
+            <div class="chks">
+              <label class="chk"><input type="checkbox" name="ct" value="short-form"><div class="chkbox"></div><span class="chk-lbl">&#127916; Short-form (Reels, TikTok, Shorts)</span></label>
+              <label class="chk"><input type="checkbox" name="ct" value="longform"><div class="chkbox"></div><span class="chk-lbl">&#9654;&#65039; Long-form (YouTube, Podcast)</span></label>
+              <label class="chk"><input type="checkbox" name="ct" value="ads"><div class="chkbox"></div><span class="chk-lbl">&#128226; Ads &amp; Promotional Videos</span></label>
+              <label class="chk"><input type="checkbox" name="ct" value="product"><div class="chkbox"></div><span class="chk-lbl">&#128188; Product / SaaS Videos</span></label>
+              <label class="chk"><input type="checkbox" name="ct" value="other"><div class="chkbox"></div><span class="chk-lbl">&#10024; Other / Mixed</span></label>
             </div>
-            <div class="h-err" id="f-ct-e">Please select at least one type.</div>
+            <div class="ferr" id="f-ct-e">Please select at least one content type.</div>
           </div>
 
-          <div class="h-field">
-            <label class="h-label" for="f-rate">Expected Rate per Short Video (USD)</label>
-            <select class="h-input h-select" id="f-rate">
+          <div class="fld">
+            <label class="flbl" for="f-rate">Expected Rate per Short Video (USD)</label>
+            <select class="finput fsel" id="f-rate">
               <option value="">Negotiable / Prefer not to say</option>
               <option value="5-15">$5 &ndash; $15 per video</option>
               <option value="15-30">$15 &ndash; $30 per video</option>
@@ -790,14 +925,25 @@
             </select>
           </div>
 
-          <div class="h-field">
-            <label class="h-label" for="f-intro">About You <span>*</span></label>
-            <textarea class="h-textarea" id="f-intro" placeholder="Briefly describe your editing style, types of videos you love making, and why you want to work with Zentic Media..." required></textarea>
-            <div class="h-hint">3&ndash;5 sentences is enough.</div>
-            <div class="h-err" id="f-intro-e">Please write a short introduction.</div>
+          <div class="fld">
+            <label class="flbl" for="f-intro">Tell Us About Yourself <span>*</span></label>
+            <textarea class="ftarea" id="f-intro" placeholder="Briefly describe your editing style, what types of videos you enjoy making, and why you want to work with Zentic Media..." required></textarea>
+            <div class="fhint">3&ndash;5 sentences is enough.</div>
+            <div class="ferr" id="f-intro-e">Please write a short introduction.</div>
           </div>
 
-          <button type="submit" class="h-submit" id="h-submit-btn">
+          <!-- Terms Agreement -->
+          <div class="fld" style="margin-bottom:6px;">
+            <label class="flbl">Agreement <span>*</span></label>
+            <label class="agree-box" id="agree-label">
+              <input type="checkbox" id="f-agree">
+              <div class="achk"></div>
+              <span class="agree-lbl">I have read and agree to Zentic Media's <strong>Terms &amp; Conditions</strong>. I understand that work begins only after advance payment is confirmed, deadlines must be met 100%, and I must stay active and responsive at all times.</span>
+            </label>
+            <div class="ferr agree-err" id="f-agree-e">You must agree to the terms before applying.</div>
+          </div>
+
+          <button type="submit" class="sub-btn" id="sub-btn">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
             Submit Application
             <svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -807,43 +953,43 @@
       </div>
 
       <!-- Success -->
-      <div class="h-success" id="h-success">
-        <div class="h-success-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <div class="success" id="success-wrap">
+        <div class="success-ico">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
         </div>
-        <h2>Application <span class="h-grad">Submitted!</span> &#127881;</h2>
-        <p>We'll review your portfolio and get back to you on WhatsApp within <strong>48 hours</strong>.</p>
-        <a href="https://wa.me/8801716705401?text=Hi%2C+I+just+applied+for+the+Video+Editor+position+at+Zentic+Media!" target="_blank" class="h-wa-btn">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <h2>Application <span style="background:linear-gradient(120deg,#fff,#e879f9,#b800f5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Submitted!</span> &#127881;</h2>
+        <p>Thanks for applying! We'll review your portfolio and reply on WhatsApp within <strong>48 hours</strong>.</p>
+        <a href="https://wa.me/8801716705401?text=Hi%2C+I+just+applied+for+the+Video+Editor+position+at+Zentic+Media!" target="_blank" class="wa-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           Follow Up on WhatsApp
         </a>
         <br>
-        <a href="/" class="h-back-btn">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        <a href="/" class="back-btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
           Back to Home
         </a>
       </div>
 
-    </div><!-- /.h-form-card -->
-  </div><!-- /.h-wrap -->
+    </div>
+  </div><!-- /.wrap -->
 
-  <div class="h-footer">
-    <p>&copy; 2026 Zentic Media &mdash; Private hiring page, not indexed by search engines.</p>
-    <p style="margin-top:5px;">Questions? <a href="https://wa.me/8801716705401" target="_blank">Chat on WhatsApp</a></p>
+  <div class="footer">
+    <p>&copy; 2026 Zentic Media &mdash; Private hiring page. Not indexed by search engines.</p>
+    <p style="margin-top:4px;">Questions? <a href="https://wa.me/8801716705401" target="_blank">Chat on WhatsApp</a></p>
   </div>
 
-</div><!-- /.h-page -->
+</div><!-- /.page -->
 
 <script>
-  /* Fade-up on scroll */
-  const io = new IntersectionObserver(function(entries) {
+  /* Fade-up */
+  var io = new IntersectionObserver(function(entries) {
     entries.forEach(function(e) {
       if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
     });
-  }, { threshold: 0.07 });
+  }, { threshold: 0.06 });
   document.querySelectorAll('.fu').forEach(function(el) { io.observe(el); });
 
-  /* Smooth anchor scroll */
+  /* Smooth scroll */
   document.querySelectorAll('a[href^="#"]').forEach(function(a) {
     a.addEventListener('click', function(e) {
       var t = document.querySelector(this.getAttribute('href'));
@@ -851,25 +997,25 @@
     });
   });
 
-  /* Form submit */
-  var form       = document.getElementById('h-form');
-  var formWrap   = document.getElementById('h-form-wrap');
-  var successWrap = document.getElementById('h-success');
-  var submitBtn  = document.getElementById('h-submit-btn');
+  /* Form */
+  var theForm   = document.getElementById('the-form');
+  var formWrap  = document.getElementById('form-wrap');
+  var succWrap  = document.getElementById('success-wrap');
+  var subBtn    = document.getElementById('sub-btn');
 
   function setErr(id, show) {
     var e = document.getElementById(id + '-e');
     var i = document.getElementById(id);
     if (e) e.style.display = show ? 'block' : 'none';
-    if (i) { if (show) i.classList.add('err'); else i.classList.remove('err'); }
+    if (i) { if(show) i.classList.add('err'); else i.classList.remove('err'); }
   }
 
-  form.addEventListener('submit', function(e) {
+  theForm.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    /* clear */
-    ['f-name','f-wa','f-email','f-exp','f-sw','f-reel','f-intro'].forEach(function(id) { setErr(id, false); });
-    document.getElementById('f-ct-e').style.display = 'none';
+    ['f-name','f-wa','f-email','f-exp','f-sw','f-reel','f-intro'].forEach(function(id){ setErr(id,false); });
+    document.getElementById('f-ct-e').style.display   = 'none';
+    document.getElementById('f-agree-e').style.display = 'none';
 
     var name  = document.getElementById('f-name').value.trim();
     var wa    = document.getElementById('f-wa').value.trim();
@@ -879,50 +1025,53 @@
     var reel  = document.getElementById('f-reel').value.trim();
     var intro = document.getElementById('f-intro').value.trim();
     var rate  = document.getElementById('f-rate').value;
-    var cts   = Array.from(document.querySelectorAll('input[name="ct"]:checked')).map(function(c) { return c.value; });
+    var agree = document.getElementById('f-agree').checked;
+    var cts   = Array.from(document.querySelectorAll('input[name="ct"]:checked')).map(function(c){return c.value;});
 
-    var expSel = document.getElementById('f-exp');
-    var swSel  = document.getElementById('f-sw');
-    var expTxt = expSel.options[expSel.selectedIndex] ? expSel.options[expSel.selectedIndex].text : exp;
-    var swTxt  = swSel.options[swSel.selectedIndex]  ? swSel.options[swSel.selectedIndex].text   : sw;
+    var expEl = document.getElementById('f-exp');
+    var swEl  = document.getElementById('f-sw');
+    var expTxt = expEl.options[expEl.selectedIndex] ? expEl.options[expEl.selectedIndex].text : exp;
+    var swTxt  = swEl.options[swEl.selectedIndex]  ? swEl.options[swEl.selectedIndex].text   : sw;
 
     var ok = true;
     if (!name)  { setErr('f-name', true);  ok = false; }
-    if (!wa)    { setErr('f-wa',   true);  ok = false; }
+    if (!wa)    { setErr('f-wa', true);    ok = false; }
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { setErr('f-email', true); ok = false; }
-    if (!exp)   { setErr('f-exp',  true);  ok = false; }
-    if (!sw)    { setErr('f-sw',   true);  ok = false; }
+    if (!exp)   { setErr('f-exp', true);   ok = false; }
+    if (!sw)    { setErr('f-sw', true);    ok = false; }
     if (!reel)  { setErr('f-reel', true);  ok = false; }
     if (cts.length === 0) { document.getElementById('f-ct-e').style.display = 'block'; ok = false; }
     if (!intro) { setErr('f-intro', true); ok = false; }
+    if (!agree) { document.getElementById('f-agree-e').style.display = 'block'; ok = false; }
 
     if (!ok) {
-      var firstErr = form.querySelector('.err');
+      var firstErr = theForm.querySelector('.err, [style*="block"]');
       if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
     }
 
     var msg = encodeURIComponent(
-      'Video Editor Application — Zentic Media\n\n' +
-      'Name: '         + name  + '\n' +
-      'WhatsApp: '     + wa    + '\n' +
-      'Email: '        + email + '\n' +
-      'Experience: '   + expTxt + '\n' +
-      'Software: '     + swTxt  + '\n' +
-      'Content Types: '+ cts.join(', ') + '\n' +
-      'Rate: '         + (rate || 'Negotiable') + '\n' +
-      'Portfolio: '    + reel  + '\n\n' +
-      'About Me:\n'    + intro
+      'Video Editor Application - Zentic Media\n\n' +
+      'Name: '          + name   + '\n' +
+      'WhatsApp: '      + wa     + '\n' +
+      'Email: '         + email  + '\n' +
+      'Experience: '    + expTxt + '\n' +
+      'Software: '      + swTxt  + '\n' +
+      'Content Types: ' + cts.join(', ') + '\n' +
+      'Rate: '          + (rate || 'Negotiable') + '\n' +
+      'Portfolio: '     + reel   + '\n\n' +
+      'About Me:\n'     + intro  + '\n\n' +
+      '--- Agreed to Terms & Conditions ---'
     );
 
-    submitBtn.classList.add('loading');
-    submitBtn.textContent = 'Sending...';
+    subBtn.classList.add('loading');
+    subBtn.textContent = 'Sending...';
 
     setTimeout(function() {
       window.open('https://wa.me/8801716705401?text=' + msg, '_blank');
-      formWrap.style.display   = 'none';
-      successWrap.style.display = 'block';
-      successWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      formWrap.style.display  = 'none';
+      succWrap.style.display  = 'block';
+      succWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }, 800);
   });
 
@@ -936,6 +1085,5 @@
     });
   }
 </script>
-
 </body>
 </html>
