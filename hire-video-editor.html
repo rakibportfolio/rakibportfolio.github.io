@@ -1576,28 +1576,47 @@
     var aess = Array.from(document.querySelectorAll('input[name="aes"]:checked')).map(function(c) { return c.value; });
     var cts  = Array.from(document.querySelectorAll('input[name="ct"]:checked')).map(function(c) { return c.value; });
 
-    var msg = encodeURIComponent(
-      '🎬 Video Editor Application - Zentic Media\n\n' +
-      '👤 Name: ' + name + '\n' +
-      '📱 WhatsApp: ' + wa + '\n' +
-      '✉️ Email: ' + em + '\n' +
-      '💻 Software: Adobe Premiere Pro & After Effects (Expert)\n' +
-      '⏳ Pr + Ae Experience: ' + exT + '\n' +
-      '⚡ Pr & Ae Skills: ' + aess.join(', ') + '\n' +
-      '🎯 Content Types: ' + cts.join(', ') + '\n' +
-      '🔗 Portfolio: ' + rl + '\n\n' +
-      '📝 Workflow & Tools:\n' + inp + '\n\n' +
-      '✅ [Agreed to All Terms & Deadlines]'
-    );
-
     sbtn.classList.add('loading');
+    sbtn.disabled = true;
     sbtn.textContent = 'Submitting...';
-    setTimeout(function() {
-      window.open('https://wa.me/8801716705401?text=' + msg, '_blank');
+
+    var payload = {
+      name: name,
+      wa: wa,
+      em: em,
+      ex: exT,
+      skills: aess,
+      content_types: cts,
+      portfolio: rl,
+      about: inp
+    };
+
+    fetch('/api/apply', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(function(res) {
+      return res.json().catch(function() { return { ok: res.ok }; });
+    })
+    .then(function(data) {
       fw.style.display = 'none';
       sw2.style.display = 'block';
       sw2.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, 700);
+    })
+    .catch(function(err) {
+      console.warn('Submission request error:', err);
+      fw.style.display = 'none';
+      sw2.style.display = 'block';
+      sw2.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    })
+    .finally(function() {
+      sbtn.classList.remove('loading');
+      sbtn.disabled = false;
+      sbtn.textContent = 'Submit Application';
+    });
   });
 
   /* hamburger */

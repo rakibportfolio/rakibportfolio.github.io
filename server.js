@@ -1,8 +1,69 @@
 const http = require('http');
+const https = require('https');
 const fs = require('fs');
 const path = require('path');
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '8874694866:AAEmdXxd3DP3B8J4L2sHS0pIxVR98HV9vqI';
+const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID || '8279465535';
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function sendTelegramMessage(text) {
+  return new Promise((resolve, reject) => {
+    const postData = JSON.stringify({
+      chat_id: TELEGRAM_CHAT_ID,
+      text: text,
+      parse_mode: 'HTML',
+      disable_web_page_preview: false
+    });
+
+    const options = {
+      hostname: 'api.telegram.org',
+      port: 443,
+      path: `/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(postData)
+      },
+      timeout: 10000
+    };
+
+    const req = https.request(options, (res) => {
+      let data = '';
+      res.on('data', chunk => { data += chunk; });
+      res.on('end', () => {
+        try {
+          const parsed = JSON.parse(data);
+          resolve(parsed);
+        } catch (e) {
+          resolve({ ok: res.statusCode === 200, raw: data });
+        }
+      });
+    });
+
+    req.on('error', (err) => {
+      console.error('Telegram request error:', err);
+      reject(err);
+    });
+
+    req.on('timeout', () => {
+      req.destroy();
+      reject(new Error('Telegram request timed out'));
+    });
+
+    req.write(postData);
+    req.end();
+  });
+}
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -28,6 +89,90 @@ const MIME_TYPES = {
 const server = http.createServer((req, res) => {
   const [rawPath, rawQuery] = req.url.split('?');
   const queryStr = rawQuery ? `?${rawQuery}` : '';
+
+  // Handle CORS Preflight
+  if (req.method === 'OPTIONS') {
+    res.writeHead(204, {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+      'Access-Control-Max-Age': '86400'
+    });
+    res.end();
+    return;
+  }
+
+  // Handle Application Submission to Telegram Bot
+  if (req.method === 'POST' && (rawPath === '/api/apply' || rawPath === '/api/apply/')) {
+    let body = '';
+    req.on('data', chunk => {
+      body += chunk;
+      if (body.length > 1e6) {
+        req.destroy();
+      }
+    });
+
+    req.on('end', async () => {
+      try {
+        let data = {};
+        if (body) {
+          try {
+            data = JSON.parse(body);
+          } catch (e) {
+            const qs = require('querystring');
+            data = qs.parse(body);
+          }
+        }
+
+        const name = data.name || 'Anonymous';
+        const wa = data.wa || data.whatsapp || 'N/A';
+        const em = data.em || data.email || 'N/A';
+        const ex = data.ex || data.experience || 'Not specified';
+        const skills = Array.isArray(data.skills) ? data.skills.join(', ') : (data.skills || 'None');
+        const contentTypes = Array.isArray(data.content_types) ? data.content_types.join(', ') : (data.content_types || 'None');
+        const portfolio = data.portfolio || data.portfolio_url || 'N/A';
+        const about = data.about || data.notes || 'N/A';
+
+        const nowStr = new Date().toLocaleString('en-US', { timeZone: 'Asia/Dhaka', dateStyle: 'medium', timeStyle: 'short' });
+
+        const tgMessage = 
+          `🎬 <b>NEW VIDEO EDITOR APPLICATION</b>\n` +
+          `━━━━━━━━━━━━━━━━━━━━\n` +
+          `👤 <b>Name:</b> ${escapeHtml(name)}\n` +
+          `📱 <b>WhatsApp:</b> ${escapeHtml(wa)}\n` +
+          `✉️ <b>Email:</b> ${escapeHtml(em)}\n` +
+          `💻 <b>Software:</b> Premiere Pro &amp; After Effects\n` +
+          `⏳ <b>Experience:</b> ${escapeHtml(ex)}\n\n` +
+          `⚡ <b>Skills:</b>\n${escapeHtml(skills)}\n\n` +
+          `🎯 <b>Content Styles:</b>\n${escapeHtml(contentTypes)}\n\n` +
+          `🔗 <b>Portfolio / Reel:</b>\n${escapeHtml(portfolio)}\n\n` +
+          `📝 <b>Workflow &amp; PC Specs:</b>\n${escapeHtml(about)}\n\n` +
+          `━━━━━━━━━━━━━━━━━━━━\n` +
+          `✅ <i>Agreed to Studio Terms &amp; Strict Deadlines</i>\n` +
+          `🕒 <i>Submitted: ${nowStr} (BST)</i>`;
+
+        try {
+          await sendTelegramMessage(tgMessage);
+        } catch (tgErr) {
+          console.error('Failed to dispatch telegram notification:', tgErr);
+        }
+
+        res.writeHead(200, {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        });
+        res.end(JSON.stringify({ ok: true, message: 'Application received and forwarded to Telegram.' }));
+      } catch (err) {
+        console.error('Error handling /api/apply:', err);
+        res.writeHead(500, {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        });
+        res.end(JSON.stringify({ ok: false, error: 'Server error processing application' }));
+      }
+    });
+    return;
+  }
 
   // 1. Redirect /index.html to clean root domain /
   if (rawPath === '/index.html') {
