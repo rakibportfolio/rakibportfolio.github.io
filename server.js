@@ -127,9 +127,13 @@ const server = http.createServer((req, res) => {
         const name = data.name || 'Anonymous';
         const wa = data.wa || data.whatsapp || 'N/A';
         const em = data.em || data.email || 'N/A';
+        const loc = data.loc || data.location || 'N/A';
         const ex = data.ex || data.experience || 'Not specified';
-        const skills = Array.isArray(data.skills) ? data.skills.join(', ') : (data.skills || 'None');
-        const contentTypes = Array.isArray(data.content_types) ? data.content_types.join(', ') : (data.content_types || 'None');
+        const specPrimary = data.spec_primary || (Array.isArray(data.skills) ? data.skills.join(', ') : (data.skills || 'Not specified'));
+        const specSecondary = data.spec_secondary || 'None';
+        const contentStyle = data.content_style || (Array.isArray(data.content_types) ? data.content_types.join(', ') : (data.content_types || 'Not specified'));
+        const hardware = data.hardware || 'Not specified';
+        const capacity = data.capacity || 'Not specified';
         const portfolio = data.portfolio || data.portfolio_url || 'N/A';
         const about = data.about || data.notes || 'N/A';
 
@@ -141,14 +145,18 @@ const server = http.createServer((req, res) => {
           `👤 <b>Name:</b> ${escapeHtml(name)}\n` +
           `📱 <b>WhatsApp:</b> ${escapeHtml(wa)}\n` +
           `✉️ <b>Email:</b> ${escapeHtml(em)}\n` +
+          `📍 <b>Location:</b> ${escapeHtml(loc)}\n\n` +
           `💻 <b>Software:</b> Premiere Pro &amp; After Effects\n` +
-          `⏳ <b>Experience:</b> ${escapeHtml(ex)}\n\n` +
-          `⚡ <b>Skills:</b>\n${escapeHtml(skills)}\n\n` +
-          `🎯 <b>Content Styles:</b>\n${escapeHtml(contentTypes)}\n\n` +
-          `🔗 <b>Portfolio / Reel:</b>\n${escapeHtml(portfolio)}\n\n` +
-          `📝 <b>Workflow &amp; PC Specs:</b>\n${escapeHtml(about)}\n\n` +
+          `⏳ <b>Experience:</b> ${escapeHtml(ex)}\n` +
+          `⚡ <b>Primary Skill:</b> ${escapeHtml(specPrimary)}\n` +
+          `🎯 <b>Secondary Focus:</b> ${escapeHtml(specSecondary)}\n` +
+          `📱 <b>Content Format:</b> ${escapeHtml(contentStyle)}\n` +
+          `🖥️ <b>Editing Rig:</b> ${escapeHtml(hardware)}\n` +
+          `⏱️ <b>Turnaround:</b> ${escapeHtml(capacity)}\n\n` +
+          `🔗 <b>Portfolio / Showreel:</b>\n${escapeHtml(portfolio)}\n\n` +
+          `📝 <b>Workflow Notes:</b>\n${escapeHtml(about)}\n` +
           `━━━━━━━━━━━━━━━━━━━━\n` +
-          `✅ <i>Agreed to Studio Terms &amp; Strict Deadlines</i>\n` +
+          `✅ <i>Agreed to Studio Ground Rules (No Advance, 100% Deadlines)</i>\n` +
           `🕒 <i>Submitted: ${nowStr} (BST)</i>`;
 
         try {
