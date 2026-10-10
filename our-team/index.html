@@ -217,6 +217,16 @@
     .card-wrap {
       position: relative;
       padding-top: 65px; /* space for the descending laser beam */
+      /* Scroll-triggered float-up state */
+      opacity: 0;
+      transform: translateY(60px) scale(0.96);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform, opacity;
+    }
+    .card-wrap.visible {
+      opacity: 1 !important;
+      transform: translateY(0) scale(1) !important;
     }
 
     /* Vertical Neon Laser Beam coming from above */
@@ -310,8 +320,6 @@
       position: relative;
       cursor: pointer;
       transform-style: preserve-3d;
-      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-                  box-shadow 0.45s ease;
       border-radius: 34px;
       /* Thick 3D tactile bezel */
       padding: 3.5px;
@@ -319,14 +327,8 @@
       box-shadow:
         0 0 28px rgba(0, 150, 255, 0.45),
         0 24px 60px rgba(0, 0, 0, 0.85);
-      opacity: 0;
-      transform: translateY(35px);
-      will-change: transform, opacity;
+      transition: box-shadow 0.45s ease;
       z-index: 3;
-    }
-    .card-3d.visible {
-      opacity: 1;
-      transform: translateY(0);
     }
     .card-wrap:hover .card-3d {
       box-shadow:
@@ -499,79 +501,28 @@
       background: #f8fafc;
     }
 
-    /* Mobile Responsive adjustments */
+    /* Mobile Responsive adjustments — Vertical Scroll Stack with float-up animation */
     @media (max-width: 840px) {
-      .cards-section { padding: 10px 0 80px; }
-      .cards-watermark { display: none; }
+      .cards-section {
+        padding: 20px 20px 80px;
+      }
+      .cards-watermark {
+        display: none;
+      }
       .cards-grid {
         display: flex;
-        flex-direction: row;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        gap: 0;
-        max-width: 100%;
-        padding: 0 0 20px 0;
-        scrollbar-width: none;
-      }
-      .cards-grid::-webkit-scrollbar { display: none; }
-      .card-wrap {
-        scroll-snap-align: center;
-        flex: 0 0 85vw;
-        max-width: 340px;
-        margin: 0 12px;
-      }
-      .card-wrap:first-child { margin-left: calc(50vw - 170px); }
-      .card-wrap:last-child  { margin-right: calc(50vw - 170px); }
-      .card-3d {
-        opacity: 1 !important;
-        transform: none !important;
-      }
-    }
-
-      /* Mobile scroll indicators */
-      .mobile-scroll-hint {
-        display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: center;
-        gap: 8px;
-        margin-bottom: 24px;
-        font-size: 12px;
-        color: rgba(243,232,255,0.4);
-        font-weight: 500;
+        gap: 55px;
+        max-width: 380px;
+        margin: 0 auto;
+        padding: 10px 0;
       }
-      .mobile-scroll-hint svg { animation: swipe-hint 1.8s ease-in-out infinite; }
-      @keyframes swipe-hint {
-        0%,100%{ transform: translateX(0); opacity:0.4; }
-        50%    { transform: translateX(6px); opacity:0.8; }
+      .card-wrap {
+        width: 100%;
+        max-width: 350px;
+        padding-top: 65px;
       }
-    }
-    @media (min-width: 841px) {
-      .mobile-scroll-hint { display: none !important; }
-    }
-
-    /* Dot indicators (mobile only) */
-    .card-dots {
-      display: none;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 20px;
-    }
-    @media (max-width: 840px) {
-      .card-dots { display: flex; }
-    }
-    .cdot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: rgba(184,0,245,0.25);
-      border: 1px solid rgba(184,0,245,0.4);
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-    .cdot.active {
-      width: 22px; border-radius: 4px;
-      background: #B800F5;
-      box-shadow: 0 0 10px rgba(184,0,245,0.6);
     }
 
     /* ═══════════════════════════════════════════════
@@ -801,12 +752,6 @@
       <div class="sl-line r"></div>
     </div>
 
-    <!-- Mobile swipe hint -->
-    <div class="mobile-scroll-hint">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      Swipe to see more
-    </div>
-
     <div class="cards-grid" id="cardsGrid">
 
       <!-- ══ CARD 1: Tanvir Ahmed ══ -->
@@ -969,13 +914,6 @@
       </div>
 
     </div><!-- /cards-grid -->
-
-    <!-- Mobile dot indicators -->
-    <div class="card-dots" id="cardDots">
-      <div class="cdot active" data-i="0"></div>
-      <div class="cdot" data-i="1"></div>
-      <div class="cdot" data-i="2"></div>
-    </div>
   </section>
 
   <!-- STUDIO HIGHLIGHTS -->
@@ -1103,22 +1041,28 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  /* ── Scroll-triggered fade-in for cards (desktop) ── */
-  const cards   = document.querySelectorAll('.card-3d');
-  const hlCards = document.querySelectorAll('.hlc');
+  /* ── Scroll-triggered float-up reveal for cards (mobile & desktop) ── */
+  const cardWraps = document.querySelectorAll('.card-wrap');
+  const cards     = document.querySelectorAll('.card-3d');
+  const hlCards   = document.querySelectorAll('.hlc');
 
-  const io = new IntersectionObserver((entries) => {
+  const isMobile = window.matchMedia('(max-width: 840px)').matches;
+
+  const ioCards = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const el = entry.target;
-        const delay = (el.dataset.index || el.closest('.card-wrap')?.dataset.index || 0) * 120;
+        const delay = isMobile ? 50 : (parseInt(el.dataset.index || 0, 10) * 130);
         setTimeout(() => el.classList.add('visible'), delay);
-        io.unobserve(el);
+        ioCards.unobserve(el);
       }
     });
-  }, { threshold: 0.15 });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -30px 0px'
+  });
 
-  cards.forEach(c => io.observe(c));
+  cardWraps.forEach(cw => ioCards.observe(cw));
 
   const ioHL = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
@@ -1147,29 +1091,6 @@ document.addEventListener('DOMContentLoaded', function () {
       card.addEventListener('mouseleave', () => {
         card.querySelector('.card-inner').style.transform =
           'perspective(900px) rotateX(0) rotateY(0) translateZ(0)';
-      });
-    });
-  }
-
-  /* ── Mobile carousel dots ── */
-  const grid = document.getElementById('cardsGrid');
-  const dots = document.querySelectorAll('.cdot');
-
-  if (grid && dots.length) {
-    function updateDot() {
-      const scrollLeft = grid.scrollLeft;
-      const item = grid.querySelector('.card-wrap') || grid.querySelector('.card-3d');
-      const cardW = item ? (item.offsetWidth + 24) : 340;
-      const idx = Math.round(scrollLeft / cardW);
-      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
-    }
-    grid.addEventListener('scroll', updateDot, { passive: true });
-    dots.forEach(d => {
-      d.addEventListener('click', () => {
-        const idx  = parseInt(d.dataset.i);
-        const item = grid.querySelector('.card-wrap') || grid.querySelector('.card-3d');
-        const cardW = item ? (item.offsetWidth + 24) : 340;
-        grid.scrollTo({ left: idx * cardW, behavior: 'smooth' });
       });
     });
   }
