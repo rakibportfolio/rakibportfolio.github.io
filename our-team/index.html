@@ -404,56 +404,15 @@
 
     /* 2-line Subtitle / Bio */
     .card-bio-text {
-      font-size: 12.5px;
+      font-size: 13px;
       font-weight: 400;
-      color: rgba(255, 255, 255, 0.92);
-      line-height: 1.45;
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.5;
       margin-bottom: 0;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
-    }
-    .card-wrap.is-ceo .card-bio-text {
-      margin-bottom: 16px;
-    }
-
-    /* CEO WhatsApp Contact Button */
-    .card-wrap.is-ceo .card-3d {
-      cursor: pointer;
-    }
-    .card-action-row.is-ceo-action {
-      display: flex;
-      align-items: center;
-      width: 100%;
-    }
-    .ceo-wa-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      width: 100%;
-      padding: 11px 22px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-      color: #FFFFFF;
-      font-size: 13.5px;
-      font-weight: 700;
-      text-decoration: none;
-      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-      transition: all 0.25s ease;
-      letter-spacing: 0.2px;
-    }
-    .ceo-wa-btn:hover {
-      background: linear-gradient(135deg, #2fe06f 0%, #18a090 100%);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 28px rgba(37, 211, 102, 0.6);
-      color: #FFFFFF;
-    }
-    .ceo-wa-btn svg {
-      width: 19px;
-      height: 19px;
-      flex-shrink: 0;
     }
 
     /* Mobile Responsive adjustments — Vertical Scroll Stack with float-up animation */
@@ -718,7 +677,7 @@
         <!-- Ambient halo behind card -->
         <div class="card-ambient-glow"></div>
 
-        <div class="card-3d" onclick="window.open('https://wa.me/8801716705401','_blank')">
+        <div class="card-3d">
           <div class="card-inner">
             <!-- Photo Box with Smooth Gradient Blend -->
             <div class="card-photo-box">
@@ -739,16 +698,6 @@
 
               <!-- 2-Line Subtitle / Bio -->
               <p class="card-bio-text">CEO &amp; Video Director | Helping global brands scale with high-converting video</p>
-
-              <!-- CEO WhatsApp Contact Button -->
-              <div class="card-action-row is-ceo-action">
-                <a href="https://wa.me/8801716705401" target="_blank" rel="noopener noreferrer" class="ceo-wa-btn" onclick="event.stopPropagation()">
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.68 12.04 3.68C14.25 3.68 16.31 4.54 17.87 6.1C19.42 7.66 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15ZM16.56 14.36C16.31 14.24 15.09 13.64 14.86 13.56C14.64 13.47 14.47 13.43 14.31 13.68C14.14 13.93 13.67 14.48 13.52 14.64C13.38 14.81 13.23 14.83 12.98 14.71C12.73 14.58 11.93 14.32 10.98 13.47C10.24 12.81 9.74 11.99 9.6 11.74C9.45 11.49 9.58 11.36 9.71 11.24C9.82 11.13 9.95 10.96 10.08 10.81C10.2 10.66 10.24 10.56 10.32 10.39C10.4 10.22 10.36 10.08 10.3 9.96C10.24 9.83 9.74 8.61 9.54 8.11C9.33 7.63 9.13 7.69 8.97 7.68C8.82 7.68 8.65 7.67 8.49 7.67C8.32 7.67 8.05 7.73 7.82 7.98C7.59 8.23 6.94 8.84 6.94 10.08C6.94 11.32 7.84 12.52 7.97 12.69C8.09 12.86 9.75 15.42 12.28 16.51C12.88 16.77 13.35 16.93 13.71 17.04C14.32 17.23 14.87 17.21 15.31 17.14C15.8 17.07 16.82 16.52 17.03 15.94C17.24 15.36 17.24 14.86 17.18 14.76C17.12 14.66 16.95 14.6 16.7 14.48L16.56 14.36Z"/>
-                  </svg>
-                  <span>Chat on WhatsApp</span>
-                </a>
-              </div>
             </div>
           </div>
         </div>
@@ -783,7 +732,7 @@
               </div>
 
               <!-- 2-Line Subtitle / Bio -->
-              <p class="card-bio-text">Lead Motion &amp; 3D Designer | High-impact visual hooks for viral audience retention</p>
+              <p class="card-bio-text">Short-Form &amp; Reels Video Editor | Viral TikTok, Reels &amp; Shorts with high audience retention</p>
             </div>
           </div>
         </div>
@@ -818,7 +767,7 @@
               </div>
 
               <!-- 2-Line Subtitle / Bio -->
-              <p class="card-bio-text">Senior Colorist &amp; Sound Designer | Hollywood-grade 4K grading &amp; immersive soundscapes</p>
+              <p class="card-bio-text">Long-Form &amp; Talking Head Video Editor | Engaging YouTube documentary &amp; podcast editing</p>
             </div>
           </div>
         </div>
