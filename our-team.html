@@ -172,426 +172,337 @@
        3D CARD SECTION — DESKTOP: 3-column grid
        MOBILE: scroll-snap one-at-a-time
     ═══════════════════════════════════════════════ */
-    .cards-section { padding: 0 24px 100px; }
-
-    /* Desktop grid */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-      max-width: 1100px;
-      margin: 0 auto;
-      perspective: 1200px;
+    .cards-section {
+      position: relative;
+      padding: 30px 24px 110px;
+      overflow: hidden;
     }
 
-    /* ─── THE 3D CARD ─── */
+    /* Ambient watermark typography behind cards (like NEVER STOP / LEARNING in reference) */
+    .cards-watermark {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      z-index: 0;
+      opacity: 0.04;
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: clamp(65px, 9vw, 130px);
+      line-height: 0.88;
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+      user-select: none;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .cards-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      max-width: 1140px;
+      margin: 0 auto;
+      perspective: 1400px;
+      align-items: start;
+    }
+
+    /* ── CARD COLUMN WRAPPER (Holding top neon beam + flare) ── */
+    .card-wrap {
+      position: relative;
+      padding-top: 65px; /* space for the descending laser beam */
+    }
+
+    /* Vertical Neon Laser Beam coming from above */
+    .card-light-beam {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3px;
+      height: 75px;
+      background: linear-gradient(180deg, transparent 0%, rgba(0, 212, 255, 0.4) 35%, #00f0ff 75%, #ffffff 100%);
+      box-shadow:
+        0 0 10px #00e5ff,
+        0 0 25px rgba(0, 180, 255, 0.85),
+        0 0 50px rgba(0, 120, 255, 0.65);
+      z-index: 10;
+      pointer-events: none;
+      opacity: 0.88;
+      transition: all 0.4s ease;
+    }
+    .card-wrap:hover .card-light-beam {
+      opacity: 1;
+      height: 82px;
+      box-shadow:
+        0 0 16px #00e5ff,
+        0 0 35px rgba(0, 180, 255, 1),
+        0 0 70px rgba(0, 120, 255, 0.85);
+    }
+
+    /* CEO Card: Purple Neon Laser Beam */
+    .card-wrap.is-ceo .card-light-beam {
+      background: linear-gradient(180deg, transparent 0%, rgba(232, 121, 249, 0.45) 35%, #E879F9 75%, #ffffff 100%);
+      box-shadow:
+        0 0 12px #E879F9,
+        0 0 28px rgba(184, 0, 245, 0.9),
+        0 0 60px rgba(184, 0, 245, 0.7);
+    }
+    .card-wrap.is-ceo:hover .card-light-beam {
+      box-shadow:
+        0 0 18px #E879F9,
+        0 0 40px rgba(232, 121, 249, 1),
+        0 0 80px rgba(184, 0, 245, 0.95);
+    }
+
+    /* Glowing flare hotspot right on top edge */
+    .card-flare-hotspot {
+      position: absolute;
+      top: 65px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 130px;
+      height: 50px;
+      background: radial-gradient(ellipse at 50% 50%, #ffffff 0%, rgba(0, 229, 255, 0.95) 25%, rgba(0, 102, 255, 0.6) 55%, transparent 75%);
+      filter: blur(7px);
+      z-index: 11;
+      pointer-events: none;
+      opacity: 0.9;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .card-wrap:hover .card-flare-hotspot {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+    .card-wrap.is-ceo .card-flare-hotspot {
+      background: radial-gradient(ellipse at 50% 50%, #ffffff 0%, rgba(232, 121, 249, 0.95) 25%, rgba(184, 0, 245, 0.65) 55%, transparent 75%);
+    }
+
+    /* Ambient soft glow halo behind top rim */
+    .card-ambient-glow {
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 290px;
+      height: 160px;
+      background: radial-gradient(ellipse at 50% 30%, rgba(0, 160, 255, 0.4) 0%, rgba(0, 100, 255, 0.15) 55%, transparent 75%);
+      filter: blur(35px);
+      z-index: 1;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    .card-wrap:hover .card-ambient-glow {
+      opacity: 1;
+    }
+    .card-wrap.is-ceo .card-ambient-glow {
+      background: radial-gradient(ellipse at 50% 30%, rgba(232, 121, 249, 0.45) 0%, rgba(184, 0, 245, 0.25) 55%, transparent 75%);
+    }
+
+    /* ── THE 3D CARD (With thick 3D tactile bezel) ── */
     .card-3d {
       position: relative;
       cursor: pointer;
-      /* 3D tilt setup */
       transform-style: preserve-3d;
-      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1),
-                  box-shadow 0.5s ease;
-      border-radius: 24px;
-      /* Scroll-fade-in state */
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.45s ease;
+      border-radius: 34px;
+      /* Thick 3D tactile bezel */
+      padding: 3.5px;
+      background: linear-gradient(150deg, #00d4ff 0%, #0070f3 45%, #003db3 100%);
+      box-shadow:
+        0 0 28px rgba(0, 150, 255, 0.45),
+        0 24px 60px rgba(0, 0, 0, 0.85);
       opacity: 0;
-      transform: translateY(40px) rotateX(8deg);
+      transform: translateY(35px);
       will-change: transform, opacity;
+      z-index: 3;
     }
-    /* Visible state (triggered by JS) */
     .card-3d.visible {
       opacity: 1;
-      transform: translateY(0) rotateX(0deg);
+      transform: translateY(0);
+    }
+    .card-wrap:hover .card-3d {
+      box-shadow:
+        0 0 45px rgba(0, 180, 255, 0.75),
+        0 32px 80px rgba(0, 0, 0, 0.95);
+    }
+
+    /* CEO Card: Purple / Fuchsia Bezel */
+    .card-wrap.is-ceo .card-3d {
+      background: linear-gradient(150deg, #ffffff 0%, #E879F9 25%, #B800F5 65%, #4a0072 100%);
+      box-shadow:
+        0 0 32px rgba(232, 121, 249, 0.5),
+        0 24px 60px rgba(0, 0, 0, 0.85);
+    }
+    .card-wrap.is-ceo .card-3d:hover {
+      box-shadow:
+        0 0 55px rgba(232, 121, 249, 0.85),
+        0 32px 80px rgba(0, 0, 0, 0.95);
     }
 
     /* Inner card face */
     .card-inner {
       position: relative;
-      border-radius: 24px;
+      border-radius: 30.5px;
       overflow: hidden;
-      background: linear-gradient(175deg,
-        rgba(26, 6, 42, 0.88) 0%,
-        rgba(13, 2, 22, 0.95) 45%,
-        rgba(9, 1, 16, 0.98) 100%
-      );
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(184, 0, 245, 0.32);
-      box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.06) inset,
-        0 24px 60px rgba(0, 0, 0, 0.75),
-        0 0 35px rgba(184, 0, 245, 0.1);
-      transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
-    }
-    .card-3d:hover .card-inner {
-      border-color: rgba(184, 0, 245, 0.75);
-      box-shadow:
-        0 0 0 1px rgba(232, 121, 249, 0.25) inset,
-        0 30px 80px rgba(0, 0, 0, 0.85),
-        0 0 50px rgba(184, 0, 245, 0.28);
-    }
-
-    /* CEO card highlighted differently */
-    .card-3d.is-ceo .card-inner {
-      border-color: rgba(232, 121, 249, 0.48);
-      background: linear-gradient(175deg,
-        rgba(36, 8, 56, 0.92) 0%,
-        rgba(17, 3, 28, 0.96) 45%,
-        rgba(9, 1, 16, 0.99) 100%
-      );
-      box-shadow:
-        0 0 0 1px rgba(232, 121, 249, 0.2) inset,
-        0 24px 60px rgba(0, 0, 0, 0.75),
-        0 0 45px rgba(232, 121, 249, 0.16);
-    }
-    .card-3d.is-ceo:hover .card-inner {
-      border-color: rgba(232, 121, 249, 0.95);
-      box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.3) inset,
-        0 35px 90px rgba(0, 0, 0, 0.9),
-        0 0 70px rgba(232, 121, 249, 0.35);
-    }
-
-    /* Holographic sheen line across card */
-    .card-inner::before {
-      content: '';
-      position: absolute;
-      top: 0; left: -100%;
-      width: 60%; height: 100%;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.08),
-        rgba(232, 121, 249, 0.12),
-        transparent
-      );
-      transform: skewX(-25deg);
-      transition: left 0.75s ease;
-      pointer-events: none;
-      z-index: 10;
-    }
-    .card-3d:hover .card-inner::before {
-      left: 180%;
-    }
-
-    /* Outer glow blob behind card */
-    .card-glow {
-      position: absolute;
-      inset: -14px;
-      border-radius: 38px;
-      background: radial-gradient(ellipse at 50% 90%, rgba(184,0,245,0.3) 0%, transparent 68%);
-      filter: blur(28px);
-      pointer-events: none;
-      opacity: 0.5;
-      transition: opacity 0.4s ease, transform 0.4s ease;
-    }
-    .card-3d:hover .card-glow {
-      opacity: 0.95;
-      transform: scale(1.05);
-    }
-    .card-3d.is-ceo .card-glow {
-      background: radial-gradient(ellipse at 50% 90%, rgba(232,121,249,0.38) 0%, rgba(184,0,245,0.2) 40%, transparent 70%);
-    }
-
-    /* ── PHOTO AREA ── */
-    .card-photo-wrap {
-      position: relative;
-      width: 100%;
-      height: 250px;
-      overflow: hidden;
-      background: #08010E;
-    }
-
-    .card-photo {
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: center top;
-      display: block;
-      transition: transform 0.6s cubic-bezier(0.16,1,0.3,1), filter 0.4s ease;
-      image-rendering: -webkit-optimize-contrast;
-    }
-    .card-3d:hover .card-photo { transform: scale(1.05); }
-
-    /* Photo bottom fade */
-    .card-photo-fade {
-      position: absolute; inset: 0;
-      background: linear-gradient(
-        180deg,
-        rgba(8, 1, 14, 0.15) 0%,
-        transparent 35%,
-        rgba(13, 2, 22, 0.7) 70%,
-        rgba(13, 2, 22, 1) 100%
-      );
-      pointer-events: none;
-    }
-
-    /* Top photo pills header */
-    .card-photo-top {
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      right: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      z-index: 6;
-      pointer-events: none;
-    }
-    .status-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 11px;
-      border-radius: 999px;
-      font-size: 10.5px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      background: rgba(8, 1, 14, 0.75);
-      border: 1px solid rgba(74, 222, 128, 0.35);
-      color: #86efac;
-      backdrop-filter: blur(10px);
-    }
-    .pulse-dot {
-      width: 6.5px;
-      height: 6.5px;
-      border-radius: 50%;
-      background: #4ade80;
-      box-shadow: 0 0 8px #4ade80;
-      animation: pulseGlow 1.8s infinite;
-    }
-    @keyframes pulseGlow {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.85); }
-    }
-
-    .specialty-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      padding: 5px 11px;
-      border-radius: 999px;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 0.6px;
-      text-transform: uppercase;
-      background: rgba(184, 0, 245, 0.22);
-      border: 1px solid rgba(184, 0, 245, 0.45);
-      color: #f0abfc;
-      backdrop-filter: blur(10px);
-    }
-    .is-ceo .specialty-pill {
-      background: rgba(232, 121, 249, 0.25);
-      border-color: rgba(232, 121, 249, 0.6);
-      color: #ffd6ff;
-    }
-
-    /* Floating highlight tag on bottom of photo */
-    .photo-bottom-tag {
-      position: absolute;
-      bottom: 12px;
-      left: 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
-      border-radius: 8px;
-      background: rgba(8, 1, 14, 0.85);
-      border: 1px solid rgba(184, 0, 245, 0.3);
-      font-size: 10.5px;
-      font-weight: 700;
-      color: #E879F9;
-      letter-spacing: 0.3px;
-      z-index: 6;
-      backdrop-filter: blur(8px);
-    }
-
-    /* ── CARD BODY ── */
-    .card-body {
-      padding: 16px 20px 22px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .card-name-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      margin-bottom: 4px;
-    }
-    .card-name {
-      font-size: 20px;
-      font-weight: 800;
-      color: #FFFFFF;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-    }
-    .card-3d:hover .card-name {
-      color: #f5d0fe;
-    }
-    .card-badge-wrap {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .verified-icon {
-      width: 18px;
-      height: 18px;
-      flex-shrink: 0;
-    }
-
-    .card-role {
-      font-size: 12.5px;
-      font-weight: 600;
-      color: #d8b4fe;
-      margin-bottom: 14px;
-      letter-spacing: 0.2px;
-    }
-    .is-ceo .card-role {
-      color: #f0abfc;
-    }
-
-    /* ── STYLISH STATS MICRO-GRID ── */
-    .card-stats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 6px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      background: rgba(184, 0, 245, 0.08);
-      border: 1px solid rgba(184, 0, 245, 0.18);
-      margin-bottom: 15px;
-      text-align: center;
-    }
-    .is-ceo .card-stats-grid {
-      background: rgba(232, 121, 249, 0.09);
-      border-color: rgba(232, 121, 249, 0.25);
-    }
-    .cstat-item {
+      background: #090e18;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      height: 470px;
     }
-    .cstat-val {
-      font-size: 13.5px;
-      font-weight: 800;
-      color: #FFFFFF;
-      letter-spacing: -0.01em;
-      line-height: 1.2;
-    }
-    .is-ceo .cstat-val {
-      color: #fae8ff;
-    }
-    .cstat-lbl {
-      font-size: 9.5px;
-      font-weight: 600;
-      color: rgba(243, 232, 255, 0.6);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-top: 2px;
+    .card-wrap.is-ceo .card-inner {
+      background: #11031c;
     }
 
-    /* ── SOFTWARE BADGES (Sleek App Icons) ── */
-    .card-tools-row {
+    /* Photo container */
+    .card-photo-box {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+    .card-photo-img {
+      width: 100%;
+      height: 72%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .card-wrap:hover .card-photo-img {
+      transform: scale(1.04);
+    }
+
+    /* Gradient fade at bottom of photo into vibrant card base */
+    .card-photo-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.05) 0%,
+        transparent 35%,
+        rgba(0, 15, 45, 0.3) 50%,
+        rgba(0, 75, 175, 0.75) 68%,
+        #0060df 84%,
+        #0050c0 100%
+      );
+      pointer-events: none;
+    }
+    .card-wrap.is-ceo .card-photo-gradient {
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.05) 0%,
+        transparent 35%,
+        rgba(25, 3, 40, 0.3) 50%,
+        rgba(120, 10, 180, 0.75) 68%,
+        #8000c0 84%,
+        #65009e 100%
+      );
+    }
+
+    /* ── CARD BOTTOM INFO AREA (Abu Fahim style) ── */
+    .card-bottom-info {
+      position: relative;
+      z-index: 5;
+      margin-top: auto;
+      padding: 0 22px 22px;
+    }
+
+    /* Name and Verified Badge */
+    .card-name-title {
       display: flex;
       align-items: center;
       gap: 7px;
-      flex-wrap: wrap;
-      margin-bottom: 16px;
-    }
-    .tool-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
-      border-radius: 8px;
-      font-size: 11px;
+      font-size: 21px;
       font-weight: 700;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: rgba(243, 232, 255, 0.85);
-      transition: all 0.25s ease;
+      color: #FFFFFF;
+      letter-spacing: -0.01em;
+      margin-bottom: 5px;
+      line-height: 1.2;
     }
-    .card-3d:hover .tool-badge {
-      background: rgba(255, 255, 255, 0.07);
-      border-color: rgba(184, 0, 245, 0.35);
+    .verified-badge {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
     }
-    .tool-icon {
-      font-size: 10px;
-      font-weight: 900;
-      padding: 2px 5px;
-      border-radius: 4px;
-      letter-spacing: -0.5px;
-      line-height: 1;
-    }
-    .tool-pr { background: #00005b; color: #9999ff; border: 1px solid #9999ff; }
-    .tool-ae { background: #00005b; color: #d291ff; border: 1px solid #d291ff; }
-    .tool-da { background: #3b1400; color: #ff8442; border: 1px solid #ff8442; }
-    .tool-bl { background: #452100; color: #f5792a; border: 1px solid #f5792a; }
-    .tool-au { background: #002e2c; color: #2de2b5; border: 1px solid #2de2b5; }
 
-    /* ── STYLISH CTA BUTTON ── */
-    .card-cta-btn {
+    /* 2-line Subtitle / Bio */
+    .card-bio-text {
+      font-size: 12.5px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.92);
+      line-height: 1.45;
+      margin-bottom: 16px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Bottom Action Row: Stats (left) + White Pill Button (right) */
+    .card-action-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 100%;
-      padding: 12px 18px;
-      border-radius: 14px;
-      border: none;
-      cursor: pointer;
-      font-size: 13px;
-      font-weight: 700;
-      color: #FFFFFF;
-      background: linear-gradient(135deg, #B800F5 0%, #580B82 100%);
-      box-shadow: 0 4px 18px rgba(184, 0, 245, 0.35);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      text-decoration: none;
-      position: relative;
-      overflow: hidden;
-    }
-    .card-cta-btn::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transform: translateX(-100%);
-      transition: transform 0.6s ease;
-    }
-    .card-3d:hover .card-cta-btn::after {
-      transform: translateX(100%);
-    }
-    .card-cta-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(184, 0, 245, 0.65);
-      filter: brightness(1.12);
-    }
-    .is-ceo .card-cta-btn {
-      background: linear-gradient(135deg, #E879F9 0%, #B800F5 60%, #580B82 100%);
-      box-shadow: 0 4px 22px rgba(232, 121, 249, 0.4);
-    }
-    .is-ceo .card-cta-btn:hover {
-      box-shadow: 0 8px 32px rgba(232, 121, 249, 0.75);
-    }
-    .btn-arrow-box {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.25s ease;
-    }
-    .card-3d:hover .btn-arrow-box {
-      transform: translateX(3px);
-      background: rgba(255, 255, 255, 0.35);
+      gap: 12px;
     }
 
-    /* ─────────────────────────────────────
-       MOBILE: Horizontal scroll-snap carousel
-    ───────────────────────────────────── */
+    .card-stats-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .card-stat-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #FFFFFF;
+      letter-spacing: 0.2px;
+    }
+    .card-stat-chip svg {
+      opacity: 0.9;
+      flex-shrink: 0;
+    }
+
+    /* White Pill Button (Follow + / Hire +) */
+    .card-pill-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 9px 20px;
+      border-radius: 999px;
+      background: #FFFFFF;
+      color: #0A0A0A;
+      font-size: 13.5px;
+      font-weight: 700;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+    .card-pill-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.45);
+      background: #f8fafc;
+    }
+
+    /* Mobile Responsive adjustments */
     @media (max-width: 840px) {
-      .cards-section { padding: 0 0 80px; }
+      .cards-section { padding: 10px 0 80px; }
+      .cards-watermark { display: none; }
       .cards-grid {
         display: flex;
         flex-direction: row;
@@ -601,23 +512,22 @@
         gap: 0;
         max-width: 100%;
         padding: 0 0 20px 0;
-        /* Hide scrollbar */
         scrollbar-width: none;
       }
       .cards-grid::-webkit-scrollbar { display: none; }
-
-      .card-3d {
+      .card-wrap {
         scroll-snap-align: center;
         flex: 0 0 85vw;
         max-width: 340px;
         margin: 0 12px;
-        /* Override to be visible on mobile immediately */
+      }
+      .card-wrap:first-child { margin-left: calc(50vw - 170px); }
+      .card-wrap:last-child  { margin-right: calc(50vw - 170px); }
+      .card-3d {
         opacity: 1 !important;
         transform: none !important;
       }
-      /* First and last padding */
-      .card-3d:first-child { margin-left: calc(50vw - 170px); }
-      .card-3d:last-child  { margin-right: calc(50vw - 170px); }
+    }
 
       /* Mobile scroll indicators */
       .mobile-scroll-hint {
@@ -876,8 +786,15 @@
     </div>
   </section>
 
-  <!-- TEAM CARDS -->
+  <!-- TEAM CARDS (EXACT REFERENCE 3D DESIGN) -->
   <section class="cards-section">
+    <!-- Ambient Watermark Typography (as in reference image) -->
+    <div class="cards-watermark" aria-hidden="true">
+      <span>NEVER STOP</span>
+      <span>CREATIVE</span>
+      <span>LEARNING</span>
+    </div>
+
     <div class="sl">
       <div class="sl-line"></div>
       <span class="sl-txt">Meet The Team</span>
@@ -893,175 +810,160 @@
     <div class="cards-grid" id="cardsGrid">
 
       <!-- ══ CARD 1: Tanvir Ahmed ══ -->
-      <div class="card-3d" data-index="0" onclick="window.open('https://wa.me/8801716705401','_blank')">
-        <div class="card-glow"></div>
-        <div class="card-inner">
-          <div class="card-photo-wrap">
-            <img src="assets/team_member1.jpg" alt="Tanvir Ahmed" class="card-photo" loading="lazy"/>
-            <div class="card-photo-fade"></div>
-            <div class="card-photo-top">
-              <div class="status-pill">
-                <span class="pulse-dot"></span>
-                <span>AVAILABLE</span>
-              </div>
-              <div class="specialty-pill">3D &amp; MOTION LEAD</div>
-            </div>
-            <div class="photo-bottom-tag">⚡ 4K Motion VFX · 48h Delivery</div>
-          </div>
-          <div class="card-body">
-            <div class="card-name-row">
-              <span class="card-name">Tanvir Ahmed</span>
-              <div class="card-badge-wrap">
-                <svg class="verified-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#B800F5"/><path d="M8.5 12.5l2.5 2.5 5-5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-            </div>
-            <div class="card-role">Lead Motion &amp; 3D VFX Artist</div>
+      <div class="card-wrap" data-index="0">
+        <!-- Vertical Neon Laser Beam -->
+        <div class="card-light-beam"></div>
+        <!-- Glowing Flare Hotspot on top edge -->
+        <div class="card-flare-hotspot"></div>
+        <!-- Ambient halo behind card -->
+        <div class="card-ambient-glow"></div>
 
-            <!-- Stats Micro-Grid -->
-            <div class="card-stats-grid">
-              <div class="cstat-item">
-                <span class="cstat-val">150+</span>
-                <span class="cstat-lbl">Projects</span>
-              </div>
-              <div class="cstat-item">
-                <span class="cstat-val">48h</span>
-                <span class="cstat-lbl">Turnaround</span>
-              </div>
-              <div class="cstat-item">
-                <span class="cstat-val">99.8%</span>
-                <span class="cstat-lbl">Rating</span>
-              </div>
+        <div class="card-3d" onclick="window.open('https://wa.me/8801716705401','_blank')">
+          <div class="card-inner">
+            <!-- Photo Box with Smooth Gradient Blend -->
+            <div class="card-photo-box">
+              <img src="assets/team_member1.jpg" alt="Tanvir Ahmed" class="card-photo-img" loading="lazy"/>
+              <div class="card-photo-gradient"></div>
             </div>
 
-            <!-- Tool Badges -->
-            <div class="card-tools-row">
-              <div class="tool-badge"><span class="tool-icon tool-ae">Ae</span> After Effects</div>
-              <div class="tool-badge"><span class="tool-icon tool-bl">Bl</span> Blender 3D</div>
-              <div class="tool-badge"><span class="tool-icon tool-pr">Pr</span> Premiere</div>
-            </div>
+            <!-- Card Bottom Info Area -->
+            <div class="card-bottom-info">
+              <!-- Name & Verified Rosette Checkmark -->
+              <div class="card-name-title">
+                <span>Tanvir Ahmed</span>
+                <svg class="verified-badge" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2l2.4 2.1 3.2-.4 1.3 2.9 3 .9.1 3.2 2 2.5-1.4 2.9.8 3.1-2.7 1.7-.5 3.2-3.2.7-1.7 2.7-3.1-.7-2.6 1.9-2.6-1.9-3.1.7-1.7-2.7-3.2-.7-.5-3.2-2.7-1.7.8-3.1-1.4-2.9 2-2.5.1-3.2 3-.9 1.3-2.9 3.2.4L12 2z" fill="#FFFFFF"/>
+                  <path d="M9.5 12l2 2 4.5-4.5" stroke="#0070f3" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
 
-            <button type="button" class="card-cta-btn" onclick="event.stopPropagation();window.open('https://wa.me/8801716705401','_blank')">
-              <span>Hire Tanvir</span>
-              <span class="btn-arrow-box">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </span>
-            </button>
+              <!-- 2-Line Subtitle / Bio -->
+              <p class="card-bio-text">Lead Motion &amp; 3D Designer | High-impact visual hooks for viral audience retention</p>
+
+              <!-- Bottom Action Row: Stats + Pill Button -->
+              <div class="card-action-row">
+                <div class="card-stats-left">
+                  <div class="card-stat-chip">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    <span>150K</span>
+                  </div>
+                  <div class="card-stat-chip">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m9 12 2 2 4-4"/></svg>
+                    <span>480</span>
+                  </div>
+                </div>
+
+                <button type="button" class="card-pill-btn" onclick="event.stopPropagation();window.open('https://wa.me/8801716705401','_blank')">
+                  Follow +
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- ══ CARD 2: CEO Md Rakibul Hasan ══ -->
-      <div class="card-3d is-ceo" data-index="1" onclick="window.open('https://wa.me/8801716705401','_blank')">
-        <div class="card-glow"></div>
-        <div class="card-inner">
-          <div class="card-photo-wrap">
-            <img src="assets/team_ceo.jpg" alt="Md Rakibul Hasan — CEO" class="card-photo" loading="eager"/>
-            <div class="card-photo-fade"></div>
-            <div class="card-photo-top">
-              <div class="status-pill" style="border-color:rgba(232,121,249,0.5);color:#f5d0fe;">
-                <span class="pulse-dot" style="background:#E879F9;box-shadow:0 0 8px #E879F9;"></span>
-                <span>CEO · AVAILABLE</span>
-              </div>
-              <div class="specialty-pill">👑 FOUNDER &amp; DIRECTOR</div>
-            </div>
-            <div class="photo-bottom-tag" style="color:#f0abfc;border-color:rgba(232,121,249,0.45);">💎 Viral Storytelling · 250M+ Views</div>
-          </div>
-          <div class="card-body">
-            <div class="card-name-row">
-              <span class="card-name">Md Rakibul Hasan</span>
-              <div class="card-badge-wrap">
-                <svg class="verified-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#E879F9"/><path d="M8.5 12.5l2.5 2.5 5-5" stroke="#08010E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-            </div>
-            <div class="card-role">CEO &amp; Executive Creative Director</div>
+      <div class="card-wrap is-ceo" data-index="1">
+        <!-- Vertical Neon Laser Beam -->
+        <div class="card-light-beam"></div>
+        <!-- Glowing Flare Hotspot on top edge -->
+        <div class="card-flare-hotspot"></div>
+        <!-- Ambient halo behind card -->
+        <div class="card-ambient-glow"></div>
 
-            <!-- Stats Micro-Grid -->
-            <div class="card-stats-grid">
-              <div class="cstat-item">
-                <span class="cstat-val">250M+</span>
-                <span class="cstat-lbl">Views Driven</span>
-              </div>
-              <div class="cstat-item">
-                <span class="cstat-val">50+</span>
-                <span class="cstat-lbl">YC Brands</span>
-              </div>
-              <div class="cstat-item">
-                <span class="cstat-val">5.0 ★</span>
-                <span class="cstat-lbl">Verified</span>
-              </div>
+        <div class="card-3d" onclick="window.open('https://wa.me/8801716705401','_blank')">
+          <div class="card-inner">
+            <!-- Photo Box with Smooth Gradient Blend -->
+            <div class="card-photo-box">
+              <img src="assets/team_ceo.jpg" alt="Md Rakibul Hasan — CEO" class="card-photo-img" loading="eager"/>
+              <div class="card-photo-gradient"></div>
             </div>
 
-            <!-- Tool Badges -->
-            <div class="card-tools-row">
-              <div class="tool-badge"><span class="tool-icon tool-pr">Pr</span> Premiere Pro</div>
-              <div class="tool-badge"><span class="tool-icon tool-ae">Ae</span> After Effects</div>
-              <div class="tool-badge"><span class="tool-icon tool-da">Da</span> DaVinci</div>
-            </div>
+            <!-- Card Bottom Info Area -->
+            <div class="card-bottom-info">
+              <!-- Name & Verified Rosette Checkmark -->
+              <div class="card-name-title">
+                <span>Md Rakibul Hasan</span>
+                <svg class="verified-badge" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2l2.4 2.1 3.2-.4 1.3 2.9 3 .9.1 3.2 2 2.5-1.4 2.9.8 3.1-2.7 1.7-.5 3.2-3.2.7-1.7 2.7-3.1-.7-2.6 1.9-2.6-1.9-3.1.7-1.7-2.7-3.2-.7-.5-3.2-2.7-1.7.8-3.1-1.4-2.9 2-2.5.1-3.2 3-.9 1.3-2.9 3.2.4L12 2z" fill="#FFFFFF"/>
+                  <path d="M9.5 12l2 2 4.5-4.5" stroke="#B800F5" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
 
-            <button type="button" class="card-cta-btn" onclick="event.stopPropagation();window.open('https://wa.me/8801716705401','_blank')">
-              <span>Direct Project With Rakib</span>
-              <span class="btn-arrow-box">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </span>
-            </button>
+              <!-- 2-Line Subtitle / Bio -->
+              <p class="card-bio-text">CEO &amp; Video Director | Helping global brands scale with high-converting video</p>
+
+              <!-- Bottom Action Row: Stats + Pill Button -->
+              <div class="card-action-row">
+                <div class="card-stats-left">
+                  <div class="card-stat-chip">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    <span>250M+</span>
+                  </div>
+                  <div class="card-stat-chip">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <span>5.0</span>
+                  </div>
+                </div>
+
+                <button type="button" class="card-pill-btn" onclick="event.stopPropagation();window.open('https://wa.me/8801716705401','_blank')">
+                  Follow +
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- ══ CARD 3: Zubair Hossain ══ -->
-      <div class="card-3d" data-index="2" onclick="window.open('https://wa.me/8801716705401','_blank')">
-        <div class="card-glow"></div>
-        <div class="card-inner">
-          <div class="card-photo-wrap">
-            <img src="assets/team_member3.jpg" alt="Zubair Hossain" class="card-photo" loading="lazy"/>
-            <div class="card-photo-fade"></div>
-            <div class="card-photo-top">
-              <div class="status-pill">
-                <span class="pulse-dot"></span>
-                <span>AVAILABLE</span>
-              </div>
-              <div class="specialty-pill">COLOR &amp; AUDIO LEAD</div>
-            </div>
-            <div class="photo-bottom-tag">🎨 Hollywood Grade · Binaural SFX</div>
-          </div>
-          <div class="card-body">
-            <div class="card-name-row">
-              <span class="card-name">Zubair Hossain</span>
-              <div class="card-badge-wrap">
-                <svg class="verified-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#B800F5"/><path d="M8.5 12.5l2.5 2.5 5-5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-            </div>
-            <div class="card-role">Senior Colorist &amp; Sound Designer</div>
+      <div class="card-wrap" data-index="2">
+        <!-- Vertical Neon Laser Beam -->
+        <div class="card-light-beam"></div>
+        <!-- Glowing Flare Hotspot on top edge -->
+        <div class="card-flare-hotspot"></div>
+        <!-- Ambient halo behind card -->
+        <div class="card-ambient-glow"></div>
 
-            <!-- Stats Micro-Grid -->
-            <div class="card-stats-grid">
-              <div class="cstat-item">
-                <span class="cstat-val">4K ProRes</span>
-                <span class="cstat-lbl">Master Grade</span>
-              </div>
-              <div class="cstat-item">
-                <span class="cstat-val">100%</span>
-                <span class="cstat-lbl">Custom SFX</span>
-              </div>
-              <div class="cstat-item">
-                <span class="cstat-val">48h</span>
-                <span class="cstat-lbl">Delivery</span>
-              </div>
+        <div class="card-3d" onclick="window.open('https://wa.me/8801716705401','_blank')">
+          <div class="card-inner">
+            <!-- Photo Box with Smooth Gradient Blend -->
+            <div class="card-photo-box">
+              <img src="assets/team_member3.jpg" alt="Zubair Hossain" class="card-photo-img" loading="lazy"/>
+              <div class="card-photo-gradient"></div>
             </div>
 
-            <!-- Tool Badges -->
-            <div class="card-tools-row">
-              <div class="tool-badge"><span class="tool-icon tool-da">Da</span> DaVinci</div>
-              <div class="tool-badge"><span class="tool-icon tool-au">Au</span> Audition SFX</div>
-              <div class="tool-badge"><span class="tool-icon tool-pr">Pr</span> Premiere</div>
-            </div>
+            <!-- Card Bottom Info Area -->
+            <div class="card-bottom-info">
+              <!-- Name & Verified Rosette Checkmark -->
+              <div class="card-name-title">
+                <span>Zubair Hossain</span>
+                <svg class="verified-badge" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2l2.4 2.1 3.2-.4 1.3 2.9 3 .9.1 3.2 2 2.5-1.4 2.9.8 3.1-2.7 1.7-.5 3.2-3.2.7-1.7 2.7-3.1-.7-2.6 1.9-2.6-1.9-3.1.7-1.7-2.7-3.2-.7-.5-3.2-2.7-1.7.8-3.1-1.4-2.9 2-2.5.1-3.2 3-.9 1.3-2.9 3.2.4L12 2z" fill="#FFFFFF"/>
+                  <path d="M9.5 12l2 2 4.5-4.5" stroke="#0070f3" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
 
-            <button type="button" class="card-cta-btn" onclick="event.stopPropagation();window.open('https://wa.me/8801716705401','_blank')">
-              <span>Hire Zubair</span>
-              <span class="btn-arrow-box">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </span>
-            </button>
+              <!-- 2-Line Subtitle / Bio -->
+              <p class="card-bio-text">Senior Colorist &amp; Sound Designer | Hollywood-grade 4K grading &amp; immersive soundscapes</p>
+
+              <!-- Bottom Action Row: Stats + Pill Button -->
+              <div class="card-action-row">
+                <div class="card-stats-left">
+                  <div class="card-stat-chip">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    <span>120K</span>
+                  </div>
+                  <div class="card-stat-chip">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m9 12 2 2 4-4"/></svg>
+                    <span>340</span>
+                  </div>
+                </div>
+
+                <button type="button" class="card-pill-btn" onclick="event.stopPropagation();window.open('https://wa.me/8801716705401','_blank')">
+                  Follow +
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1209,7 +1111,7 @@ document.addEventListener('DOMContentLoaded', function () {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const el = entry.target;
-        const delay = (el.dataset.index || 0) * 120;
+        const delay = (el.dataset.index || el.closest('.card-wrap')?.dataset.index || 0) * 120;
         setTimeout(() => el.classList.add('visible'), delay);
         io.unobserve(el);
       }
@@ -1256,7 +1158,8 @@ document.addEventListener('DOMContentLoaded', function () {
   if (grid && dots.length) {
     function updateDot() {
       const scrollLeft = grid.scrollLeft;
-      const cardW = grid.querySelector('.card-3d').offsetWidth + 24; /* card + gap */
+      const item = grid.querySelector('.card-wrap') || grid.querySelector('.card-3d');
+      const cardW = item ? (item.offsetWidth + 24) : 340;
       const idx = Math.round(scrollLeft / cardW);
       dots.forEach((d, i) => d.classList.toggle('active', i === idx));
     }
@@ -1264,7 +1167,8 @@ document.addEventListener('DOMContentLoaded', function () {
     dots.forEach(d => {
       d.addEventListener('click', () => {
         const idx  = parseInt(d.dataset.i);
-        const cardW = grid.querySelector('.card-3d').offsetWidth + 24;
+        const item = grid.querySelector('.card-wrap') || grid.querySelector('.card-3d');
+        const cardW = item ? (item.offsetWidth + 24) : 340;
         grid.scrollTo({ left: idx * cardW, behavior: 'smooth' });
       });
     });
