@@ -247,14 +247,6 @@
       opacity: 0.88;
       transition: all 0.4s ease;
     }
-    .card-wrap:hover .card-light-beam {
-      opacity: 1;
-      height: 82px;
-      box-shadow:
-        0 0 16px #00e5ff,
-        0 0 35px rgba(0, 180, 255, 1),
-        0 0 70px rgba(0, 120, 255, 0.85);
-    }
 
     /* CEO Card: Purple Neon Laser Beam */
     .card-wrap.is-ceo .card-light-beam {
@@ -263,12 +255,6 @@
         0 0 12px #E879F9,
         0 0 28px rgba(184, 0, 245, 0.9),
         0 0 60px rgba(184, 0, 245, 0.7);
-    }
-    .card-wrap.is-ceo:hover .card-light-beam {
-      box-shadow:
-        0 0 18px #E879F9,
-        0 0 40px rgba(232, 121, 249, 1),
-        0 0 80px rgba(184, 0, 245, 0.95);
     }
 
     /* Glowing flare hotspot right on top edge */
@@ -284,11 +270,6 @@
       z-index: 11;
       pointer-events: none;
       opacity: 0.9;
-      transition: opacity 0.4s ease, transform 0.4s ease;
-    }
-    .card-wrap:hover .card-flare-hotspot {
-      opacity: 1;
-      transform: translate(-50%, -50%) scale(1.2);
     }
     .card-wrap.is-ceo .card-flare-hotspot {
       background: radial-gradient(ellipse at 50% 50%, #ffffff 0%, rgba(232, 121, 249, 0.95) 25%, rgba(184, 0, 245, 0.65) 55%, transparent 75%);
@@ -306,10 +287,6 @@
       filter: blur(35px);
       z-index: 1;
       pointer-events: none;
-      transition: opacity 0.4s ease;
-    }
-    .card-wrap:hover .card-ambient-glow {
-      opacity: 1;
     }
     .card-wrap.is-ceo .card-ambient-glow {
       background: radial-gradient(ellipse at 50% 30%, rgba(232, 121, 249, 0.45) 0%, rgba(184, 0, 245, 0.25) 55%, transparent 75%);
@@ -318,8 +295,6 @@
     /* ── THE 3D CARD (With thick 3D tactile bezel) ── */
     .card-3d {
       position: relative;
-      cursor: pointer;
-      transform-style: preserve-3d;
       border-radius: 34px;
       /* Thick 3D tactile bezel */
       padding: 3.5px;
@@ -327,13 +302,7 @@
       box-shadow:
         0 0 28px rgba(0, 150, 255, 0.45),
         0 24px 60px rgba(0, 0, 0, 0.85);
-      transition: box-shadow 0.45s ease;
       z-index: 3;
-    }
-    .card-wrap:hover .card-3d {
-      box-shadow:
-        0 0 45px rgba(0, 180, 255, 0.75),
-        0 32px 80px rgba(0, 0, 0, 0.95);
     }
 
     /* CEO Card: Purple / Fuchsia Bezel */
@@ -342,11 +311,6 @@
       box-shadow:
         0 0 32px rgba(232, 121, 249, 0.5),
         0 24px 60px rgba(0, 0, 0, 0.85);
-    }
-    .card-wrap.is-ceo .card-3d:hover {
-      box-shadow:
-        0 0 55px rgba(232, 121, 249, 0.85),
-        0 32px 80px rgba(0, 0, 0, 0.95);
     }
 
     /* Inner card face */
@@ -377,10 +341,6 @@
       object-fit: cover;
       object-position: center top;
       display: block;
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .card-wrap:hover .card-photo-img {
-      transform: scale(1.04);
     }
 
     /* Gradient fade at bottom of photo into vibrant card base */
@@ -1043,7 +1003,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* ── Scroll-triggered float-up reveal for cards (mobile & desktop) ── */
   const cardWraps = document.querySelectorAll('.card-wrap');
-  const cards     = document.querySelectorAll('.card-3d');
   const hlCards   = document.querySelectorAll('.hlc');
 
   const isMobile = window.matchMedia('(max-width: 840px)').matches;
@@ -1074,26 +1033,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }, { threshold: 0.15 });
   hlCards.forEach(h => ioHL.observe(h));
 
-  /* ── 3D Mouse-tilt effect (desktop only) ── */
-  if (window.matchMedia('(min-width: 841px)').matches) {
-    cards.forEach(card => {
-      card.addEventListener('mousemove', e => {
-        const r   = card.getBoundingClientRect();
-        const cx  = r.left + r.width  / 2;
-        const cy  = r.top  + r.height / 2;
-        const dx  = (e.clientX - cx) / (r.width  / 2);
-        const dy  = (e.clientY - cy) / (r.height / 2);
-        const rx  = -dy * 8;  /* tilt X */
-        const ry  =  dx * 8;  /* tilt Y */
-        card.querySelector('.card-inner').style.transform =
-          `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(6px)`;
-      });
-      card.addEventListener('mouseleave', () => {
-        card.querySelector('.card-inner').style.transform =
-          'perspective(900px) rotateX(0) rotateY(0) translateZ(0)';
-      });
-    });
-  }
+
 
 });
 </script>
