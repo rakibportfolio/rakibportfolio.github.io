@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+  <meta http-equiv="Pragma" content="no-cache"/>
+  <meta http-equiv="Expires" content="0"/>
+  <title>Our Team — Zentic Media | Video Editing Experts</title>
+  <meta name="description" content="Meet Zentic Media's elite video editing team. Led by CEO & Founder Md Rakibul Hasan."/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <base href="/"/>
+  <link rel="icon" type="image/x-icon" href="favicon.ico?v=5.0"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/zentic_icon.png?v=5.0"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/zentic_icon.png?v=5.0"/>
+  <link href="css/mzmedia.css?v=2.0" rel="stylesheet"/>
+  <link href="css/custom-theme.css?v=12.0" rel="stylesheet"/>
+  <link href="css/bg-shapes.css?v=7.0" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── FORCE Inter everywhere — override Coolvetica from custom-theme.css ── */
+    html, body, *, *::before, *::after,
+    h1, h2, h3, h4, h5, h6, p, span, div, a, button, input,
+    .hlc-t, .cta-h2, .hero-h1, .card-name, .card-role,
+    .hlc-num, .hlc-d, .ft-cp, .ft-l, .ft-cv, .ft-desc {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    }
+
+    /* ── BRAND COLORS (exact match to main site) ──
+       #08010E  deep background
+       #B800F5  primary purple glow / accent
+       #580B82  mid purple
+       #150522  card dark bg
+       #E879F9  light fuchsia highlight
+       #F3E8FF  cream / text
+    ────────────────────────────────────────────── */
+    *, *::before, *::after {
+      box-sizing: border-box; margin: 0; padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #08010E;
+      color: #F3E8FF;
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; }
+
+    /* ═══════════════════════════════════════════════
+       ANIMATED BACKGROUND
+    ═══════════════════════════════════════════════ */
+    .bg-scene {
+      position: fixed; inset: 0; z-index: 0;
+      pointer-events: none; overflow: hidden;
+      background: #08010E;
+    }
+    .bg-scene::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 85% 55% at 12% 8%,  rgba(184,0,245,0.28) 0%, transparent 55%),
+        radial-gradient(ellipse 65% 45% at 88% 12%,  rgba(184,0,245,0.18) 0%, transparent 50%),
+        radial-gradient(ellipse 80% 60% at 50% 95%, rgba(88,11,130,0.35)  0%, transparent 60%),
+        radial-gradient(ellipse 50% 35% at 70% 55%,  rgba(232,121,249,0.08) 0%, transparent 50%);
+    }
+    /* Grid overlay */
+    .bg-scene::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(184,0,245,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(184,0,245,0.04) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse 120% 90% at 50% 20%, black 30%, transparent 72%);
+    }
+
+    /* Floating orbs */
+    .orb {
+      position: absolute; border-radius: 50%;
+      filter: blur(100px); animation: orb-drift 20s ease-in-out infinite;
+    }
+    .o1 { width:650px;height:650px; background:radial-gradient(circle,rgba(184,0,245,0.3) 0%,transparent 70%); top:-200px;left:-180px; animation-delay:0s; }
+    .o2 { width:500px;height:500px; background:radial-gradient(circle,rgba(88,11,130,0.3)  0%,transparent 70%); bottom:-100px;right:-150px; animation-delay:-8s; }
+    .o3 { width:380px;height:380px; background:radial-gradient(circle,rgba(232,121,249,0.12) 0%,transparent 70%); top:45%;left:48%;transform:translate(-50%,-50%); animation-delay:-15s; }
+    @keyframes orb-drift {
+      0%,100%{ transform:translate(0,0) scale(1); }
+      33%    { transform:translate(30px,-25px) scale(1.06); }
+      66%    { transform:translate(-22px,18px) scale(0.96); }
+    }
+
+    /* ═══════════════════════════════════════════════
+       PAGE STRUCTURE
+    ═══════════════════════════════════════════════ */
+    .page { position: relative; z-index: 1; padding-top: 110px; }
+
+    /* ═══════════════════════════════════════════════
+       HERO SECTION
+    ═══════════════════════════════════════════════ */
+    .hero {
+      text-align: center;
+      padding: 70px 20px 80px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(184,0,245,0.1);
+      border: 1px solid rgba(184,0,245,0.35);
+      border-radius: 999px;
+      padding: 7px 20px;
+      font-size: 11px; font-weight: 700;
+      color: #E879F9; letter-spacing: 1.2px;
+      text-transform: uppercase; margin-bottom: 26px;
+    }
+    .hero-chip-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #B800F5;
+      box-shadow: 0 0 12px rgba(184,0,245,0.9);
+      animation: chipblink 2s ease-in-out infinite;
+    }
+    @keyframes chipblink {
+      0%,100%{ opacity:1;transform:scale(1);box-shadow:0 0 12px rgba(184,0,245,0.9); }
+      50%    { opacity:0.55;transform:scale(0.78);box-shadow:0 0 5px rgba(184,0,245,0.4); }
+    }
+
+    .hero-h1 {
+      font-size: clamp(36px,7vw,78px);
+      font-weight: 900; line-height: 1.04;
+      letter-spacing: -0.03em; color: #fff; margin-bottom: 20px;
+    }
+    .hero-h1-grad {
+      background: linear-gradient(135deg, #E879F9 0%, #B800F5 50%, #580B82 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-sub {
+      font-size: clamp(14px,1.7vw,17px);
+      color: rgba(243,232,255,0.55);
+      line-height: 1.72; max-width: 580px; margin: 0 auto 36px;
+    }
+    .hero-stats {
+      display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
+    }
+    .hs { padding: 0 28px; text-align: center; position: relative; }
+    .hs:not(:last-child)::after {
+      content:''; position:absolute; right:0; top:10%; height:80%;
+      width:1px; background:rgba(184,0,245,0.2);
+    }
+    .hs-n {
+      font-size:30px;font-weight:800;line-height:1;margin-bottom:4px;
+      background:linear-gradient(90deg,#E879F9,#B800F5);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+    }
+    .hs-l { font-size:11.5px;color:rgba(243,232,255,0.38);font-weight:500; }
+
+    /* ═══════════════════════════════════════════════
+       SECTION LABEL
+    ═══════════════════════════════════════════════ */
+    .sl {
+      display:flex;align-items:center;gap:16px;
+      max-width:1200px;margin:0 auto 52px;padding:0 24px;
+    }
+    .sl-line { flex:1;height:1px;background:linear-gradient(90deg,rgba(184,0,245,0.4),transparent); }
+    .sl-line.r { background:linear-gradient(90deg,transparent,rgba(184,0,245,0.4)); }
+    .sl-txt { font-size:10.5px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(184,0,245,0.7);white-space:nowrap; }
+
+    /* ═══════════════════════════════════════════════
+       3D CARD SECTION — DESKTOP: 3-column grid
+       MOBILE: scroll-snap one-at-a-time
+    ═══════════════════════════════════════════════ */
+    .cards-section { padding: 0 24px 100px; }
+
+    /* Desktop grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      max-width: 1100px;
+      margin: 0 auto;
+      perspective: 1200px;
+    }
+
+    /* ─── THE 3D CARD ─── */
+    .card-3d {
+      position: relative;
+      cursor: pointer;
+      /* 3D tilt setup */
+      transform-style: preserve-3d;
+      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1),
+                  box-shadow 0.5s ease;
+      border-radius: 24px;
+      /* Scroll-fade-in state */
+      opacity: 0;
+      transform: translateY(40px) rotateX(8deg);
+      will-change: transform, opacity;
+    }
+    /* Visible state (triggered by JS) */
+    .card-3d.visible {
+      opacity: 1;
+      transform: translateY(0) rotateX(0deg);
+    }
+
+    /* Inner card face */
+    .card-inner {
+      border-radius: 24px;
+      overflow: hidden;
+      background: linear-gradient(165deg,
+        rgba(30,5,52,0.92) 0%,
+        rgba(15,2,28,0.97) 60%,
+        rgba(21,5,34,0.98) 100%
+      );
+      border: 1px solid rgba(184,0,245,0.25);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.04) inset,
+        0 24px 70px rgba(0,0,0,0.65),
+        0 0 40px rgba(184,0,245,0.06);
+      transition: border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+    .card-3d:hover .card-inner {
+      border-color: rgba(184,0,245,0.55);
+      box-shadow:
+        0 0 0 1px rgba(184,0,245,0.1) inset,
+        0 32px 80px rgba(0,0,0,0.75),
+        0 0 60px rgba(184,0,245,0.15);
+    }
+
+    /* CEO card highlighted differently */
+    .card-3d.is-ceo .card-inner {
+      border-color: rgba(232,121,249,0.3);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.05) inset,
+        0 24px 70px rgba(0,0,0,0.65),
+        0 0 50px rgba(232,121,249,0.08);
+    }
+    .card-3d.is-ceo:hover .card-inner {
+      border-color: rgba(232,121,249,0.6);
+      box-shadow:
+        0 0 0 1px rgba(232,121,249,0.12) inset,
+        0 32px 80px rgba(0,0,0,0.75),
+        0 0 70px rgba(232,121,249,0.18);
+    }
+
+    /* Outer glow blob behind card */
+    .card-glow {
+      position: absolute;
+      inset: -20px;
+      border-radius: 36px;
+      background: radial-gradient(ellipse at 50% 85%, rgba(184,0,245,0.22) 0%, transparent 65%);
+      filter: blur(26px);
+      pointer-events: none;
+      opacity: 0.55;
+      transition: opacity 0.35s ease;
+    }
+    .card-3d:hover .card-glow { opacity: 1; }
+    .card-3d.is-ceo .card-glow {
+      background: radial-gradient(ellipse at 50% 85%, rgba(232,121,249,0.28) 0%, transparent 65%);
+    }
+
+    /* ── PHOTO AREA ── */
+    .card-photo-wrap {
+      position: relative;
+      width: 100%;
+      height: 240px; /* Compact height */
+      overflow: hidden;
+    }
+
+    .card-photo {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+      image-rendering: -webkit-optimize-contrast;
+    }
+    .card-3d:hover .card-photo { transform: scale(1.05); }
+
+    /* Photo bottom fade */
+    .card-photo-fade {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        180deg,
+        transparent 0%,
+        transparent 40%,
+        rgba(15,2,28,0.6) 65%,
+        rgba(15,2,28,0.98) 100%
+      );
+      pointer-events: none;
+    }
+
+    /* Top-left brand badge */
+    .card-brand {
+      position: absolute; top:13px; left:13px;
+      background: rgba(8,1,14,0.7);
+      border: 1px solid rgba(184,0,245,0.3);
+      border-radius: 9px; padding:5px 11px;
+      display: flex; align-items: center; gap: 5px;
+      z-index: 5; backdrop-filter: blur(8px);
+    }
+    .card-brand img {
+      height: 14px; width: auto; object-fit: contain;
+      filter: brightness(0) invert(1);
+      image-rendering: -webkit-optimize-contrast;
+    }
+
+    /* Top-right icon */
+    .card-star {
+      position: absolute; top:13px; right:13px;
+      width: 32px; height: 32px; border-radius: 9px;
+      background: rgba(184,0,245,0.2);
+      border: 1px solid rgba(184,0,245,0.4);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 5; backdrop-filter: blur(6px);
+      transition: background 0.2s;
+    }
+    .card-3d:hover .card-star { background: rgba(184,0,245,0.38); }
+    .is-ceo .card-star {
+      background: rgba(232,121,249,0.22);
+      border-color: rgba(232,121,249,0.5);
+    }
+
+    /* ID tag bottom-right of photo */
+    .card-id {
+      position: absolute; bottom:12px; right:12px;
+      background: rgba(8,1,14,0.65);
+      border: 1px solid rgba(184,0,245,0.25);
+      border-radius: 6px; padding:3px 9px;
+      font-size:10px;font-weight:700;
+      color:rgba(232,121,249,0.75);letter-spacing:1px;
+      z-index:5; backdrop-filter:blur(6px);
+    }
+
+    /* ── CARD BODY ── */
+    .card-body {
+      padding: 16px 18px 18px;
+    }
+
+    .card-name-row {
+      display:flex;align-items:center;gap:6px;margin-bottom:4px;
+    }
+    .card-name {
+      font-size:18px;font-weight:900;color:#fff;
+      letter-spacing:-0.02em;line-height:1.2;
+    }
+    .vbadge { width:16px;height:16px;flex-shrink:0; }
+
+    .card-role {
+      font-size:12px;font-weight:700;
+      color:#B800F5;letter-spacing:0.3px;margin-bottom:12px;
+    }
+    .is-ceo .card-role { color:#E879F9; }
+
+    /* Divider */
+    .card-div {
+      height:1px;background:rgba(184,0,245,0.15);margin-bottom:11px;
+      position:relative;
+    }
+    .card-div::after {
+      content:'';position:absolute;left:0;top:-1.5px;
+      width:32px;height:3px;border-radius:2px;
+      background:linear-gradient(90deg,#B800F5,#E879F9);
+    }
+    .is-ceo .card-div::after {
+      background:linear-gradient(90deg,#E879F9,#B800F5);
+    }
+
+    /* Info rows */
+    .card-info {
+      display:flex;flex-direction:column;gap:5px;margin-bottom:11px;
+    }
+    .card-info-row {
+      display:flex;align-items:center;gap:6px;
+      font-size:11.5px;color:rgba(243,232,255,0.5);font-weight:500;
+    }
+    .card-info-row svg { flex-shrink:0;opacity:0.55; }
+    .status-active { color:#4ade80;font-weight:700; }
+    .status-ceo    { color:#E879F9;font-weight:700; }
+
+    /* Tool tags */
+    .card-tags { display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px; }
+    .ctag {
+      font-size:10.5px;font-weight:700;padding:3px 10px;
+      border-radius:999px;letter-spacing:0.2px;
+    }
+    .ctag.p { background:rgba(184,0,245,0.14);border:1px solid rgba(184,0,245,0.35);color:#E879F9; }
+    .ctag.q { background:rgba(232,121,249,0.12);border:1px solid rgba(232,121,249,0.3);color:#f0abfc; }
+    .ctag.b { background:rgba(56,189,248,0.12);border:1px solid rgba(56,189,248,0.3);color:#7dd3fc; }
+    .ctag.o { background:rgba(251,146,60,0.12);border:1px solid rgba(251,146,60,0.3);color:#fbbf78; }
+    .ctag.g { background:rgba(52,211,153,0.12);border:1px solid rgba(52,211,153,0.3);color:#6ee7b7; }
+
+    /* Hire button */
+    .card-btn {
+      display:flex;align-items:center;justify-content:center;gap:8px;
+      width:100%;padding:11px 18px;
+      border-radius:999px;border:none;cursor:pointer;
+      font-size:13px;font-weight:800;color:#fff;
+      background:linear-gradient(135deg,#B800F5 0%,#580B82 100%);
+      box-shadow:0 5px 20px rgba(184,0,245,0.42);
+      transition:all 0.25s ease;
+      text-decoration:none;letter-spacing:0.2px;
+    }
+    .card-btn:hover {
+      transform:translateY(-2px);
+      box-shadow:0 10px 30px rgba(184,0,245,0.6);
+      filter:brightness(1.1);
+    }
+    .is-ceo .card-btn {
+      background:linear-gradient(135deg,#E879F9 0%,#B800F5 100%);
+      box-shadow:0 5px 20px rgba(232,121,249,0.42);
+    }
+    .is-ceo .card-btn:hover { box-shadow:0 10px 30px rgba(232,121,249,0.6); }
+
+    /* ─────────────────────────────────────
+       MOBILE: Horizontal scroll-snap carousel
+    ───────────────────────────────────── */
+    @media (max-width: 840px) {
+      .cards-section { padding: 0 0 80px; }
+      .cards-grid {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 0;
+        max-width: 100%;
+        padding: 0 0 20px 0;
+        /* Hide scrollbar */
+        scrollbar-width: none;
+      }
+      .cards-grid::-webkit-scrollbar { display: none; }
+
+      .card-3d {
+        scroll-snap-align: center;
+        flex: 0 0 85vw;
+        max-width: 340px;
+        margin: 0 12px;
+        /* Override to be visible on mobile immediately */
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      /* First and last padding */
+      .card-3d:first-child { margin-left: calc(50vw - 170px); }
+      .card-3d:last-child  { margin-right: calc(50vw - 170px); }
+
+      /* Mobile scroll indicators */
+      .mobile-scroll-hint {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 24px;
+        font-size: 12px;
+        color: rgba(243,232,255,0.4);
+        font-weight: 500;
+      }
+      .mobile-scroll-hint svg { animation: swipe-hint 1.8s ease-in-out infinite; }
+      @keyframes swipe-hint {
+        0%,100%{ transform: translateX(0); opacity:0.4; }
+        50%    { transform: translateX(6px); opacity:0.8; }
+      }
+    }
+    @media (min-width: 841px) {
+      .mobile-scroll-hint { display: none !important; }
+    }
+
+    /* Dot indicators (mobile only) */
+    .card-dots {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    @media (max-width: 840px) {
+      .card-dots { display: flex; }
+    }
+    .cdot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(184,0,245,0.25);
+      border: 1px solid rgba(184,0,245,0.4);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .cdot.active {
+      width: 22px; border-radius: 4px;
+      background: #B800F5;
+      box-shadow: 0 0 10px rgba(184,0,245,0.6);
+    }
+
+    /* ═══════════════════════════════════════════════
+       STUDIO HIGHLIGHTS
+    ═══════════════════════════════════════════════ */
+    .hl-section { padding: 0 24px 80px; }
+    .hl-grid {
+      display:grid;grid-template-columns:repeat(3,1fr);
+      gap:18px;max-width:1100px;margin:0 auto;
+    }
+    .hlc {
+      background:rgba(21,5,34,0.6);
+      border:1px solid rgba(184,0,245,0.12);
+      border-radius:20px;padding:26px 24px;
+      transition:all 0.28s ease;position:relative;overflow:hidden;
+      opacity:0;transform:translateY(30px);
+    }
+    .hlc.visible { opacity:1;transform:translateY(0); }
+    .hlc::before {
+      content:'';position:absolute;top:0;left:0;right:0;height:2px;
+      background:linear-gradient(90deg,transparent,rgba(184,0,245,0.6),transparent);
+      opacity:0;transition:opacity 0.28s;
+    }
+    .hlc:hover { background:rgba(30,5,52,0.75);border-color:rgba(184,0,245,0.25);transform:translateY(-5px); }
+    .hlc:hover::before { opacity:1; }
+    .hlc-ico {
+      width:42px;height:42px;border-radius:11px;
+      display:flex;align-items:center;justify-content:center;margin-bottom:16px;
+    }
+    .hlc-ico.a{ background:rgba(184,0,245,0.1);border:1px solid rgba(184,0,245,0.25); }
+    .hlc-ico.b{ background:rgba(232,121,249,0.1);border:1px solid rgba(232,121,249,0.25); }
+    .hlc-ico.c{ background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.25); }
+    .hlc-num { font-size:10px;font-weight:700;color:#B800F5;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:11px; }
+    .hlc-t { font-size:16px;font-weight:700;color:#fff;letter-spacing:-0.01em;margin-bottom:8px; }
+    .hlc-d { font-size:13px;color:rgba(243,232,255,0.48);line-height:1.65; }
+
+    /* ═══════════════════════════════════════════════
+       CTA SECTION
+    ═══════════════════════════════════════════════ */
+    .cta-sec { padding: 0 24px 100px; }
+    .cta-box {
+      max-width:1100px;margin:0 auto;
+      background:linear-gradient(145deg,rgba(42,5,70,0.78) 0%,rgba(15,2,30,0.93) 100%);
+      border:1px solid rgba(184,0,245,0.22);
+      border-radius:26px;padding:60px 44px;text-align:center;
+      position:relative;overflow:hidden;
+      backdrop-filter:blur(10px);
+    }
+    .cta-box::before {
+      content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);
+      width:500px;height:280px;
+      background:radial-gradient(ellipse,rgba(184,0,245,0.18) 0%,transparent 70%);
+    }
+    .cta-box::after {
+      content:'';position:absolute;bottom:0;left:0;right:0;height:1px;
+      background:linear-gradient(90deg,transparent,rgba(184,0,245,0.4),rgba(232,121,249,0.35),transparent);
+    }
+    .cta-pill {
+      display:inline-flex;align-items:center;gap:7px;
+      background:rgba(184,0,245,0.09);border:1px solid rgba(184,0,245,0.25);
+      border-radius:999px;padding:6px 18px;
+      font-size:11px;font-weight:700;color:#E879F9;letter-spacing:1px;text-transform:uppercase;
+      margin-bottom:20px;
+    }
+    .cta-h2 { font-size:clamp(26px,4vw,46px);font-weight:900;color:#fff;letter-spacing:-0.03em;line-height:1.08;margin-bottom:13px;position:relative; }
+    .cta-p { font-size:15px;color:rgba(243,232,255,0.55);max-width:520px;margin:0 auto 36px;line-height:1.65; }
+    .cta-btns { display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;position:relative; }
+    .btn-main {
+      display:inline-flex;align-items:center;gap:9px;
+      background:linear-gradient(135deg,#B800F5 0%,#580B82 100%);
+      color:#fff;font-size:14px;font-weight:700;
+      padding:13px 30px;border-radius:999px;text-decoration:none;
+      box-shadow:0 8px 26px rgba(184,0,245,0.42);transition:all 0.25s ease;
+    }
+    .btn-main:hover { transform:translateY(-3px);box-shadow:0 14px 38px rgba(184,0,245,0.6);filter:brightness(1.08); }
+    .btn-out {
+      display:inline-flex;align-items:center;gap:9px;
+      background:rgba(184,0,245,0.07);border:1px solid rgba(184,0,245,0.25);
+      color:rgba(232,121,249,0.9);font-size:14px;font-weight:600;
+      padding:13px 30px;border-radius:999px;text-decoration:none;transition:all 0.25s ease;
+    }
+    .btn-out:hover { background:rgba(184,0,245,0.15);border-color:rgba(184,0,245,0.45);color:#E879F9;transform:translateY(-3px); }
+
+    /* ═══════════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════════ */
+    .ft { background:rgba(4,1,10,0.98);border-top:1px solid rgba(184,0,245,0.12);padding:58px 0 0;position:relative;z-index:10; }
+    .ft-in { max-width:1100px;margin:0 auto;padding:0 30px; }
+    .ft-g { display:grid;grid-template-columns:2fr 1fr 1.5fr;gap:44px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,0.05); }
+    .ft-logo { height:27px;width:auto;object-fit:contain;display:block;margin-bottom:15px; }
+    .ft-desc { font-size:13px;color:rgba(243,232,255,0.38);line-height:1.7;max-width:305px;margin-bottom:20px; }
+    .ft-socs { display:flex;gap:8px; }
+    .ft-soc { width:35px;height:35px;border-radius:9px;background:rgba(184,0,245,0.07);border:1px solid rgba(184,0,245,0.18);color:rgba(232,121,249,0.55);display:inline-flex;align-items:center;justify-content:center;text-decoration:none;transition:all 0.2s; }
+    .ft-soc:hover { background:rgba(184,0,245,0.18);border-color:rgba(184,0,245,0.42);color:#E879F9;transform:translateY(-2px); }
+    .ft-ch { font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:rgba(243,232,255,0.25);margin-bottom:16px; }
+    .ft-ls { display:flex;flex-direction:column;gap:10px; }
+    .ft-l { font-size:13.5px;color:rgba(243,232,255,0.48);text-decoration:none;display:flex;align-items:center;gap:7px;transition:color 0.2s; }
+    .ft-l::before { content:'';width:4px;height:4px;border-radius:50%;background:rgba(184,0,245,0.45);flex-shrink:0; }
+    .ft-l:hover { color:#E879F9; }
+    .ft-ci { margin-bottom:16px; }
+    .ft-cl { font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(243,232,255,0.24);margin-bottom:4px;display:block; }
+    .ft-cv { font-size:13.5px;color:rgba(243,232,255,0.65);text-decoration:none;transition:color 0.2s; }
+    .ft-cv:hover { color:#E879F9; }
+    .ft-cv.gr { color:#4ade80; } .ft-cv.gr:hover { color:#86efac; }
+    .ft-guar { display:inline-flex;align-items:center;gap:7px;background:rgba(74,222,128,0.05);border:1px solid rgba(74,222,128,0.14);border-radius:8px;padding:7px 12px;font-size:12px;color:rgba(180,210,180,0.58); }
+    .ft-guar strong { color:#4ade80; }
+    .ft-bot { display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:20px 0; }
+    .ft-cp { font-size:12px;color:rgba(243,232,255,0.24); }
+    .ft-cp a { color:rgba(184,0,245,0.55);text-decoration:none; } .ft-cp a:hover { color:#E879F9; }
+    .ft-avl { display:inline-flex;align-items:center;gap:7px;font-size:12px;color:rgba(243,232,255,0.32); }
+    .ft-dot { width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 8px rgba(74,222,128,0.8);animation:gp 2s ease-in-out infinite;display:inline-block; }
+    @keyframes gp { 0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(0.78);} }
+
+    /* ═══════════════════════════════════════════════
+       RESPONSIVE — desktop breakpoints
+    ═══════════════════════════════════════════════ */
+    @media (max-width: 1060px) {
+      .cards-grid { grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+      .hl-grid { grid-template-columns: 1fr 1fr; }
+      .hlc:last-child { grid-column: 1/-1; }
+      .ft-g { grid-template-columns: 1fr 1fr; }
+      .ft-g > *:first-child { grid-column: 1/-1; }
+    }
+    @media (max-width: 840px) {
+      .page { padding-top: 90px; }
+      .hero { padding: 48px 20px 56px; }
+      .hl-grid { grid-template-columns: 1fr; }
+      .hlc:last-child { grid-column: auto; }
+      .cta-box { padding: 42px 22px; }
+    }
+    @media (max-width: 540px) {
+      .ft-g { grid-template-columns: 1fr; gap: 28px; }
+      .hs { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body class="home2">
+
+<!-- BACKGROUND -->
+<div class="bg-scene" aria-hidden="true">
+  <div class="orb o1"></div>
+  <div class="orb o2"></div>
+  <div class="orb o3"></div>
+</div>
+
+<!-- NAVIGATION -->
+<header class="header-section">
+  <div role="banner" class="navbar-2">
+    <div class="navbar-container w-container">
+      <div class="na-outer-border">
+        <div class="nav-inner-wrap">
+          <div class="nav-inner">
+            <a href="/" class="brand-logo-link w-nav-brand" aria-label="Home">
+              <img loading="eager" src="assets/zentic_logo.png" alt="Zentic Media Logo" class="nav-brand-logo-img"/>
+            </a>
+            <div class="menu-button-wrapper">
+              <nav role="navigation" class="nav-menu-2">
+                <a href="/" class="nav-link-2 w-nav-link">Home</a>
+                <a href="/services" class="nav-link-2 w-nav-link">Services</a>
+                <a href="/portfolio" class="nav-link-2 w-nav-link">Portfolio</a>
+                <a href="/our-team" class="nav-link-2 w-nav-link is-current-page">Our Team</a>
+                <a href="/contact" class="nav-link-2 w-nav-link">Contact</a>
+                <a href="/case-studies" class="nav-link-2 w-nav-link">Our Process</a>
+                <a href="/blog" target="_blank" class="nav-link-2 w-nav-link">Blog</a>
+                <div class="nav-button-wrap mobile-only">
+                  <a href="/#talk-to-us" class="button-03 w-inline-block">
+                    <div class="button-text-wrapper"><div class="button-text-wrap"><div class="paragraph-02-m">Let's Talk!</div></div></div>
+                  </a>
+                </div>
+              </nav>
+              <div class="menu-button-2">
+                <div class="hamburger">
+                  <div class="hamburger-line-top"></div>
+                  <div class="hamburger-line-middle"></div>
+                  <div class="hamburger-line-bottom"></div>
+                </div>
+              </div>
+            </div>
+            <div class="nav-button-wrap desktop-only">
+              <a href="/#talk-to-us" class="button-03 w-inline-block">
+                <div class="button-text-wrapper"><div class="button-text-wrap"><div class="paragraph-02-m">Let's Talk!</div></div></div>
+                <div class="button-arrow-wrapper"><div class="button-icon-wrap"><div class="button-icon w-embed">
+                  <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><path d="M13.4349 13.435L14.142 12.7279L15.5562 14.1421L16.9704 12.7279L18.3846 14.1421L9.89934 22.6274L11.3136 24.0416L19.7988 15.5564L21.2131 16.9706L19.7988 18.3848L21.2131 19.799L20.5059 20.5061L21.9202 21.9203L24.0415 19.799L22.6273 18.3848L24.0415 16.9706L22.6273 15.5564L24.0415 14.1421L23.3344 13.435L24.0415 12.7279L23.3344 12.0208L24.0415 11.3137L22.6273 9.8995L21.9202 10.6066L21.2131 9.8995L20.5059 10.6066L19.7988 9.8995L18.3846 11.3137L16.9704 9.8995L15.5562 11.3137L14.142 9.8995L12.0207 12.0208L13.4349 13.435Z" fill="white"/></svg>
+                </div></div></div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="page">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-chip">
+      <span class="hero-chip-dot"></span>
+      Zentic Media · Production Crew
+    </div>
+    <h1 class="hero-h1">
+      The Minds Behind<br>
+      <span class="hero-h1-grad">Your Viral Content</span>
+    </h1>
+    <p class="hero-sub">Elite editors, directors &amp; motion designers turning raw footage into scroll-stopping, revenue-driving content.</p>
+    <div class="hero-stats">
+      <div class="hs"><div class="hs-n">200+</div><div class="hs-l">Projects Done</div></div>
+      <div class="hs"><div class="hs-n">48h</div><div class="hs-l">Avg. Delivery</div></div>
+      <div class="hs"><div class="hs-n">5★</div><div class="hs-l">Client Rating</div></div>
+    </div>
+  </section>
+
+  <!-- TEAM CARDS -->
+  <section class="cards-section">
+    <div class="sl">
+      <div class="sl-line"></div>
+      <span class="sl-txt">Meet The Team</span>
+      <div class="sl-line r"></div>
+    </div>
+
+    <!-- Mobile swipe hint -->
+    <div class="mobile-scroll-hint">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      Swipe to see more
+    </div>
+
+    <div class="cards-grid" id="cardsGrid">
+
+      <!-- ══ CARD 1: Tanvir Ahmed ══ -->
+      <div class="card-3d" data-index="0" onclick="window.open('https://wa.me/8801716705401','_blank')">
+        <div class="card-glow"></div>
+        <div class="card-inner">
+          <div class="card-photo-wrap">
+            <img src="assets/team_member1.jpg" alt="Tanvir Ahmed" class="card-photo" loading="lazy"/>
+            <div class="card-photo-fade"></div>
+            <div class="card-brand"><img src="assets/zentic_logo.png" alt="Zentic"/></div>
+            <div class="card-star">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#E879F9"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div class="card-id">ZM-001</div>
+          </div>
+          <div class="card-body">
+            <div class="card-name-row">
+              <span class="card-name">Tanvir Ahmed</span>
+              <svg class="vbadge" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 2.1 3.2-.4 1.3 2.9 3 .9.1 3.2 2 2.5-1.4 2.9.8 3.1-2.7 1.7-.5 3.2-3.2.7-1.7 2.7-3.1-.7-2.6 1.9-2.6-1.9-3.1.7-1.7-2.7-3.2-.7-.5-3.2-2.7-1.7.8-3.1-1.4-2.9 2-2.5.1-3.2 3-.9 1.3-2.9 3.2.4L12 2z" fill="#fff"/><path d="M9.5 12l2 2 4.5-4.5" stroke="#B800F5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="card-role">Lead Motion &amp; 3D Designer</div>
+            <div class="card-div"></div>
+            <div class="card-info">
+              <div class="card-info-row">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                Dept: Creative Production
+              </div>
+              <div class="card-info-row">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Status: <span class="status-active">Active</span>
+              </div>
+            </div>
+            <div class="card-tags">
+              <span class="ctag q">#AfterEffects</span>
+              <span class="ctag b">#Blender</span>
+              <span class="ctag g">#3DVFX</span>
+            </div>
+            <button type="button" class="card-btn" onclick="event.stopPropagation();window.open('https://wa.me/8801716705401','_blank')">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+              Hire Tanvir ↗
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ CARD 2: CEO Md Rakibul Hasan ══ -->
+      <div class="card-3d is-ceo" data-index="1" onclick="window.open('https://wa.me/8801716705401','_blank')">
+        <div class="card-glow"></div>
+        <div class="card-inner">
+          <div class="card-photo-wrap">
+            <img src="assets/team_ceo.jpg" alt="Md Rakibul Hasan — CEO" class="card-photo" loading="eager"/>
+            <div class="card-photo-fade"></div>
+            <div class="card-brand"><img src="assets/zentic_logo.png" alt="Zentic"/></div>
+            <div class="card-star">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#E879F9"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div class="card-id" style="color:rgba(232,121,249,0.85);">CEO · ZM-001</div>
+          </div>
+          <div class="card-body">
+            <div class="card-name-row">
+              <span class="card-name">Md Rakibul Hasan</span>
+              <svg class="vbadge" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 2.1 3.2-.4 1.3 2.9 3 .9.1 3.2 2 2.5-1.4 2.9.8 3.1-2.7 1.7-.5 3.2-3.2.7-1.7 2.7-3.1-.7-2.6 1.9-2.6-1.9-3.1.7-1.7-2.7-3.2-.7-.5-3.2-2.7-1.7.8-3.1-1.4-2.9 2-2.5.1-3.2 3-.9 1.3-2.9 3.2.4L12 2z" fill="#fff"/><path d="M9.5 12l2 2 4.5-4.5" stroke="#E879F9" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="card-role">CEO &amp; Founder · Video Editing Expert</div>
+            <div class="card-div"></div>
+            <div class="card-info">
+              <div class="card-info-row">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                Dept: Executive Leadership
+              </div>
+              <div class="card-info-row">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Status: <span class="status-ceo">CEO Active</span>
+              </div>
+            </div>
+            <div class="card-tags">
+              <span class="ctag p">#PremierePro</span>
+              <span class="ctag q">#AfterEffects</span>
+              <span class="ctag o">#DaVinci</span>
+            </div>
+            <button type="button" class="card-btn" onclick="event.stopPropagation();window.open('https://wa.me/8801716705401','_blank')">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+              Hire Rakib ↗
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ CARD 3: Zubair Hossain ══ -->
+      <div class="card-3d" data-index="2" onclick="window.open('https://wa.me/8801716705401','_blank')">
+        <div class="card-glow"></div>
+        <div class="card-inner">
+          <div class="card-photo-wrap">
+            <img src="assets/team_member3.jpg" alt="Zubair Hossain" class="card-photo" loading="lazy"/>
+            <div class="card-photo-fade"></div>
+            <div class="card-brand"><img src="assets/zentic_logo.png" alt="Zentic"/></div>
+            <div class="card-star">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#E879F9"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div class="card-id">ZM-003</div>
+          </div>
+          <div class="card-body">
+            <div class="card-name-row">
+              <span class="card-name">Zubair Hossain</span>
+              <svg class="vbadge" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 2.1 3.2-.4 1.3 2.9 3 .9.1 3.2 2 2.5-1.4 2.9.8 3.1-2.7 1.7-.5 3.2-3.2.7-1.7 2.7-3.1-.7-2.6 1.9-2.6-1.9-3.1.7-1.7-2.7-3.2-.7-.5-3.2-2.7-1.7.8-3.1-1.4-2.9 2-2.5.1-3.2 3-.9 1.3-2.9 3.2.4L12 2z" fill="#fff"/><path d="M9.5 12l2 2 4.5-4.5" stroke="#B800F5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="card-role">Senior Colorist &amp; Sound Designer</div>
+            <div class="card-div"></div>
+            <div class="card-info">
+              <div class="card-info-row">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                Dept: Post-Production
+              </div>
+              <div class="card-info-row">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Status: <span class="status-active">Active</span>
+              </div>
+            </div>
+            <div class="card-tags">
+              <span class="ctag o">#DaVinci</span>
+              <span class="ctag b">#SoundFX</span>
+              <span class="ctag g">#4KGrade</span>
+            </div>
+            <button type="button" class="card-btn" onclick="event.stopPropagation();window.open('https://wa.me/8801716705401','_blank')">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+              Hire Zubair ↗
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /cards-grid -->
+
+    <!-- Mobile dot indicators -->
+    <div class="card-dots" id="cardDots">
+      <div class="cdot active" data-i="0"></div>
+      <div class="cdot" data-i="1"></div>
+      <div class="cdot" data-i="2"></div>
+    </div>
+  </section>
+
+  <!-- STUDIO HIGHLIGHTS -->
+  <section class="hl-section">
+    <div class="sl">
+      <div class="sl-line"></div>
+      <span class="sl-txt">Our Approach</span>
+      <div class="sl-line r"></div>
+    </div>
+    <div class="hl-grid">
+      <div class="hlc">
+        <div class="hlc-ico a"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B800F5" stroke-width="2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <div class="hlc-num">01 / Retention First</div>
+        <h3 class="hlc-t">Hypnotic Visual Hooks</h3>
+        <p class="hlc-d">Engineered pattern interrupts and kinetic title sequences capturing focus in the critical first 3 seconds.</p>
+      </div>
+      <div class="hlc">
+        <div class="hlc-ico b"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E879F9" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg></div>
+        <div class="hlc-num">02 / Color Harmony</div>
+        <h3 class="hlc-t">Hollywood-Grade Color</h3>
+        <p class="hlc-d">Custom cinema LUTs and balanced skin tones in DaVinci Resolve that instantly elevate brand trust.</p>
+      </div>
+      <div class="hlc">
+        <div class="hlc-ico c"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <div class="hlc-num">03 / Rapid Pipeline</div>
+        <h3 class="hlc-t">Lightning 48-Hour Exports</h3>
+        <p class="hlc-d">Organized timeline systems matching fast-paced digital launch schedules without sacrificing quality.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-sec">
+    <div class="cta-box">
+      <div class="cta-pill">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16l.19.92z"/></svg>
+        Work With Our Team
+      </div>
+      <h2 class="cta-h2">Ready To Elevate<br>Your Next Video?</h2>
+      <p class="cta-p">Partner with Md Rakibul Hasan and the Zentic Media crew. Let's make your brand impossible to scroll past.</p>
+      <div class="cta-btns">
+        <a href="https://wa.me/8801716705401" target="_blank" rel="noopener noreferrer" class="btn-main">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          Chat on WhatsApp
+        </a>
+        <a href="/portfolio" class="btn-out">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="m8 21 4-4 4 4"/><path d="M12 17v4"/></svg>
+          View Portfolio
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="ft">
+  <div class="ft-in">
+    <div class="ft-g">
+      <div>
+        <a href="/"><img src="assets/zentic_logo.png" alt="Zentic Media" class="ft-logo"/></a>
+        <p class="ft-desc">Premium Video Editing, High-Converting Motion Graphics, and Viral Growth Solutions. Turning raw attention into measurable revenue.</p>
+        <div class="ft-socs">
+          <a href="https://x.com/neel_nafis" target="_blank" class="ft-soc" aria-label="X">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.33 1.9H21.7L14.33 10.33 23 21.79h-6.79l-5.32-6.95-6.08 6.95H1.43l7.88-9.01L1 1.9h7.96l4.81 6.36 5.56-6.36Zm-1.19 17.87h1.87L6.94 3.82H4.94l12.2 15.95Z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@neelnafis" target="_blank" class="ft-soc" aria-label="YouTube">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M23.76 7.2s-.24-1.66-.96-2.38c-.91-.96-1.94-.96-2.4-1.02C17.04 3.56 12 3.56 12 3.56s-5.04 0-8.4.24c-.47.06-1.49.06-2.4 1.02C.47 5.54.24 7.2.24 7.2S0 9.15 0 11.09v1.82c0 1.94.24 3.88.24 3.88s.23 1.66.96 2.38c.91.96 2.11.93 2.64 1.03 1.92.18 8.16.24 8.16.24s5.04-.01 8.4-.25c.47-.06 1.49-.06 2.4-1.02.72-.72.96-2.38.96-2.38S24 14.85 24 12.9v-1.82C24 9.15 23.76 7.2 23.76 7.2ZM9.52 15.11V8.37l6.48 3.39-6.48 3.35Z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/md-rakibul-hasan-95283a356" target="_blank" class="ft-soc" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <p class="ft-ch">Navigation</p>
+        <div class="ft-ls">
+          <a href="/" class="ft-l">Home</a>
+          <a href="/services" class="ft-l">Services</a>
+          <a href="/portfolio" class="ft-l">Portfolio</a>
+          <a href="/our-team" class="ft-l">Our Team</a>
+          <a href="/contact" class="ft-l">Contact</a>
+          <a href="/case-studies" class="ft-l">Our Process</a>
+          <a href="/blog" class="ft-l">Blog</a>
+        </div>
+      </div>
+      <div>
+        <p class="ft-ch">Direct Contact</p>
+        <div class="ft-ci">
+          <span class="ft-cl">WhatsApp / Phone</span>
+          <a href="https://wa.me/8801716705401" target="_blank" class="ft-cv gr">+880 1716 705401</a>
+        </div>
+        <div class="ft-ci">
+          <span class="ft-cl">Email</span>
+          <a href="mailto:technicalrakib999@gmail.com" class="ft-cv">technicalrakib999@gmail.com</a>
+        </div>
+        <div class="ft-guar">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <strong>100% Guaranteed</strong>&nbsp;Satisfaction
+        </div>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <p class="ft-cp">© 2026 <a href="/">Zentic Media</a>. All rights reserved.</p>
+      <div class="ft-avl"><span class="ft-dot"></span> Available for new projects</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  /* ── Nav toggle ── */
+  const menuBtn = document.querySelector('.menu-button-2');
+  const navMenu = document.querySelector('.nav-menu-2');
+  if (menuBtn && navMenu) {
+    function toggleMenu(force) {
+      const close = force === true || navMenu.classList.contains('w--open');
+      navMenu.classList.toggle('w--open', !close);
+      menuBtn.classList.toggle('w--open', !close);
+    }
+    menuBtn.addEventListener('click', e => { e.stopPropagation(); toggleMenu(); });
+    document.addEventListener('click', e => {
+      if (!menuBtn.contains(e.target) && !navMenu.contains(e.target)) toggleMenu(true);
+    });
+  }
+
+  /* ── Scroll-triggered fade-in for cards (desktop) ── */
+  const cards   = document.querySelectorAll('.card-3d');
+  const hlCards = document.querySelectorAll('.hlc');
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const delay = (el.dataset.index || 0) * 120;
+        setTimeout(() => el.classList.add('visible'), delay);
+        io.unobserve(el);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  cards.forEach(c => io.observe(c));
+
+  const ioHL = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+        ioHL.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  hlCards.forEach(h => ioHL.observe(h));
+
+  /* ── 3D Mouse-tilt effect (desktop only) ── */
+  if (window.matchMedia('(min-width: 841px)').matches) {
+    cards.forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r   = card.getBoundingClientRect();
+        const cx  = r.left + r.width  / 2;
+        const cy  = r.top  + r.height / 2;
+        const dx  = (e.clientX - cx) / (r.width  / 2);
+        const dy  = (e.clientY - cy) / (r.height / 2);
+        const rx  = -dy * 8;  /* tilt X */
+        const ry  =  dx * 8;  /* tilt Y */
+        card.querySelector('.card-inner').style.transform =
+          `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(6px)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.querySelector('.card-inner').style.transform =
+          'perspective(900px) rotateX(0) rotateY(0) translateZ(0)';
+      });
+    });
+  }
+
+  /* ── Mobile carousel dots ── */
+  const grid = document.getElementById('cardsGrid');
+  const dots = document.querySelectorAll('.cdot');
+
+  if (grid && dots.length) {
+    function updateDot() {
+      const scrollLeft = grid.scrollLeft;
+      const cardW = grid.querySelector('.card-3d').offsetWidth + 24; /* card + gap */
+      const idx = Math.round(scrollLeft / cardW);
+      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    }
+    grid.addEventListener('scroll', updateDot, { passive: true });
+    dots.forEach(d => {
+      d.addEventListener('click', () => {
+        const idx  = parseInt(d.dataset.i);
+        const cardW = grid.querySelector('.card-3d').offsetWidth + 24;
+        grid.scrollTo({ left: idx * cardW, behavior: 'smooth' });
+      });
+    });
+  }
+
+});
+</script>
+</body>
+</html>
