@@ -206,73 +206,107 @@
 
     /* Inner card face */
     .card-inner {
+      position: relative;
       border-radius: 24px;
       overflow: hidden;
-      background: linear-gradient(165deg,
-        rgba(30,5,52,0.92) 0%,
-        rgba(15,2,28,0.97) 60%,
-        rgba(21,5,34,0.98) 100%
+      background: linear-gradient(175deg,
+        rgba(26, 6, 42, 0.88) 0%,
+        rgba(13, 2, 22, 0.95) 45%,
+        rgba(9, 1, 16, 0.98) 100%
       );
-      border: 1px solid rgba(184,0,245,0.25);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(184, 0, 245, 0.32);
       box-shadow:
-        0 0 0 1px rgba(255,255,255,0.04) inset,
-        0 24px 70px rgba(0,0,0,0.65),
-        0 0 40px rgba(184,0,245,0.06);
-      transition: border-color 0.35s ease, box-shadow 0.35s ease;
+        0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+        0 24px 60px rgba(0, 0, 0, 0.75),
+        0 0 35px rgba(184, 0, 245, 0.1);
+      transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
     }
     .card-3d:hover .card-inner {
-      border-color: rgba(184,0,245,0.55);
+      border-color: rgba(184, 0, 245, 0.75);
       box-shadow:
-        0 0 0 1px rgba(184,0,245,0.1) inset,
-        0 32px 80px rgba(0,0,0,0.75),
-        0 0 60px rgba(184,0,245,0.15);
+        0 0 0 1px rgba(232, 121, 249, 0.25) inset,
+        0 30px 80px rgba(0, 0, 0, 0.85),
+        0 0 50px rgba(184, 0, 245, 0.28);
     }
 
     /* CEO card highlighted differently */
     .card-3d.is-ceo .card-inner {
-      border-color: rgba(232,121,249,0.3);
+      border-color: rgba(232, 121, 249, 0.48);
+      background: linear-gradient(175deg,
+        rgba(36, 8, 56, 0.92) 0%,
+        rgba(17, 3, 28, 0.96) 45%,
+        rgba(9, 1, 16, 0.99) 100%
+      );
       box-shadow:
-        0 0 0 1px rgba(255,255,255,0.05) inset,
-        0 24px 70px rgba(0,0,0,0.65),
-        0 0 50px rgba(232,121,249,0.08);
+        0 0 0 1px rgba(232, 121, 249, 0.2) inset,
+        0 24px 60px rgba(0, 0, 0, 0.75),
+        0 0 45px rgba(232, 121, 249, 0.16);
     }
     .card-3d.is-ceo:hover .card-inner {
-      border-color: rgba(232,121,249,0.6);
+      border-color: rgba(232, 121, 249, 0.95);
       box-shadow:
-        0 0 0 1px rgba(232,121,249,0.12) inset,
-        0 32px 80px rgba(0,0,0,0.75),
-        0 0 70px rgba(232,121,249,0.18);
+        0 0 0 1px rgba(255, 255, 255, 0.3) inset,
+        0 35px 90px rgba(0, 0, 0, 0.9),
+        0 0 70px rgba(232, 121, 249, 0.35);
+    }
+
+    /* Holographic sheen line across card */
+    .card-inner::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 60%; height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.08),
+        rgba(232, 121, 249, 0.12),
+        transparent
+      );
+      transform: skewX(-25deg);
+      transition: left 0.75s ease;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .card-3d:hover .card-inner::before {
+      left: 180%;
     }
 
     /* Outer glow blob behind card */
     .card-glow {
       position: absolute;
-      inset: -20px;
-      border-radius: 36px;
-      background: radial-gradient(ellipse at 50% 85%, rgba(184,0,245,0.22) 0%, transparent 65%);
-      filter: blur(26px);
+      inset: -14px;
+      border-radius: 38px;
+      background: radial-gradient(ellipse at 50% 90%, rgba(184,0,245,0.3) 0%, transparent 68%);
+      filter: blur(28px);
       pointer-events: none;
-      opacity: 0.55;
-      transition: opacity 0.35s ease;
+      opacity: 0.5;
+      transition: opacity 0.4s ease, transform 0.4s ease;
     }
-    .card-3d:hover .card-glow { opacity: 1; }
+    .card-3d:hover .card-glow {
+      opacity: 0.95;
+      transform: scale(1.05);
+    }
     .card-3d.is-ceo .card-glow {
-      background: radial-gradient(ellipse at 50% 85%, rgba(232,121,249,0.28) 0%, transparent 65%);
+      background: radial-gradient(ellipse at 50% 90%, rgba(232,121,249,0.38) 0%, rgba(184,0,245,0.2) 40%, transparent 70%);
     }
 
     /* ── PHOTO AREA ── */
     .card-photo-wrap {
       position: relative;
       width: 100%;
-      height: 240px; /* Compact height */
+      height: 250px;
       overflow: hidden;
+      background: #08010E;
     }
 
     .card-photo {
       width: 100%; height: 100%;
       object-fit: cover; object-position: center top;
       display: block;
-      transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+      transition: transform 0.6s cubic-bezier(0.16,1,0.3,1), filter 0.4s ease;
       image-rendering: -webkit-optimize-contrast;
     }
     .card-3d:hover .card-photo { transform: scale(1.05); }
@@ -282,135 +316,276 @@
       position: absolute; inset: 0;
       background: linear-gradient(
         180deg,
-        transparent 0%,
-        transparent 40%,
-        rgba(15,2,28,0.6) 65%,
-        rgba(15,2,28,0.98) 100%
+        rgba(8, 1, 14, 0.15) 0%,
+        transparent 35%,
+        rgba(13, 2, 22, 0.7) 70%,
+        rgba(13, 2, 22, 1) 100%
       );
       pointer-events: none;
     }
 
-    /* Top-left brand badge */
-    .card-brand {
-      position: absolute; top:13px; left:13px;
-      background: rgba(8,1,14,0.7);
-      border: 1px solid rgba(184,0,245,0.3);
-      border-radius: 9px; padding:5px 11px;
-      display: flex; align-items: center; gap: 5px;
-      z-index: 5; backdrop-filter: blur(8px);
+    /* Top photo pills header */
+    .card-photo-top {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      right: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 6;
+      pointer-events: none;
     }
-    .card-brand img {
-      height: 14px; width: auto; object-fit: contain;
-      filter: brightness(0) invert(1);
-      image-rendering: -webkit-optimize-contrast;
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 11px;
+      border-radius: 999px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      background: rgba(8, 1, 14, 0.75);
+      border: 1px solid rgba(74, 222, 128, 0.35);
+      color: #86efac;
+      backdrop-filter: blur(10px);
+    }
+    .pulse-dot {
+      width: 6.5px;
+      height: 6.5px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 8px #4ade80;
+      animation: pulseGlow 1.8s infinite;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
     }
 
-    /* Top-right icon */
-    .card-star {
-      position: absolute; top:13px; right:13px;
-      width: 32px; height: 32px; border-radius: 9px;
-      background: rgba(184,0,245,0.2);
-      border: 1px solid rgba(184,0,245,0.4);
-      display: flex; align-items: center; justify-content: center;
-      z-index: 5; backdrop-filter: blur(6px);
-      transition: background 0.2s;
+    .specialty-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 11px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      background: rgba(184, 0, 245, 0.22);
+      border: 1px solid rgba(184, 0, 245, 0.45);
+      color: #f0abfc;
+      backdrop-filter: blur(10px);
     }
-    .card-3d:hover .card-star { background: rgba(184,0,245,0.38); }
-    .is-ceo .card-star {
-      background: rgba(232,121,249,0.22);
-      border-color: rgba(232,121,249,0.5);
+    .is-ceo .specialty-pill {
+      background: rgba(232, 121, 249, 0.25);
+      border-color: rgba(232, 121, 249, 0.6);
+      color: #ffd6ff;
     }
 
-    /* ID tag bottom-right of photo */
-    .card-id {
-      position: absolute; bottom:12px; right:12px;
-      background: rgba(8,1,14,0.65);
-      border: 1px solid rgba(184,0,245,0.25);
-      border-radius: 6px; padding:3px 9px;
-      font-size:10px;font-weight:700;
-      color:rgba(232,121,249,0.75);letter-spacing:1px;
-      z-index:5; backdrop-filter:blur(6px);
+    /* Floating highlight tag on bottom of photo */
+    .photo-bottom-tag {
+      position: absolute;
+      bottom: 12px;
+      left: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 8px;
+      background: rgba(8, 1, 14, 0.85);
+      border: 1px solid rgba(184, 0, 245, 0.3);
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #E879F9;
+      letter-spacing: 0.3px;
+      z-index: 6;
+      backdrop-filter: blur(8px);
     }
 
     /* ── CARD BODY ── */
     .card-body {
-      padding: 16px 18px 18px;
+      padding: 16px 20px 22px;
+      position: relative;
+      z-index: 2;
     }
 
     .card-name-row {
-      display:flex;align-items:center;gap:6px;margin-bottom:4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 4px;
     }
     .card-name {
-      font-size:18px;font-weight:900;color:#fff;
-      letter-spacing:-0.02em;line-height:1.2;
+      font-size: 20px;
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
     }
-    .vbadge { width:16px;height:16px;flex-shrink:0; }
+    .card-3d:hover .card-name {
+      color: #f5d0fe;
+    }
+    .card-badge-wrap {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .verified-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
 
     .card-role {
-      font-size:12px;font-weight:700;
-      color:#B800F5;letter-spacing:0.3px;margin-bottom:12px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #d8b4fe;
+      margin-bottom: 14px;
+      letter-spacing: 0.2px;
     }
-    .is-ceo .card-role { color:#E879F9; }
-
-    /* Divider */
-    .card-div {
-      height:1px;background:rgba(184,0,245,0.15);margin-bottom:11px;
-      position:relative;
-    }
-    .card-div::after {
-      content:'';position:absolute;left:0;top:-1.5px;
-      width:32px;height:3px;border-radius:2px;
-      background:linear-gradient(90deg,#B800F5,#E879F9);
-    }
-    .is-ceo .card-div::after {
-      background:linear-gradient(90deg,#E879F9,#B800F5);
+    .is-ceo .card-role {
+      color: #f0abfc;
     }
 
-    /* Info rows */
-    .card-info {
-      display:flex;flex-direction:column;gap:5px;margin-bottom:11px;
+    /* ── STYLISH STATS MICRO-GRID ── */
+    .card-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(184, 0, 245, 0.08);
+      border: 1px solid rgba(184, 0, 245, 0.18);
+      margin-bottom: 15px;
+      text-align: center;
     }
-    .card-info-row {
-      display:flex;align-items:center;gap:6px;
-      font-size:11.5px;color:rgba(243,232,255,0.5);font-weight:500;
+    .is-ceo .card-stats-grid {
+      background: rgba(232, 121, 249, 0.09);
+      border-color: rgba(232, 121, 249, 0.25);
     }
-    .card-info-row svg { flex-shrink:0;opacity:0.55; }
-    .status-active { color:#4ade80;font-weight:700; }
-    .status-ceo    { color:#E879F9;font-weight:700; }
+    .cstat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .cstat-val {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+    .is-ceo .cstat-val {
+      color: #fae8ff;
+    }
+    .cstat-lbl {
+      font-size: 9.5px;
+      font-weight: 600;
+      color: rgba(243, 232, 255, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
 
-    /* Tool tags */
-    .card-tags { display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px; }
-    .ctag {
-      font-size:10.5px;font-weight:700;padding:3px 10px;
-      border-radius:999px;letter-spacing:0.2px;
+    /* ── SOFTWARE BADGES (Sleek App Icons) ── */
+    .card-tools-row {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
     }
-    .ctag.p { background:rgba(184,0,245,0.14);border:1px solid rgba(184,0,245,0.35);color:#E879F9; }
-    .ctag.q { background:rgba(232,121,249,0.12);border:1px solid rgba(232,121,249,0.3);color:#f0abfc; }
-    .ctag.b { background:rgba(56,189,248,0.12);border:1px solid rgba(56,189,248,0.3);color:#7dd3fc; }
-    .ctag.o { background:rgba(251,146,60,0.12);border:1px solid rgba(251,146,60,0.3);color:#fbbf78; }
-    .ctag.g { background:rgba(52,211,153,0.12);border:1px solid rgba(52,211,153,0.3);color:#6ee7b7; }
+    .tool-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: rgba(243, 232, 255, 0.85);
+      transition: all 0.25s ease;
+    }
+    .card-3d:hover .tool-badge {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(184, 0, 245, 0.35);
+    }
+    .tool-icon {
+      font-size: 10px;
+      font-weight: 900;
+      padding: 2px 5px;
+      border-radius: 4px;
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+    .tool-pr { background: #00005b; color: #9999ff; border: 1px solid #9999ff; }
+    .tool-ae { background: #00005b; color: #d291ff; border: 1px solid #d291ff; }
+    .tool-da { background: #3b1400; color: #ff8442; border: 1px solid #ff8442; }
+    .tool-bl { background: #452100; color: #f5792a; border: 1px solid #f5792a; }
+    .tool-au { background: #002e2c; color: #2de2b5; border: 1px solid #2de2b5; }
 
-    /* Hire button */
-    .card-btn {
-      display:flex;align-items:center;justify-content:center;gap:8px;
-      width:100%;padding:11px 18px;
-      border-radius:999px;border:none;cursor:pointer;
-      font-size:13px;font-weight:800;color:#fff;
-      background:linear-gradient(135deg,#B800F5 0%,#580B82 100%);
-      box-shadow:0 5px 20px rgba(184,0,245,0.42);
-      transition:all 0.25s ease;
-      text-decoration:none;letter-spacing:0.2px;
+    /* ── STYLISH CTA BUTTON ── */
+    .card-cta-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: 14px;
+      border: none;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+      color: #FFFFFF;
+      background: linear-gradient(135deg, #B800F5 0%, #580B82 100%);
+      box-shadow: 0 4px 18px rgba(184, 0, 245, 0.35);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
     }
-    .card-btn:hover {
-      transform:translateY(-2px);
-      box-shadow:0 10px 30px rgba(184,0,245,0.6);
-      filter:brightness(1.1);
+    .card-cta-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.6s ease;
     }
-    .is-ceo .card-btn {
-      background:linear-gradient(135deg,#E879F9 0%,#B800F5 100%);
-      box-shadow:0 5px 20px rgba(232,121,249,0.42);
+    .card-3d:hover .card-cta-btn::after {
+      transform: translateX(100%);
     }
-    .is-ceo .card-btn:hover { box-shadow:0 10px 30px rgba(232,121,249,0.6); }
+    .card-cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(184, 0, 245, 0.65);
+      filter: brightness(1.12);
+    }
+    .is-ceo .card-cta-btn {
+      background: linear-gradient(135deg, #E879F9 0%, #B800F5 60%, #580B82 100%);
+      box-shadow: 0 4px 22px rgba(232, 121, 249, 0.4);
+    }
+    .is-ceo .card-cta-btn:hover {
+      box-shadow: 0 8px 32px rgba(232, 121, 249, 0.75);
+    }
+    .btn-arrow-box {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.25s ease;
+    }
+    .card-3d:hover .btn-arrow-box {
+      transform: translateX(3px);
+      background: rgba(255, 255, 255, 0.35);
+    }
 
     /* ─────────────────────────────────────
        MOBILE: Horizontal scroll-snap carousel
@@ -724,37 +899,52 @@
           <div class="card-photo-wrap">
             <img src="assets/team_member1.jpg" alt="Tanvir Ahmed" class="card-photo" loading="lazy"/>
             <div class="card-photo-fade"></div>
-            <div class="card-brand"><img src="assets/zentic_logo.png" alt="Zentic"/></div>
-            <div class="card-star">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="#E879F9"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <div class="card-photo-top">
+              <div class="status-pill">
+                <span class="pulse-dot"></span>
+                <span>AVAILABLE</span>
+              </div>
+              <div class="specialty-pill">3D &amp; MOTION LEAD</div>
             </div>
-            <div class="card-id">ZM-001</div>
+            <div class="photo-bottom-tag">⚡ 4K Motion VFX · 48h Delivery</div>
           </div>
           <div class="card-body">
             <div class="card-name-row">
               <span class="card-name">Tanvir Ahmed</span>
-              <svg class="vbadge" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 2.1 3.2-.4 1.3 2.9 3 .9.1 3.2 2 2.5-1.4 2.9.8 3.1-2.7 1.7-.5 3.2-3.2.7-1.7 2.7-3.1-.7-2.6 1.9-2.6-1.9-3.1.7-1.7-2.7-3.2-.7-.5-3.2-2.7-1.7.8-3.1-1.4-2.9 2-2.5.1-3.2 3-.9 1.3-2.9 3.2.4L12 2z" fill="#fff"/><path d="M9.5 12l2 2 4.5-4.5" stroke="#B800F5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="card-role">Lead Motion &amp; 3D Designer</div>
-            <div class="card-div"></div>
-            <div class="card-info">
-              <div class="card-info-row">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                Dept: Creative Production
-              </div>
-              <div class="card-info-row">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                Status: <span class="status-active">Active</span>
+              <div class="card-badge-wrap">
+                <svg class="verified-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#B800F5"/><path d="M8.5 12.5l2.5 2.5 5-5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
             </div>
-            <div class="card-tags">
-              <span class="ctag q">#AfterEffects</span>
-              <span class="ctag b">#Blender</span>
-              <span class="ctag g">#3DVFX</span>
+            <div class="card-role">Lead Motion &amp; 3D VFX Artist</div>
+
+            <!-- Stats Micro-Grid -->
+            <div class="card-stats-grid">
+              <div class="cstat-item">
+                <span class="cstat-val">150+</span>
+                <span class="cstat-lbl">Projects</span>
+              </div>
+              <div class="cstat-item">
+                <span class="cstat-val">48h</span>
+                <span class="cstat-lbl">Turnaround</span>
+              </div>
+              <div class="cstat-item">
+                <span class="cstat-val">99.8%</span>
+                <span class="cstat-lbl">Rating</span>
+              </div>
             </div>
-            <button type="button" class="card-btn" onclick="event.stopPropagation();window.open('https://wa.me/8801716705401','_blank')">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-              Hire Tanvir ↗
+
+            <!-- Tool Badges -->
+            <div class="card-tools-row">
+              <div class="tool-badge"><span class="tool-icon tool-ae">Ae</span> After Effects</div>
+              <div class="tool-badge"><span class="tool-icon tool-bl">Bl</span> Blender 3D</div>
+              <div class="tool-badge"><span class="tool-icon tool-pr">Pr</span> Premiere</div>
+            </div>
+
+            <button type="button" class="card-cta-btn" onclick="event.stopPropagation();window.open('https://wa.me/8801716705401','_blank')">
+              <span>Hire Tanvir</span>
+              <span class="btn-arrow-box">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
             </button>
           </div>
         </div>
@@ -767,37 +957,52 @@
           <div class="card-photo-wrap">
             <img src="assets/team_ceo.jpg" alt="Md Rakibul Hasan — CEO" class="card-photo" loading="eager"/>
             <div class="card-photo-fade"></div>
-            <div class="card-brand"><img src="assets/zentic_logo.png" alt="Zentic"/></div>
-            <div class="card-star">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="#E879F9"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <div class="card-photo-top">
+              <div class="status-pill" style="border-color:rgba(232,121,249,0.5);color:#f5d0fe;">
+                <span class="pulse-dot" style="background:#E879F9;box-shadow:0 0 8px #E879F9;"></span>
+                <span>CEO · AVAILABLE</span>
+              </div>
+              <div class="specialty-pill">👑 FOUNDER &amp; DIRECTOR</div>
             </div>
-            <div class="card-id" style="color:rgba(232,121,249,0.85);">CEO · ZM-001</div>
+            <div class="photo-bottom-tag" style="color:#f0abfc;border-color:rgba(232,121,249,0.45);">💎 Viral Storytelling · 250M+ Views</div>
           </div>
           <div class="card-body">
             <div class="card-name-row">
               <span class="card-name">Md Rakibul Hasan</span>
-              <svg class="vbadge" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 2.1 3.2-.4 1.3 2.9 3 .9.1 3.2 2 2.5-1.4 2.9.8 3.1-2.7 1.7-.5 3.2-3.2.7-1.7 2.7-3.1-.7-2.6 1.9-2.6-1.9-3.1.7-1.7-2.7-3.2-.7-.5-3.2-2.7-1.7.8-3.1-1.4-2.9 2-2.5.1-3.2 3-.9 1.3-2.9 3.2.4L12 2z" fill="#fff"/><path d="M9.5 12l2 2 4.5-4.5" stroke="#E879F9" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="card-role">CEO &amp; Founder · Video Editing Expert</div>
-            <div class="card-div"></div>
-            <div class="card-info">
-              <div class="card-info-row">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-                Dept: Executive Leadership
-              </div>
-              <div class="card-info-row">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                Status: <span class="status-ceo">CEO Active</span>
+              <div class="card-badge-wrap">
+                <svg class="verified-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#E879F9"/><path d="M8.5 12.5l2.5 2.5 5-5" stroke="#08010E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
             </div>
-            <div class="card-tags">
-              <span class="ctag p">#PremierePro</span>
-              <span class="ctag q">#AfterEffects</span>
-              <span class="ctag o">#DaVinci</span>
+            <div class="card-role">CEO &amp; Executive Creative Director</div>
+
+            <!-- Stats Micro-Grid -->
+            <div class="card-stats-grid">
+              <div class="cstat-item">
+                <span class="cstat-val">250M+</span>
+                <span class="cstat-lbl">Views Driven</span>
+              </div>
+              <div class="cstat-item">
+                <span class="cstat-val">50+</span>
+                <span class="cstat-lbl">YC Brands</span>
+              </div>
+              <div class="cstat-item">
+                <span class="cstat-val">5.0 ★</span>
+                <span class="cstat-lbl">Verified</span>
+              </div>
             </div>
-            <button type="button" class="card-btn" onclick="event.stopPropagation();window.open('https://wa.me/8801716705401','_blank')">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-              Hire Rakib ↗
+
+            <!-- Tool Badges -->
+            <div class="card-tools-row">
+              <div class="tool-badge"><span class="tool-icon tool-pr">Pr</span> Premiere Pro</div>
+              <div class="tool-badge"><span class="tool-icon tool-ae">Ae</span> After Effects</div>
+              <div class="tool-badge"><span class="tool-icon tool-da">Da</span> DaVinci</div>
+            </div>
+
+            <button type="button" class="card-cta-btn" onclick="event.stopPropagation();window.open('https://wa.me/8801716705401','_blank')">
+              <span>Direct Project With Rakib</span>
+              <span class="btn-arrow-box">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
             </button>
           </div>
         </div>
@@ -810,37 +1015,52 @@
           <div class="card-photo-wrap">
             <img src="assets/team_member3.jpg" alt="Zubair Hossain" class="card-photo" loading="lazy"/>
             <div class="card-photo-fade"></div>
-            <div class="card-brand"><img src="assets/zentic_logo.png" alt="Zentic"/></div>
-            <div class="card-star">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="#E879F9"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <div class="card-photo-top">
+              <div class="status-pill">
+                <span class="pulse-dot"></span>
+                <span>AVAILABLE</span>
+              </div>
+              <div class="specialty-pill">COLOR &amp; AUDIO LEAD</div>
             </div>
-            <div class="card-id">ZM-003</div>
+            <div class="photo-bottom-tag">🎨 Hollywood Grade · Binaural SFX</div>
           </div>
           <div class="card-body">
             <div class="card-name-row">
               <span class="card-name">Zubair Hossain</span>
-              <svg class="vbadge" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 2.1 3.2-.4 1.3 2.9 3 .9.1 3.2 2 2.5-1.4 2.9.8 3.1-2.7 1.7-.5 3.2-3.2.7-1.7 2.7-3.1-.7-2.6 1.9-2.6-1.9-3.1.7-1.7-2.7-3.2-.7-.5-3.2-2.7-1.7.8-3.1-1.4-2.9 2-2.5.1-3.2 3-.9 1.3-2.9 3.2.4L12 2z" fill="#fff"/><path d="M9.5 12l2 2 4.5-4.5" stroke="#B800F5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div class="card-badge-wrap">
+                <svg class="verified-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#B800F5"/><path d="M8.5 12.5l2.5 2.5 5-5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
             </div>
             <div class="card-role">Senior Colorist &amp; Sound Designer</div>
-            <div class="card-div"></div>
-            <div class="card-info">
-              <div class="card-info-row">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                Dept: Post-Production
+
+            <!-- Stats Micro-Grid -->
+            <div class="card-stats-grid">
+              <div class="cstat-item">
+                <span class="cstat-val">4K ProRes</span>
+                <span class="cstat-lbl">Master Grade</span>
               </div>
-              <div class="card-info-row">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                Status: <span class="status-active">Active</span>
+              <div class="cstat-item">
+                <span class="cstat-val">100%</span>
+                <span class="cstat-lbl">Custom SFX</span>
+              </div>
+              <div class="cstat-item">
+                <span class="cstat-val">48h</span>
+                <span class="cstat-lbl">Delivery</span>
               </div>
             </div>
-            <div class="card-tags">
-              <span class="ctag o">#DaVinci</span>
-              <span class="ctag b">#SoundFX</span>
-              <span class="ctag g">#4KGrade</span>
+
+            <!-- Tool Badges -->
+            <div class="card-tools-row">
+              <div class="tool-badge"><span class="tool-icon tool-da">Da</span> DaVinci</div>
+              <div class="tool-badge"><span class="tool-icon tool-au">Au</span> Audition SFX</div>
+              <div class="tool-badge"><span class="tool-icon tool-pr">Pr</span> Premiere</div>
             </div>
-            <button type="button" class="card-btn" onclick="event.stopPropagation();window.open('https://wa.me/8801716705401','_blank')">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-              Hire Zubair ↗
+
+            <button type="button" class="card-cta-btn" onclick="event.stopPropagation();window.open('https://wa.me/8801716705401','_blank')">
+              <span>Hire Zubair</span>
+              <span class="btn-arrow-box">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
             </button>
           </div>
         </div>
