@@ -92,7 +92,7 @@
 
     /* override all inherited fonts */
     * { font-family: var(--sys) !important; }
-    h1, h2, .cv { font-family: 'CV', sans-serif !important; font-weight: 400 !important; }
+    h1, h2, .cv { font-family: var(--sys) !important; font-weight: 700 !important; }
 
     /* ── Ambient ── */
     .orb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; filter: blur(130px); }
@@ -1457,11 +1457,10 @@
                 
                 <div class="c-field" id="tile-n">
                   <label class="c-label" for="n">
-                    <span class="c-label-left"><span class="c-ico">👤</span> Full Name <em class="req">*</em></span>
+                    <span class="c-label-left">Full Name <em class="req">*</em></span>
                     <span class="c-badge">Identity</span>
                   </label>
                   <div class="c-input-wrap">
-                    <span class="c-input-ico">✦</span>
                     <input class="c-input" id="n" type="text" placeholder="e.g. Rakibul Hasan" autocomplete="name" required/>
                   </div>
                   <div class="ferr" id="n-e">Full name is required.</div>
@@ -1469,11 +1468,10 @@
 
                 <div class="c-field" id="tile-w">
                   <label class="c-label" for="w">
-                    <span class="c-label-left"><span class="c-ico">💬</span> WhatsApp Number <em class="req">*</em></span>
+                    <span class="c-label-left">WhatsApp Number <em class="req">*</em></span>
                     <span class="c-badge">Direct Line</span>
                   </label>
                   <div class="c-input-wrap">
-                    <span class="c-input-ico">📞</span>
                     <input class="c-input" id="w" type="tel" placeholder="+880 1XXX XXXXXX" autocomplete="tel" required/>
                   </div>
                   <div class="ferr" id="w-e">Active WhatsApp number required.</div>
@@ -1481,11 +1479,10 @@
 
                 <div class="c-field" id="tile-em">
                   <label class="c-label" for="em">
-                    <span class="c-label-left"><span class="c-ico">✉️</span> Email Address <em class="req">*</em></span>
+                    <span class="c-label-left">Email Address <em class="req">*</em></span>
                     <span class="c-badge">Official</span>
                   </label>
                   <div class="c-input-wrap">
-                    <span class="c-input-ico">@</span>
                     <input class="c-input" id="em" type="email" placeholder="you@domain.com" autocomplete="email" required/>
                   </div>
                   <div class="ferr" id="em-e">Valid email required.</div>
@@ -1493,11 +1490,10 @@
 
                 <div class="c-field" id="tile-loc">
                   <label class="c-label" for="loc">
-                    <span class="c-label-left"><span class="c-ico">📍</span> Location / City <em class="req">*</em></span>
+                    <span class="c-label-left">Location / City <em class="req">*</em></span>
                     <span class="c-badge">Remote</span>
                   </label>
                   <div class="c-input-wrap">
-                    <span class="c-input-ico">⚑</span>
                     <input class="c-input" id="loc" type="text" placeholder="e.g. Dhaka, Bangladesh" required/>
                   </div>
                   <div class="ferr" id="loc-e">Location is required.</div>
@@ -1520,7 +1516,7 @@
                 <!-- 1. Experience -->
                 <div class="c-field c-dropdown" id="tile-ex" data-id="ex">
                   <label class="c-label">
-                    <span class="c-label-left"><span class="c-ico">⚡</span> Experience Level <em class="req">*</em></span>
+                    <span class="c-label-left">Experience Level <em class="req">*</em></span>
                     <span class="c-badge">Track Record</span>
                   </label>
                   <div class="c-select-trigger" tabindex="0" role="combobox" aria-expanded="false" id="trigger-ex">
@@ -1560,7 +1556,7 @@
                 <!-- 2. Primary Speciality -->
                 <div class="c-field c-dropdown" id="tile-spec_primary" data-id="spec_primary">
                   <label class="c-label">
-                    <span class="c-label-left"><span class="c-ico">🎬</span> Primary Superpower <em class="req">*</em></span>
+                    <span class="c-label-left">Primary Superpower <em class="req">*</em></span>
                     <span class="c-badge">Core Weapon</span>
                   </label>
                   <div class="c-select-trigger" tabindex="0" role="combobox" aria-expanded="false" id="trigger-spec_primary">
@@ -1624,7 +1620,7 @@
                 <!-- 3. Secondary Focus -->
                 <div class="c-field c-dropdown" id="tile-spec_secondary" data-id="spec_secondary">
                   <label class="c-label">
-                    <span class="c-label-left"><span class="c-ico">✨</span> Secondary Focus <em class="req">*</em></span>
+                    <span class="c-label-left">Secondary Focus <em class="req">*</em></span>
                     <span class="c-badge">Strength</span>
                   </label>
                   <div class="c-select-trigger" tabindex="0" role="combobox" aria-expanded="false" id="trigger-spec_secondary">
@@ -1696,7 +1692,7 @@
                 <!-- 4. Video Editing Type / Category -->
                 <div class="c-field c-dropdown" id="tile-content_style" data-id="content_style">
                   <label class="c-label">
-                    <span class="c-label-left"><span class="c-ico">🎬</span> What Type of Video Do You Edit? <em class="req">*</em></span>
+                    <span class="c-label-left">What Type of Video Do You Edit? <em class="req">*</em></span>
                     <span class="c-badge">Specialization</span>
                   </label>
                   <div class="c-select-trigger" tabindex="0" role="combobox" aria-expanded="false" id="trigger-content_style">
@@ -1704,53 +1700,82 @@
                     <svg class="c-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                   </div>
                   <div class="c-menu" id="menu-content_style">
-                    <div class="c-opt" data-val="Talking Head Video (YouTube, Facecam, Podcasts)">
-                      <span class="c-opt-ico">🎙️</span>
+                    <div class="c-opt" data-val="Talking Head Video">
                       <div class="c-opt-text">
                         <span class="c-opt-main">Talking Head Video</span>
-                        <span class="c-opt-sub">YouTube Talking Head, Facecam, Podcasts &amp; Interviews</span>
+                        <span class="c-opt-sub">YouTube, Facecam, Podcasts &amp; Interviews</span>
                       </div>
-                      <span class="c-check">✓</span>
+                      <span class="c-check">&#10003;</span>
                     </div>
-                    <div class="c-opt" data-val="SaaS Video (Product Demos, Motion UI, Walkthroughs)">
-                      <span class="c-opt-ico">💼</span>
+                    <div class="c-opt" data-val="SaaS Video">
                       <div class="c-opt-text">
                         <span class="c-opt-main">SaaS Video</span>
-                        <span class="c-opt-sub">SaaS Product Demos, Motion UI &amp; Tech Walkthroughs</span>
+                        <span class="c-opt-sub">Product Demos, Motion UI &amp; Tech Walkthroughs</span>
                       </div>
-                      <span class="c-check">✓</span>
+                      <span class="c-check">&#10003;</span>
                     </div>
-                    <div class="c-opt" data-val="Documentary Video (Story-driven, High-Retention Essays)">
-                      <span class="c-opt-ico">🎥</span>
+                    <div class="c-opt" data-val="Documentary Video">
                       <div class="c-opt-text">
                         <span class="c-opt-main">Documentary Video</span>
-                        <span class="c-opt-sub">Story-Driven Video Essays, High-Retention Docs &amp; Cinema</span>
+                        <span class="c-opt-sub">Story-Driven Essays, High-Retention Docs</span>
                       </div>
-                      <span class="c-check">✓</span>
+                      <span class="c-check">&#10003;</span>
                     </div>
-                    <div class="c-opt" data-val="Short Reels (Viral 9:16 Reels, TikTok, YouTube Shorts)">
-                      <span class="c-opt-ico">📱</span>
+                    <div class="c-opt" data-val="Short Reels">
                       <div class="c-opt-text">
                         <span class="c-opt-main">Short Reels</span>
-                        <span class="c-opt-sub">Viral 9:16 Instagram Reels, TikTok &amp; YouTube Shorts</span>
+                        <span class="c-opt-sub">Instagram Reels, TikTok &amp; YouTube Shorts</span>
                       </div>
-                      <span class="c-check">✓</span>
+                      <span class="c-check">&#10003;</span>
                     </div>
-                    <div class="c-opt" data-val="Bangla Promotional (Commercial Ads, E-Com, Brand Promos)">
-                      <span class="c-opt-ico">🇧🇩</span>
+                    <div class="c-opt" data-val="Bangla Promotional Video">
                       <div class="c-opt-text">
                         <span class="c-opt-main">Bangla Promotional Video</span>
-                        <span class="c-opt-sub">Commercial Ads, E-Commerce &amp; Brand Promos in Bangla</span>
+                        <span class="c-opt-sub">Commercial Ads, E-Commerce &amp; Brand Promos</span>
                       </div>
-                      <span class="c-check">✓</span>
+                      <span class="c-check">&#10003;</span>
                     </div>
-                    <div class="c-opt" data-val="All-Rounder / Multi-Format (Can Edit Multiple Formats)">
-                      <span class="c-opt-ico">🌐</span>
+                    <div class="c-opt" data-val="Vlog Video">
+                      <div class="c-opt-text">
+                        <span class="c-opt-main">Vlog Video</span>
+                        <span class="c-opt-sub">Travel Vlogs, Daily Vlogs &amp; Lifestyle Content</span>
+                      </div>
+                      <span class="c-check">&#10003;</span>
+                    </div>
+                    <div class="c-opt" data-val="Corporate / Brand Video">
+                      <div class="c-opt-text">
+                        <span class="c-opt-main">Corporate / Brand Video</span>
+                        <span class="c-opt-sub">Company Profiles, Brand Films &amp; Explainers</span>
+                      </div>
+                      <span class="c-check">&#10003;</span>
+                    </div>
+                    <div class="c-opt" data-val="Music Video">
+                      <div class="c-opt-text">
+                        <span class="c-opt-main">Music Video</span>
+                        <span class="c-opt-sub">Official Music Videos, Lyric Videos &amp; Visualizers</span>
+                      </div>
+                      <span class="c-check">&#10003;</span>
+                    </div>
+                    <div class="c-opt" data-val="Wedding / Event Video">
+                      <div class="c-opt-text">
+                        <span class="c-opt-main">Wedding / Event Video</span>
+                        <span class="c-opt-sub">Cinematic Wedding Films &amp; Event Highlights</span>
+                      </div>
+                      <span class="c-check">&#10003;</span>
+                    </div>
+                    <div class="c-opt" data-val="Educational / Tutorial Video">
+                      <div class="c-opt-text">
+                        <span class="c-opt-main">Educational / Tutorial Video</span>
+                        <span class="c-opt-sub">Online Courses, How-To Videos &amp; Screen Recording</span>
+                      </div>
+                      <span class="c-check">&#10003;</span>
+                    </div>
+                    <div class="c-opt" data-val="All-Rounder / Multi-Format">
                       <div class="c-opt-text">
                         <span class="c-opt-main">All-Rounder / Multi-Format</span>
-                        <span class="c-opt-sub">Can Edit Talking Head, SaaS, Docs, Reels &amp; Promo</span>
+                        <span class="c-opt-sub">Can Edit Multiple Video Types</span>
                       </div>
-                      <span class="c-check">✓</span>
+                      <span class="c-check">&#10003;</span>
                     </div>
                   </div>
                   <input type="hidden" id="content_style" name="content_style" value="" required/>
@@ -1760,7 +1785,7 @@
                 <!-- 5. Hardware Rig -->
                 <div class="c-field c-dropdown" id="tile-hardware" data-id="hardware">
                   <label class="c-label">
-                    <span class="c-label-left"><span class="c-ico">💻</span> Editing Rig <em class="req">*</em></span>
+                    <span class="c-label-left">Editing Rig <em class="req">*</em></span>
                     <span class="c-badge">Horsepower</span>
                   </label>
                   <div class="c-select-trigger" tabindex="0" role="combobox" aria-expanded="false" id="trigger-hardware">
