@@ -1,0 +1,206 @@
+/* ==========================================================================
+   CLEAN BLUR FADE-IN, DEFOCUS REVEAL & IN-OUT ANIMATION ENGINE
+   Zentic Media (zenticmedia.com)
+   
+   Features:
+   - Clean Blur Fade-In (12px blur to 0px, smooth float in)
+   - Blur Reveal for all Headings & Typography
+   - Defocus Animation for Video Showcases & Media
+   - Smooth In-and-Out scroll triggers
+   - ZERO Glass Sheen / NO pseudo-element light bars / NO reflections
+   ========================================================================== */
+
+/* ─── HARDWARE ACCELERATION ─── */
+.blur-fade-in,
+.blur-reveal,
+.defocus-animation,
+.apple-reveal-card,
+.apple-reveal-heading,
+.apple-defocus-media {
+  will-change: transform, opacity, filter;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+/* ==========================================================================
+   1. BLUR FADE-IN (Standard In / Out Motion)
+   ========================================================================== */
+.blur-fade-in {
+  opacity: 0;
+  filter: blur(12px);
+  -webkit-filter: blur(12px);
+  transform: translate3d(0, 28px, 0);
+  transition:
+    opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.blur-fade-in.is-revealed {
+  opacity: 1 !important;
+  filter: blur(0px) !important;
+  -webkit-filter: blur(0px) !important;
+  transform: translate3d(0, 0, 0) !important;
+}
+
+/* ==========================================================================
+   2. BLUR REVEAL (Headings & Typography)
+   ========================================================================== */
+.blur-reveal,
+.apple-reveal-heading {
+  opacity: 0;
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+  transform: translate3d(0, 20px, 0) scale(0.985);
+  transition:
+    opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.blur-reveal.is-revealed,
+.apple-reveal-heading.is-revealed {
+  opacity: 1 !important;
+  filter: blur(0px) !important;
+  -webkit-filter: blur(0px) !important;
+  transform: translate3d(0, 0, 0) scale(1) !important;
+}
+
+/* ==========================================================================
+   3. DEFOCUS ANIMATION (Media, Videos & Thumbnails)
+   ========================================================================== */
+.defocus-animation,
+.apple-defocus-media {
+  opacity: 0;
+  filter: blur(16px) contrast(1.1);
+  -webkit-filter: blur(16px) contrast(1.1);
+  transform: translate3d(0, 24px, 0) scale(0.96);
+  transition:
+    opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.defocus-animation.is-revealed,
+.apple-defocus-media.is-revealed {
+  opacity: 1 !important;
+  filter: blur(0px) contrast(1) !important;
+  -webkit-filter: blur(0px) contrast(1) !important;
+  transform: translate3d(0, 0, 0) scale(1) !important;
+}
+
+/* ==========================================================================
+   4. CARDS & CONTAINERS (Clean Reveal — ABSOLUTELY NO GLASS SHEEN)
+   ========================================================================== */
+.apple-reveal-card {
+  position: relative;
+  opacity: 0;
+  filter: blur(12px);
+  -webkit-filter: blur(12px);
+  transform: translate3d(0, 28px, 0) scale(0.98);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.apple-reveal-card.is-revealed {
+  opacity: 1 !important;
+  filter: blur(0px) !important;
+  -webkit-filter: blur(0px) !important;
+  transform: translate3d(0, 0, 0) scale(1) !important;
+}
+
+/* Ensure no pseudo-element light bars ever exist */
+.apple-reveal-card::before,
+.apple-reveal-card::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* ==========================================================================
+   5. HERO ENTRANCE SEQUENCE (Page Load)
+   ========================================================================== */
+@keyframes appleHeroCleanIn {
+  0% {
+    opacity: 0;
+    filter: blur(14px);
+    -webkit-filter: blur(14px);
+    transform: translate3d(0, 24px, 0);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes appleHeroVideoCleanIn {
+  0% {
+    opacity: 0;
+    filter: blur(18px) contrast(1.15);
+    -webkit-filter: blur(18px) contrast(1.15);
+    transform: translate3d(0, 32px, 0) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px) contrast(1);
+    -webkit-filter: blur(0px) contrast(1);
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.apple-hero-badge {
+  animation: appleHeroCleanIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both !important;
+}
+
+.apple-hero-title {
+  animation: appleHeroCleanIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both !important;
+}
+
+.apple-hero-subtitle {
+  animation: appleHeroCleanIn 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.42s both !important;
+}
+
+.apple-hero-actions {
+  animation: appleHeroCleanIn 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.56s both !important;
+}
+
+.apple-hero-video {
+  animation: appleHeroVideoCleanIn 1.05s cubic-bezier(0.16, 1, 0.3, 1) 0.72s both !important;
+}
+
+/* ==========================================================================
+   STAGGERED CADENCE FOR SIBLING CARDS
+   ========================================================================== */
+.apple-stagger > *:nth-child(1) { transition-delay: 0.00s !important; }
+.apple-stagger > *:nth-child(2) { transition-delay: 0.12s !important; }
+.apple-stagger > *:nth-child(3) { transition-delay: 0.24s !important; }
+.apple-stagger > *:nth-child(4) { transition-delay: 0.36s !important; }
+.apple-stagger > *:nth-child(5) { transition-delay: 0.48s !important; }
+.apple-stagger > *:nth-child(6) { transition-delay: 0.60s !important; }
+
+/* ==========================================================================
+   REDUCED MOTION FALLBACK
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .blur-fade-in,
+  .blur-reveal,
+  .defocus-animation,
+  .apple-reveal-card,
+  .apple-reveal-heading,
+  .apple-hero-badge,
+  .apple-hero-title,
+  .apple-hero-subtitle,
+  .apple-hero-actions,
+  .apple-hero-video {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+    -webkit-filter: none !important;
+    transform: none !important;
+  }
+}
