@@ -2018,282 +2018,107 @@
    MICRO-ANIMATION KEYFRAMES & UTILITIES
    ================================================================ */
 
-/* ── Card 1: Video Editing Animations ── */
-.g-anim-playhead {
-  animation: playheadSweep 4.5s ease-in-out infinite alternate;
+/* ── Card 1: Short-Form Video Animations ── */
+.g-anim-caption-glow {
+  animation: captionTextPulse 2.4s ease-in-out infinite alternate;
 }
-@keyframes playheadSweep {
-  0% { transform: translateX(0); }
-  35% { transform: translateX(45px); }
-  65% { transform: translateX(25px); }
-  100% { transform: translateX(85px); }
-}
-
-.g-anim-retention {
-  animation: retentionGlow 2.8s ease-in-out infinite;
-}
-@keyframes retentionGlow {
-  0%, 100% { filter: drop-shadow(0 0 2px rgba(184, 0, 245, 0.5)); opacity: 0.9; }
-  50% { filter: drop-shadow(0 0 9px rgba(232, 121, 249, 0.95)); opacity: 1; }
+@keyframes captionTextPulse {
+  0% { filter: drop-shadow(0 0 2px #ffdd00); transform: scale(1); }
+  50% { filter: drop-shadow(0 0 10px #ff3b5c); transform: scale(1.04); }
+  100% { filter: drop-shadow(0 0 14px #E879F9); transform: scale(1); }
 }
 
-.g-anim-audiowave {
-  animation: audioWaveBounce 1.8s ease-in-out infinite alternate;
-  transform-origin: 130px 152px;
+.g-anim-phone-pulse {
+  animation: phoneGlowPulse 3s ease-in-out infinite alternate;
 }
-@keyframes audioWaveBounce {
-  0% { transform: scaleY(0.85); stroke: #E879F9; }
-  50% { transform: scaleY(1.22); stroke: #ffffff; }
-  100% { transform: scaleY(0.92); stroke: #ff6ef7; }
+@keyframes phoneGlowPulse {
+  0% { stroke: rgba(184, 0, 245, 0.4); filter: drop-shadow(0 0 4px rgba(184, 0, 245, 0.3)); }
+  100% { stroke: #E879F9; filter: drop-shadow(0 0 14px rgba(232, 121, 249, 0.8)); }
 }
 
-.g-anim-slider-thumb {
-  animation: sliderGlider 3.5s ease-in-out infinite alternate;
-}
-@keyframes sliderGlider {
-  0% { transform: translateX(0); }
-  50% { transform: translateX(-12px); }
-  100% { transform: translateX(6px); }
-}
-
-.g-anim-vid-cursor {
-  animation: vidTrimDrag 4s ease-in-out infinite alternate;
-}
-@keyframes vidTrimDrag {
-  0% { transform: translate(162px, 126px); }
-  50% { transform: translate(172px, 126px); }
-  100% { transform: translate(156px, 126px); }
-}
-
-.g-anim-play-pulse {
-  animation: playIconPulse 2.4s ease-in-out infinite;
-}
-@keyframes playIconPulse {
-  0%, 100% { transform: scale(1); opacity: 0.9; }
-  50% { transform: scale(1.12); opacity: 1; filter: drop-shadow(0 0 10px #E879F9); }
-}
-
-/* ── Card 2: Graphics Design Animations ── */
-.g-anim-bezier-handle {
-  animation: handleWiggle 4s ease-in-out infinite alternate;
-  transform-origin: 155px 85px;
-}
-@keyframes handleWiggle {
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(-12deg); }
-  100% { transform: rotate(10deg); }
-}
-
-.g-anim-pen-cursor {
-  animation: penDrawFloat 4s ease-in-out infinite alternate;
-}
-@keyframes penDrawFloat {
-  0% { transform: translate(154px, 84px) rotate(0deg); }
-  50% { transform: translate(160px, 78px) rotate(-10deg); }
-  100% { transform: translate(149px, 88px) rotate(8deg); }
-}
-
-.g-anim-swatch-active {
-  animation: swatchGlow 2.2s ease-in-out infinite;
-}
-@keyframes swatchGlow {
-  0%, 100% { r: 6; filter: drop-shadow(0 0 3px #ff6ef7); }
-  50% { r: 7.5; filter: drop-shadow(0 0 12px #ff6ef7); }
-}
-
-.g-anim-vector-glow {
-  animation: vectorPathPulse 3s ease-in-out infinite alternate;
-}
-@keyframes vectorPathPulse {
-  0% { stroke: #E879F9; filter: drop-shadow(0 0 2px rgba(184, 0, 245, 0.4)); }
-  100% { stroke: #ffffff; filter: drop-shadow(0 0 10px rgba(232, 121, 249, 0.95)); }
-}
-
-/* ── Card 3: Web Design Animations ── */
-.g-anim-frame-box {
-  animation: framePulseGlow 3.6s ease-in-out infinite;
-}
-@keyframes framePulseGlow {
-  0%, 100% { filter: drop-shadow(0 0 3px rgba(184, 0, 245, 0.4)); }
-  50% { filter: drop-shadow(0 0 15px rgba(232, 121, 249, 0.85)); }
-}
-
-.g-anim-resize-frame {
-  animation: frameResizeStretch 3.6s ease-in-out infinite alternate;
-  transform-origin: 24px 75px;
-}
-@keyframes frameResizeStretch {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.08, 1.12); }
-  100% { transform: scale(0.96, 0.95); }
-}
-
-.g-anim-frame-cursor {
-  animation: frameCornerDrag 3.6s ease-in-out infinite alternate;
-}
-@keyframes frameCornerDrag {
-  0% { transform: translate(130px, 127px); }
-  50% { transform: translate(140px, 136px); }
-  100% { transform: translate(124px, 122px); }
-}
-
-/* ── Card 4: Digital Marketing Animations ── */
-.g-anim-live-dot {
-  animation: liveRadarDot 1.8s ease-in-out infinite;
-}
-@keyframes liveRadarDot {
-  0%, 100% { r: 3; opacity: 1; filter: drop-shadow(0 0 2px #22c55e); }
-  50% { r: 4.8; opacity: 0.65; filter: drop-shadow(0 0 8px #22c55e); }
-}
-
-.g-anim-chart-line {
-  stroke-dasharray: 400;
+/* ── Card 2: YouTube Long-Form Animations ── */
+.g-anim-retention-curve {
+  stroke-dasharray: 200;
   stroke-dashoffset: 0;
-  animation: chartLineFlow 4s ease-in-out infinite alternate;
+  animation: retentionCurveFlow 3.5s ease-in-out infinite alternate;
 }
-@keyframes chartLineFlow {
-  0% { stroke-dashoffset: 0; filter: drop-shadow(0 0 3px rgba(184, 0, 245, 0.6)); }
-  50% { stroke-dashoffset: 45; filter: drop-shadow(0 0 10px rgba(232, 121, 249, 0.95)); }
-  100% { stroke-dashoffset: -25; filter: drop-shadow(0 0 6px rgba(184, 0, 245, 0.8)); }
-}
-
-.g-anim-roas-pill {
-  animation: roasBobbing 2.6s ease-in-out infinite alternate;
-}
-@keyframes roasBobbing {
-  0% { transform: translateY(0); filter: drop-shadow(0 0 4px rgba(184, 0, 245, 0.5)); }
-  100% { transform: translateY(-5px); filter: drop-shadow(0 0 14px rgba(232, 121, 249, 0.95)); }
+@keyframes retentionCurveFlow {
+  0% { stroke-dashoffset: 0; filter: drop-shadow(0 0 2px #ec4899); }
+  50% { stroke-dashoffset: 20; filter: drop-shadow(0 0 10px #ff3b5c); }
+  100% { stroke-dashoffset: -15; filter: drop-shadow(0 0 6px #E879F9); }
 }
 
-.g-anim-ad-click {
-  animation: adBtnPress 2.8s ease-in-out infinite;
+.g-anim-avd-pill {
+  animation: avdBob 2.8s ease-in-out infinite alternate;
 }
-@keyframes adBtnPress {
-  0%, 75%, 100% { transform: translate(236px, 142px) scale(1); }
-  85% { transform: translate(236px, 142px) scale(0.85); }
-}
-
-/* ── Card 5: AI Automation — Omnichannel Messaging Animations ── */
-
-/* AI Brain pulse in center */
-.g-anim-ai-brain {
-  animation: aiBrainPulse 2.8s ease-in-out infinite;
-  transform-origin: 140px 92px;
-}
-@keyframes aiBrainPulse {
-  0%, 100% { filter: drop-shadow(0 0 4px rgba(184, 0, 245, 0.5)); transform: scale(1); }
-  50% { filter: drop-shadow(0 0 18px rgba(232, 121, 249, 1)); transform: scale(1.04); }
+@keyframes avdBob {
+  0% { transform: translateY(0); filter: drop-shadow(0 0 4px rgba(236, 72, 153, 0.5)); }
+  100% { transform: translateY(-4px); filter: drop-shadow(0 0 14px rgba(236, 72, 153, 0.95)); }
 }
 
-/* Orbit ring rotating around AI */
-.g-anim-ai-orbit {
-  animation: orbitSpin 6s linear infinite;
-  transform-origin: 140px 92px;
+/* ── Card 3: SaaS 3D Motion Animations ── */
+.g-anim-3d-layer {
+  animation: layerFloat3D 4s ease-in-out infinite alternate;
+  transform-origin: 140px 90px;
 }
-@keyframes orbitSpin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Incoming message bubbles: slide in from left */
-.g-anim-msg-in-1 {
-  animation: msgSlideIn1 3.6s ease-out infinite;
-  opacity: 0;
-}
-@keyframes msgSlideIn1 {
-  0% { transform: translateX(-32px); opacity: 0; }
-  18% { transform: translateX(0); opacity: 1; }
-  55% { transform: translateX(0); opacity: 1; }
-  72% { transform: translateX(0); opacity: 0; }
-  100% { opacity: 0; }
+@keyframes layerFloat3D {
+  0% { transform: translateY(0) rotateX(0deg); }
+  50% { transform: translateY(-5px) rotateX(3deg); filter: drop-shadow(0 8px 18px rgba(59, 130, 246, 0.5)); }
+  100% { transform: translateY(3px) rotateX(-2deg); }
 }
 
-.g-anim-msg-in-2 {
-  animation: msgSlideIn2 3.6s ease-out infinite 1.2s;
-  opacity: 0;
+.g-anim-keyframe-pulse {
+  animation: kfPulse 2s ease-in-out infinite;
 }
-@keyframes msgSlideIn2 {
-  0% { transform: translateX(-32px); opacity: 0; }
-  18% { transform: translateX(0); opacity: 1; }
-  55% { transform: translateX(0); opacity: 1; }
-  72% { transform: translateX(0); opacity: 0; }
-  100% { opacity: 0; }
+@keyframes kfPulse {
+  0%, 100% { transform: scale(1); fill: #3b82f6; }
+  50% { transform: scale(1.3); fill: #60a5fa; filter: drop-shadow(0 0 6px #60a5fa); }
 }
 
-.g-anim-msg-in-3 {
-  animation: msgSlideIn3 3.6s ease-out infinite 2.4s;
-  opacity: 0;
+/* ── Card 4: Commercial Video Ads Animations ── */
+.g-anim-winner-badge {
+  animation: winnerBadgePulse 2.2s ease-in-out infinite;
 }
-@keyframes msgSlideIn3 {
-  0% { transform: translateX(-32px); opacity: 0; }
-  18% { transform: translateX(0); opacity: 1; }
-  55% { transform: translateX(0); opacity: 1; }
-  72% { transform: translateX(0); opacity: 0; }
-  100% { opacity: 0; }
+@keyframes winnerBadgePulse {
+  0%, 100% { filter: drop-shadow(0 0 4px #22c55e); transform: scale(1); }
+  50% { filter: drop-shadow(0 0 14px #22c55e); transform: scale(1.05); }
 }
 
-/* Outgoing AI reply: slide out to right */
-.g-anim-reply-1 {
-  animation: replySlideOut1 3.6s ease-out infinite 0.6s;
-  opacity: 0;
+.g-anim-ad-scrub {
+  animation: adScrubSweep 3s ease-in-out infinite alternate;
 }
-@keyframes replySlideOut1 {
-  0% { transform: translateX(0); opacity: 0; }
-  22% { transform: translateX(0); opacity: 1; }
-  60% { transform: translateX(28px); opacity: 1; }
-  80% { transform: translateX(28px); opacity: 0; }
-  100% { opacity: 0; }
+@keyframes adScrubSweep {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(45px); }
 }
 
-.g-anim-reply-2 {
-  animation: replySlideOut2 3.6s ease-out infinite 1.8s;
-  opacity: 0;
+/* ── Card 5: Sound Design & Color Grading Animations ── */
+.g-anim-eq-bar {
+  animation: eqDance 1.2s ease-in-out infinite alternate;
+  transform-origin: bottom;
 }
-@keyframes replySlideOut2 {
-  0% { transform: translateX(0); opacity: 0; }
-  22% { transform: translateX(0); opacity: 1; }
-  60% { transform: translateX(28px); opacity: 1; }
-  80% { transform: translateX(28px); opacity: 0; }
-  100% { opacity: 0; }
+.g-anim-eq-1 { animation-delay: 0.1s; }
+.g-anim-eq-2 { animation-delay: 0.35s; }
+.g-anim-eq-3 { animation-delay: 0.15s; }
+.g-anim-eq-4 { animation-delay: 0.5s; }
+.g-anim-eq-5 { animation-delay: 0.25s; }
+.g-anim-eq-6 { animation-delay: 0.4s; }
+.g-anim-eq-7 { animation-delay: 0.2s; }
+.g-anim-eq-8 { animation-delay: 0.45s; }
+
+@keyframes eqDance {
+  0% { transform: scaleY(0.3); opacity: 0.6; }
+  50% { transform: scaleY(1); opacity: 1; filter: drop-shadow(0 0 6px #f59e0b); }
+  100% { transform: scaleY(0.45); opacity: 0.75; }
 }
 
-.g-anim-reply-3 {
-  animation: replySlideOut3 3.6s ease-out infinite 3s;
-  opacity: 0;
+.g-anim-color-puck {
+  animation: puckDrift 4s ease-in-out infinite alternate;
 }
-@keyframes replySlideOut3 {
-  0% { transform: translateX(0); opacity: 0; }
-  22% { transform: translateX(0); opacity: 1; }
-  60% { transform: translateX(28px); opacity: 1; }
-  80% { transform: translateX(28px); opacity: 0; }
-  100% { opacity: 0; }
-}
-
-/* Connector lines pulsing */
-.g-anim-connector {
-  animation: connectorPulse 2.8s ease-in-out infinite;
-}
-@keyframes connectorPulse {
-  0%, 100% { opacity: 0.3; stroke-dashoffset: 0; }
-  50% { opacity: 0.9; stroke-dashoffset: -12; }
-}
-
-/* Status dot blinking */
-.g-anim-live-dot {
-  animation: liveDotBlink 1.6s ease-in-out infinite;
-}
-@keyframes liveDotBlink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.2; }
-}
-
-/* Typing indicator dots */
-.g-anim-type-dot-1 { animation: typingDot 1.2s ease-in-out infinite 0s; }
-.g-anim-type-dot-2 { animation: typingDot 1.2s ease-in-out infinite 0.2s; }
-.g-anim-type-dot-3 { animation: typingDot 1.2s ease-in-out infinite 0.4s; }
-@keyframes typingDot {
-  0%, 100% { opacity: 0.3; transform: translateY(0); }
-  50% { opacity: 1; transform: translateY(-2px); }
+@keyframes puckDrift {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(2px, -3px); }
+  100% { transform: translate(-2px, 2px); }
 }
 
 /* Responsive Breakpoints */
@@ -2348,102 +2173,109 @@
         <div class="g-svc-mockup">
           <svg class="g-svc-svg" viewBox="0 0 280 185" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <linearGradient id="vidGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#B800F5"/>
-                <stop offset="100%" stop-color="#4a0468"/>
-              </linearGradient>
-              <linearGradient id="vidMonitor" x1="0%" y1="0%" x2="100%" y2="100%">
+              <linearGradient id="phoneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stop-color="#1e0a36"/>
-                <stop offset="100%" stop-color="#0c0217"/>
+                <stop offset="100%" stop-color="#090212"/>
               </linearGradient>
-              <filter id="svgGlow1" x="-20%" y="-20%" width="140%" height="140%">
+              <linearGradient id="reelGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="rgba(184, 0, 245, 0.35)"/>
+                <stop offset="50%" stop-color="rgba(232, 121, 249, 0.15)"/>
+                <stop offset="100%" stop-color="rgba(88, 11, 130, 0.45)"/>
+              </linearGradient>
+              <filter id="shortGlow" x="-20%" y="-20%" width="140%" height="140%">
                 <feGaussianBlur stdDeviation="3" result="blur"/>
-                <feMerge>
-                  <feMergeNode in="blur"/>
-                  <feMergeNode in="SourceGraphic"/>
-                </feMerge>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
               </filter>
             </defs>
 
             <!-- Outer Canvas Window -->
-            <rect x="8" y="8" width="264" height="169" rx="10" fill="#0d0419" stroke="rgba(184, 0, 245, 0.3)" stroke-width="1"/>
+            <rect x="8" y="8" width="264" height="169" rx="10" fill="#0d0419" stroke="rgba(184, 0, 245, 0.35)" stroke-width="1"/>
             
-            <!-- Window header dots -->
+            <!-- Window header -->
             <circle cx="22" cy="18" r="3" fill="#ff5f56"/>
             <circle cx="31" cy="18" r="3" fill="#ffbd2e"/>
             <circle cx="40" cy="18" r="3" fill="#27c93f"/>
-            <rect x="96" y="14" width="88" height="9" rx="4" fill="rgba(184, 0, 245, 0.25)"/>
-            <text x="140" y="21" font-family="'Inter', sans-serif" font-size="6.5" fill="#E879F9" text-anchor="middle" font-weight="600">00:14:28 &bull; 4K 60FPS</text>
+            <rect x="88" y="14" width="104" height="9" rx="4" fill="rgba(184, 0, 245, 0.25)"/>
+            <text x="140" y="21" font-family="'Inter', sans-serif" font-size="6.5" fill="#E879F9" text-anchor="middle" font-weight="600">Shorts_Studio • 9:16 Viral Cut</text>
 
-            <!-- Video Player Preview (Left) -->
-            <rect x="18" y="28" width="156" height="80" rx="6" fill="url(#vidMonitor)" stroke="rgba(184, 0, 245, 0.35)" stroke-width="1"/>
-            <!-- Video preview scene with pulsing play icon -->
-            <ellipse cx="96" cy="68" rx="48" ry="24" fill="rgba(184, 0, 245, 0.22)" filter="url(#svgGlow1)"/>
-            <polygon class="g-anim-play-pulse" points="92,60 104,68 92,76" fill="#ffffff" filter="url(#svgGlow1)" style="transform-origin: 98px 68px;"/>
+            <!-- ═══ 9:16 SMARTPHONE FRAME (Left) ═══ -->
+            <rect class="g-anim-phone-pulse" x="18" y="27" width="82" height="142" rx="10" fill="#080112" stroke="#B800F5" stroke-width="1.6"/>
+            <!-- Inner screen area -->
+            <rect x="22" y="32" width="74" height="132" rx="7" fill="url(#reelGrad)"/>
             
-            <!-- Animated Retention Tag -->
-            <g class="g-anim-retention">
-              <rect x="24" y="34" width="46" height="12" rx="3" fill="rgba(184, 0, 245, 0.6)"/>
-              <text x="47" y="42.5" font-family="'Inter', sans-serif" font-size="6" fill="#fff" text-anchor="middle" font-weight="700">85% RETENTION</text>
+            <!-- Phone Speaker Bar & Cam -->
+            <rect x="47" y="35" width="24" height="3" rx="1.5" fill="rgba(255,255,255,0.2)"/>
+            <circle cx="76" cy="36.5" r="1.5" fill="rgba(184,0,245,0.6)"/>
+
+            <!-- Video Content: Pulsing Center Play Icon -->
+            <circle cx="59" cy="80" r="16" fill="rgba(184, 0, 245, 0.3)" filter="url(#shortGlow)"/>
+            <polygon class="g-anim-play-pulse" points="56,73 66,80 56,87" fill="#ffffff" filter="url(#shortGlow)" style="transform-origin: 59px 80px;"/>
+
+            <!-- KINETIC DYNAMIC CAPTION (Center of phone) -->
+            <g class="g-anim-caption-glow" style="transform-origin: 59px 108px;">
+              <rect x="26" y="101" width="66" height="15" rx="3.5" fill="rgba(0, 0, 0, 0.75)" stroke="#ff007f" stroke-width="0.8"/>
+              <text x="59" y="111" font-family="'Inter', sans-serif" font-size="6.5" fill="#ffe600" text-anchor="middle" font-weight="900" letter-spacing="0.4">STOP SCROLLING ⚡</text>
             </g>
 
-            <!-- Mini Inspector Panel (Right) -->
-            <rect x="182" y="28" width="80" height="80" rx="6" fill="rgba(24, 7, 38, 0.6)" stroke="rgba(184, 0, 245, 0.25)" stroke-width="1"/>
-            <rect x="190" y="36" width="46" height="5" rx="2.5" fill="rgba(225, 200, 250, 0.4)"/>
-            <!-- Sliders with animated thumb -->
-            <rect x="190" y="48" width="64" height="3" rx="1.5" fill="rgba(184, 0, 245, 0.3)"/>
-            <rect x="190" y="48" width="44" height="3" rx="1.5" fill="#B800F5"/>
-            <circle class="g-anim-slider-thumb" cx="234" cy="49.5" r="3.5" fill="#fff" stroke="#B800F5" stroke-width="1"/>
+            <!-- Viral Hook Tag (Top of phone) -->
+            <rect x="26" y="42" width="48" height="10" rx="2.5" fill="rgba(184, 0, 245, 0.65)"/>
+            <text x="50" y="49" font-family="'Inter', sans-serif" font-size="5.2" fill="#fff" text-anchor="middle" font-weight="700">HOOK 0-3s • 91%</text>
 
-            <rect x="190" y="62" width="64" height="3" rx="1.5" fill="rgba(184, 0, 245, 0.3)"/>
-            <rect x="190" y="62" width="52" height="3" rx="1.5" fill="#E879F9"/>
-            <circle cx="242" cy="63.5" r="3.5" fill="#fff" stroke="#B800F5" stroke-width="1"/>
+            <!-- Sound Wave at phone bottom -->
+            <path d="M 28,154 Q 38,148 48,154 T 68,152 T 88,155" fill="none" stroke="#E879F9" stroke-width="1.8"/>
 
-            <rect x="190" y="76" width="64" height="3" rx="1.5" fill="rgba(184, 0, 245, 0.3)"/>
-            <rect x="190" y="76" width="36" height="3" rx="1.5" fill="#B800F5"/>
-            <circle cx="226" cy="77.5" r="3.5" fill="#fff" stroke="#B800F5" stroke-width="1"/>
+            <!-- ═══ INSPECTOR & TIMELINE CONTROLS (Right) ═══ -->
+            <rect x="108" y="27" width="154" height="74" rx="6" fill="rgba(20, 6, 32, 0.85)" stroke="rgba(184, 0, 245, 0.3)" stroke-width="1"/>
+            
+            <!-- Header title -->
+            <text x="116" y="40" font-family="'Inter', sans-serif" font-size="7" fill="#E879F9" font-weight="700">VIRAL PACING ENGINE</text>
+            
+            <!-- Sliders -->
+            <text x="116" y="53" font-family="'Inter', sans-serif" font-size="6" fill="rgba(225,200,250,0.6)">Pattern Interrupts</text>
+            <rect x="116" y="56" width="138" height="3" rx="1.5" fill="rgba(184, 0, 245, 0.25)"/>
+            <rect x="116" y="56" width="118" height="3" rx="1.5" fill="#B800F5"/>
+            <circle cx="234" cy="57.5" r="3.5" fill="#fff" stroke="#B800F5" stroke-width="1"/>
 
-            <rect x="190" y="89" width="36" height="11" rx="3" fill="#B800F5"/>
-            <text x="208" y="97" font-family="'Inter', sans-serif" font-size="6" fill="#fff" text-anchor="middle" font-weight="700">RENDER</text>
+            <text x="116" y="70" font-family="'Inter', sans-serif" font-size="6" fill="rgba(225,200,250,0.6)">Dynamic Subtitles</text>
+            <rect x="116" y="73" width="138" height="3" rx="1.5" fill="rgba(184, 0, 245, 0.25)"/>
+            <rect x="116" y="73" width="130" height="3" rx="1.5" fill="#E879F9"/>
+            <circle cx="246" cy="74.5" r="3.5" fill="#fff" stroke="#E879F9" stroke-width="1"/>
 
-            <!-- Timeline (Bottom) -->
-            <rect x="18" y="115" width="244" height="52" rx="6" fill="rgba(16, 5, 28, 0.85)" stroke="rgba(184, 0, 245, 0.3)" stroke-width="1"/>
-            <!-- Track 1 Header -->
-            <rect x="22" y="121" width="50" height="18" rx="3" fill="rgba(184, 0, 245, 0.25)"/>
-            <text x="47" y="132.5" font-family="'Inter', sans-serif" font-size="7" fill="#E879F9" text-anchor="middle" font-weight="600">V1 &bull; 4K Cut</text>
+            <text x="116" y="87" font-family="'Inter', sans-serif" font-size="6" fill="rgba(225,200,250,0.6)">Beat Drop SFX Sync</text>
+            <rect x="116" y="90" width="138" height="3" rx="1.5" fill="rgba(184, 0, 245, 0.25)"/>
+            <rect x="116" y="90" width="105" height="3" rx="1.5" fill="#B800F5"/>
+            <circle cx="221" cy="91.5" r="3.5" fill="#fff" stroke="#B800F5" stroke-width="1"/>
 
-            <!-- Active Clip -->
-            <rect x="76" y="121" width="94" height="18" rx="3" fill="url(#vidGrad)" stroke="#E879F9" stroke-width="1.5"/>
-            <text x="123" y="132.5" font-family="'Inter', sans-serif" font-size="7" fill="#ffffff" text-anchor="middle" font-weight="700">Clip 01 [Cinematic]</text>
-            <!-- Handles -->
-            <rect x="74" y="119" width="4" height="22" rx="1" fill="#ffffff"/>
-            <rect x="168" y="119" width="4" height="22" rx="1" fill="#ffffff"/>
+            <!-- ═══ MULTI-TRACK SHORTS TIMELINE (Right Bottom) ═══ -->
+            <rect x="108" y="107" width="154" height="62" rx="6" fill="rgba(16, 5, 28, 0.88)" stroke="rgba(184, 0, 245, 0.3)" stroke-width="1"/>
+            
+            <!-- Video Track V1 -->
+            <rect x="114" y="113" width="38" height="15" rx="3" fill="rgba(184, 0, 245, 0.7)"/>
+            <text x="133" y="123" font-family="'Inter', sans-serif" font-size="5.5" fill="#fff" text-anchor="middle" font-weight="700">Hook 0-3s</text>
+            <rect x="156" y="113" width="52" height="15" rx="3" fill="#ff007f"/>
+            <text x="182" y="123" font-family="'Inter', sans-serif" font-size="5.5" fill="#fff" text-anchor="middle" font-weight="700">Dynamic B-Roll</text>
+            <rect x="212" y="113" width="44" height="15" rx="3" fill="rgba(184, 0, 245, 0.5)"/>
+            <text x="234" y="123" font-family="'Inter', sans-serif" font-size="5.5" fill="#fff" text-anchor="middle" font-weight="700">Loop CTA</text>
 
-            <rect x="174" y="121" width="84" height="18" rx="3" fill="rgba(184, 0, 245, 0.2)"/>
-            <text x="216" y="132.5" font-family="'Inter', sans-serif" font-size="7" fill="rgba(225, 200, 250, 0.5)" text-anchor="middle">VFX Motion</text>
+            <!-- Audio Track A1 -->
+            <rect x="114" y="132" width="142" height="14" rx="3" fill="rgba(88, 11, 130, 0.35)"/>
+            <path class="g-anim-audiowave" d="M 118,139 Q 128,133 138,139 T 158,135 T 178,142 T 198,134 T 218,140 T 238,136 T 252,139" fill="none" stroke="#E879F9" stroke-width="1.5"/>
 
-            <!-- Track 2: Animated Audio Wave -->
-            <rect x="22" y="143" width="236" height="18" rx="3" fill="rgba(88, 11, 130, 0.2)"/>
-            <path class="g-anim-audiowave" d="M 28,152 Q 38,145 48,152 T 68,152 T 88,147 T 108,154 T 128,146 T 148,155 T 168,148 T 188,154 T 208,149 T 228,153 T 248,152" fill="none" stroke="#E879F9" stroke-width="1.6"/>
-
-            <!-- Playhead Red Needle (Animated Sweep) -->
-            <g class="g-anim-playhead">
-              <line x1="95" y1="112" x2="95" y2="167" stroke="#ff3b5c" stroke-width="1.8" filter="url(#svgGlow1)"/>
-              <polygon points="91,112 99,112 95,118" fill="#ff3b5c"/>
-            </g>
-
-            <!-- Trimming Cursor (Animated) -->
-            <g class="g-anim-vid-cursor">
-              <polygon points="0,0 0,14 4,11 7,17 9,16 6,10 11,10" fill="#000000" stroke="#ffffff" stroke-width="1.2"/>
-            </g>
+            <!-- Tags Badge Row -->
+            <rect x="114" y="151" width="38" height="11" rx="2.5" fill="rgba(184, 0, 245, 0.3)"/>
+            <text x="133" y="159" font-family="'Inter', sans-serif" font-size="5.5" fill="#E879F9" text-anchor="middle" font-weight="700">#REELS</text>
+            <rect x="156" y="151" width="42" height="11" rx="2.5" fill="rgba(184, 0, 245, 0.3)"/>
+            <text x="177" y="159" font-family="'Inter', sans-serif" font-size="5.5" fill="#E879F9" text-anchor="middle" font-weight="700">#TIKTOK</text>
+            <rect x="202" y="151" width="44" height="11" rx="2.5" fill="rgba(255, 0, 127, 0.3)"/>
+            <text x="224" y="159" font-family="'Inter', sans-serif" font-size="5.5" fill="#ff6eb4" text-anchor="middle" font-weight="700">#SHORTS</text>
           </svg>
         </div>
 
         <div class="g-svc-body">
           <div class="g-svc-icon-badge">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E879F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="23 7 16 12 23 17 23 7"></polygon>
-              <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+              <rect x="5" y="2" width="14" height="20" rx="3"></rect>
+              <polygon points="10 8 16 12 10 16 10 8" fill="#E879F9"></polygon>
             </svg>
           </div>
           <h3 class="g-svc-name">Short-Form Video Editing</h3>
@@ -2458,80 +2290,106 @@
         <div class="g-svc-mockup">
           <svg class="g-svc-svg" viewBox="0 0 280 185" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <linearGradient id="gfxShape" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="rgba(184, 0, 245, 0.45)"/>
-                <stop offset="100%" stop-color="rgba(88, 11, 130, 0.15)"/>
+              <linearGradient id="ytGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ff0000"/>
+                <stop offset="100%" stop-color="#800000"/>
               </linearGradient>
+              <linearGradient id="curveFill" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="rgba(236, 72, 153, 0.45)"/>
+                <stop offset="100%" stop-color="rgba(236, 72, 153, 0.0)"/>
+              </linearGradient>
+              <filter id="ytGlow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
             </defs>
 
             <!-- Outer Canvas Window -->
-            <rect x="8" y="8" width="264" height="169" rx="10" fill="#0e041a" stroke="rgba(184, 0, 245, 0.35)" stroke-width="1"/>
+            <rect x="8" y="8" width="264" height="169" rx="10" fill="#0e041a" stroke="rgba(236, 72, 153, 0.35)" stroke-width="1"/>
             
-            <!-- Window header dots -->
+            <!-- Window header -->
             <circle cx="22" cy="18" r="3" fill="#ff5f56"/>
             <circle cx="31" cy="18" r="3" fill="#ffbd2e"/>
             <circle cx="40" cy="18" r="3" fill="#27c93f"/>
-            <rect x="96" y="14" width="88" height="9" rx="4" fill="rgba(184, 0, 245, 0.25)"/>
-            <text x="140" y="21" font-family="'Inter', sans-serif" font-size="6.5" fill="#E879F9" text-anchor="middle" font-weight="600">Vector Studio &bull; RGB 300DPI</text>
+            <rect x="82" y="14" width="116" height="9" rx="4" fill="rgba(236, 72, 153, 0.25)"/>
+            <text x="140" y="21" font-family="'Inter', sans-serif" font-size="6.5" fill="#f472b6" text-anchor="middle" font-weight="600">YouTube_Studio • Cinema_4K.pr</text>
 
-            <!-- Grid Artboard lines -->
-            <line x1="20" y1="56" x2="260" y2="56" stroke="rgba(184, 0, 245, 0.12)" stroke-width="1"/>
-            <line x1="20" y1="94" x2="260" y2="94" stroke="rgba(184, 0, 245, 0.12)" stroke-width="1"/>
-            <line x1="20" y1="132" x2="260" y2="132" stroke="rgba(184, 0, 245, 0.12)" stroke-width="1"/>
-            <line x1="80" y1="28" x2="80" y2="168" stroke="rgba(184, 0, 245, 0.12)" stroke-width="1"/>
-            <line x1="140" y1="28" x2="140" y2="168" stroke="rgba(184, 0, 245, 0.12)" stroke-width="1"/>
-            <line x1="200" y1="28" x2="200" y2="168" stroke="rgba(184, 0, 245, 0.12)" stroke-width="1"/>
+            <!-- ═══ 16:9 CINEMA MONITOR (Left) ═══ -->
+            <rect x="18" y="28" width="140" height="78" rx="6" fill="#080112" stroke="rgba(236, 72, 153, 0.4)" stroke-width="1"/>
+            
+            <!-- Letterbox cinema bars -->
+            <rect x="18" y="28" width="140" height="10" fill="#000000"/>
+            <rect x="18" y="96" width="140" height="10" fill="#000000"/>
 
-            <!-- Abstract Vector Shape in background -->
-            <path d="M 50,110 C 70,40 130,45 155,85 C 180,125 230,115 250,65 L 250,140 C 210,155 120,160 50,140 Z" fill="url(#gfxShape)"/>
+            <!-- Center Play Scene -->
+            <circle cx="88" cy="67" r="16" fill="rgba(236, 72, 153, 0.25)" filter="url(#ytGlow)"/>
+            <polygon class="g-anim-play-pulse" points="85,60 95,67 85,74" fill="#ffffff" filter="url(#ytGlow)" style="transform-origin: 88px 67px;"/>
+            
+            <!-- Timecode & 4K Tag -->
+            <rect x="24" y="31" width="46" height="8" rx="2" fill="rgba(0,0,0,0.7)"/>
+            <text x="47" y="37" font-family="'Inter', sans-serif" font-size="5" fill="#ff0000" text-anchor="middle" font-weight="800">● REC • 4K 60FPS</text>
 
-            <!-- Glowing Vector Bezier Curve Line -->
-            <path class="g-anim-vector-glow" d="M 45,115 C 70,35 130,40 155,85 C 180,130 225,120 245,65" fill="none" stroke="#E879F9" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Chapter Tag -->
+            <rect x="24" y="94" width="80" height="9" rx="2" fill="rgba(0,0,0,0.7)"/>
+            <text x="64" y="100.5" font-family="'Inter', sans-serif" font-size="5" fill="#f9a8d4" text-anchor="middle" font-weight="600">Chapter 02: Narrative Hook</text>
 
-            <!-- Anchor 1 -->
-            <rect x="42" y="112" width="6" height="6" fill="#ffffff" stroke="#B800F5" stroke-width="1.5"/>
-            <!-- Anchor 3 -->
-            <rect x="242" y="62" width="6" height="6" fill="#ffffff" stroke="#B800F5" stroke-width="1.5"/>
+            <!-- ═══ RETENTION CURVE ANALYTICS (Right) ═══ -->
+            <rect x="164" y="28" width="98" height="78" rx="6" fill="rgba(24, 7, 34, 0.75)" stroke="rgba(236, 72, 153, 0.3)" stroke-width="1"/>
+            
+            <!-- Analytics Title -->
+            <text x="172" y="39" font-family="'Inter', sans-serif" font-size="6" fill="#f472b6" font-weight="700">RETENTION ANALYTICS</text>
+            
+            <!-- Graph Area -->
+            <path d="M 172,94 Q 192,58 214,64 T 240,48 T 256,42 L 256,96 L 172,96 Z" fill="url(#curveFill)"/>
+            <path class="g-anim-retention-curve" d="M 172,94 Q 192,58 214,64 T 240,48 T 256,42" fill="none" stroke="#ec4899" stroke-width="2" stroke-linecap="round"/>
 
-            <!-- Tangent Handles & Center Anchor (Animated Rotation) -->
-            <g class="g-anim-bezier-handle">
-              <line x1="130" y1="65" x2="180" y2="105" stroke="rgba(255, 255, 255, 0.65)" stroke-width="1.2" stroke-dasharray="2 2"/>
-              <circle cx="130" cy="65" r="3.5" fill="#E879F9" stroke="#ffffff" stroke-width="1"/>
-              <circle cx="180" cy="105" r="3.5" fill="#E879F9" stroke="#ffffff" stroke-width="1"/>
-              <rect x="152" y="82" width="6" height="6" fill="#ffffff" stroke="#B800F5" stroke-width="1.5"/>
+            <!-- Floating High AVD Pill -->
+            <g class="g-anim-avd-pill">
+              <rect x="180" y="44" width="74" height="12" rx="3.5" fill="#ec4899"/>
+              <text x="217" y="52.5" font-family="'Inter', sans-serif" font-size="5.5" fill="#ffffff" text-anchor="middle" font-weight="800">78% AVG RETENTION 🔥</text>
             </g>
 
-            <!-- Pen Tool Cursor (Animated Drawing Motion) -->
-            <g class="g-anim-pen-cursor">
-              <path d="M 0,0 L 4,-8 L 10,-2 L 2,4 Z" fill="#ffffff" stroke="#000000" stroke-width="0.8"/>
-              <path d="M 0,0 L -1,1 L 1,1 Z" fill="#000000"/>
-              <circle cx="4" cy="-3" r="1.2" fill="#B800F5"/>
+            <!-- ═══ MULTI-TRACK NARRATIVE TIMELINE (Bottom) ═══ -->
+            <rect x="18" y="112" width="244" height="56" rx="6" fill="rgba(16, 5, 28, 0.88)" stroke="rgba(236, 72, 153, 0.3)" stroke-width="1"/>
+            
+            <!-- V1 Track: A-Roll Story -->
+            <rect x="22" y="117" width="56" height="14" rx="2.5" fill="rgba(236, 72, 153, 0.3)"/>
+            <text x="50" y="126" font-family="'Inter', sans-serif" font-size="5.5" fill="#f472b6" text-anchor="middle" font-weight="700">V1 • Talking Head</text>
+            
+            <rect x="82" y="117" width="86" height="14" rx="2.5" fill="url(#ytGrad)"/>
+            <text x="125" y="126" font-family="'Inter', sans-serif" font-size="6" fill="#fff" text-anchor="middle" font-weight="700">Master Story Arc [4K Cut]</text>
+            
+            <rect x="172" y="117" width="86" height="14" rx="2.5" fill="rgba(236, 72, 153, 0.3)"/>
+            <text x="215" y="126" font-family="'Inter', sans-serif" font-size="5.5" fill="#f472b6" text-anchor="middle" font-weight="700">Outro / Subscribe CTA</text>
+
+            <!-- V2 Track: B-Roll & Visual Interrupts -->
+            <rect x="22" y="134" width="70" height="13" rx="2.5" fill="rgba(184, 0, 245, 0.4)"/>
+            <text x="57" y="142.5" font-family="'Inter', sans-serif" font-size="5" fill="#fff" text-anchor="middle">Pattern Interrupt B-Roll</text>
+            
+            <rect x="96" y="134" width="84" height="13" rx="2.5" fill="rgba(236, 72, 153, 0.6)"/>
+            <text x="138" y="142.5" font-family="'Inter', sans-serif" font-size="5" fill="#fff" text-anchor="middle" font-weight="700">Cinematic Overlay Drone</text>
+            
+            <rect x="184" y="134" width="74" height="13" rx="2.5" fill="rgba(184, 0, 245, 0.4)"/>
+            <text x="221" y="142.5" font-family="'Inter', sans-serif" font-size="5" fill="#fff" text-anchor="middle">Documentary Motion</text>
+
+            <!-- A1 Track: Voice & Spatial Audio -->
+            <rect x="22" y="150" width="236" height="13" rx="2.5" fill="rgba(236, 72, 153, 0.15)"/>
+            <path class="g-anim-audiowave" d="M 28,156 Q 38,150 48,156 T 68,153 T 88,157 T 108,151 T 128,158 T 148,152 T 168,157 T 188,153 T 208,156 T 228,152 T 248,156" fill="none" stroke="#ec4899" stroke-width="1.4"/>
+
+            <!-- Playhead Sweep -->
+            <g class="g-anim-playhead">
+              <line x1="120" y1="110" x2="120" y2="167" stroke="#ff0000" stroke-width="1.8" filter="url(#ytGlow)"/>
+              <polygon points="116,110 124,110 120,116" fill="#ff0000"/>
             </g>
-
-            <!-- Floating Color Palette with Pulsing Swatch -->
-            <rect x="160" y="128" width="102" height="36" rx="8" fill="rgba(20, 6, 32, 0.85)" stroke="rgba(184, 0, 245, 0.4)" stroke-width="1"/>
-            <circle cx="174" cy="146" r="6" fill="#B800F5"/>
-            <circle class="g-anim-swatch-active" cx="191" cy="146" r="6" fill="#ff6ef7"/>
-            <circle cx="208" cy="146" r="6" fill="#7a0cad"/>
-            <circle cx="225" cy="146" r="6" fill="#00d4ff"/>
-            <circle cx="242" cy="146" r="6" fill="#ffffff" stroke="#B800F5" stroke-width="1"/>
-
-            <!-- Floating Layers Panel (Top Left) -->
-            <rect x="18" y="28" width="86" height="42" rx="6" fill="rgba(20, 6, 32, 0.82)" stroke="rgba(184, 0, 245, 0.3)" stroke-width="1"/>
-            <rect x="24" y="34" width="74" height="8" rx="2" fill="rgba(184, 0, 245, 0.4)"/>
-            <text x="61" y="40.5" font-family="'Inter', sans-serif" font-size="5.5" fill="#ffffff" text-anchor="middle" font-weight="600">Thumbnail_Final.psd</text>
-            <rect x="24" y="46" width="40" height="4" rx="2" fill="rgba(225, 200, 250, 0.4)"/>
-            <rect x="24" y="54" width="56" height="4" rx="2" fill="rgba(225, 200, 250, 0.25)"/>
           </svg>
         </div>
 
         <div class="g-svc-body">
           <div class="g-svc-icon-badge">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E879F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
-              <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
-              <path d="M2 2l7.586 7.586"></path>
-              <circle cx="11" cy="11" r="2"></circle>
+              <polygon points="23 7 16 12 23 17 23 7"></polygon>
+              <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+              <line x1="5" y1="5" x2="8" y2="19"></line>
             </svg>
           </div>
           <h3 class="g-svc-name">YouTube &amp; Documentaries</h3>
@@ -2546,64 +2404,94 @@
         <div class="g-svc-mockup">
           <svg class="g-svc-svg" viewBox="0 0 280 185" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <linearGradient id="frameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#B800F5" stop-opacity="0.88"/>
-                <stop offset="100%" stop-color="#580B82" stop-opacity="0.88"/>
+              <linearGradient id="saasBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#1e3a8a" stop-opacity="0.45"/>
+                <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95"/>
               </linearGradient>
+              <linearGradient id="saasCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#3b82f6"/>
+                <stop offset="100%" stop-color="#1d4ed8"/>
+              </linearGradient>
+              <filter id="blueGlow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3.5" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
             </defs>
 
-            <!-- Window frame -->
-            <rect x="12" y="10" width="256" height="165" rx="12" fill="#0e041a" stroke="rgba(184, 0, 245, 0.45)" stroke-width="1.5"/>
+            <!-- Outer Canvas Window -->
+            <rect x="8" y="8" width="264" height="169" rx="10" fill="#080e1a" stroke="rgba(59, 130, 246, 0.4)" stroke-width="1"/>
+            
+            <!-- Window header -->
+            <circle cx="22" cy="18" r="3" fill="#ff5f56"/>
+            <circle cx="31" cy="18" r="3" fill="#ffbd2e"/>
+            <circle cx="40" cy="18" r="3" fill="#27c93f"/>
+            <rect x="76" y="14" width="128" height="9" rx="4" fill="rgba(59, 130, 246, 0.25)"/>
+            <text x="140" y="21" font-family="'Inter', sans-serif" font-size="6.5" fill="#60a5fa" text-anchor="middle" font-weight="600">AfterEffects • SaaS_Feature_Launch.aep</text>
 
-            <!-- Header browser elements -->
-            <rect x="22" y="18" width="30" height="7" rx="3.5" fill="rgba(184, 0, 245, 0.5)"/>
-            <rect x="60" y="20" width="18" height="3" rx="1.5" fill="rgba(225, 200, 250, 0.3)"/>
-            <rect x="84" y="20" width="18" height="3" rx="1.5" fill="rgba(225, 200, 250, 0.3)"/>
-            <rect x="108" y="20" width="18" height="3" rx="1.5" fill="rgba(225, 200, 250, 0.3)"/>
-            <rect x="236" y="18" width="20" height="7" rx="3.5" fill="rgba(184, 0, 245, 0.4)"/>
-
-            <!-- Wireframe left text bars -->
-            <rect x="24" y="38" width="90" height="5" rx="2.5" fill="rgba(225, 200, 250, 0.4)"/>
-            <rect x="24" y="47" width="65" height="4" rx="2" fill="rgba(225, 200, 250, 0.25)"/>
-
-            <!-- Image placeholder box (Right top) -->
-            <rect x="148" y="32" width="108" height="58" rx="8" fill="rgba(184, 0, 245, 0.18)" stroke="rgba(184, 0, 245, 0.4)" stroke-width="1"/>
-            <!-- Mountain placeholder icon -->
-            <rect x="188" y="46" width="28" height="24" rx="3" fill="none" stroke="rgba(232, 121, 249, 0.5)" stroke-width="1.5"/>
-            <polygon points="192,64 200,54 206,60 210,56 214,64" fill="rgba(232, 121, 249, 0.6)"/>
-
-            <!-- Selected Frame (Frame 99999) - Resizing Animation -->
-            <g class="g-anim-frame-box">
-              <text x="24" y="70" font-family="'Inter', sans-serif" font-size="8.5" fill="#E879F9" font-weight="600">Frame 99999</text>
-              <rect class="g-anim-resize-frame" x="24" y="75" width="108" height="54" rx="5" fill="url(#frameGrad)" stroke="#E879F9" stroke-width="1.5"/>
+            <!-- ═══ 3D FLOATING SAAS INTERFACE (Upper Half) ═══ -->
+            <g class="g-anim-3d-layer">
+              <!-- Background isometric window mockup -->
+              <rect x="22" y="28" width="236" height="88" rx="8" fill="url(#saasBg)" stroke="rgba(59, 130, 246, 0.5)" stroke-width="1.2"/>
               
-              <!-- 4 White Resize Handles -->
-              <rect x="21" y="72" width="5" height="5" fill="#ffffff" stroke="#B800F5" stroke-width="0.8"/>
-              <rect x="129" y="72" width="5" height="5" fill="#ffffff" stroke="#B800F5" stroke-width="0.8"/>
-              <rect x="21" y="126" width="5" height="5" fill="#ffffff" stroke="#B800F5" stroke-width="0.8"/>
-              <rect x="129" y="126" width="5" height="5" fill="#ffffff" stroke="#B800F5" stroke-width="0.8"/>
+              <!-- Left Sidebar of App -->
+              <rect x="26" y="32" width="46" height="80" rx="5" fill="rgba(15, 23, 42, 0.7)"/>
+              <rect x="32" y="38" width="34" height="5" rx="2" fill="#3b82f6"/>
+              <rect x="32" y="48" width="26" height="3" rx="1.5" fill="rgba(255,255,255,0.3)"/>
+              <rect x="32" y="55" width="30" height="3" rx="1.5" fill="rgba(255,255,255,0.3)"/>
+              <rect x="32" y="62" width="24" height="3" rx="1.5" fill="rgba(255,255,255,0.3)"/>
+              
+              <!-- 3D Feature Showcase Card (Floating Center) -->
+              <rect x="78" y="34" width="174" height="42" rx="6" fill="rgba(30, 58, 138, 0.45)" stroke="#60a5fa" stroke-width="1.2" filter="url(#blueGlow)"/>
+              <text x="88" y="47" font-family="'Inter', sans-serif" font-size="7" fill="#ffffff" font-weight="800">Next-Gen SaaS Feature Launch 🚀</text>
+              <text x="88" y="58" font-family="'Inter', sans-serif" font-size="5.5" fill="#93c5fd">Kinetic 3D typography &amp; UI screen replacement</text>
+              <rect x="88" y="64" width="58" height="8" rx="2" fill="url(#saasCardGrad)"/>
+              <text x="117" y="70" font-family="'Inter', sans-serif" font-size="4.5" fill="#fff" text-anchor="middle" font-weight="700">WATCH LAUNCH DEMO ▶</text>
+
+              <!-- Conversion Badge (Floating Top Right) -->
+              <rect x="186" y="38" width="60" height="12" rx="3" fill="#22c55e" filter="url(#blueGlow)"/>
+              <text x="216" y="46.5" font-family="'Inter', sans-serif" font-size="5.5" fill="#fff" text-anchor="middle" font-weight="800">4.2x ROAS SPIKE 🔥</text>
+
+              <!-- App Charts Preview (Bottom of floating UI) -->
+              <rect x="78" y="80" width="82" height="32" rx="5" fill="rgba(15, 23, 42, 0.8)" stroke="rgba(59, 130, 246, 0.3)" stroke-width="1"/>
+              <text x="84" y="90" font-family="'Inter', sans-serif" font-size="5" fill="#93c5fd">Trial Signups Growth</text>
+              <path d="M 84,106 Q 104,98 124,102 T 154,88" fill="none" stroke="#3b82f6" stroke-width="1.8"/>
+
+              <rect x="166" y="80" width="86" height="32" rx="5" fill="rgba(15, 23, 42, 0.8)" stroke="rgba(59, 130, 246, 0.3)" stroke-width="1"/>
+              <text x="172" y="90" font-family="'Inter', sans-serif" font-size="5" fill="#93c5fd">Motion Pacing: 60FPS</text>
+              <rect x="172" y="95" width="74" height="4" rx="2" fill="rgba(59,130,246,0.3)"/>
+              <rect x="172" y="95" width="62" height="4" rx="2" fill="#60a5fa"/>
             </g>
 
-            <!-- Mouse cursor dragging bottom-right corner (Animated Movement) -->
-            <g class="g-anim-frame-cursor">
-              <polygon points="0,0 0,16 4,12 8,19 11,18 7,11 13,11" fill="#000000" stroke="#ffffff" stroke-width="1.2"/>
-            </g>
+            <!-- ═══ AFTER EFFECTS MOTION KEYFRAME TIMELINE (Bottom) ═══ -->
+            <rect x="18" y="122" width="244" height="46" rx="6" fill="rgba(11, 20, 38, 0.9)" stroke="rgba(59, 130, 246, 0.35)" stroke-width="1"/>
+            
+            <!-- Layer 1: 3D Camera Sweep -->
+            <rect x="22" y="127" width="56" height="16" rx="3" fill="rgba(59, 130, 246, 0.35)"/>
+            <text x="50" y="137" font-family="'Inter', sans-serif" font-size="5.5" fill="#60a5fa" text-anchor="middle" font-weight="700">3D Camera Rig</text>
+            
+            <!-- Keyframe Diamonds -->
+            <line x1="82" y1="135" x2="256" y2="135" stroke="rgba(59, 130, 246, 0.3)" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <polygon class="g-anim-keyframe-pulse" points="86,135 90,131 94,135 90,139" fill="#3b82f6"/>
+            <polygon class="g-anim-keyframe-pulse" points="140,135 144,131 148,135 144,139" fill="#3b82f6"/>
+            <polygon class="g-anim-keyframe-pulse" points="196,135 200,131 204,135 200,139" fill="#3b82f6"/>
+            <polygon class="g-anim-keyframe-pulse" points="248,135 252,131 256,135 252,139" fill="#3b82f6"/>
 
-            <!-- Card block on right side -->
-            <rect x="142" y="98" width="114" height="48" rx="7" fill="rgba(184, 0, 245, 0.14)" stroke="rgba(184, 0, 245, 0.35)" stroke-width="1"/>
-            <circle cx="156" cy="112" r="5" fill="rgba(232, 121, 249, 0.4)"/>
-            <rect x="168" y="110" width="70" height="4" rx="2" fill="rgba(225, 200, 250, 0.3)"/>
-            <rect x="148" y="124" width="34" height="4" rx="2" fill="rgba(225, 200, 250, 0.25)"/>
-            <rect x="148" y="132" width="46" height="3" rx="1.5" fill="rgba(225, 200, 250, 0.2)"/>
+            <!-- Layer 2: Kinetic Typography -->
+            <rect x="22" y="148" width="56" height="15" rx="3" fill="rgba(59, 130, 246, 0.25)"/>
+            <text x="50" y="157.5" font-family="'Inter', sans-serif" font-size="5.5" fill="#93c5fd" text-anchor="middle">Kinetic Copy</text>
+            <rect x="82" y="148" width="84" height="15" rx="3" fill="rgba(59, 130, 246, 0.45)"/>
+            <text x="124" y="157.5" font-family="'Inter', sans-serif" font-size="5.5" fill="#ffffff" text-anchor="middle" font-weight="600">Feature Callout Zoom</text>
+            <rect x="170" y="148" width="86" height="15" rx="3" fill="rgba(59, 130, 246, 0.3)"/>
+            <text x="213" y="157.5" font-family="'Inter', sans-serif" font-size="5.5" fill="#93c5fd" text-anchor="middle">UI Sound FX Sync</text>
           </svg>
         </div>
 
         <div class="g-svc-body">
           <div class="g-svc-icon-badge">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E879F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-              <line x1="8" y1="21" x2="16" y2="21"></line>
-              <line x1="12" y1="17" x2="12" y2="21"></line>
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
             </svg>
           </div>
           <h3 class="g-svc-name">SaaS &amp; Product Promos</h3>
@@ -2618,57 +2506,72 @@
         <div class="g-svc-mockup">
           <svg class="g-svc-svg" viewBox="0 0 280 185" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <linearGradient id="chartGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#ff6ef7" stop-opacity="0.55"/>
-                <stop offset="60%" stop-color="#B800F5" stop-opacity="0.2"/>
+              <linearGradient id="adGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.5"/>
+                <stop offset="60%" stop-color="#0891b2" stop-opacity="0.15"/>
                 <stop offset="100%" stop-color="#08010E" stop-opacity="0"/>
               </linearGradient>
+              <filter id="adGlow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3.5" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
             </defs>
 
             <!-- Outer Canvas Window -->
-            <rect x="8" y="8" width="264" height="169" rx="10" fill="#0d0419" stroke="rgba(184, 0, 245, 0.35)" stroke-width="1"/>
+            <rect x="8" y="8" width="264" height="169" rx="10" fill="#041217" stroke="rgba(6, 182, 212, 0.35)" stroke-width="1"/>
             
-            <!-- Window header dots with live radar beacon -->
+            <!-- Window header -->
             <circle cx="22" cy="18" r="3" fill="#ff5f56"/>
             <circle cx="31" cy="18" r="3" fill="#ffbd2e"/>
             <circle class="g-anim-live-dot" cx="40" cy="18" r="3" fill="#22c55e"/>
-            <rect x="92" y="14" width="96" height="9" rx="4" fill="rgba(184, 0, 245, 0.25)"/>
-            <text x="140" y="21" font-family="'Inter', sans-serif" font-size="6.5" fill="#E879F9" text-anchor="middle" font-weight="600">Meta &bull; Google Ads &bull; Live</text>
+            <rect x="80" y="14" width="120" height="9" rx="4" fill="rgba(6, 182, 212, 0.25)"/>
+            <text x="140" y="21" font-family="'Inter', sans-serif" font-size="6.5" fill="#67e8f9" text-anchor="middle" font-weight="600">AdEngine • Meta &amp; TikTok Video Ads</text>
 
-            <!-- Ad Analytics Chart Window -->
-            <rect x="18" y="28" width="244" height="92" rx="7" fill="rgba(18, 5, 28, 0.8)" stroke="rgba(184, 0, 245, 0.3)" stroke-width="1"/>
+            <!-- ═══ HOOK A / B SPLIT CREATIVE BOXES (Upper) ═══ -->
+            <!-- HOOK A (WINNER) -->
+            <rect class="g-anim-winner-badge" x="18" y="28" width="118" height="64" rx="6" fill="rgba(6, 182, 212, 0.15)" stroke="#22c55e" stroke-width="1.6"/>
+            <!-- Video thumbnail scene with play icon -->
+            <rect x="22" y="32" width="46" height="34" rx="4" fill="#021c24"/>
+            <polygon points="42,45 50,49 42,53" fill="#22c55e"/>
+            <text x="74" y="42" font-family="'Inter', sans-serif" font-size="6.5" fill="#ffffff" font-weight="800">HOOK A (Winner)</text>
+            <text x="74" y="52" font-family="'Inter', sans-serif" font-size="5" fill="#67e8f9">Direct Problem Angle</text>
+            <rect x="74" y="56" width="58" height="9" rx="2" fill="#22c55e"/>
+            <text x="103" y="62.5" font-family="'Inter', sans-serif" font-size="5.5" fill="#000" text-anchor="middle" font-weight="900">5.8% CTR (HIGH ROAS)</text>
+            <text x="22" y="84" font-family="'Inter', sans-serif" font-size="5.5" fill="rgba(255,255,255,0.7)">Conversion: <tspan fill="#22c55e" font-weight="700">+340% Sales</tspan></text>
+
+            <!-- HOOK B (CONTROL) -->
+            <rect x="144" y="28" width="118" height="64" rx="6" fill="rgba(6, 182, 212, 0.08)" stroke="rgba(6, 182, 212, 0.3)" stroke-width="1"/>
+            <rect x="148" y="32" width="46" height="34" rx="4" fill="#021c24"/>
+            <polygon points="168,45 176,49 168,53" fill="rgba(255,255,255,0.4)"/>
+            <text x="200" y="42" font-family="'Inter', sans-serif" font-size="6.5" fill="rgba(255,255,255,0.7)" font-weight="700">HOOK B (Variant)</text>
+            <text x="200" y="52" font-family="'Inter', sans-serif" font-size="5" fill="rgba(255,255,255,0.4)">Story Introduction</text>
+            <rect x="200" y="56" width="56" height="9" rx="2" fill="rgba(255,255,255,0.2)"/>
+            <text x="228" y="62.5" font-family="'Inter', sans-serif" font-size="5.5" fill="#fff" text-anchor="middle">2.1% CTR (Baseline)</text>
+            <text x="148" y="84" font-family="'Inter', sans-serif" font-size="5.5" fill="rgba(255,255,255,0.5)">A/B Split Test Finished</text>
+
+            <!-- ═══ ROAS SURGE CHART (Middle) ═══ -->
+            <rect x="18" y="98" width="154" height="70" rx="6" fill="rgba(4, 25, 34, 0.75)" stroke="rgba(6, 182, 212, 0.3)" stroke-width="1"/>
+            <text x="26" y="110" font-family="'Inter', sans-serif" font-size="6" fill="#67e8f9" font-weight="700">REAL-TIME ROAS SURGE</text>
             
-            <!-- Grid Lines -->
-            <line x1="28" y1="46" x2="252" y2="46" stroke="rgba(184, 0, 245, 0.12)" stroke-width="1"/>
-            <line x1="28" y1="70" x2="252" y2="70" stroke="rgba(184, 0, 245, 0.12)" stroke-width="1"/>
-            <line x1="28" y1="94" x2="252" y2="94" stroke="rgba(184, 0, 245, 0.12)" stroke-width="1"/>
+            <path d="M 26,156 Q 60,150 90,138 T 130,120 T 164,112 L 164,162 L 26,162 Z" fill="url(#adGrad)"/>
+            <path class="g-anim-chart-line" d="M 26,156 Q 60,150 90,138 T 130,120 T 164,112" fill="none" stroke="#06b6d4" stroke-width="2.5" stroke-linecap="round"/>
 
-            <!-- Area Chart Gradient Fill -->
-            <path d="M 28,106 Q 65,98 95,102 T 150,70 T 205,48 T 252,36 L 252,112 L 28,112 Z" fill="url(#chartGrad)"/>
-            <!-- Surging Animated Line -->
-            <path class="g-anim-chart-line" d="M 28,106 Q 65,98 95,102 T 150,70 T 205,48 T 252,36" fill="none" stroke="#E879F9" stroke-width="2.5" stroke-linecap="round"/>
-
-            <!-- Floating Callout Pill at Peak (Bobbing Animation) -->
+            <!-- Floating 5.4x ROAS Pill -->
             <g class="g-anim-roas-pill">
-              <rect x="184" y="32" width="62" height="15" rx="4" fill="#B800F5"/>
-              <text x="215" y="42.5" font-family="'Inter', sans-serif" font-size="6.5" fill="#ffffff" text-anchor="middle" font-weight="700">4.8x ROAS &bull; +340%</text>
+              <rect x="100" y="105" width="66" height="13" rx="3.5" fill="#06b6d4"/>
+              <text x="133" y="114" font-family="'Inter', sans-serif" font-size="6" fill="#ffffff" text-anchor="middle" font-weight="800">5.4x ROAS (SCALED)</text>
             </g>
 
-            <!-- Bottom KPI Metrics (3 columns) -->
-            <rect x="18" y="126" width="76" height="42" rx="6" fill="rgba(24, 7, 38, 0.7)" stroke="rgba(184, 0, 245, 0.25)" stroke-width="1"/>
-            <text x="26" y="140" font-family="'Inter', sans-serif" font-size="6" fill="rgba(225, 200, 250, 0.5)">CTR RATE</text>
-            <text x="26" y="156" font-family="'Inter', sans-serif" font-size="12" fill="#22c55e" font-weight="700">5.4%</text>
+            <!-- ═══ METRICS & SCALE CTA (Right Bottom) ═══ -->
+            <rect x="178" y="98" width="84" height="32" rx="5" fill="rgba(4, 25, 34, 0.8)" stroke="rgba(6, 182, 212, 0.3)" stroke-width="1"/>
+            <text x="184" y="109" font-family="'Inter', sans-serif" font-size="5" fill="rgba(255,255,255,0.5)">ACQUISITION CTR</text>
+            <text x="184" y="123" font-family="'Inter', sans-serif" font-size="12" fill="#22c55e" font-weight="800">5.8%</text>
 
-            <rect x="102" y="126" width="76" height="42" rx="6" fill="rgba(24, 7, 38, 0.7)" stroke="rgba(184, 0, 245, 0.25)" stroke-width="1"/>
-            <text x="110" y="140" font-family="'Inter', sans-serif" font-size="6" fill="rgba(225, 200, 250, 0.5)">CONVERSIONS</text>
-            <text x="110" y="156" font-family="'Inter', sans-serif" font-size="12" fill="#E879F9" font-weight="700">3,420</text>
+            <rect x="178" y="136" width="84" height="32" rx="5" fill="rgba(6, 182, 212, 0.25)" stroke="#06b6d4" stroke-width="1.2"/>
+            <text x="220" y="149" font-family="'Inter', sans-serif" font-size="6.5" fill="#ffffff" text-anchor="middle" font-weight="800">SCALE CAMPAIGN</text>
+            <text x="220" y="160" font-family="'Inter', sans-serif" font-size="5.5" fill="#67e8f9" text-anchor="middle">Meta &amp; TikTok Ads &rarr;</text>
 
-            <!-- Action Button -->
-            <rect x="186" y="126" width="76" height="42" rx="6" fill="rgba(184, 0, 245, 0.3)" stroke="#E879F9" stroke-width="1.2"/>
-            <text x="224" y="144" font-family="'Inter', sans-serif" font-size="6.5" fill="#ffffff" text-anchor="middle" font-weight="700">SCALE</text>
-            <text x="224" y="156" font-family="'Inter', sans-serif" font-size="6" fill="#E879F9" text-anchor="middle">Campaign &rarr;</text>
-
-            <!-- Mouse Pointer Cursor (Click Animation) -->
+            <!-- Mouse Clicker -->
             <g class="g-anim-ad-click">
               <polygon points="0,0 0,14 4,11 7,17 9,16 6,10 11,10" fill="#000000" stroke="#ffffff" stroke-width="1.2"/>
             </g>
@@ -2678,9 +2581,8 @@
         <div class="g-svc-body">
           <div class="g-svc-icon-badge">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E879F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="18" y1="20" x2="18" y2="10"></line>
-              <line x1="12" y1="20" x2="12" y2="4"></line>
-              <line x1="6" y1="20" x2="6" y2="14"></line>
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
             </svg>
           </div>
           <h3 class="g-svc-name">Commercial Video Ads</h3>
@@ -2695,156 +2597,110 @@
         <div class="g-svc-mockup">
           <svg class="g-svc-svg" viewBox="0 0 280 185" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#B800F5"/>
-                <stop offset="100%" stop-color="#7c00cc"/>
+              <linearGradient id="wheelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#f59e0b"/>
+                <stop offset="50%" stop-color="#ef4444"/>
+                <stop offset="100%" stop-color="#8b5cf6"/>
               </linearGradient>
-              <linearGradient id="waGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#25D366"/>
-                <stop offset="100%" stop-color="#128C7E"/>
-              </linearGradient>
-              <linearGradient id="fbGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#0084FF"/>
-                <stop offset="100%" stop-color="#00B2FF"/>
-              </linearGradient>
-              <linearGradient id="igGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#F58529"/>
-                <stop offset="50%" stop-color="#DD2A7B"/>
-                <stop offset="100%" stop-color="#8134AF"/>
-              </linearGradient>
-              <linearGradient id="tgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#2AABEE"/>
-                <stop offset="100%" stop-color="#229ED9"/>
-              </linearGradient>
-              <filter id="aiGlow" x="-30%" y="-30%" width="160%" height="160%">
-                <feGaussianBlur stdDeviation="4" result="blur"/>
-                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-              </filter>
-              <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
-                <feGaussianBlur stdDeviation="2.5" result="blur"/>
+              <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3.5" result="blur"/>
                 <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
               </filter>
             </defs>
 
-            <!-- Dark Dashboard Background -->
-            <rect x="8" y="8" width="264" height="169" rx="10" fill="#080115" stroke="rgba(184, 0, 245, 0.4)" stroke-width="1.2"/>
+            <!-- Dark Studio Canvas Window -->
+            <rect x="8" y="8" width="264" height="169" rx="10" fill="#110b02" stroke="rgba(245, 158, 11, 0.4)" stroke-width="1"/>
 
             <!-- Top Bar -->
-            <rect x="8" y="8" width="264" height="20" rx="10" fill="rgba(20, 5, 34, 0.95)"/>
-            <rect x="8" y="18" width="264" height="10" fill="rgba(20, 5, 34, 0.95)"/>
-            <circle cx="20" cy="18" r="3" fill="#ff5f56"/>
-            <circle cx="29" cy="18" r="3" fill="#ffbd2e"/>
-            <circle cx="38" cy="18" r="3" fill="#27c93f"/>
-            <!-- Live badge -->
-            <rect x="100" y="13" width="80" height="10" rx="5" fill="rgba(184,0,245,0.2)" stroke="rgba(184,0,245,0.4)" stroke-width="0.8"/>
-            <circle class="g-anim-live-dot" cx="108" cy="18" r="2.5" fill="#22c55e"/>
-            <text x="140" y="21" font-family="'Inter',sans-serif" font-size="6" fill="#E879F9" text-anchor="middle" font-weight="700">AI Auto-Reply • LIVE</text>
+            <circle cx="22" cy="18" r="3" fill="#ff5f56"/>
+            <circle cx="31" cy="18" r="3" fill="#ffbd2e"/>
+            <circle cx="40" cy="18" r="3" fill="#27c93f"/>
+            <rect x="74" y="14" width="132" height="9" rx="4" fill="rgba(245, 158, 11, 0.25)"/>
+            <text x="140" y="21" font-family="'Inter', sans-serif" font-size="6.5" fill="#fcd34d" text-anchor="middle" font-weight="700">DaVinci_Resolve • Audio_Color_Master</text>
 
-            <!-- ═══ LEFT SIDE: Incoming Messages ═══ -->
+            <!-- ═══ LEFT HALF: CINEMA 3-WAY COLOR GRADING WHEELS ═══ -->
+            <rect x="18" y="28" width="128" height="141" rx="7" fill="rgba(24, 15, 3, 0.85)" stroke="rgba(245, 158, 11, 0.3)" stroke-width="1"/>
+            <text x="26" y="40" font-family="'Inter', sans-serif" font-size="6.5" fill="#fcd34d" font-weight="800">HOLLYWOOD 35mm LUT COLOR</text>
 
-            <!-- WhatsApp Incoming Msg 1 -->
-            <g class="g-anim-msg-in-1">
-              <rect x="14" y="34" width="96" height="20" rx="5" fill="rgba(37,211,102,0.15)" stroke="rgba(37,211,102,0.45)" stroke-width="1"/>
-              <!-- WA Icon -->
-              <circle cx="23" cy="44" r="5" fill="url(#waGrad)"/>
-              <text x="23" y="46.5" font-family="'Inter',sans-serif" font-size="5" fill="#fff" text-anchor="middle" font-weight="800">W</text>
-              <text x="51" y="41" font-family="'Inter',sans-serif" font-size="5.5" fill="#25D366" font-weight="700">WhatsApp</text>
-              <text x="32" y="50.5" font-family="'Inter',sans-serif" font-size="5.2" fill="rgba(200,255,210,0.7)" >"Hey, price list?"</text>
+            <!-- Color Wheel 1: Lift / Shadows -->
+            <circle cx="44" cy="68" r="18" fill="none" stroke="url(#wheelGrad)" stroke-width="2.5"/>
+            <circle cx="44" cy="68" r="2.5" fill="rgba(255,255,255,0.4)"/>
+            <circle class="g-anim-color-puck" cx="42" cy="66" r="3.5" fill="#fff" stroke="#f59e0b" stroke-width="1"/>
+            <text x="44" y="93" font-family="'Inter', sans-serif" font-size="5" fill="rgba(255,255,255,0.6)" text-anchor="middle">LIFT</text>
+
+            <!-- Color Wheel 2: Gamma / Midtones -->
+            <circle cx="82" cy="68" r="18" fill="none" stroke="url(#wheelGrad)" stroke-width="2.5"/>
+            <circle cx="82" cy="68" r="2.5" fill="rgba(255,255,255,0.4)"/>
+            <circle class="g-anim-color-puck" cx="84" cy="70" r="3.5" fill="#fff" stroke="#ef4444" stroke-width="1"/>
+            <text x="82" y="93" font-family="'Inter', sans-serif" font-size="5" fill="rgba(255,255,255,0.6)" text-anchor="middle">GAMMA</text>
+
+            <!-- Color Wheel 3: Gain / Highlights -->
+            <circle cx="120" cy="68" r="18" fill="none" stroke="url(#wheelGrad)" stroke-width="2.5"/>
+            <circle cx="120" cy="68" r="2.5" fill="rgba(255,255,255,0.4)"/>
+            <circle class="g-anim-color-puck" cx="121" cy="66" r="3.5" fill="#fff" stroke="#8b5cf6" stroke-width="1"/>
+            <text x="120" y="93" font-family="'Inter', sans-serif" font-size="5" fill="rgba(255,255,255,0.6)" text-anchor="middle">GAIN</text>
+
+            <!-- OLED Color Scopes & Film Grain Tag -->
+            <rect x="24" y="103" width="116" height="34" rx="4" fill="#070400" stroke="rgba(245,158,11,0.25)" stroke-width="1"/>
+            <path d="M 28,128 Q 44,112 60,124 T 90,110 T 116,118 T 136,108" fill="none" stroke="#f59e0b" stroke-width="1.8"/>
+            <path d="M 28,131 Q 44,116 60,127 T 90,114 T 116,122 T 136,112" fill="none" stroke="#ef4444" stroke-width="1.2" opacity="0.7"/>
+            <path d="M 28,134 Q 44,120 60,130 T 90,118 T 116,126 T 136,116" fill="none" stroke="#3b82f6" stroke-width="1.2" opacity="0.7"/>
+            <text x="82" y="144" font-family="'Inter', sans-serif" font-size="5" fill="#fcd34d" text-anchor="middle">RGB PARADE • CINEMA CONTRAST</text>
+
+            <!-- LUT Badge -->
+            <rect x="24" y="150" width="116" height="13" rx="3" fill="#f59e0b"/>
+            <text x="82" y="159" font-family="'Inter', sans-serif" font-size="5.5" fill="#000" text-anchor="middle" font-weight="800">HOLLYWOOD 35mm LUT GRADE</text>
+
+            <!-- ═══ RIGHT HALF: SPATIAL SOUND DESIGN & EQ DANCE ═══ -->
+            <rect x="154" y="28" width="108" height="141" rx="7" fill="rgba(24, 15, 3, 0.85)" stroke="rgba(245, 158, 11, 0.3)" stroke-width="1"/>
+            <text x="162" y="40" font-family="'Inter', sans-serif" font-size="6.5" fill="#fcd34d" font-weight="800">SPATIAL SOUND ENGINE</text>
+
+            <!-- Equalizer Spectrum Bars (Dancing Animation) -->
+            <rect x="162" y="48" width="92" height="42" rx="4" fill="#070400" stroke="rgba(245,158,11,0.25)" stroke-width="1"/>
+            
+            <g transform="translate(166, 84)">
+              <rect class="g-anim-eq-bar g-anim-eq-1" x="2" y="-30" width="7" height="30" rx="1.5" fill="#f59e0b"/>
+              <rect class="g-anim-eq-bar g-anim-eq-2" x="12" y="-30" width="7" height="30" rx="1.5" fill="#fbbf24"/>
+              <rect class="g-anim-eq-bar g-anim-eq-3" x="22" y="-30" width="7" height="30" rx="1.5" fill="#fcd34d"/>
+              <rect class="g-anim-eq-bar g-anim-eq-4" x="32" y="-30" width="7" height="30" rx="1.5" fill="#f59e0b"/>
+              <rect class="g-anim-eq-bar g-anim-eq-5" x="42" y="-30" width="7" height="30" rx="1.5" fill="#ef4444"/>
+              <rect class="g-anim-eq-bar g-anim-eq-6" x="52" y="-30" width="7" height="30" rx="1.5" fill="#f59e0b"/>
+              <rect class="g-anim-eq-bar g-anim-eq-7" x="62" y="-30" width="7" height="30" rx="1.5" fill="#fbbf24"/>
+              <rect class="g-anim-eq-bar g-anim-eq-8" x="72" y="-30" width="7" height="30" rx="1.5" fill="#fcd34d"/>
             </g>
 
-            <!-- Messenger Incoming Msg 2 -->
-            <g class="g-anim-msg-in-2">
-              <rect x="14" y="62" width="96" height="20" rx="5" fill="rgba(0,132,255,0.15)" stroke="rgba(0,132,255,0.45)" stroke-width="1"/>
-              <circle cx="23" cy="72" r="5" fill="url(#fbGrad)"/>
-              <text x="23" y="74.5" font-family="'Inter',sans-serif" font-size="5" fill="#fff" text-anchor="middle" font-weight="800">m</text>
-              <text x="51" y="69" font-family="'Inter',sans-serif" font-size="5.5" fill="#0084FF" font-weight="700">Messenger</text>
-              <text x="32" y="78.5" font-family="'Inter',sans-serif" font-size="5.2" fill="rgba(180,220,255,0.7)">"Still available?"</text>
-            </g>
+            <!-- Audio Master Sliders -->
+            <text x="162" y="102" font-family="'Inter', sans-serif" font-size="5" fill="rgba(255,255,255,0.6)">Sub-Bass Riser Impact</text>
+            <rect x="162" y="105" width="92" height="3" rx="1.5" fill="rgba(245,158,11,0.25)"/>
+            <rect x="162" y="105" width="78" height="3" rx="1.5" fill="#f59e0b"/>
+            <circle cx="240" cy="106.5" r="3" fill="#fff" stroke="#f59e0b" stroke-width="1"/>
 
-            <!-- Instagram Incoming Msg 3 -->
-            <g class="g-anim-msg-in-3">
-              <rect x="14" y="90" width="96" height="20" rx="5" fill="rgba(221,42,123,0.15)" stroke="rgba(221,42,123,0.4)" stroke-width="1"/>
-              <circle cx="23" cy="100" r="5" fill="url(#igGrad)"/>
-              <text x="23" y="102.5" font-family="'Inter',sans-serif" font-size="5" fill="#fff" text-anchor="middle" font-weight="800">IG</text>
-              <text x="51" y="97" font-family="'Inter',sans-serif" font-size="5.5" fill="#DD2A7B" font-weight="700">Instagram</text>
-              <text x="32" y="106.5" font-family="'Inter',sans-serif" font-size="5.2" fill="rgba(255,190,220,0.7)">"DM for collab!"</text>
-            </g>
+            <text x="162" y="118" font-family="'Inter', sans-serif" font-size="5" fill="rgba(255,255,255,0.6)">Voice EQ Clarity &amp; Denoise</text>
+            <rect x="162" y="121" width="92" height="3" rx="1.5" fill="rgba(245,158,11,0.25)"/>
+            <rect x="162" y="121" width="86" height="3" rx="1.5" fill="#f59e0b"/>
+            <circle cx="248" cy="122.5" r="3" fill="#fff" stroke="#f59e0b" stroke-width="1"/>
 
-            <!-- Telegram Incoming msg row -->
-            <rect x="14" y="118" width="96" height="14" rx="4" fill="rgba(42,171,238,0.1)" stroke="rgba(42,171,238,0.3)" stroke-width="0.8"/>
-            <circle cx="21" cy="125" r="4" fill="url(#tgGrad)"/>
-            <text x="21" y="127.5" font-family="'Inter',sans-serif" font-size="4.5" fill="#fff" text-anchor="middle" font-weight="800">tg</text>
-            <text x="43" y="127" font-family="'Inter',sans-serif" font-size="5" fill="rgba(180,230,255,0.6)">Telegram • 3 new msgs</text>
-
-            <!-- ═══ CENTER: AI Brain Hub ═══ -->
-
-            <!-- Connection Lines (left → center) -->
-            <line class="g-anim-connector" x1="110" y1="44" x2="128" y2="80" stroke="rgba(37,211,102,0.5)" stroke-width="1" stroke-dasharray="3 2"/>
-            <line class="g-anim-connector" x1="110" y1="72" x2="128" y2="88" stroke="rgba(0,132,255,0.5)" stroke-width="1" stroke-dasharray="3 2"/>
-            <line class="g-anim-connector" x1="110" y1="100" x2="128" y2="96" stroke="rgba(221,42,123,0.5)" stroke-width="1" stroke-dasharray="3 2"/>
-
-            <!-- Connection Lines (center → right) -->
-            <line class="g-anim-connector" x1="152" y1="80" x2="170" y2="60" stroke="rgba(184,0,245,0.6)" stroke-width="1" stroke-dasharray="3 2"/>
-            <line class="g-anim-connector" x1="152" y1="88" x2="170" y2="88" stroke="rgba(184,0,245,0.5)" stroke-width="1" stroke-dasharray="3 2"/>
-            <line class="g-anim-connector" x1="152" y1="96" x2="170" y2="116" stroke="rgba(184,0,245,0.5)" stroke-width="1" stroke-dasharray="3 2"/>
-
-            <!-- AI Brain Center Circle -->
-            <g class="g-anim-ai-brain" filter="url(#aiGlow)">
-              <circle cx="140" cy="88" r="24" fill="url(#aiGrad)" stroke="rgba(232,121,249,0.9)" stroke-width="1.5"/>
-              <!-- Circuit pattern inside brain -->
-              <circle cx="140" cy="88" r="16" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="0.8"/>
-              <circle cx="140" cy="88" r="8" fill="rgba(255,255,255,0.12)"/>
-              <!-- AI label -->
-              <text x="140" y="85" font-family="'Inter',sans-serif" font-size="8" fill="#ffffff" text-anchor="middle" font-weight="800">AI</text>
-              <text x="140" y="94" font-family="'Inter',sans-serif" font-size="5.5" fill="rgba(255,255,255,0.75)" text-anchor="middle" font-weight="600">BOT</text>
-              <!-- Orbit dot -->
-              <circle class="g-anim-ai-orbit" cx="164" cy="88" r="3" fill="#E879F9" filter="url(#softGlow)"/>
-            </g>
-
-            <!-- ═══ RIGHT SIDE: AI Auto-Replies ═══ -->
-
-            <!-- Reply 1: going to WhatsApp -->
-            <g class="g-anim-reply-1">
-              <rect x="170" y="46" width="96" height="22" rx="5" fill="rgba(184,0,245,0.25)" stroke="rgba(232,121,249,0.6)" stroke-width="1"/>
-              <text x="218" y="54.5" font-family="'Inter',sans-serif" font-size="5" fill="#E879F9" text-anchor="middle" font-weight="700">✓ AI Reply Sent</text>
-              <text x="218" y="63" font-family="'Inter',sans-serif" font-size="5.2" fill="rgba(225,200,250,0.8)" text-anchor="middle">"Here's our price list!"</text>
-            </g>
-
-            <!-- Reply 2: going to Messenger -->
-            <g class="g-anim-reply-2">
-              <rect x="170" y="75" width="96" height="26" rx="5" fill="rgba(184,0,245,0.25)" stroke="rgba(232,121,249,0.6)" stroke-width="1"/>
-              <text x="218" y="84" font-family="'Inter',sans-serif" font-size="5" fill="#E879F9" text-anchor="middle" font-weight="700">✓ AI Reply Sent</text>
-              <!-- Typing indicator -->
-              <circle class="g-anim-type-dot-1" cx="210" cy="93" r="2" fill="rgba(232,121,249,0.8)"/>
-              <circle class="g-anim-type-dot-2" cx="218" cy="93" r="2" fill="rgba(232,121,249,0.8)"/>
-              <circle class="g-anim-type-dot-3" cx="226" cy="93" r="2" fill="rgba(232,121,249,0.8)"/>
-            </g>
-
-            <!-- Reply 3: going to Instagram -->
-            <g class="g-anim-reply-3">
-              <rect x="170" y="108" width="96" height="22" rx="5" fill="rgba(184,0,245,0.25)" stroke="rgba(232,121,249,0.6)" stroke-width="1"/>
-              <text x="218" y="117" font-family="'Inter',sans-serif" font-size="5" fill="#E879F9" text-anchor="middle" font-weight="700">✓ AI Reply Sent</text>
-              <text x="218" y="125.5" font-family="'Inter',sans-serif" font-size="5.2" fill="rgba(225,200,250,0.8)" text-anchor="middle">"Collab form sent!"</text>
-            </g>
-
-            <!-- Bottom Stats Bar -->
-            <rect x="14" y="140" width="252" height="30" rx="6" fill="rgba(20,5,34,0.8)" stroke="rgba(184,0,245,0.2)" stroke-width="1"/>
-            <!-- Stats -->
-            <text x="48" y="151" font-family="'Inter',sans-serif" font-size="5.5" fill="rgba(225,200,250,0.5)" text-anchor="middle">MSGS TODAY</text>
-            <text x="48" y="163" font-family="'Inter',sans-serif" font-size="10" fill="#22c55e" font-weight="700" text-anchor="middle">2,847</text>
-            <line x1="85" y1="143" x2="85" y2="168" stroke="rgba(184,0,245,0.2)" stroke-width="1"/>
-            <text x="140" y="151" font-family="'Inter',sans-serif" font-size="5.5" fill="rgba(225,200,250,0.5)" text-anchor="middle">REPLY RATE</text>
-            <text x="140" y="163" font-family="'Inter',sans-serif" font-size="10" fill="#E879F9" font-weight="700" text-anchor="middle">100%</text>
-            <line x1="195" y1="143" x2="195" y2="168" stroke="rgba(184,0,245,0.2)" stroke-width="1"/>
-            <text x="234" y="151" font-family="'Inter',sans-serif" font-size="5.5" fill="rgba(225,200,250,0.5)" text-anchor="middle">AVG TIME</text>
-            <text x="234" y="163" font-family="'Inter',sans-serif" font-size="10" fill="#ffffff" font-weight="700" text-anchor="middle">&lt;1s</text>
+            <!-- Broadcast Loudness Standard Meter -->
+            <rect x="162" y="134" width="92" height="29" rx="4" fill="#070400" stroke="rgba(245,158,11,0.3)" stroke-width="1"/>
+            <text x="168" y="144" font-family="'Inter', sans-serif" font-size="5" fill="rgba(255,255,255,0.5)">BROADCAST LOUDNESS</text>
+            <text x="168" y="157" font-family="'Inter', sans-serif" font-size="10" fill="#22c55e" font-weight="900">-14.2 LUFS</text>
+            <rect x="222" y="141" width="26" height="16" rx="3" fill="rgba(34, 197, 94, 0.25)"/>
+            <text x="235" y="151.5" font-family="'Inter', sans-serif" font-size="5" fill="#22c55e" text-anchor="middle" font-weight="700">OPTIMAL</text>
           </svg>
         </div>
 
         <div class="g-svc-body">
           <div class="g-svc-icon-badge">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E879F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              <line x1="4" y1="21" x2="4" y2="14"></line>
+              <line x1="4" y1="10" x2="4" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12" y2="3"></line>
+              <line x1="20" y1="21" x2="20" y2="16"></line>
+              <line x1="20" y1="12" x2="20" y2="3"></line>
+              <circle cx="4" cy="12" r="2" fill="#E879F9"></circle>
+              <circle cx="12" cy="10" r="2" fill="#E879F9"></circle>
+              <circle cx="20" cy="14" r="2" fill="#E879F9"></circle>
             </svg>
           </div>
           <h3 class="g-svc-name">Sound Design &amp; Color Grading</h3>
