@@ -127,10 +127,29 @@
   }
 
   .hero-section {
+    position: relative !important;
+    z-index: 30 !important;
+    overflow: visible !important;
     padding-top: 110px !important;
-    padding-bottom: 0 !important;
+    padding-bottom: 75px !important;
     border-bottom: none !important;
     margin-bottom: 0 !important;
+  }
+
+  .hero-3d-scene {
+    position: relative !important;
+    z-index: 35 !important;
+    overflow: visible !important;
+  }
+  .hero-3d-card-wrapper {
+    position: relative !important;
+    z-index: 35 !important;
+    overflow: visible !important;
+  }
+  .holder.hero.hero-3d-card,
+  #heroVideoHolder {
+    position: relative !important;
+    z-index: 35 !important;
   }
 
   /* Dark cosmic container wrap - compact spacing */
@@ -380,8 +399,11 @@
   /* Responsive tuning: Clean Headline & 1-Line Buttons */
   @media (max-width: 768px) {
     .hero-section {
+      position: relative !important;
+      z-index: 30 !important;
+      overflow: visible !important;
       padding-top: 96px !important;
-      padding-bottom: 0 !important;
+      padding-bottom: 55px !important;
       border-bottom: none !important;
       margin-bottom: 0 !important;
     }
@@ -464,8 +486,11 @@
 
   @media (max-width: 520px) {
     .hero-section {
+      position: relative !important;
+      z-index: 30 !important;
+      overflow: visible !important;
       padding-top: 86px !important;
-      padding-bottom: 0 !important;
+      padding-bottom: 40px !important;
       border-bottom: none !important;
       margin-bottom: 0 !important;
     }

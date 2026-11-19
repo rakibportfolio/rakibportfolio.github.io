@@ -29,7 +29,8 @@
 
 .hero-section {
   position: relative;
-  z-index: 1;
+  z-index: 30 !important;
+  overflow: visible !important;
 }
 
 .hero-content-block,
@@ -46,7 +47,7 @@
 .brands-logo-row img,
 .holder.hero.hero-3d-card {
   position: relative;
-  z-index: 10 !important;
+  z-index: 35 !important;
 }
 
 .edit-floating-badge {

@@ -370,10 +370,11 @@ a.button-03 .button-arrow-wrapper {
 /* ─── Hero Section ───────────────────────────────────── */
 .hero-section {
   position: relative !important;
-  overflow: hidden !important;
+  z-index: 30 !important;
+  overflow: visible !important;
   background: radial-gradient(ellipse at 50% 0%, rgba(184, 0, 245, 0.28) 0%, rgba(88, 11, 130, 0.14) 42%, #08010E 82%) !important;
   padding-top: 105px !important;
-  padding-bottom: 0 !important;
+  padding-bottom: 75px !important;
   border-bottom: none !important;
   margin-bottom: 0 !important;
   perspective: 1400px !important;
@@ -719,15 +720,19 @@ a.button-03 .button-arrow-wrapper {
   perspective-origin: 50% 50%;
   transform-style: preserve-3d;
   position: relative;
+  z-index: 35 !important;
   width: 100%;
+  overflow: visible !important;
 }
 
 .hero-3d-card-wrapper {
   position: relative;
+  z-index: 35 !important;
   width: 100%;
   transform-style: preserve-3d;
   will-change: transform;
   transition: transform 0.12s cubic-bezier(0.2, 0.8, 0.3, 1);
+  overflow: visible !important;
 }
 
 /* Ambient 3D floating animation when not hovered / touched */
